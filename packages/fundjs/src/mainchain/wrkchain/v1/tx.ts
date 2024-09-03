@@ -1,7 +1,7 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from '../../../binary';
-import { GlobalDecoderRegistry } from '../../../registry';
-import { Params, ParamsAmino, ParamsSDKType } from './wrkchain';
+import { Params, ParamsAmino, ParamsSDKType } from "./wrkchain";
+import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
 /** MsgRegisterWrkChain represents a message to register a new wrkchain */
 export interface MsgRegisterWrkChain {
   /** moniker is a short identifier for a wrkchain */
@@ -16,7 +16,7 @@ export interface MsgRegisterWrkChain {
   owner: string;
 }
 export interface MsgRegisterWrkChainProtoMsg {
-  typeUrl: '/mainchain.wrkchain.v1.MsgRegisterWrkChain';
+  typeUrl: "/mainchain.wrkchain.v1.MsgRegisterWrkChain";
   value: Uint8Array;
 }
 /** MsgRegisterWrkChain represents a message to register a new wrkchain */
@@ -33,7 +33,7 @@ export interface MsgRegisterWrkChainAmino {
   owner?: string;
 }
 export interface MsgRegisterWrkChainAminoMsg {
-  type: '/mainchain.wrkchain.v1.MsgRegisterWrkChain';
+  type: "/mainchain.wrkchain.v1.MsgRegisterWrkChain";
   value: MsgRegisterWrkChainAmino;
 }
 /** MsgRegisterWrkChain represents a message to register a new wrkchain */
@@ -50,7 +50,7 @@ export interface MsgRegisterWrkChainResponse {
   wrkchainId: bigint;
 }
 export interface MsgRegisterWrkChainResponseProtoMsg {
-  typeUrl: '/mainchain.wrkchain.v1.MsgRegisterWrkChainResponse';
+  typeUrl: "/mainchain.wrkchain.v1.MsgRegisterWrkChainResponse";
   value: Uint8Array;
 }
 /** MsgRegisterWrkChainResponse defines the Msg/RegisterWrkChain response type. */
@@ -59,7 +59,7 @@ export interface MsgRegisterWrkChainResponseAmino {
   wrkchain_id?: string;
 }
 export interface MsgRegisterWrkChainResponseAminoMsg {
-  type: '/mainchain.wrkchain.v1.MsgRegisterWrkChainResponse';
+  type: "/mainchain.wrkchain.v1.MsgRegisterWrkChainResponse";
   value: MsgRegisterWrkChainResponseAmino;
 }
 /** MsgRegisterWrkChainResponse defines the Msg/RegisterWrkChain response type. */
@@ -86,7 +86,7 @@ export interface MsgRecordWrkChainBlock {
   owner: string;
 }
 export interface MsgRecordWrkChainBlockProtoMsg {
-  typeUrl: '/mainchain.wrkchain.v1.MsgRecordWrkChainBlock';
+  typeUrl: "/mainchain.wrkchain.v1.MsgRecordWrkChainBlock";
   value: Uint8Array;
 }
 /** MsgRecordWrkChainBlock represents a message to submit a set of block hashes for a registered wrkchain */
@@ -109,7 +109,7 @@ export interface MsgRecordWrkChainBlockAmino {
   owner?: string;
 }
 export interface MsgRecordWrkChainBlockAminoMsg {
-  type: '/mainchain.wrkchain.v1.MsgRecordWrkChainBlock';
+  type: "/mainchain.wrkchain.v1.MsgRecordWrkChainBlock";
   value: MsgRecordWrkChainBlockAmino;
 }
 /** MsgRecordWrkChainBlock represents a message to submit a set of block hashes for a registered wrkchain */
@@ -131,7 +131,7 @@ export interface MsgRecordWrkChainBlockResponse {
   height: bigint;
 }
 export interface MsgRecordWrkChainBlockResponseProtoMsg {
-  typeUrl: '/mainchain.wrkchain.v1.MsgRecordWrkChainBlockResponse';
+  typeUrl: "/mainchain.wrkchain.v1.MsgRecordWrkChainBlockResponse";
   value: Uint8Array;
 }
 /** MsgRecordWrkChainBlockResponse defines the Msg/RecordWrkChainBlock response type. */
@@ -142,7 +142,7 @@ export interface MsgRecordWrkChainBlockResponseAmino {
   height?: string;
 }
 export interface MsgRecordWrkChainBlockResponseAminoMsg {
-  type: '/mainchain.wrkchain.v1.MsgRecordWrkChainBlockResponse';
+  type: "/mainchain.wrkchain.v1.MsgRecordWrkChainBlockResponse";
   value: MsgRecordWrkChainBlockResponseAmino;
 }
 /** MsgRecordWrkChainBlockResponse defines the Msg/RecordWrkChainBlock response type. */
@@ -160,7 +160,7 @@ export interface MsgPurchaseWrkChainStateStorage {
   owner: string;
 }
 export interface MsgPurchaseWrkChainStateStorageProtoMsg {
-  typeUrl: '/mainchain.wrkchain.v1.MsgPurchaseWrkChainStateStorage';
+  typeUrl: "/mainchain.wrkchain.v1.MsgPurchaseWrkChainStateStorage";
   value: Uint8Array;
 }
 /** MsgPurchaseWrkChainStateStorage represents a message to purchase more wrkchain storage */
@@ -173,7 +173,7 @@ export interface MsgPurchaseWrkChainStateStorageAmino {
   owner?: string;
 }
 export interface MsgPurchaseWrkChainStateStorageAminoMsg {
-  type: '/mainchain.wrkchain.v1.MsgPurchaseWrkChainStateStorage';
+  type: "/mainchain.wrkchain.v1.MsgPurchaseWrkChainStateStorage";
   value: MsgPurchaseWrkChainStateStorageAmino;
 }
 /** MsgPurchaseWrkChainStateStorage represents a message to purchase more wrkchain storage */
@@ -192,7 +192,7 @@ export interface MsgPurchaseWrkChainStateStorageResponse {
   numCanPurchase: bigint;
 }
 export interface MsgPurchaseWrkChainStateStorageResponseProtoMsg {
-  typeUrl: '/mainchain.wrkchain.v1.MsgPurchaseWrkChainStateStorageResponse';
+  typeUrl: "/mainchain.wrkchain.v1.MsgPurchaseWrkChainStateStorageResponse";
   value: Uint8Array;
 }
 /** MsgPurchaseWrkChainStateStorageResponse defines the Msg/PurchaseWrkChainStateStorage response type. */
@@ -205,7 +205,7 @@ export interface MsgPurchaseWrkChainStateStorageResponseAmino {
   num_can_purchase?: string;
 }
 export interface MsgPurchaseWrkChainStateStorageResponseAminoMsg {
-  type: '/mainchain.wrkchain.v1.MsgPurchaseWrkChainStateStorageResponse';
+  type: "/mainchain.wrkchain.v1.MsgPurchaseWrkChainStateStorageResponse";
   value: MsgPurchaseWrkChainStateStorageResponseAmino;
 }
 /** MsgPurchaseWrkChainStateStorageResponse defines the Msg/PurchaseWrkChainStateStorage response type. */
@@ -230,7 +230,7 @@ export interface MsgUpdateParams {
   params: Params;
 }
 export interface MsgUpdateParamsProtoMsg {
-  typeUrl: '/mainchain.wrkchain.v1.MsgUpdateParams';
+  typeUrl: "/mainchain.wrkchain.v1.MsgUpdateParams";
   value: Uint8Array;
 }
 /**
@@ -249,7 +249,7 @@ export interface MsgUpdateParamsAmino {
   params: ParamsAmino;
 }
 export interface MsgUpdateParamsAminoMsg {
-  type: 'mainchain/x/wrkchain/MsgUpdateParams';
+  type: "mainchain/x/wrkchain/MsgUpdateParams";
   value: MsgUpdateParamsAmino;
 }
 /**
@@ -269,7 +269,7 @@ export interface MsgUpdateParamsSDKType {
  */
 export interface MsgUpdateParamsResponse {}
 export interface MsgUpdateParamsResponseProtoMsg {
-  typeUrl: '/mainchain.wrkchain.v1.MsgUpdateParamsResponse';
+  typeUrl: "/mainchain.wrkchain.v1.MsgUpdateParamsResponse";
   value: Uint8Array;
 }
 /**
@@ -280,7 +280,7 @@ export interface MsgUpdateParamsResponseProtoMsg {
  */
 export interface MsgUpdateParamsResponseAmino {}
 export interface MsgUpdateParamsResponseAminoMsg {
-  type: '/mainchain.wrkchain.v1.MsgUpdateParamsResponse';
+  type: "/mainchain.wrkchain.v1.MsgUpdateParamsResponse";
   value: MsgUpdateParamsResponseAmino;
 }
 /**
@@ -292,38 +292,38 @@ export interface MsgUpdateParamsResponseAminoMsg {
 export interface MsgUpdateParamsResponseSDKType {}
 function createBaseMsgRegisterWrkChain(): MsgRegisterWrkChain {
   return {
-    moniker: '',
-    name: '',
-    genesisHash: '',
-    baseType: '',
-    owner: ''
+    moniker: "",
+    name: "",
+    genesisHash: "",
+    baseType: "",
+    owner: ""
   };
 }
 export const MsgRegisterWrkChain = {
-  typeUrl: '/mainchain.wrkchain.v1.MsgRegisterWrkChain',
+  typeUrl: "/mainchain.wrkchain.v1.MsgRegisterWrkChain",
   is(o: any): o is MsgRegisterWrkChain {
-    return o && (o.$typeUrl === MsgRegisterWrkChain.typeUrl || typeof o.moniker === 'string' && typeof o.name === 'string' && typeof o.genesisHash === 'string' && typeof o.baseType === 'string' && typeof o.owner === 'string');
+    return o && (o.$typeUrl === MsgRegisterWrkChain.typeUrl || typeof o.moniker === "string" && typeof o.name === "string" && typeof o.genesisHash === "string" && typeof o.baseType === "string" && typeof o.owner === "string");
   },
   isSDK(o: any): o is MsgRegisterWrkChainSDKType {
-    return o && (o.$typeUrl === MsgRegisterWrkChain.typeUrl || typeof o.moniker === 'string' && typeof o.name === 'string' && typeof o.genesis_hash === 'string' && typeof o.base_type === 'string' && typeof o.owner === 'string');
+    return o && (o.$typeUrl === MsgRegisterWrkChain.typeUrl || typeof o.moniker === "string" && typeof o.name === "string" && typeof o.genesis_hash === "string" && typeof o.base_type === "string" && typeof o.owner === "string");
   },
   isAmino(o: any): o is MsgRegisterWrkChainAmino {
-    return o && (o.$typeUrl === MsgRegisterWrkChain.typeUrl || typeof o.moniker === 'string' && typeof o.name === 'string' && typeof o.genesis_hash === 'string' && typeof o.base_type === 'string' && typeof o.owner === 'string');
+    return o && (o.$typeUrl === MsgRegisterWrkChain.typeUrl || typeof o.moniker === "string" && typeof o.name === "string" && typeof o.genesis_hash === "string" && typeof o.base_type === "string" && typeof o.owner === "string");
   },
   encode(message: MsgRegisterWrkChain, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.moniker !== '') {
+    if (message.moniker !== "") {
       writer.uint32(18).string(message.moniker);
     }
-    if (message.name !== '') {
+    if (message.name !== "") {
       writer.uint32(26).string(message.name);
     }
-    if (message.genesisHash !== '') {
+    if (message.genesisHash !== "") {
       writer.uint32(34).string(message.genesisHash);
     }
-    if (message.baseType !== '') {
+    if (message.baseType !== "") {
       writer.uint32(42).string(message.baseType);
     }
-    if (message.owner !== '') {
+    if (message.owner !== "") {
       writer.uint32(50).string(message.owner);
     }
     return writer;
@@ -335,35 +335,35 @@ export const MsgRegisterWrkChain = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 2:
-        message.moniker = reader.string();
-        break;
-      case 3:
-        message.name = reader.string();
-        break;
-      case 4:
-        message.genesisHash = reader.string();
-        break;
-      case 5:
-        message.baseType = reader.string();
-        break;
-      case 6:
-        message.owner = reader.string();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 2:
+          message.moniker = reader.string();
+          break;
+        case 3:
+          message.name = reader.string();
+          break;
+        case 4:
+          message.genesisHash = reader.string();
+          break;
+        case 5:
+          message.baseType = reader.string();
+          break;
+        case 6:
+          message.owner = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<MsgRegisterWrkChain>): MsgRegisterWrkChain {
     const message = createBaseMsgRegisterWrkChain();
-    message.moniker = object.moniker ?? '';
-    message.name = object.name ?? '';
-    message.genesisHash = object.genesisHash ?? '';
-    message.baseType = object.baseType ?? '';
-    message.owner = object.owner ?? '';
+    message.moniker = object.moniker ?? "";
+    message.name = object.name ?? "";
+    message.genesisHash = object.genesisHash ?? "";
+    message.baseType = object.baseType ?? "";
+    message.owner = object.owner ?? "";
     return message;
   },
   fromAmino(object: MsgRegisterWrkChainAmino): MsgRegisterWrkChain {
@@ -387,11 +387,11 @@ export const MsgRegisterWrkChain = {
   },
   toAmino(message: MsgRegisterWrkChain): MsgRegisterWrkChainAmino {
     const obj: any = {};
-    obj.moniker = message.moniker === '' ? undefined : message.moniker;
-    obj.name = message.name === '' ? undefined : message.name;
-    obj.genesis_hash = message.genesisHash ?? '';
-    obj.base_type = message.baseType ?? '';
-    obj.owner = message.owner === '' ? undefined : message.owner;
+    obj.moniker = message.moniker === "" ? undefined : message.moniker;
+    obj.name = message.name === "" ? undefined : message.name;
+    obj.genesis_hash = message.genesisHash ?? "";
+    obj.base_type = message.baseType ?? "";
+    obj.owner = message.owner === "" ? undefined : message.owner;
     return obj;
   },
   fromAminoMsg(object: MsgRegisterWrkChainAminoMsg): MsgRegisterWrkChain {
@@ -405,7 +405,7 @@ export const MsgRegisterWrkChain = {
   },
   toProtoMsg(message: MsgRegisterWrkChain): MsgRegisterWrkChainProtoMsg {
     return {
-      typeUrl: '/mainchain.wrkchain.v1.MsgRegisterWrkChain',
+      typeUrl: "/mainchain.wrkchain.v1.MsgRegisterWrkChain",
       value: MsgRegisterWrkChain.encode(message).finish()
     };
   }
@@ -417,15 +417,15 @@ function createBaseMsgRegisterWrkChainResponse(): MsgRegisterWrkChainResponse {
   };
 }
 export const MsgRegisterWrkChainResponse = {
-  typeUrl: '/mainchain.wrkchain.v1.MsgRegisterWrkChainResponse',
+  typeUrl: "/mainchain.wrkchain.v1.MsgRegisterWrkChainResponse",
   is(o: any): o is MsgRegisterWrkChainResponse {
-    return o && (o.$typeUrl === MsgRegisterWrkChainResponse.typeUrl || typeof o.wrkchainId === 'bigint');
+    return o && (o.$typeUrl === MsgRegisterWrkChainResponse.typeUrl || typeof o.wrkchainId === "bigint");
   },
   isSDK(o: any): o is MsgRegisterWrkChainResponseSDKType {
-    return o && (o.$typeUrl === MsgRegisterWrkChainResponse.typeUrl || typeof o.wrkchain_id === 'bigint');
+    return o && (o.$typeUrl === MsgRegisterWrkChainResponse.typeUrl || typeof o.wrkchain_id === "bigint");
   },
   isAmino(o: any): o is MsgRegisterWrkChainResponseAmino {
-    return o && (o.$typeUrl === MsgRegisterWrkChainResponse.typeUrl || typeof o.wrkchain_id === 'bigint');
+    return o && (o.$typeUrl === MsgRegisterWrkChainResponse.typeUrl || typeof o.wrkchain_id === "bigint");
   },
   encode(message: MsgRegisterWrkChainResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.wrkchainId !== BigInt(0)) {
@@ -440,12 +440,12 @@ export const MsgRegisterWrkChainResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.wrkchainId = reader.uint64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.wrkchainId = reader.uint64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -478,7 +478,7 @@ export const MsgRegisterWrkChainResponse = {
   },
   toProtoMsg(message: MsgRegisterWrkChainResponse): MsgRegisterWrkChainResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.wrkchain.v1.MsgRegisterWrkChainResponse',
+      typeUrl: "/mainchain.wrkchain.v1.MsgRegisterWrkChainResponse",
       value: MsgRegisterWrkChainResponse.encode(message).finish()
     };
   }
@@ -488,24 +488,24 @@ function createBaseMsgRecordWrkChainBlock(): MsgRecordWrkChainBlock {
   return {
     wrkchainId: BigInt(0),
     height: BigInt(0),
-    blockHash: '',
-    parentHash: '',
-    hash1: '',
-    hash2: '',
-    hash3: '',
-    owner: ''
+    blockHash: "",
+    parentHash: "",
+    hash1: "",
+    hash2: "",
+    hash3: "",
+    owner: ""
   };
 }
 export const MsgRecordWrkChainBlock = {
-  typeUrl: '/mainchain.wrkchain.v1.MsgRecordWrkChainBlock',
+  typeUrl: "/mainchain.wrkchain.v1.MsgRecordWrkChainBlock",
   is(o: any): o is MsgRecordWrkChainBlock {
-    return o && (o.$typeUrl === MsgRecordWrkChainBlock.typeUrl || typeof o.wrkchainId === 'bigint' && typeof o.height === 'bigint' && typeof o.blockHash === 'string' && typeof o.parentHash === 'string' && typeof o.hash1 === 'string' && typeof o.hash2 === 'string' && typeof o.hash3 === 'string' && typeof o.owner === 'string');
+    return o && (o.$typeUrl === MsgRecordWrkChainBlock.typeUrl || typeof o.wrkchainId === "bigint" && typeof o.height === "bigint" && typeof o.blockHash === "string" && typeof o.parentHash === "string" && typeof o.hash1 === "string" && typeof o.hash2 === "string" && typeof o.hash3 === "string" && typeof o.owner === "string");
   },
   isSDK(o: any): o is MsgRecordWrkChainBlockSDKType {
-    return o && (o.$typeUrl === MsgRecordWrkChainBlock.typeUrl || typeof o.wrkchain_id === 'bigint' && typeof o.height === 'bigint' && typeof o.block_hash === 'string' && typeof o.parent_hash === 'string' && typeof o.hash1 === 'string' && typeof o.hash2 === 'string' && typeof o.hash3 === 'string' && typeof o.owner === 'string');
+    return o && (o.$typeUrl === MsgRecordWrkChainBlock.typeUrl || typeof o.wrkchain_id === "bigint" && typeof o.height === "bigint" && typeof o.block_hash === "string" && typeof o.parent_hash === "string" && typeof o.hash1 === "string" && typeof o.hash2 === "string" && typeof o.hash3 === "string" && typeof o.owner === "string");
   },
   isAmino(o: any): o is MsgRecordWrkChainBlockAmino {
-    return o && (o.$typeUrl === MsgRecordWrkChainBlock.typeUrl || typeof o.wrkchain_id === 'bigint' && typeof o.height === 'bigint' && typeof o.block_hash === 'string' && typeof o.parent_hash === 'string' && typeof o.hash1 === 'string' && typeof o.hash2 === 'string' && typeof o.hash3 === 'string' && typeof o.owner === 'string');
+    return o && (o.$typeUrl === MsgRecordWrkChainBlock.typeUrl || typeof o.wrkchain_id === "bigint" && typeof o.height === "bigint" && typeof o.block_hash === "string" && typeof o.parent_hash === "string" && typeof o.hash1 === "string" && typeof o.hash2 === "string" && typeof o.hash3 === "string" && typeof o.owner === "string");
   },
   encode(message: MsgRecordWrkChainBlock, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.wrkchainId !== BigInt(0)) {
@@ -514,22 +514,22 @@ export const MsgRecordWrkChainBlock = {
     if (message.height !== BigInt(0)) {
       writer.uint32(16).uint64(message.height);
     }
-    if (message.blockHash !== '') {
+    if (message.blockHash !== "") {
       writer.uint32(26).string(message.blockHash);
     }
-    if (message.parentHash !== '') {
+    if (message.parentHash !== "") {
       writer.uint32(34).string(message.parentHash);
     }
-    if (message.hash1 !== '') {
+    if (message.hash1 !== "") {
       writer.uint32(42).string(message.hash1);
     }
-    if (message.hash2 !== '') {
+    if (message.hash2 !== "") {
       writer.uint32(50).string(message.hash2);
     }
-    if (message.hash3 !== '') {
+    if (message.hash3 !== "") {
       writer.uint32(58).string(message.hash3);
     }
-    if (message.owner !== '') {
+    if (message.owner !== "") {
       writer.uint32(66).string(message.owner);
     }
     return writer;
@@ -541,33 +541,33 @@ export const MsgRecordWrkChainBlock = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.wrkchainId = reader.uint64();
-        break;
-      case 2:
-        message.height = reader.uint64();
-        break;
-      case 3:
-        message.blockHash = reader.string();
-        break;
-      case 4:
-        message.parentHash = reader.string();
-        break;
-      case 5:
-        message.hash1 = reader.string();
-        break;
-      case 6:
-        message.hash2 = reader.string();
-        break;
-      case 7:
-        message.hash3 = reader.string();
-        break;
-      case 8:
-        message.owner = reader.string();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.wrkchainId = reader.uint64();
+          break;
+        case 2:
+          message.height = reader.uint64();
+          break;
+        case 3:
+          message.blockHash = reader.string();
+          break;
+        case 4:
+          message.parentHash = reader.string();
+          break;
+        case 5:
+          message.hash1 = reader.string();
+          break;
+        case 6:
+          message.hash2 = reader.string();
+          break;
+        case 7:
+          message.hash3 = reader.string();
+          break;
+        case 8:
+          message.owner = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -576,12 +576,12 @@ export const MsgRecordWrkChainBlock = {
     const message = createBaseMsgRecordWrkChainBlock();
     message.wrkchainId = object.wrkchainId !== undefined && object.wrkchainId !== null ? BigInt(object.wrkchainId.toString()) : BigInt(0);
     message.height = object.height !== undefined && object.height !== null ? BigInt(object.height.toString()) : BigInt(0);
-    message.blockHash = object.blockHash ?? '';
-    message.parentHash = object.parentHash ?? '';
-    message.hash1 = object.hash1 ?? '';
-    message.hash2 = object.hash2 ?? '';
-    message.hash3 = object.hash3 ?? '';
-    message.owner = object.owner ?? '';
+    message.blockHash = object.blockHash ?? "";
+    message.parentHash = object.parentHash ?? "";
+    message.hash1 = object.hash1 ?? "";
+    message.hash2 = object.hash2 ?? "";
+    message.hash3 = object.hash3 ?? "";
+    message.owner = object.owner ?? "";
     return message;
   },
   fromAmino(object: MsgRecordWrkChainBlockAmino): MsgRecordWrkChainBlock {
@@ -616,12 +616,12 @@ export const MsgRecordWrkChainBlock = {
     const obj: any = {};
     obj.wrkchain_id = message.wrkchainId !== BigInt(0) ? message.wrkchainId.toString() : undefined;
     obj.height = message.height !== BigInt(0) ? message.height.toString() : undefined;
-    obj.block_hash = message.blockHash ?? '';
-    obj.parent_hash = message.parentHash ?? '';
-    obj.hash1 = message.hash1 === '' ? undefined : message.hash1;
-    obj.hash2 = message.hash2 === '' ? undefined : message.hash2;
-    obj.hash3 = message.hash3 === '' ? undefined : message.hash3;
-    obj.owner = message.owner === '' ? undefined : message.owner;
+    obj.block_hash = message.blockHash ?? "";
+    obj.parent_hash = message.parentHash ?? "";
+    obj.hash1 = message.hash1 === "" ? undefined : message.hash1;
+    obj.hash2 = message.hash2 === "" ? undefined : message.hash2;
+    obj.hash3 = message.hash3 === "" ? undefined : message.hash3;
+    obj.owner = message.owner === "" ? undefined : message.owner;
     return obj;
   },
   fromAminoMsg(object: MsgRecordWrkChainBlockAminoMsg): MsgRecordWrkChainBlock {
@@ -635,7 +635,7 @@ export const MsgRecordWrkChainBlock = {
   },
   toProtoMsg(message: MsgRecordWrkChainBlock): MsgRecordWrkChainBlockProtoMsg {
     return {
-      typeUrl: '/mainchain.wrkchain.v1.MsgRecordWrkChainBlock',
+      typeUrl: "/mainchain.wrkchain.v1.MsgRecordWrkChainBlock",
       value: MsgRecordWrkChainBlock.encode(message).finish()
     };
   }
@@ -648,15 +648,15 @@ function createBaseMsgRecordWrkChainBlockResponse(): MsgRecordWrkChainBlockRespo
   };
 }
 export const MsgRecordWrkChainBlockResponse = {
-  typeUrl: '/mainchain.wrkchain.v1.MsgRecordWrkChainBlockResponse',
+  typeUrl: "/mainchain.wrkchain.v1.MsgRecordWrkChainBlockResponse",
   is(o: any): o is MsgRecordWrkChainBlockResponse {
-    return o && (o.$typeUrl === MsgRecordWrkChainBlockResponse.typeUrl || typeof o.wrkchainId === 'bigint' && typeof o.height === 'bigint');
+    return o && (o.$typeUrl === MsgRecordWrkChainBlockResponse.typeUrl || typeof o.wrkchainId === "bigint" && typeof o.height === "bigint");
   },
   isSDK(o: any): o is MsgRecordWrkChainBlockResponseSDKType {
-    return o && (o.$typeUrl === MsgRecordWrkChainBlockResponse.typeUrl || typeof o.wrkchain_id === 'bigint' && typeof o.height === 'bigint');
+    return o && (o.$typeUrl === MsgRecordWrkChainBlockResponse.typeUrl || typeof o.wrkchain_id === "bigint" && typeof o.height === "bigint");
   },
   isAmino(o: any): o is MsgRecordWrkChainBlockResponseAmino {
-    return o && (o.$typeUrl === MsgRecordWrkChainBlockResponse.typeUrl || typeof o.wrkchain_id === 'bigint' && typeof o.height === 'bigint');
+    return o && (o.$typeUrl === MsgRecordWrkChainBlockResponse.typeUrl || typeof o.wrkchain_id === "bigint" && typeof o.height === "bigint");
   },
   encode(message: MsgRecordWrkChainBlockResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.wrkchainId !== BigInt(0)) {
@@ -674,15 +674,15 @@ export const MsgRecordWrkChainBlockResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.wrkchainId = reader.uint64();
-        break;
-      case 2:
-        message.height = reader.uint64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.wrkchainId = reader.uint64();
+          break;
+        case 2:
+          message.height = reader.uint64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -720,7 +720,7 @@ export const MsgRecordWrkChainBlockResponse = {
   },
   toProtoMsg(message: MsgRecordWrkChainBlockResponse): MsgRecordWrkChainBlockResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.wrkchain.v1.MsgRecordWrkChainBlockResponse',
+      typeUrl: "/mainchain.wrkchain.v1.MsgRecordWrkChainBlockResponse",
       value: MsgRecordWrkChainBlockResponse.encode(message).finish()
     };
   }
@@ -730,19 +730,19 @@ function createBaseMsgPurchaseWrkChainStateStorage(): MsgPurchaseWrkChainStateSt
   return {
     wrkchainId: BigInt(0),
     number: BigInt(0),
-    owner: ''
+    owner: ""
   };
 }
 export const MsgPurchaseWrkChainStateStorage = {
-  typeUrl: '/mainchain.wrkchain.v1.MsgPurchaseWrkChainStateStorage',
+  typeUrl: "/mainchain.wrkchain.v1.MsgPurchaseWrkChainStateStorage",
   is(o: any): o is MsgPurchaseWrkChainStateStorage {
-    return o && (o.$typeUrl === MsgPurchaseWrkChainStateStorage.typeUrl || typeof o.wrkchainId === 'bigint' && typeof o.number === 'bigint' && typeof o.owner === 'string');
+    return o && (o.$typeUrl === MsgPurchaseWrkChainStateStorage.typeUrl || typeof o.wrkchainId === "bigint" && typeof o.number === "bigint" && typeof o.owner === "string");
   },
   isSDK(o: any): o is MsgPurchaseWrkChainStateStorageSDKType {
-    return o && (o.$typeUrl === MsgPurchaseWrkChainStateStorage.typeUrl || typeof o.wrkchain_id === 'bigint' && typeof o.number === 'bigint' && typeof o.owner === 'string');
+    return o && (o.$typeUrl === MsgPurchaseWrkChainStateStorage.typeUrl || typeof o.wrkchain_id === "bigint" && typeof o.number === "bigint" && typeof o.owner === "string");
   },
   isAmino(o: any): o is MsgPurchaseWrkChainStateStorageAmino {
-    return o && (o.$typeUrl === MsgPurchaseWrkChainStateStorage.typeUrl || typeof o.wrkchain_id === 'bigint' && typeof o.number === 'bigint' && typeof o.owner === 'string');
+    return o && (o.$typeUrl === MsgPurchaseWrkChainStateStorage.typeUrl || typeof o.wrkchain_id === "bigint" && typeof o.number === "bigint" && typeof o.owner === "string");
   },
   encode(message: MsgPurchaseWrkChainStateStorage, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.wrkchainId !== BigInt(0)) {
@@ -751,7 +751,7 @@ export const MsgPurchaseWrkChainStateStorage = {
     if (message.number !== BigInt(0)) {
       writer.uint32(16).uint64(message.number);
     }
-    if (message.owner !== '') {
+    if (message.owner !== "") {
       writer.uint32(26).string(message.owner);
     }
     return writer;
@@ -763,18 +763,18 @@ export const MsgPurchaseWrkChainStateStorage = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.wrkchainId = reader.uint64();
-        break;
-      case 2:
-        message.number = reader.uint64();
-        break;
-      case 3:
-        message.owner = reader.string();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.wrkchainId = reader.uint64();
+          break;
+        case 2:
+          message.number = reader.uint64();
+          break;
+        case 3:
+          message.owner = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -783,7 +783,7 @@ export const MsgPurchaseWrkChainStateStorage = {
     const message = createBaseMsgPurchaseWrkChainStateStorage();
     message.wrkchainId = object.wrkchainId !== undefined && object.wrkchainId !== null ? BigInt(object.wrkchainId.toString()) : BigInt(0);
     message.number = object.number !== undefined && object.number !== null ? BigInt(object.number.toString()) : BigInt(0);
-    message.owner = object.owner ?? '';
+    message.owner = object.owner ?? "";
     return message;
   },
   fromAmino(object: MsgPurchaseWrkChainStateStorageAmino): MsgPurchaseWrkChainStateStorage {
@@ -803,7 +803,7 @@ export const MsgPurchaseWrkChainStateStorage = {
     const obj: any = {};
     obj.wrkchain_id = message.wrkchainId !== BigInt(0) ? message.wrkchainId.toString() : undefined;
     obj.number = message.number !== BigInt(0) ? message.number.toString() : undefined;
-    obj.owner = message.owner === '' ? undefined : message.owner;
+    obj.owner = message.owner === "" ? undefined : message.owner;
     return obj;
   },
   fromAminoMsg(object: MsgPurchaseWrkChainStateStorageAminoMsg): MsgPurchaseWrkChainStateStorage {
@@ -817,7 +817,7 @@ export const MsgPurchaseWrkChainStateStorage = {
   },
   toProtoMsg(message: MsgPurchaseWrkChainStateStorage): MsgPurchaseWrkChainStateStorageProtoMsg {
     return {
-      typeUrl: '/mainchain.wrkchain.v1.MsgPurchaseWrkChainStateStorage',
+      typeUrl: "/mainchain.wrkchain.v1.MsgPurchaseWrkChainStateStorage",
       value: MsgPurchaseWrkChainStateStorage.encode(message).finish()
     };
   }
@@ -831,15 +831,15 @@ function createBaseMsgPurchaseWrkChainStateStorageResponse(): MsgPurchaseWrkChai
   };
 }
 export const MsgPurchaseWrkChainStateStorageResponse = {
-  typeUrl: '/mainchain.wrkchain.v1.MsgPurchaseWrkChainStateStorageResponse',
+  typeUrl: "/mainchain.wrkchain.v1.MsgPurchaseWrkChainStateStorageResponse",
   is(o: any): o is MsgPurchaseWrkChainStateStorageResponse {
-    return o && (o.$typeUrl === MsgPurchaseWrkChainStateStorageResponse.typeUrl || typeof o.wrkchainId === 'bigint' && typeof o.numberPurchased === 'bigint' && typeof o.numCanPurchase === 'bigint');
+    return o && (o.$typeUrl === MsgPurchaseWrkChainStateStorageResponse.typeUrl || typeof o.wrkchainId === "bigint" && typeof o.numberPurchased === "bigint" && typeof o.numCanPurchase === "bigint");
   },
   isSDK(o: any): o is MsgPurchaseWrkChainStateStorageResponseSDKType {
-    return o && (o.$typeUrl === MsgPurchaseWrkChainStateStorageResponse.typeUrl || typeof o.wrkchain_id === 'bigint' && typeof o.number_purchased === 'bigint' && typeof o.num_can_purchase === 'bigint');
+    return o && (o.$typeUrl === MsgPurchaseWrkChainStateStorageResponse.typeUrl || typeof o.wrkchain_id === "bigint" && typeof o.number_purchased === "bigint" && typeof o.num_can_purchase === "bigint");
   },
   isAmino(o: any): o is MsgPurchaseWrkChainStateStorageResponseAmino {
-    return o && (o.$typeUrl === MsgPurchaseWrkChainStateStorageResponse.typeUrl || typeof o.wrkchain_id === 'bigint' && typeof o.number_purchased === 'bigint' && typeof o.num_can_purchase === 'bigint');
+    return o && (o.$typeUrl === MsgPurchaseWrkChainStateStorageResponse.typeUrl || typeof o.wrkchain_id === "bigint" && typeof o.number_purchased === "bigint" && typeof o.num_can_purchase === "bigint");
   },
   encode(message: MsgPurchaseWrkChainStateStorageResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.wrkchainId !== BigInt(0)) {
@@ -860,18 +860,18 @@ export const MsgPurchaseWrkChainStateStorageResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.wrkchainId = reader.uint64();
-        break;
-      case 2:
-        message.numberPurchased = reader.uint64();
-        break;
-      case 3:
-        message.numCanPurchase = reader.uint64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.wrkchainId = reader.uint64();
+          break;
+        case 2:
+          message.numberPurchased = reader.uint64();
+          break;
+        case 3:
+          message.numCanPurchase = reader.uint64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -914,7 +914,7 @@ export const MsgPurchaseWrkChainStateStorageResponse = {
   },
   toProtoMsg(message: MsgPurchaseWrkChainStateStorageResponse): MsgPurchaseWrkChainStateStorageResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.wrkchain.v1.MsgPurchaseWrkChainStateStorageResponse',
+      typeUrl: "/mainchain.wrkchain.v1.MsgPurchaseWrkChainStateStorageResponse",
       value: MsgPurchaseWrkChainStateStorageResponse.encode(message).finish()
     };
   }
@@ -922,24 +922,24 @@ export const MsgPurchaseWrkChainStateStorageResponse = {
 GlobalDecoderRegistry.register(MsgPurchaseWrkChainStateStorageResponse.typeUrl, MsgPurchaseWrkChainStateStorageResponse);
 function createBaseMsgUpdateParams(): MsgUpdateParams {
   return {
-    authority: '',
+    authority: "",
     params: Params.fromPartial({})
   };
 }
 export const MsgUpdateParams = {
-  typeUrl: '/mainchain.wrkchain.v1.MsgUpdateParams',
-  aminoType: 'mainchain/x/wrkchain/MsgUpdateParams',
+  typeUrl: "/mainchain.wrkchain.v1.MsgUpdateParams",
+  aminoType: "mainchain/x/wrkchain/MsgUpdateParams",
   is(o: any): o is MsgUpdateParams {
-    return o && (o.$typeUrl === MsgUpdateParams.typeUrl || typeof o.authority === 'string' && Params.is(o.params));
+    return o && (o.$typeUrl === MsgUpdateParams.typeUrl || typeof o.authority === "string" && Params.is(o.params));
   },
   isSDK(o: any): o is MsgUpdateParamsSDKType {
-    return o && (o.$typeUrl === MsgUpdateParams.typeUrl || typeof o.authority === 'string' && Params.isSDK(o.params));
+    return o && (o.$typeUrl === MsgUpdateParams.typeUrl || typeof o.authority === "string" && Params.isSDK(o.params));
   },
   isAmino(o: any): o is MsgUpdateParamsAmino {
-    return o && (o.$typeUrl === MsgUpdateParams.typeUrl || typeof o.authority === 'string' && Params.isAmino(o.params));
+    return o && (o.$typeUrl === MsgUpdateParams.typeUrl || typeof o.authority === "string" && Params.isAmino(o.params));
   },
   encode(message: MsgUpdateParams, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.authority !== '') {
+    if (message.authority !== "") {
       writer.uint32(10).string(message.authority);
     }
     if (message.params !== undefined) {
@@ -954,22 +954,22 @@ export const MsgUpdateParams = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.authority = reader.string();
-        break;
-      case 2:
-        message.params = Params.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.authority = reader.string();
+          break;
+        case 2:
+          message.params = Params.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<MsgUpdateParams>): MsgUpdateParams {
     const message = createBaseMsgUpdateParams();
-    message.authority = object.authority ?? '';
+    message.authority = object.authority ?? "";
     message.params = object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
     return message;
   },
@@ -985,7 +985,7 @@ export const MsgUpdateParams = {
   },
   toAmino(message: MsgUpdateParams): MsgUpdateParamsAmino {
     const obj: any = {};
-    obj.authority = message.authority === '' ? undefined : message.authority;
+    obj.authority = message.authority === "" ? undefined : message.authority;
     obj.params = message.params ? Params.toAmino(message.params) : Params.toAmino(Params.fromPartial({}));
     return obj;
   },
@@ -994,7 +994,7 @@ export const MsgUpdateParams = {
   },
   toAminoMsg(message: MsgUpdateParams): MsgUpdateParamsAminoMsg {
     return {
-      type: 'mainchain/x/wrkchain/MsgUpdateParams',
+      type: "mainchain/x/wrkchain/MsgUpdateParams",
       value: MsgUpdateParams.toAmino(message)
     };
   },
@@ -1006,7 +1006,7 @@ export const MsgUpdateParams = {
   },
   toProtoMsg(message: MsgUpdateParams): MsgUpdateParamsProtoMsg {
     return {
-      typeUrl: '/mainchain.wrkchain.v1.MsgUpdateParams',
+      typeUrl: "/mainchain.wrkchain.v1.MsgUpdateParams",
       value: MsgUpdateParams.encode(message).finish()
     };
   }
@@ -1017,7 +1017,7 @@ function createBaseMsgUpdateParamsResponse(): MsgUpdateParamsResponse {
   return {};
 }
 export const MsgUpdateParamsResponse = {
-  typeUrl: '/mainchain.wrkchain.v1.MsgUpdateParamsResponse',
+  typeUrl: "/mainchain.wrkchain.v1.MsgUpdateParamsResponse",
   is(o: any): o is MsgUpdateParamsResponse {
     return o && o.$typeUrl === MsgUpdateParamsResponse.typeUrl;
   },
@@ -1037,9 +1037,9 @@ export const MsgUpdateParamsResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      default:
-        reader.skipType(tag & 7);
-        break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1067,7 +1067,7 @@ export const MsgUpdateParamsResponse = {
   },
   toProtoMsg(message: MsgUpdateParamsResponse): MsgUpdateParamsResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.wrkchain.v1.MsgUpdateParamsResponse',
+      typeUrl: "/mainchain.wrkchain.v1.MsgUpdateParamsResponse",
       value: MsgUpdateParamsResponse.encode(message).finish()
     };
   }

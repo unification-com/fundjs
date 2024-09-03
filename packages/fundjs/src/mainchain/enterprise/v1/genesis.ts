@@ -1,8 +1,8 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from '../../../binary';
-import { Coin, CoinAmino, CoinSDKType } from '../../../cosmos/base/v1beta1/coin';
-import { GlobalDecoderRegistry } from '../../../registry';
-import { EnterpriseUndPurchaseOrder, EnterpriseUndPurchaseOrderAmino, EnterpriseUndPurchaseOrderSDKType, LockedUnd, LockedUndAmino, LockedUndSDKType, Params, ParamsAmino, ParamsSDKType, SpentEFUND, SpentEFUNDAmino, SpentEFUNDSDKType } from './enterprise';
+import { Params, ParamsAmino, ParamsSDKType, EnterpriseUndPurchaseOrder, EnterpriseUndPurchaseOrderAmino, EnterpriseUndPurchaseOrderSDKType, LockedUnd, LockedUndAmino, LockedUndSDKType, SpentEFUND, SpentEFUNDAmino, SpentEFUNDSDKType } from "./enterprise";
+import { Coin, CoinAmino, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
+import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
 /** GenesisState defines the enterprise module's genesis state. */
 export interface GenesisState {
   /** params defines all the paramaters of the module. */
@@ -16,7 +16,7 @@ export interface GenesisState {
   totalSpent: Coin;
 }
 export interface GenesisStateProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.GenesisState';
+  typeUrl: "/mainchain.enterprise.v1.GenesisState";
   value: Uint8Array;
 }
 /** GenesisState defines the enterprise module's genesis state. */
@@ -32,7 +32,7 @@ export interface GenesisStateAmino {
   total_spent?: CoinAmino;
 }
 export interface GenesisStateAminoMsg {
-  type: '/mainchain.enterprise.v1.GenesisState';
+  type: "/mainchain.enterprise.v1.GenesisState";
   value: GenesisStateAmino;
 }
 /** GenesisState defines the enterprise module's genesis state. */
@@ -59,15 +59,15 @@ function createBaseGenesisState(): GenesisState {
   };
 }
 export const GenesisState = {
-  typeUrl: '/mainchain.enterprise.v1.GenesisState',
+  typeUrl: "/mainchain.enterprise.v1.GenesisState",
   is(o: any): o is GenesisState {
-    return o && (o.$typeUrl === GenesisState.typeUrl || Params.is(o.params) && typeof o.startingPurchaseOrderId === 'bigint' && Array.isArray(o.purchaseOrders) && (!o.purchaseOrders.length || EnterpriseUndPurchaseOrder.is(o.purchaseOrders[0])) && Array.isArray(o.lockedUnd) && (!o.lockedUnd.length || LockedUnd.is(o.lockedUnd[0])) && Coin.is(o.totalLocked) && Array.isArray(o.whitelist) && (!o.whitelist.length || typeof o.whitelist[0] === 'string') && Array.isArray(o.spentEfund) && (!o.spentEfund.length || SpentEFUND.is(o.spentEfund[0])) && Coin.is(o.totalSpent));
+    return o && (o.$typeUrl === GenesisState.typeUrl || Params.is(o.params) && typeof o.startingPurchaseOrderId === "bigint" && Array.isArray(o.purchaseOrders) && (!o.purchaseOrders.length || EnterpriseUndPurchaseOrder.is(o.purchaseOrders[0])) && Array.isArray(o.lockedUnd) && (!o.lockedUnd.length || LockedUnd.is(o.lockedUnd[0])) && Coin.is(o.totalLocked) && Array.isArray(o.whitelist) && (!o.whitelist.length || typeof o.whitelist[0] === "string") && Array.isArray(o.spentEfund) && (!o.spentEfund.length || SpentEFUND.is(o.spentEfund[0])) && Coin.is(o.totalSpent));
   },
   isSDK(o: any): o is GenesisStateSDKType {
-    return o && (o.$typeUrl === GenesisState.typeUrl || Params.isSDK(o.params) && typeof o.starting_purchase_order_id === 'bigint' && Array.isArray(o.purchase_orders) && (!o.purchase_orders.length || EnterpriseUndPurchaseOrder.isSDK(o.purchase_orders[0])) && Array.isArray(o.locked_und) && (!o.locked_und.length || LockedUnd.isSDK(o.locked_und[0])) && Coin.isSDK(o.total_locked) && Array.isArray(o.whitelist) && (!o.whitelist.length || typeof o.whitelist[0] === 'string') && Array.isArray(o.spent_efund) && (!o.spent_efund.length || SpentEFUND.isSDK(o.spent_efund[0])) && Coin.isSDK(o.total_spent));
+    return o && (o.$typeUrl === GenesisState.typeUrl || Params.isSDK(o.params) && typeof o.starting_purchase_order_id === "bigint" && Array.isArray(o.purchase_orders) && (!o.purchase_orders.length || EnterpriseUndPurchaseOrder.isSDK(o.purchase_orders[0])) && Array.isArray(o.locked_und) && (!o.locked_und.length || LockedUnd.isSDK(o.locked_und[0])) && Coin.isSDK(o.total_locked) && Array.isArray(o.whitelist) && (!o.whitelist.length || typeof o.whitelist[0] === "string") && Array.isArray(o.spent_efund) && (!o.spent_efund.length || SpentEFUND.isSDK(o.spent_efund[0])) && Coin.isSDK(o.total_spent));
   },
   isAmino(o: any): o is GenesisStateAmino {
-    return o && (o.$typeUrl === GenesisState.typeUrl || Params.isAmino(o.params) && typeof o.starting_purchase_order_id === 'bigint' && Array.isArray(o.purchase_orders) && (!o.purchase_orders.length || EnterpriseUndPurchaseOrder.isAmino(o.purchase_orders[0])) && Array.isArray(o.locked_und) && (!o.locked_und.length || LockedUnd.isAmino(o.locked_und[0])) && Coin.isAmino(o.total_locked) && Array.isArray(o.whitelist) && (!o.whitelist.length || typeof o.whitelist[0] === 'string') && Array.isArray(o.spent_efund) && (!o.spent_efund.length || SpentEFUND.isAmino(o.spent_efund[0])) && Coin.isAmino(o.total_spent));
+    return o && (o.$typeUrl === GenesisState.typeUrl || Params.isAmino(o.params) && typeof o.starting_purchase_order_id === "bigint" && Array.isArray(o.purchase_orders) && (!o.purchase_orders.length || EnterpriseUndPurchaseOrder.isAmino(o.purchase_orders[0])) && Array.isArray(o.locked_und) && (!o.locked_und.length || LockedUnd.isAmino(o.locked_und[0])) && Coin.isAmino(o.total_locked) && Array.isArray(o.whitelist) && (!o.whitelist.length || typeof o.whitelist[0] === "string") && Array.isArray(o.spent_efund) && (!o.spent_efund.length || SpentEFUND.isAmino(o.spent_efund[0])) && Coin.isAmino(o.total_spent));
   },
   encode(message: GenesisState, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.params !== undefined) {
@@ -103,33 +103,33 @@ export const GenesisState = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.params = Params.decode(reader, reader.uint32());
-        break;
-      case 2:
-        message.startingPurchaseOrderId = reader.uint64();
-        break;
-      case 3:
-        message.purchaseOrders.push(EnterpriseUndPurchaseOrder.decode(reader, reader.uint32()));
-        break;
-      case 4:
-        message.lockedUnd.push(LockedUnd.decode(reader, reader.uint32()));
-        break;
-      case 5:
-        message.totalLocked = Coin.decode(reader, reader.uint32());
-        break;
-      case 6:
-        message.whitelist.push(reader.string());
-        break;
-      case 7:
-        message.spentEfund.push(SpentEFUND.decode(reader, reader.uint32()));
-        break;
-      case 8:
-        message.totalSpent = Coin.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.params = Params.decode(reader, reader.uint32());
+          break;
+        case 2:
+          message.startingPurchaseOrderId = reader.uint64();
+          break;
+        case 3:
+          message.purchaseOrders.push(EnterpriseUndPurchaseOrder.decode(reader, reader.uint32()));
+          break;
+        case 4:
+          message.lockedUnd.push(LockedUnd.decode(reader, reader.uint32()));
+          break;
+        case 5:
+          message.totalLocked = Coin.decode(reader, reader.uint32());
+          break;
+        case 6:
+          message.whitelist.push(reader.string());
+          break;
+        case 7:
+          message.spentEfund.push(SpentEFUND.decode(reader, reader.uint32()));
+          break;
+        case 8:
+          message.totalSpent = Coin.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -205,7 +205,7 @@ export const GenesisState = {
   },
   toProtoMsg(message: GenesisState): GenesisStateProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.GenesisState',
+      typeUrl: "/mainchain.enterprise.v1.GenesisState",
       value: GenesisState.encode(message).finish()
     };
   }

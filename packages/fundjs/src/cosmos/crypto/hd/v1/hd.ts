@@ -1,6 +1,6 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from '../../../../binary';
-import { GlobalDecoderRegistry } from '../../../../registry';
+import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { GlobalDecoderRegistry } from "../../../../registry";
 /** BIP44Params is used as path field in ledger item in Record. */
 export interface BIP44Params {
   /** purpose is a constant set to 44' (or 0x8000002C) following the BIP43 recommendation */
@@ -18,7 +18,7 @@ export interface BIP44Params {
   addressIndex: number;
 }
 export interface BIP44ParamsProtoMsg {
-  typeUrl: '/cosmos.crypto.hd.v1.BIP44Params';
+  typeUrl: "/cosmos.crypto.hd.v1.BIP44Params";
   value: Uint8Array;
 }
 /** BIP44Params is used as path field in ledger item in Record. */
@@ -38,7 +38,7 @@ export interface BIP44ParamsAmino {
   address_index?: number;
 }
 export interface BIP44ParamsAminoMsg {
-  type: 'cosmos-sdk/BIP44Params';
+  type: "cosmos-sdk/BIP44Params";
   value: BIP44ParamsAmino;
 }
 /** BIP44Params is used as path field in ledger item in Record. */
@@ -59,16 +59,16 @@ function createBaseBIP44Params(): BIP44Params {
   };
 }
 export const BIP44Params = {
-  typeUrl: '/cosmos.crypto.hd.v1.BIP44Params',
-  aminoType: 'cosmos-sdk/BIP44Params',
+  typeUrl: "/cosmos.crypto.hd.v1.BIP44Params",
+  aminoType: "cosmos-sdk/BIP44Params",
   is(o: any): o is BIP44Params {
-    return o && (o.$typeUrl === BIP44Params.typeUrl || typeof o.purpose === 'number' && typeof o.coinType === 'number' && typeof o.account === 'number' && typeof o.change === 'boolean' && typeof o.addressIndex === 'number');
+    return o && (o.$typeUrl === BIP44Params.typeUrl || typeof o.purpose === "number" && typeof o.coinType === "number" && typeof o.account === "number" && typeof o.change === "boolean" && typeof o.addressIndex === "number");
   },
   isSDK(o: any): o is BIP44ParamsSDKType {
-    return o && (o.$typeUrl === BIP44Params.typeUrl || typeof o.purpose === 'number' && typeof o.coin_type === 'number' && typeof o.account === 'number' && typeof o.change === 'boolean' && typeof o.address_index === 'number');
+    return o && (o.$typeUrl === BIP44Params.typeUrl || typeof o.purpose === "number" && typeof o.coin_type === "number" && typeof o.account === "number" && typeof o.change === "boolean" && typeof o.address_index === "number");
   },
   isAmino(o: any): o is BIP44ParamsAmino {
-    return o && (o.$typeUrl === BIP44Params.typeUrl || typeof o.purpose === 'number' && typeof o.coin_type === 'number' && typeof o.account === 'number' && typeof o.change === 'boolean' && typeof o.address_index === 'number');
+    return o && (o.$typeUrl === BIP44Params.typeUrl || typeof o.purpose === "number" && typeof o.coin_type === "number" && typeof o.account === "number" && typeof o.change === "boolean" && typeof o.address_index === "number");
   },
   encode(message: BIP44Params, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.purpose !== 0) {
@@ -95,24 +95,24 @@ export const BIP44Params = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.purpose = reader.uint32();
-        break;
-      case 2:
-        message.coinType = reader.uint32();
-        break;
-      case 3:
-        message.account = reader.uint32();
-        break;
-      case 4:
-        message.change = reader.bool();
-        break;
-      case 5:
-        message.addressIndex = reader.uint32();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.purpose = reader.uint32();
+          break;
+        case 2:
+          message.coinType = reader.uint32();
+          break;
+        case 3:
+          message.account = reader.uint32();
+          break;
+        case 4:
+          message.change = reader.bool();
+          break;
+        case 5:
+          message.addressIndex = reader.uint32();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -159,7 +159,7 @@ export const BIP44Params = {
   },
   toAminoMsg(message: BIP44Params): BIP44ParamsAminoMsg {
     return {
-      type: 'cosmos-sdk/BIP44Params',
+      type: "cosmos-sdk/BIP44Params",
       value: BIP44Params.toAmino(message)
     };
   },
@@ -171,7 +171,7 @@ export const BIP44Params = {
   },
   toProtoMsg(message: BIP44Params): BIP44ParamsProtoMsg {
     return {
-      typeUrl: '/cosmos.crypto.hd.v1.BIP44Params',
+      typeUrl: "/cosmos.crypto.hd.v1.BIP44Params",
       value: BIP44Params.encode(message).finish()
     };
   }

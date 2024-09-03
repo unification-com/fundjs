@@ -1,7 +1,7 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from '../../../../binary';
-import { GlobalDecoderRegistry } from '../../../../registry';
-import { DenomTrace, DenomTraceAmino, DenomTraceSDKType, Params, ParamsAmino, ParamsSDKType } from './transfer';
+import { DenomTrace, DenomTraceAmino, DenomTraceSDKType, Params, ParamsAmino, ParamsSDKType } from "./transfer";
+import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { GlobalDecoderRegistry } from "../../../../registry";
 /** GenesisState defines the ibc-transfer genesis state */
 export interface GenesisState {
   portId: string;
@@ -9,7 +9,7 @@ export interface GenesisState {
   params: Params;
 }
 export interface GenesisStateProtoMsg {
-  typeUrl: '/ibc.applications.transfer.v1.GenesisState';
+  typeUrl: "/ibc.applications.transfer.v1.GenesisState";
   value: Uint8Array;
 }
 /** GenesisState defines the ibc-transfer genesis state */
@@ -19,7 +19,7 @@ export interface GenesisStateAmino {
   params?: ParamsAmino;
 }
 export interface GenesisStateAminoMsg {
-  type: 'cosmos-sdk/GenesisState';
+  type: "cosmos-sdk/GenesisState";
   value: GenesisStateAmino;
 }
 /** GenesisState defines the ibc-transfer genesis state */
@@ -30,25 +30,25 @@ export interface GenesisStateSDKType {
 }
 function createBaseGenesisState(): GenesisState {
   return {
-    portId: '',
+    portId: "",
     denomTraces: [],
     params: Params.fromPartial({})
   };
 }
 export const GenesisState = {
-  typeUrl: '/ibc.applications.transfer.v1.GenesisState',
-  aminoType: 'cosmos-sdk/GenesisState',
+  typeUrl: "/ibc.applications.transfer.v1.GenesisState",
+  aminoType: "cosmos-sdk/GenesisState",
   is(o: any): o is GenesisState {
-    return o && (o.$typeUrl === GenesisState.typeUrl || typeof o.portId === 'string' && Array.isArray(o.denomTraces) && (!o.denomTraces.length || DenomTrace.is(o.denomTraces[0])) && Params.is(o.params));
+    return o && (o.$typeUrl === GenesisState.typeUrl || typeof o.portId === "string" && Array.isArray(o.denomTraces) && (!o.denomTraces.length || DenomTrace.is(o.denomTraces[0])) && Params.is(o.params));
   },
   isSDK(o: any): o is GenesisStateSDKType {
-    return o && (o.$typeUrl === GenesisState.typeUrl || typeof o.port_id === 'string' && Array.isArray(o.denom_traces) && (!o.denom_traces.length || DenomTrace.isSDK(o.denom_traces[0])) && Params.isSDK(o.params));
+    return o && (o.$typeUrl === GenesisState.typeUrl || typeof o.port_id === "string" && Array.isArray(o.denom_traces) && (!o.denom_traces.length || DenomTrace.isSDK(o.denom_traces[0])) && Params.isSDK(o.params));
   },
   isAmino(o: any): o is GenesisStateAmino {
-    return o && (o.$typeUrl === GenesisState.typeUrl || typeof o.port_id === 'string' && Array.isArray(o.denom_traces) && (!o.denom_traces.length || DenomTrace.isAmino(o.denom_traces[0])) && Params.isAmino(o.params));
+    return o && (o.$typeUrl === GenesisState.typeUrl || typeof o.port_id === "string" && Array.isArray(o.denom_traces) && (!o.denom_traces.length || DenomTrace.isAmino(o.denom_traces[0])) && Params.isAmino(o.params));
   },
   encode(message: GenesisState, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.portId !== '') {
+    if (message.portId !== "") {
       writer.uint32(10).string(message.portId);
     }
     for (const v of message.denomTraces) {
@@ -66,25 +66,25 @@ export const GenesisState = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.portId = reader.string();
-        break;
-      case 2:
-        message.denomTraces.push(DenomTrace.decode(reader, reader.uint32()));
-        break;
-      case 3:
-        message.params = Params.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.portId = reader.string();
+          break;
+        case 2:
+          message.denomTraces.push(DenomTrace.decode(reader, reader.uint32()));
+          break;
+        case 3:
+          message.params = Params.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<GenesisState>): GenesisState {
     const message = createBaseGenesisState();
-    message.portId = object.portId ?? '';
+    message.portId = object.portId ?? "";
     message.denomTraces = object.denomTraces?.map(e => DenomTrace.fromPartial(e)) || [];
     message.params = object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
     return message;
@@ -102,7 +102,7 @@ export const GenesisState = {
   },
   toAmino(message: GenesisState): GenesisStateAmino {
     const obj: any = {};
-    obj.port_id = message.portId === '' ? undefined : message.portId;
+    obj.port_id = message.portId === "" ? undefined : message.portId;
     if (message.denomTraces) {
       obj.denom_traces = message.denomTraces.map(e => e ? DenomTrace.toAmino(e) : undefined);
     } else {
@@ -116,7 +116,7 @@ export const GenesisState = {
   },
   toAminoMsg(message: GenesisState): GenesisStateAminoMsg {
     return {
-      type: 'cosmos-sdk/GenesisState',
+      type: "cosmos-sdk/GenesisState",
       value: GenesisState.toAmino(message)
     };
   },
@@ -128,7 +128,7 @@ export const GenesisState = {
   },
   toProtoMsg(message: GenesisState): GenesisStateProtoMsg {
     return {
-      typeUrl: '/ibc.applications.transfer.v1.GenesisState',
+      typeUrl: "/ibc.applications.transfer.v1.GenesisState",
       value: GenesisState.encode(message).finish()
     };
   }

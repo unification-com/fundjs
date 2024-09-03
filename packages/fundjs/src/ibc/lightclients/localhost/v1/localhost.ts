@@ -1,7 +1,7 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from '../../../../binary';
-import { GlobalDecoderRegistry } from '../../../../registry';
-import { Height, HeightAmino, HeightSDKType } from '../../../core/client/v1/client';
+import { Height, HeightAmino, HeightSDKType } from "../../../core/client/v1/client";
+import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { GlobalDecoderRegistry } from "../../../../registry";
 /**
  * ClientState defines a loopback (localhost) client. It requires (read-only)
  * access to keys outside the client prefix.
@@ -13,7 +13,7 @@ export interface ClientState {
   height: Height;
 }
 export interface ClientStateProtoMsg {
-  typeUrl: '/ibc.lightclients.localhost.v1.ClientState';
+  typeUrl: "/ibc.lightclients.localhost.v1.ClientState";
   value: Uint8Array;
 }
 /**
@@ -27,7 +27,7 @@ export interface ClientStateAmino {
   height?: HeightAmino;
 }
 export interface ClientStateAminoMsg {
-  type: 'cosmos-sdk/ClientState';
+  type: "cosmos-sdk/ClientState";
   value: ClientStateAmino;
 }
 /**
@@ -40,24 +40,24 @@ export interface ClientStateSDKType {
 }
 function createBaseClientState(): ClientState {
   return {
-    chainId: '',
+    chainId: "",
     height: Height.fromPartial({})
   };
 }
 export const ClientState = {
-  typeUrl: '/ibc.lightclients.localhost.v1.ClientState',
-  aminoType: 'cosmos-sdk/ClientState',
+  typeUrl: "/ibc.lightclients.localhost.v1.ClientState",
+  aminoType: "cosmos-sdk/ClientState",
   is(o: any): o is ClientState {
-    return o && (o.$typeUrl === ClientState.typeUrl || typeof o.chainId === 'string' && Height.is(o.height));
+    return o && (o.$typeUrl === ClientState.typeUrl || typeof o.chainId === "string" && Height.is(o.height));
   },
   isSDK(o: any): o is ClientStateSDKType {
-    return o && (o.$typeUrl === ClientState.typeUrl || typeof o.chain_id === 'string' && Height.isSDK(o.height));
+    return o && (o.$typeUrl === ClientState.typeUrl || typeof o.chain_id === "string" && Height.isSDK(o.height));
   },
   isAmino(o: any): o is ClientStateAmino {
-    return o && (o.$typeUrl === ClientState.typeUrl || typeof o.chain_id === 'string' && Height.isAmino(o.height));
+    return o && (o.$typeUrl === ClientState.typeUrl || typeof o.chain_id === "string" && Height.isAmino(o.height));
   },
   encode(message: ClientState, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.chainId !== '') {
+    if (message.chainId !== "") {
       writer.uint32(10).string(message.chainId);
     }
     if (message.height !== undefined) {
@@ -72,22 +72,22 @@ export const ClientState = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.chainId = reader.string();
-        break;
-      case 2:
-        message.height = Height.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.chainId = reader.string();
+          break;
+        case 2:
+          message.height = Height.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<ClientState>): ClientState {
     const message = createBaseClientState();
-    message.chainId = object.chainId ?? '';
+    message.chainId = object.chainId ?? "";
     message.height = object.height !== undefined && object.height !== null ? Height.fromPartial(object.height) : undefined;
     return message;
   },
@@ -103,7 +103,7 @@ export const ClientState = {
   },
   toAmino(message: ClientState): ClientStateAmino {
     const obj: any = {};
-    obj.chain_id = message.chainId === '' ? undefined : message.chainId;
+    obj.chain_id = message.chainId === "" ? undefined : message.chainId;
     obj.height = message.height ? Height.toAmino(message.height) : {};
     return obj;
   },
@@ -112,7 +112,7 @@ export const ClientState = {
   },
   toAminoMsg(message: ClientState): ClientStateAminoMsg {
     return {
-      type: 'cosmos-sdk/ClientState',
+      type: "cosmos-sdk/ClientState",
       value: ClientState.toAmino(message)
     };
   },
@@ -124,7 +124,7 @@ export const ClientState = {
   },
   toProtoMsg(message: ClientState): ClientStateProtoMsg {
     return {
-      typeUrl: '/ibc.lightclients.localhost.v1.ClientState',
+      typeUrl: "/ibc.lightclients.localhost.v1.ClientState",
       value: ClientState.encode(message).finish()
     };
   }

@@ -1,7 +1,7 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from '../../binary';
-import { base64FromBytes,bytesFromBase64, isSet } from '../../helpers';
-import { GlobalDecoderRegistry } from '../../registry';
+import { BinaryReader, BinaryWriter } from "../../binary";
+import { GlobalDecoderRegistry } from "../../registry";
+import { isSet, bytesFromBase64, base64FromBytes } from "../../helpers";
 export enum FieldDescriptorProto_Type {
   /**
    * TYPE_DOUBLE - 0 is reserved for errors.
@@ -49,107 +49,107 @@ export const FieldDescriptorProto_TypeSDKType = FieldDescriptorProto_Type;
 export const FieldDescriptorProto_TypeAmino = FieldDescriptorProto_Type;
 export function fieldDescriptorProto_TypeFromJSON(object: any): FieldDescriptorProto_Type {
   switch (object) {
-  case 1:
-  case 'TYPE_DOUBLE':
-    return FieldDescriptorProto_Type.TYPE_DOUBLE;
-  case 2:
-  case 'TYPE_FLOAT':
-    return FieldDescriptorProto_Type.TYPE_FLOAT;
-  case 3:
-  case 'TYPE_INT64':
-    return FieldDescriptorProto_Type.TYPE_INT64;
-  case 4:
-  case 'TYPE_UINT64':
-    return FieldDescriptorProto_Type.TYPE_UINT64;
-  case 5:
-  case 'TYPE_INT32':
-    return FieldDescriptorProto_Type.TYPE_INT32;
-  case 6:
-  case 'TYPE_FIXED64':
-    return FieldDescriptorProto_Type.TYPE_FIXED64;
-  case 7:
-  case 'TYPE_FIXED32':
-    return FieldDescriptorProto_Type.TYPE_FIXED32;
-  case 8:
-  case 'TYPE_BOOL':
-    return FieldDescriptorProto_Type.TYPE_BOOL;
-  case 9:
-  case 'TYPE_STRING':
-    return FieldDescriptorProto_Type.TYPE_STRING;
-  case 10:
-  case 'TYPE_GROUP':
-    return FieldDescriptorProto_Type.TYPE_GROUP;
-  case 11:
-  case 'TYPE_MESSAGE':
-    return FieldDescriptorProto_Type.TYPE_MESSAGE;
-  case 12:
-  case 'TYPE_BYTES':
-    return FieldDescriptorProto_Type.TYPE_BYTES;
-  case 13:
-  case 'TYPE_UINT32':
-    return FieldDescriptorProto_Type.TYPE_UINT32;
-  case 14:
-  case 'TYPE_ENUM':
-    return FieldDescriptorProto_Type.TYPE_ENUM;
-  case 15:
-  case 'TYPE_SFIXED32':
-    return FieldDescriptorProto_Type.TYPE_SFIXED32;
-  case 16:
-  case 'TYPE_SFIXED64':
-    return FieldDescriptorProto_Type.TYPE_SFIXED64;
-  case 17:
-  case 'TYPE_SINT32':
-    return FieldDescriptorProto_Type.TYPE_SINT32;
-  case 18:
-  case 'TYPE_SINT64':
-    return FieldDescriptorProto_Type.TYPE_SINT64;
-  case -1:
-  case 'UNRECOGNIZED':
-  default:
-    return FieldDescriptorProto_Type.UNRECOGNIZED;
+    case 1:
+    case "TYPE_DOUBLE":
+      return FieldDescriptorProto_Type.TYPE_DOUBLE;
+    case 2:
+    case "TYPE_FLOAT":
+      return FieldDescriptorProto_Type.TYPE_FLOAT;
+    case 3:
+    case "TYPE_INT64":
+      return FieldDescriptorProto_Type.TYPE_INT64;
+    case 4:
+    case "TYPE_UINT64":
+      return FieldDescriptorProto_Type.TYPE_UINT64;
+    case 5:
+    case "TYPE_INT32":
+      return FieldDescriptorProto_Type.TYPE_INT32;
+    case 6:
+    case "TYPE_FIXED64":
+      return FieldDescriptorProto_Type.TYPE_FIXED64;
+    case 7:
+    case "TYPE_FIXED32":
+      return FieldDescriptorProto_Type.TYPE_FIXED32;
+    case 8:
+    case "TYPE_BOOL":
+      return FieldDescriptorProto_Type.TYPE_BOOL;
+    case 9:
+    case "TYPE_STRING":
+      return FieldDescriptorProto_Type.TYPE_STRING;
+    case 10:
+    case "TYPE_GROUP":
+      return FieldDescriptorProto_Type.TYPE_GROUP;
+    case 11:
+    case "TYPE_MESSAGE":
+      return FieldDescriptorProto_Type.TYPE_MESSAGE;
+    case 12:
+    case "TYPE_BYTES":
+      return FieldDescriptorProto_Type.TYPE_BYTES;
+    case 13:
+    case "TYPE_UINT32":
+      return FieldDescriptorProto_Type.TYPE_UINT32;
+    case 14:
+    case "TYPE_ENUM":
+      return FieldDescriptorProto_Type.TYPE_ENUM;
+    case 15:
+    case "TYPE_SFIXED32":
+      return FieldDescriptorProto_Type.TYPE_SFIXED32;
+    case 16:
+    case "TYPE_SFIXED64":
+      return FieldDescriptorProto_Type.TYPE_SFIXED64;
+    case 17:
+    case "TYPE_SINT32":
+      return FieldDescriptorProto_Type.TYPE_SINT32;
+    case 18:
+    case "TYPE_SINT64":
+      return FieldDescriptorProto_Type.TYPE_SINT64;
+    case -1:
+    case "UNRECOGNIZED":
+    default:
+      return FieldDescriptorProto_Type.UNRECOGNIZED;
   }
 }
 export function fieldDescriptorProto_TypeToJSON(object: FieldDescriptorProto_Type): string {
   switch (object) {
-  case FieldDescriptorProto_Type.TYPE_DOUBLE:
-    return 'TYPE_DOUBLE';
-  case FieldDescriptorProto_Type.TYPE_FLOAT:
-    return 'TYPE_FLOAT';
-  case FieldDescriptorProto_Type.TYPE_INT64:
-    return 'TYPE_INT64';
-  case FieldDescriptorProto_Type.TYPE_UINT64:
-    return 'TYPE_UINT64';
-  case FieldDescriptorProto_Type.TYPE_INT32:
-    return 'TYPE_INT32';
-  case FieldDescriptorProto_Type.TYPE_FIXED64:
-    return 'TYPE_FIXED64';
-  case FieldDescriptorProto_Type.TYPE_FIXED32:
-    return 'TYPE_FIXED32';
-  case FieldDescriptorProto_Type.TYPE_BOOL:
-    return 'TYPE_BOOL';
-  case FieldDescriptorProto_Type.TYPE_STRING:
-    return 'TYPE_STRING';
-  case FieldDescriptorProto_Type.TYPE_GROUP:
-    return 'TYPE_GROUP';
-  case FieldDescriptorProto_Type.TYPE_MESSAGE:
-    return 'TYPE_MESSAGE';
-  case FieldDescriptorProto_Type.TYPE_BYTES:
-    return 'TYPE_BYTES';
-  case FieldDescriptorProto_Type.TYPE_UINT32:
-    return 'TYPE_UINT32';
-  case FieldDescriptorProto_Type.TYPE_ENUM:
-    return 'TYPE_ENUM';
-  case FieldDescriptorProto_Type.TYPE_SFIXED32:
-    return 'TYPE_SFIXED32';
-  case FieldDescriptorProto_Type.TYPE_SFIXED64:
-    return 'TYPE_SFIXED64';
-  case FieldDescriptorProto_Type.TYPE_SINT32:
-    return 'TYPE_SINT32';
-  case FieldDescriptorProto_Type.TYPE_SINT64:
-    return 'TYPE_SINT64';
-  case FieldDescriptorProto_Type.UNRECOGNIZED:
-  default:
-    return 'UNRECOGNIZED';
+    case FieldDescriptorProto_Type.TYPE_DOUBLE:
+      return "TYPE_DOUBLE";
+    case FieldDescriptorProto_Type.TYPE_FLOAT:
+      return "TYPE_FLOAT";
+    case FieldDescriptorProto_Type.TYPE_INT64:
+      return "TYPE_INT64";
+    case FieldDescriptorProto_Type.TYPE_UINT64:
+      return "TYPE_UINT64";
+    case FieldDescriptorProto_Type.TYPE_INT32:
+      return "TYPE_INT32";
+    case FieldDescriptorProto_Type.TYPE_FIXED64:
+      return "TYPE_FIXED64";
+    case FieldDescriptorProto_Type.TYPE_FIXED32:
+      return "TYPE_FIXED32";
+    case FieldDescriptorProto_Type.TYPE_BOOL:
+      return "TYPE_BOOL";
+    case FieldDescriptorProto_Type.TYPE_STRING:
+      return "TYPE_STRING";
+    case FieldDescriptorProto_Type.TYPE_GROUP:
+      return "TYPE_GROUP";
+    case FieldDescriptorProto_Type.TYPE_MESSAGE:
+      return "TYPE_MESSAGE";
+    case FieldDescriptorProto_Type.TYPE_BYTES:
+      return "TYPE_BYTES";
+    case FieldDescriptorProto_Type.TYPE_UINT32:
+      return "TYPE_UINT32";
+    case FieldDescriptorProto_Type.TYPE_ENUM:
+      return "TYPE_ENUM";
+    case FieldDescriptorProto_Type.TYPE_SFIXED32:
+      return "TYPE_SFIXED32";
+    case FieldDescriptorProto_Type.TYPE_SFIXED64:
+      return "TYPE_SFIXED64";
+    case FieldDescriptorProto_Type.TYPE_SINT32:
+      return "TYPE_SINT32";
+    case FieldDescriptorProto_Type.TYPE_SINT64:
+      return "TYPE_SINT64";
+    case FieldDescriptorProto_Type.UNRECOGNIZED:
+    default:
+      return "UNRECOGNIZED";
   }
 }
 export enum FieldDescriptorProto_Label {
@@ -163,32 +163,32 @@ export const FieldDescriptorProto_LabelSDKType = FieldDescriptorProto_Label;
 export const FieldDescriptorProto_LabelAmino = FieldDescriptorProto_Label;
 export function fieldDescriptorProto_LabelFromJSON(object: any): FieldDescriptorProto_Label {
   switch (object) {
-  case 1:
-  case 'LABEL_OPTIONAL':
-    return FieldDescriptorProto_Label.LABEL_OPTIONAL;
-  case 2:
-  case 'LABEL_REQUIRED':
-    return FieldDescriptorProto_Label.LABEL_REQUIRED;
-  case 3:
-  case 'LABEL_REPEATED':
-    return FieldDescriptorProto_Label.LABEL_REPEATED;
-  case -1:
-  case 'UNRECOGNIZED':
-  default:
-    return FieldDescriptorProto_Label.UNRECOGNIZED;
+    case 1:
+    case "LABEL_OPTIONAL":
+      return FieldDescriptorProto_Label.LABEL_OPTIONAL;
+    case 2:
+    case "LABEL_REQUIRED":
+      return FieldDescriptorProto_Label.LABEL_REQUIRED;
+    case 3:
+    case "LABEL_REPEATED":
+      return FieldDescriptorProto_Label.LABEL_REPEATED;
+    case -1:
+    case "UNRECOGNIZED":
+    default:
+      return FieldDescriptorProto_Label.UNRECOGNIZED;
   }
 }
 export function fieldDescriptorProto_LabelToJSON(object: FieldDescriptorProto_Label): string {
   switch (object) {
-  case FieldDescriptorProto_Label.LABEL_OPTIONAL:
-    return 'LABEL_OPTIONAL';
-  case FieldDescriptorProto_Label.LABEL_REQUIRED:
-    return 'LABEL_REQUIRED';
-  case FieldDescriptorProto_Label.LABEL_REPEATED:
-    return 'LABEL_REPEATED';
-  case FieldDescriptorProto_Label.UNRECOGNIZED:
-  default:
-    return 'UNRECOGNIZED';
+    case FieldDescriptorProto_Label.LABEL_OPTIONAL:
+      return "LABEL_OPTIONAL";
+    case FieldDescriptorProto_Label.LABEL_REQUIRED:
+      return "LABEL_REQUIRED";
+    case FieldDescriptorProto_Label.LABEL_REPEATED:
+      return "LABEL_REPEATED";
+    case FieldDescriptorProto_Label.UNRECOGNIZED:
+    default:
+      return "UNRECOGNIZED";
   }
 }
 /** Generated classes can be optimized for speed or code size. */
@@ -205,32 +205,32 @@ export const FileOptions_OptimizeModeSDKType = FileOptions_OptimizeMode;
 export const FileOptions_OptimizeModeAmino = FileOptions_OptimizeMode;
 export function fileOptions_OptimizeModeFromJSON(object: any): FileOptions_OptimizeMode {
   switch (object) {
-  case 1:
-  case 'SPEED':
-    return FileOptions_OptimizeMode.SPEED;
-  case 2:
-  case 'CODE_SIZE':
-    return FileOptions_OptimizeMode.CODE_SIZE;
-  case 3:
-  case 'LITE_RUNTIME':
-    return FileOptions_OptimizeMode.LITE_RUNTIME;
-  case -1:
-  case 'UNRECOGNIZED':
-  default:
-    return FileOptions_OptimizeMode.UNRECOGNIZED;
+    case 1:
+    case "SPEED":
+      return FileOptions_OptimizeMode.SPEED;
+    case 2:
+    case "CODE_SIZE":
+      return FileOptions_OptimizeMode.CODE_SIZE;
+    case 3:
+    case "LITE_RUNTIME":
+      return FileOptions_OptimizeMode.LITE_RUNTIME;
+    case -1:
+    case "UNRECOGNIZED":
+    default:
+      return FileOptions_OptimizeMode.UNRECOGNIZED;
   }
 }
 export function fileOptions_OptimizeModeToJSON(object: FileOptions_OptimizeMode): string {
   switch (object) {
-  case FileOptions_OptimizeMode.SPEED:
-    return 'SPEED';
-  case FileOptions_OptimizeMode.CODE_SIZE:
-    return 'CODE_SIZE';
-  case FileOptions_OptimizeMode.LITE_RUNTIME:
-    return 'LITE_RUNTIME';
-  case FileOptions_OptimizeMode.UNRECOGNIZED:
-  default:
-    return 'UNRECOGNIZED';
+    case FileOptions_OptimizeMode.SPEED:
+      return "SPEED";
+    case FileOptions_OptimizeMode.CODE_SIZE:
+      return "CODE_SIZE";
+    case FileOptions_OptimizeMode.LITE_RUNTIME:
+      return "LITE_RUNTIME";
+    case FileOptions_OptimizeMode.UNRECOGNIZED:
+    default:
+      return "UNRECOGNIZED";
   }
 }
 export enum FieldOptions_CType {
@@ -244,32 +244,32 @@ export const FieldOptions_CTypeSDKType = FieldOptions_CType;
 export const FieldOptions_CTypeAmino = FieldOptions_CType;
 export function fieldOptions_CTypeFromJSON(object: any): FieldOptions_CType {
   switch (object) {
-  case 0:
-  case 'STRING':
-    return FieldOptions_CType.STRING;
-  case 1:
-  case 'CORD':
-    return FieldOptions_CType.CORD;
-  case 2:
-  case 'STRING_PIECE':
-    return FieldOptions_CType.STRING_PIECE;
-  case -1:
-  case 'UNRECOGNIZED':
-  default:
-    return FieldOptions_CType.UNRECOGNIZED;
+    case 0:
+    case "STRING":
+      return FieldOptions_CType.STRING;
+    case 1:
+    case "CORD":
+      return FieldOptions_CType.CORD;
+    case 2:
+    case "STRING_PIECE":
+      return FieldOptions_CType.STRING_PIECE;
+    case -1:
+    case "UNRECOGNIZED":
+    default:
+      return FieldOptions_CType.UNRECOGNIZED;
   }
 }
 export function fieldOptions_CTypeToJSON(object: FieldOptions_CType): string {
   switch (object) {
-  case FieldOptions_CType.STRING:
-    return 'STRING';
-  case FieldOptions_CType.CORD:
-    return 'CORD';
-  case FieldOptions_CType.STRING_PIECE:
-    return 'STRING_PIECE';
-  case FieldOptions_CType.UNRECOGNIZED:
-  default:
-    return 'UNRECOGNIZED';
+    case FieldOptions_CType.STRING:
+      return "STRING";
+    case FieldOptions_CType.CORD:
+      return "CORD";
+    case FieldOptions_CType.STRING_PIECE:
+      return "STRING_PIECE";
+    case FieldOptions_CType.UNRECOGNIZED:
+    default:
+      return "UNRECOGNIZED";
   }
 }
 export enum FieldOptions_JSType {
@@ -285,32 +285,32 @@ export const FieldOptions_JSTypeSDKType = FieldOptions_JSType;
 export const FieldOptions_JSTypeAmino = FieldOptions_JSType;
 export function fieldOptions_JSTypeFromJSON(object: any): FieldOptions_JSType {
   switch (object) {
-  case 0:
-  case 'JS_NORMAL':
-    return FieldOptions_JSType.JS_NORMAL;
-  case 1:
-  case 'JS_STRING':
-    return FieldOptions_JSType.JS_STRING;
-  case 2:
-  case 'JS_NUMBER':
-    return FieldOptions_JSType.JS_NUMBER;
-  case -1:
-  case 'UNRECOGNIZED':
-  default:
-    return FieldOptions_JSType.UNRECOGNIZED;
+    case 0:
+    case "JS_NORMAL":
+      return FieldOptions_JSType.JS_NORMAL;
+    case 1:
+    case "JS_STRING":
+      return FieldOptions_JSType.JS_STRING;
+    case 2:
+    case "JS_NUMBER":
+      return FieldOptions_JSType.JS_NUMBER;
+    case -1:
+    case "UNRECOGNIZED":
+    default:
+      return FieldOptions_JSType.UNRECOGNIZED;
   }
 }
 export function fieldOptions_JSTypeToJSON(object: FieldOptions_JSType): string {
   switch (object) {
-  case FieldOptions_JSType.JS_NORMAL:
-    return 'JS_NORMAL';
-  case FieldOptions_JSType.JS_STRING:
-    return 'JS_STRING';
-  case FieldOptions_JSType.JS_NUMBER:
-    return 'JS_NUMBER';
-  case FieldOptions_JSType.UNRECOGNIZED:
-  default:
-    return 'UNRECOGNIZED';
+    case FieldOptions_JSType.JS_NORMAL:
+      return "JS_NORMAL";
+    case FieldOptions_JSType.JS_STRING:
+      return "JS_STRING";
+    case FieldOptions_JSType.JS_NUMBER:
+      return "JS_NUMBER";
+    case FieldOptions_JSType.UNRECOGNIZED:
+    default:
+      return "UNRECOGNIZED";
   }
 }
 /**
@@ -330,32 +330,32 @@ export const MethodOptions_IdempotencyLevelSDKType = MethodOptions_IdempotencyLe
 export const MethodOptions_IdempotencyLevelAmino = MethodOptions_IdempotencyLevel;
 export function methodOptions_IdempotencyLevelFromJSON(object: any): MethodOptions_IdempotencyLevel {
   switch (object) {
-  case 0:
-  case 'IDEMPOTENCY_UNKNOWN':
-    return MethodOptions_IdempotencyLevel.IDEMPOTENCY_UNKNOWN;
-  case 1:
-  case 'NO_SIDE_EFFECTS':
-    return MethodOptions_IdempotencyLevel.NO_SIDE_EFFECTS;
-  case 2:
-  case 'IDEMPOTENT':
-    return MethodOptions_IdempotencyLevel.IDEMPOTENT;
-  case -1:
-  case 'UNRECOGNIZED':
-  default:
-    return MethodOptions_IdempotencyLevel.UNRECOGNIZED;
+    case 0:
+    case "IDEMPOTENCY_UNKNOWN":
+      return MethodOptions_IdempotencyLevel.IDEMPOTENCY_UNKNOWN;
+    case 1:
+    case "NO_SIDE_EFFECTS":
+      return MethodOptions_IdempotencyLevel.NO_SIDE_EFFECTS;
+    case 2:
+    case "IDEMPOTENT":
+      return MethodOptions_IdempotencyLevel.IDEMPOTENT;
+    case -1:
+    case "UNRECOGNIZED":
+    default:
+      return MethodOptions_IdempotencyLevel.UNRECOGNIZED;
   }
 }
 export function methodOptions_IdempotencyLevelToJSON(object: MethodOptions_IdempotencyLevel): string {
   switch (object) {
-  case MethodOptions_IdempotencyLevel.IDEMPOTENCY_UNKNOWN:
-    return 'IDEMPOTENCY_UNKNOWN';
-  case MethodOptions_IdempotencyLevel.NO_SIDE_EFFECTS:
-    return 'NO_SIDE_EFFECTS';
-  case MethodOptions_IdempotencyLevel.IDEMPOTENT:
-    return 'IDEMPOTENT';
-  case MethodOptions_IdempotencyLevel.UNRECOGNIZED:
-  default:
-    return 'UNRECOGNIZED';
+    case MethodOptions_IdempotencyLevel.IDEMPOTENCY_UNKNOWN:
+      return "IDEMPOTENCY_UNKNOWN";
+    case MethodOptions_IdempotencyLevel.NO_SIDE_EFFECTS:
+      return "NO_SIDE_EFFECTS";
+    case MethodOptions_IdempotencyLevel.IDEMPOTENT:
+      return "IDEMPOTENT";
+    case MethodOptions_IdempotencyLevel.UNRECOGNIZED:
+    default:
+      return "UNRECOGNIZED";
   }
 }
 /**
@@ -366,7 +366,7 @@ export interface FileDescriptorSet {
   file: FileDescriptorProto[];
 }
 export interface FileDescriptorSetProtoMsg {
-  typeUrl: '/google.protobuf.FileDescriptorSet';
+  typeUrl: "/google.protobuf.FileDescriptorSet";
   value: Uint8Array;
 }
 /**
@@ -377,7 +377,7 @@ export interface FileDescriptorSetAmino {
   file?: FileDescriptorProtoAmino[];
 }
 export interface FileDescriptorSetAminoMsg {
-  type: '/google.protobuf.FileDescriptorSet';
+  type: "/google.protobuf.FileDescriptorSet";
   value: FileDescriptorSetAmino;
 }
 /**
@@ -422,7 +422,7 @@ export interface FileDescriptorProto {
   syntax: string;
 }
 export interface FileDescriptorProtoProtoMsg {
-  typeUrl: '/google.protobuf.FileDescriptorProto';
+  typeUrl: "/google.protobuf.FileDescriptorProto";
   value: Uint8Array;
 }
 /** Describes a complete .proto file. */
@@ -460,7 +460,7 @@ export interface FileDescriptorProtoAmino {
   syntax?: string;
 }
 export interface FileDescriptorProtoAminoMsg {
-  type: '/google.protobuf.FileDescriptorProto';
+  type: "/google.protobuf.FileDescriptorProto";
   value: FileDescriptorProtoAmino;
 }
 /** Describes a complete .proto file. */
@@ -496,7 +496,7 @@ export interface DescriptorProto {
   reservedName: string[];
 }
 export interface DescriptorProtoProtoMsg {
-  typeUrl: '/google.protobuf.DescriptorProto';
+  typeUrl: "/google.protobuf.DescriptorProto";
   value: Uint8Array;
 }
 /** Describes a message type. */
@@ -517,7 +517,7 @@ export interface DescriptorProtoAmino {
   reserved_name?: string[];
 }
 export interface DescriptorProtoAminoMsg {
-  type: '/google.protobuf.DescriptorProto';
+  type: "/google.protobuf.DescriptorProto";
   value: DescriptorProtoAmino;
 }
 /** Describes a message type. */
@@ -541,7 +541,7 @@ export interface DescriptorProto_ExtensionRange {
   options?: ExtensionRangeOptions;
 }
 export interface DescriptorProto_ExtensionRangeProtoMsg {
-  typeUrl: '/google.protobuf.ExtensionRange';
+  typeUrl: "/google.protobuf.ExtensionRange";
   value: Uint8Array;
 }
 export interface DescriptorProto_ExtensionRangeAmino {
@@ -552,7 +552,7 @@ export interface DescriptorProto_ExtensionRangeAmino {
   options?: ExtensionRangeOptionsAmino;
 }
 export interface DescriptorProto_ExtensionRangeAminoMsg {
-  type: '/google.protobuf.ExtensionRange';
+  type: "/google.protobuf.ExtensionRange";
   value: DescriptorProto_ExtensionRangeAmino;
 }
 export interface DescriptorProto_ExtensionRangeSDKType {
@@ -572,7 +572,7 @@ export interface DescriptorProto_ReservedRange {
   end: number;
 }
 export interface DescriptorProto_ReservedRangeProtoMsg {
-  typeUrl: '/google.protobuf.ReservedRange';
+  typeUrl: "/google.protobuf.ReservedRange";
   value: Uint8Array;
 }
 /**
@@ -587,7 +587,7 @@ export interface DescriptorProto_ReservedRangeAmino {
   end?: number;
 }
 export interface DescriptorProto_ReservedRangeAminoMsg {
-  type: '/google.protobuf.ReservedRange';
+  type: "/google.protobuf.ReservedRange";
   value: DescriptorProto_ReservedRangeAmino;
 }
 /**
@@ -604,7 +604,7 @@ export interface ExtensionRangeOptions {
   uninterpretedOption: UninterpretedOption[];
 }
 export interface ExtensionRangeOptionsProtoMsg {
-  typeUrl: '/google.protobuf.ExtensionRangeOptions';
+  typeUrl: "/google.protobuf.ExtensionRangeOptions";
   value: Uint8Array;
 }
 export interface ExtensionRangeOptionsAmino {
@@ -612,7 +612,7 @@ export interface ExtensionRangeOptionsAmino {
   uninterpreted_option?: UninterpretedOptionAmino[];
 }
 export interface ExtensionRangeOptionsAminoMsg {
-  type: '/google.protobuf.ExtensionRangeOptions';
+  type: "/google.protobuf.ExtensionRangeOptions";
   value: ExtensionRangeOptionsAmino;
 }
 export interface ExtensionRangeOptionsSDKType {
@@ -664,7 +664,7 @@ export interface FieldDescriptorProto {
   options?: FieldOptions;
 }
 export interface FieldDescriptorProtoProtoMsg {
-  typeUrl: '/google.protobuf.FieldDescriptorProto';
+  typeUrl: "/google.protobuf.FieldDescriptorProto";
   value: Uint8Array;
 }
 /** Describes a field within a message. */
@@ -713,7 +713,7 @@ export interface FieldDescriptorProtoAmino {
   options?: FieldOptionsAmino;
 }
 export interface FieldDescriptorProtoAminoMsg {
-  type: '/google.protobuf.FieldDescriptorProto';
+  type: "/google.protobuf.FieldDescriptorProto";
   value: FieldDescriptorProtoAmino;
 }
 /** Describes a field within a message. */
@@ -735,7 +735,7 @@ export interface OneofDescriptorProto {
   options?: OneofOptions;
 }
 export interface OneofDescriptorProtoProtoMsg {
-  typeUrl: '/google.protobuf.OneofDescriptorProto';
+  typeUrl: "/google.protobuf.OneofDescriptorProto";
   value: Uint8Array;
 }
 /** Describes a oneof. */
@@ -744,7 +744,7 @@ export interface OneofDescriptorProtoAmino {
   options?: OneofOptionsAmino;
 }
 export interface OneofDescriptorProtoAminoMsg {
-  type: '/google.protobuf.OneofDescriptorProto';
+  type: "/google.protobuf.OneofDescriptorProto";
   value: OneofDescriptorProtoAmino;
 }
 /** Describes a oneof. */
@@ -770,7 +770,7 @@ export interface EnumDescriptorProto {
   reservedName: string[];
 }
 export interface EnumDescriptorProtoProtoMsg {
-  typeUrl: '/google.protobuf.EnumDescriptorProto';
+  typeUrl: "/google.protobuf.EnumDescriptorProto";
   value: Uint8Array;
 }
 /** Describes an enum type. */
@@ -791,7 +791,7 @@ export interface EnumDescriptorProtoAmino {
   reserved_name?: string[];
 }
 export interface EnumDescriptorProtoAminoMsg {
-  type: '/google.protobuf.EnumDescriptorProto';
+  type: "/google.protobuf.EnumDescriptorProto";
   value: EnumDescriptorProtoAmino;
 }
 /** Describes an enum type. */
@@ -817,7 +817,7 @@ export interface EnumDescriptorProto_EnumReservedRange {
   end: number;
 }
 export interface EnumDescriptorProto_EnumReservedRangeProtoMsg {
-  typeUrl: '/google.protobuf.EnumReservedRange';
+  typeUrl: "/google.protobuf.EnumReservedRange";
   value: Uint8Array;
 }
 /**
@@ -835,7 +835,7 @@ export interface EnumDescriptorProto_EnumReservedRangeAmino {
   end?: number;
 }
 export interface EnumDescriptorProto_EnumReservedRangeAminoMsg {
-  type: '/google.protobuf.EnumReservedRange';
+  type: "/google.protobuf.EnumReservedRange";
   value: EnumDescriptorProto_EnumReservedRangeAmino;
 }
 /**
@@ -857,7 +857,7 @@ export interface EnumValueDescriptorProto {
   options?: EnumValueOptions;
 }
 export interface EnumValueDescriptorProtoProtoMsg {
-  typeUrl: '/google.protobuf.EnumValueDescriptorProto';
+  typeUrl: "/google.protobuf.EnumValueDescriptorProto";
   value: Uint8Array;
 }
 /** Describes a value within an enum. */
@@ -867,7 +867,7 @@ export interface EnumValueDescriptorProtoAmino {
   options?: EnumValueOptionsAmino;
 }
 export interface EnumValueDescriptorProtoAminoMsg {
-  type: '/google.protobuf.EnumValueDescriptorProto';
+  type: "/google.protobuf.EnumValueDescriptorProto";
   value: EnumValueDescriptorProtoAmino;
 }
 /** Describes a value within an enum. */
@@ -883,7 +883,7 @@ export interface ServiceDescriptorProto {
   options?: ServiceOptions;
 }
 export interface ServiceDescriptorProtoProtoMsg {
-  typeUrl: '/google.protobuf.ServiceDescriptorProto';
+  typeUrl: "/google.protobuf.ServiceDescriptorProto";
   value: Uint8Array;
 }
 /** Describes a service. */
@@ -893,7 +893,7 @@ export interface ServiceDescriptorProtoAmino {
   options?: ServiceOptionsAmino;
 }
 export interface ServiceDescriptorProtoAminoMsg {
-  type: '/google.protobuf.ServiceDescriptorProto';
+  type: "/google.protobuf.ServiceDescriptorProto";
   value: ServiceDescriptorProtoAmino;
 }
 /** Describes a service. */
@@ -918,7 +918,7 @@ export interface MethodDescriptorProto {
   serverStreaming: boolean;
 }
 export interface MethodDescriptorProtoProtoMsg {
-  typeUrl: '/google.protobuf.MethodDescriptorProto';
+  typeUrl: "/google.protobuf.MethodDescriptorProto";
   value: Uint8Array;
 }
 /** Describes a method of a service. */
@@ -937,7 +937,7 @@ export interface MethodDescriptorProtoAmino {
   server_streaming?: boolean;
 }
 export interface MethodDescriptorProtoAminoMsg {
-  type: '/google.protobuf.MethodDescriptorProto';
+  type: "/google.protobuf.MethodDescriptorProto";
   value: MethodDescriptorProtoAmino;
 }
 /** Describes a method of a service. */
@@ -1067,7 +1067,7 @@ export interface FileOptions {
   uninterpretedOption: UninterpretedOption[];
 }
 export interface FileOptionsProtoMsg {
-  typeUrl: '/google.protobuf.FileOptions';
+  typeUrl: "/google.protobuf.FileOptions";
   value: Uint8Array;
 }
 export interface FileOptionsAmino {
@@ -1188,7 +1188,7 @@ export interface FileOptionsAmino {
   uninterpreted_option?: UninterpretedOptionAmino[];
 }
 export interface FileOptionsAminoMsg {
-  type: '/google.protobuf.FileOptions';
+  type: "/google.protobuf.FileOptions";
   value: FileOptionsAmino;
 }
 export interface FileOptionsSDKType {
@@ -1278,7 +1278,7 @@ export interface MessageOptions {
   uninterpretedOption: UninterpretedOption[];
 }
 export interface MessageOptionsProtoMsg {
-  typeUrl: '/google.protobuf.MessageOptions';
+  typeUrl: "/google.protobuf.MessageOptions";
   value: Uint8Array;
 }
 export interface MessageOptionsAmino {
@@ -1344,7 +1344,7 @@ export interface MessageOptionsAmino {
   uninterpreted_option?: UninterpretedOptionAmino[];
 }
 export interface MessageOptionsAminoMsg {
-  type: '/google.protobuf.MessageOptions';
+  type: "/google.protobuf.MessageOptions";
   value: MessageOptionsAmino;
 }
 export interface MessageOptionsSDKType {
@@ -1428,7 +1428,7 @@ export interface FieldOptions {
   uninterpretedOption: UninterpretedOption[];
 }
 export interface FieldOptionsProtoMsg {
-  typeUrl: '/google.protobuf.FieldOptions';
+  typeUrl: "/google.protobuf.FieldOptions";
   value: Uint8Array;
 }
 export interface FieldOptionsAmino {
@@ -1505,7 +1505,7 @@ export interface FieldOptionsAmino {
   uninterpreted_option?: UninterpretedOptionAmino[];
 }
 export interface FieldOptionsAminoMsg {
-  type: '/google.protobuf.FieldOptions';
+  type: "/google.protobuf.FieldOptions";
   value: FieldOptionsAmino;
 }
 export interface FieldOptionsSDKType {
@@ -1522,7 +1522,7 @@ export interface OneofOptions {
   uninterpretedOption: UninterpretedOption[];
 }
 export interface OneofOptionsProtoMsg {
-  typeUrl: '/google.protobuf.OneofOptions';
+  typeUrl: "/google.protobuf.OneofOptions";
   value: Uint8Array;
 }
 export interface OneofOptionsAmino {
@@ -1530,7 +1530,7 @@ export interface OneofOptionsAmino {
   uninterpreted_option?: UninterpretedOptionAmino[];
 }
 export interface OneofOptionsAminoMsg {
-  type: '/google.protobuf.OneofOptions';
+  type: "/google.protobuf.OneofOptions";
   value: OneofOptionsAmino;
 }
 export interface OneofOptionsSDKType {
@@ -1553,7 +1553,7 @@ export interface EnumOptions {
   uninterpretedOption: UninterpretedOption[];
 }
 export interface EnumOptionsProtoMsg {
-  typeUrl: '/google.protobuf.EnumOptions';
+  typeUrl: "/google.protobuf.EnumOptions";
   value: Uint8Array;
 }
 export interface EnumOptionsAmino {
@@ -1573,7 +1573,7 @@ export interface EnumOptionsAmino {
   uninterpreted_option?: UninterpretedOptionAmino[];
 }
 export interface EnumOptionsAminoMsg {
-  type: '/google.protobuf.EnumOptions';
+  type: "/google.protobuf.EnumOptions";
   value: EnumOptionsAmino;
 }
 export interface EnumOptionsSDKType {
@@ -1593,7 +1593,7 @@ export interface EnumValueOptions {
   uninterpretedOption: UninterpretedOption[];
 }
 export interface EnumValueOptionsProtoMsg {
-  typeUrl: '/google.protobuf.EnumValueOptions';
+  typeUrl: "/google.protobuf.EnumValueOptions";
   value: Uint8Array;
 }
 export interface EnumValueOptionsAmino {
@@ -1608,7 +1608,7 @@ export interface EnumValueOptionsAmino {
   uninterpreted_option?: UninterpretedOptionAmino[];
 }
 export interface EnumValueOptionsAminoMsg {
-  type: '/google.protobuf.EnumValueOptions';
+  type: "/google.protobuf.EnumValueOptions";
   value: EnumValueOptionsAmino;
 }
 export interface EnumValueOptionsSDKType {
@@ -1627,7 +1627,7 @@ export interface ServiceOptions {
   uninterpretedOption: UninterpretedOption[];
 }
 export interface ServiceOptionsProtoMsg {
-  typeUrl: '/google.protobuf.ServiceOptions';
+  typeUrl: "/google.protobuf.ServiceOptions";
   value: Uint8Array;
 }
 export interface ServiceOptionsAmino {
@@ -1642,7 +1642,7 @@ export interface ServiceOptionsAmino {
   uninterpreted_option?: UninterpretedOptionAmino[];
 }
 export interface ServiceOptionsAminoMsg {
-  type: '/google.protobuf.ServiceOptions';
+  type: "/google.protobuf.ServiceOptions";
   value: ServiceOptionsAmino;
 }
 export interface ServiceOptionsSDKType {
@@ -1662,7 +1662,7 @@ export interface MethodOptions {
   uninterpretedOption: UninterpretedOption[];
 }
 export interface MethodOptionsProtoMsg {
-  typeUrl: '/google.protobuf.MethodOptions';
+  typeUrl: "/google.protobuf.MethodOptions";
   value: Uint8Array;
 }
 export interface MethodOptionsAmino {
@@ -1678,7 +1678,7 @@ export interface MethodOptionsAmino {
   uninterpreted_option?: UninterpretedOptionAmino[];
 }
 export interface MethodOptionsAminoMsg {
-  type: '/google.protobuf.MethodOptions';
+  type: "/google.protobuf.MethodOptions";
   value: MethodOptionsAmino;
 }
 export interface MethodOptionsSDKType {
@@ -1708,7 +1708,7 @@ export interface UninterpretedOption {
   aggregateValue: string;
 }
 export interface UninterpretedOptionProtoMsg {
-  typeUrl: '/google.protobuf.UninterpretedOption';
+  typeUrl: "/google.protobuf.UninterpretedOption";
   value: Uint8Array;
 }
 /**
@@ -1733,7 +1733,7 @@ export interface UninterpretedOptionAmino {
   aggregate_value?: string;
 }
 export interface UninterpretedOptionAminoMsg {
-  type: '/google.protobuf.UninterpretedOption';
+  type: "/google.protobuf.UninterpretedOption";
   value: UninterpretedOptionAmino;
 }
 /**
@@ -1765,7 +1765,7 @@ export interface UninterpretedOption_NamePart {
   isExtension: boolean;
 }
 export interface UninterpretedOption_NamePartProtoMsg {
-  typeUrl: '/google.protobuf.NamePart';
+  typeUrl: "/google.protobuf.NamePart";
   value: Uint8Array;
 }
 /**
@@ -1780,7 +1780,7 @@ export interface UninterpretedOption_NamePartAmino {
   is_extension?: boolean;
 }
 export interface UninterpretedOption_NamePartAminoMsg {
-  type: '/google.protobuf.NamePart';
+  type: "/google.protobuf.NamePart";
   value: UninterpretedOption_NamePartAmino;
 }
 /**
@@ -1847,7 +1847,7 @@ export interface SourceCodeInfo {
   location: SourceCodeInfo_Location[];
 }
 export interface SourceCodeInfoProtoMsg {
-  typeUrl: '/google.protobuf.SourceCodeInfo';
+  typeUrl: "/google.protobuf.SourceCodeInfo";
   value: Uint8Array;
 }
 /**
@@ -1903,7 +1903,7 @@ export interface SourceCodeInfoAmino {
   location?: SourceCodeInfo_LocationAmino[];
 }
 export interface SourceCodeInfoAminoMsg {
-  type: '/google.protobuf.SourceCodeInfo';
+  type: "/google.protobuf.SourceCodeInfo";
   value: SourceCodeInfoAmino;
 }
 /**
@@ -2002,7 +2002,7 @@ export interface SourceCodeInfo_Location {
   leadingDetachedComments: string[];
 }
 export interface SourceCodeInfo_LocationProtoMsg {
-  typeUrl: '/google.protobuf.Location';
+  typeUrl: "/google.protobuf.Location";
   value: Uint8Array;
 }
 export interface SourceCodeInfo_LocationAmino {
@@ -2094,7 +2094,7 @@ export interface SourceCodeInfo_LocationAmino {
   leading_detached_comments?: string[];
 }
 export interface SourceCodeInfo_LocationAminoMsg {
-  type: '/google.protobuf.Location';
+  type: "/google.protobuf.Location";
   value: SourceCodeInfo_LocationAmino;
 }
 export interface SourceCodeInfo_LocationSDKType {
@@ -2117,7 +2117,7 @@ export interface GeneratedCodeInfo {
   annotation: GeneratedCodeInfo_Annotation[];
 }
 export interface GeneratedCodeInfoProtoMsg {
-  typeUrl: '/google.protobuf.GeneratedCodeInfo';
+  typeUrl: "/google.protobuf.GeneratedCodeInfo";
   value: Uint8Array;
 }
 /**
@@ -2133,7 +2133,7 @@ export interface GeneratedCodeInfoAmino {
   annotation?: GeneratedCodeInfo_AnnotationAmino[];
 }
 export interface GeneratedCodeInfoAminoMsg {
-  type: '/google.protobuf.GeneratedCodeInfo';
+  type: "/google.protobuf.GeneratedCodeInfo";
   value: GeneratedCodeInfoAmino;
 }
 /**
@@ -2165,7 +2165,7 @@ export interface GeneratedCodeInfo_Annotation {
   end: number;
 }
 export interface GeneratedCodeInfo_AnnotationProtoMsg {
-  typeUrl: '/google.protobuf.Annotation';
+  typeUrl: "/google.protobuf.Annotation";
   value: Uint8Array;
 }
 export interface GeneratedCodeInfo_AnnotationAmino {
@@ -2189,7 +2189,7 @@ export interface GeneratedCodeInfo_AnnotationAmino {
   end?: number;
 }
 export interface GeneratedCodeInfo_AnnotationAminoMsg {
-  type: '/google.protobuf.Annotation';
+  type: "/google.protobuf.Annotation";
   value: GeneratedCodeInfo_AnnotationAmino;
 }
 export interface GeneratedCodeInfo_AnnotationSDKType {
@@ -2204,7 +2204,7 @@ function createBaseFileDescriptorSet(): FileDescriptorSet {
   };
 }
 export const FileDescriptorSet = {
-  typeUrl: '/google.protobuf.FileDescriptorSet',
+  typeUrl: "/google.protobuf.FileDescriptorSet",
   is(o: any): o is FileDescriptorSet {
     return o && (o.$typeUrl === FileDescriptorSet.typeUrl || Array.isArray(o.file) && (!o.file.length || FileDescriptorProto.is(o.file[0])));
   },
@@ -2227,12 +2227,12 @@ export const FileDescriptorSet = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.file.push(FileDescriptorProto.decode(reader, reader.uint32()));
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.file.push(FileDescriptorProto.decode(reader, reader.uint32()));
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -2267,7 +2267,7 @@ export const FileDescriptorSet = {
   },
   toProtoMsg(message: FileDescriptorSet): FileDescriptorSetProtoMsg {
     return {
-      typeUrl: '/google.protobuf.FileDescriptorSet',
+      typeUrl: "/google.protobuf.FileDescriptorSet",
       value: FileDescriptorSet.encode(message).finish()
     };
   }
@@ -2275,8 +2275,8 @@ export const FileDescriptorSet = {
 GlobalDecoderRegistry.register(FileDescriptorSet.typeUrl, FileDescriptorSet);
 function createBaseFileDescriptorProto(): FileDescriptorProto {
   return {
-    name: '',
-    package: '',
+    name: "",
+    package: "",
     dependency: [],
     publicDependency: [],
     weakDependency: [],
@@ -2286,25 +2286,25 @@ function createBaseFileDescriptorProto(): FileDescriptorProto {
     extension: [],
     options: undefined,
     sourceCodeInfo: undefined,
-    syntax: ''
+    syntax: ""
   };
 }
 export const FileDescriptorProto = {
-  typeUrl: '/google.protobuf.FileDescriptorProto',
+  typeUrl: "/google.protobuf.FileDescriptorProto",
   is(o: any): o is FileDescriptorProto {
-    return o && (o.$typeUrl === FileDescriptorProto.typeUrl || typeof o.name === 'string' && typeof o.package === 'string' && Array.isArray(o.dependency) && (!o.dependency.length || typeof o.dependency[0] === 'string') && Array.isArray(o.publicDependency) && (!o.publicDependency.length || typeof o.publicDependency[0] === 'number') && Array.isArray(o.weakDependency) && (!o.weakDependency.length || typeof o.weakDependency[0] === 'number') && Array.isArray(o.messageType) && (!o.messageType.length || DescriptorProto.is(o.messageType[0])) && Array.isArray(o.enumType) && (!o.enumType.length || EnumDescriptorProto.is(o.enumType[0])) && Array.isArray(o.service) && (!o.service.length || ServiceDescriptorProto.is(o.service[0])) && Array.isArray(o.extension) && (!o.extension.length || FieldDescriptorProto.is(o.extension[0])) && typeof o.syntax === 'string');
+    return o && (o.$typeUrl === FileDescriptorProto.typeUrl || typeof o.name === "string" && typeof o.package === "string" && Array.isArray(o.dependency) && (!o.dependency.length || typeof o.dependency[0] === "string") && Array.isArray(o.publicDependency) && (!o.publicDependency.length || typeof o.publicDependency[0] === "number") && Array.isArray(o.weakDependency) && (!o.weakDependency.length || typeof o.weakDependency[0] === "number") && Array.isArray(o.messageType) && (!o.messageType.length || DescriptorProto.is(o.messageType[0])) && Array.isArray(o.enumType) && (!o.enumType.length || EnumDescriptorProto.is(o.enumType[0])) && Array.isArray(o.service) && (!o.service.length || ServiceDescriptorProto.is(o.service[0])) && Array.isArray(o.extension) && (!o.extension.length || FieldDescriptorProto.is(o.extension[0])) && typeof o.syntax === "string");
   },
   isSDK(o: any): o is FileDescriptorProtoSDKType {
-    return o && (o.$typeUrl === FileDescriptorProto.typeUrl || typeof o.name === 'string' && typeof o.package === 'string' && Array.isArray(o.dependency) && (!o.dependency.length || typeof o.dependency[0] === 'string') && Array.isArray(o.public_dependency) && (!o.public_dependency.length || typeof o.public_dependency[0] === 'number') && Array.isArray(o.weak_dependency) && (!o.weak_dependency.length || typeof o.weak_dependency[0] === 'number') && Array.isArray(o.message_type) && (!o.message_type.length || DescriptorProto.isSDK(o.message_type[0])) && Array.isArray(o.enum_type) && (!o.enum_type.length || EnumDescriptorProto.isSDK(o.enum_type[0])) && Array.isArray(o.service) && (!o.service.length || ServiceDescriptorProto.isSDK(o.service[0])) && Array.isArray(o.extension) && (!o.extension.length || FieldDescriptorProto.isSDK(o.extension[0])) && typeof o.syntax === 'string');
+    return o && (o.$typeUrl === FileDescriptorProto.typeUrl || typeof o.name === "string" && typeof o.package === "string" && Array.isArray(o.dependency) && (!o.dependency.length || typeof o.dependency[0] === "string") && Array.isArray(o.public_dependency) && (!o.public_dependency.length || typeof o.public_dependency[0] === "number") && Array.isArray(o.weak_dependency) && (!o.weak_dependency.length || typeof o.weak_dependency[0] === "number") && Array.isArray(o.message_type) && (!o.message_type.length || DescriptorProto.isSDK(o.message_type[0])) && Array.isArray(o.enum_type) && (!o.enum_type.length || EnumDescriptorProto.isSDK(o.enum_type[0])) && Array.isArray(o.service) && (!o.service.length || ServiceDescriptorProto.isSDK(o.service[0])) && Array.isArray(o.extension) && (!o.extension.length || FieldDescriptorProto.isSDK(o.extension[0])) && typeof o.syntax === "string");
   },
   isAmino(o: any): o is FileDescriptorProtoAmino {
-    return o && (o.$typeUrl === FileDescriptorProto.typeUrl || typeof o.name === 'string' && typeof o.package === 'string' && Array.isArray(o.dependency) && (!o.dependency.length || typeof o.dependency[0] === 'string') && Array.isArray(o.public_dependency) && (!o.public_dependency.length || typeof o.public_dependency[0] === 'number') && Array.isArray(o.weak_dependency) && (!o.weak_dependency.length || typeof o.weak_dependency[0] === 'number') && Array.isArray(o.message_type) && (!o.message_type.length || DescriptorProto.isAmino(o.message_type[0])) && Array.isArray(o.enum_type) && (!o.enum_type.length || EnumDescriptorProto.isAmino(o.enum_type[0])) && Array.isArray(o.service) && (!o.service.length || ServiceDescriptorProto.isAmino(o.service[0])) && Array.isArray(o.extension) && (!o.extension.length || FieldDescriptorProto.isAmino(o.extension[0])) && typeof o.syntax === 'string');
+    return o && (o.$typeUrl === FileDescriptorProto.typeUrl || typeof o.name === "string" && typeof o.package === "string" && Array.isArray(o.dependency) && (!o.dependency.length || typeof o.dependency[0] === "string") && Array.isArray(o.public_dependency) && (!o.public_dependency.length || typeof o.public_dependency[0] === "number") && Array.isArray(o.weak_dependency) && (!o.weak_dependency.length || typeof o.weak_dependency[0] === "number") && Array.isArray(o.message_type) && (!o.message_type.length || DescriptorProto.isAmino(o.message_type[0])) && Array.isArray(o.enum_type) && (!o.enum_type.length || EnumDescriptorProto.isAmino(o.enum_type[0])) && Array.isArray(o.service) && (!o.service.length || ServiceDescriptorProto.isAmino(o.service[0])) && Array.isArray(o.extension) && (!o.extension.length || FieldDescriptorProto.isAmino(o.extension[0])) && typeof o.syntax === "string");
   },
   encode(message: FileDescriptorProto, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.name !== '') {
+    if (message.name !== "") {
       writer.uint32(10).string(message.name);
     }
-    if (message.package !== '') {
+    if (message.package !== "") {
       writer.uint32(18).string(message.package);
     }
     for (const v of message.dependency) {
@@ -2338,7 +2338,7 @@ export const FileDescriptorProto = {
     if (message.sourceCodeInfo !== undefined) {
       SourceCodeInfo.encode(message.sourceCodeInfo, writer.uint32(74).fork()).ldelim();
     }
-    if (message.syntax !== '') {
+    if (message.syntax !== "") {
       writer.uint32(98).string(message.syntax);
     }
     return writer;
@@ -2350,67 +2350,67 @@ export const FileDescriptorProto = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.name = reader.string();
-        break;
-      case 2:
-        message.package = reader.string();
-        break;
-      case 3:
-        message.dependency.push(reader.string());
-        break;
-      case 10:
-        if ((tag & 7) === 2) {
-          const end2 = reader.uint32() + reader.pos;
-          while (reader.pos < end2) {
+        case 1:
+          message.name = reader.string();
+          break;
+        case 2:
+          message.package = reader.string();
+          break;
+        case 3:
+          message.dependency.push(reader.string());
+          break;
+        case 10:
+          if ((tag & 7) === 2) {
+            const end2 = reader.uint32() + reader.pos;
+            while (reader.pos < end2) {
+              message.publicDependency.push(reader.int32());
+            }
+          } else {
             message.publicDependency.push(reader.int32());
           }
-        } else {
-          message.publicDependency.push(reader.int32());
-        }
-        break;
-      case 11:
-        if ((tag & 7) === 2) {
-          const end2 = reader.uint32() + reader.pos;
-          while (reader.pos < end2) {
+          break;
+        case 11:
+          if ((tag & 7) === 2) {
+            const end2 = reader.uint32() + reader.pos;
+            while (reader.pos < end2) {
+              message.weakDependency.push(reader.int32());
+            }
+          } else {
             message.weakDependency.push(reader.int32());
           }
-        } else {
-          message.weakDependency.push(reader.int32());
-        }
-        break;
-      case 4:
-        message.messageType.push(DescriptorProto.decode(reader, reader.uint32()));
-        break;
-      case 5:
-        message.enumType.push(EnumDescriptorProto.decode(reader, reader.uint32()));
-        break;
-      case 6:
-        message.service.push(ServiceDescriptorProto.decode(reader, reader.uint32()));
-        break;
-      case 7:
-        message.extension.push(FieldDescriptorProto.decode(reader, reader.uint32()));
-        break;
-      case 8:
-        message.options = FileOptions.decode(reader, reader.uint32());
-        break;
-      case 9:
-        message.sourceCodeInfo = SourceCodeInfo.decode(reader, reader.uint32());
-        break;
-      case 12:
-        message.syntax = reader.string();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+          break;
+        case 4:
+          message.messageType.push(DescriptorProto.decode(reader, reader.uint32()));
+          break;
+        case 5:
+          message.enumType.push(EnumDescriptorProto.decode(reader, reader.uint32()));
+          break;
+        case 6:
+          message.service.push(ServiceDescriptorProto.decode(reader, reader.uint32()));
+          break;
+        case 7:
+          message.extension.push(FieldDescriptorProto.decode(reader, reader.uint32()));
+          break;
+        case 8:
+          message.options = FileOptions.decode(reader, reader.uint32());
+          break;
+        case 9:
+          message.sourceCodeInfo = SourceCodeInfo.decode(reader, reader.uint32());
+          break;
+        case 12:
+          message.syntax = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<FileDescriptorProto>): FileDescriptorProto {
     const message = createBaseFileDescriptorProto();
-    message.name = object.name ?? '';
-    message.package = object.package ?? '';
+    message.name = object.name ?? "";
+    message.package = object.package ?? "";
     message.dependency = object.dependency?.map(e => e) || [];
     message.publicDependency = object.publicDependency?.map(e => e) || [];
     message.weakDependency = object.weakDependency?.map(e => e) || [];
@@ -2420,7 +2420,7 @@ export const FileDescriptorProto = {
     message.extension = object.extension?.map(e => FieldDescriptorProto.fromPartial(e)) || [];
     message.options = object.options !== undefined && object.options !== null ? FileOptions.fromPartial(object.options) : undefined;
     message.sourceCodeInfo = object.sourceCodeInfo !== undefined && object.sourceCodeInfo !== null ? SourceCodeInfo.fromPartial(object.sourceCodeInfo) : undefined;
-    message.syntax = object.syntax ?? '';
+    message.syntax = object.syntax ?? "";
     return message;
   },
   fromAmino(object: FileDescriptorProtoAmino): FileDescriptorProto {
@@ -2451,8 +2451,8 @@ export const FileDescriptorProto = {
   },
   toAmino(message: FileDescriptorProto): FileDescriptorProtoAmino {
     const obj: any = {};
-    obj.name = message.name === '' ? undefined : message.name;
-    obj.package = message.package === '' ? undefined : message.package;
+    obj.name = message.name === "" ? undefined : message.name;
+    obj.package = message.package === "" ? undefined : message.package;
     if (message.dependency) {
       obj.dependency = message.dependency.map(e => e);
     } else {
@@ -2490,7 +2490,7 @@ export const FileDescriptorProto = {
     }
     obj.options = message.options ? FileOptions.toAmino(message.options) : undefined;
     obj.source_code_info = message.sourceCodeInfo ? SourceCodeInfo.toAmino(message.sourceCodeInfo) : undefined;
-    obj.syntax = message.syntax === '' ? undefined : message.syntax;
+    obj.syntax = message.syntax === "" ? undefined : message.syntax;
     return obj;
   },
   fromAminoMsg(object: FileDescriptorProtoAminoMsg): FileDescriptorProto {
@@ -2504,7 +2504,7 @@ export const FileDescriptorProto = {
   },
   toProtoMsg(message: FileDescriptorProto): FileDescriptorProtoProtoMsg {
     return {
-      typeUrl: '/google.protobuf.FileDescriptorProto',
+      typeUrl: "/google.protobuf.FileDescriptorProto",
       value: FileDescriptorProto.encode(message).finish()
     };
   }
@@ -2512,7 +2512,7 @@ export const FileDescriptorProto = {
 GlobalDecoderRegistry.register(FileDescriptorProto.typeUrl, FileDescriptorProto);
 function createBaseDescriptorProto(): DescriptorProto {
   return {
-    name: '',
+    name: "",
     field: [],
     extension: [],
     nestedType: [],
@@ -2525,18 +2525,18 @@ function createBaseDescriptorProto(): DescriptorProto {
   };
 }
 export const DescriptorProto = {
-  typeUrl: '/google.protobuf.DescriptorProto',
+  typeUrl: "/google.protobuf.DescriptorProto",
   is(o: any): o is DescriptorProto {
-    return o && (o.$typeUrl === DescriptorProto.typeUrl || typeof o.name === 'string' && Array.isArray(o.field) && (!o.field.length || FieldDescriptorProto.is(o.field[0])) && Array.isArray(o.extension) && (!o.extension.length || FieldDescriptorProto.is(o.extension[0])) && Array.isArray(o.nestedType) && (!o.nestedType.length || DescriptorProto.is(o.nestedType[0])) && Array.isArray(o.enumType) && (!o.enumType.length || EnumDescriptorProto.is(o.enumType[0])) && Array.isArray(o.extensionRange) && (!o.extensionRange.length || DescriptorProto_ExtensionRange.is(o.extensionRange[0])) && Array.isArray(o.oneofDecl) && (!o.oneofDecl.length || OneofDescriptorProto.is(o.oneofDecl[0])) && Array.isArray(o.reservedRange) && (!o.reservedRange.length || DescriptorProto_ReservedRange.is(o.reservedRange[0])) && Array.isArray(o.reservedName) && (!o.reservedName.length || typeof o.reservedName[0] === 'string'));
+    return o && (o.$typeUrl === DescriptorProto.typeUrl || typeof o.name === "string" && Array.isArray(o.field) && (!o.field.length || FieldDescriptorProto.is(o.field[0])) && Array.isArray(o.extension) && (!o.extension.length || FieldDescriptorProto.is(o.extension[0])) && Array.isArray(o.nestedType) && (!o.nestedType.length || DescriptorProto.is(o.nestedType[0])) && Array.isArray(o.enumType) && (!o.enumType.length || EnumDescriptorProto.is(o.enumType[0])) && Array.isArray(o.extensionRange) && (!o.extensionRange.length || DescriptorProto_ExtensionRange.is(o.extensionRange[0])) && Array.isArray(o.oneofDecl) && (!o.oneofDecl.length || OneofDescriptorProto.is(o.oneofDecl[0])) && Array.isArray(o.reservedRange) && (!o.reservedRange.length || DescriptorProto_ReservedRange.is(o.reservedRange[0])) && Array.isArray(o.reservedName) && (!o.reservedName.length || typeof o.reservedName[0] === "string"));
   },
   isSDK(o: any): o is DescriptorProtoSDKType {
-    return o && (o.$typeUrl === DescriptorProto.typeUrl || typeof o.name === 'string' && Array.isArray(o.field) && (!o.field.length || FieldDescriptorProto.isSDK(o.field[0])) && Array.isArray(o.extension) && (!o.extension.length || FieldDescriptorProto.isSDK(o.extension[0])) && Array.isArray(o.nested_type) && (!o.nested_type.length || DescriptorProto.isSDK(o.nested_type[0])) && Array.isArray(o.enum_type) && (!o.enum_type.length || EnumDescriptorProto.isSDK(o.enum_type[0])) && Array.isArray(o.extension_range) && (!o.extension_range.length || DescriptorProto_ExtensionRange.isSDK(o.extension_range[0])) && Array.isArray(o.oneof_decl) && (!o.oneof_decl.length || OneofDescriptorProto.isSDK(o.oneof_decl[0])) && Array.isArray(o.reserved_range) && (!o.reserved_range.length || DescriptorProto_ReservedRange.isSDK(o.reserved_range[0])) && Array.isArray(o.reserved_name) && (!o.reserved_name.length || typeof o.reserved_name[0] === 'string'));
+    return o && (o.$typeUrl === DescriptorProto.typeUrl || typeof o.name === "string" && Array.isArray(o.field) && (!o.field.length || FieldDescriptorProto.isSDK(o.field[0])) && Array.isArray(o.extension) && (!o.extension.length || FieldDescriptorProto.isSDK(o.extension[0])) && Array.isArray(o.nested_type) && (!o.nested_type.length || DescriptorProto.isSDK(o.nested_type[0])) && Array.isArray(o.enum_type) && (!o.enum_type.length || EnumDescriptorProto.isSDK(o.enum_type[0])) && Array.isArray(o.extension_range) && (!o.extension_range.length || DescriptorProto_ExtensionRange.isSDK(o.extension_range[0])) && Array.isArray(o.oneof_decl) && (!o.oneof_decl.length || OneofDescriptorProto.isSDK(o.oneof_decl[0])) && Array.isArray(o.reserved_range) && (!o.reserved_range.length || DescriptorProto_ReservedRange.isSDK(o.reserved_range[0])) && Array.isArray(o.reserved_name) && (!o.reserved_name.length || typeof o.reserved_name[0] === "string"));
   },
   isAmino(o: any): o is DescriptorProtoAmino {
-    return o && (o.$typeUrl === DescriptorProto.typeUrl || typeof o.name === 'string' && Array.isArray(o.field) && (!o.field.length || FieldDescriptorProto.isAmino(o.field[0])) && Array.isArray(o.extension) && (!o.extension.length || FieldDescriptorProto.isAmino(o.extension[0])) && Array.isArray(o.nested_type) && (!o.nested_type.length || DescriptorProto.isAmino(o.nested_type[0])) && Array.isArray(o.enum_type) && (!o.enum_type.length || EnumDescriptorProto.isAmino(o.enum_type[0])) && Array.isArray(o.extension_range) && (!o.extension_range.length || DescriptorProto_ExtensionRange.isAmino(o.extension_range[0])) && Array.isArray(o.oneof_decl) && (!o.oneof_decl.length || OneofDescriptorProto.isAmino(o.oneof_decl[0])) && Array.isArray(o.reserved_range) && (!o.reserved_range.length || DescriptorProto_ReservedRange.isAmino(o.reserved_range[0])) && Array.isArray(o.reserved_name) && (!o.reserved_name.length || typeof o.reserved_name[0] === 'string'));
+    return o && (o.$typeUrl === DescriptorProto.typeUrl || typeof o.name === "string" && Array.isArray(o.field) && (!o.field.length || FieldDescriptorProto.isAmino(o.field[0])) && Array.isArray(o.extension) && (!o.extension.length || FieldDescriptorProto.isAmino(o.extension[0])) && Array.isArray(o.nested_type) && (!o.nested_type.length || DescriptorProto.isAmino(o.nested_type[0])) && Array.isArray(o.enum_type) && (!o.enum_type.length || EnumDescriptorProto.isAmino(o.enum_type[0])) && Array.isArray(o.extension_range) && (!o.extension_range.length || DescriptorProto_ExtensionRange.isAmino(o.extension_range[0])) && Array.isArray(o.oneof_decl) && (!o.oneof_decl.length || OneofDescriptorProto.isAmino(o.oneof_decl[0])) && Array.isArray(o.reserved_range) && (!o.reserved_range.length || DescriptorProto_ReservedRange.isAmino(o.reserved_range[0])) && Array.isArray(o.reserved_name) && (!o.reserved_name.length || typeof o.reserved_name[0] === "string"));
   },
   encode(message: DescriptorProto, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.name !== '') {
+    if (message.name !== "") {
       writer.uint32(10).string(message.name);
     }
     for (const v of message.field) {
@@ -2575,46 +2575,46 @@ export const DescriptorProto = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.name = reader.string();
-        break;
-      case 2:
-        message.field.push(FieldDescriptorProto.decode(reader, reader.uint32()));
-        break;
-      case 6:
-        message.extension.push(FieldDescriptorProto.decode(reader, reader.uint32()));
-        break;
-      case 3:
-        message.nestedType.push(DescriptorProto.decode(reader, reader.uint32()));
-        break;
-      case 4:
-        message.enumType.push(EnumDescriptorProto.decode(reader, reader.uint32()));
-        break;
-      case 5:
-        message.extensionRange.push(DescriptorProto_ExtensionRange.decode(reader, reader.uint32()));
-        break;
-      case 8:
-        message.oneofDecl.push(OneofDescriptorProto.decode(reader, reader.uint32()));
-        break;
-      case 7:
-        message.options = MessageOptions.decode(reader, reader.uint32());
-        break;
-      case 9:
-        message.reservedRange.push(DescriptorProto_ReservedRange.decode(reader, reader.uint32()));
-        break;
-      case 10:
-        message.reservedName.push(reader.string());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.name = reader.string();
+          break;
+        case 2:
+          message.field.push(FieldDescriptorProto.decode(reader, reader.uint32()));
+          break;
+        case 6:
+          message.extension.push(FieldDescriptorProto.decode(reader, reader.uint32()));
+          break;
+        case 3:
+          message.nestedType.push(DescriptorProto.decode(reader, reader.uint32()));
+          break;
+        case 4:
+          message.enumType.push(EnumDescriptorProto.decode(reader, reader.uint32()));
+          break;
+        case 5:
+          message.extensionRange.push(DescriptorProto_ExtensionRange.decode(reader, reader.uint32()));
+          break;
+        case 8:
+          message.oneofDecl.push(OneofDescriptorProto.decode(reader, reader.uint32()));
+          break;
+        case 7:
+          message.options = MessageOptions.decode(reader, reader.uint32());
+          break;
+        case 9:
+          message.reservedRange.push(DescriptorProto_ReservedRange.decode(reader, reader.uint32()));
+          break;
+        case 10:
+          message.reservedName.push(reader.string());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<DescriptorProto>): DescriptorProto {
     const message = createBaseDescriptorProto();
-    message.name = object.name ?? '';
+    message.name = object.name ?? "";
     message.field = object.field?.map(e => FieldDescriptorProto.fromPartial(e)) || [];
     message.extension = object.extension?.map(e => FieldDescriptorProto.fromPartial(e)) || [];
     message.nestedType = object.nestedType?.map(e => DescriptorProto.fromPartial(e)) || [];
@@ -2646,7 +2646,7 @@ export const DescriptorProto = {
   },
   toAmino(message: DescriptorProto): DescriptorProtoAmino {
     const obj: any = {};
-    obj.name = message.name === '' ? undefined : message.name;
+    obj.name = message.name === "" ? undefined : message.name;
     if (message.field) {
       obj.field = message.field.map(e => e ? FieldDescriptorProto.toAmino(e) : undefined);
     } else {
@@ -2701,7 +2701,7 @@ export const DescriptorProto = {
   },
   toProtoMsg(message: DescriptorProto): DescriptorProtoProtoMsg {
     return {
-      typeUrl: '/google.protobuf.DescriptorProto',
+      typeUrl: "/google.protobuf.DescriptorProto",
       value: DescriptorProto.encode(message).finish()
     };
   }
@@ -2715,15 +2715,15 @@ function createBaseDescriptorProto_ExtensionRange(): DescriptorProto_ExtensionRa
   };
 }
 export const DescriptorProto_ExtensionRange = {
-  typeUrl: '/google.protobuf.ExtensionRange',
+  typeUrl: "/google.protobuf.ExtensionRange",
   is(o: any): o is DescriptorProto_ExtensionRange {
-    return o && (o.$typeUrl === DescriptorProto_ExtensionRange.typeUrl || typeof o.start === 'number' && typeof o.end === 'number');
+    return o && (o.$typeUrl === DescriptorProto_ExtensionRange.typeUrl || typeof o.start === "number" && typeof o.end === "number");
   },
   isSDK(o: any): o is DescriptorProto_ExtensionRangeSDKType {
-    return o && (o.$typeUrl === DescriptorProto_ExtensionRange.typeUrl || typeof o.start === 'number' && typeof o.end === 'number');
+    return o && (o.$typeUrl === DescriptorProto_ExtensionRange.typeUrl || typeof o.start === "number" && typeof o.end === "number");
   },
   isAmino(o: any): o is DescriptorProto_ExtensionRangeAmino {
-    return o && (o.$typeUrl === DescriptorProto_ExtensionRange.typeUrl || typeof o.start === 'number' && typeof o.end === 'number');
+    return o && (o.$typeUrl === DescriptorProto_ExtensionRange.typeUrl || typeof o.start === "number" && typeof o.end === "number");
   },
   encode(message: DescriptorProto_ExtensionRange, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.start !== 0) {
@@ -2744,18 +2744,18 @@ export const DescriptorProto_ExtensionRange = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.start = reader.int32();
-        break;
-      case 2:
-        message.end = reader.int32();
-        break;
-      case 3:
-        message.options = ExtensionRangeOptions.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.start = reader.int32();
+          break;
+        case 2:
+          message.end = reader.int32();
+          break;
+        case 3:
+          message.options = ExtensionRangeOptions.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -2798,7 +2798,7 @@ export const DescriptorProto_ExtensionRange = {
   },
   toProtoMsg(message: DescriptorProto_ExtensionRange): DescriptorProto_ExtensionRangeProtoMsg {
     return {
-      typeUrl: '/google.protobuf.ExtensionRange',
+      typeUrl: "/google.protobuf.ExtensionRange",
       value: DescriptorProto_ExtensionRange.encode(message).finish()
     };
   }
@@ -2811,15 +2811,15 @@ function createBaseDescriptorProto_ReservedRange(): DescriptorProto_ReservedRang
   };
 }
 export const DescriptorProto_ReservedRange = {
-  typeUrl: '/google.protobuf.ReservedRange',
+  typeUrl: "/google.protobuf.ReservedRange",
   is(o: any): o is DescriptorProto_ReservedRange {
-    return o && (o.$typeUrl === DescriptorProto_ReservedRange.typeUrl || typeof o.start === 'number' && typeof o.end === 'number');
+    return o && (o.$typeUrl === DescriptorProto_ReservedRange.typeUrl || typeof o.start === "number" && typeof o.end === "number");
   },
   isSDK(o: any): o is DescriptorProto_ReservedRangeSDKType {
-    return o && (o.$typeUrl === DescriptorProto_ReservedRange.typeUrl || typeof o.start === 'number' && typeof o.end === 'number');
+    return o && (o.$typeUrl === DescriptorProto_ReservedRange.typeUrl || typeof o.start === "number" && typeof o.end === "number");
   },
   isAmino(o: any): o is DescriptorProto_ReservedRangeAmino {
-    return o && (o.$typeUrl === DescriptorProto_ReservedRange.typeUrl || typeof o.start === 'number' && typeof o.end === 'number');
+    return o && (o.$typeUrl === DescriptorProto_ReservedRange.typeUrl || typeof o.start === "number" && typeof o.end === "number");
   },
   encode(message: DescriptorProto_ReservedRange, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.start !== 0) {
@@ -2837,15 +2837,15 @@ export const DescriptorProto_ReservedRange = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.start = reader.int32();
-        break;
-      case 2:
-        message.end = reader.int32();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.start = reader.int32();
+          break;
+        case 2:
+          message.end = reader.int32();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -2883,7 +2883,7 @@ export const DescriptorProto_ReservedRange = {
   },
   toProtoMsg(message: DescriptorProto_ReservedRange): DescriptorProto_ReservedRangeProtoMsg {
     return {
-      typeUrl: '/google.protobuf.ReservedRange',
+      typeUrl: "/google.protobuf.ReservedRange",
       value: DescriptorProto_ReservedRange.encode(message).finish()
     };
   }
@@ -2895,7 +2895,7 @@ function createBaseExtensionRangeOptions(): ExtensionRangeOptions {
   };
 }
 export const ExtensionRangeOptions = {
-  typeUrl: '/google.protobuf.ExtensionRangeOptions',
+  typeUrl: "/google.protobuf.ExtensionRangeOptions",
   is(o: any): o is ExtensionRangeOptions {
     return o && (o.$typeUrl === ExtensionRangeOptions.typeUrl || Array.isArray(o.uninterpretedOption) && (!o.uninterpretedOption.length || UninterpretedOption.is(o.uninterpretedOption[0])));
   },
@@ -2918,12 +2918,12 @@ export const ExtensionRangeOptions = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 999:
-        message.uninterpretedOption.push(UninterpretedOption.decode(reader, reader.uint32()));
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 999:
+          message.uninterpretedOption.push(UninterpretedOption.decode(reader, reader.uint32()));
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -2958,7 +2958,7 @@ export const ExtensionRangeOptions = {
   },
   toProtoMsg(message: ExtensionRangeOptions): ExtensionRangeOptionsProtoMsg {
     return {
-      typeUrl: '/google.protobuf.ExtensionRangeOptions',
+      typeUrl: "/google.protobuf.ExtensionRangeOptions",
       value: ExtensionRangeOptions.encode(message).finish()
     };
   }
@@ -2966,31 +2966,31 @@ export const ExtensionRangeOptions = {
 GlobalDecoderRegistry.register(ExtensionRangeOptions.typeUrl, ExtensionRangeOptions);
 function createBaseFieldDescriptorProto(): FieldDescriptorProto {
   return {
-    name: '',
+    name: "",
     number: 0,
     label: 1,
     type: 1,
-    typeName: '',
-    extendee: '',
-    defaultValue: '',
+    typeName: "",
+    extendee: "",
+    defaultValue: "",
     oneofIndex: 0,
-    jsonName: '',
+    jsonName: "",
     options: undefined
   };
 }
 export const FieldDescriptorProto = {
-  typeUrl: '/google.protobuf.FieldDescriptorProto',
+  typeUrl: "/google.protobuf.FieldDescriptorProto",
   is(o: any): o is FieldDescriptorProto {
-    return o && (o.$typeUrl === FieldDescriptorProto.typeUrl || typeof o.name === 'string' && typeof o.number === 'number' && isSet(o.label) && isSet(o.type) && typeof o.typeName === 'string' && typeof o.extendee === 'string' && typeof o.defaultValue === 'string' && typeof o.oneofIndex === 'number' && typeof o.jsonName === 'string');
+    return o && (o.$typeUrl === FieldDescriptorProto.typeUrl || typeof o.name === "string" && typeof o.number === "number" && isSet(o.label) && isSet(o.type) && typeof o.typeName === "string" && typeof o.extendee === "string" && typeof o.defaultValue === "string" && typeof o.oneofIndex === "number" && typeof o.jsonName === "string");
   },
   isSDK(o: any): o is FieldDescriptorProtoSDKType {
-    return o && (o.$typeUrl === FieldDescriptorProto.typeUrl || typeof o.name === 'string' && typeof o.number === 'number' && isSet(o.label) && isSet(o.type) && typeof o.type_name === 'string' && typeof o.extendee === 'string' && typeof o.default_value === 'string' && typeof o.oneof_index === 'number' && typeof o.json_name === 'string');
+    return o && (o.$typeUrl === FieldDescriptorProto.typeUrl || typeof o.name === "string" && typeof o.number === "number" && isSet(o.label) && isSet(o.type) && typeof o.type_name === "string" && typeof o.extendee === "string" && typeof o.default_value === "string" && typeof o.oneof_index === "number" && typeof o.json_name === "string");
   },
   isAmino(o: any): o is FieldDescriptorProtoAmino {
-    return o && (o.$typeUrl === FieldDescriptorProto.typeUrl || typeof o.name === 'string' && typeof o.number === 'number' && isSet(o.label) && isSet(o.type) && typeof o.type_name === 'string' && typeof o.extendee === 'string' && typeof o.default_value === 'string' && typeof o.oneof_index === 'number' && typeof o.json_name === 'string');
+    return o && (o.$typeUrl === FieldDescriptorProto.typeUrl || typeof o.name === "string" && typeof o.number === "number" && isSet(o.label) && isSet(o.type) && typeof o.type_name === "string" && typeof o.extendee === "string" && typeof o.default_value === "string" && typeof o.oneof_index === "number" && typeof o.json_name === "string");
   },
   encode(message: FieldDescriptorProto, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.name !== '') {
+    if (message.name !== "") {
       writer.uint32(10).string(message.name);
     }
     if (message.number !== 0) {
@@ -3002,19 +3002,19 @@ export const FieldDescriptorProto = {
     if (message.type !== 1) {
       writer.uint32(40).int32(message.type);
     }
-    if (message.typeName !== '') {
+    if (message.typeName !== "") {
       writer.uint32(50).string(message.typeName);
     }
-    if (message.extendee !== '') {
+    if (message.extendee !== "") {
       writer.uint32(18).string(message.extendee);
     }
-    if (message.defaultValue !== '') {
+    if (message.defaultValue !== "") {
       writer.uint32(58).string(message.defaultValue);
     }
     if (message.oneofIndex !== 0) {
       writer.uint32(72).int32(message.oneofIndex);
     }
-    if (message.jsonName !== '') {
+    if (message.jsonName !== "") {
       writer.uint32(82).string(message.jsonName);
     }
     if (message.options !== undefined) {
@@ -3029,54 +3029,54 @@ export const FieldDescriptorProto = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.name = reader.string();
-        break;
-      case 3:
-        message.number = reader.int32();
-        break;
-      case 4:
-        message.label = reader.int32() as any;
-        break;
-      case 5:
-        message.type = reader.int32() as any;
-        break;
-      case 6:
-        message.typeName = reader.string();
-        break;
-      case 2:
-        message.extendee = reader.string();
-        break;
-      case 7:
-        message.defaultValue = reader.string();
-        break;
-      case 9:
-        message.oneofIndex = reader.int32();
-        break;
-      case 10:
-        message.jsonName = reader.string();
-        break;
-      case 8:
-        message.options = FieldOptions.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.name = reader.string();
+          break;
+        case 3:
+          message.number = reader.int32();
+          break;
+        case 4:
+          message.label = reader.int32() as any;
+          break;
+        case 5:
+          message.type = reader.int32() as any;
+          break;
+        case 6:
+          message.typeName = reader.string();
+          break;
+        case 2:
+          message.extendee = reader.string();
+          break;
+        case 7:
+          message.defaultValue = reader.string();
+          break;
+        case 9:
+          message.oneofIndex = reader.int32();
+          break;
+        case 10:
+          message.jsonName = reader.string();
+          break;
+        case 8:
+          message.options = FieldOptions.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<FieldDescriptorProto>): FieldDescriptorProto {
     const message = createBaseFieldDescriptorProto();
-    message.name = object.name ?? '';
+    message.name = object.name ?? "";
     message.number = object.number ?? 0;
     message.label = object.label ?? 1;
     message.type = object.type ?? 1;
-    message.typeName = object.typeName ?? '';
-    message.extendee = object.extendee ?? '';
-    message.defaultValue = object.defaultValue ?? '';
+    message.typeName = object.typeName ?? "";
+    message.extendee = object.extendee ?? "";
+    message.defaultValue = object.defaultValue ?? "";
     message.oneofIndex = object.oneofIndex ?? 0;
-    message.jsonName = object.jsonName ?? '';
+    message.jsonName = object.jsonName ?? "";
     message.options = object.options !== undefined && object.options !== null ? FieldOptions.fromPartial(object.options) : undefined;
     return message;
   },
@@ -3116,15 +3116,15 @@ export const FieldDescriptorProto = {
   },
   toAmino(message: FieldDescriptorProto): FieldDescriptorProtoAmino {
     const obj: any = {};
-    obj.name = message.name === '' ? undefined : message.name;
+    obj.name = message.name === "" ? undefined : message.name;
     obj.number = message.number === 0 ? undefined : message.number;
     obj.label = message.label === 1 ? undefined : message.label;
     obj.type = message.type === 1 ? undefined : message.type;
-    obj.type_name = message.typeName === '' ? undefined : message.typeName;
-    obj.extendee = message.extendee === '' ? undefined : message.extendee;
-    obj.default_value = message.defaultValue === '' ? undefined : message.defaultValue;
+    obj.type_name = message.typeName === "" ? undefined : message.typeName;
+    obj.extendee = message.extendee === "" ? undefined : message.extendee;
+    obj.default_value = message.defaultValue === "" ? undefined : message.defaultValue;
     obj.oneof_index = message.oneofIndex === 0 ? undefined : message.oneofIndex;
-    obj.json_name = message.jsonName === '' ? undefined : message.jsonName;
+    obj.json_name = message.jsonName === "" ? undefined : message.jsonName;
     obj.options = message.options ? FieldOptions.toAmino(message.options) : undefined;
     return obj;
   },
@@ -3139,7 +3139,7 @@ export const FieldDescriptorProto = {
   },
   toProtoMsg(message: FieldDescriptorProto): FieldDescriptorProtoProtoMsg {
     return {
-      typeUrl: '/google.protobuf.FieldDescriptorProto',
+      typeUrl: "/google.protobuf.FieldDescriptorProto",
       value: FieldDescriptorProto.encode(message).finish()
     };
   }
@@ -3147,23 +3147,23 @@ export const FieldDescriptorProto = {
 GlobalDecoderRegistry.register(FieldDescriptorProto.typeUrl, FieldDescriptorProto);
 function createBaseOneofDescriptorProto(): OneofDescriptorProto {
   return {
-    name: '',
+    name: "",
     options: undefined
   };
 }
 export const OneofDescriptorProto = {
-  typeUrl: '/google.protobuf.OneofDescriptorProto',
+  typeUrl: "/google.protobuf.OneofDescriptorProto",
   is(o: any): o is OneofDescriptorProto {
-    return o && (o.$typeUrl === OneofDescriptorProto.typeUrl || typeof o.name === 'string');
+    return o && (o.$typeUrl === OneofDescriptorProto.typeUrl || typeof o.name === "string");
   },
   isSDK(o: any): o is OneofDescriptorProtoSDKType {
-    return o && (o.$typeUrl === OneofDescriptorProto.typeUrl || typeof o.name === 'string');
+    return o && (o.$typeUrl === OneofDescriptorProto.typeUrl || typeof o.name === "string");
   },
   isAmino(o: any): o is OneofDescriptorProtoAmino {
-    return o && (o.$typeUrl === OneofDescriptorProto.typeUrl || typeof o.name === 'string');
+    return o && (o.$typeUrl === OneofDescriptorProto.typeUrl || typeof o.name === "string");
   },
   encode(message: OneofDescriptorProto, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.name !== '') {
+    if (message.name !== "") {
       writer.uint32(10).string(message.name);
     }
     if (message.options !== undefined) {
@@ -3178,22 +3178,22 @@ export const OneofDescriptorProto = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.name = reader.string();
-        break;
-      case 2:
-        message.options = OneofOptions.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.name = reader.string();
+          break;
+        case 2:
+          message.options = OneofOptions.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<OneofDescriptorProto>): OneofDescriptorProto {
     const message = createBaseOneofDescriptorProto();
-    message.name = object.name ?? '';
+    message.name = object.name ?? "";
     message.options = object.options !== undefined && object.options !== null ? OneofOptions.fromPartial(object.options) : undefined;
     return message;
   },
@@ -3209,7 +3209,7 @@ export const OneofDescriptorProto = {
   },
   toAmino(message: OneofDescriptorProto): OneofDescriptorProtoAmino {
     const obj: any = {};
-    obj.name = message.name === '' ? undefined : message.name;
+    obj.name = message.name === "" ? undefined : message.name;
     obj.options = message.options ? OneofOptions.toAmino(message.options) : undefined;
     return obj;
   },
@@ -3224,7 +3224,7 @@ export const OneofDescriptorProto = {
   },
   toProtoMsg(message: OneofDescriptorProto): OneofDescriptorProtoProtoMsg {
     return {
-      typeUrl: '/google.protobuf.OneofDescriptorProto',
+      typeUrl: "/google.protobuf.OneofDescriptorProto",
       value: OneofDescriptorProto.encode(message).finish()
     };
   }
@@ -3232,7 +3232,7 @@ export const OneofDescriptorProto = {
 GlobalDecoderRegistry.register(OneofDescriptorProto.typeUrl, OneofDescriptorProto);
 function createBaseEnumDescriptorProto(): EnumDescriptorProto {
   return {
-    name: '',
+    name: "",
     value: [],
     options: undefined,
     reservedRange: [],
@@ -3240,18 +3240,18 @@ function createBaseEnumDescriptorProto(): EnumDescriptorProto {
   };
 }
 export const EnumDescriptorProto = {
-  typeUrl: '/google.protobuf.EnumDescriptorProto',
+  typeUrl: "/google.protobuf.EnumDescriptorProto",
   is(o: any): o is EnumDescriptorProto {
-    return o && (o.$typeUrl === EnumDescriptorProto.typeUrl || typeof o.name === 'string' && Array.isArray(o.value) && (!o.value.length || EnumValueDescriptorProto.is(o.value[0])) && Array.isArray(o.reservedRange) && (!o.reservedRange.length || EnumDescriptorProto_EnumReservedRange.is(o.reservedRange[0])) && Array.isArray(o.reservedName) && (!o.reservedName.length || typeof o.reservedName[0] === 'string'));
+    return o && (o.$typeUrl === EnumDescriptorProto.typeUrl || typeof o.name === "string" && Array.isArray(o.value) && (!o.value.length || EnumValueDescriptorProto.is(o.value[0])) && Array.isArray(o.reservedRange) && (!o.reservedRange.length || EnumDescriptorProto_EnumReservedRange.is(o.reservedRange[0])) && Array.isArray(o.reservedName) && (!o.reservedName.length || typeof o.reservedName[0] === "string"));
   },
   isSDK(o: any): o is EnumDescriptorProtoSDKType {
-    return o && (o.$typeUrl === EnumDescriptorProto.typeUrl || typeof o.name === 'string' && Array.isArray(o.value) && (!o.value.length || EnumValueDescriptorProto.isSDK(o.value[0])) && Array.isArray(o.reserved_range) && (!o.reserved_range.length || EnumDescriptorProto_EnumReservedRange.isSDK(o.reserved_range[0])) && Array.isArray(o.reserved_name) && (!o.reserved_name.length || typeof o.reserved_name[0] === 'string'));
+    return o && (o.$typeUrl === EnumDescriptorProto.typeUrl || typeof o.name === "string" && Array.isArray(o.value) && (!o.value.length || EnumValueDescriptorProto.isSDK(o.value[0])) && Array.isArray(o.reserved_range) && (!o.reserved_range.length || EnumDescriptorProto_EnumReservedRange.isSDK(o.reserved_range[0])) && Array.isArray(o.reserved_name) && (!o.reserved_name.length || typeof o.reserved_name[0] === "string"));
   },
   isAmino(o: any): o is EnumDescriptorProtoAmino {
-    return o && (o.$typeUrl === EnumDescriptorProto.typeUrl || typeof o.name === 'string' && Array.isArray(o.value) && (!o.value.length || EnumValueDescriptorProto.isAmino(o.value[0])) && Array.isArray(o.reserved_range) && (!o.reserved_range.length || EnumDescriptorProto_EnumReservedRange.isAmino(o.reserved_range[0])) && Array.isArray(o.reserved_name) && (!o.reserved_name.length || typeof o.reserved_name[0] === 'string'));
+    return o && (o.$typeUrl === EnumDescriptorProto.typeUrl || typeof o.name === "string" && Array.isArray(o.value) && (!o.value.length || EnumValueDescriptorProto.isAmino(o.value[0])) && Array.isArray(o.reserved_range) && (!o.reserved_range.length || EnumDescriptorProto_EnumReservedRange.isAmino(o.reserved_range[0])) && Array.isArray(o.reserved_name) && (!o.reserved_name.length || typeof o.reserved_name[0] === "string"));
   },
   encode(message: EnumDescriptorProto, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.name !== '') {
+    if (message.name !== "") {
       writer.uint32(10).string(message.name);
     }
     for (const v of message.value) {
@@ -3275,31 +3275,31 @@ export const EnumDescriptorProto = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.name = reader.string();
-        break;
-      case 2:
-        message.value.push(EnumValueDescriptorProto.decode(reader, reader.uint32()));
-        break;
-      case 3:
-        message.options = EnumOptions.decode(reader, reader.uint32());
-        break;
-      case 4:
-        message.reservedRange.push(EnumDescriptorProto_EnumReservedRange.decode(reader, reader.uint32()));
-        break;
-      case 5:
-        message.reservedName.push(reader.string());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.name = reader.string();
+          break;
+        case 2:
+          message.value.push(EnumValueDescriptorProto.decode(reader, reader.uint32()));
+          break;
+        case 3:
+          message.options = EnumOptions.decode(reader, reader.uint32());
+          break;
+        case 4:
+          message.reservedRange.push(EnumDescriptorProto_EnumReservedRange.decode(reader, reader.uint32()));
+          break;
+        case 5:
+          message.reservedName.push(reader.string());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<EnumDescriptorProto>): EnumDescriptorProto {
     const message = createBaseEnumDescriptorProto();
-    message.name = object.name ?? '';
+    message.name = object.name ?? "";
     message.value = object.value?.map(e => EnumValueDescriptorProto.fromPartial(e)) || [];
     message.options = object.options !== undefined && object.options !== null ? EnumOptions.fromPartial(object.options) : undefined;
     message.reservedRange = object.reservedRange?.map(e => EnumDescriptorProto_EnumReservedRange.fromPartial(e)) || [];
@@ -3321,7 +3321,7 @@ export const EnumDescriptorProto = {
   },
   toAmino(message: EnumDescriptorProto): EnumDescriptorProtoAmino {
     const obj: any = {};
-    obj.name = message.name === '' ? undefined : message.name;
+    obj.name = message.name === "" ? undefined : message.name;
     if (message.value) {
       obj.value = message.value.map(e => e ? EnumValueDescriptorProto.toAmino(e) : undefined);
     } else {
@@ -3351,7 +3351,7 @@ export const EnumDescriptorProto = {
   },
   toProtoMsg(message: EnumDescriptorProto): EnumDescriptorProtoProtoMsg {
     return {
-      typeUrl: '/google.protobuf.EnumDescriptorProto',
+      typeUrl: "/google.protobuf.EnumDescriptorProto",
       value: EnumDescriptorProto.encode(message).finish()
     };
   }
@@ -3364,15 +3364,15 @@ function createBaseEnumDescriptorProto_EnumReservedRange(): EnumDescriptorProto_
   };
 }
 export const EnumDescriptorProto_EnumReservedRange = {
-  typeUrl: '/google.protobuf.EnumReservedRange',
+  typeUrl: "/google.protobuf.EnumReservedRange",
   is(o: any): o is EnumDescriptorProto_EnumReservedRange {
-    return o && (o.$typeUrl === EnumDescriptorProto_EnumReservedRange.typeUrl || typeof o.start === 'number' && typeof o.end === 'number');
+    return o && (o.$typeUrl === EnumDescriptorProto_EnumReservedRange.typeUrl || typeof o.start === "number" && typeof o.end === "number");
   },
   isSDK(o: any): o is EnumDescriptorProto_EnumReservedRangeSDKType {
-    return o && (o.$typeUrl === EnumDescriptorProto_EnumReservedRange.typeUrl || typeof o.start === 'number' && typeof o.end === 'number');
+    return o && (o.$typeUrl === EnumDescriptorProto_EnumReservedRange.typeUrl || typeof o.start === "number" && typeof o.end === "number");
   },
   isAmino(o: any): o is EnumDescriptorProto_EnumReservedRangeAmino {
-    return o && (o.$typeUrl === EnumDescriptorProto_EnumReservedRange.typeUrl || typeof o.start === 'number' && typeof o.end === 'number');
+    return o && (o.$typeUrl === EnumDescriptorProto_EnumReservedRange.typeUrl || typeof o.start === "number" && typeof o.end === "number");
   },
   encode(message: EnumDescriptorProto_EnumReservedRange, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.start !== 0) {
@@ -3390,15 +3390,15 @@ export const EnumDescriptorProto_EnumReservedRange = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.start = reader.int32();
-        break;
-      case 2:
-        message.end = reader.int32();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.start = reader.int32();
+          break;
+        case 2:
+          message.end = reader.int32();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -3436,7 +3436,7 @@ export const EnumDescriptorProto_EnumReservedRange = {
   },
   toProtoMsg(message: EnumDescriptorProto_EnumReservedRange): EnumDescriptorProto_EnumReservedRangeProtoMsg {
     return {
-      typeUrl: '/google.protobuf.EnumReservedRange',
+      typeUrl: "/google.protobuf.EnumReservedRange",
       value: EnumDescriptorProto_EnumReservedRange.encode(message).finish()
     };
   }
@@ -3444,24 +3444,24 @@ export const EnumDescriptorProto_EnumReservedRange = {
 GlobalDecoderRegistry.register(EnumDescriptorProto_EnumReservedRange.typeUrl, EnumDescriptorProto_EnumReservedRange);
 function createBaseEnumValueDescriptorProto(): EnumValueDescriptorProto {
   return {
-    name: '',
+    name: "",
     number: 0,
     options: undefined
   };
 }
 export const EnumValueDescriptorProto = {
-  typeUrl: '/google.protobuf.EnumValueDescriptorProto',
+  typeUrl: "/google.protobuf.EnumValueDescriptorProto",
   is(o: any): o is EnumValueDescriptorProto {
-    return o && (o.$typeUrl === EnumValueDescriptorProto.typeUrl || typeof o.name === 'string' && typeof o.number === 'number');
+    return o && (o.$typeUrl === EnumValueDescriptorProto.typeUrl || typeof o.name === "string" && typeof o.number === "number");
   },
   isSDK(o: any): o is EnumValueDescriptorProtoSDKType {
-    return o && (o.$typeUrl === EnumValueDescriptorProto.typeUrl || typeof o.name === 'string' && typeof o.number === 'number');
+    return o && (o.$typeUrl === EnumValueDescriptorProto.typeUrl || typeof o.name === "string" && typeof o.number === "number");
   },
   isAmino(o: any): o is EnumValueDescriptorProtoAmino {
-    return o && (o.$typeUrl === EnumValueDescriptorProto.typeUrl || typeof o.name === 'string' && typeof o.number === 'number');
+    return o && (o.$typeUrl === EnumValueDescriptorProto.typeUrl || typeof o.name === "string" && typeof o.number === "number");
   },
   encode(message: EnumValueDescriptorProto, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.name !== '') {
+    if (message.name !== "") {
       writer.uint32(10).string(message.name);
     }
     if (message.number !== 0) {
@@ -3479,25 +3479,25 @@ export const EnumValueDescriptorProto = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.name = reader.string();
-        break;
-      case 2:
-        message.number = reader.int32();
-        break;
-      case 3:
-        message.options = EnumValueOptions.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.name = reader.string();
+          break;
+        case 2:
+          message.number = reader.int32();
+          break;
+        case 3:
+          message.options = EnumValueOptions.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<EnumValueDescriptorProto>): EnumValueDescriptorProto {
     const message = createBaseEnumValueDescriptorProto();
-    message.name = object.name ?? '';
+    message.name = object.name ?? "";
     message.number = object.number ?? 0;
     message.options = object.options !== undefined && object.options !== null ? EnumValueOptions.fromPartial(object.options) : undefined;
     return message;
@@ -3517,7 +3517,7 @@ export const EnumValueDescriptorProto = {
   },
   toAmino(message: EnumValueDescriptorProto): EnumValueDescriptorProtoAmino {
     const obj: any = {};
-    obj.name = message.name === '' ? undefined : message.name;
+    obj.name = message.name === "" ? undefined : message.name;
     obj.number = message.number === 0 ? undefined : message.number;
     obj.options = message.options ? EnumValueOptions.toAmino(message.options) : undefined;
     return obj;
@@ -3533,7 +3533,7 @@ export const EnumValueDescriptorProto = {
   },
   toProtoMsg(message: EnumValueDescriptorProto): EnumValueDescriptorProtoProtoMsg {
     return {
-      typeUrl: '/google.protobuf.EnumValueDescriptorProto',
+      typeUrl: "/google.protobuf.EnumValueDescriptorProto",
       value: EnumValueDescriptorProto.encode(message).finish()
     };
   }
@@ -3541,24 +3541,24 @@ export const EnumValueDescriptorProto = {
 GlobalDecoderRegistry.register(EnumValueDescriptorProto.typeUrl, EnumValueDescriptorProto);
 function createBaseServiceDescriptorProto(): ServiceDescriptorProto {
   return {
-    name: '',
+    name: "",
     method: [],
     options: undefined
   };
 }
 export const ServiceDescriptorProto = {
-  typeUrl: '/google.protobuf.ServiceDescriptorProto',
+  typeUrl: "/google.protobuf.ServiceDescriptorProto",
   is(o: any): o is ServiceDescriptorProto {
-    return o && (o.$typeUrl === ServiceDescriptorProto.typeUrl || typeof o.name === 'string' && Array.isArray(o.method) && (!o.method.length || MethodDescriptorProto.is(o.method[0])));
+    return o && (o.$typeUrl === ServiceDescriptorProto.typeUrl || typeof o.name === "string" && Array.isArray(o.method) && (!o.method.length || MethodDescriptorProto.is(o.method[0])));
   },
   isSDK(o: any): o is ServiceDescriptorProtoSDKType {
-    return o && (o.$typeUrl === ServiceDescriptorProto.typeUrl || typeof o.name === 'string' && Array.isArray(o.method) && (!o.method.length || MethodDescriptorProto.isSDK(o.method[0])));
+    return o && (o.$typeUrl === ServiceDescriptorProto.typeUrl || typeof o.name === "string" && Array.isArray(o.method) && (!o.method.length || MethodDescriptorProto.isSDK(o.method[0])));
   },
   isAmino(o: any): o is ServiceDescriptorProtoAmino {
-    return o && (o.$typeUrl === ServiceDescriptorProto.typeUrl || typeof o.name === 'string' && Array.isArray(o.method) && (!o.method.length || MethodDescriptorProto.isAmino(o.method[0])));
+    return o && (o.$typeUrl === ServiceDescriptorProto.typeUrl || typeof o.name === "string" && Array.isArray(o.method) && (!o.method.length || MethodDescriptorProto.isAmino(o.method[0])));
   },
   encode(message: ServiceDescriptorProto, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.name !== '') {
+    if (message.name !== "") {
       writer.uint32(10).string(message.name);
     }
     for (const v of message.method) {
@@ -3576,25 +3576,25 @@ export const ServiceDescriptorProto = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.name = reader.string();
-        break;
-      case 2:
-        message.method.push(MethodDescriptorProto.decode(reader, reader.uint32()));
-        break;
-      case 3:
-        message.options = ServiceOptions.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.name = reader.string();
+          break;
+        case 2:
+          message.method.push(MethodDescriptorProto.decode(reader, reader.uint32()));
+          break;
+        case 3:
+          message.options = ServiceOptions.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<ServiceDescriptorProto>): ServiceDescriptorProto {
     const message = createBaseServiceDescriptorProto();
-    message.name = object.name ?? '';
+    message.name = object.name ?? "";
     message.method = object.method?.map(e => MethodDescriptorProto.fromPartial(e)) || [];
     message.options = object.options !== undefined && object.options !== null ? ServiceOptions.fromPartial(object.options) : undefined;
     return message;
@@ -3612,7 +3612,7 @@ export const ServiceDescriptorProto = {
   },
   toAmino(message: ServiceDescriptorProto): ServiceDescriptorProtoAmino {
     const obj: any = {};
-    obj.name = message.name === '' ? undefined : message.name;
+    obj.name = message.name === "" ? undefined : message.name;
     if (message.method) {
       obj.method = message.method.map(e => e ? MethodDescriptorProto.toAmino(e) : undefined);
     } else {
@@ -3632,7 +3632,7 @@ export const ServiceDescriptorProto = {
   },
   toProtoMsg(message: ServiceDescriptorProto): ServiceDescriptorProtoProtoMsg {
     return {
-      typeUrl: '/google.protobuf.ServiceDescriptorProto',
+      typeUrl: "/google.protobuf.ServiceDescriptorProto",
       value: ServiceDescriptorProto.encode(message).finish()
     };
   }
@@ -3640,33 +3640,33 @@ export const ServiceDescriptorProto = {
 GlobalDecoderRegistry.register(ServiceDescriptorProto.typeUrl, ServiceDescriptorProto);
 function createBaseMethodDescriptorProto(): MethodDescriptorProto {
   return {
-    name: '',
-    inputType: '',
-    outputType: '',
+    name: "",
+    inputType: "",
+    outputType: "",
     options: undefined,
     clientStreaming: false,
     serverStreaming: false
   };
 }
 export const MethodDescriptorProto = {
-  typeUrl: '/google.protobuf.MethodDescriptorProto',
+  typeUrl: "/google.protobuf.MethodDescriptorProto",
   is(o: any): o is MethodDescriptorProto {
-    return o && (o.$typeUrl === MethodDescriptorProto.typeUrl || typeof o.name === 'string' && typeof o.inputType === 'string' && typeof o.outputType === 'string' && typeof o.clientStreaming === 'boolean' && typeof o.serverStreaming === 'boolean');
+    return o && (o.$typeUrl === MethodDescriptorProto.typeUrl || typeof o.name === "string" && typeof o.inputType === "string" && typeof o.outputType === "string" && typeof o.clientStreaming === "boolean" && typeof o.serverStreaming === "boolean");
   },
   isSDK(o: any): o is MethodDescriptorProtoSDKType {
-    return o && (o.$typeUrl === MethodDescriptorProto.typeUrl || typeof o.name === 'string' && typeof o.input_type === 'string' && typeof o.output_type === 'string' && typeof o.client_streaming === 'boolean' && typeof o.server_streaming === 'boolean');
+    return o && (o.$typeUrl === MethodDescriptorProto.typeUrl || typeof o.name === "string" && typeof o.input_type === "string" && typeof o.output_type === "string" && typeof o.client_streaming === "boolean" && typeof o.server_streaming === "boolean");
   },
   isAmino(o: any): o is MethodDescriptorProtoAmino {
-    return o && (o.$typeUrl === MethodDescriptorProto.typeUrl || typeof o.name === 'string' && typeof o.input_type === 'string' && typeof o.output_type === 'string' && typeof o.client_streaming === 'boolean' && typeof o.server_streaming === 'boolean');
+    return o && (o.$typeUrl === MethodDescriptorProto.typeUrl || typeof o.name === "string" && typeof o.input_type === "string" && typeof o.output_type === "string" && typeof o.client_streaming === "boolean" && typeof o.server_streaming === "boolean");
   },
   encode(message: MethodDescriptorProto, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.name !== '') {
+    if (message.name !== "") {
       writer.uint32(10).string(message.name);
     }
-    if (message.inputType !== '') {
+    if (message.inputType !== "") {
       writer.uint32(18).string(message.inputType);
     }
-    if (message.outputType !== '') {
+    if (message.outputType !== "") {
       writer.uint32(26).string(message.outputType);
     }
     if (message.options !== undefined) {
@@ -3687,36 +3687,36 @@ export const MethodDescriptorProto = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.name = reader.string();
-        break;
-      case 2:
-        message.inputType = reader.string();
-        break;
-      case 3:
-        message.outputType = reader.string();
-        break;
-      case 4:
-        message.options = MethodOptions.decode(reader, reader.uint32());
-        break;
-      case 5:
-        message.clientStreaming = reader.bool();
-        break;
-      case 6:
-        message.serverStreaming = reader.bool();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.name = reader.string();
+          break;
+        case 2:
+          message.inputType = reader.string();
+          break;
+        case 3:
+          message.outputType = reader.string();
+          break;
+        case 4:
+          message.options = MethodOptions.decode(reader, reader.uint32());
+          break;
+        case 5:
+          message.clientStreaming = reader.bool();
+          break;
+        case 6:
+          message.serverStreaming = reader.bool();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<MethodDescriptorProto>): MethodDescriptorProto {
     const message = createBaseMethodDescriptorProto();
-    message.name = object.name ?? '';
-    message.inputType = object.inputType ?? '';
-    message.outputType = object.outputType ?? '';
+    message.name = object.name ?? "";
+    message.inputType = object.inputType ?? "";
+    message.outputType = object.outputType ?? "";
     message.options = object.options !== undefined && object.options !== null ? MethodOptions.fromPartial(object.options) : undefined;
     message.clientStreaming = object.clientStreaming ?? false;
     message.serverStreaming = object.serverStreaming ?? false;
@@ -3746,9 +3746,9 @@ export const MethodDescriptorProto = {
   },
   toAmino(message: MethodDescriptorProto): MethodDescriptorProtoAmino {
     const obj: any = {};
-    obj.name = message.name === '' ? undefined : message.name;
-    obj.input_type = message.inputType === '' ? undefined : message.inputType;
-    obj.output_type = message.outputType === '' ? undefined : message.outputType;
+    obj.name = message.name === "" ? undefined : message.name;
+    obj.input_type = message.inputType === "" ? undefined : message.inputType;
+    obj.output_type = message.outputType === "" ? undefined : message.outputType;
     obj.options = message.options ? MethodOptions.toAmino(message.options) : undefined;
     obj.client_streaming = message.clientStreaming === false ? undefined : message.clientStreaming;
     obj.server_streaming = message.serverStreaming === false ? undefined : message.serverStreaming;
@@ -3765,7 +3765,7 @@ export const MethodDescriptorProto = {
   },
   toProtoMsg(message: MethodDescriptorProto): MethodDescriptorProtoProtoMsg {
     return {
-      typeUrl: '/google.protobuf.MethodDescriptorProto',
+      typeUrl: "/google.protobuf.MethodDescriptorProto",
       value: MethodDescriptorProto.encode(message).finish()
     };
   }
@@ -3773,45 +3773,45 @@ export const MethodDescriptorProto = {
 GlobalDecoderRegistry.register(MethodDescriptorProto.typeUrl, MethodDescriptorProto);
 function createBaseFileOptions(): FileOptions {
   return {
-    javaPackage: '',
-    javaOuterClassname: '',
+    javaPackage: "",
+    javaOuterClassname: "",
     javaMultipleFiles: false,
     javaGenerateEqualsAndHash: false,
     javaStringCheckUtf8: false,
     optimizeFor: 1,
-    goPackage: '',
+    goPackage: "",
     ccGenericServices: false,
     javaGenericServices: false,
     pyGenericServices: false,
     phpGenericServices: false,
     deprecated: false,
     ccEnableArenas: false,
-    objcClassPrefix: '',
-    csharpNamespace: '',
-    swiftPrefix: '',
-    phpClassPrefix: '',
-    phpNamespace: '',
-    phpMetadataNamespace: '',
-    rubyPackage: '',
+    objcClassPrefix: "",
+    csharpNamespace: "",
+    swiftPrefix: "",
+    phpClassPrefix: "",
+    phpNamespace: "",
+    phpMetadataNamespace: "",
+    rubyPackage: "",
     uninterpretedOption: []
   };
 }
 export const FileOptions = {
-  typeUrl: '/google.protobuf.FileOptions',
+  typeUrl: "/google.protobuf.FileOptions",
   is(o: any): o is FileOptions {
-    return o && (o.$typeUrl === FileOptions.typeUrl || typeof o.javaPackage === 'string' && typeof o.javaOuterClassname === 'string' && typeof o.javaMultipleFiles === 'boolean' && typeof o.javaGenerateEqualsAndHash === 'boolean' && typeof o.javaStringCheckUtf8 === 'boolean' && isSet(o.optimizeFor) && typeof o.goPackage === 'string' && typeof o.ccGenericServices === 'boolean' && typeof o.javaGenericServices === 'boolean' && typeof o.pyGenericServices === 'boolean' && typeof o.phpGenericServices === 'boolean' && typeof o.deprecated === 'boolean' && typeof o.ccEnableArenas === 'boolean' && typeof o.objcClassPrefix === 'string' && typeof o.csharpNamespace === 'string' && typeof o.swiftPrefix === 'string' && typeof o.phpClassPrefix === 'string' && typeof o.phpNamespace === 'string' && typeof o.phpMetadataNamespace === 'string' && typeof o.rubyPackage === 'string' && Array.isArray(o.uninterpretedOption) && (!o.uninterpretedOption.length || UninterpretedOption.is(o.uninterpretedOption[0])));
+    return o && (o.$typeUrl === FileOptions.typeUrl || typeof o.javaPackage === "string" && typeof o.javaOuterClassname === "string" && typeof o.javaMultipleFiles === "boolean" && typeof o.javaGenerateEqualsAndHash === "boolean" && typeof o.javaStringCheckUtf8 === "boolean" && isSet(o.optimizeFor) && typeof o.goPackage === "string" && typeof o.ccGenericServices === "boolean" && typeof o.javaGenericServices === "boolean" && typeof o.pyGenericServices === "boolean" && typeof o.phpGenericServices === "boolean" && typeof o.deprecated === "boolean" && typeof o.ccEnableArenas === "boolean" && typeof o.objcClassPrefix === "string" && typeof o.csharpNamespace === "string" && typeof o.swiftPrefix === "string" && typeof o.phpClassPrefix === "string" && typeof o.phpNamespace === "string" && typeof o.phpMetadataNamespace === "string" && typeof o.rubyPackage === "string" && Array.isArray(o.uninterpretedOption) && (!o.uninterpretedOption.length || UninterpretedOption.is(o.uninterpretedOption[0])));
   },
   isSDK(o: any): o is FileOptionsSDKType {
-    return o && (o.$typeUrl === FileOptions.typeUrl || typeof o.java_package === 'string' && typeof o.java_outer_classname === 'string' && typeof o.java_multiple_files === 'boolean' && typeof o.java_generate_equals_and_hash === 'boolean' && typeof o.java_string_check_utf8 === 'boolean' && isSet(o.optimize_for) && typeof o.go_package === 'string' && typeof o.cc_generic_services === 'boolean' && typeof o.java_generic_services === 'boolean' && typeof o.py_generic_services === 'boolean' && typeof o.php_generic_services === 'boolean' && typeof o.deprecated === 'boolean' && typeof o.cc_enable_arenas === 'boolean' && typeof o.objc_class_prefix === 'string' && typeof o.csharp_namespace === 'string' && typeof o.swift_prefix === 'string' && typeof o.php_class_prefix === 'string' && typeof o.php_namespace === 'string' && typeof o.php_metadata_namespace === 'string' && typeof o.ruby_package === 'string' && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isSDK(o.uninterpreted_option[0])));
+    return o && (o.$typeUrl === FileOptions.typeUrl || typeof o.java_package === "string" && typeof o.java_outer_classname === "string" && typeof o.java_multiple_files === "boolean" && typeof o.java_generate_equals_and_hash === "boolean" && typeof o.java_string_check_utf8 === "boolean" && isSet(o.optimize_for) && typeof o.go_package === "string" && typeof o.cc_generic_services === "boolean" && typeof o.java_generic_services === "boolean" && typeof o.py_generic_services === "boolean" && typeof o.php_generic_services === "boolean" && typeof o.deprecated === "boolean" && typeof o.cc_enable_arenas === "boolean" && typeof o.objc_class_prefix === "string" && typeof o.csharp_namespace === "string" && typeof o.swift_prefix === "string" && typeof o.php_class_prefix === "string" && typeof o.php_namespace === "string" && typeof o.php_metadata_namespace === "string" && typeof o.ruby_package === "string" && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isSDK(o.uninterpreted_option[0])));
   },
   isAmino(o: any): o is FileOptionsAmino {
-    return o && (o.$typeUrl === FileOptions.typeUrl || typeof o.java_package === 'string' && typeof o.java_outer_classname === 'string' && typeof o.java_multiple_files === 'boolean' && typeof o.java_generate_equals_and_hash === 'boolean' && typeof o.java_string_check_utf8 === 'boolean' && isSet(o.optimize_for) && typeof o.go_package === 'string' && typeof o.cc_generic_services === 'boolean' && typeof o.java_generic_services === 'boolean' && typeof o.py_generic_services === 'boolean' && typeof o.php_generic_services === 'boolean' && typeof o.deprecated === 'boolean' && typeof o.cc_enable_arenas === 'boolean' && typeof o.objc_class_prefix === 'string' && typeof o.csharp_namespace === 'string' && typeof o.swift_prefix === 'string' && typeof o.php_class_prefix === 'string' && typeof o.php_namespace === 'string' && typeof o.php_metadata_namespace === 'string' && typeof o.ruby_package === 'string' && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isAmino(o.uninterpreted_option[0])));
+    return o && (o.$typeUrl === FileOptions.typeUrl || typeof o.java_package === "string" && typeof o.java_outer_classname === "string" && typeof o.java_multiple_files === "boolean" && typeof o.java_generate_equals_and_hash === "boolean" && typeof o.java_string_check_utf8 === "boolean" && isSet(o.optimize_for) && typeof o.go_package === "string" && typeof o.cc_generic_services === "boolean" && typeof o.java_generic_services === "boolean" && typeof o.py_generic_services === "boolean" && typeof o.php_generic_services === "boolean" && typeof o.deprecated === "boolean" && typeof o.cc_enable_arenas === "boolean" && typeof o.objc_class_prefix === "string" && typeof o.csharp_namespace === "string" && typeof o.swift_prefix === "string" && typeof o.php_class_prefix === "string" && typeof o.php_namespace === "string" && typeof o.php_metadata_namespace === "string" && typeof o.ruby_package === "string" && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isAmino(o.uninterpreted_option[0])));
   },
   encode(message: FileOptions, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.javaPackage !== '') {
+    if (message.javaPackage !== "") {
       writer.uint32(10).string(message.javaPackage);
     }
-    if (message.javaOuterClassname !== '') {
+    if (message.javaOuterClassname !== "") {
       writer.uint32(66).string(message.javaOuterClassname);
     }
     if (message.javaMultipleFiles === true) {
@@ -3826,7 +3826,7 @@ export const FileOptions = {
     if (message.optimizeFor !== 1) {
       writer.uint32(72).int32(message.optimizeFor);
     }
-    if (message.goPackage !== '') {
+    if (message.goPackage !== "") {
       writer.uint32(90).string(message.goPackage);
     }
     if (message.ccGenericServices === true) {
@@ -3847,25 +3847,25 @@ export const FileOptions = {
     if (message.ccEnableArenas === true) {
       writer.uint32(248).bool(message.ccEnableArenas);
     }
-    if (message.objcClassPrefix !== '') {
+    if (message.objcClassPrefix !== "") {
       writer.uint32(290).string(message.objcClassPrefix);
     }
-    if (message.csharpNamespace !== '') {
+    if (message.csharpNamespace !== "") {
       writer.uint32(298).string(message.csharpNamespace);
     }
-    if (message.swiftPrefix !== '') {
+    if (message.swiftPrefix !== "") {
       writer.uint32(314).string(message.swiftPrefix);
     }
-    if (message.phpClassPrefix !== '') {
+    if (message.phpClassPrefix !== "") {
       writer.uint32(322).string(message.phpClassPrefix);
     }
-    if (message.phpNamespace !== '') {
+    if (message.phpNamespace !== "") {
       writer.uint32(330).string(message.phpNamespace);
     }
-    if (message.phpMetadataNamespace !== '') {
+    if (message.phpMetadataNamespace !== "") {
       writer.uint32(354).string(message.phpMetadataNamespace);
     }
-    if (message.rubyPackage !== '') {
+    if (message.rubyPackage !== "") {
       writer.uint32(362).string(message.rubyPackage);
     }
     for (const v of message.uninterpretedOption) {
@@ -3880,98 +3880,98 @@ export const FileOptions = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.javaPackage = reader.string();
-        break;
-      case 8:
-        message.javaOuterClassname = reader.string();
-        break;
-      case 10:
-        message.javaMultipleFiles = reader.bool();
-        break;
-      case 20:
-        message.javaGenerateEqualsAndHash = reader.bool();
-        break;
-      case 27:
-        message.javaStringCheckUtf8 = reader.bool();
-        break;
-      case 9:
-        message.optimizeFor = reader.int32() as any;
-        break;
-      case 11:
-        message.goPackage = reader.string();
-        break;
-      case 16:
-        message.ccGenericServices = reader.bool();
-        break;
-      case 17:
-        message.javaGenericServices = reader.bool();
-        break;
-      case 18:
-        message.pyGenericServices = reader.bool();
-        break;
-      case 42:
-        message.phpGenericServices = reader.bool();
-        break;
-      case 23:
-        message.deprecated = reader.bool();
-        break;
-      case 31:
-        message.ccEnableArenas = reader.bool();
-        break;
-      case 36:
-        message.objcClassPrefix = reader.string();
-        break;
-      case 37:
-        message.csharpNamespace = reader.string();
-        break;
-      case 39:
-        message.swiftPrefix = reader.string();
-        break;
-      case 40:
-        message.phpClassPrefix = reader.string();
-        break;
-      case 41:
-        message.phpNamespace = reader.string();
-        break;
-      case 44:
-        message.phpMetadataNamespace = reader.string();
-        break;
-      case 45:
-        message.rubyPackage = reader.string();
-        break;
-      case 999:
-        message.uninterpretedOption.push(UninterpretedOption.decode(reader, reader.uint32()));
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.javaPackage = reader.string();
+          break;
+        case 8:
+          message.javaOuterClassname = reader.string();
+          break;
+        case 10:
+          message.javaMultipleFiles = reader.bool();
+          break;
+        case 20:
+          message.javaGenerateEqualsAndHash = reader.bool();
+          break;
+        case 27:
+          message.javaStringCheckUtf8 = reader.bool();
+          break;
+        case 9:
+          message.optimizeFor = reader.int32() as any;
+          break;
+        case 11:
+          message.goPackage = reader.string();
+          break;
+        case 16:
+          message.ccGenericServices = reader.bool();
+          break;
+        case 17:
+          message.javaGenericServices = reader.bool();
+          break;
+        case 18:
+          message.pyGenericServices = reader.bool();
+          break;
+        case 42:
+          message.phpGenericServices = reader.bool();
+          break;
+        case 23:
+          message.deprecated = reader.bool();
+          break;
+        case 31:
+          message.ccEnableArenas = reader.bool();
+          break;
+        case 36:
+          message.objcClassPrefix = reader.string();
+          break;
+        case 37:
+          message.csharpNamespace = reader.string();
+          break;
+        case 39:
+          message.swiftPrefix = reader.string();
+          break;
+        case 40:
+          message.phpClassPrefix = reader.string();
+          break;
+        case 41:
+          message.phpNamespace = reader.string();
+          break;
+        case 44:
+          message.phpMetadataNamespace = reader.string();
+          break;
+        case 45:
+          message.rubyPackage = reader.string();
+          break;
+        case 999:
+          message.uninterpretedOption.push(UninterpretedOption.decode(reader, reader.uint32()));
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<FileOptions>): FileOptions {
     const message = createBaseFileOptions();
-    message.javaPackage = object.javaPackage ?? '';
-    message.javaOuterClassname = object.javaOuterClassname ?? '';
+    message.javaPackage = object.javaPackage ?? "";
+    message.javaOuterClassname = object.javaOuterClassname ?? "";
     message.javaMultipleFiles = object.javaMultipleFiles ?? false;
     message.javaGenerateEqualsAndHash = object.javaGenerateEqualsAndHash ?? false;
     message.javaStringCheckUtf8 = object.javaStringCheckUtf8 ?? false;
     message.optimizeFor = object.optimizeFor ?? 1;
-    message.goPackage = object.goPackage ?? '';
+    message.goPackage = object.goPackage ?? "";
     message.ccGenericServices = object.ccGenericServices ?? false;
     message.javaGenericServices = object.javaGenericServices ?? false;
     message.pyGenericServices = object.pyGenericServices ?? false;
     message.phpGenericServices = object.phpGenericServices ?? false;
     message.deprecated = object.deprecated ?? false;
     message.ccEnableArenas = object.ccEnableArenas ?? false;
-    message.objcClassPrefix = object.objcClassPrefix ?? '';
-    message.csharpNamespace = object.csharpNamespace ?? '';
-    message.swiftPrefix = object.swiftPrefix ?? '';
-    message.phpClassPrefix = object.phpClassPrefix ?? '';
-    message.phpNamespace = object.phpNamespace ?? '';
-    message.phpMetadataNamespace = object.phpMetadataNamespace ?? '';
-    message.rubyPackage = object.rubyPackage ?? '';
+    message.objcClassPrefix = object.objcClassPrefix ?? "";
+    message.csharpNamespace = object.csharpNamespace ?? "";
+    message.swiftPrefix = object.swiftPrefix ?? "";
+    message.phpClassPrefix = object.phpClassPrefix ?? "";
+    message.phpNamespace = object.phpNamespace ?? "";
+    message.phpMetadataNamespace = object.phpMetadataNamespace ?? "";
+    message.rubyPackage = object.rubyPackage ?? "";
     message.uninterpretedOption = object.uninterpretedOption?.map(e => UninterpretedOption.fromPartial(e)) || [];
     return message;
   },
@@ -4042,26 +4042,26 @@ export const FileOptions = {
   },
   toAmino(message: FileOptions): FileOptionsAmino {
     const obj: any = {};
-    obj.java_package = message.javaPackage === '' ? undefined : message.javaPackage;
-    obj.java_outer_classname = message.javaOuterClassname === '' ? undefined : message.javaOuterClassname;
+    obj.java_package = message.javaPackage === "" ? undefined : message.javaPackage;
+    obj.java_outer_classname = message.javaOuterClassname === "" ? undefined : message.javaOuterClassname;
     obj.java_multiple_files = message.javaMultipleFiles === false ? undefined : message.javaMultipleFiles;
     obj.java_generate_equals_and_hash = message.javaGenerateEqualsAndHash === false ? undefined : message.javaGenerateEqualsAndHash;
     obj.java_string_check_utf8 = message.javaStringCheckUtf8 === false ? undefined : message.javaStringCheckUtf8;
     obj.optimize_for = message.optimizeFor === 1 ? undefined : message.optimizeFor;
-    obj.go_package = message.goPackage === '' ? undefined : message.goPackage;
+    obj.go_package = message.goPackage === "" ? undefined : message.goPackage;
     obj.cc_generic_services = message.ccGenericServices === false ? undefined : message.ccGenericServices;
     obj.java_generic_services = message.javaGenericServices === false ? undefined : message.javaGenericServices;
     obj.py_generic_services = message.pyGenericServices === false ? undefined : message.pyGenericServices;
     obj.php_generic_services = message.phpGenericServices === false ? undefined : message.phpGenericServices;
     obj.deprecated = message.deprecated === false ? undefined : message.deprecated;
     obj.cc_enable_arenas = message.ccEnableArenas === false ? undefined : message.ccEnableArenas;
-    obj.objc_class_prefix = message.objcClassPrefix === '' ? undefined : message.objcClassPrefix;
-    obj.csharp_namespace = message.csharpNamespace === '' ? undefined : message.csharpNamespace;
-    obj.swift_prefix = message.swiftPrefix === '' ? undefined : message.swiftPrefix;
-    obj.php_class_prefix = message.phpClassPrefix === '' ? undefined : message.phpClassPrefix;
-    obj.php_namespace = message.phpNamespace === '' ? undefined : message.phpNamespace;
-    obj.php_metadata_namespace = message.phpMetadataNamespace === '' ? undefined : message.phpMetadataNamespace;
-    obj.ruby_package = message.rubyPackage === '' ? undefined : message.rubyPackage;
+    obj.objc_class_prefix = message.objcClassPrefix === "" ? undefined : message.objcClassPrefix;
+    obj.csharp_namespace = message.csharpNamespace === "" ? undefined : message.csharpNamespace;
+    obj.swift_prefix = message.swiftPrefix === "" ? undefined : message.swiftPrefix;
+    obj.php_class_prefix = message.phpClassPrefix === "" ? undefined : message.phpClassPrefix;
+    obj.php_namespace = message.phpNamespace === "" ? undefined : message.phpNamespace;
+    obj.php_metadata_namespace = message.phpMetadataNamespace === "" ? undefined : message.phpMetadataNamespace;
+    obj.ruby_package = message.rubyPackage === "" ? undefined : message.rubyPackage;
     if (message.uninterpretedOption) {
       obj.uninterpreted_option = message.uninterpretedOption.map(e => e ? UninterpretedOption.toAmino(e) : undefined);
     } else {
@@ -4080,7 +4080,7 @@ export const FileOptions = {
   },
   toProtoMsg(message: FileOptions): FileOptionsProtoMsg {
     return {
-      typeUrl: '/google.protobuf.FileOptions',
+      typeUrl: "/google.protobuf.FileOptions",
       value: FileOptions.encode(message).finish()
     };
   }
@@ -4096,15 +4096,15 @@ function createBaseMessageOptions(): MessageOptions {
   };
 }
 export const MessageOptions = {
-  typeUrl: '/google.protobuf.MessageOptions',
+  typeUrl: "/google.protobuf.MessageOptions",
   is(o: any): o is MessageOptions {
-    return o && (o.$typeUrl === MessageOptions.typeUrl || typeof o.messageSetWireFormat === 'boolean' && typeof o.noStandardDescriptorAccessor === 'boolean' && typeof o.deprecated === 'boolean' && typeof o.mapEntry === 'boolean' && Array.isArray(o.uninterpretedOption) && (!o.uninterpretedOption.length || UninterpretedOption.is(o.uninterpretedOption[0])));
+    return o && (o.$typeUrl === MessageOptions.typeUrl || typeof o.messageSetWireFormat === "boolean" && typeof o.noStandardDescriptorAccessor === "boolean" && typeof o.deprecated === "boolean" && typeof o.mapEntry === "boolean" && Array.isArray(o.uninterpretedOption) && (!o.uninterpretedOption.length || UninterpretedOption.is(o.uninterpretedOption[0])));
   },
   isSDK(o: any): o is MessageOptionsSDKType {
-    return o && (o.$typeUrl === MessageOptions.typeUrl || typeof o.message_set_wire_format === 'boolean' && typeof o.no_standard_descriptor_accessor === 'boolean' && typeof o.deprecated === 'boolean' && typeof o.map_entry === 'boolean' && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isSDK(o.uninterpreted_option[0])));
+    return o && (o.$typeUrl === MessageOptions.typeUrl || typeof o.message_set_wire_format === "boolean" && typeof o.no_standard_descriptor_accessor === "boolean" && typeof o.deprecated === "boolean" && typeof o.map_entry === "boolean" && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isSDK(o.uninterpreted_option[0])));
   },
   isAmino(o: any): o is MessageOptionsAmino {
-    return o && (o.$typeUrl === MessageOptions.typeUrl || typeof o.message_set_wire_format === 'boolean' && typeof o.no_standard_descriptor_accessor === 'boolean' && typeof o.deprecated === 'boolean' && typeof o.map_entry === 'boolean' && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isAmino(o.uninterpreted_option[0])));
+    return o && (o.$typeUrl === MessageOptions.typeUrl || typeof o.message_set_wire_format === "boolean" && typeof o.no_standard_descriptor_accessor === "boolean" && typeof o.deprecated === "boolean" && typeof o.map_entry === "boolean" && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isAmino(o.uninterpreted_option[0])));
   },
   encode(message: MessageOptions, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.messageSetWireFormat === true) {
@@ -4131,24 +4131,24 @@ export const MessageOptions = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.messageSetWireFormat = reader.bool();
-        break;
-      case 2:
-        message.noStandardDescriptorAccessor = reader.bool();
-        break;
-      case 3:
-        message.deprecated = reader.bool();
-        break;
-      case 7:
-        message.mapEntry = reader.bool();
-        break;
-      case 999:
-        message.uninterpretedOption.push(UninterpretedOption.decode(reader, reader.uint32()));
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.messageSetWireFormat = reader.bool();
+          break;
+        case 2:
+          message.noStandardDescriptorAccessor = reader.bool();
+          break;
+        case 3:
+          message.deprecated = reader.bool();
+          break;
+        case 7:
+          message.mapEntry = reader.bool();
+          break;
+        case 999:
+          message.uninterpretedOption.push(UninterpretedOption.decode(reader, reader.uint32()));
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -4203,7 +4203,7 @@ export const MessageOptions = {
   },
   toProtoMsg(message: MessageOptions): MessageOptionsProtoMsg {
     return {
-      typeUrl: '/google.protobuf.MessageOptions',
+      typeUrl: "/google.protobuf.MessageOptions",
       value: MessageOptions.encode(message).finish()
     };
   }
@@ -4221,15 +4221,15 @@ function createBaseFieldOptions(): FieldOptions {
   };
 }
 export const FieldOptions = {
-  typeUrl: '/google.protobuf.FieldOptions',
+  typeUrl: "/google.protobuf.FieldOptions",
   is(o: any): o is FieldOptions {
-    return o && (o.$typeUrl === FieldOptions.typeUrl || isSet(o.ctype) && typeof o.packed === 'boolean' && isSet(o.jstype) && typeof o.lazy === 'boolean' && typeof o.deprecated === 'boolean' && typeof o.weak === 'boolean' && Array.isArray(o.uninterpretedOption) && (!o.uninterpretedOption.length || UninterpretedOption.is(o.uninterpretedOption[0])));
+    return o && (o.$typeUrl === FieldOptions.typeUrl || isSet(o.ctype) && typeof o.packed === "boolean" && isSet(o.jstype) && typeof o.lazy === "boolean" && typeof o.deprecated === "boolean" && typeof o.weak === "boolean" && Array.isArray(o.uninterpretedOption) && (!o.uninterpretedOption.length || UninterpretedOption.is(o.uninterpretedOption[0])));
   },
   isSDK(o: any): o is FieldOptionsSDKType {
-    return o && (o.$typeUrl === FieldOptions.typeUrl || isSet(o.ctype) && typeof o.packed === 'boolean' && isSet(o.jstype) && typeof o.lazy === 'boolean' && typeof o.deprecated === 'boolean' && typeof o.weak === 'boolean' && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isSDK(o.uninterpreted_option[0])));
+    return o && (o.$typeUrl === FieldOptions.typeUrl || isSet(o.ctype) && typeof o.packed === "boolean" && isSet(o.jstype) && typeof o.lazy === "boolean" && typeof o.deprecated === "boolean" && typeof o.weak === "boolean" && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isSDK(o.uninterpreted_option[0])));
   },
   isAmino(o: any): o is FieldOptionsAmino {
-    return o && (o.$typeUrl === FieldOptions.typeUrl || isSet(o.ctype) && typeof o.packed === 'boolean' && isSet(o.jstype) && typeof o.lazy === 'boolean' && typeof o.deprecated === 'boolean' && typeof o.weak === 'boolean' && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isAmino(o.uninterpreted_option[0])));
+    return o && (o.$typeUrl === FieldOptions.typeUrl || isSet(o.ctype) && typeof o.packed === "boolean" && isSet(o.jstype) && typeof o.lazy === "boolean" && typeof o.deprecated === "boolean" && typeof o.weak === "boolean" && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isAmino(o.uninterpreted_option[0])));
   },
   encode(message: FieldOptions, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.ctype !== 1) {
@@ -4262,30 +4262,30 @@ export const FieldOptions = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.ctype = reader.int32() as any;
-        break;
-      case 2:
-        message.packed = reader.bool();
-        break;
-      case 6:
-        message.jstype = reader.int32() as any;
-        break;
-      case 5:
-        message.lazy = reader.bool();
-        break;
-      case 3:
-        message.deprecated = reader.bool();
-        break;
-      case 10:
-        message.weak = reader.bool();
-        break;
-      case 999:
-        message.uninterpretedOption.push(UninterpretedOption.decode(reader, reader.uint32()));
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.ctype = reader.int32() as any;
+          break;
+        case 2:
+          message.packed = reader.bool();
+          break;
+        case 6:
+          message.jstype = reader.int32() as any;
+          break;
+        case 5:
+          message.lazy = reader.bool();
+          break;
+        case 3:
+          message.deprecated = reader.bool();
+          break;
+        case 10:
+          message.weak = reader.bool();
+          break;
+        case 999:
+          message.uninterpretedOption.push(UninterpretedOption.decode(reader, reader.uint32()));
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -4350,7 +4350,7 @@ export const FieldOptions = {
   },
   toProtoMsg(message: FieldOptions): FieldOptionsProtoMsg {
     return {
-      typeUrl: '/google.protobuf.FieldOptions',
+      typeUrl: "/google.protobuf.FieldOptions",
       value: FieldOptions.encode(message).finish()
     };
   }
@@ -4362,7 +4362,7 @@ function createBaseOneofOptions(): OneofOptions {
   };
 }
 export const OneofOptions = {
-  typeUrl: '/google.protobuf.OneofOptions',
+  typeUrl: "/google.protobuf.OneofOptions",
   is(o: any): o is OneofOptions {
     return o && (o.$typeUrl === OneofOptions.typeUrl || Array.isArray(o.uninterpretedOption) && (!o.uninterpretedOption.length || UninterpretedOption.is(o.uninterpretedOption[0])));
   },
@@ -4385,12 +4385,12 @@ export const OneofOptions = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 999:
-        message.uninterpretedOption.push(UninterpretedOption.decode(reader, reader.uint32()));
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 999:
+          message.uninterpretedOption.push(UninterpretedOption.decode(reader, reader.uint32()));
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -4425,7 +4425,7 @@ export const OneofOptions = {
   },
   toProtoMsg(message: OneofOptions): OneofOptionsProtoMsg {
     return {
-      typeUrl: '/google.protobuf.OneofOptions',
+      typeUrl: "/google.protobuf.OneofOptions",
       value: OneofOptions.encode(message).finish()
     };
   }
@@ -4439,15 +4439,15 @@ function createBaseEnumOptions(): EnumOptions {
   };
 }
 export const EnumOptions = {
-  typeUrl: '/google.protobuf.EnumOptions',
+  typeUrl: "/google.protobuf.EnumOptions",
   is(o: any): o is EnumOptions {
-    return o && (o.$typeUrl === EnumOptions.typeUrl || typeof o.allowAlias === 'boolean' && typeof o.deprecated === 'boolean' && Array.isArray(o.uninterpretedOption) && (!o.uninterpretedOption.length || UninterpretedOption.is(o.uninterpretedOption[0])));
+    return o && (o.$typeUrl === EnumOptions.typeUrl || typeof o.allowAlias === "boolean" && typeof o.deprecated === "boolean" && Array.isArray(o.uninterpretedOption) && (!o.uninterpretedOption.length || UninterpretedOption.is(o.uninterpretedOption[0])));
   },
   isSDK(o: any): o is EnumOptionsSDKType {
-    return o && (o.$typeUrl === EnumOptions.typeUrl || typeof o.allow_alias === 'boolean' && typeof o.deprecated === 'boolean' && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isSDK(o.uninterpreted_option[0])));
+    return o && (o.$typeUrl === EnumOptions.typeUrl || typeof o.allow_alias === "boolean" && typeof o.deprecated === "boolean" && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isSDK(o.uninterpreted_option[0])));
   },
   isAmino(o: any): o is EnumOptionsAmino {
-    return o && (o.$typeUrl === EnumOptions.typeUrl || typeof o.allow_alias === 'boolean' && typeof o.deprecated === 'boolean' && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isAmino(o.uninterpreted_option[0])));
+    return o && (o.$typeUrl === EnumOptions.typeUrl || typeof o.allow_alias === "boolean" && typeof o.deprecated === "boolean" && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isAmino(o.uninterpreted_option[0])));
   },
   encode(message: EnumOptions, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.allowAlias === true) {
@@ -4468,18 +4468,18 @@ export const EnumOptions = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 2:
-        message.allowAlias = reader.bool();
-        break;
-      case 3:
-        message.deprecated = reader.bool();
-        break;
-      case 999:
-        message.uninterpretedOption.push(UninterpretedOption.decode(reader, reader.uint32()));
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 2:
+          message.allowAlias = reader.bool();
+          break;
+        case 3:
+          message.deprecated = reader.bool();
+          break;
+        case 999:
+          message.uninterpretedOption.push(UninterpretedOption.decode(reader, reader.uint32()));
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -4524,7 +4524,7 @@ export const EnumOptions = {
   },
   toProtoMsg(message: EnumOptions): EnumOptionsProtoMsg {
     return {
-      typeUrl: '/google.protobuf.EnumOptions',
+      typeUrl: "/google.protobuf.EnumOptions",
       value: EnumOptions.encode(message).finish()
     };
   }
@@ -4537,15 +4537,15 @@ function createBaseEnumValueOptions(): EnumValueOptions {
   };
 }
 export const EnumValueOptions = {
-  typeUrl: '/google.protobuf.EnumValueOptions',
+  typeUrl: "/google.protobuf.EnumValueOptions",
   is(o: any): o is EnumValueOptions {
-    return o && (o.$typeUrl === EnumValueOptions.typeUrl || typeof o.deprecated === 'boolean' && Array.isArray(o.uninterpretedOption) && (!o.uninterpretedOption.length || UninterpretedOption.is(o.uninterpretedOption[0])));
+    return o && (o.$typeUrl === EnumValueOptions.typeUrl || typeof o.deprecated === "boolean" && Array.isArray(o.uninterpretedOption) && (!o.uninterpretedOption.length || UninterpretedOption.is(o.uninterpretedOption[0])));
   },
   isSDK(o: any): o is EnumValueOptionsSDKType {
-    return o && (o.$typeUrl === EnumValueOptions.typeUrl || typeof o.deprecated === 'boolean' && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isSDK(o.uninterpreted_option[0])));
+    return o && (o.$typeUrl === EnumValueOptions.typeUrl || typeof o.deprecated === "boolean" && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isSDK(o.uninterpreted_option[0])));
   },
   isAmino(o: any): o is EnumValueOptionsAmino {
-    return o && (o.$typeUrl === EnumValueOptions.typeUrl || typeof o.deprecated === 'boolean' && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isAmino(o.uninterpreted_option[0])));
+    return o && (o.$typeUrl === EnumValueOptions.typeUrl || typeof o.deprecated === "boolean" && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isAmino(o.uninterpreted_option[0])));
   },
   encode(message: EnumValueOptions, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.deprecated === true) {
@@ -4563,15 +4563,15 @@ export const EnumValueOptions = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.deprecated = reader.bool();
-        break;
-      case 999:
-        message.uninterpretedOption.push(UninterpretedOption.decode(reader, reader.uint32()));
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.deprecated = reader.bool();
+          break;
+        case 999:
+          message.uninterpretedOption.push(UninterpretedOption.decode(reader, reader.uint32()));
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -4611,7 +4611,7 @@ export const EnumValueOptions = {
   },
   toProtoMsg(message: EnumValueOptions): EnumValueOptionsProtoMsg {
     return {
-      typeUrl: '/google.protobuf.EnumValueOptions',
+      typeUrl: "/google.protobuf.EnumValueOptions",
       value: EnumValueOptions.encode(message).finish()
     };
   }
@@ -4624,15 +4624,15 @@ function createBaseServiceOptions(): ServiceOptions {
   };
 }
 export const ServiceOptions = {
-  typeUrl: '/google.protobuf.ServiceOptions',
+  typeUrl: "/google.protobuf.ServiceOptions",
   is(o: any): o is ServiceOptions {
-    return o && (o.$typeUrl === ServiceOptions.typeUrl || typeof o.deprecated === 'boolean' && Array.isArray(o.uninterpretedOption) && (!o.uninterpretedOption.length || UninterpretedOption.is(o.uninterpretedOption[0])));
+    return o && (o.$typeUrl === ServiceOptions.typeUrl || typeof o.deprecated === "boolean" && Array.isArray(o.uninterpretedOption) && (!o.uninterpretedOption.length || UninterpretedOption.is(o.uninterpretedOption[0])));
   },
   isSDK(o: any): o is ServiceOptionsSDKType {
-    return o && (o.$typeUrl === ServiceOptions.typeUrl || typeof o.deprecated === 'boolean' && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isSDK(o.uninterpreted_option[0])));
+    return o && (o.$typeUrl === ServiceOptions.typeUrl || typeof o.deprecated === "boolean" && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isSDK(o.uninterpreted_option[0])));
   },
   isAmino(o: any): o is ServiceOptionsAmino {
-    return o && (o.$typeUrl === ServiceOptions.typeUrl || typeof o.deprecated === 'boolean' && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isAmino(o.uninterpreted_option[0])));
+    return o && (o.$typeUrl === ServiceOptions.typeUrl || typeof o.deprecated === "boolean" && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isAmino(o.uninterpreted_option[0])));
   },
   encode(message: ServiceOptions, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.deprecated === true) {
@@ -4650,15 +4650,15 @@ export const ServiceOptions = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 33:
-        message.deprecated = reader.bool();
-        break;
-      case 999:
-        message.uninterpretedOption.push(UninterpretedOption.decode(reader, reader.uint32()));
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 33:
+          message.deprecated = reader.bool();
+          break;
+        case 999:
+          message.uninterpretedOption.push(UninterpretedOption.decode(reader, reader.uint32()));
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -4698,7 +4698,7 @@ export const ServiceOptions = {
   },
   toProtoMsg(message: ServiceOptions): ServiceOptionsProtoMsg {
     return {
-      typeUrl: '/google.protobuf.ServiceOptions',
+      typeUrl: "/google.protobuf.ServiceOptions",
       value: ServiceOptions.encode(message).finish()
     };
   }
@@ -4712,15 +4712,15 @@ function createBaseMethodOptions(): MethodOptions {
   };
 }
 export const MethodOptions = {
-  typeUrl: '/google.protobuf.MethodOptions',
+  typeUrl: "/google.protobuf.MethodOptions",
   is(o: any): o is MethodOptions {
-    return o && (o.$typeUrl === MethodOptions.typeUrl || typeof o.deprecated === 'boolean' && isSet(o.idempotencyLevel) && Array.isArray(o.uninterpretedOption) && (!o.uninterpretedOption.length || UninterpretedOption.is(o.uninterpretedOption[0])));
+    return o && (o.$typeUrl === MethodOptions.typeUrl || typeof o.deprecated === "boolean" && isSet(o.idempotencyLevel) && Array.isArray(o.uninterpretedOption) && (!o.uninterpretedOption.length || UninterpretedOption.is(o.uninterpretedOption[0])));
   },
   isSDK(o: any): o is MethodOptionsSDKType {
-    return o && (o.$typeUrl === MethodOptions.typeUrl || typeof o.deprecated === 'boolean' && isSet(o.idempotency_level) && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isSDK(o.uninterpreted_option[0])));
+    return o && (o.$typeUrl === MethodOptions.typeUrl || typeof o.deprecated === "boolean" && isSet(o.idempotency_level) && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isSDK(o.uninterpreted_option[0])));
   },
   isAmino(o: any): o is MethodOptionsAmino {
-    return o && (o.$typeUrl === MethodOptions.typeUrl || typeof o.deprecated === 'boolean' && isSet(o.idempotency_level) && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isAmino(o.uninterpreted_option[0])));
+    return o && (o.$typeUrl === MethodOptions.typeUrl || typeof o.deprecated === "boolean" && isSet(o.idempotency_level) && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isAmino(o.uninterpreted_option[0])));
   },
   encode(message: MethodOptions, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.deprecated === true) {
@@ -4741,18 +4741,18 @@ export const MethodOptions = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 33:
-        message.deprecated = reader.bool();
-        break;
-      case 34:
-        message.idempotencyLevel = reader.int32() as any;
-        break;
-      case 999:
-        message.uninterpretedOption.push(UninterpretedOption.decode(reader, reader.uint32()));
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 33:
+          message.deprecated = reader.bool();
+          break;
+        case 34:
+          message.idempotencyLevel = reader.int32() as any;
+          break;
+        case 999:
+          message.uninterpretedOption.push(UninterpretedOption.decode(reader, reader.uint32()));
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -4797,7 +4797,7 @@ export const MethodOptions = {
   },
   toProtoMsg(message: MethodOptions): MethodOptionsProtoMsg {
     return {
-      typeUrl: '/google.protobuf.MethodOptions',
+      typeUrl: "/google.protobuf.MethodOptions",
       value: MethodOptions.encode(message).finish()
     };
   }
@@ -4806,30 +4806,30 @@ GlobalDecoderRegistry.register(MethodOptions.typeUrl, MethodOptions);
 function createBaseUninterpretedOption(): UninterpretedOption {
   return {
     name: [],
-    identifierValue: '',
+    identifierValue: "",
     positiveIntValue: BigInt(0),
     negativeIntValue: BigInt(0),
     doubleValue: 0,
     stringValue: new Uint8Array(),
-    aggregateValue: ''
+    aggregateValue: ""
   };
 }
 export const UninterpretedOption = {
-  typeUrl: '/google.protobuf.UninterpretedOption',
+  typeUrl: "/google.protobuf.UninterpretedOption",
   is(o: any): o is UninterpretedOption {
-    return o && (o.$typeUrl === UninterpretedOption.typeUrl || Array.isArray(o.name) && (!o.name.length || UninterpretedOption_NamePart.is(o.name[0])) && typeof o.identifierValue === 'string' && typeof o.positiveIntValue === 'bigint' && typeof o.negativeIntValue === 'bigint' && typeof o.doubleValue === 'number' && (o.stringValue instanceof Uint8Array || typeof o.stringValue === 'string') && typeof o.aggregateValue === 'string');
+    return o && (o.$typeUrl === UninterpretedOption.typeUrl || Array.isArray(o.name) && (!o.name.length || UninterpretedOption_NamePart.is(o.name[0])) && typeof o.identifierValue === "string" && typeof o.positiveIntValue === "bigint" && typeof o.negativeIntValue === "bigint" && typeof o.doubleValue === "number" && (o.stringValue instanceof Uint8Array || typeof o.stringValue === "string") && typeof o.aggregateValue === "string");
   },
   isSDK(o: any): o is UninterpretedOptionSDKType {
-    return o && (o.$typeUrl === UninterpretedOption.typeUrl || Array.isArray(o.name) && (!o.name.length || UninterpretedOption_NamePart.isSDK(o.name[0])) && typeof o.identifier_value === 'string' && typeof o.positive_int_value === 'bigint' && typeof o.negative_int_value === 'bigint' && typeof o.double_value === 'number' && (o.string_value instanceof Uint8Array || typeof o.string_value === 'string') && typeof o.aggregate_value === 'string');
+    return o && (o.$typeUrl === UninterpretedOption.typeUrl || Array.isArray(o.name) && (!o.name.length || UninterpretedOption_NamePart.isSDK(o.name[0])) && typeof o.identifier_value === "string" && typeof o.positive_int_value === "bigint" && typeof o.negative_int_value === "bigint" && typeof o.double_value === "number" && (o.string_value instanceof Uint8Array || typeof o.string_value === "string") && typeof o.aggregate_value === "string");
   },
   isAmino(o: any): o is UninterpretedOptionAmino {
-    return o && (o.$typeUrl === UninterpretedOption.typeUrl || Array.isArray(o.name) && (!o.name.length || UninterpretedOption_NamePart.isAmino(o.name[0])) && typeof o.identifier_value === 'string' && typeof o.positive_int_value === 'bigint' && typeof o.negative_int_value === 'bigint' && typeof o.double_value === 'number' && (o.string_value instanceof Uint8Array || typeof o.string_value === 'string') && typeof o.aggregate_value === 'string');
+    return o && (o.$typeUrl === UninterpretedOption.typeUrl || Array.isArray(o.name) && (!o.name.length || UninterpretedOption_NamePart.isAmino(o.name[0])) && typeof o.identifier_value === "string" && typeof o.positive_int_value === "bigint" && typeof o.negative_int_value === "bigint" && typeof o.double_value === "number" && (o.string_value instanceof Uint8Array || typeof o.string_value === "string") && typeof o.aggregate_value === "string");
   },
   encode(message: UninterpretedOption, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.name) {
       UninterpretedOption_NamePart.encode(v!, writer.uint32(18).fork()).ldelim();
     }
-    if (message.identifierValue !== '') {
+    if (message.identifierValue !== "") {
       writer.uint32(26).string(message.identifierValue);
     }
     if (message.positiveIntValue !== BigInt(0)) {
@@ -4844,7 +4844,7 @@ export const UninterpretedOption = {
     if (message.stringValue.length !== 0) {
       writer.uint32(58).bytes(message.stringValue);
     }
-    if (message.aggregateValue !== '') {
+    if (message.aggregateValue !== "") {
       writer.uint32(66).string(message.aggregateValue);
     }
     return writer;
@@ -4856,30 +4856,30 @@ export const UninterpretedOption = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 2:
-        message.name.push(UninterpretedOption_NamePart.decode(reader, reader.uint32()));
-        break;
-      case 3:
-        message.identifierValue = reader.string();
-        break;
-      case 4:
-        message.positiveIntValue = reader.uint64();
-        break;
-      case 5:
-        message.negativeIntValue = reader.int64();
-        break;
-      case 6:
-        message.doubleValue = reader.double();
-        break;
-      case 7:
-        message.stringValue = reader.bytes();
-        break;
-      case 8:
-        message.aggregateValue = reader.string();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 2:
+          message.name.push(UninterpretedOption_NamePart.decode(reader, reader.uint32()));
+          break;
+        case 3:
+          message.identifierValue = reader.string();
+          break;
+        case 4:
+          message.positiveIntValue = reader.uint64();
+          break;
+        case 5:
+          message.negativeIntValue = reader.int64();
+          break;
+        case 6:
+          message.doubleValue = reader.double();
+          break;
+        case 7:
+          message.stringValue = reader.bytes();
+          break;
+        case 8:
+          message.aggregateValue = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -4887,12 +4887,12 @@ export const UninterpretedOption = {
   fromPartial(object: Partial<UninterpretedOption>): UninterpretedOption {
     const message = createBaseUninterpretedOption();
     message.name = object.name?.map(e => UninterpretedOption_NamePart.fromPartial(e)) || [];
-    message.identifierValue = object.identifierValue ?? '';
+    message.identifierValue = object.identifierValue ?? "";
     message.positiveIntValue = object.positiveIntValue !== undefined && object.positiveIntValue !== null ? BigInt(object.positiveIntValue.toString()) : BigInt(0);
     message.negativeIntValue = object.negativeIntValue !== undefined && object.negativeIntValue !== null ? BigInt(object.negativeIntValue.toString()) : BigInt(0);
     message.doubleValue = object.doubleValue ?? 0;
     message.stringValue = object.stringValue ?? new Uint8Array();
-    message.aggregateValue = object.aggregateValue ?? '';
+    message.aggregateValue = object.aggregateValue ?? "";
     return message;
   },
   fromAmino(object: UninterpretedOptionAmino): UninterpretedOption {
@@ -4925,12 +4925,12 @@ export const UninterpretedOption = {
     } else {
       obj.name = message.name;
     }
-    obj.identifier_value = message.identifierValue === '' ? undefined : message.identifierValue;
+    obj.identifier_value = message.identifierValue === "" ? undefined : message.identifierValue;
     obj.positive_int_value = message.positiveIntValue !== BigInt(0) ? message.positiveIntValue.toString() : undefined;
     obj.negative_int_value = message.negativeIntValue !== BigInt(0) ? message.negativeIntValue.toString() : undefined;
     obj.double_value = message.doubleValue === 0 ? undefined : message.doubleValue;
     obj.string_value = message.stringValue ? base64FromBytes(message.stringValue) : undefined;
-    obj.aggregate_value = message.aggregateValue === '' ? undefined : message.aggregateValue;
+    obj.aggregate_value = message.aggregateValue === "" ? undefined : message.aggregateValue;
     return obj;
   },
   fromAminoMsg(object: UninterpretedOptionAminoMsg): UninterpretedOption {
@@ -4944,7 +4944,7 @@ export const UninterpretedOption = {
   },
   toProtoMsg(message: UninterpretedOption): UninterpretedOptionProtoMsg {
     return {
-      typeUrl: '/google.protobuf.UninterpretedOption',
+      typeUrl: "/google.protobuf.UninterpretedOption",
       value: UninterpretedOption.encode(message).finish()
     };
   }
@@ -4952,23 +4952,23 @@ export const UninterpretedOption = {
 GlobalDecoderRegistry.register(UninterpretedOption.typeUrl, UninterpretedOption);
 function createBaseUninterpretedOption_NamePart(): UninterpretedOption_NamePart {
   return {
-    namePart: '',
+    namePart: "",
     isExtension: false
   };
 }
 export const UninterpretedOption_NamePart = {
-  typeUrl: '/google.protobuf.NamePart',
+  typeUrl: "/google.protobuf.NamePart",
   is(o: any): o is UninterpretedOption_NamePart {
-    return o && (o.$typeUrl === UninterpretedOption_NamePart.typeUrl || typeof o.namePart === 'string' && typeof o.isExtension === 'boolean');
+    return o && (o.$typeUrl === UninterpretedOption_NamePart.typeUrl || typeof o.namePart === "string" && typeof o.isExtension === "boolean");
   },
   isSDK(o: any): o is UninterpretedOption_NamePartSDKType {
-    return o && (o.$typeUrl === UninterpretedOption_NamePart.typeUrl || typeof o.name_part === 'string' && typeof o.is_extension === 'boolean');
+    return o && (o.$typeUrl === UninterpretedOption_NamePart.typeUrl || typeof o.name_part === "string" && typeof o.is_extension === "boolean");
   },
   isAmino(o: any): o is UninterpretedOption_NamePartAmino {
-    return o && (o.$typeUrl === UninterpretedOption_NamePart.typeUrl || typeof o.name_part === 'string' && typeof o.is_extension === 'boolean');
+    return o && (o.$typeUrl === UninterpretedOption_NamePart.typeUrl || typeof o.name_part === "string" && typeof o.is_extension === "boolean");
   },
   encode(message: UninterpretedOption_NamePart, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.namePart !== '') {
+    if (message.namePart !== "") {
       writer.uint32(10).string(message.namePart);
     }
     if (message.isExtension === true) {
@@ -4983,22 +4983,22 @@ export const UninterpretedOption_NamePart = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.namePart = reader.string();
-        break;
-      case 2:
-        message.isExtension = reader.bool();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.namePart = reader.string();
+          break;
+        case 2:
+          message.isExtension = reader.bool();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<UninterpretedOption_NamePart>): UninterpretedOption_NamePart {
     const message = createBaseUninterpretedOption_NamePart();
-    message.namePart = object.namePart ?? '';
+    message.namePart = object.namePart ?? "";
     message.isExtension = object.isExtension ?? false;
     return message;
   },
@@ -5014,7 +5014,7 @@ export const UninterpretedOption_NamePart = {
   },
   toAmino(message: UninterpretedOption_NamePart): UninterpretedOption_NamePartAmino {
     const obj: any = {};
-    obj.name_part = message.namePart === '' ? undefined : message.namePart;
+    obj.name_part = message.namePart === "" ? undefined : message.namePart;
     obj.is_extension = message.isExtension === false ? undefined : message.isExtension;
     return obj;
   },
@@ -5029,7 +5029,7 @@ export const UninterpretedOption_NamePart = {
   },
   toProtoMsg(message: UninterpretedOption_NamePart): UninterpretedOption_NamePartProtoMsg {
     return {
-      typeUrl: '/google.protobuf.NamePart',
+      typeUrl: "/google.protobuf.NamePart",
       value: UninterpretedOption_NamePart.encode(message).finish()
     };
   }
@@ -5041,7 +5041,7 @@ function createBaseSourceCodeInfo(): SourceCodeInfo {
   };
 }
 export const SourceCodeInfo = {
-  typeUrl: '/google.protobuf.SourceCodeInfo',
+  typeUrl: "/google.protobuf.SourceCodeInfo",
   is(o: any): o is SourceCodeInfo {
     return o && (o.$typeUrl === SourceCodeInfo.typeUrl || Array.isArray(o.location) && (!o.location.length || SourceCodeInfo_Location.is(o.location[0])));
   },
@@ -5064,12 +5064,12 @@ export const SourceCodeInfo = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.location.push(SourceCodeInfo_Location.decode(reader, reader.uint32()));
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.location.push(SourceCodeInfo_Location.decode(reader, reader.uint32()));
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -5104,7 +5104,7 @@ export const SourceCodeInfo = {
   },
   toProtoMsg(message: SourceCodeInfo): SourceCodeInfoProtoMsg {
     return {
-      typeUrl: '/google.protobuf.SourceCodeInfo',
+      typeUrl: "/google.protobuf.SourceCodeInfo",
       value: SourceCodeInfo.encode(message).finish()
     };
   }
@@ -5114,21 +5114,21 @@ function createBaseSourceCodeInfo_Location(): SourceCodeInfo_Location {
   return {
     path: [],
     span: [],
-    leadingComments: '',
-    trailingComments: '',
+    leadingComments: "",
+    trailingComments: "",
     leadingDetachedComments: []
   };
 }
 export const SourceCodeInfo_Location = {
-  typeUrl: '/google.protobuf.Location',
+  typeUrl: "/google.protobuf.Location",
   is(o: any): o is SourceCodeInfo_Location {
-    return o && (o.$typeUrl === SourceCodeInfo_Location.typeUrl || Array.isArray(o.path) && (!o.path.length || typeof o.path[0] === 'number') && Array.isArray(o.span) && (!o.span.length || typeof o.span[0] === 'number') && typeof o.leadingComments === 'string' && typeof o.trailingComments === 'string' && Array.isArray(o.leadingDetachedComments) && (!o.leadingDetachedComments.length || typeof o.leadingDetachedComments[0] === 'string'));
+    return o && (o.$typeUrl === SourceCodeInfo_Location.typeUrl || Array.isArray(o.path) && (!o.path.length || typeof o.path[0] === "number") && Array.isArray(o.span) && (!o.span.length || typeof o.span[0] === "number") && typeof o.leadingComments === "string" && typeof o.trailingComments === "string" && Array.isArray(o.leadingDetachedComments) && (!o.leadingDetachedComments.length || typeof o.leadingDetachedComments[0] === "string"));
   },
   isSDK(o: any): o is SourceCodeInfo_LocationSDKType {
-    return o && (o.$typeUrl === SourceCodeInfo_Location.typeUrl || Array.isArray(o.path) && (!o.path.length || typeof o.path[0] === 'number') && Array.isArray(o.span) && (!o.span.length || typeof o.span[0] === 'number') && typeof o.leading_comments === 'string' && typeof o.trailing_comments === 'string' && Array.isArray(o.leading_detached_comments) && (!o.leading_detached_comments.length || typeof o.leading_detached_comments[0] === 'string'));
+    return o && (o.$typeUrl === SourceCodeInfo_Location.typeUrl || Array.isArray(o.path) && (!o.path.length || typeof o.path[0] === "number") && Array.isArray(o.span) && (!o.span.length || typeof o.span[0] === "number") && typeof o.leading_comments === "string" && typeof o.trailing_comments === "string" && Array.isArray(o.leading_detached_comments) && (!o.leading_detached_comments.length || typeof o.leading_detached_comments[0] === "string"));
   },
   isAmino(o: any): o is SourceCodeInfo_LocationAmino {
-    return o && (o.$typeUrl === SourceCodeInfo_Location.typeUrl || Array.isArray(o.path) && (!o.path.length || typeof o.path[0] === 'number') && Array.isArray(o.span) && (!o.span.length || typeof o.span[0] === 'number') && typeof o.leading_comments === 'string' && typeof o.trailing_comments === 'string' && Array.isArray(o.leading_detached_comments) && (!o.leading_detached_comments.length || typeof o.leading_detached_comments[0] === 'string'));
+    return o && (o.$typeUrl === SourceCodeInfo_Location.typeUrl || Array.isArray(o.path) && (!o.path.length || typeof o.path[0] === "number") && Array.isArray(o.span) && (!o.span.length || typeof o.span[0] === "number") && typeof o.leading_comments === "string" && typeof o.trailing_comments === "string" && Array.isArray(o.leading_detached_comments) && (!o.leading_detached_comments.length || typeof o.leading_detached_comments[0] === "string"));
   },
   encode(message: SourceCodeInfo_Location, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     writer.uint32(10).fork();
@@ -5141,10 +5141,10 @@ export const SourceCodeInfo_Location = {
       writer.int32(v);
     }
     writer.ldelim();
-    if (message.leadingComments !== '') {
+    if (message.leadingComments !== "") {
       writer.uint32(26).string(message.leadingComments);
     }
-    if (message.trailingComments !== '') {
+    if (message.trailingComments !== "") {
       writer.uint32(34).string(message.trailingComments);
     }
     for (const v of message.leadingDetachedComments) {
@@ -5159,38 +5159,38 @@ export const SourceCodeInfo_Location = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        if ((tag & 7) === 2) {
-          const end2 = reader.uint32() + reader.pos;
-          while (reader.pos < end2) {
+        case 1:
+          if ((tag & 7) === 2) {
+            const end2 = reader.uint32() + reader.pos;
+            while (reader.pos < end2) {
+              message.path.push(reader.int32());
+            }
+          } else {
             message.path.push(reader.int32());
           }
-        } else {
-          message.path.push(reader.int32());
-        }
-        break;
-      case 2:
-        if ((tag & 7) === 2) {
-          const end2 = reader.uint32() + reader.pos;
-          while (reader.pos < end2) {
+          break;
+        case 2:
+          if ((tag & 7) === 2) {
+            const end2 = reader.uint32() + reader.pos;
+            while (reader.pos < end2) {
+              message.span.push(reader.int32());
+            }
+          } else {
             message.span.push(reader.int32());
           }
-        } else {
-          message.span.push(reader.int32());
-        }
-        break;
-      case 3:
-        message.leadingComments = reader.string();
-        break;
-      case 4:
-        message.trailingComments = reader.string();
-        break;
-      case 6:
-        message.leadingDetachedComments.push(reader.string());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+          break;
+        case 3:
+          message.leadingComments = reader.string();
+          break;
+        case 4:
+          message.trailingComments = reader.string();
+          break;
+        case 6:
+          message.leadingDetachedComments.push(reader.string());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -5199,8 +5199,8 @@ export const SourceCodeInfo_Location = {
     const message = createBaseSourceCodeInfo_Location();
     message.path = object.path?.map(e => e) || [];
     message.span = object.span?.map(e => e) || [];
-    message.leadingComments = object.leadingComments ?? '';
-    message.trailingComments = object.trailingComments ?? '';
+    message.leadingComments = object.leadingComments ?? "";
+    message.trailingComments = object.trailingComments ?? "";
     message.leadingDetachedComments = object.leadingDetachedComments?.map(e => e) || [];
     return message;
   },
@@ -5229,8 +5229,8 @@ export const SourceCodeInfo_Location = {
     } else {
       obj.span = message.span;
     }
-    obj.leading_comments = message.leadingComments === '' ? undefined : message.leadingComments;
-    obj.trailing_comments = message.trailingComments === '' ? undefined : message.trailingComments;
+    obj.leading_comments = message.leadingComments === "" ? undefined : message.leadingComments;
+    obj.trailing_comments = message.trailingComments === "" ? undefined : message.trailingComments;
     if (message.leadingDetachedComments) {
       obj.leading_detached_comments = message.leadingDetachedComments.map(e => e);
     } else {
@@ -5249,7 +5249,7 @@ export const SourceCodeInfo_Location = {
   },
   toProtoMsg(message: SourceCodeInfo_Location): SourceCodeInfo_LocationProtoMsg {
     return {
-      typeUrl: '/google.protobuf.Location',
+      typeUrl: "/google.protobuf.Location",
       value: SourceCodeInfo_Location.encode(message).finish()
     };
   }
@@ -5261,7 +5261,7 @@ function createBaseGeneratedCodeInfo(): GeneratedCodeInfo {
   };
 }
 export const GeneratedCodeInfo = {
-  typeUrl: '/google.protobuf.GeneratedCodeInfo',
+  typeUrl: "/google.protobuf.GeneratedCodeInfo",
   is(o: any): o is GeneratedCodeInfo {
     return o && (o.$typeUrl === GeneratedCodeInfo.typeUrl || Array.isArray(o.annotation) && (!o.annotation.length || GeneratedCodeInfo_Annotation.is(o.annotation[0])));
   },
@@ -5284,12 +5284,12 @@ export const GeneratedCodeInfo = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.annotation.push(GeneratedCodeInfo_Annotation.decode(reader, reader.uint32()));
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.annotation.push(GeneratedCodeInfo_Annotation.decode(reader, reader.uint32()));
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -5324,7 +5324,7 @@ export const GeneratedCodeInfo = {
   },
   toProtoMsg(message: GeneratedCodeInfo): GeneratedCodeInfoProtoMsg {
     return {
-      typeUrl: '/google.protobuf.GeneratedCodeInfo',
+      typeUrl: "/google.protobuf.GeneratedCodeInfo",
       value: GeneratedCodeInfo.encode(message).finish()
     };
   }
@@ -5333,21 +5333,21 @@ GlobalDecoderRegistry.register(GeneratedCodeInfo.typeUrl, GeneratedCodeInfo);
 function createBaseGeneratedCodeInfo_Annotation(): GeneratedCodeInfo_Annotation {
   return {
     path: [],
-    sourceFile: '',
+    sourceFile: "",
     begin: 0,
     end: 0
   };
 }
 export const GeneratedCodeInfo_Annotation = {
-  typeUrl: '/google.protobuf.Annotation',
+  typeUrl: "/google.protobuf.Annotation",
   is(o: any): o is GeneratedCodeInfo_Annotation {
-    return o && (o.$typeUrl === GeneratedCodeInfo_Annotation.typeUrl || Array.isArray(o.path) && (!o.path.length || typeof o.path[0] === 'number') && typeof o.sourceFile === 'string' && typeof o.begin === 'number' && typeof o.end === 'number');
+    return o && (o.$typeUrl === GeneratedCodeInfo_Annotation.typeUrl || Array.isArray(o.path) && (!o.path.length || typeof o.path[0] === "number") && typeof o.sourceFile === "string" && typeof o.begin === "number" && typeof o.end === "number");
   },
   isSDK(o: any): o is GeneratedCodeInfo_AnnotationSDKType {
-    return o && (o.$typeUrl === GeneratedCodeInfo_Annotation.typeUrl || Array.isArray(o.path) && (!o.path.length || typeof o.path[0] === 'number') && typeof o.source_file === 'string' && typeof o.begin === 'number' && typeof o.end === 'number');
+    return o && (o.$typeUrl === GeneratedCodeInfo_Annotation.typeUrl || Array.isArray(o.path) && (!o.path.length || typeof o.path[0] === "number") && typeof o.source_file === "string" && typeof o.begin === "number" && typeof o.end === "number");
   },
   isAmino(o: any): o is GeneratedCodeInfo_AnnotationAmino {
-    return o && (o.$typeUrl === GeneratedCodeInfo_Annotation.typeUrl || Array.isArray(o.path) && (!o.path.length || typeof o.path[0] === 'number') && typeof o.source_file === 'string' && typeof o.begin === 'number' && typeof o.end === 'number');
+    return o && (o.$typeUrl === GeneratedCodeInfo_Annotation.typeUrl || Array.isArray(o.path) && (!o.path.length || typeof o.path[0] === "number") && typeof o.source_file === "string" && typeof o.begin === "number" && typeof o.end === "number");
   },
   encode(message: GeneratedCodeInfo_Annotation, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     writer.uint32(10).fork();
@@ -5355,7 +5355,7 @@ export const GeneratedCodeInfo_Annotation = {
       writer.int32(v);
     }
     writer.ldelim();
-    if (message.sourceFile !== '') {
+    if (message.sourceFile !== "") {
       writer.uint32(18).string(message.sourceFile);
     }
     if (message.begin !== 0) {
@@ -5373,28 +5373,28 @@ export const GeneratedCodeInfo_Annotation = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        if ((tag & 7) === 2) {
-          const end2 = reader.uint32() + reader.pos;
-          while (reader.pos < end2) {
+        case 1:
+          if ((tag & 7) === 2) {
+            const end2 = reader.uint32() + reader.pos;
+            while (reader.pos < end2) {
+              message.path.push(reader.int32());
+            }
+          } else {
             message.path.push(reader.int32());
           }
-        } else {
-          message.path.push(reader.int32());
-        }
-        break;
-      case 2:
-        message.sourceFile = reader.string();
-        break;
-      case 3:
-        message.begin = reader.int32();
-        break;
-      case 4:
-        message.end = reader.int32();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+          break;
+        case 2:
+          message.sourceFile = reader.string();
+          break;
+        case 3:
+          message.begin = reader.int32();
+          break;
+        case 4:
+          message.end = reader.int32();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -5402,7 +5402,7 @@ export const GeneratedCodeInfo_Annotation = {
   fromPartial(object: Partial<GeneratedCodeInfo_Annotation>): GeneratedCodeInfo_Annotation {
     const message = createBaseGeneratedCodeInfo_Annotation();
     message.path = object.path?.map(e => e) || [];
-    message.sourceFile = object.sourceFile ?? '';
+    message.sourceFile = object.sourceFile ?? "";
     message.begin = object.begin ?? 0;
     message.end = object.end ?? 0;
     return message;
@@ -5428,7 +5428,7 @@ export const GeneratedCodeInfo_Annotation = {
     } else {
       obj.path = message.path;
     }
-    obj.source_file = message.sourceFile === '' ? undefined : message.sourceFile;
+    obj.source_file = message.sourceFile === "" ? undefined : message.sourceFile;
     obj.begin = message.begin === 0 ? undefined : message.begin;
     obj.end = message.end === 0 ? undefined : message.end;
     return obj;
@@ -5444,7 +5444,7 @@ export const GeneratedCodeInfo_Annotation = {
   },
   toProtoMsg(message: GeneratedCodeInfo_Annotation): GeneratedCodeInfo_AnnotationProtoMsg {
     return {
-      typeUrl: '/google.protobuf.Annotation',
+      typeUrl: "/google.protobuf.Annotation",
       value: GeneratedCodeInfo_Annotation.encode(message).finish()
     };
   }

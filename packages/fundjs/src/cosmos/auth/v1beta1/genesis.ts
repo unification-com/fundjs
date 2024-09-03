@@ -1,8 +1,8 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from '../../../binary';
-import { Any, AnyAmino, AnySDKType } from '../../../google/protobuf/any';
-import { GlobalDecoderRegistry } from '../../../registry';
-import { Params, ParamsAmino, ParamsSDKType } from './auth';
+import { Params, ParamsAmino, ParamsSDKType } from "./auth";
+import { Any, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
+import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
 /** GenesisState defines the auth module's genesis state. */
 export interface GenesisState {
   /** params defines all the paramaters of the module. */
@@ -11,7 +11,7 @@ export interface GenesisState {
   accounts: Any[];
 }
 export interface GenesisStateProtoMsg {
-  typeUrl: '/cosmos.auth.v1beta1.GenesisState';
+  typeUrl: "/cosmos.auth.v1beta1.GenesisState";
   value: Uint8Array;
 }
 /** GenesisState defines the auth module's genesis state. */
@@ -22,7 +22,7 @@ export interface GenesisStateAmino {
   accounts?: AnyAmino[];
 }
 export interface GenesisStateAminoMsg {
-  type: 'cosmos-sdk/GenesisState';
+  type: "cosmos-sdk/GenesisState";
   value: GenesisStateAmino;
 }
 /** GenesisState defines the auth module's genesis state. */
@@ -37,8 +37,8 @@ function createBaseGenesisState(): GenesisState {
   };
 }
 export const GenesisState = {
-  typeUrl: '/cosmos.auth.v1beta1.GenesisState',
-  aminoType: 'cosmos-sdk/GenesisState',
+  typeUrl: "/cosmos.auth.v1beta1.GenesisState",
+  aminoType: "cosmos-sdk/GenesisState",
   is(o: any): o is GenesisState {
     return o && (o.$typeUrl === GenesisState.typeUrl || Params.is(o.params) && Array.isArray(o.accounts) && (!o.accounts.length || Any.is(o.accounts[0])));
   },
@@ -64,15 +64,15 @@ export const GenesisState = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.params = Params.decode(reader, reader.uint32());
-        break;
-      case 2:
-        message.accounts.push(Any.decode(reader, reader.uint32()));
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.params = Params.decode(reader, reader.uint32());
+          break;
+        case 2:
+          message.accounts.push(Any.decode(reader, reader.uint32()));
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -106,7 +106,7 @@ export const GenesisState = {
   },
   toAminoMsg(message: GenesisState): GenesisStateAminoMsg {
     return {
-      type: 'cosmos-sdk/GenesisState',
+      type: "cosmos-sdk/GenesisState",
       value: GenesisState.toAmino(message)
     };
   },
@@ -118,7 +118,7 @@ export const GenesisState = {
   },
   toProtoMsg(message: GenesisState): GenesisStateProtoMsg {
     return {
-      typeUrl: '/cosmos.auth.v1beta1.GenesisState',
+      typeUrl: "/cosmos.auth.v1beta1.GenesisState",
       value: GenesisState.encode(message).finish()
     };
   }

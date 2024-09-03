@@ -1,8 +1,7 @@
 //@ts-nocheck
-import { LCDClient } from '@cosmology/lcd';
-
-import { setPaginationParams } from '../../../helpers';
-import { QueryDepositRequest, QueryDepositResponseSDKType, QueryDepositsRequest, QueryDepositsResponseSDKType, QueryParamsRequest, QueryParamsResponseSDKType, QueryProposalRequest, QueryProposalResponseSDKType, QueryProposalsRequest, QueryProposalsResponseSDKType, QueryTallyResultRequest, QueryTallyResultResponseSDKType,QueryVoteRequest, QueryVoteResponseSDKType, QueryVotesRequest, QueryVotesResponseSDKType } from './query';
+import { setPaginationParams } from "../../../helpers";
+import { LCDClient } from "@cosmology/lcd";
+import { QueryProposalRequest, QueryProposalResponseSDKType, QueryProposalsRequest, QueryProposalsResponseSDKType, QueryVoteRequest, QueryVoteResponseSDKType, QueryVotesRequest, QueryVotesResponseSDKType, QueryParamsRequest, QueryParamsResponseSDKType, QueryDepositRequest, QueryDepositResponseSDKType, QueryDepositsRequest, QueryDepositsResponseSDKType, QueryTallyResultRequest, QueryTallyResultResponseSDKType } from "./query";
 export class LCDQueryClient {
   req: LCDClient;
   constructor({
@@ -30,16 +29,16 @@ export class LCDQueryClient {
     const options: any = {
       params: {}
     };
-    if (typeof params?.proposalStatus !== 'undefined') {
+    if (typeof params?.proposalStatus !== "undefined") {
       options.params.proposal_status = params.proposalStatus;
     }
-    if (typeof params?.voter !== 'undefined') {
+    if (typeof params?.voter !== "undefined") {
       options.params.voter = params.voter;
     }
-    if (typeof params?.depositor !== 'undefined') {
+    if (typeof params?.depositor !== "undefined") {
       options.params.depositor = params.depositor;
     }
-    if (typeof params?.pagination !== 'undefined') {
+    if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
     }
     const endpoint = `cosmos/gov/v1beta1/proposals`;
@@ -55,7 +54,7 @@ export class LCDQueryClient {
     const options: any = {
       params: {}
     };
-    if (typeof params?.pagination !== 'undefined') {
+    if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
     }
     const endpoint = `cosmos/gov/v1beta1/proposals/${params.proposalId}/votes`;
@@ -76,7 +75,7 @@ export class LCDQueryClient {
     const options: any = {
       params: {}
     };
-    if (typeof params?.pagination !== 'undefined') {
+    if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
     }
     const endpoint = `cosmos/gov/v1beta1/proposals/${params.proposalId}/deposits`;

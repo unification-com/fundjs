@@ -1,8 +1,7 @@
 //@ts-nocheck
-import { LCDClient } from '@cosmology/lcd';
-
-import { setPaginationParams } from '../../../helpers';
-import { QueryAllStreamsForReceiverRequest, QueryAllStreamsForReceiverResponseSDKType, QueryAllStreamsForSenderRequest, QueryAllStreamsForSenderResponseSDKType,QueryCalculateFlowRateRequest, QueryCalculateFlowRateResponseSDKType, QueryParamsRequest, QueryParamsResponseSDKType, QueryStreamByReceiverSenderRequest, QueryStreamByReceiverSenderResponseSDKType, QueryStreamReceiverSenderCurrentFlowRequest, QueryStreamReceiverSenderCurrentFlowResponseSDKType, QueryStreamsRequest, QueryStreamsResponseSDKType } from './query';
+import { setPaginationParams } from "../../../helpers";
+import { LCDClient } from "@cosmology/lcd";
+import { QueryParamsRequest, QueryParamsResponseSDKType, QueryCalculateFlowRateRequest, QueryCalculateFlowRateResponseSDKType, QueryStreamsRequest, QueryStreamsResponseSDKType, QueryAllStreamsForReceiverRequest, QueryAllStreamsForReceiverResponseSDKType, QueryStreamByReceiverSenderRequest, QueryStreamByReceiverSenderResponseSDKType, QueryStreamReceiverSenderCurrentFlowRequest, QueryStreamReceiverSenderCurrentFlowResponseSDKType, QueryAllStreamsForSenderRequest, QueryAllStreamsForSenderResponseSDKType } from "./query";
 export class LCDQueryClient {
   req: LCDClient;
   constructor({
@@ -29,13 +28,13 @@ export class LCDQueryClient {
     const options: any = {
       params: {}
     };
-    if (typeof params?.coin !== 'undefined') {
+    if (typeof params?.coin !== "undefined") {
       options.params.coin = params.coin;
     }
-    if (typeof params?.period !== 'undefined') {
+    if (typeof params?.period !== "undefined") {
       options.params.period = params.period;
     }
-    if (typeof params?.duration !== 'undefined') {
+    if (typeof params?.duration !== "undefined") {
       options.params.duration = params.duration;
     }
     const endpoint = `mainchain/stream/v1/calculate_flow_Rate`;
@@ -48,7 +47,7 @@ export class LCDQueryClient {
     const options: any = {
       params: {}
     };
-    if (typeof params?.pagination !== 'undefined') {
+    if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
     }
     const endpoint = `mainchain/stream/v1/streams/all`;
@@ -59,7 +58,7 @@ export class LCDQueryClient {
     const options: any = {
       params: {}
     };
-    if (typeof params?.pagination !== 'undefined') {
+    if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
     }
     const endpoint = `mainchain/stream/v1/streams/receiver/${params.receiverAddr}`;
@@ -80,7 +79,7 @@ export class LCDQueryClient {
     const options: any = {
       params: {}
     };
-    if (typeof params?.pagination !== 'undefined') {
+    if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
     }
     const endpoint = `mainchain/stream/v1/streams/sender/${params.senderAddr}`;

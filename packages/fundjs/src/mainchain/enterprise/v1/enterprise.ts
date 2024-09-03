@@ -1,8 +1,8 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from '../../../binary';
-import { Coin, CoinAmino, CoinSDKType } from '../../../cosmos/base/v1beta1/coin';
-import { isSet } from '../../../helpers';
-import { GlobalDecoderRegistry } from '../../../registry';
+import { Coin, CoinAmino, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
+import { isSet } from "../../../helpers";
+import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
 /** PurchaseOrderStatus enumerates the valid statuses for a given purchase order. */
 export enum PurchaseOrderStatus {
   /** STATUS_NIL - STATUS_NIL defines a no-op status. */
@@ -21,42 +21,42 @@ export const PurchaseOrderStatusSDKType = PurchaseOrderStatus;
 export const PurchaseOrderStatusAmino = PurchaseOrderStatus;
 export function purchaseOrderStatusFromJSON(object: any): PurchaseOrderStatus {
   switch (object) {
-  case 0:
-  case 'STATUS_NIL':
-    return PurchaseOrderStatus.STATUS_NIL;
-  case 1:
-  case 'STATUS_RAISED':
-    return PurchaseOrderStatus.STATUS_RAISED;
-  case 2:
-  case 'STATUS_ACCEPTED':
-    return PurchaseOrderStatus.STATUS_ACCEPTED;
-  case 3:
-  case 'STATUS_REJECTED':
-    return PurchaseOrderStatus.STATUS_REJECTED;
-  case 4:
-  case 'STATUS_COMPLETED':
-    return PurchaseOrderStatus.STATUS_COMPLETED;
-  case -1:
-  case 'UNRECOGNIZED':
-  default:
-    return PurchaseOrderStatus.UNRECOGNIZED;
+    case 0:
+    case "STATUS_NIL":
+      return PurchaseOrderStatus.STATUS_NIL;
+    case 1:
+    case "STATUS_RAISED":
+      return PurchaseOrderStatus.STATUS_RAISED;
+    case 2:
+    case "STATUS_ACCEPTED":
+      return PurchaseOrderStatus.STATUS_ACCEPTED;
+    case 3:
+    case "STATUS_REJECTED":
+      return PurchaseOrderStatus.STATUS_REJECTED;
+    case 4:
+    case "STATUS_COMPLETED":
+      return PurchaseOrderStatus.STATUS_COMPLETED;
+    case -1:
+    case "UNRECOGNIZED":
+    default:
+      return PurchaseOrderStatus.UNRECOGNIZED;
   }
 }
 export function purchaseOrderStatusToJSON(object: PurchaseOrderStatus): string {
   switch (object) {
-  case PurchaseOrderStatus.STATUS_NIL:
-    return 'STATUS_NIL';
-  case PurchaseOrderStatus.STATUS_RAISED:
-    return 'STATUS_RAISED';
-  case PurchaseOrderStatus.STATUS_ACCEPTED:
-    return 'STATUS_ACCEPTED';
-  case PurchaseOrderStatus.STATUS_REJECTED:
-    return 'STATUS_REJECTED';
-  case PurchaseOrderStatus.STATUS_COMPLETED:
-    return 'STATUS_COMPLETED';
-  case PurchaseOrderStatus.UNRECOGNIZED:
-  default:
-    return 'UNRECOGNIZED';
+    case PurchaseOrderStatus.STATUS_NIL:
+      return "STATUS_NIL";
+    case PurchaseOrderStatus.STATUS_RAISED:
+      return "STATUS_RAISED";
+    case PurchaseOrderStatus.STATUS_ACCEPTED:
+      return "STATUS_ACCEPTED";
+    case PurchaseOrderStatus.STATUS_REJECTED:
+      return "STATUS_REJECTED";
+    case PurchaseOrderStatus.STATUS_COMPLETED:
+      return "STATUS_COMPLETED";
+    case PurchaseOrderStatus.UNRECOGNIZED:
+    default:
+      return "UNRECOGNIZED";
   }
 }
 /** WhitelistAction enumerates the valid actions for whitelisting addresses. */
@@ -73,32 +73,32 @@ export const WhitelistActionSDKType = WhitelistAction;
 export const WhitelistActionAmino = WhitelistAction;
 export function whitelistActionFromJSON(object: any): WhitelistAction {
   switch (object) {
-  case 0:
-  case 'WHITELIST_ACTION_NIL':
-    return WhitelistAction.WHITELIST_ACTION_NIL;
-  case 1:
-  case 'WHITELIST_ACTION_ADD':
-    return WhitelistAction.WHITELIST_ACTION_ADD;
-  case 2:
-  case 'WHITELIST_ACTION_REMOVE':
-    return WhitelistAction.WHITELIST_ACTION_REMOVE;
-  case -1:
-  case 'UNRECOGNIZED':
-  default:
-    return WhitelistAction.UNRECOGNIZED;
+    case 0:
+    case "WHITELIST_ACTION_NIL":
+      return WhitelistAction.WHITELIST_ACTION_NIL;
+    case 1:
+    case "WHITELIST_ACTION_ADD":
+      return WhitelistAction.WHITELIST_ACTION_ADD;
+    case 2:
+    case "WHITELIST_ACTION_REMOVE":
+      return WhitelistAction.WHITELIST_ACTION_REMOVE;
+    case -1:
+    case "UNRECOGNIZED":
+    default:
+      return WhitelistAction.UNRECOGNIZED;
   }
 }
 export function whitelistActionToJSON(object: WhitelistAction): string {
   switch (object) {
-  case WhitelistAction.WHITELIST_ACTION_NIL:
-    return 'WHITELIST_ACTION_NIL';
-  case WhitelistAction.WHITELIST_ACTION_ADD:
-    return 'WHITELIST_ACTION_ADD';
-  case WhitelistAction.WHITELIST_ACTION_REMOVE:
-    return 'WHITELIST_ACTION_REMOVE';
-  case WhitelistAction.UNRECOGNIZED:
-  default:
-    return 'UNRECOGNIZED';
+    case WhitelistAction.WHITELIST_ACTION_NIL:
+      return "WHITELIST_ACTION_NIL";
+    case WhitelistAction.WHITELIST_ACTION_ADD:
+      return "WHITELIST_ACTION_ADD";
+    case WhitelistAction.WHITELIST_ACTION_REMOVE:
+      return "WHITELIST_ACTION_REMOVE";
+    case WhitelistAction.UNRECOGNIZED:
+    default:
+      return "UNRECOGNIZED";
   }
 }
 /**
@@ -114,7 +114,7 @@ export interface PurchaseOrderDecision {
   decisionTime: bigint;
 }
 export interface PurchaseOrderDecisionProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.PurchaseOrderDecision';
+  typeUrl: "/mainchain.enterprise.v1.PurchaseOrderDecision";
   value: Uint8Array;
 }
 /**
@@ -130,7 +130,7 @@ export interface PurchaseOrderDecisionAmino {
   decision_time?: string;
 }
 export interface PurchaseOrderDecisionAminoMsg {
-  type: '/mainchain.enterprise.v1.PurchaseOrderDecision';
+  type: "/mainchain.enterprise.v1.PurchaseOrderDecision";
   value: PurchaseOrderDecisionAmino;
 }
 /**
@@ -160,7 +160,7 @@ export interface EnterpriseUndPurchaseOrder {
   decisions: PurchaseOrderDecision[];
 }
 export interface EnterpriseUndPurchaseOrderProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.EnterpriseUndPurchaseOrder';
+  typeUrl: "/mainchain.enterprise.v1.EnterpriseUndPurchaseOrder";
   value: Uint8Array;
 }
 /** EnterpriseUndPurchaseOrder defines a purchase order raised by a whitelisted address */
@@ -181,7 +181,7 @@ export interface EnterpriseUndPurchaseOrderAmino {
   decisions?: PurchaseOrderDecisionAmino[];
 }
 export interface EnterpriseUndPurchaseOrderAminoMsg {
-  type: '/mainchain.enterprise.v1.EnterpriseUndPurchaseOrder';
+  type: "/mainchain.enterprise.v1.EnterpriseUndPurchaseOrder";
   value: EnterpriseUndPurchaseOrderAmino;
 }
 /** EnterpriseUndPurchaseOrder defines a purchase order raised by a whitelisted address */
@@ -199,7 +199,7 @@ export interface PurchaseOrders {
   purchaseOrders: EnterpriseUndPurchaseOrder[];
 }
 export interface PurchaseOrdersProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.PurchaseOrders';
+  typeUrl: "/mainchain.enterprise.v1.PurchaseOrders";
   value: Uint8Array;
 }
 /** PurchaseOrders defines a list of purchase orders */
@@ -207,7 +207,7 @@ export interface PurchaseOrdersAmino {
   purchase_orders?: EnterpriseUndPurchaseOrderAmino[];
 }
 export interface PurchaseOrdersAminoMsg {
-  type: '/mainchain.enterprise.v1.PurchaseOrders';
+  type: "/mainchain.enterprise.v1.PurchaseOrders";
   value: PurchaseOrdersAmino;
 }
 /** PurchaseOrders defines a list of purchase orders */
@@ -222,7 +222,7 @@ export interface LockedUnd {
   amount: Coin;
 }
 export interface LockedUndProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.LockedUnd';
+  typeUrl: "/mainchain.enterprise.v1.LockedUnd";
   value: Uint8Array;
 }
 /** LockedUnd defines the amount of locked FUND for an account */
@@ -233,7 +233,7 @@ export interface LockedUndAmino {
   amount?: CoinAmino;
 }
 export interface LockedUndAminoMsg {
-  type: '/mainchain.enterprise.v1.LockedUnd';
+  type: "/mainchain.enterprise.v1.LockedUnd";
   value: LockedUndAmino;
 }
 /** LockedUnd defines the amount of locked FUND for an account */
@@ -249,7 +249,7 @@ export interface SpentEFUND {
   amount: Coin;
 }
 export interface SpentEFUNDProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.SpentEFUND';
+  typeUrl: "/mainchain.enterprise.v1.SpentEFUND";
   value: Uint8Array;
 }
 /** SpentEFUND defines the amount of spent eFUND for an account */
@@ -260,7 +260,7 @@ export interface SpentEFUNDAmino {
   amount?: CoinAmino;
 }
 export interface SpentEFUNDAminoMsg {
-  type: '/mainchain.enterprise.v1.SpentEFUND';
+  type: "/mainchain.enterprise.v1.SpentEFUND";
   value: SpentEFUNDAmino;
 }
 /** SpentEFUND defines the amount of spent eFUND for an account */
@@ -291,7 +291,7 @@ export interface EnterpriseUserAccount {
   spendable: Coin;
 }
 export interface EnterpriseUserAccountProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.EnterpriseUserAccount';
+  typeUrl: "/mainchain.enterprise.v1.EnterpriseUserAccount";
   value: Uint8Array;
 }
 /** EnterpriseUserAccount defines data about an enterprise user */
@@ -317,7 +317,7 @@ export interface EnterpriseUserAccountAmino {
   spendable?: CoinAmino;
 }
 export interface EnterpriseUserAccountAminoMsg {
-  type: '/mainchain.enterprise.v1.EnterpriseUserAccount';
+  type: "/mainchain.enterprise.v1.EnterpriseUserAccount";
   value: EnterpriseUserAccountAmino;
 }
 /** EnterpriseUserAccount defines data about an enterprise user */
@@ -340,7 +340,7 @@ export interface UndSupply {
   total: bigint;
 }
 export interface UndSupplyProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.UndSupply';
+  typeUrl: "/mainchain.enterprise.v1.UndSupply";
   value: Uint8Array;
 }
 /** UndSupply defines the current FUND supply, including locked */
@@ -355,7 +355,7 @@ export interface UndSupplyAmino {
   total?: string;
 }
 export interface UndSupplyAminoMsg {
-  type: '/mainchain.enterprise.v1.UndSupply';
+  type: "/mainchain.enterprise.v1.UndSupply";
   value: UndSupplyAmino;
 }
 /** UndSupply defines the current FUND supply, including locked */
@@ -370,7 +370,7 @@ export interface WhitelistAddresses {
   addresses: string[];
 }
 export interface WhitelistAddressesProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.WhitelistAddresses';
+  typeUrl: "/mainchain.enterprise.v1.WhitelistAddresses";
   value: Uint8Array;
 }
 /** WhitelistAddresses defines a list of whitelisted addresses authorised to raise enterprise purchase orders */
@@ -378,7 +378,7 @@ export interface WhitelistAddressesAmino {
   addresses?: string[];
 }
 export interface WhitelistAddressesAminoMsg {
-  type: '/mainchain.enterprise.v1.WhitelistAddresses';
+  type: "/mainchain.enterprise.v1.WhitelistAddresses";
   value: WhitelistAddressesAmino;
 }
 /** WhitelistAddresses defines a list of whitelisted addresses authorised to raise enterprise purchase orders */
@@ -397,7 +397,7 @@ export interface Params {
   decisionTimeLimit: bigint;
 }
 export interface ParamsProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.Params';
+  typeUrl: "/mainchain.enterprise.v1.Params";
   value: Uint8Array;
 }
 /** Params defines the parameters for the enterprise module. */
@@ -412,7 +412,7 @@ export interface ParamsAmino {
   decision_time_limit?: string;
 }
 export interface ParamsAminoMsg {
-  type: '/mainchain.enterprise.v1.Params';
+  type: "/mainchain.enterprise.v1.Params";
   value: ParamsAmino;
 }
 /** Params defines the parameters for the enterprise module. */
@@ -424,24 +424,24 @@ export interface ParamsSDKType {
 }
 function createBasePurchaseOrderDecision(): PurchaseOrderDecision {
   return {
-    signer: '',
+    signer: "",
     decision: 0,
     decisionTime: BigInt(0)
   };
 }
 export const PurchaseOrderDecision = {
-  typeUrl: '/mainchain.enterprise.v1.PurchaseOrderDecision',
+  typeUrl: "/mainchain.enterprise.v1.PurchaseOrderDecision",
   is(o: any): o is PurchaseOrderDecision {
-    return o && (o.$typeUrl === PurchaseOrderDecision.typeUrl || typeof o.signer === 'string' && isSet(o.decision) && typeof o.decisionTime === 'bigint');
+    return o && (o.$typeUrl === PurchaseOrderDecision.typeUrl || typeof o.signer === "string" && isSet(o.decision) && typeof o.decisionTime === "bigint");
   },
   isSDK(o: any): o is PurchaseOrderDecisionSDKType {
-    return o && (o.$typeUrl === PurchaseOrderDecision.typeUrl || typeof o.signer === 'string' && isSet(o.decision) && typeof o.decision_time === 'bigint');
+    return o && (o.$typeUrl === PurchaseOrderDecision.typeUrl || typeof o.signer === "string" && isSet(o.decision) && typeof o.decision_time === "bigint");
   },
   isAmino(o: any): o is PurchaseOrderDecisionAmino {
-    return o && (o.$typeUrl === PurchaseOrderDecision.typeUrl || typeof o.signer === 'string' && isSet(o.decision) && typeof o.decision_time === 'bigint');
+    return o && (o.$typeUrl === PurchaseOrderDecision.typeUrl || typeof o.signer === "string" && isSet(o.decision) && typeof o.decision_time === "bigint");
   },
   encode(message: PurchaseOrderDecision, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.signer !== '') {
+    if (message.signer !== "") {
       writer.uint32(10).string(message.signer);
     }
     if (message.decision !== 0) {
@@ -459,25 +459,25 @@ export const PurchaseOrderDecision = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.signer = reader.string();
-        break;
-      case 2:
-        message.decision = reader.int32() as any;
-        break;
-      case 3:
-        message.decisionTime = reader.uint64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.signer = reader.string();
+          break;
+        case 2:
+          message.decision = reader.int32() as any;
+          break;
+        case 3:
+          message.decisionTime = reader.uint64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<PurchaseOrderDecision>): PurchaseOrderDecision {
     const message = createBasePurchaseOrderDecision();
-    message.signer = object.signer ?? '';
+    message.signer = object.signer ?? "";
     message.decision = object.decision ?? 0;
     message.decisionTime = object.decisionTime !== undefined && object.decisionTime !== null ? BigInt(object.decisionTime.toString()) : BigInt(0);
     return message;
@@ -497,7 +497,7 @@ export const PurchaseOrderDecision = {
   },
   toAmino(message: PurchaseOrderDecision): PurchaseOrderDecisionAmino {
     const obj: any = {};
-    obj.signer = message.signer === '' ? undefined : message.signer;
+    obj.signer = message.signer === "" ? undefined : message.signer;
     obj.decision = message.decision === 0 ? undefined : message.decision;
     obj.decision_time = message.decisionTime !== BigInt(0) ? message.decisionTime.toString() : undefined;
     return obj;
@@ -513,7 +513,7 @@ export const PurchaseOrderDecision = {
   },
   toProtoMsg(message: PurchaseOrderDecision): PurchaseOrderDecisionProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.PurchaseOrderDecision',
+      typeUrl: "/mainchain.enterprise.v1.PurchaseOrderDecision",
       value: PurchaseOrderDecision.encode(message).finish()
     };
   }
@@ -522,7 +522,7 @@ GlobalDecoderRegistry.register(PurchaseOrderDecision.typeUrl, PurchaseOrderDecis
 function createBaseEnterpriseUndPurchaseOrder(): EnterpriseUndPurchaseOrder {
   return {
     id: BigInt(0),
-    purchaser: '',
+    purchaser: "",
     amount: Coin.fromPartial({}),
     status: 0,
     raiseTime: BigInt(0),
@@ -531,21 +531,21 @@ function createBaseEnterpriseUndPurchaseOrder(): EnterpriseUndPurchaseOrder {
   };
 }
 export const EnterpriseUndPurchaseOrder = {
-  typeUrl: '/mainchain.enterprise.v1.EnterpriseUndPurchaseOrder',
+  typeUrl: "/mainchain.enterprise.v1.EnterpriseUndPurchaseOrder",
   is(o: any): o is EnterpriseUndPurchaseOrder {
-    return o && (o.$typeUrl === EnterpriseUndPurchaseOrder.typeUrl || typeof o.id === 'bigint' && typeof o.purchaser === 'string' && Coin.is(o.amount) && isSet(o.status) && typeof o.raiseTime === 'bigint' && typeof o.completionTime === 'bigint' && Array.isArray(o.decisions) && (!o.decisions.length || PurchaseOrderDecision.is(o.decisions[0])));
+    return o && (o.$typeUrl === EnterpriseUndPurchaseOrder.typeUrl || typeof o.id === "bigint" && typeof o.purchaser === "string" && Coin.is(o.amount) && isSet(o.status) && typeof o.raiseTime === "bigint" && typeof o.completionTime === "bigint" && Array.isArray(o.decisions) && (!o.decisions.length || PurchaseOrderDecision.is(o.decisions[0])));
   },
   isSDK(o: any): o is EnterpriseUndPurchaseOrderSDKType {
-    return o && (o.$typeUrl === EnterpriseUndPurchaseOrder.typeUrl || typeof o.id === 'bigint' && typeof o.purchaser === 'string' && Coin.isSDK(o.amount) && isSet(o.status) && typeof o.raise_time === 'bigint' && typeof o.completion_time === 'bigint' && Array.isArray(o.decisions) && (!o.decisions.length || PurchaseOrderDecision.isSDK(o.decisions[0])));
+    return o && (o.$typeUrl === EnterpriseUndPurchaseOrder.typeUrl || typeof o.id === "bigint" && typeof o.purchaser === "string" && Coin.isSDK(o.amount) && isSet(o.status) && typeof o.raise_time === "bigint" && typeof o.completion_time === "bigint" && Array.isArray(o.decisions) && (!o.decisions.length || PurchaseOrderDecision.isSDK(o.decisions[0])));
   },
   isAmino(o: any): o is EnterpriseUndPurchaseOrderAmino {
-    return o && (o.$typeUrl === EnterpriseUndPurchaseOrder.typeUrl || typeof o.id === 'bigint' && typeof o.purchaser === 'string' && Coin.isAmino(o.amount) && isSet(o.status) && typeof o.raise_time === 'bigint' && typeof o.completion_time === 'bigint' && Array.isArray(o.decisions) && (!o.decisions.length || PurchaseOrderDecision.isAmino(o.decisions[0])));
+    return o && (o.$typeUrl === EnterpriseUndPurchaseOrder.typeUrl || typeof o.id === "bigint" && typeof o.purchaser === "string" && Coin.isAmino(o.amount) && isSet(o.status) && typeof o.raise_time === "bigint" && typeof o.completion_time === "bigint" && Array.isArray(o.decisions) && (!o.decisions.length || PurchaseOrderDecision.isAmino(o.decisions[0])));
   },
   encode(message: EnterpriseUndPurchaseOrder, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.id !== BigInt(0)) {
       writer.uint32(8).uint64(message.id);
     }
-    if (message.purchaser !== '') {
+    if (message.purchaser !== "") {
       writer.uint32(18).string(message.purchaser);
     }
     if (message.amount !== undefined) {
@@ -572,30 +572,30 @@ export const EnterpriseUndPurchaseOrder = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.id = reader.uint64();
-        break;
-      case 2:
-        message.purchaser = reader.string();
-        break;
-      case 3:
-        message.amount = Coin.decode(reader, reader.uint32());
-        break;
-      case 4:
-        message.status = reader.int32() as any;
-        break;
-      case 5:
-        message.raiseTime = reader.uint64();
-        break;
-      case 6:
-        message.completionTime = reader.uint64();
-        break;
-      case 7:
-        message.decisions.push(PurchaseOrderDecision.decode(reader, reader.uint32()));
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.id = reader.uint64();
+          break;
+        case 2:
+          message.purchaser = reader.string();
+          break;
+        case 3:
+          message.amount = Coin.decode(reader, reader.uint32());
+          break;
+        case 4:
+          message.status = reader.int32() as any;
+          break;
+        case 5:
+          message.raiseTime = reader.uint64();
+          break;
+        case 6:
+          message.completionTime = reader.uint64();
+          break;
+        case 7:
+          message.decisions.push(PurchaseOrderDecision.decode(reader, reader.uint32()));
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -603,7 +603,7 @@ export const EnterpriseUndPurchaseOrder = {
   fromPartial(object: Partial<EnterpriseUndPurchaseOrder>): EnterpriseUndPurchaseOrder {
     const message = createBaseEnterpriseUndPurchaseOrder();
     message.id = object.id !== undefined && object.id !== null ? BigInt(object.id.toString()) : BigInt(0);
-    message.purchaser = object.purchaser ?? '';
+    message.purchaser = object.purchaser ?? "";
     message.amount = object.amount !== undefined && object.amount !== null ? Coin.fromPartial(object.amount) : undefined;
     message.status = object.status ?? 0;
     message.raiseTime = object.raiseTime !== undefined && object.raiseTime !== null ? BigInt(object.raiseTime.toString()) : BigInt(0);
@@ -637,7 +637,7 @@ export const EnterpriseUndPurchaseOrder = {
   toAmino(message: EnterpriseUndPurchaseOrder): EnterpriseUndPurchaseOrderAmino {
     const obj: any = {};
     obj.id = message.id !== BigInt(0) ? message.id.toString() : undefined;
-    obj.purchaser = message.purchaser === '' ? undefined : message.purchaser;
+    obj.purchaser = message.purchaser === "" ? undefined : message.purchaser;
     obj.amount = message.amount ? Coin.toAmino(message.amount) : undefined;
     obj.status = message.status === 0 ? undefined : message.status;
     obj.raise_time = message.raiseTime !== BigInt(0) ? message.raiseTime.toString() : undefined;
@@ -660,7 +660,7 @@ export const EnterpriseUndPurchaseOrder = {
   },
   toProtoMsg(message: EnterpriseUndPurchaseOrder): EnterpriseUndPurchaseOrderProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.EnterpriseUndPurchaseOrder',
+      typeUrl: "/mainchain.enterprise.v1.EnterpriseUndPurchaseOrder",
       value: EnterpriseUndPurchaseOrder.encode(message).finish()
     };
   }
@@ -672,7 +672,7 @@ function createBasePurchaseOrders(): PurchaseOrders {
   };
 }
 export const PurchaseOrders = {
-  typeUrl: '/mainchain.enterprise.v1.PurchaseOrders',
+  typeUrl: "/mainchain.enterprise.v1.PurchaseOrders",
   is(o: any): o is PurchaseOrders {
     return o && (o.$typeUrl === PurchaseOrders.typeUrl || Array.isArray(o.purchaseOrders) && (!o.purchaseOrders.length || EnterpriseUndPurchaseOrder.is(o.purchaseOrders[0])));
   },
@@ -695,12 +695,12 @@ export const PurchaseOrders = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.purchaseOrders.push(EnterpriseUndPurchaseOrder.decode(reader, reader.uint32()));
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.purchaseOrders.push(EnterpriseUndPurchaseOrder.decode(reader, reader.uint32()));
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -735,7 +735,7 @@ export const PurchaseOrders = {
   },
   toProtoMsg(message: PurchaseOrders): PurchaseOrdersProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.PurchaseOrders',
+      typeUrl: "/mainchain.enterprise.v1.PurchaseOrders",
       value: PurchaseOrders.encode(message).finish()
     };
   }
@@ -743,23 +743,23 @@ export const PurchaseOrders = {
 GlobalDecoderRegistry.register(PurchaseOrders.typeUrl, PurchaseOrders);
 function createBaseLockedUnd(): LockedUnd {
   return {
-    owner: '',
+    owner: "",
     amount: Coin.fromPartial({})
   };
 }
 export const LockedUnd = {
-  typeUrl: '/mainchain.enterprise.v1.LockedUnd',
+  typeUrl: "/mainchain.enterprise.v1.LockedUnd",
   is(o: any): o is LockedUnd {
-    return o && (o.$typeUrl === LockedUnd.typeUrl || typeof o.owner === 'string' && Coin.is(o.amount));
+    return o && (o.$typeUrl === LockedUnd.typeUrl || typeof o.owner === "string" && Coin.is(o.amount));
   },
   isSDK(o: any): o is LockedUndSDKType {
-    return o && (o.$typeUrl === LockedUnd.typeUrl || typeof o.owner === 'string' && Coin.isSDK(o.amount));
+    return o && (o.$typeUrl === LockedUnd.typeUrl || typeof o.owner === "string" && Coin.isSDK(o.amount));
   },
   isAmino(o: any): o is LockedUndAmino {
-    return o && (o.$typeUrl === LockedUnd.typeUrl || typeof o.owner === 'string' && Coin.isAmino(o.amount));
+    return o && (o.$typeUrl === LockedUnd.typeUrl || typeof o.owner === "string" && Coin.isAmino(o.amount));
   },
   encode(message: LockedUnd, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.owner !== '') {
+    if (message.owner !== "") {
       writer.uint32(10).string(message.owner);
     }
     if (message.amount !== undefined) {
@@ -774,22 +774,22 @@ export const LockedUnd = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.owner = reader.string();
-        break;
-      case 2:
-        message.amount = Coin.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.owner = reader.string();
+          break;
+        case 2:
+          message.amount = Coin.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<LockedUnd>): LockedUnd {
     const message = createBaseLockedUnd();
-    message.owner = object.owner ?? '';
+    message.owner = object.owner ?? "";
     message.amount = object.amount !== undefined && object.amount !== null ? Coin.fromPartial(object.amount) : undefined;
     return message;
   },
@@ -805,7 +805,7 @@ export const LockedUnd = {
   },
   toAmino(message: LockedUnd): LockedUndAmino {
     const obj: any = {};
-    obj.owner = message.owner === '' ? undefined : message.owner;
+    obj.owner = message.owner === "" ? undefined : message.owner;
     obj.amount = message.amount ? Coin.toAmino(message.amount) : undefined;
     return obj;
   },
@@ -820,7 +820,7 @@ export const LockedUnd = {
   },
   toProtoMsg(message: LockedUnd): LockedUndProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.LockedUnd',
+      typeUrl: "/mainchain.enterprise.v1.LockedUnd",
       value: LockedUnd.encode(message).finish()
     };
   }
@@ -828,23 +828,23 @@ export const LockedUnd = {
 GlobalDecoderRegistry.register(LockedUnd.typeUrl, LockedUnd);
 function createBaseSpentEFUND(): SpentEFUND {
   return {
-    owner: '',
+    owner: "",
     amount: Coin.fromPartial({})
   };
 }
 export const SpentEFUND = {
-  typeUrl: '/mainchain.enterprise.v1.SpentEFUND',
+  typeUrl: "/mainchain.enterprise.v1.SpentEFUND",
   is(o: any): o is SpentEFUND {
-    return o && (o.$typeUrl === SpentEFUND.typeUrl || typeof o.owner === 'string' && Coin.is(o.amount));
+    return o && (o.$typeUrl === SpentEFUND.typeUrl || typeof o.owner === "string" && Coin.is(o.amount));
   },
   isSDK(o: any): o is SpentEFUNDSDKType {
-    return o && (o.$typeUrl === SpentEFUND.typeUrl || typeof o.owner === 'string' && Coin.isSDK(o.amount));
+    return o && (o.$typeUrl === SpentEFUND.typeUrl || typeof o.owner === "string" && Coin.isSDK(o.amount));
   },
   isAmino(o: any): o is SpentEFUNDAmino {
-    return o && (o.$typeUrl === SpentEFUND.typeUrl || typeof o.owner === 'string' && Coin.isAmino(o.amount));
+    return o && (o.$typeUrl === SpentEFUND.typeUrl || typeof o.owner === "string" && Coin.isAmino(o.amount));
   },
   encode(message: SpentEFUND, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.owner !== '') {
+    if (message.owner !== "") {
       writer.uint32(10).string(message.owner);
     }
     if (message.amount !== undefined) {
@@ -859,22 +859,22 @@ export const SpentEFUND = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.owner = reader.string();
-        break;
-      case 2:
-        message.amount = Coin.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.owner = reader.string();
+          break;
+        case 2:
+          message.amount = Coin.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<SpentEFUND>): SpentEFUND {
     const message = createBaseSpentEFUND();
-    message.owner = object.owner ?? '';
+    message.owner = object.owner ?? "";
     message.amount = object.amount !== undefined && object.amount !== null ? Coin.fromPartial(object.amount) : undefined;
     return message;
   },
@@ -890,7 +890,7 @@ export const SpentEFUND = {
   },
   toAmino(message: SpentEFUND): SpentEFUNDAmino {
     const obj: any = {};
-    obj.owner = message.owner === '' ? undefined : message.owner;
+    obj.owner = message.owner === "" ? undefined : message.owner;
     obj.amount = message.amount ? Coin.toAmino(message.amount) : undefined;
     return obj;
   },
@@ -905,7 +905,7 @@ export const SpentEFUND = {
   },
   toProtoMsg(message: SpentEFUND): SpentEFUNDProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.SpentEFUND',
+      typeUrl: "/mainchain.enterprise.v1.SpentEFUND",
       value: SpentEFUND.encode(message).finish()
     };
   }
@@ -913,7 +913,7 @@ export const SpentEFUND = {
 GlobalDecoderRegistry.register(SpentEFUND.typeUrl, SpentEFUND);
 function createBaseEnterpriseUserAccount(): EnterpriseUserAccount {
   return {
-    owner: '',
+    owner: "",
     lockedEfund: Coin.fromPartial({}),
     generalSupply: Coin.fromPartial({}),
     spentEfund: Coin.fromPartial({}),
@@ -921,18 +921,18 @@ function createBaseEnterpriseUserAccount(): EnterpriseUserAccount {
   };
 }
 export const EnterpriseUserAccount = {
-  typeUrl: '/mainchain.enterprise.v1.EnterpriseUserAccount',
+  typeUrl: "/mainchain.enterprise.v1.EnterpriseUserAccount",
   is(o: any): o is EnterpriseUserAccount {
-    return o && (o.$typeUrl === EnterpriseUserAccount.typeUrl || typeof o.owner === 'string' && Coin.is(o.lockedEfund) && Coin.is(o.generalSupply) && Coin.is(o.spentEfund) && Coin.is(o.spendable));
+    return o && (o.$typeUrl === EnterpriseUserAccount.typeUrl || typeof o.owner === "string" && Coin.is(o.lockedEfund) && Coin.is(o.generalSupply) && Coin.is(o.spentEfund) && Coin.is(o.spendable));
   },
   isSDK(o: any): o is EnterpriseUserAccountSDKType {
-    return o && (o.$typeUrl === EnterpriseUserAccount.typeUrl || typeof o.owner === 'string' && Coin.isSDK(o.locked_efund) && Coin.isSDK(o.general_supply) && Coin.isSDK(o.spent_efund) && Coin.isSDK(o.spendable));
+    return o && (o.$typeUrl === EnterpriseUserAccount.typeUrl || typeof o.owner === "string" && Coin.isSDK(o.locked_efund) && Coin.isSDK(o.general_supply) && Coin.isSDK(o.spent_efund) && Coin.isSDK(o.spendable));
   },
   isAmino(o: any): o is EnterpriseUserAccountAmino {
-    return o && (o.$typeUrl === EnterpriseUserAccount.typeUrl || typeof o.owner === 'string' && Coin.isAmino(o.locked_efund) && Coin.isAmino(o.general_supply) && Coin.isAmino(o.spent_efund) && Coin.isAmino(o.spendable));
+    return o && (o.$typeUrl === EnterpriseUserAccount.typeUrl || typeof o.owner === "string" && Coin.isAmino(o.locked_efund) && Coin.isAmino(o.general_supply) && Coin.isAmino(o.spent_efund) && Coin.isAmino(o.spendable));
   },
   encode(message: EnterpriseUserAccount, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.owner !== '') {
+    if (message.owner !== "") {
       writer.uint32(10).string(message.owner);
     }
     if (message.lockedEfund !== undefined) {
@@ -956,31 +956,31 @@ export const EnterpriseUserAccount = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.owner = reader.string();
-        break;
-      case 2:
-        message.lockedEfund = Coin.decode(reader, reader.uint32());
-        break;
-      case 3:
-        message.generalSupply = Coin.decode(reader, reader.uint32());
-        break;
-      case 4:
-        message.spentEfund = Coin.decode(reader, reader.uint32());
-        break;
-      case 5:
-        message.spendable = Coin.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.owner = reader.string();
+          break;
+        case 2:
+          message.lockedEfund = Coin.decode(reader, reader.uint32());
+          break;
+        case 3:
+          message.generalSupply = Coin.decode(reader, reader.uint32());
+          break;
+        case 4:
+          message.spentEfund = Coin.decode(reader, reader.uint32());
+          break;
+        case 5:
+          message.spendable = Coin.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<EnterpriseUserAccount>): EnterpriseUserAccount {
     const message = createBaseEnterpriseUserAccount();
-    message.owner = object.owner ?? '';
+    message.owner = object.owner ?? "";
     message.lockedEfund = object.lockedEfund !== undefined && object.lockedEfund !== null ? Coin.fromPartial(object.lockedEfund) : undefined;
     message.generalSupply = object.generalSupply !== undefined && object.generalSupply !== null ? Coin.fromPartial(object.generalSupply) : undefined;
     message.spentEfund = object.spentEfund !== undefined && object.spentEfund !== null ? Coin.fromPartial(object.spentEfund) : undefined;
@@ -1008,7 +1008,7 @@ export const EnterpriseUserAccount = {
   },
   toAmino(message: EnterpriseUserAccount): EnterpriseUserAccountAmino {
     const obj: any = {};
-    obj.owner = message.owner === '' ? undefined : message.owner;
+    obj.owner = message.owner === "" ? undefined : message.owner;
     obj.locked_efund = message.lockedEfund ? Coin.toAmino(message.lockedEfund) : undefined;
     obj.general_supply = message.generalSupply ? Coin.toAmino(message.generalSupply) : undefined;
     obj.spent_efund = message.spentEfund ? Coin.toAmino(message.spentEfund) : undefined;
@@ -1026,7 +1026,7 @@ export const EnterpriseUserAccount = {
   },
   toProtoMsg(message: EnterpriseUserAccount): EnterpriseUserAccountProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.EnterpriseUserAccount',
+      typeUrl: "/mainchain.enterprise.v1.EnterpriseUserAccount",
       value: EnterpriseUserAccount.encode(message).finish()
     };
   }
@@ -1034,25 +1034,25 @@ export const EnterpriseUserAccount = {
 GlobalDecoderRegistry.register(EnterpriseUserAccount.typeUrl, EnterpriseUserAccount);
 function createBaseUndSupply(): UndSupply {
   return {
-    denom: '',
+    denom: "",
     amount: BigInt(0),
     locked: BigInt(0),
     total: BigInt(0)
   };
 }
 export const UndSupply = {
-  typeUrl: '/mainchain.enterprise.v1.UndSupply',
+  typeUrl: "/mainchain.enterprise.v1.UndSupply",
   is(o: any): o is UndSupply {
-    return o && (o.$typeUrl === UndSupply.typeUrl || typeof o.denom === 'string' && typeof o.amount === 'bigint' && typeof o.locked === 'bigint' && typeof o.total === 'bigint');
+    return o && (o.$typeUrl === UndSupply.typeUrl || typeof o.denom === "string" && typeof o.amount === "bigint" && typeof o.locked === "bigint" && typeof o.total === "bigint");
   },
   isSDK(o: any): o is UndSupplySDKType {
-    return o && (o.$typeUrl === UndSupply.typeUrl || typeof o.denom === 'string' && typeof o.amount === 'bigint' && typeof o.locked === 'bigint' && typeof o.total === 'bigint');
+    return o && (o.$typeUrl === UndSupply.typeUrl || typeof o.denom === "string" && typeof o.amount === "bigint" && typeof o.locked === "bigint" && typeof o.total === "bigint");
   },
   isAmino(o: any): o is UndSupplyAmino {
-    return o && (o.$typeUrl === UndSupply.typeUrl || typeof o.denom === 'string' && typeof o.amount === 'bigint' && typeof o.locked === 'bigint' && typeof o.total === 'bigint');
+    return o && (o.$typeUrl === UndSupply.typeUrl || typeof o.denom === "string" && typeof o.amount === "bigint" && typeof o.locked === "bigint" && typeof o.total === "bigint");
   },
   encode(message: UndSupply, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.denom !== '') {
+    if (message.denom !== "") {
       writer.uint32(10).string(message.denom);
     }
     if (message.amount !== BigInt(0)) {
@@ -1073,28 +1073,28 @@ export const UndSupply = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.denom = reader.string();
-        break;
-      case 2:
-        message.amount = reader.uint64();
-        break;
-      case 3:
-        message.locked = reader.uint64();
-        break;
-      case 4:
-        message.total = reader.uint64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.denom = reader.string();
+          break;
+        case 2:
+          message.amount = reader.uint64();
+          break;
+        case 3:
+          message.locked = reader.uint64();
+          break;
+        case 4:
+          message.total = reader.uint64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<UndSupply>): UndSupply {
     const message = createBaseUndSupply();
-    message.denom = object.denom ?? '';
+    message.denom = object.denom ?? "";
     message.amount = object.amount !== undefined && object.amount !== null ? BigInt(object.amount.toString()) : BigInt(0);
     message.locked = object.locked !== undefined && object.locked !== null ? BigInt(object.locked.toString()) : BigInt(0);
     message.total = object.total !== undefined && object.total !== null ? BigInt(object.total.toString()) : BigInt(0);
@@ -1118,7 +1118,7 @@ export const UndSupply = {
   },
   toAmino(message: UndSupply): UndSupplyAmino {
     const obj: any = {};
-    obj.denom = message.denom === '' ? undefined : message.denom;
+    obj.denom = message.denom === "" ? undefined : message.denom;
     obj.amount = message.amount !== BigInt(0) ? message.amount.toString() : undefined;
     obj.locked = message.locked !== BigInt(0) ? message.locked.toString() : undefined;
     obj.total = message.total !== BigInt(0) ? message.total.toString() : undefined;
@@ -1135,7 +1135,7 @@ export const UndSupply = {
   },
   toProtoMsg(message: UndSupply): UndSupplyProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.UndSupply',
+      typeUrl: "/mainchain.enterprise.v1.UndSupply",
       value: UndSupply.encode(message).finish()
     };
   }
@@ -1147,15 +1147,15 @@ function createBaseWhitelistAddresses(): WhitelistAddresses {
   };
 }
 export const WhitelistAddresses = {
-  typeUrl: '/mainchain.enterprise.v1.WhitelistAddresses',
+  typeUrl: "/mainchain.enterprise.v1.WhitelistAddresses",
   is(o: any): o is WhitelistAddresses {
-    return o && (o.$typeUrl === WhitelistAddresses.typeUrl || Array.isArray(o.addresses) && (!o.addresses.length || typeof o.addresses[0] === 'string'));
+    return o && (o.$typeUrl === WhitelistAddresses.typeUrl || Array.isArray(o.addresses) && (!o.addresses.length || typeof o.addresses[0] === "string"));
   },
   isSDK(o: any): o is WhitelistAddressesSDKType {
-    return o && (o.$typeUrl === WhitelistAddresses.typeUrl || Array.isArray(o.addresses) && (!o.addresses.length || typeof o.addresses[0] === 'string'));
+    return o && (o.$typeUrl === WhitelistAddresses.typeUrl || Array.isArray(o.addresses) && (!o.addresses.length || typeof o.addresses[0] === "string"));
   },
   isAmino(o: any): o is WhitelistAddressesAmino {
-    return o && (o.$typeUrl === WhitelistAddresses.typeUrl || Array.isArray(o.addresses) && (!o.addresses.length || typeof o.addresses[0] === 'string'));
+    return o && (o.$typeUrl === WhitelistAddresses.typeUrl || Array.isArray(o.addresses) && (!o.addresses.length || typeof o.addresses[0] === "string"));
   },
   encode(message: WhitelistAddresses, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.addresses) {
@@ -1170,12 +1170,12 @@ export const WhitelistAddresses = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.addresses.push(reader.string());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.addresses.push(reader.string());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1210,7 +1210,7 @@ export const WhitelistAddresses = {
   },
   toProtoMsg(message: WhitelistAddresses): WhitelistAddressesProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.WhitelistAddresses',
+      typeUrl: "/mainchain.enterprise.v1.WhitelistAddresses",
       value: WhitelistAddresses.encode(message).finish()
     };
   }
@@ -1218,28 +1218,28 @@ export const WhitelistAddresses = {
 GlobalDecoderRegistry.register(WhitelistAddresses.typeUrl, WhitelistAddresses);
 function createBaseParams(): Params {
   return {
-    entSigners: '',
-    denom: '',
+    entSigners: "",
+    denom: "",
     minAccepts: BigInt(0),
     decisionTimeLimit: BigInt(0)
   };
 }
 export const Params = {
-  typeUrl: '/mainchain.enterprise.v1.Params',
+  typeUrl: "/mainchain.enterprise.v1.Params",
   is(o: any): o is Params {
-    return o && (o.$typeUrl === Params.typeUrl || typeof o.entSigners === 'string' && typeof o.denom === 'string' && typeof o.minAccepts === 'bigint' && typeof o.decisionTimeLimit === 'bigint');
+    return o && (o.$typeUrl === Params.typeUrl || typeof o.entSigners === "string" && typeof o.denom === "string" && typeof o.minAccepts === "bigint" && typeof o.decisionTimeLimit === "bigint");
   },
   isSDK(o: any): o is ParamsSDKType {
-    return o && (o.$typeUrl === Params.typeUrl || typeof o.ent_signers === 'string' && typeof o.denom === 'string' && typeof o.min_accepts === 'bigint' && typeof o.decision_time_limit === 'bigint');
+    return o && (o.$typeUrl === Params.typeUrl || typeof o.ent_signers === "string" && typeof o.denom === "string" && typeof o.min_accepts === "bigint" && typeof o.decision_time_limit === "bigint");
   },
   isAmino(o: any): o is ParamsAmino {
-    return o && (o.$typeUrl === Params.typeUrl || typeof o.ent_signers === 'string' && typeof o.denom === 'string' && typeof o.min_accepts === 'bigint' && typeof o.decision_time_limit === 'bigint');
+    return o && (o.$typeUrl === Params.typeUrl || typeof o.ent_signers === "string" && typeof o.denom === "string" && typeof o.min_accepts === "bigint" && typeof o.decision_time_limit === "bigint");
   },
   encode(message: Params, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.entSigners !== '') {
+    if (message.entSigners !== "") {
       writer.uint32(10).string(message.entSigners);
     }
-    if (message.denom !== '') {
+    if (message.denom !== "") {
       writer.uint32(18).string(message.denom);
     }
     if (message.minAccepts !== BigInt(0)) {
@@ -1257,29 +1257,29 @@ export const Params = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.entSigners = reader.string();
-        break;
-      case 2:
-        message.denom = reader.string();
-        break;
-      case 3:
-        message.minAccepts = reader.uint64();
-        break;
-      case 4:
-        message.decisionTimeLimit = reader.uint64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.entSigners = reader.string();
+          break;
+        case 2:
+          message.denom = reader.string();
+          break;
+        case 3:
+          message.minAccepts = reader.uint64();
+          break;
+        case 4:
+          message.decisionTimeLimit = reader.uint64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<Params>): Params {
     const message = createBaseParams();
-    message.entSigners = object.entSigners ?? '';
-    message.denom = object.denom ?? '';
+    message.entSigners = object.entSigners ?? "";
+    message.denom = object.denom ?? "";
     message.minAccepts = object.minAccepts !== undefined && object.minAccepts !== null ? BigInt(object.minAccepts.toString()) : BigInt(0);
     message.decisionTimeLimit = object.decisionTimeLimit !== undefined && object.decisionTimeLimit !== null ? BigInt(object.decisionTimeLimit.toString()) : BigInt(0);
     return message;
@@ -1302,8 +1302,8 @@ export const Params = {
   },
   toAmino(message: Params): ParamsAmino {
     const obj: any = {};
-    obj.ent_signers = message.entSigners === '' ? undefined : message.entSigners;
-    obj.denom = message.denom === '' ? undefined : message.denom;
+    obj.ent_signers = message.entSigners === "" ? undefined : message.entSigners;
+    obj.denom = message.denom === "" ? undefined : message.denom;
     obj.min_accepts = message.minAccepts !== BigInt(0) ? message.minAccepts.toString() : undefined;
     obj.decision_time_limit = message.decisionTimeLimit !== BigInt(0) ? message.decisionTimeLimit.toString() : undefined;
     return obj;
@@ -1319,7 +1319,7 @@ export const Params = {
   },
   toProtoMsg(message: Params): ParamsProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.Params',
+      typeUrl: "/mainchain.enterprise.v1.Params",
       value: Params.encode(message).finish()
     };
   }

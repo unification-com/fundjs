@@ -1,18 +1,18 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from '../../../binary';
-import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from '../../../cosmos/base/query/v1beta1/pagination';
-import { GlobalDecoderRegistry } from '../../../registry';
-import { Params, ParamsAmino, ParamsSDKType, WrkChain, WrkChainAmino, WrkChainBlock, WrkChainBlockAmino, WrkChainBlockSDKType,WrkChainSDKType } from './wrkchain';
+import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination";
+import { Params, ParamsAmino, ParamsSDKType, WrkChain, WrkChainAmino, WrkChainSDKType, WrkChainBlock, WrkChainBlockAmino, WrkChainBlockSDKType } from "./wrkchain";
+import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
 /** QueryParamsRequest is the request type for the Query/Params RPC method */
 export interface QueryParamsRequest {}
 export interface QueryParamsRequestProtoMsg {
-  typeUrl: '/mainchain.wrkchain.v1.QueryParamsRequest';
+  typeUrl: "/mainchain.wrkchain.v1.QueryParamsRequest";
   value: Uint8Array;
 }
 /** QueryParamsRequest is the request type for the Query/Params RPC method */
 export interface QueryParamsRequestAmino {}
 export interface QueryParamsRequestAminoMsg {
-  type: '/mainchain.wrkchain.v1.QueryParamsRequest';
+  type: "/mainchain.wrkchain.v1.QueryParamsRequest";
   value: QueryParamsRequestAmino;
 }
 /** QueryParamsRequest is the request type for the Query/Params RPC method */
@@ -22,7 +22,7 @@ export interface QueryParamsResponse {
   params: Params;
 }
 export interface QueryParamsResponseProtoMsg {
-  typeUrl: '/mainchain.wrkchain.v1.QueryParamsResponse';
+  typeUrl: "/mainchain.wrkchain.v1.QueryParamsResponse";
   value: Uint8Array;
 }
 /** QueryParamsResponse is the response type for the Query/Params RPC method */
@@ -30,7 +30,7 @@ export interface QueryParamsResponseAmino {
   params?: ParamsAmino;
 }
 export interface QueryParamsResponseAminoMsg {
-  type: '/mainchain.wrkchain.v1.QueryParamsResponse';
+  type: "/mainchain.wrkchain.v1.QueryParamsResponse";
   value: QueryParamsResponseAmino;
 }
 /** QueryParamsResponse is the response type for the Query/Params RPC method */
@@ -43,7 +43,7 @@ export interface QueryWrkChainRequest {
   wrkchainId: bigint;
 }
 export interface QueryWrkChainRequestProtoMsg {
-  typeUrl: '/mainchain.wrkchain.v1.QueryWrkChainRequest';
+  typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainRequest";
   value: Uint8Array;
 }
 /** QueryWrkChainRequest is the request type for the Query/WrkChain RPC method */
@@ -52,7 +52,7 @@ export interface QueryWrkChainRequestAmino {
   wrkchain_id?: string;
 }
 export interface QueryWrkChainRequestAminoMsg {
-  type: '/mainchain.wrkchain.v1.QueryWrkChainRequest';
+  type: "/mainchain.wrkchain.v1.QueryWrkChainRequest";
   value: QueryWrkChainRequestAmino;
 }
 /** QueryWrkChainRequest is the request type for the Query/WrkChain RPC method */
@@ -64,7 +64,7 @@ export interface QueryWrkChainResponse {
   wrkchain?: WrkChain;
 }
 export interface QueryWrkChainResponseProtoMsg {
-  typeUrl: '/mainchain.wrkchain.v1.QueryWrkChainResponse';
+  typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainResponse";
   value: Uint8Array;
 }
 /** QueryWrkChainResponse is the response type for the Query/WrkChain RPC method */
@@ -72,7 +72,7 @@ export interface QueryWrkChainResponseAmino {
   wrkchain?: WrkChainAmino;
 }
 export interface QueryWrkChainResponseAminoMsg {
-  type: '/mainchain.wrkchain.v1.QueryWrkChainResponse';
+  type: "/mainchain.wrkchain.v1.QueryWrkChainResponse";
   value: QueryWrkChainResponseAmino;
 }
 /** QueryWrkChainResponse is the response type for the Query/WrkChain RPC method */
@@ -87,7 +87,7 @@ export interface QueryWrkChainBlockRequest {
   height: bigint;
 }
 export interface QueryWrkChainBlockRequestProtoMsg {
-  typeUrl: '/mainchain.wrkchain.v1.QueryWrkChainBlockRequest';
+  typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainBlockRequest";
   value: Uint8Array;
 }
 /** QueryWrkChainBlockRequest is the request type for the Query/WrkChainBlock RPC method */
@@ -98,7 +98,7 @@ export interface QueryWrkChainBlockRequestAmino {
   height?: string;
 }
 export interface QueryWrkChainBlockRequestAminoMsg {
-  type: '/mainchain.wrkchain.v1.QueryWrkChainBlockRequest';
+  type: "/mainchain.wrkchain.v1.QueryWrkChainBlockRequest";
   value: QueryWrkChainBlockRequestAmino;
 }
 /** QueryWrkChainBlockRequest is the request type for the Query/WrkChainBlock RPC method */
@@ -113,7 +113,7 @@ export interface QueryWrkChainBlockResponse {
   owner: string;
 }
 export interface QueryWrkChainBlockResponseProtoMsg {
-  typeUrl: '/mainchain.wrkchain.v1.QueryWrkChainBlockResponse';
+  typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainBlockResponse";
   value: Uint8Array;
 }
 /** QueryWrkChainBlockResponse is the response type for the Query/WrkChainBlock RPC method */
@@ -123,7 +123,7 @@ export interface QueryWrkChainBlockResponseAmino {
   owner?: string;
 }
 export interface QueryWrkChainBlockResponseAminoMsg {
-  type: '/mainchain.wrkchain.v1.QueryWrkChainBlockResponse';
+  type: "/mainchain.wrkchain.v1.QueryWrkChainBlockResponse";
   value: QueryWrkChainBlockResponseAmino;
 }
 /** QueryWrkChainBlockResponse is the response type for the Query/WrkChainBlock RPC method */
@@ -142,7 +142,7 @@ export interface QueryWrkChainsFilteredRequest {
   pagination?: PageRequest;
 }
 export interface QueryWrkChainsFilteredRequestProtoMsg {
-  typeUrl: '/mainchain.wrkchain.v1.QueryWrkChainsFilteredRequest';
+  typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainsFilteredRequest";
   value: Uint8Array;
 }
 /** QueryWrkChainsFilteredRequest is the request type for the Query/WrkChainsFiltered RPC method */
@@ -155,7 +155,7 @@ export interface QueryWrkChainsFilteredRequestAmino {
   pagination?: PageRequestAmino;
 }
 export interface QueryWrkChainsFilteredRequestAminoMsg {
-  type: '/mainchain.wrkchain.v1.QueryWrkChainsFilteredRequest';
+  type: "/mainchain.wrkchain.v1.QueryWrkChainsFilteredRequest";
   value: QueryWrkChainsFilteredRequestAmino;
 }
 /** QueryWrkChainsFilteredRequest is the request type for the Query/WrkChainsFiltered RPC method */
@@ -171,7 +171,7 @@ export interface QueryWrkChainsFilteredResponse {
   pagination?: PageResponse;
 }
 export interface QueryWrkChainsFilteredResponseProtoMsg {
-  typeUrl: '/mainchain.wrkchain.v1.QueryWrkChainsFilteredResponse';
+  typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainsFilteredResponse";
   value: Uint8Array;
 }
 /** QueryWrkChainsFilteredResponse is the response type for the Query/WrkChainsFiltered RPC method */
@@ -181,7 +181,7 @@ export interface QueryWrkChainsFilteredResponseAmino {
   pagination?: PageResponseAmino;
 }
 export interface QueryWrkChainsFilteredResponseAminoMsg {
-  type: '/mainchain.wrkchain.v1.QueryWrkChainsFilteredResponse';
+  type: "/mainchain.wrkchain.v1.QueryWrkChainsFilteredResponse";
   value: QueryWrkChainsFilteredResponseAmino;
 }
 /** QueryWrkChainsFilteredResponse is the response type for the Query/WrkChainsFiltered RPC method */
@@ -195,7 +195,7 @@ export interface QueryWrkChainStorageRequest {
   wrkchainId: bigint;
 }
 export interface QueryWrkChainStorageRequestProtoMsg {
-  typeUrl: '/mainchain.wrkchain.v1.QueryWrkChainStorageRequest';
+  typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainStorageRequest";
   value: Uint8Array;
 }
 /** QueryWrkChainStorageRequest is the request type for the Query/WrkChainStorage RPC method */
@@ -204,7 +204,7 @@ export interface QueryWrkChainStorageRequestAmino {
   wrkchain_id?: string;
 }
 export interface QueryWrkChainStorageRequestAminoMsg {
-  type: '/mainchain.wrkchain.v1.QueryWrkChainStorageRequest';
+  type: "/mainchain.wrkchain.v1.QueryWrkChainStorageRequest";
   value: QueryWrkChainStorageRequestAmino;
 }
 /** QueryWrkChainStorageRequest is the request type for the Query/WrkChainStorage RPC method */
@@ -225,7 +225,7 @@ export interface QueryWrkChainStorageResponse {
   maxPurchasable: bigint;
 }
 export interface QueryWrkChainStorageResponseProtoMsg {
-  typeUrl: '/mainchain.wrkchain.v1.QueryWrkChainStorageResponse';
+  typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainStorageResponse";
   value: Uint8Array;
 }
 /** QueryWrkChainStorageResponse is the response type for the Query/WrkChainStorage RPC method */
@@ -242,7 +242,7 @@ export interface QueryWrkChainStorageResponseAmino {
   max_purchasable?: string;
 }
 export interface QueryWrkChainStorageResponseAminoMsg {
-  type: '/mainchain.wrkchain.v1.QueryWrkChainStorageResponse';
+  type: "/mainchain.wrkchain.v1.QueryWrkChainStorageResponse";
   value: QueryWrkChainStorageResponseAmino;
 }
 /** QueryWrkChainStorageResponse is the response type for the Query/WrkChainStorage RPC method */
@@ -258,7 +258,7 @@ function createBaseQueryParamsRequest(): QueryParamsRequest {
   return {};
 }
 export const QueryParamsRequest = {
-  typeUrl: '/mainchain.wrkchain.v1.QueryParamsRequest',
+  typeUrl: "/mainchain.wrkchain.v1.QueryParamsRequest",
   is(o: any): o is QueryParamsRequest {
     return o && o.$typeUrl === QueryParamsRequest.typeUrl;
   },
@@ -278,9 +278,9 @@ export const QueryParamsRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      default:
-        reader.skipType(tag & 7);
-        break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -308,7 +308,7 @@ export const QueryParamsRequest = {
   },
   toProtoMsg(message: QueryParamsRequest): QueryParamsRequestProtoMsg {
     return {
-      typeUrl: '/mainchain.wrkchain.v1.QueryParamsRequest',
+      typeUrl: "/mainchain.wrkchain.v1.QueryParamsRequest",
       value: QueryParamsRequest.encode(message).finish()
     };
   }
@@ -320,7 +320,7 @@ function createBaseQueryParamsResponse(): QueryParamsResponse {
   };
 }
 export const QueryParamsResponse = {
-  typeUrl: '/mainchain.wrkchain.v1.QueryParamsResponse',
+  typeUrl: "/mainchain.wrkchain.v1.QueryParamsResponse",
   is(o: any): o is QueryParamsResponse {
     return o && (o.$typeUrl === QueryParamsResponse.typeUrl || Params.is(o.params));
   },
@@ -343,12 +343,12 @@ export const QueryParamsResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.params = Params.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.params = Params.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -381,7 +381,7 @@ export const QueryParamsResponse = {
   },
   toProtoMsg(message: QueryParamsResponse): QueryParamsResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.wrkchain.v1.QueryParamsResponse',
+      typeUrl: "/mainchain.wrkchain.v1.QueryParamsResponse",
       value: QueryParamsResponse.encode(message).finish()
     };
   }
@@ -393,15 +393,15 @@ function createBaseQueryWrkChainRequest(): QueryWrkChainRequest {
   };
 }
 export const QueryWrkChainRequest = {
-  typeUrl: '/mainchain.wrkchain.v1.QueryWrkChainRequest',
+  typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainRequest",
   is(o: any): o is QueryWrkChainRequest {
-    return o && (o.$typeUrl === QueryWrkChainRequest.typeUrl || typeof o.wrkchainId === 'bigint');
+    return o && (o.$typeUrl === QueryWrkChainRequest.typeUrl || typeof o.wrkchainId === "bigint");
   },
   isSDK(o: any): o is QueryWrkChainRequestSDKType {
-    return o && (o.$typeUrl === QueryWrkChainRequest.typeUrl || typeof o.wrkchain_id === 'bigint');
+    return o && (o.$typeUrl === QueryWrkChainRequest.typeUrl || typeof o.wrkchain_id === "bigint");
   },
   isAmino(o: any): o is QueryWrkChainRequestAmino {
-    return o && (o.$typeUrl === QueryWrkChainRequest.typeUrl || typeof o.wrkchain_id === 'bigint');
+    return o && (o.$typeUrl === QueryWrkChainRequest.typeUrl || typeof o.wrkchain_id === "bigint");
   },
   encode(message: QueryWrkChainRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.wrkchainId !== BigInt(0)) {
@@ -416,12 +416,12 @@ export const QueryWrkChainRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.wrkchainId = reader.uint64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.wrkchainId = reader.uint64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -454,7 +454,7 @@ export const QueryWrkChainRequest = {
   },
   toProtoMsg(message: QueryWrkChainRequest): QueryWrkChainRequestProtoMsg {
     return {
-      typeUrl: '/mainchain.wrkchain.v1.QueryWrkChainRequest',
+      typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainRequest",
       value: QueryWrkChainRequest.encode(message).finish()
     };
   }
@@ -466,7 +466,7 @@ function createBaseQueryWrkChainResponse(): QueryWrkChainResponse {
   };
 }
 export const QueryWrkChainResponse = {
-  typeUrl: '/mainchain.wrkchain.v1.QueryWrkChainResponse',
+  typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainResponse",
   is(o: any): o is QueryWrkChainResponse {
     return o && o.$typeUrl === QueryWrkChainResponse.typeUrl;
   },
@@ -489,12 +489,12 @@ export const QueryWrkChainResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.wrkchain = WrkChain.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.wrkchain = WrkChain.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -527,7 +527,7 @@ export const QueryWrkChainResponse = {
   },
   toProtoMsg(message: QueryWrkChainResponse): QueryWrkChainResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.wrkchain.v1.QueryWrkChainResponse',
+      typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainResponse",
       value: QueryWrkChainResponse.encode(message).finish()
     };
   }
@@ -540,15 +540,15 @@ function createBaseQueryWrkChainBlockRequest(): QueryWrkChainBlockRequest {
   };
 }
 export const QueryWrkChainBlockRequest = {
-  typeUrl: '/mainchain.wrkchain.v1.QueryWrkChainBlockRequest',
+  typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainBlockRequest",
   is(o: any): o is QueryWrkChainBlockRequest {
-    return o && (o.$typeUrl === QueryWrkChainBlockRequest.typeUrl || typeof o.wrkchainId === 'bigint' && typeof o.height === 'bigint');
+    return o && (o.$typeUrl === QueryWrkChainBlockRequest.typeUrl || typeof o.wrkchainId === "bigint" && typeof o.height === "bigint");
   },
   isSDK(o: any): o is QueryWrkChainBlockRequestSDKType {
-    return o && (o.$typeUrl === QueryWrkChainBlockRequest.typeUrl || typeof o.wrkchain_id === 'bigint' && typeof o.height === 'bigint');
+    return o && (o.$typeUrl === QueryWrkChainBlockRequest.typeUrl || typeof o.wrkchain_id === "bigint" && typeof o.height === "bigint");
   },
   isAmino(o: any): o is QueryWrkChainBlockRequestAmino {
-    return o && (o.$typeUrl === QueryWrkChainBlockRequest.typeUrl || typeof o.wrkchain_id === 'bigint' && typeof o.height === 'bigint');
+    return o && (o.$typeUrl === QueryWrkChainBlockRequest.typeUrl || typeof o.wrkchain_id === "bigint" && typeof o.height === "bigint");
   },
   encode(message: QueryWrkChainBlockRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.wrkchainId !== BigInt(0)) {
@@ -566,15 +566,15 @@ export const QueryWrkChainBlockRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.wrkchainId = reader.uint64();
-        break;
-      case 2:
-        message.height = reader.uint64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.wrkchainId = reader.uint64();
+          break;
+        case 2:
+          message.height = reader.uint64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -612,7 +612,7 @@ export const QueryWrkChainBlockRequest = {
   },
   toProtoMsg(message: QueryWrkChainBlockRequest): QueryWrkChainBlockRequestProtoMsg {
     return {
-      typeUrl: '/mainchain.wrkchain.v1.QueryWrkChainBlockRequest',
+      typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainBlockRequest",
       value: QueryWrkChainBlockRequest.encode(message).finish()
     };
   }
@@ -622,19 +622,19 @@ function createBaseQueryWrkChainBlockResponse(): QueryWrkChainBlockResponse {
   return {
     block: undefined,
     wrkchainId: BigInt(0),
-    owner: ''
+    owner: ""
   };
 }
 export const QueryWrkChainBlockResponse = {
-  typeUrl: '/mainchain.wrkchain.v1.QueryWrkChainBlockResponse',
+  typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainBlockResponse",
   is(o: any): o is QueryWrkChainBlockResponse {
-    return o && (o.$typeUrl === QueryWrkChainBlockResponse.typeUrl || typeof o.wrkchainId === 'bigint' && typeof o.owner === 'string');
+    return o && (o.$typeUrl === QueryWrkChainBlockResponse.typeUrl || typeof o.wrkchainId === "bigint" && typeof o.owner === "string");
   },
   isSDK(o: any): o is QueryWrkChainBlockResponseSDKType {
-    return o && (o.$typeUrl === QueryWrkChainBlockResponse.typeUrl || typeof o.wrkchain_id === 'bigint' && typeof o.owner === 'string');
+    return o && (o.$typeUrl === QueryWrkChainBlockResponse.typeUrl || typeof o.wrkchain_id === "bigint" && typeof o.owner === "string");
   },
   isAmino(o: any): o is QueryWrkChainBlockResponseAmino {
-    return o && (o.$typeUrl === QueryWrkChainBlockResponse.typeUrl || typeof o.wrkchain_id === 'bigint' && typeof o.owner === 'string');
+    return o && (o.$typeUrl === QueryWrkChainBlockResponse.typeUrl || typeof o.wrkchain_id === "bigint" && typeof o.owner === "string");
   },
   encode(message: QueryWrkChainBlockResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.block !== undefined) {
@@ -643,7 +643,7 @@ export const QueryWrkChainBlockResponse = {
     if (message.wrkchainId !== BigInt(0)) {
       writer.uint32(16).uint64(message.wrkchainId);
     }
-    if (message.owner !== '') {
+    if (message.owner !== "") {
       writer.uint32(26).string(message.owner);
     }
     return writer;
@@ -655,18 +655,18 @@ export const QueryWrkChainBlockResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.block = WrkChainBlock.decode(reader, reader.uint32());
-        break;
-      case 2:
-        message.wrkchainId = reader.uint64();
-        break;
-      case 3:
-        message.owner = reader.string();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.block = WrkChainBlock.decode(reader, reader.uint32());
+          break;
+        case 2:
+          message.wrkchainId = reader.uint64();
+          break;
+        case 3:
+          message.owner = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -675,7 +675,7 @@ export const QueryWrkChainBlockResponse = {
     const message = createBaseQueryWrkChainBlockResponse();
     message.block = object.block !== undefined && object.block !== null ? WrkChainBlock.fromPartial(object.block) : undefined;
     message.wrkchainId = object.wrkchainId !== undefined && object.wrkchainId !== null ? BigInt(object.wrkchainId.toString()) : BigInt(0);
-    message.owner = object.owner ?? '';
+    message.owner = object.owner ?? "";
     return message;
   },
   fromAmino(object: QueryWrkChainBlockResponseAmino): QueryWrkChainBlockResponse {
@@ -695,7 +695,7 @@ export const QueryWrkChainBlockResponse = {
     const obj: any = {};
     obj.block = message.block ? WrkChainBlock.toAmino(message.block) : undefined;
     obj.wrkchain_id = message.wrkchainId !== BigInt(0) ? message.wrkchainId.toString() : undefined;
-    obj.owner = message.owner === '' ? undefined : message.owner;
+    obj.owner = message.owner === "" ? undefined : message.owner;
     return obj;
   },
   fromAminoMsg(object: QueryWrkChainBlockResponseAminoMsg): QueryWrkChainBlockResponse {
@@ -709,7 +709,7 @@ export const QueryWrkChainBlockResponse = {
   },
   toProtoMsg(message: QueryWrkChainBlockResponse): QueryWrkChainBlockResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.wrkchain.v1.QueryWrkChainBlockResponse',
+      typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainBlockResponse",
       value: QueryWrkChainBlockResponse.encode(message).finish()
     };
   }
@@ -717,27 +717,27 @@ export const QueryWrkChainBlockResponse = {
 GlobalDecoderRegistry.register(QueryWrkChainBlockResponse.typeUrl, QueryWrkChainBlockResponse);
 function createBaseQueryWrkChainsFilteredRequest(): QueryWrkChainsFilteredRequest {
   return {
-    moniker: '',
-    owner: '',
+    moniker: "",
+    owner: "",
     pagination: undefined
   };
 }
 export const QueryWrkChainsFilteredRequest = {
-  typeUrl: '/mainchain.wrkchain.v1.QueryWrkChainsFilteredRequest',
+  typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainsFilteredRequest",
   is(o: any): o is QueryWrkChainsFilteredRequest {
-    return o && (o.$typeUrl === QueryWrkChainsFilteredRequest.typeUrl || typeof o.moniker === 'string' && typeof o.owner === 'string');
+    return o && (o.$typeUrl === QueryWrkChainsFilteredRequest.typeUrl || typeof o.moniker === "string" && typeof o.owner === "string");
   },
   isSDK(o: any): o is QueryWrkChainsFilteredRequestSDKType {
-    return o && (o.$typeUrl === QueryWrkChainsFilteredRequest.typeUrl || typeof o.moniker === 'string' && typeof o.owner === 'string');
+    return o && (o.$typeUrl === QueryWrkChainsFilteredRequest.typeUrl || typeof o.moniker === "string" && typeof o.owner === "string");
   },
   isAmino(o: any): o is QueryWrkChainsFilteredRequestAmino {
-    return o && (o.$typeUrl === QueryWrkChainsFilteredRequest.typeUrl || typeof o.moniker === 'string' && typeof o.owner === 'string');
+    return o && (o.$typeUrl === QueryWrkChainsFilteredRequest.typeUrl || typeof o.moniker === "string" && typeof o.owner === "string");
   },
   encode(message: QueryWrkChainsFilteredRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.moniker !== '') {
+    if (message.moniker !== "") {
       writer.uint32(10).string(message.moniker);
     }
-    if (message.owner !== '') {
+    if (message.owner !== "") {
       writer.uint32(18).string(message.owner);
     }
     if (message.pagination !== undefined) {
@@ -752,26 +752,26 @@ export const QueryWrkChainsFilteredRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.moniker = reader.string();
-        break;
-      case 2:
-        message.owner = reader.string();
-        break;
-      case 3:
-        message.pagination = PageRequest.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.moniker = reader.string();
+          break;
+        case 2:
+          message.owner = reader.string();
+          break;
+        case 3:
+          message.pagination = PageRequest.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<QueryWrkChainsFilteredRequest>): QueryWrkChainsFilteredRequest {
     const message = createBaseQueryWrkChainsFilteredRequest();
-    message.moniker = object.moniker ?? '';
-    message.owner = object.owner ?? '';
+    message.moniker = object.moniker ?? "";
+    message.owner = object.owner ?? "";
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageRequest.fromPartial(object.pagination) : undefined;
     return message;
   },
@@ -790,8 +790,8 @@ export const QueryWrkChainsFilteredRequest = {
   },
   toAmino(message: QueryWrkChainsFilteredRequest): QueryWrkChainsFilteredRequestAmino {
     const obj: any = {};
-    obj.moniker = message.moniker === '' ? undefined : message.moniker;
-    obj.owner = message.owner === '' ? undefined : message.owner;
+    obj.moniker = message.moniker === "" ? undefined : message.moniker;
+    obj.owner = message.owner === "" ? undefined : message.owner;
     obj.pagination = message.pagination ? PageRequest.toAmino(message.pagination) : undefined;
     return obj;
   },
@@ -806,7 +806,7 @@ export const QueryWrkChainsFilteredRequest = {
   },
   toProtoMsg(message: QueryWrkChainsFilteredRequest): QueryWrkChainsFilteredRequestProtoMsg {
     return {
-      typeUrl: '/mainchain.wrkchain.v1.QueryWrkChainsFilteredRequest',
+      typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainsFilteredRequest",
       value: QueryWrkChainsFilteredRequest.encode(message).finish()
     };
   }
@@ -819,7 +819,7 @@ function createBaseQueryWrkChainsFilteredResponse(): QueryWrkChainsFilteredRespo
   };
 }
 export const QueryWrkChainsFilteredResponse = {
-  typeUrl: '/mainchain.wrkchain.v1.QueryWrkChainsFilteredResponse',
+  typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainsFilteredResponse",
   is(o: any): o is QueryWrkChainsFilteredResponse {
     return o && (o.$typeUrl === QueryWrkChainsFilteredResponse.typeUrl || Array.isArray(o.wrkchains) && (!o.wrkchains.length || WrkChain.is(o.wrkchains[0])));
   },
@@ -845,15 +845,15 @@ export const QueryWrkChainsFilteredResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.wrkchains.push(WrkChain.decode(reader, reader.uint32()));
-        break;
-      case 2:
-        message.pagination = PageResponse.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.wrkchains.push(WrkChain.decode(reader, reader.uint32()));
+          break;
+        case 2:
+          message.pagination = PageResponse.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -893,7 +893,7 @@ export const QueryWrkChainsFilteredResponse = {
   },
   toProtoMsg(message: QueryWrkChainsFilteredResponse): QueryWrkChainsFilteredResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.wrkchain.v1.QueryWrkChainsFilteredResponse',
+      typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainsFilteredResponse",
       value: QueryWrkChainsFilteredResponse.encode(message).finish()
     };
   }
@@ -905,15 +905,15 @@ function createBaseQueryWrkChainStorageRequest(): QueryWrkChainStorageRequest {
   };
 }
 export const QueryWrkChainStorageRequest = {
-  typeUrl: '/mainchain.wrkchain.v1.QueryWrkChainStorageRequest',
+  typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainStorageRequest",
   is(o: any): o is QueryWrkChainStorageRequest {
-    return o && (o.$typeUrl === QueryWrkChainStorageRequest.typeUrl || typeof o.wrkchainId === 'bigint');
+    return o && (o.$typeUrl === QueryWrkChainStorageRequest.typeUrl || typeof o.wrkchainId === "bigint");
   },
   isSDK(o: any): o is QueryWrkChainStorageRequestSDKType {
-    return o && (o.$typeUrl === QueryWrkChainStorageRequest.typeUrl || typeof o.wrkchain_id === 'bigint');
+    return o && (o.$typeUrl === QueryWrkChainStorageRequest.typeUrl || typeof o.wrkchain_id === "bigint");
   },
   isAmino(o: any): o is QueryWrkChainStorageRequestAmino {
-    return o && (o.$typeUrl === QueryWrkChainStorageRequest.typeUrl || typeof o.wrkchain_id === 'bigint');
+    return o && (o.$typeUrl === QueryWrkChainStorageRequest.typeUrl || typeof o.wrkchain_id === "bigint");
   },
   encode(message: QueryWrkChainStorageRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.wrkchainId !== BigInt(0)) {
@@ -928,12 +928,12 @@ export const QueryWrkChainStorageRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.wrkchainId = reader.uint64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.wrkchainId = reader.uint64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -966,7 +966,7 @@ export const QueryWrkChainStorageRequest = {
   },
   toProtoMsg(message: QueryWrkChainStorageRequest): QueryWrkChainStorageRequestProtoMsg {
     return {
-      typeUrl: '/mainchain.wrkchain.v1.QueryWrkChainStorageRequest',
+      typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainStorageRequest",
       value: QueryWrkChainStorageRequest.encode(message).finish()
     };
   }
@@ -975,7 +975,7 @@ GlobalDecoderRegistry.register(QueryWrkChainStorageRequest.typeUrl, QueryWrkChai
 function createBaseQueryWrkChainStorageResponse(): QueryWrkChainStorageResponse {
   return {
     wrkchainId: BigInt(0),
-    owner: '',
+    owner: "",
     currentLimit: BigInt(0),
     currentUsed: BigInt(0),
     max: BigInt(0),
@@ -983,21 +983,21 @@ function createBaseQueryWrkChainStorageResponse(): QueryWrkChainStorageResponse 
   };
 }
 export const QueryWrkChainStorageResponse = {
-  typeUrl: '/mainchain.wrkchain.v1.QueryWrkChainStorageResponse',
+  typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainStorageResponse",
   is(o: any): o is QueryWrkChainStorageResponse {
-    return o && (o.$typeUrl === QueryWrkChainStorageResponse.typeUrl || typeof o.wrkchainId === 'bigint' && typeof o.owner === 'string' && typeof o.currentLimit === 'bigint' && typeof o.currentUsed === 'bigint' && typeof o.max === 'bigint' && typeof o.maxPurchasable === 'bigint');
+    return o && (o.$typeUrl === QueryWrkChainStorageResponse.typeUrl || typeof o.wrkchainId === "bigint" && typeof o.owner === "string" && typeof o.currentLimit === "bigint" && typeof o.currentUsed === "bigint" && typeof o.max === "bigint" && typeof o.maxPurchasable === "bigint");
   },
   isSDK(o: any): o is QueryWrkChainStorageResponseSDKType {
-    return o && (o.$typeUrl === QueryWrkChainStorageResponse.typeUrl || typeof o.wrkchain_id === 'bigint' && typeof o.owner === 'string' && typeof o.current_limit === 'bigint' && typeof o.current_used === 'bigint' && typeof o.max === 'bigint' && typeof o.max_purchasable === 'bigint');
+    return o && (o.$typeUrl === QueryWrkChainStorageResponse.typeUrl || typeof o.wrkchain_id === "bigint" && typeof o.owner === "string" && typeof o.current_limit === "bigint" && typeof o.current_used === "bigint" && typeof o.max === "bigint" && typeof o.max_purchasable === "bigint");
   },
   isAmino(o: any): o is QueryWrkChainStorageResponseAmino {
-    return o && (o.$typeUrl === QueryWrkChainStorageResponse.typeUrl || typeof o.wrkchain_id === 'bigint' && typeof o.owner === 'string' && typeof o.current_limit === 'bigint' && typeof o.current_used === 'bigint' && typeof o.max === 'bigint' && typeof o.max_purchasable === 'bigint');
+    return o && (o.$typeUrl === QueryWrkChainStorageResponse.typeUrl || typeof o.wrkchain_id === "bigint" && typeof o.owner === "string" && typeof o.current_limit === "bigint" && typeof o.current_used === "bigint" && typeof o.max === "bigint" && typeof o.max_purchasable === "bigint");
   },
   encode(message: QueryWrkChainStorageResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.wrkchainId !== BigInt(0)) {
       writer.uint32(8).uint64(message.wrkchainId);
     }
-    if (message.owner !== '') {
+    if (message.owner !== "") {
       writer.uint32(18).string(message.owner);
     }
     if (message.currentLimit !== BigInt(0)) {
@@ -1021,27 +1021,27 @@ export const QueryWrkChainStorageResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.wrkchainId = reader.uint64();
-        break;
-      case 2:
-        message.owner = reader.string();
-        break;
-      case 3:
-        message.currentLimit = reader.uint64();
-        break;
-      case 4:
-        message.currentUsed = reader.uint64();
-        break;
-      case 5:
-        message.max = reader.uint64();
-        break;
-      case 6:
-        message.maxPurchasable = reader.uint64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.wrkchainId = reader.uint64();
+          break;
+        case 2:
+          message.owner = reader.string();
+          break;
+        case 3:
+          message.currentLimit = reader.uint64();
+          break;
+        case 4:
+          message.currentUsed = reader.uint64();
+          break;
+        case 5:
+          message.max = reader.uint64();
+          break;
+        case 6:
+          message.maxPurchasable = reader.uint64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1049,7 +1049,7 @@ export const QueryWrkChainStorageResponse = {
   fromPartial(object: Partial<QueryWrkChainStorageResponse>): QueryWrkChainStorageResponse {
     const message = createBaseQueryWrkChainStorageResponse();
     message.wrkchainId = object.wrkchainId !== undefined && object.wrkchainId !== null ? BigInt(object.wrkchainId.toString()) : BigInt(0);
-    message.owner = object.owner ?? '';
+    message.owner = object.owner ?? "";
     message.currentLimit = object.currentLimit !== undefined && object.currentLimit !== null ? BigInt(object.currentLimit.toString()) : BigInt(0);
     message.currentUsed = object.currentUsed !== undefined && object.currentUsed !== null ? BigInt(object.currentUsed.toString()) : BigInt(0);
     message.max = object.max !== undefined && object.max !== null ? BigInt(object.max.toString()) : BigInt(0);
@@ -1081,7 +1081,7 @@ export const QueryWrkChainStorageResponse = {
   toAmino(message: QueryWrkChainStorageResponse): QueryWrkChainStorageResponseAmino {
     const obj: any = {};
     obj.wrkchain_id = message.wrkchainId !== BigInt(0) ? message.wrkchainId.toString() : undefined;
-    obj.owner = message.owner === '' ? undefined : message.owner;
+    obj.owner = message.owner === "" ? undefined : message.owner;
     obj.current_limit = message.currentLimit !== BigInt(0) ? message.currentLimit.toString() : undefined;
     obj.current_used = message.currentUsed !== BigInt(0) ? message.currentUsed.toString() : undefined;
     obj.max = message.max !== BigInt(0) ? message.max.toString() : undefined;
@@ -1099,7 +1099,7 @@ export const QueryWrkChainStorageResponse = {
   },
   toProtoMsg(message: QueryWrkChainStorageResponse): QueryWrkChainStorageResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.wrkchain.v1.QueryWrkChainStorageResponse',
+      typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainStorageResponse",
       value: QueryWrkChainStorageResponse.encode(message).finish()
     };
   }

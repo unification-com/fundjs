@@ -1,7 +1,7 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from '../../../../binary';
-import { GlobalDecoderRegistry } from '../../../../registry';
-import { IdentifiedChannel, IdentifiedChannelAmino, IdentifiedChannelSDKType, PacketState, PacketStateAmino, PacketStateSDKType } from './channel';
+import { IdentifiedChannel, IdentifiedChannelAmino, IdentifiedChannelSDKType, PacketState, PacketStateAmino, PacketStateSDKType } from "./channel";
+import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { GlobalDecoderRegistry } from "../../../../registry";
 /** GenesisState defines the ibc channel submodule's genesis state. */
 export interface GenesisState {
   channels: IdentifiedChannel[];
@@ -15,7 +15,7 @@ export interface GenesisState {
   nextChannelSequence: bigint;
 }
 export interface GenesisStateProtoMsg {
-  typeUrl: '/ibc.core.channel.v1.GenesisState';
+  typeUrl: "/ibc.core.channel.v1.GenesisState";
   value: Uint8Array;
 }
 /** GenesisState defines the ibc channel submodule's genesis state. */
@@ -31,7 +31,7 @@ export interface GenesisStateAmino {
   next_channel_sequence?: string;
 }
 export interface GenesisStateAminoMsg {
-  type: 'cosmos-sdk/GenesisState';
+  type: "cosmos-sdk/GenesisState";
   value: GenesisStateAmino;
 }
 /** GenesisState defines the ibc channel submodule's genesis state. */
@@ -55,7 +55,7 @@ export interface PacketSequence {
   sequence: bigint;
 }
 export interface PacketSequenceProtoMsg {
-  typeUrl: '/ibc.core.channel.v1.PacketSequence';
+  typeUrl: "/ibc.core.channel.v1.PacketSequence";
   value: Uint8Array;
 }
 /**
@@ -68,7 +68,7 @@ export interface PacketSequenceAmino {
   sequence?: string;
 }
 export interface PacketSequenceAminoMsg {
-  type: 'cosmos-sdk/PacketSequence';
+  type: "cosmos-sdk/PacketSequence";
   value: PacketSequenceAmino;
 }
 /**
@@ -93,16 +93,16 @@ function createBaseGenesisState(): GenesisState {
   };
 }
 export const GenesisState = {
-  typeUrl: '/ibc.core.channel.v1.GenesisState',
-  aminoType: 'cosmos-sdk/GenesisState',
+  typeUrl: "/ibc.core.channel.v1.GenesisState",
+  aminoType: "cosmos-sdk/GenesisState",
   is(o: any): o is GenesisState {
-    return o && (o.$typeUrl === GenesisState.typeUrl || Array.isArray(o.channels) && (!o.channels.length || IdentifiedChannel.is(o.channels[0])) && Array.isArray(o.acknowledgements) && (!o.acknowledgements.length || PacketState.is(o.acknowledgements[0])) && Array.isArray(o.commitments) && (!o.commitments.length || PacketState.is(o.commitments[0])) && Array.isArray(o.receipts) && (!o.receipts.length || PacketState.is(o.receipts[0])) && Array.isArray(o.sendSequences) && (!o.sendSequences.length || PacketSequence.is(o.sendSequences[0])) && Array.isArray(o.recvSequences) && (!o.recvSequences.length || PacketSequence.is(o.recvSequences[0])) && Array.isArray(o.ackSequences) && (!o.ackSequences.length || PacketSequence.is(o.ackSequences[0])) && typeof o.nextChannelSequence === 'bigint');
+    return o && (o.$typeUrl === GenesisState.typeUrl || Array.isArray(o.channels) && (!o.channels.length || IdentifiedChannel.is(o.channels[0])) && Array.isArray(o.acknowledgements) && (!o.acknowledgements.length || PacketState.is(o.acknowledgements[0])) && Array.isArray(o.commitments) && (!o.commitments.length || PacketState.is(o.commitments[0])) && Array.isArray(o.receipts) && (!o.receipts.length || PacketState.is(o.receipts[0])) && Array.isArray(o.sendSequences) && (!o.sendSequences.length || PacketSequence.is(o.sendSequences[0])) && Array.isArray(o.recvSequences) && (!o.recvSequences.length || PacketSequence.is(o.recvSequences[0])) && Array.isArray(o.ackSequences) && (!o.ackSequences.length || PacketSequence.is(o.ackSequences[0])) && typeof o.nextChannelSequence === "bigint");
   },
   isSDK(o: any): o is GenesisStateSDKType {
-    return o && (o.$typeUrl === GenesisState.typeUrl || Array.isArray(o.channels) && (!o.channels.length || IdentifiedChannel.isSDK(o.channels[0])) && Array.isArray(o.acknowledgements) && (!o.acknowledgements.length || PacketState.isSDK(o.acknowledgements[0])) && Array.isArray(o.commitments) && (!o.commitments.length || PacketState.isSDK(o.commitments[0])) && Array.isArray(o.receipts) && (!o.receipts.length || PacketState.isSDK(o.receipts[0])) && Array.isArray(o.send_sequences) && (!o.send_sequences.length || PacketSequence.isSDK(o.send_sequences[0])) && Array.isArray(o.recv_sequences) && (!o.recv_sequences.length || PacketSequence.isSDK(o.recv_sequences[0])) && Array.isArray(o.ack_sequences) && (!o.ack_sequences.length || PacketSequence.isSDK(o.ack_sequences[0])) && typeof o.next_channel_sequence === 'bigint');
+    return o && (o.$typeUrl === GenesisState.typeUrl || Array.isArray(o.channels) && (!o.channels.length || IdentifiedChannel.isSDK(o.channels[0])) && Array.isArray(o.acknowledgements) && (!o.acknowledgements.length || PacketState.isSDK(o.acknowledgements[0])) && Array.isArray(o.commitments) && (!o.commitments.length || PacketState.isSDK(o.commitments[0])) && Array.isArray(o.receipts) && (!o.receipts.length || PacketState.isSDK(o.receipts[0])) && Array.isArray(o.send_sequences) && (!o.send_sequences.length || PacketSequence.isSDK(o.send_sequences[0])) && Array.isArray(o.recv_sequences) && (!o.recv_sequences.length || PacketSequence.isSDK(o.recv_sequences[0])) && Array.isArray(o.ack_sequences) && (!o.ack_sequences.length || PacketSequence.isSDK(o.ack_sequences[0])) && typeof o.next_channel_sequence === "bigint");
   },
   isAmino(o: any): o is GenesisStateAmino {
-    return o && (o.$typeUrl === GenesisState.typeUrl || Array.isArray(o.channels) && (!o.channels.length || IdentifiedChannel.isAmino(o.channels[0])) && Array.isArray(o.acknowledgements) && (!o.acknowledgements.length || PacketState.isAmino(o.acknowledgements[0])) && Array.isArray(o.commitments) && (!o.commitments.length || PacketState.isAmino(o.commitments[0])) && Array.isArray(o.receipts) && (!o.receipts.length || PacketState.isAmino(o.receipts[0])) && Array.isArray(o.send_sequences) && (!o.send_sequences.length || PacketSequence.isAmino(o.send_sequences[0])) && Array.isArray(o.recv_sequences) && (!o.recv_sequences.length || PacketSequence.isAmino(o.recv_sequences[0])) && Array.isArray(o.ack_sequences) && (!o.ack_sequences.length || PacketSequence.isAmino(o.ack_sequences[0])) && typeof o.next_channel_sequence === 'bigint');
+    return o && (o.$typeUrl === GenesisState.typeUrl || Array.isArray(o.channels) && (!o.channels.length || IdentifiedChannel.isAmino(o.channels[0])) && Array.isArray(o.acknowledgements) && (!o.acknowledgements.length || PacketState.isAmino(o.acknowledgements[0])) && Array.isArray(o.commitments) && (!o.commitments.length || PacketState.isAmino(o.commitments[0])) && Array.isArray(o.receipts) && (!o.receipts.length || PacketState.isAmino(o.receipts[0])) && Array.isArray(o.send_sequences) && (!o.send_sequences.length || PacketSequence.isAmino(o.send_sequences[0])) && Array.isArray(o.recv_sequences) && (!o.recv_sequences.length || PacketSequence.isAmino(o.recv_sequences[0])) && Array.isArray(o.ack_sequences) && (!o.ack_sequences.length || PacketSequence.isAmino(o.ack_sequences[0])) && typeof o.next_channel_sequence === "bigint");
   },
   encode(message: GenesisState, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.channels) {
@@ -138,33 +138,33 @@ export const GenesisState = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.channels.push(IdentifiedChannel.decode(reader, reader.uint32()));
-        break;
-      case 2:
-        message.acknowledgements.push(PacketState.decode(reader, reader.uint32()));
-        break;
-      case 3:
-        message.commitments.push(PacketState.decode(reader, reader.uint32()));
-        break;
-      case 4:
-        message.receipts.push(PacketState.decode(reader, reader.uint32()));
-        break;
-      case 5:
-        message.sendSequences.push(PacketSequence.decode(reader, reader.uint32()));
-        break;
-      case 6:
-        message.recvSequences.push(PacketSequence.decode(reader, reader.uint32()));
-        break;
-      case 7:
-        message.ackSequences.push(PacketSequence.decode(reader, reader.uint32()));
-        break;
-      case 8:
-        message.nextChannelSequence = reader.uint64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.channels.push(IdentifiedChannel.decode(reader, reader.uint32()));
+          break;
+        case 2:
+          message.acknowledgements.push(PacketState.decode(reader, reader.uint32()));
+          break;
+        case 3:
+          message.commitments.push(PacketState.decode(reader, reader.uint32()));
+          break;
+        case 4:
+          message.receipts.push(PacketState.decode(reader, reader.uint32()));
+          break;
+        case 5:
+          message.sendSequences.push(PacketSequence.decode(reader, reader.uint32()));
+          break;
+        case 6:
+          message.recvSequences.push(PacketSequence.decode(reader, reader.uint32()));
+          break;
+        case 7:
+          message.ackSequences.push(PacketSequence.decode(reader, reader.uint32()));
+          break;
+        case 8:
+          message.nextChannelSequence = reader.uint64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -240,7 +240,7 @@ export const GenesisState = {
   },
   toAminoMsg(message: GenesisState): GenesisStateAminoMsg {
     return {
-      type: 'cosmos-sdk/GenesisState',
+      type: "cosmos-sdk/GenesisState",
       value: GenesisState.toAmino(message)
     };
   },
@@ -252,7 +252,7 @@ export const GenesisState = {
   },
   toProtoMsg(message: GenesisState): GenesisStateProtoMsg {
     return {
-      typeUrl: '/ibc.core.channel.v1.GenesisState',
+      typeUrl: "/ibc.core.channel.v1.GenesisState",
       value: GenesisState.encode(message).finish()
     };
   }
@@ -261,28 +261,28 @@ GlobalDecoderRegistry.register(GenesisState.typeUrl, GenesisState);
 GlobalDecoderRegistry.registerAminoProtoMapping(GenesisState.aminoType, GenesisState.typeUrl);
 function createBasePacketSequence(): PacketSequence {
   return {
-    portId: '',
-    channelId: '',
+    portId: "",
+    channelId: "",
     sequence: BigInt(0)
   };
 }
 export const PacketSequence = {
-  typeUrl: '/ibc.core.channel.v1.PacketSequence',
-  aminoType: 'cosmos-sdk/PacketSequence',
+  typeUrl: "/ibc.core.channel.v1.PacketSequence",
+  aminoType: "cosmos-sdk/PacketSequence",
   is(o: any): o is PacketSequence {
-    return o && (o.$typeUrl === PacketSequence.typeUrl || typeof o.portId === 'string' && typeof o.channelId === 'string' && typeof o.sequence === 'bigint');
+    return o && (o.$typeUrl === PacketSequence.typeUrl || typeof o.portId === "string" && typeof o.channelId === "string" && typeof o.sequence === "bigint");
   },
   isSDK(o: any): o is PacketSequenceSDKType {
-    return o && (o.$typeUrl === PacketSequence.typeUrl || typeof o.port_id === 'string' && typeof o.channel_id === 'string' && typeof o.sequence === 'bigint');
+    return o && (o.$typeUrl === PacketSequence.typeUrl || typeof o.port_id === "string" && typeof o.channel_id === "string" && typeof o.sequence === "bigint");
   },
   isAmino(o: any): o is PacketSequenceAmino {
-    return o && (o.$typeUrl === PacketSequence.typeUrl || typeof o.port_id === 'string' && typeof o.channel_id === 'string' && typeof o.sequence === 'bigint');
+    return o && (o.$typeUrl === PacketSequence.typeUrl || typeof o.port_id === "string" && typeof o.channel_id === "string" && typeof o.sequence === "bigint");
   },
   encode(message: PacketSequence, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.portId !== '') {
+    if (message.portId !== "") {
       writer.uint32(10).string(message.portId);
     }
-    if (message.channelId !== '') {
+    if (message.channelId !== "") {
       writer.uint32(18).string(message.channelId);
     }
     if (message.sequence !== BigInt(0)) {
@@ -297,26 +297,26 @@ export const PacketSequence = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.portId = reader.string();
-        break;
-      case 2:
-        message.channelId = reader.string();
-        break;
-      case 3:
-        message.sequence = reader.uint64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.portId = reader.string();
+          break;
+        case 2:
+          message.channelId = reader.string();
+          break;
+        case 3:
+          message.sequence = reader.uint64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<PacketSequence>): PacketSequence {
     const message = createBasePacketSequence();
-    message.portId = object.portId ?? '';
-    message.channelId = object.channelId ?? '';
+    message.portId = object.portId ?? "";
+    message.channelId = object.channelId ?? "";
     message.sequence = object.sequence !== undefined && object.sequence !== null ? BigInt(object.sequence.toString()) : BigInt(0);
     return message;
   },
@@ -335,8 +335,8 @@ export const PacketSequence = {
   },
   toAmino(message: PacketSequence): PacketSequenceAmino {
     const obj: any = {};
-    obj.port_id = message.portId === '' ? undefined : message.portId;
-    obj.channel_id = message.channelId === '' ? undefined : message.channelId;
+    obj.port_id = message.portId === "" ? undefined : message.portId;
+    obj.channel_id = message.channelId === "" ? undefined : message.channelId;
     obj.sequence = message.sequence !== BigInt(0) ? message.sequence.toString() : undefined;
     return obj;
   },
@@ -345,7 +345,7 @@ export const PacketSequence = {
   },
   toAminoMsg(message: PacketSequence): PacketSequenceAminoMsg {
     return {
-      type: 'cosmos-sdk/PacketSequence',
+      type: "cosmos-sdk/PacketSequence",
       value: PacketSequence.toAmino(message)
     };
   },
@@ -357,7 +357,7 @@ export const PacketSequence = {
   },
   toProtoMsg(message: PacketSequence): PacketSequenceProtoMsg {
     return {
-      typeUrl: '/ibc.core.channel.v1.PacketSequence',
+      typeUrl: "/ibc.core.channel.v1.PacketSequence",
       value: PacketSequence.encode(message).finish()
     };
   }

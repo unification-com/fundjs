@@ -1,7 +1,7 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from '../../../binary';
-import { GlobalDecoderRegistry } from '../../../registry';
-import { Params, ParamsAmino, ParamsSDKType, WrkChain, WrkChainAmino, WrkChainSDKType } from './wrkchain';
+import { Params, ParamsAmino, ParamsSDKType, WrkChain, WrkChainAmino, WrkChainSDKType } from "./wrkchain";
+import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
 /** GenesisState defines the wrkchain module's genesis state. */
 export interface GenesisState {
   /** params defines all the paramaters of the module. */
@@ -10,7 +10,7 @@ export interface GenesisState {
   registeredWrkchains: WrkChainExport[];
 }
 export interface GenesisStateProtoMsg {
-  typeUrl: '/mainchain.wrkchain.v1.GenesisState';
+  typeUrl: "/mainchain.wrkchain.v1.GenesisState";
   value: Uint8Array;
 }
 /** GenesisState defines the wrkchain module's genesis state. */
@@ -21,7 +21,7 @@ export interface GenesisStateAmino {
   registered_wrkchains?: WrkChainExportAmino[];
 }
 export interface GenesisStateAminoMsg {
-  type: '/mainchain.wrkchain.v1.GenesisState';
+  type: "/mainchain.wrkchain.v1.GenesisState";
   value: GenesisStateAmino;
 }
 /** GenesisState defines the wrkchain module's genesis state. */
@@ -44,7 +44,7 @@ export interface WrkChainBlockGenesisExport {
   st: bigint;
 }
 export interface WrkChainBlockGenesisExportProtoMsg {
-  typeUrl: '/mainchain.wrkchain.v1.WrkChainBlockGenesisExport';
+  typeUrl: "/mainchain.wrkchain.v1.WrkChainBlockGenesisExport";
   value: Uint8Array;
 }
 /**
@@ -61,7 +61,7 @@ export interface WrkChainBlockGenesisExportAmino {
   st?: string;
 }
 export interface WrkChainBlockGenesisExportAminoMsg {
-  type: '/mainchain.wrkchain.v1.WrkChainBlockGenesisExport';
+  type: "/mainchain.wrkchain.v1.WrkChainBlockGenesisExport";
   value: WrkChainBlockGenesisExportAmino;
 }
 /**
@@ -84,7 +84,7 @@ export interface WrkChainExport {
   blocks: WrkChainBlockGenesisExport[];
 }
 export interface WrkChainExportProtoMsg {
-  typeUrl: '/mainchain.wrkchain.v1.WrkChainExport';
+  typeUrl: "/mainchain.wrkchain.v1.WrkChainExport";
   value: Uint8Array;
 }
 /** WrkChainExport holds genesis export data for a wrkchain, including hashes */
@@ -94,7 +94,7 @@ export interface WrkChainExportAmino {
   blocks?: WrkChainBlockGenesisExportAmino[];
 }
 export interface WrkChainExportAminoMsg {
-  type: '/mainchain.wrkchain.v1.WrkChainExport';
+  type: "/mainchain.wrkchain.v1.WrkChainExport";
   value: WrkChainExportAmino;
 }
 /** WrkChainExport holds genesis export data for a wrkchain, including hashes */
@@ -111,15 +111,15 @@ function createBaseGenesisState(): GenesisState {
   };
 }
 export const GenesisState = {
-  typeUrl: '/mainchain.wrkchain.v1.GenesisState',
+  typeUrl: "/mainchain.wrkchain.v1.GenesisState",
   is(o: any): o is GenesisState {
-    return o && (o.$typeUrl === GenesisState.typeUrl || Params.is(o.params) && typeof o.startingWrkchainId === 'bigint' && Array.isArray(o.registeredWrkchains) && (!o.registeredWrkchains.length || WrkChainExport.is(o.registeredWrkchains[0])));
+    return o && (o.$typeUrl === GenesisState.typeUrl || Params.is(o.params) && typeof o.startingWrkchainId === "bigint" && Array.isArray(o.registeredWrkchains) && (!o.registeredWrkchains.length || WrkChainExport.is(o.registeredWrkchains[0])));
   },
   isSDK(o: any): o is GenesisStateSDKType {
-    return o && (o.$typeUrl === GenesisState.typeUrl || Params.isSDK(o.params) && typeof o.starting_wrkchain_id === 'bigint' && Array.isArray(o.registered_wrkchains) && (!o.registered_wrkchains.length || WrkChainExport.isSDK(o.registered_wrkchains[0])));
+    return o && (o.$typeUrl === GenesisState.typeUrl || Params.isSDK(o.params) && typeof o.starting_wrkchain_id === "bigint" && Array.isArray(o.registered_wrkchains) && (!o.registered_wrkchains.length || WrkChainExport.isSDK(o.registered_wrkchains[0])));
   },
   isAmino(o: any): o is GenesisStateAmino {
-    return o && (o.$typeUrl === GenesisState.typeUrl || Params.isAmino(o.params) && typeof o.starting_wrkchain_id === 'bigint' && Array.isArray(o.registered_wrkchains) && (!o.registered_wrkchains.length || WrkChainExport.isAmino(o.registered_wrkchains[0])));
+    return o && (o.$typeUrl === GenesisState.typeUrl || Params.isAmino(o.params) && typeof o.starting_wrkchain_id === "bigint" && Array.isArray(o.registered_wrkchains) && (!o.registered_wrkchains.length || WrkChainExport.isAmino(o.registered_wrkchains[0])));
   },
   encode(message: GenesisState, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.params !== undefined) {
@@ -140,18 +140,18 @@ export const GenesisState = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.params = Params.decode(reader, reader.uint32());
-        break;
-      case 2:
-        message.startingWrkchainId = reader.uint64();
-        break;
-      case 3:
-        message.registeredWrkchains.push(WrkChainExport.decode(reader, reader.uint32()));
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.params = Params.decode(reader, reader.uint32());
+          break;
+        case 2:
+          message.startingWrkchainId = reader.uint64();
+          break;
+        case 3:
+          message.registeredWrkchains.push(WrkChainExport.decode(reader, reader.uint32()));
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -196,7 +196,7 @@ export const GenesisState = {
   },
   toProtoMsg(message: GenesisState): GenesisStateProtoMsg {
     return {
-      typeUrl: '/mainchain.wrkchain.v1.GenesisState',
+      typeUrl: "/mainchain.wrkchain.v1.GenesisState",
       value: GenesisState.encode(message).finish()
     };
   }
@@ -205,42 +205,42 @@ GlobalDecoderRegistry.register(GenesisState.typeUrl, GenesisState);
 function createBaseWrkChainBlockGenesisExport(): WrkChainBlockGenesisExport {
   return {
     he: BigInt(0),
-    bh: '',
-    ph: '',
-    h1: '',
-    h2: '',
-    h3: '',
+    bh: "",
+    ph: "",
+    h1: "",
+    h2: "",
+    h3: "",
     st: BigInt(0)
   };
 }
 export const WrkChainBlockGenesisExport = {
-  typeUrl: '/mainchain.wrkchain.v1.WrkChainBlockGenesisExport',
+  typeUrl: "/mainchain.wrkchain.v1.WrkChainBlockGenesisExport",
   is(o: any): o is WrkChainBlockGenesisExport {
-    return o && (o.$typeUrl === WrkChainBlockGenesisExport.typeUrl || typeof o.he === 'bigint' && typeof o.bh === 'string' && typeof o.ph === 'string' && typeof o.h1 === 'string' && typeof o.h2 === 'string' && typeof o.h3 === 'string' && typeof o.st === 'bigint');
+    return o && (o.$typeUrl === WrkChainBlockGenesisExport.typeUrl || typeof o.he === "bigint" && typeof o.bh === "string" && typeof o.ph === "string" && typeof o.h1 === "string" && typeof o.h2 === "string" && typeof o.h3 === "string" && typeof o.st === "bigint");
   },
   isSDK(o: any): o is WrkChainBlockGenesisExportSDKType {
-    return o && (o.$typeUrl === WrkChainBlockGenesisExport.typeUrl || typeof o.he === 'bigint' && typeof o.bh === 'string' && typeof o.ph === 'string' && typeof o.h1 === 'string' && typeof o.h2 === 'string' && typeof o.h3 === 'string' && typeof o.st === 'bigint');
+    return o && (o.$typeUrl === WrkChainBlockGenesisExport.typeUrl || typeof o.he === "bigint" && typeof o.bh === "string" && typeof o.ph === "string" && typeof o.h1 === "string" && typeof o.h2 === "string" && typeof o.h3 === "string" && typeof o.st === "bigint");
   },
   isAmino(o: any): o is WrkChainBlockGenesisExportAmino {
-    return o && (o.$typeUrl === WrkChainBlockGenesisExport.typeUrl || typeof o.he === 'bigint' && typeof o.bh === 'string' && typeof o.ph === 'string' && typeof o.h1 === 'string' && typeof o.h2 === 'string' && typeof o.h3 === 'string' && typeof o.st === 'bigint');
+    return o && (o.$typeUrl === WrkChainBlockGenesisExport.typeUrl || typeof o.he === "bigint" && typeof o.bh === "string" && typeof o.ph === "string" && typeof o.h1 === "string" && typeof o.h2 === "string" && typeof o.h3 === "string" && typeof o.st === "bigint");
   },
   encode(message: WrkChainBlockGenesisExport, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.he !== BigInt(0)) {
       writer.uint32(8).uint64(message.he);
     }
-    if (message.bh !== '') {
+    if (message.bh !== "") {
       writer.uint32(18).string(message.bh);
     }
-    if (message.ph !== '') {
+    if (message.ph !== "") {
       writer.uint32(26).string(message.ph);
     }
-    if (message.h1 !== '') {
+    if (message.h1 !== "") {
       writer.uint32(34).string(message.h1);
     }
-    if (message.h2 !== '') {
+    if (message.h2 !== "") {
       writer.uint32(42).string(message.h2);
     }
-    if (message.h3 !== '') {
+    if (message.h3 !== "") {
       writer.uint32(50).string(message.h3);
     }
     if (message.st !== BigInt(0)) {
@@ -255,30 +255,30 @@ export const WrkChainBlockGenesisExport = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.he = reader.uint64();
-        break;
-      case 2:
-        message.bh = reader.string();
-        break;
-      case 3:
-        message.ph = reader.string();
-        break;
-      case 4:
-        message.h1 = reader.string();
-        break;
-      case 5:
-        message.h2 = reader.string();
-        break;
-      case 6:
-        message.h3 = reader.string();
-        break;
-      case 7:
-        message.st = reader.uint64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.he = reader.uint64();
+          break;
+        case 2:
+          message.bh = reader.string();
+          break;
+        case 3:
+          message.ph = reader.string();
+          break;
+        case 4:
+          message.h1 = reader.string();
+          break;
+        case 5:
+          message.h2 = reader.string();
+          break;
+        case 6:
+          message.h3 = reader.string();
+          break;
+        case 7:
+          message.st = reader.uint64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -286,11 +286,11 @@ export const WrkChainBlockGenesisExport = {
   fromPartial(object: Partial<WrkChainBlockGenesisExport>): WrkChainBlockGenesisExport {
     const message = createBaseWrkChainBlockGenesisExport();
     message.he = object.he !== undefined && object.he !== null ? BigInt(object.he.toString()) : BigInt(0);
-    message.bh = object.bh ?? '';
-    message.ph = object.ph ?? '';
-    message.h1 = object.h1 ?? '';
-    message.h2 = object.h2 ?? '';
-    message.h3 = object.h3 ?? '';
+    message.bh = object.bh ?? "";
+    message.ph = object.ph ?? "";
+    message.h1 = object.h1 ?? "";
+    message.h2 = object.h2 ?? "";
+    message.h3 = object.h3 ?? "";
     message.st = object.st !== undefined && object.st !== null ? BigInt(object.st.toString()) : BigInt(0);
     return message;
   },
@@ -322,11 +322,11 @@ export const WrkChainBlockGenesisExport = {
   toAmino(message: WrkChainBlockGenesisExport): WrkChainBlockGenesisExportAmino {
     const obj: any = {};
     obj.he = message.he !== BigInt(0) ? message.he.toString() : undefined;
-    obj.bh = message.bh === '' ? undefined : message.bh;
-    obj.ph = message.ph === '' ? undefined : message.ph;
-    obj.h1 = message.h1 === '' ? undefined : message.h1;
-    obj.h2 = message.h2 === '' ? undefined : message.h2;
-    obj.h3 = message.h3 === '' ? undefined : message.h3;
+    obj.bh = message.bh === "" ? undefined : message.bh;
+    obj.ph = message.ph === "" ? undefined : message.ph;
+    obj.h1 = message.h1 === "" ? undefined : message.h1;
+    obj.h2 = message.h2 === "" ? undefined : message.h2;
+    obj.h3 = message.h3 === "" ? undefined : message.h3;
     obj.st = message.st !== BigInt(0) ? message.st.toString() : undefined;
     return obj;
   },
@@ -341,7 +341,7 @@ export const WrkChainBlockGenesisExport = {
   },
   toProtoMsg(message: WrkChainBlockGenesisExport): WrkChainBlockGenesisExportProtoMsg {
     return {
-      typeUrl: '/mainchain.wrkchain.v1.WrkChainBlockGenesisExport',
+      typeUrl: "/mainchain.wrkchain.v1.WrkChainBlockGenesisExport",
       value: WrkChainBlockGenesisExport.encode(message).finish()
     };
   }
@@ -355,15 +355,15 @@ function createBaseWrkChainExport(): WrkChainExport {
   };
 }
 export const WrkChainExport = {
-  typeUrl: '/mainchain.wrkchain.v1.WrkChainExport',
+  typeUrl: "/mainchain.wrkchain.v1.WrkChainExport",
   is(o: any): o is WrkChainExport {
-    return o && (o.$typeUrl === WrkChainExport.typeUrl || WrkChain.is(o.wrkchain) && typeof o.inStateLimit === 'bigint' && Array.isArray(o.blocks) && (!o.blocks.length || WrkChainBlockGenesisExport.is(o.blocks[0])));
+    return o && (o.$typeUrl === WrkChainExport.typeUrl || WrkChain.is(o.wrkchain) && typeof o.inStateLimit === "bigint" && Array.isArray(o.blocks) && (!o.blocks.length || WrkChainBlockGenesisExport.is(o.blocks[0])));
   },
   isSDK(o: any): o is WrkChainExportSDKType {
-    return o && (o.$typeUrl === WrkChainExport.typeUrl || WrkChain.isSDK(o.wrkchain) && typeof o.in_state_limit === 'bigint' && Array.isArray(o.blocks) && (!o.blocks.length || WrkChainBlockGenesisExport.isSDK(o.blocks[0])));
+    return o && (o.$typeUrl === WrkChainExport.typeUrl || WrkChain.isSDK(o.wrkchain) && typeof o.in_state_limit === "bigint" && Array.isArray(o.blocks) && (!o.blocks.length || WrkChainBlockGenesisExport.isSDK(o.blocks[0])));
   },
   isAmino(o: any): o is WrkChainExportAmino {
-    return o && (o.$typeUrl === WrkChainExport.typeUrl || WrkChain.isAmino(o.wrkchain) && typeof o.in_state_limit === 'bigint' && Array.isArray(o.blocks) && (!o.blocks.length || WrkChainBlockGenesisExport.isAmino(o.blocks[0])));
+    return o && (o.$typeUrl === WrkChainExport.typeUrl || WrkChain.isAmino(o.wrkchain) && typeof o.in_state_limit === "bigint" && Array.isArray(o.blocks) && (!o.blocks.length || WrkChainBlockGenesisExport.isAmino(o.blocks[0])));
   },
   encode(message: WrkChainExport, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.wrkchain !== undefined) {
@@ -384,18 +384,18 @@ export const WrkChainExport = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.wrkchain = WrkChain.decode(reader, reader.uint32());
-        break;
-      case 2:
-        message.inStateLimit = reader.uint64();
-        break;
-      case 3:
-        message.blocks.push(WrkChainBlockGenesisExport.decode(reader, reader.uint32()));
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.wrkchain = WrkChain.decode(reader, reader.uint32());
+          break;
+        case 2:
+          message.inStateLimit = reader.uint64();
+          break;
+        case 3:
+          message.blocks.push(WrkChainBlockGenesisExport.decode(reader, reader.uint32()));
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -440,7 +440,7 @@ export const WrkChainExport = {
   },
   toProtoMsg(message: WrkChainExport): WrkChainExportProtoMsg {
     return {
-      typeUrl: '/mainchain.wrkchain.v1.WrkChainExport',
+      typeUrl: "/mainchain.wrkchain.v1.WrkChainExport",
       value: WrkChainExport.encode(message).finish()
     };
   }

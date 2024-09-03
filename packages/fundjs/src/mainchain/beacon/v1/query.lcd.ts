@@ -1,8 +1,7 @@
 //@ts-nocheck
-import { LCDClient } from '@cosmology/lcd';
-
-import { setPaginationParams } from '../../../helpers';
-import { QueryBeaconRequest, QueryBeaconResponseSDKType, QueryBeaconsFilteredRequest, QueryBeaconsFilteredResponseSDKType, QueryBeaconStorageRequest, QueryBeaconStorageResponseSDKType,QueryBeaconTimestampRequest, QueryBeaconTimestampResponseSDKType, QueryParamsRequest, QueryParamsResponseSDKType } from './query';
+import { setPaginationParams } from "../../../helpers";
+import { LCDClient } from "@cosmology/lcd";
+import { QueryParamsRequest, QueryParamsResponseSDKType, QueryBeaconRequest, QueryBeaconResponseSDKType, QueryBeaconTimestampRequest, QueryBeaconTimestampResponseSDKType, QueryBeaconsFilteredRequest, QueryBeaconsFilteredResponseSDKType, QueryBeaconStorageRequest, QueryBeaconStorageResponseSDKType } from "./query";
 export class LCDQueryClient {
   req: LCDClient;
   constructor({
@@ -37,13 +36,13 @@ export class LCDQueryClient {
     const options: any = {
       params: {}
     };
-    if (typeof params?.moniker !== 'undefined') {
+    if (typeof params?.moniker !== "undefined") {
       options.params.moniker = params.moniker;
     }
-    if (typeof params?.owner !== 'undefined') {
+    if (typeof params?.owner !== "undefined") {
       options.params.owner = params.owner;
     }
-    if (typeof params?.pagination !== 'undefined') {
+    if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
     }
     const endpoint = `mainchain/beacon/v1/beacons`;

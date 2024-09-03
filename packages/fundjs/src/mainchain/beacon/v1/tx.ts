@@ -1,7 +1,7 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from '../../../binary';
-import { GlobalDecoderRegistry } from '../../../registry';
-import { Params, ParamsAmino, ParamsSDKType } from './beacon';
+import { Params, ParamsAmino, ParamsSDKType } from "./beacon";
+import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
 /** MsgRegisterBeacon represents a message to register a new beacon */
 export interface MsgRegisterBeacon {
   /** moniker is a short identifier for a beacon */
@@ -12,7 +12,7 @@ export interface MsgRegisterBeacon {
   owner: string;
 }
 export interface MsgRegisterBeaconProtoMsg {
-  typeUrl: '/mainchain.beacon.v1.MsgRegisterBeacon';
+  typeUrl: "/mainchain.beacon.v1.MsgRegisterBeacon";
   value: Uint8Array;
 }
 /** MsgRegisterBeacon represents a message to register a new beacon */
@@ -25,7 +25,7 @@ export interface MsgRegisterBeaconAmino {
   owner?: string;
 }
 export interface MsgRegisterBeaconAminoMsg {
-  type: '/mainchain.beacon.v1.MsgRegisterBeacon';
+  type: "/mainchain.beacon.v1.MsgRegisterBeacon";
   value: MsgRegisterBeaconAmino;
 }
 /** MsgRegisterBeacon represents a message to register a new beacon */
@@ -40,7 +40,7 @@ export interface MsgRegisterBeaconResponse {
   beaconId: bigint;
 }
 export interface MsgRegisterBeaconResponseProtoMsg {
-  typeUrl: '/mainchain.beacon.v1.MsgRegisterBeaconResponse';
+  typeUrl: "/mainchain.beacon.v1.MsgRegisterBeaconResponse";
   value: Uint8Array;
 }
 /** MsgRegisterBeaconResponse defines the Msg/RegisterBeacon response type. */
@@ -49,7 +49,7 @@ export interface MsgRegisterBeaconResponseAmino {
   beacon_id?: string;
 }
 export interface MsgRegisterBeaconResponseAminoMsg {
-  type: '/mainchain.beacon.v1.MsgRegisterBeaconResponse';
+  type: "/mainchain.beacon.v1.MsgRegisterBeaconResponse";
   value: MsgRegisterBeaconResponseAmino;
 }
 /** MsgRegisterBeaconResponse defines the Msg/RegisterBeacon response type. */
@@ -68,7 +68,7 @@ export interface MsgRecordBeaconTimestamp {
   owner: string;
 }
 export interface MsgRecordBeaconTimestampProtoMsg {
-  typeUrl: '/mainchain.beacon.v1.MsgRecordBeaconTimestamp';
+  typeUrl: "/mainchain.beacon.v1.MsgRecordBeaconTimestamp";
   value: Uint8Array;
 }
 /** MsgRecordBeaconTimestamp represents a message to record a timestamp for a registered beacon */
@@ -83,7 +83,7 @@ export interface MsgRecordBeaconTimestampAmino {
   owner?: string;
 }
 export interface MsgRecordBeaconTimestampAminoMsg {
-  type: '/mainchain.beacon.v1.MsgRecordBeaconTimestamp';
+  type: "/mainchain.beacon.v1.MsgRecordBeaconTimestamp";
   value: MsgRecordBeaconTimestampAmino;
 }
 /** MsgRecordBeaconTimestamp represents a message to record a timestamp for a registered beacon */
@@ -101,7 +101,7 @@ export interface MsgRecordBeaconTimestampResponse {
   timestampId: bigint;
 }
 export interface MsgRecordBeaconTimestampResponseProtoMsg {
-  typeUrl: '/mainchain.beacon.v1.MsgRecordBeaconTimestampResponse';
+  typeUrl: "/mainchain.beacon.v1.MsgRecordBeaconTimestampResponse";
   value: Uint8Array;
 }
 /** MsgRecordBeaconTimestampResponse defines the Msg/RecordBeacon response type. */
@@ -112,7 +112,7 @@ export interface MsgRecordBeaconTimestampResponseAmino {
   timestamp_id?: string;
 }
 export interface MsgRecordBeaconTimestampResponseAminoMsg {
-  type: '/mainchain.beacon.v1.MsgRecordBeaconTimestampResponse';
+  type: "/mainchain.beacon.v1.MsgRecordBeaconTimestampResponse";
   value: MsgRecordBeaconTimestampResponseAmino;
 }
 /** MsgRecordBeaconTimestampResponse defines the Msg/RecordBeacon response type. */
@@ -130,7 +130,7 @@ export interface MsgPurchaseBeaconStateStorage {
   owner: string;
 }
 export interface MsgPurchaseBeaconStateStorageProtoMsg {
-  typeUrl: '/mainchain.beacon.v1.MsgPurchaseBeaconStateStorage';
+  typeUrl: "/mainchain.beacon.v1.MsgPurchaseBeaconStateStorage";
   value: Uint8Array;
 }
 /** MsgPurchaseBeaconStateStorage represents a message to purchase more beacon storage */
@@ -143,7 +143,7 @@ export interface MsgPurchaseBeaconStateStorageAmino {
   owner?: string;
 }
 export interface MsgPurchaseBeaconStateStorageAminoMsg {
-  type: '/mainchain.beacon.v1.MsgPurchaseBeaconStateStorage';
+  type: "/mainchain.beacon.v1.MsgPurchaseBeaconStateStorage";
   value: MsgPurchaseBeaconStateStorageAmino;
 }
 /** MsgPurchaseBeaconStateStorage represents a message to purchase more beacon storage */
@@ -162,7 +162,7 @@ export interface MsgPurchaseBeaconStateStorageResponse {
   numCanPurchase: bigint;
 }
 export interface MsgPurchaseBeaconStateStorageResponseProtoMsg {
-  typeUrl: '/mainchain.beacon.v1.MsgPurchaseBeaconStateStorageResponse';
+  typeUrl: "/mainchain.beacon.v1.MsgPurchaseBeaconStateStorageResponse";
   value: Uint8Array;
 }
 /** MsgPurchaseBeaconStateStorageResponse defines the Msg/PurchaseBeaconStateStorage response type. */
@@ -175,7 +175,7 @@ export interface MsgPurchaseBeaconStateStorageResponseAmino {
   num_can_purchase?: string;
 }
 export interface MsgPurchaseBeaconStateStorageResponseAminoMsg {
-  type: '/mainchain.beacon.v1.MsgPurchaseBeaconStateStorageResponse';
+  type: "/mainchain.beacon.v1.MsgPurchaseBeaconStateStorageResponse";
   value: MsgPurchaseBeaconStateStorageResponseAmino;
 }
 /** MsgPurchaseBeaconStateStorageResponse defines the Msg/PurchaseBeaconStateStorage response type. */
@@ -200,7 +200,7 @@ export interface MsgUpdateParams {
   params: Params;
 }
 export interface MsgUpdateParamsProtoMsg {
-  typeUrl: '/mainchain.beacon.v1.MsgUpdateParams';
+  typeUrl: "/mainchain.beacon.v1.MsgUpdateParams";
   value: Uint8Array;
 }
 /**
@@ -219,7 +219,7 @@ export interface MsgUpdateParamsAmino {
   params: ParamsAmino;
 }
 export interface MsgUpdateParamsAminoMsg {
-  type: 'mainchain/x/beacon/MsgUpdateParams';
+  type: "mainchain/x/beacon/MsgUpdateParams";
   value: MsgUpdateParamsAmino;
 }
 /**
@@ -239,7 +239,7 @@ export interface MsgUpdateParamsSDKType {
  */
 export interface MsgUpdateParamsResponse {}
 export interface MsgUpdateParamsResponseProtoMsg {
-  typeUrl: '/mainchain.beacon.v1.MsgUpdateParamsResponse';
+  typeUrl: "/mainchain.beacon.v1.MsgUpdateParamsResponse";
   value: Uint8Array;
 }
 /**
@@ -250,7 +250,7 @@ export interface MsgUpdateParamsResponseProtoMsg {
  */
 export interface MsgUpdateParamsResponseAmino {}
 export interface MsgUpdateParamsResponseAminoMsg {
-  type: '/mainchain.beacon.v1.MsgUpdateParamsResponse';
+  type: "/mainchain.beacon.v1.MsgUpdateParamsResponse";
   value: MsgUpdateParamsResponseAmino;
 }
 /**
@@ -262,30 +262,30 @@ export interface MsgUpdateParamsResponseAminoMsg {
 export interface MsgUpdateParamsResponseSDKType {}
 function createBaseMsgRegisterBeacon(): MsgRegisterBeacon {
   return {
-    moniker: '',
-    name: '',
-    owner: ''
+    moniker: "",
+    name: "",
+    owner: ""
   };
 }
 export const MsgRegisterBeacon = {
-  typeUrl: '/mainchain.beacon.v1.MsgRegisterBeacon',
+  typeUrl: "/mainchain.beacon.v1.MsgRegisterBeacon",
   is(o: any): o is MsgRegisterBeacon {
-    return o && (o.$typeUrl === MsgRegisterBeacon.typeUrl || typeof o.moniker === 'string' && typeof o.name === 'string' && typeof o.owner === 'string');
+    return o && (o.$typeUrl === MsgRegisterBeacon.typeUrl || typeof o.moniker === "string" && typeof o.name === "string" && typeof o.owner === "string");
   },
   isSDK(o: any): o is MsgRegisterBeaconSDKType {
-    return o && (o.$typeUrl === MsgRegisterBeacon.typeUrl || typeof o.moniker === 'string' && typeof o.name === 'string' && typeof o.owner === 'string');
+    return o && (o.$typeUrl === MsgRegisterBeacon.typeUrl || typeof o.moniker === "string" && typeof o.name === "string" && typeof o.owner === "string");
   },
   isAmino(o: any): o is MsgRegisterBeaconAmino {
-    return o && (o.$typeUrl === MsgRegisterBeacon.typeUrl || typeof o.moniker === 'string' && typeof o.name === 'string' && typeof o.owner === 'string');
+    return o && (o.$typeUrl === MsgRegisterBeacon.typeUrl || typeof o.moniker === "string" && typeof o.name === "string" && typeof o.owner === "string");
   },
   encode(message: MsgRegisterBeacon, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.moniker !== '') {
+    if (message.moniker !== "") {
       writer.uint32(10).string(message.moniker);
     }
-    if (message.name !== '') {
+    if (message.name !== "") {
       writer.uint32(18).string(message.name);
     }
-    if (message.owner !== '') {
+    if (message.owner !== "") {
       writer.uint32(26).string(message.owner);
     }
     return writer;
@@ -297,27 +297,27 @@ export const MsgRegisterBeacon = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.moniker = reader.string();
-        break;
-      case 2:
-        message.name = reader.string();
-        break;
-      case 3:
-        message.owner = reader.string();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.moniker = reader.string();
+          break;
+        case 2:
+          message.name = reader.string();
+          break;
+        case 3:
+          message.owner = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<MsgRegisterBeacon>): MsgRegisterBeacon {
     const message = createBaseMsgRegisterBeacon();
-    message.moniker = object.moniker ?? '';
-    message.name = object.name ?? '';
-    message.owner = object.owner ?? '';
+    message.moniker = object.moniker ?? "";
+    message.name = object.name ?? "";
+    message.owner = object.owner ?? "";
     return message;
   },
   fromAmino(object: MsgRegisterBeaconAmino): MsgRegisterBeacon {
@@ -335,9 +335,9 @@ export const MsgRegisterBeacon = {
   },
   toAmino(message: MsgRegisterBeacon): MsgRegisterBeaconAmino {
     const obj: any = {};
-    obj.moniker = message.moniker === '' ? undefined : message.moniker;
-    obj.name = message.name === '' ? undefined : message.name;
-    obj.owner = message.owner === '' ? undefined : message.owner;
+    obj.moniker = message.moniker === "" ? undefined : message.moniker;
+    obj.name = message.name === "" ? undefined : message.name;
+    obj.owner = message.owner === "" ? undefined : message.owner;
     return obj;
   },
   fromAminoMsg(object: MsgRegisterBeaconAminoMsg): MsgRegisterBeacon {
@@ -351,7 +351,7 @@ export const MsgRegisterBeacon = {
   },
   toProtoMsg(message: MsgRegisterBeacon): MsgRegisterBeaconProtoMsg {
     return {
-      typeUrl: '/mainchain.beacon.v1.MsgRegisterBeacon',
+      typeUrl: "/mainchain.beacon.v1.MsgRegisterBeacon",
       value: MsgRegisterBeacon.encode(message).finish()
     };
   }
@@ -363,15 +363,15 @@ function createBaseMsgRegisterBeaconResponse(): MsgRegisterBeaconResponse {
   };
 }
 export const MsgRegisterBeaconResponse = {
-  typeUrl: '/mainchain.beacon.v1.MsgRegisterBeaconResponse',
+  typeUrl: "/mainchain.beacon.v1.MsgRegisterBeaconResponse",
   is(o: any): o is MsgRegisterBeaconResponse {
-    return o && (o.$typeUrl === MsgRegisterBeaconResponse.typeUrl || typeof o.beaconId === 'bigint');
+    return o && (o.$typeUrl === MsgRegisterBeaconResponse.typeUrl || typeof o.beaconId === "bigint");
   },
   isSDK(o: any): o is MsgRegisterBeaconResponseSDKType {
-    return o && (o.$typeUrl === MsgRegisterBeaconResponse.typeUrl || typeof o.beacon_id === 'bigint');
+    return o && (o.$typeUrl === MsgRegisterBeaconResponse.typeUrl || typeof o.beacon_id === "bigint");
   },
   isAmino(o: any): o is MsgRegisterBeaconResponseAmino {
-    return o && (o.$typeUrl === MsgRegisterBeaconResponse.typeUrl || typeof o.beacon_id === 'bigint');
+    return o && (o.$typeUrl === MsgRegisterBeaconResponse.typeUrl || typeof o.beacon_id === "bigint");
   },
   encode(message: MsgRegisterBeaconResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.beaconId !== BigInt(0)) {
@@ -386,12 +386,12 @@ export const MsgRegisterBeaconResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.beaconId = reader.uint64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.beaconId = reader.uint64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -424,7 +424,7 @@ export const MsgRegisterBeaconResponse = {
   },
   toProtoMsg(message: MsgRegisterBeaconResponse): MsgRegisterBeaconResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.beacon.v1.MsgRegisterBeaconResponse',
+      typeUrl: "/mainchain.beacon.v1.MsgRegisterBeaconResponse",
       value: MsgRegisterBeaconResponse.encode(message).finish()
     };
   }
@@ -433,33 +433,33 @@ GlobalDecoderRegistry.register(MsgRegisterBeaconResponse.typeUrl, MsgRegisterBea
 function createBaseMsgRecordBeaconTimestamp(): MsgRecordBeaconTimestamp {
   return {
     beaconId: BigInt(0),
-    hash: '',
+    hash: "",
     submitTime: BigInt(0),
-    owner: ''
+    owner: ""
   };
 }
 export const MsgRecordBeaconTimestamp = {
-  typeUrl: '/mainchain.beacon.v1.MsgRecordBeaconTimestamp',
+  typeUrl: "/mainchain.beacon.v1.MsgRecordBeaconTimestamp",
   is(o: any): o is MsgRecordBeaconTimestamp {
-    return o && (o.$typeUrl === MsgRecordBeaconTimestamp.typeUrl || typeof o.beaconId === 'bigint' && typeof o.hash === 'string' && typeof o.submitTime === 'bigint' && typeof o.owner === 'string');
+    return o && (o.$typeUrl === MsgRecordBeaconTimestamp.typeUrl || typeof o.beaconId === "bigint" && typeof o.hash === "string" && typeof o.submitTime === "bigint" && typeof o.owner === "string");
   },
   isSDK(o: any): o is MsgRecordBeaconTimestampSDKType {
-    return o && (o.$typeUrl === MsgRecordBeaconTimestamp.typeUrl || typeof o.beacon_id === 'bigint' && typeof o.hash === 'string' && typeof o.submit_time === 'bigint' && typeof o.owner === 'string');
+    return o && (o.$typeUrl === MsgRecordBeaconTimestamp.typeUrl || typeof o.beacon_id === "bigint" && typeof o.hash === "string" && typeof o.submit_time === "bigint" && typeof o.owner === "string");
   },
   isAmino(o: any): o is MsgRecordBeaconTimestampAmino {
-    return o && (o.$typeUrl === MsgRecordBeaconTimestamp.typeUrl || typeof o.beacon_id === 'bigint' && typeof o.hash === 'string' && typeof o.submit_time === 'bigint' && typeof o.owner === 'string');
+    return o && (o.$typeUrl === MsgRecordBeaconTimestamp.typeUrl || typeof o.beacon_id === "bigint" && typeof o.hash === "string" && typeof o.submit_time === "bigint" && typeof o.owner === "string");
   },
   encode(message: MsgRecordBeaconTimestamp, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.beaconId !== BigInt(0)) {
       writer.uint32(8).uint64(message.beaconId);
     }
-    if (message.hash !== '') {
+    if (message.hash !== "") {
       writer.uint32(18).string(message.hash);
     }
     if (message.submitTime !== BigInt(0)) {
       writer.uint32(24).uint64(message.submitTime);
     }
-    if (message.owner !== '') {
+    if (message.owner !== "") {
       writer.uint32(34).string(message.owner);
     }
     return writer;
@@ -471,21 +471,21 @@ export const MsgRecordBeaconTimestamp = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.beaconId = reader.uint64();
-        break;
-      case 2:
-        message.hash = reader.string();
-        break;
-      case 3:
-        message.submitTime = reader.uint64();
-        break;
-      case 4:
-        message.owner = reader.string();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.beaconId = reader.uint64();
+          break;
+        case 2:
+          message.hash = reader.string();
+          break;
+        case 3:
+          message.submitTime = reader.uint64();
+          break;
+        case 4:
+          message.owner = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -493,9 +493,9 @@ export const MsgRecordBeaconTimestamp = {
   fromPartial(object: Partial<MsgRecordBeaconTimestamp>): MsgRecordBeaconTimestamp {
     const message = createBaseMsgRecordBeaconTimestamp();
     message.beaconId = object.beaconId !== undefined && object.beaconId !== null ? BigInt(object.beaconId.toString()) : BigInt(0);
-    message.hash = object.hash ?? '';
+    message.hash = object.hash ?? "";
     message.submitTime = object.submitTime !== undefined && object.submitTime !== null ? BigInt(object.submitTime.toString()) : BigInt(0);
-    message.owner = object.owner ?? '';
+    message.owner = object.owner ?? "";
     return message;
   },
   fromAmino(object: MsgRecordBeaconTimestampAmino): MsgRecordBeaconTimestamp {
@@ -517,9 +517,9 @@ export const MsgRecordBeaconTimestamp = {
   toAmino(message: MsgRecordBeaconTimestamp): MsgRecordBeaconTimestampAmino {
     const obj: any = {};
     obj.beacon_id = message.beaconId !== BigInt(0) ? message.beaconId.toString() : undefined;
-    obj.hash = message.hash === '' ? undefined : message.hash;
+    obj.hash = message.hash === "" ? undefined : message.hash;
     obj.submit_time = message.submitTime !== BigInt(0) ? message.submitTime.toString() : undefined;
-    obj.owner = message.owner === '' ? undefined : message.owner;
+    obj.owner = message.owner === "" ? undefined : message.owner;
     return obj;
   },
   fromAminoMsg(object: MsgRecordBeaconTimestampAminoMsg): MsgRecordBeaconTimestamp {
@@ -533,7 +533,7 @@ export const MsgRecordBeaconTimestamp = {
   },
   toProtoMsg(message: MsgRecordBeaconTimestamp): MsgRecordBeaconTimestampProtoMsg {
     return {
-      typeUrl: '/mainchain.beacon.v1.MsgRecordBeaconTimestamp',
+      typeUrl: "/mainchain.beacon.v1.MsgRecordBeaconTimestamp",
       value: MsgRecordBeaconTimestamp.encode(message).finish()
     };
   }
@@ -546,15 +546,15 @@ function createBaseMsgRecordBeaconTimestampResponse(): MsgRecordBeaconTimestampR
   };
 }
 export const MsgRecordBeaconTimestampResponse = {
-  typeUrl: '/mainchain.beacon.v1.MsgRecordBeaconTimestampResponse',
+  typeUrl: "/mainchain.beacon.v1.MsgRecordBeaconTimestampResponse",
   is(o: any): o is MsgRecordBeaconTimestampResponse {
-    return o && (o.$typeUrl === MsgRecordBeaconTimestampResponse.typeUrl || typeof o.beaconId === 'bigint' && typeof o.timestampId === 'bigint');
+    return o && (o.$typeUrl === MsgRecordBeaconTimestampResponse.typeUrl || typeof o.beaconId === "bigint" && typeof o.timestampId === "bigint");
   },
   isSDK(o: any): o is MsgRecordBeaconTimestampResponseSDKType {
-    return o && (o.$typeUrl === MsgRecordBeaconTimestampResponse.typeUrl || typeof o.beacon_id === 'bigint' && typeof o.timestamp_id === 'bigint');
+    return o && (o.$typeUrl === MsgRecordBeaconTimestampResponse.typeUrl || typeof o.beacon_id === "bigint" && typeof o.timestamp_id === "bigint");
   },
   isAmino(o: any): o is MsgRecordBeaconTimestampResponseAmino {
-    return o && (o.$typeUrl === MsgRecordBeaconTimestampResponse.typeUrl || typeof o.beacon_id === 'bigint' && typeof o.timestamp_id === 'bigint');
+    return o && (o.$typeUrl === MsgRecordBeaconTimestampResponse.typeUrl || typeof o.beacon_id === "bigint" && typeof o.timestamp_id === "bigint");
   },
   encode(message: MsgRecordBeaconTimestampResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.beaconId !== BigInt(0)) {
@@ -572,15 +572,15 @@ export const MsgRecordBeaconTimestampResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.beaconId = reader.uint64();
-        break;
-      case 2:
-        message.timestampId = reader.uint64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.beaconId = reader.uint64();
+          break;
+        case 2:
+          message.timestampId = reader.uint64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -618,7 +618,7 @@ export const MsgRecordBeaconTimestampResponse = {
   },
   toProtoMsg(message: MsgRecordBeaconTimestampResponse): MsgRecordBeaconTimestampResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.beacon.v1.MsgRecordBeaconTimestampResponse',
+      typeUrl: "/mainchain.beacon.v1.MsgRecordBeaconTimestampResponse",
       value: MsgRecordBeaconTimestampResponse.encode(message).finish()
     };
   }
@@ -628,19 +628,19 @@ function createBaseMsgPurchaseBeaconStateStorage(): MsgPurchaseBeaconStateStorag
   return {
     beaconId: BigInt(0),
     number: BigInt(0),
-    owner: ''
+    owner: ""
   };
 }
 export const MsgPurchaseBeaconStateStorage = {
-  typeUrl: '/mainchain.beacon.v1.MsgPurchaseBeaconStateStorage',
+  typeUrl: "/mainchain.beacon.v1.MsgPurchaseBeaconStateStorage",
   is(o: any): o is MsgPurchaseBeaconStateStorage {
-    return o && (o.$typeUrl === MsgPurchaseBeaconStateStorage.typeUrl || typeof o.beaconId === 'bigint' && typeof o.number === 'bigint' && typeof o.owner === 'string');
+    return o && (o.$typeUrl === MsgPurchaseBeaconStateStorage.typeUrl || typeof o.beaconId === "bigint" && typeof o.number === "bigint" && typeof o.owner === "string");
   },
   isSDK(o: any): o is MsgPurchaseBeaconStateStorageSDKType {
-    return o && (o.$typeUrl === MsgPurchaseBeaconStateStorage.typeUrl || typeof o.beacon_id === 'bigint' && typeof o.number === 'bigint' && typeof o.owner === 'string');
+    return o && (o.$typeUrl === MsgPurchaseBeaconStateStorage.typeUrl || typeof o.beacon_id === "bigint" && typeof o.number === "bigint" && typeof o.owner === "string");
   },
   isAmino(o: any): o is MsgPurchaseBeaconStateStorageAmino {
-    return o && (o.$typeUrl === MsgPurchaseBeaconStateStorage.typeUrl || typeof o.beacon_id === 'bigint' && typeof o.number === 'bigint' && typeof o.owner === 'string');
+    return o && (o.$typeUrl === MsgPurchaseBeaconStateStorage.typeUrl || typeof o.beacon_id === "bigint" && typeof o.number === "bigint" && typeof o.owner === "string");
   },
   encode(message: MsgPurchaseBeaconStateStorage, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.beaconId !== BigInt(0)) {
@@ -649,7 +649,7 @@ export const MsgPurchaseBeaconStateStorage = {
     if (message.number !== BigInt(0)) {
       writer.uint32(16).uint64(message.number);
     }
-    if (message.owner !== '') {
+    if (message.owner !== "") {
       writer.uint32(26).string(message.owner);
     }
     return writer;
@@ -661,18 +661,18 @@ export const MsgPurchaseBeaconStateStorage = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.beaconId = reader.uint64();
-        break;
-      case 2:
-        message.number = reader.uint64();
-        break;
-      case 3:
-        message.owner = reader.string();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.beaconId = reader.uint64();
+          break;
+        case 2:
+          message.number = reader.uint64();
+          break;
+        case 3:
+          message.owner = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -681,7 +681,7 @@ export const MsgPurchaseBeaconStateStorage = {
     const message = createBaseMsgPurchaseBeaconStateStorage();
     message.beaconId = object.beaconId !== undefined && object.beaconId !== null ? BigInt(object.beaconId.toString()) : BigInt(0);
     message.number = object.number !== undefined && object.number !== null ? BigInt(object.number.toString()) : BigInt(0);
-    message.owner = object.owner ?? '';
+    message.owner = object.owner ?? "";
     return message;
   },
   fromAmino(object: MsgPurchaseBeaconStateStorageAmino): MsgPurchaseBeaconStateStorage {
@@ -701,7 +701,7 @@ export const MsgPurchaseBeaconStateStorage = {
     const obj: any = {};
     obj.beacon_id = message.beaconId !== BigInt(0) ? message.beaconId.toString() : undefined;
     obj.number = message.number !== BigInt(0) ? message.number.toString() : undefined;
-    obj.owner = message.owner === '' ? undefined : message.owner;
+    obj.owner = message.owner === "" ? undefined : message.owner;
     return obj;
   },
   fromAminoMsg(object: MsgPurchaseBeaconStateStorageAminoMsg): MsgPurchaseBeaconStateStorage {
@@ -715,7 +715,7 @@ export const MsgPurchaseBeaconStateStorage = {
   },
   toProtoMsg(message: MsgPurchaseBeaconStateStorage): MsgPurchaseBeaconStateStorageProtoMsg {
     return {
-      typeUrl: '/mainchain.beacon.v1.MsgPurchaseBeaconStateStorage',
+      typeUrl: "/mainchain.beacon.v1.MsgPurchaseBeaconStateStorage",
       value: MsgPurchaseBeaconStateStorage.encode(message).finish()
     };
   }
@@ -729,15 +729,15 @@ function createBaseMsgPurchaseBeaconStateStorageResponse(): MsgPurchaseBeaconSta
   };
 }
 export const MsgPurchaseBeaconStateStorageResponse = {
-  typeUrl: '/mainchain.beacon.v1.MsgPurchaseBeaconStateStorageResponse',
+  typeUrl: "/mainchain.beacon.v1.MsgPurchaseBeaconStateStorageResponse",
   is(o: any): o is MsgPurchaseBeaconStateStorageResponse {
-    return o && (o.$typeUrl === MsgPurchaseBeaconStateStorageResponse.typeUrl || typeof o.beaconId === 'bigint' && typeof o.numberPurchased === 'bigint' && typeof o.numCanPurchase === 'bigint');
+    return o && (o.$typeUrl === MsgPurchaseBeaconStateStorageResponse.typeUrl || typeof o.beaconId === "bigint" && typeof o.numberPurchased === "bigint" && typeof o.numCanPurchase === "bigint");
   },
   isSDK(o: any): o is MsgPurchaseBeaconStateStorageResponseSDKType {
-    return o && (o.$typeUrl === MsgPurchaseBeaconStateStorageResponse.typeUrl || typeof o.beacon_id === 'bigint' && typeof o.number_purchased === 'bigint' && typeof o.num_can_purchase === 'bigint');
+    return o && (o.$typeUrl === MsgPurchaseBeaconStateStorageResponse.typeUrl || typeof o.beacon_id === "bigint" && typeof o.number_purchased === "bigint" && typeof o.num_can_purchase === "bigint");
   },
   isAmino(o: any): o is MsgPurchaseBeaconStateStorageResponseAmino {
-    return o && (o.$typeUrl === MsgPurchaseBeaconStateStorageResponse.typeUrl || typeof o.beacon_id === 'bigint' && typeof o.number_purchased === 'bigint' && typeof o.num_can_purchase === 'bigint');
+    return o && (o.$typeUrl === MsgPurchaseBeaconStateStorageResponse.typeUrl || typeof o.beacon_id === "bigint" && typeof o.number_purchased === "bigint" && typeof o.num_can_purchase === "bigint");
   },
   encode(message: MsgPurchaseBeaconStateStorageResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.beaconId !== BigInt(0)) {
@@ -758,18 +758,18 @@ export const MsgPurchaseBeaconStateStorageResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.beaconId = reader.uint64();
-        break;
-      case 2:
-        message.numberPurchased = reader.uint64();
-        break;
-      case 3:
-        message.numCanPurchase = reader.uint64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.beaconId = reader.uint64();
+          break;
+        case 2:
+          message.numberPurchased = reader.uint64();
+          break;
+        case 3:
+          message.numCanPurchase = reader.uint64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -812,7 +812,7 @@ export const MsgPurchaseBeaconStateStorageResponse = {
   },
   toProtoMsg(message: MsgPurchaseBeaconStateStorageResponse): MsgPurchaseBeaconStateStorageResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.beacon.v1.MsgPurchaseBeaconStateStorageResponse',
+      typeUrl: "/mainchain.beacon.v1.MsgPurchaseBeaconStateStorageResponse",
       value: MsgPurchaseBeaconStateStorageResponse.encode(message).finish()
     };
   }
@@ -820,24 +820,24 @@ export const MsgPurchaseBeaconStateStorageResponse = {
 GlobalDecoderRegistry.register(MsgPurchaseBeaconStateStorageResponse.typeUrl, MsgPurchaseBeaconStateStorageResponse);
 function createBaseMsgUpdateParams(): MsgUpdateParams {
   return {
-    authority: '',
+    authority: "",
     params: Params.fromPartial({})
   };
 }
 export const MsgUpdateParams = {
-  typeUrl: '/mainchain.beacon.v1.MsgUpdateParams',
-  aminoType: 'mainchain/x/beacon/MsgUpdateParams',
+  typeUrl: "/mainchain.beacon.v1.MsgUpdateParams",
+  aminoType: "mainchain/x/beacon/MsgUpdateParams",
   is(o: any): o is MsgUpdateParams {
-    return o && (o.$typeUrl === MsgUpdateParams.typeUrl || typeof o.authority === 'string' && Params.is(o.params));
+    return o && (o.$typeUrl === MsgUpdateParams.typeUrl || typeof o.authority === "string" && Params.is(o.params));
   },
   isSDK(o: any): o is MsgUpdateParamsSDKType {
-    return o && (o.$typeUrl === MsgUpdateParams.typeUrl || typeof o.authority === 'string' && Params.isSDK(o.params));
+    return o && (o.$typeUrl === MsgUpdateParams.typeUrl || typeof o.authority === "string" && Params.isSDK(o.params));
   },
   isAmino(o: any): o is MsgUpdateParamsAmino {
-    return o && (o.$typeUrl === MsgUpdateParams.typeUrl || typeof o.authority === 'string' && Params.isAmino(o.params));
+    return o && (o.$typeUrl === MsgUpdateParams.typeUrl || typeof o.authority === "string" && Params.isAmino(o.params));
   },
   encode(message: MsgUpdateParams, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.authority !== '') {
+    if (message.authority !== "") {
       writer.uint32(10).string(message.authority);
     }
     if (message.params !== undefined) {
@@ -852,22 +852,22 @@ export const MsgUpdateParams = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.authority = reader.string();
-        break;
-      case 2:
-        message.params = Params.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.authority = reader.string();
+          break;
+        case 2:
+          message.params = Params.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<MsgUpdateParams>): MsgUpdateParams {
     const message = createBaseMsgUpdateParams();
-    message.authority = object.authority ?? '';
+    message.authority = object.authority ?? "";
     message.params = object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
     return message;
   },
@@ -883,7 +883,7 @@ export const MsgUpdateParams = {
   },
   toAmino(message: MsgUpdateParams): MsgUpdateParamsAmino {
     const obj: any = {};
-    obj.authority = message.authority === '' ? undefined : message.authority;
+    obj.authority = message.authority === "" ? undefined : message.authority;
     obj.params = message.params ? Params.toAmino(message.params) : Params.toAmino(Params.fromPartial({}));
     return obj;
   },
@@ -892,7 +892,7 @@ export const MsgUpdateParams = {
   },
   toAminoMsg(message: MsgUpdateParams): MsgUpdateParamsAminoMsg {
     return {
-      type: 'mainchain/x/beacon/MsgUpdateParams',
+      type: "mainchain/x/beacon/MsgUpdateParams",
       value: MsgUpdateParams.toAmino(message)
     };
   },
@@ -904,7 +904,7 @@ export const MsgUpdateParams = {
   },
   toProtoMsg(message: MsgUpdateParams): MsgUpdateParamsProtoMsg {
     return {
-      typeUrl: '/mainchain.beacon.v1.MsgUpdateParams',
+      typeUrl: "/mainchain.beacon.v1.MsgUpdateParams",
       value: MsgUpdateParams.encode(message).finish()
     };
   }
@@ -915,7 +915,7 @@ function createBaseMsgUpdateParamsResponse(): MsgUpdateParamsResponse {
   return {};
 }
 export const MsgUpdateParamsResponse = {
-  typeUrl: '/mainchain.beacon.v1.MsgUpdateParamsResponse',
+  typeUrl: "/mainchain.beacon.v1.MsgUpdateParamsResponse",
   is(o: any): o is MsgUpdateParamsResponse {
     return o && o.$typeUrl === MsgUpdateParamsResponse.typeUrl;
   },
@@ -935,9 +935,9 @@ export const MsgUpdateParamsResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      default:
-        reader.skipType(tag & 7);
-        break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -965,7 +965,7 @@ export const MsgUpdateParamsResponse = {
   },
   toProtoMsg(message: MsgUpdateParamsResponse): MsgUpdateParamsResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.beacon.v1.MsgUpdateParamsResponse',
+      typeUrl: "/mainchain.beacon.v1.MsgUpdateParamsResponse",
       value: MsgUpdateParamsResponse.encode(message).finish()
     };
   }

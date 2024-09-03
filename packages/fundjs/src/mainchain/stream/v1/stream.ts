@@ -1,9 +1,9 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from '../../../binary';
-import { Coin, CoinAmino, CoinSDKType } from '../../../cosmos/base/v1beta1/coin';
-import { Timestamp } from '../../../google/protobuf/timestamp';
-import { fromTimestamp,toTimestamp } from '../../../helpers';
-import { GlobalDecoderRegistry } from '../../../registry';
+import { Coin, CoinAmino, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
+import { Timestamp } from "../../../google/protobuf/timestamp";
+import { BinaryReader, BinaryWriter } from "../../../binary";
+import { toTimestamp, fromTimestamp } from "../../../helpers";
+import { GlobalDecoderRegistry } from "../../../registry";
 /** StreamPeriod enumerates the valid periods for calculating flow rates */
 export enum StreamPeriod {
   /** STREAM_PERIOD_UNSPECIFIED - STREAM_PERIOD_UNSPECIFIED defines unspecified */
@@ -28,57 +28,57 @@ export const StreamPeriodSDKType = StreamPeriod;
 export const StreamPeriodAmino = StreamPeriod;
 export function streamPeriodFromJSON(object: any): StreamPeriod {
   switch (object) {
-  case 0:
-  case 'STREAM_PERIOD_UNSPECIFIED':
-    return StreamPeriod.STREAM_PERIOD_UNSPECIFIED;
-  case 1:
-  case 'STREAM_PERIOD_SECOND':
-    return StreamPeriod.STREAM_PERIOD_SECOND;
-  case 2:
-  case 'STREAM_PERIOD_MINUTE':
-    return StreamPeriod.STREAM_PERIOD_MINUTE;
-  case 3:
-  case 'STREAM_PERIOD_HOUR':
-    return StreamPeriod.STREAM_PERIOD_HOUR;
-  case 4:
-  case 'STREAM_PERIOD_DAY':
-    return StreamPeriod.STREAM_PERIOD_DAY;
-  case 5:
-  case 'STREAM_PERIOD_WEEK':
-    return StreamPeriod.STREAM_PERIOD_WEEK;
-  case 6:
-  case 'STREAM_PERIOD_MONTH':
-    return StreamPeriod.STREAM_PERIOD_MONTH;
-  case 7:
-  case 'STREAM_PERIOD_YEAR':
-    return StreamPeriod.STREAM_PERIOD_YEAR;
-  case -1:
-  case 'UNRECOGNIZED':
-  default:
-    return StreamPeriod.UNRECOGNIZED;
+    case 0:
+    case "STREAM_PERIOD_UNSPECIFIED":
+      return StreamPeriod.STREAM_PERIOD_UNSPECIFIED;
+    case 1:
+    case "STREAM_PERIOD_SECOND":
+      return StreamPeriod.STREAM_PERIOD_SECOND;
+    case 2:
+    case "STREAM_PERIOD_MINUTE":
+      return StreamPeriod.STREAM_PERIOD_MINUTE;
+    case 3:
+    case "STREAM_PERIOD_HOUR":
+      return StreamPeriod.STREAM_PERIOD_HOUR;
+    case 4:
+    case "STREAM_PERIOD_DAY":
+      return StreamPeriod.STREAM_PERIOD_DAY;
+    case 5:
+    case "STREAM_PERIOD_WEEK":
+      return StreamPeriod.STREAM_PERIOD_WEEK;
+    case 6:
+    case "STREAM_PERIOD_MONTH":
+      return StreamPeriod.STREAM_PERIOD_MONTH;
+    case 7:
+    case "STREAM_PERIOD_YEAR":
+      return StreamPeriod.STREAM_PERIOD_YEAR;
+    case -1:
+    case "UNRECOGNIZED":
+    default:
+      return StreamPeriod.UNRECOGNIZED;
   }
 }
 export function streamPeriodToJSON(object: StreamPeriod): string {
   switch (object) {
-  case StreamPeriod.STREAM_PERIOD_UNSPECIFIED:
-    return 'STREAM_PERIOD_UNSPECIFIED';
-  case StreamPeriod.STREAM_PERIOD_SECOND:
-    return 'STREAM_PERIOD_SECOND';
-  case StreamPeriod.STREAM_PERIOD_MINUTE:
-    return 'STREAM_PERIOD_MINUTE';
-  case StreamPeriod.STREAM_PERIOD_HOUR:
-    return 'STREAM_PERIOD_HOUR';
-  case StreamPeriod.STREAM_PERIOD_DAY:
-    return 'STREAM_PERIOD_DAY';
-  case StreamPeriod.STREAM_PERIOD_WEEK:
-    return 'STREAM_PERIOD_WEEK';
-  case StreamPeriod.STREAM_PERIOD_MONTH:
-    return 'STREAM_PERIOD_MONTH';
-  case StreamPeriod.STREAM_PERIOD_YEAR:
-    return 'STREAM_PERIOD_YEAR';
-  case StreamPeriod.UNRECOGNIZED:
-  default:
-    return 'UNRECOGNIZED';
+    case StreamPeriod.STREAM_PERIOD_UNSPECIFIED:
+      return "STREAM_PERIOD_UNSPECIFIED";
+    case StreamPeriod.STREAM_PERIOD_SECOND:
+      return "STREAM_PERIOD_SECOND";
+    case StreamPeriod.STREAM_PERIOD_MINUTE:
+      return "STREAM_PERIOD_MINUTE";
+    case StreamPeriod.STREAM_PERIOD_HOUR:
+      return "STREAM_PERIOD_HOUR";
+    case StreamPeriod.STREAM_PERIOD_DAY:
+      return "STREAM_PERIOD_DAY";
+    case StreamPeriod.STREAM_PERIOD_WEEK:
+      return "STREAM_PERIOD_WEEK";
+    case StreamPeriod.STREAM_PERIOD_MONTH:
+      return "STREAM_PERIOD_MONTH";
+    case StreamPeriod.STREAM_PERIOD_YEAR:
+      return "STREAM_PERIOD_YEAR";
+    case StreamPeriod.UNRECOGNIZED:
+    default:
+      return "UNRECOGNIZED";
   }
 }
 /** Stream holds data about a stream */
@@ -95,7 +95,7 @@ export interface Stream {
   cancellable: boolean;
 }
 export interface StreamProtoMsg {
-  typeUrl: '/mainchain.stream.v1.Stream';
+  typeUrl: "/mainchain.stream.v1.Stream";
   value: Uint8Array;
 }
 /** Stream holds data about a stream */
@@ -112,7 +112,7 @@ export interface StreamAmino {
   cancellable?: boolean;
 }
 export interface StreamAminoMsg {
-  type: '/mainchain.stream.v1.Stream';
+  type: "/mainchain.stream.v1.Stream";
   value: StreamAmino;
 }
 /** Stream holds data about a stream */
@@ -133,15 +133,15 @@ function createBaseStream(): Stream {
   };
 }
 export const Stream = {
-  typeUrl: '/mainchain.stream.v1.Stream',
+  typeUrl: "/mainchain.stream.v1.Stream",
   is(o: any): o is Stream {
-    return o && (o.$typeUrl === Stream.typeUrl || Coin.is(o.deposit) && typeof o.flowRate === 'bigint' && Timestamp.is(o.lastOutflowTime) && Timestamp.is(o.depositZeroTime) && typeof o.cancellable === 'boolean');
+    return o && (o.$typeUrl === Stream.typeUrl || Coin.is(o.deposit) && typeof o.flowRate === "bigint" && Timestamp.is(o.lastOutflowTime) && Timestamp.is(o.depositZeroTime) && typeof o.cancellable === "boolean");
   },
   isSDK(o: any): o is StreamSDKType {
-    return o && (o.$typeUrl === Stream.typeUrl || Coin.isSDK(o.deposit) && typeof o.flow_rate === 'bigint' && Timestamp.isSDK(o.last_outflow_time) && Timestamp.isSDK(o.deposit_zero_time) && typeof o.cancellable === 'boolean');
+    return o && (o.$typeUrl === Stream.typeUrl || Coin.isSDK(o.deposit) && typeof o.flow_rate === "bigint" && Timestamp.isSDK(o.last_outflow_time) && Timestamp.isSDK(o.deposit_zero_time) && typeof o.cancellable === "boolean");
   },
   isAmino(o: any): o is StreamAmino {
-    return o && (o.$typeUrl === Stream.typeUrl || Coin.isAmino(o.deposit) && typeof o.flow_rate === 'bigint' && Timestamp.isAmino(o.last_outflow_time) && Timestamp.isAmino(o.deposit_zero_time) && typeof o.cancellable === 'boolean');
+    return o && (o.$typeUrl === Stream.typeUrl || Coin.isAmino(o.deposit) && typeof o.flow_rate === "bigint" && Timestamp.isAmino(o.last_outflow_time) && Timestamp.isAmino(o.deposit_zero_time) && typeof o.cancellable === "boolean");
   },
   encode(message: Stream, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.deposit !== undefined) {
@@ -168,24 +168,24 @@ export const Stream = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.deposit = Coin.decode(reader, reader.uint32());
-        break;
-      case 2:
-        message.flowRate = reader.int64();
-        break;
-      case 3:
-        message.lastOutflowTime = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
-        break;
-      case 4:
-        message.depositZeroTime = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
-        break;
-      case 5:
-        message.cancellable = reader.bool();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.deposit = Coin.decode(reader, reader.uint32());
+          break;
+        case 2:
+          message.flowRate = reader.int64();
+          break;
+        case 3:
+          message.lastOutflowTime = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
+          break;
+        case 4:
+          message.depositZeroTime = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
+          break;
+        case 5:
+          message.cancellable = reader.bool();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -238,7 +238,7 @@ export const Stream = {
   },
   toProtoMsg(message: Stream): StreamProtoMsg {
     return {
-      typeUrl: '/mainchain.stream.v1.Stream',
+      typeUrl: "/mainchain.stream.v1.Stream",
       value: Stream.encode(message).finish()
     };
   }

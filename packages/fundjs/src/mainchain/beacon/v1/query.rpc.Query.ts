@@ -1,11 +1,8 @@
 //@ts-nocheck
-import { createProtobufRpcClient, ProtobufRpcClient,QueryClient } from '@cosmjs/stargate';
-import { useQuery } from '@tanstack/react-query';
-
-import { BinaryReader } from '../../../binary';
-import { Rpc } from '../../../helpers';
-import { ReactQueryParams } from '../../../react-query';
-import { QueryBeaconRequest, QueryBeaconResponse, QueryBeaconsFilteredRequest, QueryBeaconsFilteredResponse, QueryBeaconStorageRequest, QueryBeaconStorageResponse,QueryBeaconTimestampRequest, QueryBeaconTimestampResponse, QueryParamsRequest, QueryParamsResponse } from './query';
+import { Rpc } from "../../../helpers";
+import { BinaryReader } from "../../../binary";
+import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
+import { QueryParamsRequest, QueryParamsResponse, QueryBeaconRequest, QueryBeaconResponse, QueryBeaconTimestampRequest, QueryBeaconTimestampResponse, QueryBeaconsFilteredRequest, QueryBeaconsFilteredResponse, QueryBeaconStorageRequest, QueryBeaconStorageResponse } from "./query";
 /** Query defines the gRPC querier service. */
 export interface Query {
   /** Params queries the parameters of x/beacon module. */
@@ -31,27 +28,27 @@ export class QueryClientImpl implements Query {
   }
   params(request: QueryParamsRequest = {}): Promise<QueryParamsResponse> {
     const data = QueryParamsRequest.encode(request).finish();
-    const promise = this.rpc.request('mainchain.beacon.v1.Query', 'Params', data);
+    const promise = this.rpc.request("mainchain.beacon.v1.Query", "Params", data);
     return promise.then(data => QueryParamsResponse.decode(new BinaryReader(data)));
   }
   beacon(request: QueryBeaconRequest): Promise<QueryBeaconResponse> {
     const data = QueryBeaconRequest.encode(request).finish();
-    const promise = this.rpc.request('mainchain.beacon.v1.Query', 'Beacon', data);
+    const promise = this.rpc.request("mainchain.beacon.v1.Query", "Beacon", data);
     return promise.then(data => QueryBeaconResponse.decode(new BinaryReader(data)));
   }
   beaconTimestamp(request: QueryBeaconTimestampRequest): Promise<QueryBeaconTimestampResponse> {
     const data = QueryBeaconTimestampRequest.encode(request).finish();
-    const promise = this.rpc.request('mainchain.beacon.v1.Query', 'BeaconTimestamp', data);
+    const promise = this.rpc.request("mainchain.beacon.v1.Query", "BeaconTimestamp", data);
     return promise.then(data => QueryBeaconTimestampResponse.decode(new BinaryReader(data)));
   }
   beaconsFiltered(request: QueryBeaconsFilteredRequest): Promise<QueryBeaconsFilteredResponse> {
     const data = QueryBeaconsFilteredRequest.encode(request).finish();
-    const promise = this.rpc.request('mainchain.beacon.v1.Query', 'BeaconsFiltered', data);
+    const promise = this.rpc.request("mainchain.beacon.v1.Query", "BeaconsFiltered", data);
     return promise.then(data => QueryBeaconsFilteredResponse.decode(new BinaryReader(data)));
   }
   beaconStorage(request: QueryBeaconStorageRequest): Promise<QueryBeaconStorageResponse> {
     const data = QueryBeaconStorageRequest.encode(request).finish();
-    const promise = this.rpc.request('mainchain.beacon.v1.Query', 'BeaconStorage', data);
+    const promise = this.rpc.request("mainchain.beacon.v1.Query", "BeaconStorage", data);
     return promise.then(data => QueryBeaconStorageResponse.decode(new BinaryReader(data)));
   }
 }
@@ -74,85 +71,5 @@ export const createRpcQueryExtension = (base: QueryClient) => {
     beaconStorage(request: QueryBeaconStorageRequest): Promise<QueryBeaconStorageResponse> {
       return queryService.beaconStorage(request);
     }
-  };
-};
-export interface UseParamsQuery<TData> extends ReactQueryParams<QueryParamsResponse, TData> {
-  request?: QueryParamsRequest;
-}
-export interface UseBeaconQuery<TData> extends ReactQueryParams<QueryBeaconResponse, TData> {
-  request: QueryBeaconRequest;
-}
-export interface UseBeaconTimestampQuery<TData> extends ReactQueryParams<QueryBeaconTimestampResponse, TData> {
-  request: QueryBeaconTimestampRequest;
-}
-export interface UseBeaconsFilteredQuery<TData> extends ReactQueryParams<QueryBeaconsFilteredResponse, TData> {
-  request: QueryBeaconsFilteredRequest;
-}
-export interface UseBeaconStorageQuery<TData> extends ReactQueryParams<QueryBeaconStorageResponse, TData> {
-  request: QueryBeaconStorageRequest;
-}
-const _queryClients: WeakMap<ProtobufRpcClient, QueryClientImpl> = new WeakMap();
-const getQueryService = (rpc: ProtobufRpcClient | undefined): QueryClientImpl | undefined => {
-  if (!rpc) return;
-  if (_queryClients.has(rpc)) {
-    return _queryClients.get(rpc);
-  }
-  const queryService = new QueryClientImpl(rpc);
-  _queryClients.set(rpc, queryService);
-  return queryService;
-};
-export const createRpcQueryHooks = (rpc: ProtobufRpcClient | undefined) => {
-  const queryService = getQueryService(rpc);
-  const useParams = <TData = QueryParamsResponse,>({
-    request,
-    options
-  }: UseParamsQuery<TData>) => {
-    return useQuery<QueryParamsResponse, Error, TData>(['paramsQuery', request], () => {
-      if (!queryService) throw new Error('Query Service not initialized');
-      return queryService.params(request);
-    }, options);
-  };
-  const useBeacon = <TData = QueryBeaconResponse,>({
-    request,
-    options
-  }: UseBeaconQuery<TData>) => {
-    return useQuery<QueryBeaconResponse, Error, TData>(['beaconQuery', request], () => {
-      if (!queryService) throw new Error('Query Service not initialized');
-      return queryService.beacon(request);
-    }, options);
-  };
-  const useBeaconTimestamp = <TData = QueryBeaconTimestampResponse,>({
-    request,
-    options
-  }: UseBeaconTimestampQuery<TData>) => {
-    return useQuery<QueryBeaconTimestampResponse, Error, TData>(['beaconTimestampQuery', request], () => {
-      if (!queryService) throw new Error('Query Service not initialized');
-      return queryService.beaconTimestamp(request);
-    }, options);
-  };
-  const useBeaconsFiltered = <TData = QueryBeaconsFilteredResponse,>({
-    request,
-    options
-  }: UseBeaconsFilteredQuery<TData>) => {
-    return useQuery<QueryBeaconsFilteredResponse, Error, TData>(['beaconsFilteredQuery', request], () => {
-      if (!queryService) throw new Error('Query Service not initialized');
-      return queryService.beaconsFiltered(request);
-    }, options);
-  };
-  const useBeaconStorage = <TData = QueryBeaconStorageResponse,>({
-    request,
-    options
-  }: UseBeaconStorageQuery<TData>) => {
-    return useQuery<QueryBeaconStorageResponse, Error, TData>(['beaconStorageQuery', request], () => {
-      if (!queryService) throw new Error('Query Service not initialized');
-      return queryService.beaconStorage(request);
-    }, options);
-  };
-  return {
-    /** Params queries the parameters of x/beacon module. */useParams,
-    /** Beacon queries the metadata of a beacon. */useBeacon,
-    /** BeaconTimestamp queries a timestamp of a beacon */useBeaconTimestamp,
-    /** BeaconsFiltered queries all beacon metadata for given search parameters */useBeaconsFiltered,
-    /** BeaconStorage queries beacon storage for for given beacon ID */useBeaconStorage
   };
 };

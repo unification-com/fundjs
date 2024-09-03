@@ -1,7 +1,6 @@
 //@ts-nocheck
-import { LCDClient } from '@cosmology/lcd';
-
-import { QueryAppliedPlanRequest, QueryAppliedPlanResponseSDKType, QueryAuthorityRequest, QueryAuthorityResponseSDKType,QueryCurrentPlanRequest, QueryCurrentPlanResponseSDKType, QueryModuleVersionsRequest, QueryModuleVersionsResponseSDKType, QueryUpgradedConsensusStateRequest, QueryUpgradedConsensusStateResponseSDKType } from './query';
+import { LCDClient } from "@cosmology/lcd";
+import { QueryCurrentPlanRequest, QueryCurrentPlanResponseSDKType, QueryAppliedPlanRequest, QueryAppliedPlanResponseSDKType, QueryUpgradedConsensusStateRequest, QueryUpgradedConsensusStateResponseSDKType, QueryModuleVersionsRequest, QueryModuleVersionsResponseSDKType, QueryAuthorityRequest, QueryAuthorityResponseSDKType } from "./query";
 export class LCDQueryClient {
   req: LCDClient;
   constructor({
@@ -43,7 +42,7 @@ export class LCDQueryClient {
     const options: any = {
       params: {}
     };
-    if (typeof params?.moduleName !== 'undefined') {
+    if (typeof params?.moduleName !== "undefined") {
       options.params.module_name = params.moduleName;
     }
     const endpoint = `cosmos/upgrade/v1beta1/module_versions`;

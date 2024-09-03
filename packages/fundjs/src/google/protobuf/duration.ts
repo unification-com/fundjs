@@ -1,6 +1,6 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from '../../binary';
-import { GlobalDecoderRegistry } from '../../registry';
+import { BinaryReader, BinaryWriter } from "../../binary";
+import { GlobalDecoderRegistry } from "../../registry";
 /**
  * A Duration represents a signed, fixed-length span of time represented
  * as a count of seconds and fractions of seconds at nanosecond
@@ -79,7 +79,7 @@ export interface Duration {
   nanos: number;
 }
 export interface DurationProtoMsg {
-  typeUrl: '/google.protobuf.Duration';
+  typeUrl: "/google.protobuf.Duration";
   value: Uint8Array;
 }
 /**
@@ -144,7 +144,7 @@ export interface DurationProtoMsg {
  */
 export type DurationAmino = string;
 export interface DurationAminoMsg {
-  type: '/google.protobuf.Duration';
+  type: "/google.protobuf.Duration";
   value: DurationAmino;
 }
 /**
@@ -218,15 +218,15 @@ function createBaseDuration(): Duration {
   };
 }
 export const Duration = {
-  typeUrl: '/google.protobuf.Duration',
+  typeUrl: "/google.protobuf.Duration",
   is(o: any): o is Duration {
-    return o && (o.$typeUrl === Duration.typeUrl || typeof o.seconds === 'bigint' && typeof o.nanos === 'number');
+    return o && (o.$typeUrl === Duration.typeUrl || typeof o.seconds === "bigint" && typeof o.nanos === "number");
   },
   isSDK(o: any): o is DurationSDKType {
-    return o && (o.$typeUrl === Duration.typeUrl || typeof o.seconds === 'bigint' && typeof o.nanos === 'number');
+    return o && (o.$typeUrl === Duration.typeUrl || typeof o.seconds === "bigint" && typeof o.nanos === "number");
   },
   isAmino(o: any): o is DurationAmino {
-    return o && (o.$typeUrl === Duration.typeUrl || typeof o.seconds === 'bigint' && typeof o.nanos === 'number');
+    return o && (o.$typeUrl === Duration.typeUrl || typeof o.seconds === "bigint" && typeof o.nanos === "number");
   },
   encode(message: Duration, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.seconds !== BigInt(0)) {
@@ -244,15 +244,15 @@ export const Duration = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.seconds = reader.int64();
-        break;
-      case 2:
-        message.nanos = reader.int32();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.seconds = reader.int64();
+          break;
+        case 2:
+          message.nanos = reader.int32();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -266,12 +266,12 @@ export const Duration = {
   fromAmino(object: DurationAmino): Duration {
     const value = BigInt(object);
     return {
-      seconds: value / BigInt('1000000000'),
-      nanos: Number(value % BigInt('1000000000'))
+      seconds: value / BigInt("1000000000"),
+      nanos: Number(value % BigInt("1000000000"))
     };
   },
   toAmino(message: Duration): DurationAmino {
-    return (message.seconds * BigInt('1000000000') + BigInt(message.nanos)).toString();
+    return (message.seconds * BigInt("1000000000") + BigInt(message.nanos)).toString();
   },
   fromAminoMsg(object: DurationAminoMsg): Duration {
     return Duration.fromAmino(object.value);
@@ -284,7 +284,7 @@ export const Duration = {
   },
   toProtoMsg(message: Duration): DurationProtoMsg {
     return {
-      typeUrl: '/google.protobuf.Duration',
+      typeUrl: "/google.protobuf.Duration",
       value: Duration.encode(message).finish()
     };
   }

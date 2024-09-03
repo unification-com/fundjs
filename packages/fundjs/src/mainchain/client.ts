@@ -1,16 +1,15 @@
 //@ts-nocheck
-import { GeneratedType, OfflineSigner,Registry } from '@cosmjs/proto-signing';
-import { AminoTypes, defaultRegistryTypes, SigningStargateClient } from '@cosmjs/stargate';
-import { HttpEndpoint } from '@cosmjs/tendermint-rpc';
-
-import * as mainchainBeaconV1TxAmino from './beacon/v1/tx.amino';
-import * as mainchainBeaconV1TxRegistry from './beacon/v1/tx.registry';
-import * as mainchainEnterpriseV1TxAmino from './enterprise/v1/tx.amino';
-import * as mainchainEnterpriseV1TxRegistry from './enterprise/v1/tx.registry';
-import * as mainchainStreamV1TxAmino from './stream/v1/tx.amino';
-import * as mainchainStreamV1TxRegistry from './stream/v1/tx.registry';
-import * as mainchainWrkchainV1TxAmino from './wrkchain/v1/tx.amino';
-import * as mainchainWrkchainV1TxRegistry from './wrkchain/v1/tx.registry';
+import { GeneratedType, Registry, OfflineSigner } from "@cosmjs/proto-signing";
+import { defaultRegistryTypes, AminoTypes, SigningStargateClient } from "@cosmjs/stargate";
+import { HttpEndpoint } from "@cosmjs/tendermint-rpc";
+import * as mainchainBeaconV1TxRegistry from "./beacon/v1/tx.registry";
+import * as mainchainEnterpriseV1TxRegistry from "./enterprise/v1/tx.registry";
+import * as mainchainStreamV1TxRegistry from "./stream/v1/tx.registry";
+import * as mainchainWrkchainV1TxRegistry from "./wrkchain/v1/tx.registry";
+import * as mainchainBeaconV1TxAmino from "./beacon/v1/tx.amino";
+import * as mainchainEnterpriseV1TxAmino from "./enterprise/v1/tx.amino";
+import * as mainchainStreamV1TxAmino from "./stream/v1/tx.amino";
+import * as mainchainWrkchainV1TxAmino from "./wrkchain/v1/tx.amino";
 export const mainchainAminoConverters = {
   ...mainchainBeaconV1TxAmino.AminoConverter,
   ...mainchainEnterpriseV1TxAmino.AminoConverter,

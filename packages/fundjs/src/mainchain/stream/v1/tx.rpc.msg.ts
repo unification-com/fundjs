@@ -1,7 +1,7 @@
 //@ts-nocheck
-import { BinaryReader } from '../../../binary';
-import { Rpc } from '../../../helpers';
-import { MsgCancelStream, MsgCancelStreamResponse, MsgClaimStream, MsgClaimStreamResponse, MsgCreateStream, MsgCreateStreamResponse, MsgTopUpDeposit, MsgTopUpDepositResponse, MsgUpdateFlowRate, MsgUpdateFlowRateResponse, MsgUpdateParams, MsgUpdateParamsResponse } from './tx';
+import { Rpc } from "../../../helpers";
+import { BinaryReader } from "../../../binary";
+import { MsgCreateStream, MsgCreateStreamResponse, MsgClaimStream, MsgClaimStreamResponse, MsgTopUpDeposit, MsgTopUpDepositResponse, MsgUpdateFlowRate, MsgUpdateFlowRateResponse, MsgCancelStream, MsgCancelStreamResponse, MsgUpdateParams, MsgUpdateParamsResponse } from "./tx";
 /** Msg defines the Msg service. */
 export interface Msg {
   /** CreateStream defines a method to create a new stream */
@@ -34,32 +34,32 @@ export class MsgClientImpl implements Msg {
   }
   createStream(request: MsgCreateStream): Promise<MsgCreateStreamResponse> {
     const data = MsgCreateStream.encode(request).finish();
-    const promise = this.rpc.request('mainchain.stream.v1.Msg', 'CreateStream', data);
+    const promise = this.rpc.request("mainchain.stream.v1.Msg", "CreateStream", data);
     return promise.then(data => MsgCreateStreamResponse.decode(new BinaryReader(data)));
   }
   claimStream(request: MsgClaimStream): Promise<MsgClaimStreamResponse> {
     const data = MsgClaimStream.encode(request).finish();
-    const promise = this.rpc.request('mainchain.stream.v1.Msg', 'ClaimStream', data);
+    const promise = this.rpc.request("mainchain.stream.v1.Msg", "ClaimStream", data);
     return promise.then(data => MsgClaimStreamResponse.decode(new BinaryReader(data)));
   }
   topUpDeposit(request: MsgTopUpDeposit): Promise<MsgTopUpDepositResponse> {
     const data = MsgTopUpDeposit.encode(request).finish();
-    const promise = this.rpc.request('mainchain.stream.v1.Msg', 'TopUpDeposit', data);
+    const promise = this.rpc.request("mainchain.stream.v1.Msg", "TopUpDeposit", data);
     return promise.then(data => MsgTopUpDepositResponse.decode(new BinaryReader(data)));
   }
   updateFlowRate(request: MsgUpdateFlowRate): Promise<MsgUpdateFlowRateResponse> {
     const data = MsgUpdateFlowRate.encode(request).finish();
-    const promise = this.rpc.request('mainchain.stream.v1.Msg', 'UpdateFlowRate', data);
+    const promise = this.rpc.request("mainchain.stream.v1.Msg", "UpdateFlowRate", data);
     return promise.then(data => MsgUpdateFlowRateResponse.decode(new BinaryReader(data)));
   }
   cancelStream(request: MsgCancelStream): Promise<MsgCancelStreamResponse> {
     const data = MsgCancelStream.encode(request).finish();
-    const promise = this.rpc.request('mainchain.stream.v1.Msg', 'CancelStream', data);
+    const promise = this.rpc.request("mainchain.stream.v1.Msg", "CancelStream", data);
     return promise.then(data => MsgCancelStreamResponse.decode(new BinaryReader(data)));
   }
   updateParams(request: MsgUpdateParams): Promise<MsgUpdateParamsResponse> {
     const data = MsgUpdateParams.encode(request).finish();
-    const promise = this.rpc.request('mainchain.stream.v1.Msg', 'UpdateParams', data);
+    const promise = this.rpc.request("mainchain.stream.v1.Msg", "UpdateParams", data);
     return promise.then(data => MsgUpdateParamsResponse.decode(new BinaryReader(data)));
   }
 }

@@ -1,8 +1,7 @@
 //@ts-nocheck
-import { LCDClient } from '@cosmology/lcd';
-
-import { setPaginationParams } from '../../../helpers';
-import { GetBlockWithTxsRequest, GetBlockWithTxsResponseSDKType,GetTxRequest, GetTxResponseSDKType, GetTxsEventRequest, GetTxsEventResponseSDKType } from './service';
+import { setPaginationParams } from "../../../helpers";
+import { LCDClient } from "@cosmology/lcd";
+import { GetTxRequest, GetTxResponseSDKType, GetTxsEventRequest, GetTxsEventResponseSDKType, GetBlockWithTxsRequest, GetBlockWithTxsResponseSDKType } from "./service";
 export class LCDQueryClient {
   req: LCDClient;
   constructor({
@@ -25,13 +24,13 @@ export class LCDQueryClient {
     const options: any = {
       params: {}
     };
-    if (typeof params?.events !== 'undefined') {
+    if (typeof params?.events !== "undefined") {
       options.params.events = params.events;
     }
-    if (typeof params?.pagination !== 'undefined') {
+    if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
     }
-    if (typeof params?.orderBy !== 'undefined') {
+    if (typeof params?.orderBy !== "undefined") {
       options.params.order_by = params.orderBy;
     }
     const endpoint = `cosmos/tx/v1beta1/txs`;
@@ -44,7 +43,7 @@ export class LCDQueryClient {
     const options: any = {
       params: {}
     };
-    if (typeof params?.pagination !== 'undefined') {
+    if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
     }
     const endpoint = `cosmos/tx/v1beta1/txs/block/${params.height}`;

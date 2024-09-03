@@ -1,8 +1,7 @@
 //@ts-nocheck
-import { LCDClient } from '@cosmology/lcd';
-
-import { setPaginationParams } from '../../../helpers';
-import { QueryEnterpriseAccountRequest, QueryEnterpriseAccountResponseSDKType, QueryEnterpriseSupplyRequest, QueryEnterpriseSupplyResponseSDKType, QueryEnterpriseUndPurchaseOrderRequest, QueryEnterpriseUndPurchaseOrderResponseSDKType, QueryEnterpriseUndPurchaseOrdersRequest, QueryEnterpriseUndPurchaseOrdersResponseSDKType, QueryLockedUndByAddressRequest, QueryLockedUndByAddressResponseSDKType, QueryParamsRequest, QueryParamsResponseSDKType, QuerySpentEFUNDByAddressRequest, QuerySpentEFUNDByAddressResponseSDKType,QuerySupplyOfRequest, QuerySupplyOfResponseSDKType, QueryTotalLockedRequest, QueryTotalLockedResponseSDKType, QueryTotalSpentEFUNDRequest, QueryTotalSpentEFUNDResponseSDKType, QueryTotalSupplyRequest, QueryTotalSupplyResponseSDKType, QueryTotalUnlockedRequest, QueryTotalUnlockedResponseSDKType, QueryWhitelistedRequest, QueryWhitelistedResponseSDKType, QueryWhitelistRequest, QueryWhitelistResponseSDKType } from './query';
+import { setPaginationParams } from "../../../helpers";
+import { LCDClient } from "@cosmology/lcd";
+import { QueryParamsRequest, QueryParamsResponseSDKType, QueryEnterpriseUndPurchaseOrderRequest, QueryEnterpriseUndPurchaseOrderResponseSDKType, QueryEnterpriseUndPurchaseOrdersRequest, QueryEnterpriseUndPurchaseOrdersResponseSDKType, QueryLockedUndByAddressRequest, QueryLockedUndByAddressResponseSDKType, QueryTotalLockedRequest, QueryTotalLockedResponseSDKType, QueryTotalUnlockedRequest, QueryTotalUnlockedResponseSDKType, QueryEnterpriseSupplyRequest, QueryEnterpriseSupplyResponseSDKType, QueryTotalSupplyRequest, QueryTotalSupplyResponseSDKType, QuerySupplyOfRequest, QuerySupplyOfResponseSDKType, QueryWhitelistRequest, QueryWhitelistResponseSDKType, QueryWhitelistedRequest, QueryWhitelistedResponseSDKType, QueryEnterpriseAccountRequest, QueryEnterpriseAccountResponseSDKType, QueryTotalSpentEFUNDRequest, QueryTotalSpentEFUNDResponseSDKType, QuerySpentEFUNDByAddressRequest, QuerySpentEFUNDByAddressResponseSDKType } from "./query";
 export class LCDQueryClient {
   req: LCDClient;
   constructor({
@@ -43,13 +42,13 @@ export class LCDQueryClient {
     const options: any = {
       params: {}
     };
-    if (typeof params?.pagination !== 'undefined') {
+    if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
     }
-    if (typeof params?.purchaser !== 'undefined') {
+    if (typeof params?.purchaser !== "undefined") {
       options.params.purchaser = params.purchaser;
     }
-    if (typeof params?.status !== 'undefined') {
+    if (typeof params?.status !== "undefined") {
       options.params.status = params.status;
     }
     const endpoint = `mainchain/enterprise/v1/pos`;
@@ -83,7 +82,7 @@ export class LCDQueryClient {
     const options: any = {
       params: {}
     };
-    if (typeof params?.pagination !== 'undefined') {
+    if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
     }
     const endpoint = `mainchain/enterprise/v1/supply`;
@@ -103,7 +102,7 @@ export class LCDQueryClient {
     const options: any = {
       params: {}
     };
-    if (typeof params?.pagination !== 'undefined') {
+    if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
     }
     const endpoint = `cosmos/bank/v1beta1/supply`;
@@ -115,7 +114,7 @@ export class LCDQueryClient {
     const options: any = {
       params: {}
     };
-    if (typeof params?.denom !== 'undefined') {
+    if (typeof params?.denom !== "undefined") {
       options.params.denom = params.denom;
     }
     const endpoint = `cosmos/bank/v1beta1/supply/by_denom`;

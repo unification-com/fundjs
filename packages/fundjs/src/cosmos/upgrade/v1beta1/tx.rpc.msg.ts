@@ -1,7 +1,7 @@
 //@ts-nocheck
-import { BinaryReader } from '../../../binary';
-import { Rpc } from '../../../helpers';
-import { MsgCancelUpgrade, MsgCancelUpgradeResponse,MsgSoftwareUpgrade, MsgSoftwareUpgradeResponse } from './tx';
+import { Rpc } from "../../../helpers";
+import { BinaryReader } from "../../../binary";
+import { MsgSoftwareUpgrade, MsgSoftwareUpgradeResponse, MsgCancelUpgrade, MsgCancelUpgradeResponse } from "./tx";
 /** Msg defines the upgrade Msg service. */
 export interface Msg {
   /**
@@ -27,12 +27,12 @@ export class MsgClientImpl implements Msg {
   }
   softwareUpgrade(request: MsgSoftwareUpgrade): Promise<MsgSoftwareUpgradeResponse> {
     const data = MsgSoftwareUpgrade.encode(request).finish();
-    const promise = this.rpc.request('cosmos.upgrade.v1beta1.Msg', 'SoftwareUpgrade', data);
+    const promise = this.rpc.request("cosmos.upgrade.v1beta1.Msg", "SoftwareUpgrade", data);
     return promise.then(data => MsgSoftwareUpgradeResponse.decode(new BinaryReader(data)));
   }
   cancelUpgrade(request: MsgCancelUpgrade): Promise<MsgCancelUpgradeResponse> {
     const data = MsgCancelUpgrade.encode(request).finish();
-    const promise = this.rpc.request('cosmos.upgrade.v1beta1.Msg', 'CancelUpgrade', data);
+    const promise = this.rpc.request("cosmos.upgrade.v1beta1.Msg", "CancelUpgrade", data);
     return promise.then(data => MsgCancelUpgradeResponse.decode(new BinaryReader(data)));
   }
 }

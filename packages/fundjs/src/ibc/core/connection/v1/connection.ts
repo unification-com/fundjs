@@ -1,8 +1,8 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from '../../../../binary';
-import { isSet } from '../../../../helpers';
-import { GlobalDecoderRegistry } from '../../../../registry';
-import { MerklePrefix, MerklePrefixAmino, MerklePrefixSDKType } from '../../commitment/v1/commitment';
+import { MerklePrefix, MerklePrefixAmino, MerklePrefixSDKType } from "../../commitment/v1/commitment";
+import { isSet } from "../../../../helpers";
+import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { GlobalDecoderRegistry } from "../../../../registry";
 /**
  * State defines if a connection is in one of the following states:
  * INIT, TRYOPEN, OPEN or UNINITIALIZED.
@@ -25,37 +25,37 @@ export const StateSDKType = State;
 export const StateAmino = State;
 export function stateFromJSON(object: any): State {
   switch (object) {
-  case 0:
-  case 'STATE_UNINITIALIZED_UNSPECIFIED':
-    return State.STATE_UNINITIALIZED_UNSPECIFIED;
-  case 1:
-  case 'STATE_INIT':
-    return State.STATE_INIT;
-  case 2:
-  case 'STATE_TRYOPEN':
-    return State.STATE_TRYOPEN;
-  case 3:
-  case 'STATE_OPEN':
-    return State.STATE_OPEN;
-  case -1:
-  case 'UNRECOGNIZED':
-  default:
-    return State.UNRECOGNIZED;
+    case 0:
+    case "STATE_UNINITIALIZED_UNSPECIFIED":
+      return State.STATE_UNINITIALIZED_UNSPECIFIED;
+    case 1:
+    case "STATE_INIT":
+      return State.STATE_INIT;
+    case 2:
+    case "STATE_TRYOPEN":
+      return State.STATE_TRYOPEN;
+    case 3:
+    case "STATE_OPEN":
+      return State.STATE_OPEN;
+    case -1:
+    case "UNRECOGNIZED":
+    default:
+      return State.UNRECOGNIZED;
   }
 }
 export function stateToJSON(object: State): string {
   switch (object) {
-  case State.STATE_UNINITIALIZED_UNSPECIFIED:
-    return 'STATE_UNINITIALIZED_UNSPECIFIED';
-  case State.STATE_INIT:
-    return 'STATE_INIT';
-  case State.STATE_TRYOPEN:
-    return 'STATE_TRYOPEN';
-  case State.STATE_OPEN:
-    return 'STATE_OPEN';
-  case State.UNRECOGNIZED:
-  default:
-    return 'UNRECOGNIZED';
+    case State.STATE_UNINITIALIZED_UNSPECIFIED:
+      return "STATE_UNINITIALIZED_UNSPECIFIED";
+    case State.STATE_INIT:
+      return "STATE_INIT";
+    case State.STATE_TRYOPEN:
+      return "STATE_TRYOPEN";
+    case State.STATE_OPEN:
+      return "STATE_OPEN";
+    case State.UNRECOGNIZED:
+    default:
+      return "UNRECOGNIZED";
   }
 }
 /**
@@ -84,7 +84,7 @@ export interface ConnectionEnd {
   delayPeriod: bigint;
 }
 export interface ConnectionEndProtoMsg {
-  typeUrl: '/ibc.core.connection.v1.ConnectionEnd';
+  typeUrl: "/ibc.core.connection.v1.ConnectionEnd";
   value: Uint8Array;
 }
 /**
@@ -113,7 +113,7 @@ export interface ConnectionEndAmino {
   delay_period?: string;
 }
 export interface ConnectionEndAminoMsg {
-  type: 'cosmos-sdk/ConnectionEnd';
+  type: "cosmos-sdk/ConnectionEnd";
   value: ConnectionEndAmino;
 }
 /**
@@ -151,7 +151,7 @@ export interface IdentifiedConnection {
   delayPeriod: bigint;
 }
 export interface IdentifiedConnectionProtoMsg {
-  typeUrl: '/ibc.core.connection.v1.IdentifiedConnection';
+  typeUrl: "/ibc.core.connection.v1.IdentifiedConnection";
   value: Uint8Array;
 }
 /**
@@ -176,7 +176,7 @@ export interface IdentifiedConnectionAmino {
   delay_period?: string;
 }
 export interface IdentifiedConnectionAminoMsg {
-  type: 'cosmos-sdk/IdentifiedConnection';
+  type: "cosmos-sdk/IdentifiedConnection";
   value: IdentifiedConnectionAmino;
 }
 /**
@@ -207,7 +207,7 @@ export interface Counterparty {
   prefix: MerklePrefix;
 }
 export interface CounterpartyProtoMsg {
-  typeUrl: '/ibc.core.connection.v1.Counterparty';
+  typeUrl: "/ibc.core.connection.v1.Counterparty";
   value: Uint8Array;
 }
 /** Counterparty defines the counterparty chain associated with a connection end. */
@@ -226,7 +226,7 @@ export interface CounterpartyAmino {
   prefix?: MerklePrefixAmino;
 }
 export interface CounterpartyAminoMsg {
-  type: 'cosmos-sdk/Counterparty';
+  type: "cosmos-sdk/Counterparty";
   value: CounterpartyAmino;
 }
 /** Counterparty defines the counterparty chain associated with a connection end. */
@@ -241,7 +241,7 @@ export interface ClientPaths {
   paths: string[];
 }
 export interface ClientPathsProtoMsg {
-  typeUrl: '/ibc.core.connection.v1.ClientPaths';
+  typeUrl: "/ibc.core.connection.v1.ClientPaths";
   value: Uint8Array;
 }
 /** ClientPaths define all the connection paths for a client state. */
@@ -250,7 +250,7 @@ export interface ClientPathsAmino {
   paths?: string[];
 }
 export interface ClientPathsAminoMsg {
-  type: 'cosmos-sdk/ClientPaths';
+  type: "cosmos-sdk/ClientPaths";
   value: ClientPathsAmino;
 }
 /** ClientPaths define all the connection paths for a client state. */
@@ -265,7 +265,7 @@ export interface ConnectionPaths {
   paths: string[];
 }
 export interface ConnectionPathsProtoMsg {
-  typeUrl: '/ibc.core.connection.v1.ConnectionPaths';
+  typeUrl: "/ibc.core.connection.v1.ConnectionPaths";
   value: Uint8Array;
 }
 /** ConnectionPaths define all the connection paths for a given client state. */
@@ -276,7 +276,7 @@ export interface ConnectionPathsAmino {
   paths?: string[];
 }
 export interface ConnectionPathsAminoMsg {
-  type: 'cosmos-sdk/ConnectionPaths';
+  type: "cosmos-sdk/ConnectionPaths";
   value: ConnectionPathsAmino;
 }
 /** ConnectionPaths define all the connection paths for a given client state. */
@@ -295,7 +295,7 @@ export interface Version {
   features: string[];
 }
 export interface VersionProtoMsg {
-  typeUrl: '/ibc.core.connection.v1.Version';
+  typeUrl: "/ibc.core.connection.v1.Version";
   value: Uint8Array;
 }
 /**
@@ -309,7 +309,7 @@ export interface VersionAmino {
   features?: string[];
 }
 export interface VersionAminoMsg {
-  type: 'cosmos-sdk/Version';
+  type: "cosmos-sdk/Version";
   value: VersionAmino;
 }
 /**
@@ -330,7 +330,7 @@ export interface Params {
   maxExpectedTimePerBlock: bigint;
 }
 export interface ParamsProtoMsg {
-  typeUrl: '/ibc.core.connection.v1.Params';
+  typeUrl: "/ibc.core.connection.v1.Params";
   value: Uint8Array;
 }
 /** Params defines the set of Connection parameters. */
@@ -343,7 +343,7 @@ export interface ParamsAmino {
   max_expected_time_per_block?: string;
 }
 export interface ParamsAminoMsg {
-  type: 'cosmos-sdk/Params';
+  type: "cosmos-sdk/Params";
   value: ParamsAmino;
 }
 /** Params defines the set of Connection parameters. */
@@ -352,7 +352,7 @@ export interface ParamsSDKType {
 }
 function createBaseConnectionEnd(): ConnectionEnd {
   return {
-    clientId: '',
+    clientId: "",
     versions: [],
     state: 0,
     counterparty: Counterparty.fromPartial({}),
@@ -360,19 +360,19 @@ function createBaseConnectionEnd(): ConnectionEnd {
   };
 }
 export const ConnectionEnd = {
-  typeUrl: '/ibc.core.connection.v1.ConnectionEnd',
-  aminoType: 'cosmos-sdk/ConnectionEnd',
+  typeUrl: "/ibc.core.connection.v1.ConnectionEnd",
+  aminoType: "cosmos-sdk/ConnectionEnd",
   is(o: any): o is ConnectionEnd {
-    return o && (o.$typeUrl === ConnectionEnd.typeUrl || typeof o.clientId === 'string' && Array.isArray(o.versions) && (!o.versions.length || Version.is(o.versions[0])) && isSet(o.state) && Counterparty.is(o.counterparty) && typeof o.delayPeriod === 'bigint');
+    return o && (o.$typeUrl === ConnectionEnd.typeUrl || typeof o.clientId === "string" && Array.isArray(o.versions) && (!o.versions.length || Version.is(o.versions[0])) && isSet(o.state) && Counterparty.is(o.counterparty) && typeof o.delayPeriod === "bigint");
   },
   isSDK(o: any): o is ConnectionEndSDKType {
-    return o && (o.$typeUrl === ConnectionEnd.typeUrl || typeof o.client_id === 'string' && Array.isArray(o.versions) && (!o.versions.length || Version.isSDK(o.versions[0])) && isSet(o.state) && Counterparty.isSDK(o.counterparty) && typeof o.delay_period === 'bigint');
+    return o && (o.$typeUrl === ConnectionEnd.typeUrl || typeof o.client_id === "string" && Array.isArray(o.versions) && (!o.versions.length || Version.isSDK(o.versions[0])) && isSet(o.state) && Counterparty.isSDK(o.counterparty) && typeof o.delay_period === "bigint");
   },
   isAmino(o: any): o is ConnectionEndAmino {
-    return o && (o.$typeUrl === ConnectionEnd.typeUrl || typeof o.client_id === 'string' && Array.isArray(o.versions) && (!o.versions.length || Version.isAmino(o.versions[0])) && isSet(o.state) && Counterparty.isAmino(o.counterparty) && typeof o.delay_period === 'bigint');
+    return o && (o.$typeUrl === ConnectionEnd.typeUrl || typeof o.client_id === "string" && Array.isArray(o.versions) && (!o.versions.length || Version.isAmino(o.versions[0])) && isSet(o.state) && Counterparty.isAmino(o.counterparty) && typeof o.delay_period === "bigint");
   },
   encode(message: ConnectionEnd, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.clientId !== '') {
+    if (message.clientId !== "") {
       writer.uint32(10).string(message.clientId);
     }
     for (const v of message.versions) {
@@ -396,31 +396,31 @@ export const ConnectionEnd = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.clientId = reader.string();
-        break;
-      case 2:
-        message.versions.push(Version.decode(reader, reader.uint32()));
-        break;
-      case 3:
-        message.state = reader.int32() as any;
-        break;
-      case 4:
-        message.counterparty = Counterparty.decode(reader, reader.uint32());
-        break;
-      case 5:
-        message.delayPeriod = reader.uint64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.clientId = reader.string();
+          break;
+        case 2:
+          message.versions.push(Version.decode(reader, reader.uint32()));
+          break;
+        case 3:
+          message.state = reader.int32() as any;
+          break;
+        case 4:
+          message.counterparty = Counterparty.decode(reader, reader.uint32());
+          break;
+        case 5:
+          message.delayPeriod = reader.uint64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<ConnectionEnd>): ConnectionEnd {
     const message = createBaseConnectionEnd();
-    message.clientId = object.clientId ?? '';
+    message.clientId = object.clientId ?? "";
     message.versions = object.versions?.map(e => Version.fromPartial(e)) || [];
     message.state = object.state ?? 0;
     message.counterparty = object.counterparty !== undefined && object.counterparty !== null ? Counterparty.fromPartial(object.counterparty) : undefined;
@@ -446,7 +446,7 @@ export const ConnectionEnd = {
   },
   toAmino(message: ConnectionEnd): ConnectionEndAmino {
     const obj: any = {};
-    obj.client_id = message.clientId === '' ? undefined : message.clientId;
+    obj.client_id = message.clientId === "" ? undefined : message.clientId;
     if (message.versions) {
       obj.versions = message.versions.map(e => e ? Version.toAmino(e) : undefined);
     } else {
@@ -462,7 +462,7 @@ export const ConnectionEnd = {
   },
   toAminoMsg(message: ConnectionEnd): ConnectionEndAminoMsg {
     return {
-      type: 'cosmos-sdk/ConnectionEnd',
+      type: "cosmos-sdk/ConnectionEnd",
       value: ConnectionEnd.toAmino(message)
     };
   },
@@ -474,7 +474,7 @@ export const ConnectionEnd = {
   },
   toProtoMsg(message: ConnectionEnd): ConnectionEndProtoMsg {
     return {
-      typeUrl: '/ibc.core.connection.v1.ConnectionEnd',
+      typeUrl: "/ibc.core.connection.v1.ConnectionEnd",
       value: ConnectionEnd.encode(message).finish()
     };
   }
@@ -483,8 +483,8 @@ GlobalDecoderRegistry.register(ConnectionEnd.typeUrl, ConnectionEnd);
 GlobalDecoderRegistry.registerAminoProtoMapping(ConnectionEnd.aminoType, ConnectionEnd.typeUrl);
 function createBaseIdentifiedConnection(): IdentifiedConnection {
   return {
-    id: '',
-    clientId: '',
+    id: "",
+    clientId: "",
     versions: [],
     state: 0,
     counterparty: Counterparty.fromPartial({}),
@@ -492,22 +492,22 @@ function createBaseIdentifiedConnection(): IdentifiedConnection {
   };
 }
 export const IdentifiedConnection = {
-  typeUrl: '/ibc.core.connection.v1.IdentifiedConnection',
-  aminoType: 'cosmos-sdk/IdentifiedConnection',
+  typeUrl: "/ibc.core.connection.v1.IdentifiedConnection",
+  aminoType: "cosmos-sdk/IdentifiedConnection",
   is(o: any): o is IdentifiedConnection {
-    return o && (o.$typeUrl === IdentifiedConnection.typeUrl || typeof o.id === 'string' && typeof o.clientId === 'string' && Array.isArray(o.versions) && (!o.versions.length || Version.is(o.versions[0])) && isSet(o.state) && Counterparty.is(o.counterparty) && typeof o.delayPeriod === 'bigint');
+    return o && (o.$typeUrl === IdentifiedConnection.typeUrl || typeof o.id === "string" && typeof o.clientId === "string" && Array.isArray(o.versions) && (!o.versions.length || Version.is(o.versions[0])) && isSet(o.state) && Counterparty.is(o.counterparty) && typeof o.delayPeriod === "bigint");
   },
   isSDK(o: any): o is IdentifiedConnectionSDKType {
-    return o && (o.$typeUrl === IdentifiedConnection.typeUrl || typeof o.id === 'string' && typeof o.client_id === 'string' && Array.isArray(o.versions) && (!o.versions.length || Version.isSDK(o.versions[0])) && isSet(o.state) && Counterparty.isSDK(o.counterparty) && typeof o.delay_period === 'bigint');
+    return o && (o.$typeUrl === IdentifiedConnection.typeUrl || typeof o.id === "string" && typeof o.client_id === "string" && Array.isArray(o.versions) && (!o.versions.length || Version.isSDK(o.versions[0])) && isSet(o.state) && Counterparty.isSDK(o.counterparty) && typeof o.delay_period === "bigint");
   },
   isAmino(o: any): o is IdentifiedConnectionAmino {
-    return o && (o.$typeUrl === IdentifiedConnection.typeUrl || typeof o.id === 'string' && typeof o.client_id === 'string' && Array.isArray(o.versions) && (!o.versions.length || Version.isAmino(o.versions[0])) && isSet(o.state) && Counterparty.isAmino(o.counterparty) && typeof o.delay_period === 'bigint');
+    return o && (o.$typeUrl === IdentifiedConnection.typeUrl || typeof o.id === "string" && typeof o.client_id === "string" && Array.isArray(o.versions) && (!o.versions.length || Version.isAmino(o.versions[0])) && isSet(o.state) && Counterparty.isAmino(o.counterparty) && typeof o.delay_period === "bigint");
   },
   encode(message: IdentifiedConnection, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.id !== '') {
+    if (message.id !== "") {
       writer.uint32(10).string(message.id);
     }
-    if (message.clientId !== '') {
+    if (message.clientId !== "") {
       writer.uint32(18).string(message.clientId);
     }
     for (const v of message.versions) {
@@ -531,35 +531,35 @@ export const IdentifiedConnection = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.id = reader.string();
-        break;
-      case 2:
-        message.clientId = reader.string();
-        break;
-      case 3:
-        message.versions.push(Version.decode(reader, reader.uint32()));
-        break;
-      case 4:
-        message.state = reader.int32() as any;
-        break;
-      case 5:
-        message.counterparty = Counterparty.decode(reader, reader.uint32());
-        break;
-      case 6:
-        message.delayPeriod = reader.uint64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.id = reader.string();
+          break;
+        case 2:
+          message.clientId = reader.string();
+          break;
+        case 3:
+          message.versions.push(Version.decode(reader, reader.uint32()));
+          break;
+        case 4:
+          message.state = reader.int32() as any;
+          break;
+        case 5:
+          message.counterparty = Counterparty.decode(reader, reader.uint32());
+          break;
+        case 6:
+          message.delayPeriod = reader.uint64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<IdentifiedConnection>): IdentifiedConnection {
     const message = createBaseIdentifiedConnection();
-    message.id = object.id ?? '';
-    message.clientId = object.clientId ?? '';
+    message.id = object.id ?? "";
+    message.clientId = object.clientId ?? "";
     message.versions = object.versions?.map(e => Version.fromPartial(e)) || [];
     message.state = object.state ?? 0;
     message.counterparty = object.counterparty !== undefined && object.counterparty !== null ? Counterparty.fromPartial(object.counterparty) : undefined;
@@ -588,8 +588,8 @@ export const IdentifiedConnection = {
   },
   toAmino(message: IdentifiedConnection): IdentifiedConnectionAmino {
     const obj: any = {};
-    obj.id = message.id === '' ? undefined : message.id;
-    obj.client_id = message.clientId === '' ? undefined : message.clientId;
+    obj.id = message.id === "" ? undefined : message.id;
+    obj.client_id = message.clientId === "" ? undefined : message.clientId;
     if (message.versions) {
       obj.versions = message.versions.map(e => e ? Version.toAmino(e) : undefined);
     } else {
@@ -605,7 +605,7 @@ export const IdentifiedConnection = {
   },
   toAminoMsg(message: IdentifiedConnection): IdentifiedConnectionAminoMsg {
     return {
-      type: 'cosmos-sdk/IdentifiedConnection',
+      type: "cosmos-sdk/IdentifiedConnection",
       value: IdentifiedConnection.toAmino(message)
     };
   },
@@ -617,7 +617,7 @@ export const IdentifiedConnection = {
   },
   toProtoMsg(message: IdentifiedConnection): IdentifiedConnectionProtoMsg {
     return {
-      typeUrl: '/ibc.core.connection.v1.IdentifiedConnection',
+      typeUrl: "/ibc.core.connection.v1.IdentifiedConnection",
       value: IdentifiedConnection.encode(message).finish()
     };
   }
@@ -626,28 +626,28 @@ GlobalDecoderRegistry.register(IdentifiedConnection.typeUrl, IdentifiedConnectio
 GlobalDecoderRegistry.registerAminoProtoMapping(IdentifiedConnection.aminoType, IdentifiedConnection.typeUrl);
 function createBaseCounterparty(): Counterparty {
   return {
-    clientId: '',
-    connectionId: '',
+    clientId: "",
+    connectionId: "",
     prefix: MerklePrefix.fromPartial({})
   };
 }
 export const Counterparty = {
-  typeUrl: '/ibc.core.connection.v1.Counterparty',
-  aminoType: 'cosmos-sdk/Counterparty',
+  typeUrl: "/ibc.core.connection.v1.Counterparty",
+  aminoType: "cosmos-sdk/Counterparty",
   is(o: any): o is Counterparty {
-    return o && (o.$typeUrl === Counterparty.typeUrl || typeof o.clientId === 'string' && typeof o.connectionId === 'string' && MerklePrefix.is(o.prefix));
+    return o && (o.$typeUrl === Counterparty.typeUrl || typeof o.clientId === "string" && typeof o.connectionId === "string" && MerklePrefix.is(o.prefix));
   },
   isSDK(o: any): o is CounterpartySDKType {
-    return o && (o.$typeUrl === Counterparty.typeUrl || typeof o.client_id === 'string' && typeof o.connection_id === 'string' && MerklePrefix.isSDK(o.prefix));
+    return o && (o.$typeUrl === Counterparty.typeUrl || typeof o.client_id === "string" && typeof o.connection_id === "string" && MerklePrefix.isSDK(o.prefix));
   },
   isAmino(o: any): o is CounterpartyAmino {
-    return o && (o.$typeUrl === Counterparty.typeUrl || typeof o.client_id === 'string' && typeof o.connection_id === 'string' && MerklePrefix.isAmino(o.prefix));
+    return o && (o.$typeUrl === Counterparty.typeUrl || typeof o.client_id === "string" && typeof o.connection_id === "string" && MerklePrefix.isAmino(o.prefix));
   },
   encode(message: Counterparty, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.clientId !== '') {
+    if (message.clientId !== "") {
       writer.uint32(10).string(message.clientId);
     }
-    if (message.connectionId !== '') {
+    if (message.connectionId !== "") {
       writer.uint32(18).string(message.connectionId);
     }
     if (message.prefix !== undefined) {
@@ -662,26 +662,26 @@ export const Counterparty = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.clientId = reader.string();
-        break;
-      case 2:
-        message.connectionId = reader.string();
-        break;
-      case 3:
-        message.prefix = MerklePrefix.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.clientId = reader.string();
+          break;
+        case 2:
+          message.connectionId = reader.string();
+          break;
+        case 3:
+          message.prefix = MerklePrefix.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<Counterparty>): Counterparty {
     const message = createBaseCounterparty();
-    message.clientId = object.clientId ?? '';
-    message.connectionId = object.connectionId ?? '';
+    message.clientId = object.clientId ?? "";
+    message.connectionId = object.connectionId ?? "";
     message.prefix = object.prefix !== undefined && object.prefix !== null ? MerklePrefix.fromPartial(object.prefix) : undefined;
     return message;
   },
@@ -700,8 +700,8 @@ export const Counterparty = {
   },
   toAmino(message: Counterparty): CounterpartyAmino {
     const obj: any = {};
-    obj.client_id = message.clientId === '' ? undefined : message.clientId;
-    obj.connection_id = message.connectionId === '' ? undefined : message.connectionId;
+    obj.client_id = message.clientId === "" ? undefined : message.clientId;
+    obj.connection_id = message.connectionId === "" ? undefined : message.connectionId;
     obj.prefix = message.prefix ? MerklePrefix.toAmino(message.prefix) : undefined;
     return obj;
   },
@@ -710,7 +710,7 @@ export const Counterparty = {
   },
   toAminoMsg(message: Counterparty): CounterpartyAminoMsg {
     return {
-      type: 'cosmos-sdk/Counterparty',
+      type: "cosmos-sdk/Counterparty",
       value: Counterparty.toAmino(message)
     };
   },
@@ -722,7 +722,7 @@ export const Counterparty = {
   },
   toProtoMsg(message: Counterparty): CounterpartyProtoMsg {
     return {
-      typeUrl: '/ibc.core.connection.v1.Counterparty',
+      typeUrl: "/ibc.core.connection.v1.Counterparty",
       value: Counterparty.encode(message).finish()
     };
   }
@@ -735,16 +735,16 @@ function createBaseClientPaths(): ClientPaths {
   };
 }
 export const ClientPaths = {
-  typeUrl: '/ibc.core.connection.v1.ClientPaths',
-  aminoType: 'cosmos-sdk/ClientPaths',
+  typeUrl: "/ibc.core.connection.v1.ClientPaths",
+  aminoType: "cosmos-sdk/ClientPaths",
   is(o: any): o is ClientPaths {
-    return o && (o.$typeUrl === ClientPaths.typeUrl || Array.isArray(o.paths) && (!o.paths.length || typeof o.paths[0] === 'string'));
+    return o && (o.$typeUrl === ClientPaths.typeUrl || Array.isArray(o.paths) && (!o.paths.length || typeof o.paths[0] === "string"));
   },
   isSDK(o: any): o is ClientPathsSDKType {
-    return o && (o.$typeUrl === ClientPaths.typeUrl || Array.isArray(o.paths) && (!o.paths.length || typeof o.paths[0] === 'string'));
+    return o && (o.$typeUrl === ClientPaths.typeUrl || Array.isArray(o.paths) && (!o.paths.length || typeof o.paths[0] === "string"));
   },
   isAmino(o: any): o is ClientPathsAmino {
-    return o && (o.$typeUrl === ClientPaths.typeUrl || Array.isArray(o.paths) && (!o.paths.length || typeof o.paths[0] === 'string'));
+    return o && (o.$typeUrl === ClientPaths.typeUrl || Array.isArray(o.paths) && (!o.paths.length || typeof o.paths[0] === "string"));
   },
   encode(message: ClientPaths, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.paths) {
@@ -759,12 +759,12 @@ export const ClientPaths = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.paths.push(reader.string());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.paths.push(reader.string());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -793,7 +793,7 @@ export const ClientPaths = {
   },
   toAminoMsg(message: ClientPaths): ClientPathsAminoMsg {
     return {
-      type: 'cosmos-sdk/ClientPaths',
+      type: "cosmos-sdk/ClientPaths",
       value: ClientPaths.toAmino(message)
     };
   },
@@ -805,7 +805,7 @@ export const ClientPaths = {
   },
   toProtoMsg(message: ClientPaths): ClientPathsProtoMsg {
     return {
-      typeUrl: '/ibc.core.connection.v1.ClientPaths',
+      typeUrl: "/ibc.core.connection.v1.ClientPaths",
       value: ClientPaths.encode(message).finish()
     };
   }
@@ -814,24 +814,24 @@ GlobalDecoderRegistry.register(ClientPaths.typeUrl, ClientPaths);
 GlobalDecoderRegistry.registerAminoProtoMapping(ClientPaths.aminoType, ClientPaths.typeUrl);
 function createBaseConnectionPaths(): ConnectionPaths {
   return {
-    clientId: '',
+    clientId: "",
     paths: []
   };
 }
 export const ConnectionPaths = {
-  typeUrl: '/ibc.core.connection.v1.ConnectionPaths',
-  aminoType: 'cosmos-sdk/ConnectionPaths',
+  typeUrl: "/ibc.core.connection.v1.ConnectionPaths",
+  aminoType: "cosmos-sdk/ConnectionPaths",
   is(o: any): o is ConnectionPaths {
-    return o && (o.$typeUrl === ConnectionPaths.typeUrl || typeof o.clientId === 'string' && Array.isArray(o.paths) && (!o.paths.length || typeof o.paths[0] === 'string'));
+    return o && (o.$typeUrl === ConnectionPaths.typeUrl || typeof o.clientId === "string" && Array.isArray(o.paths) && (!o.paths.length || typeof o.paths[0] === "string"));
   },
   isSDK(o: any): o is ConnectionPathsSDKType {
-    return o && (o.$typeUrl === ConnectionPaths.typeUrl || typeof o.client_id === 'string' && Array.isArray(o.paths) && (!o.paths.length || typeof o.paths[0] === 'string'));
+    return o && (o.$typeUrl === ConnectionPaths.typeUrl || typeof o.client_id === "string" && Array.isArray(o.paths) && (!o.paths.length || typeof o.paths[0] === "string"));
   },
   isAmino(o: any): o is ConnectionPathsAmino {
-    return o && (o.$typeUrl === ConnectionPaths.typeUrl || typeof o.client_id === 'string' && Array.isArray(o.paths) && (!o.paths.length || typeof o.paths[0] === 'string'));
+    return o && (o.$typeUrl === ConnectionPaths.typeUrl || typeof o.client_id === "string" && Array.isArray(o.paths) && (!o.paths.length || typeof o.paths[0] === "string"));
   },
   encode(message: ConnectionPaths, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.clientId !== '') {
+    if (message.clientId !== "") {
       writer.uint32(10).string(message.clientId);
     }
     for (const v of message.paths) {
@@ -846,22 +846,22 @@ export const ConnectionPaths = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.clientId = reader.string();
-        break;
-      case 2:
-        message.paths.push(reader.string());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.clientId = reader.string();
+          break;
+        case 2:
+          message.paths.push(reader.string());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<ConnectionPaths>): ConnectionPaths {
     const message = createBaseConnectionPaths();
-    message.clientId = object.clientId ?? '';
+    message.clientId = object.clientId ?? "";
     message.paths = object.paths?.map(e => e) || [];
     return message;
   },
@@ -875,7 +875,7 @@ export const ConnectionPaths = {
   },
   toAmino(message: ConnectionPaths): ConnectionPathsAmino {
     const obj: any = {};
-    obj.client_id = message.clientId === '' ? undefined : message.clientId;
+    obj.client_id = message.clientId === "" ? undefined : message.clientId;
     if (message.paths) {
       obj.paths = message.paths.map(e => e);
     } else {
@@ -888,7 +888,7 @@ export const ConnectionPaths = {
   },
   toAminoMsg(message: ConnectionPaths): ConnectionPathsAminoMsg {
     return {
-      type: 'cosmos-sdk/ConnectionPaths',
+      type: "cosmos-sdk/ConnectionPaths",
       value: ConnectionPaths.toAmino(message)
     };
   },
@@ -900,7 +900,7 @@ export const ConnectionPaths = {
   },
   toProtoMsg(message: ConnectionPaths): ConnectionPathsProtoMsg {
     return {
-      typeUrl: '/ibc.core.connection.v1.ConnectionPaths',
+      typeUrl: "/ibc.core.connection.v1.ConnectionPaths",
       value: ConnectionPaths.encode(message).finish()
     };
   }
@@ -909,24 +909,24 @@ GlobalDecoderRegistry.register(ConnectionPaths.typeUrl, ConnectionPaths);
 GlobalDecoderRegistry.registerAminoProtoMapping(ConnectionPaths.aminoType, ConnectionPaths.typeUrl);
 function createBaseVersion(): Version {
   return {
-    identifier: '',
+    identifier: "",
     features: []
   };
 }
 export const Version = {
-  typeUrl: '/ibc.core.connection.v1.Version',
-  aminoType: 'cosmos-sdk/Version',
+  typeUrl: "/ibc.core.connection.v1.Version",
+  aminoType: "cosmos-sdk/Version",
   is(o: any): o is Version {
-    return o && (o.$typeUrl === Version.typeUrl || typeof o.identifier === 'string' && Array.isArray(o.features) && (!o.features.length || typeof o.features[0] === 'string'));
+    return o && (o.$typeUrl === Version.typeUrl || typeof o.identifier === "string" && Array.isArray(o.features) && (!o.features.length || typeof o.features[0] === "string"));
   },
   isSDK(o: any): o is VersionSDKType {
-    return o && (o.$typeUrl === Version.typeUrl || typeof o.identifier === 'string' && Array.isArray(o.features) && (!o.features.length || typeof o.features[0] === 'string'));
+    return o && (o.$typeUrl === Version.typeUrl || typeof o.identifier === "string" && Array.isArray(o.features) && (!o.features.length || typeof o.features[0] === "string"));
   },
   isAmino(o: any): o is VersionAmino {
-    return o && (o.$typeUrl === Version.typeUrl || typeof o.identifier === 'string' && Array.isArray(o.features) && (!o.features.length || typeof o.features[0] === 'string'));
+    return o && (o.$typeUrl === Version.typeUrl || typeof o.identifier === "string" && Array.isArray(o.features) && (!o.features.length || typeof o.features[0] === "string"));
   },
   encode(message: Version, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.identifier !== '') {
+    if (message.identifier !== "") {
       writer.uint32(10).string(message.identifier);
     }
     for (const v of message.features) {
@@ -941,22 +941,22 @@ export const Version = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.identifier = reader.string();
-        break;
-      case 2:
-        message.features.push(reader.string());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.identifier = reader.string();
+          break;
+        case 2:
+          message.features.push(reader.string());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<Version>): Version {
     const message = createBaseVersion();
-    message.identifier = object.identifier ?? '';
+    message.identifier = object.identifier ?? "";
     message.features = object.features?.map(e => e) || [];
     return message;
   },
@@ -970,7 +970,7 @@ export const Version = {
   },
   toAmino(message: Version): VersionAmino {
     const obj: any = {};
-    obj.identifier = message.identifier === '' ? undefined : message.identifier;
+    obj.identifier = message.identifier === "" ? undefined : message.identifier;
     if (message.features) {
       obj.features = message.features.map(e => e);
     } else {
@@ -983,7 +983,7 @@ export const Version = {
   },
   toAminoMsg(message: Version): VersionAminoMsg {
     return {
-      type: 'cosmos-sdk/Version',
+      type: "cosmos-sdk/Version",
       value: Version.toAmino(message)
     };
   },
@@ -995,7 +995,7 @@ export const Version = {
   },
   toProtoMsg(message: Version): VersionProtoMsg {
     return {
-      typeUrl: '/ibc.core.connection.v1.Version',
+      typeUrl: "/ibc.core.connection.v1.Version",
       value: Version.encode(message).finish()
     };
   }
@@ -1008,16 +1008,16 @@ function createBaseParams(): Params {
   };
 }
 export const Params = {
-  typeUrl: '/ibc.core.connection.v1.Params',
-  aminoType: 'cosmos-sdk/Params',
+  typeUrl: "/ibc.core.connection.v1.Params",
+  aminoType: "cosmos-sdk/Params",
   is(o: any): o is Params {
-    return o && (o.$typeUrl === Params.typeUrl || typeof o.maxExpectedTimePerBlock === 'bigint');
+    return o && (o.$typeUrl === Params.typeUrl || typeof o.maxExpectedTimePerBlock === "bigint");
   },
   isSDK(o: any): o is ParamsSDKType {
-    return o && (o.$typeUrl === Params.typeUrl || typeof o.max_expected_time_per_block === 'bigint');
+    return o && (o.$typeUrl === Params.typeUrl || typeof o.max_expected_time_per_block === "bigint");
   },
   isAmino(o: any): o is ParamsAmino {
-    return o && (o.$typeUrl === Params.typeUrl || typeof o.max_expected_time_per_block === 'bigint');
+    return o && (o.$typeUrl === Params.typeUrl || typeof o.max_expected_time_per_block === "bigint");
   },
   encode(message: Params, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.maxExpectedTimePerBlock !== BigInt(0)) {
@@ -1032,12 +1032,12 @@ export const Params = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.maxExpectedTimePerBlock = reader.uint64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.maxExpectedTimePerBlock = reader.uint64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1064,7 +1064,7 @@ export const Params = {
   },
   toAminoMsg(message: Params): ParamsAminoMsg {
     return {
-      type: 'cosmos-sdk/Params',
+      type: "cosmos-sdk/Params",
       value: Params.toAmino(message)
     };
   },
@@ -1076,7 +1076,7 @@ export const Params = {
   },
   toProtoMsg(message: Params): ParamsProtoMsg {
     return {
-      typeUrl: '/ibc.core.connection.v1.Params',
+      typeUrl: "/ibc.core.connection.v1.Params",
       value: Params.encode(message).finish()
     };
   }

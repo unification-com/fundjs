@@ -1,14 +1,13 @@
 //@ts-nocheck
-import { Decimal } from '@cosmjs/math';
-import { decodePubkey,encodePubkey } from '@cosmjs/proto-signing';
-
-import { BinaryReader, BinaryWriter } from '../../../binary';
-import { Any, AnyAmino, AnyProtoMsg, AnySDKType } from '../../../google/protobuf/any';
-import { Timestamp } from '../../../google/protobuf/timestamp';
-import { fromTimestamp,toTimestamp } from '../../../helpers';
-import { GlobalDecoderRegistry } from '../../../registry';
-import { Coin, CoinAmino, CoinSDKType } from '../../base/v1beta1/coin';
-import { CommissionRates, CommissionRatesAmino, CommissionRatesSDKType,Description, DescriptionAmino, DescriptionSDKType } from './staking';
+import { Description, DescriptionAmino, DescriptionSDKType, CommissionRates, CommissionRatesAmino, CommissionRatesSDKType } from "./staking";
+import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
+import { Coin, CoinAmino, CoinSDKType } from "../../base/v1beta1/coin";
+import { Timestamp } from "../../../google/protobuf/timestamp";
+import { BinaryReader, BinaryWriter } from "../../../binary";
+import { encodePubkey, decodePubkey } from "@cosmjs/proto-signing";
+import { GlobalDecoderRegistry } from "../../../registry";
+import { Decimal } from "@cosmjs/math";
+import { toTimestamp, fromTimestamp } from "../../../helpers";
 /** MsgCreateValidator defines a SDK message for creating a new validator. */
 export interface MsgCreateValidator {
   description: Description;
@@ -20,10 +19,10 @@ export interface MsgCreateValidator {
   value: Coin;
 }
 export interface MsgCreateValidatorProtoMsg {
-  typeUrl: '/cosmos.staking.v1beta1.MsgCreateValidator';
+  typeUrl: "/cosmos.staking.v1beta1.MsgCreateValidator";
   value: Uint8Array;
 }
-export type MsgCreateValidatorEncoded = Omit<MsgCreateValidator, 'pubkey'> & {
+export type MsgCreateValidatorEncoded = Omit<MsgCreateValidator, "pubkey"> & {
   pubkey?: AnyProtoMsg | undefined;
 };
 /** MsgCreateValidator defines a SDK message for creating a new validator. */
@@ -37,7 +36,7 @@ export interface MsgCreateValidatorAmino {
   value?: CoinAmino;
 }
 export interface MsgCreateValidatorAminoMsg {
-  type: 'cosmos-sdk/MsgCreateValidator';
+  type: "cosmos-sdk/MsgCreateValidator";
   value: MsgCreateValidatorAmino;
 }
 /** MsgCreateValidator defines a SDK message for creating a new validator. */
@@ -53,13 +52,13 @@ export interface MsgCreateValidatorSDKType {
 /** MsgCreateValidatorResponse defines the Msg/CreateValidator response type. */
 export interface MsgCreateValidatorResponse {}
 export interface MsgCreateValidatorResponseProtoMsg {
-  typeUrl: '/cosmos.staking.v1beta1.MsgCreateValidatorResponse';
+  typeUrl: "/cosmos.staking.v1beta1.MsgCreateValidatorResponse";
   value: Uint8Array;
 }
 /** MsgCreateValidatorResponse defines the Msg/CreateValidator response type. */
 export interface MsgCreateValidatorResponseAmino {}
 export interface MsgCreateValidatorResponseAminoMsg {
-  type: 'cosmos-sdk/MsgCreateValidatorResponse';
+  type: "cosmos-sdk/MsgCreateValidatorResponse";
   value: MsgCreateValidatorResponseAmino;
 }
 /** MsgCreateValidatorResponse defines the Msg/CreateValidator response type. */
@@ -78,7 +77,7 @@ export interface MsgEditValidator {
   minSelfDelegation: string;
 }
 export interface MsgEditValidatorProtoMsg {
-  typeUrl: '/cosmos.staking.v1beta1.MsgEditValidator';
+  typeUrl: "/cosmos.staking.v1beta1.MsgEditValidator";
   value: Uint8Array;
 }
 /** MsgEditValidator defines a SDK message for editing an existing validator. */
@@ -95,7 +94,7 @@ export interface MsgEditValidatorAmino {
   min_self_delegation?: string;
 }
 export interface MsgEditValidatorAminoMsg {
-  type: 'cosmos-sdk/MsgEditValidator';
+  type: "cosmos-sdk/MsgEditValidator";
   value: MsgEditValidatorAmino;
 }
 /** MsgEditValidator defines a SDK message for editing an existing validator. */
@@ -108,13 +107,13 @@ export interface MsgEditValidatorSDKType {
 /** MsgEditValidatorResponse defines the Msg/EditValidator response type. */
 export interface MsgEditValidatorResponse {}
 export interface MsgEditValidatorResponseProtoMsg {
-  typeUrl: '/cosmos.staking.v1beta1.MsgEditValidatorResponse';
+  typeUrl: "/cosmos.staking.v1beta1.MsgEditValidatorResponse";
   value: Uint8Array;
 }
 /** MsgEditValidatorResponse defines the Msg/EditValidator response type. */
 export interface MsgEditValidatorResponseAmino {}
 export interface MsgEditValidatorResponseAminoMsg {
-  type: 'cosmos-sdk/MsgEditValidatorResponse';
+  type: "cosmos-sdk/MsgEditValidatorResponse";
   value: MsgEditValidatorResponseAmino;
 }
 /** MsgEditValidatorResponse defines the Msg/EditValidator response type. */
@@ -129,7 +128,7 @@ export interface MsgDelegate {
   amount: Coin;
 }
 export interface MsgDelegateProtoMsg {
-  typeUrl: '/cosmos.staking.v1beta1.MsgDelegate';
+  typeUrl: "/cosmos.staking.v1beta1.MsgDelegate";
   value: Uint8Array;
 }
 /**
@@ -142,7 +141,7 @@ export interface MsgDelegateAmino {
   amount?: CoinAmino;
 }
 export interface MsgDelegateAminoMsg {
-  type: 'cosmos-sdk/MsgDelegate';
+  type: "cosmos-sdk/MsgDelegate";
   value: MsgDelegateAmino;
 }
 /**
@@ -157,13 +156,13 @@ export interface MsgDelegateSDKType {
 /** MsgDelegateResponse defines the Msg/Delegate response type. */
 export interface MsgDelegateResponse {}
 export interface MsgDelegateResponseProtoMsg {
-  typeUrl: '/cosmos.staking.v1beta1.MsgDelegateResponse';
+  typeUrl: "/cosmos.staking.v1beta1.MsgDelegateResponse";
   value: Uint8Array;
 }
 /** MsgDelegateResponse defines the Msg/Delegate response type. */
 export interface MsgDelegateResponseAmino {}
 export interface MsgDelegateResponseAminoMsg {
-  type: 'cosmos-sdk/MsgDelegateResponse';
+  type: "cosmos-sdk/MsgDelegateResponse";
   value: MsgDelegateResponseAmino;
 }
 /** MsgDelegateResponse defines the Msg/Delegate response type. */
@@ -179,7 +178,7 @@ export interface MsgBeginRedelegate {
   amount: Coin;
 }
 export interface MsgBeginRedelegateProtoMsg {
-  typeUrl: '/cosmos.staking.v1beta1.MsgBeginRedelegate';
+  typeUrl: "/cosmos.staking.v1beta1.MsgBeginRedelegate";
   value: Uint8Array;
 }
 /**
@@ -193,7 +192,7 @@ export interface MsgBeginRedelegateAmino {
   amount?: CoinAmino;
 }
 export interface MsgBeginRedelegateAminoMsg {
-  type: 'cosmos-sdk/MsgBeginRedelegate';
+  type: "cosmos-sdk/MsgBeginRedelegate";
   value: MsgBeginRedelegateAmino;
 }
 /**
@@ -211,7 +210,7 @@ export interface MsgBeginRedelegateResponse {
   completionTime: Date;
 }
 export interface MsgBeginRedelegateResponseProtoMsg {
-  typeUrl: '/cosmos.staking.v1beta1.MsgBeginRedelegateResponse';
+  typeUrl: "/cosmos.staking.v1beta1.MsgBeginRedelegateResponse";
   value: Uint8Array;
 }
 /** MsgBeginRedelegateResponse defines the Msg/BeginRedelegate response type. */
@@ -219,7 +218,7 @@ export interface MsgBeginRedelegateResponseAmino {
   completion_time?: string;
 }
 export interface MsgBeginRedelegateResponseAminoMsg {
-  type: 'cosmos-sdk/MsgBeginRedelegateResponse';
+  type: "cosmos-sdk/MsgBeginRedelegateResponse";
   value: MsgBeginRedelegateResponseAmino;
 }
 /** MsgBeginRedelegateResponse defines the Msg/BeginRedelegate response type. */
@@ -236,7 +235,7 @@ export interface MsgUndelegate {
   amount: Coin;
 }
 export interface MsgUndelegateProtoMsg {
-  typeUrl: '/cosmos.staking.v1beta1.MsgUndelegate';
+  typeUrl: "/cosmos.staking.v1beta1.MsgUndelegate";
   value: Uint8Array;
 }
 /**
@@ -249,7 +248,7 @@ export interface MsgUndelegateAmino {
   amount?: CoinAmino;
 }
 export interface MsgUndelegateAminoMsg {
-  type: 'cosmos-sdk/MsgUndelegate';
+  type: "cosmos-sdk/MsgUndelegate";
   value: MsgUndelegateAmino;
 }
 /**
@@ -266,7 +265,7 @@ export interface MsgUndelegateResponse {
   completionTime: Date;
 }
 export interface MsgUndelegateResponseProtoMsg {
-  typeUrl: '/cosmos.staking.v1beta1.MsgUndelegateResponse';
+  typeUrl: "/cosmos.staking.v1beta1.MsgUndelegateResponse";
   value: Uint8Array;
 }
 /** MsgUndelegateResponse defines the Msg/Undelegate response type. */
@@ -274,7 +273,7 @@ export interface MsgUndelegateResponseAmino {
   completion_time?: string;
 }
 export interface MsgUndelegateResponseAminoMsg {
-  type: 'cosmos-sdk/MsgUndelegateResponse';
+  type: "cosmos-sdk/MsgUndelegateResponse";
   value: MsgUndelegateResponseAmino;
 }
 /** MsgUndelegateResponse defines the Msg/Undelegate response type. */
@@ -285,24 +284,24 @@ function createBaseMsgCreateValidator(): MsgCreateValidator {
   return {
     description: Description.fromPartial({}),
     commission: CommissionRates.fromPartial({}),
-    minSelfDelegation: '',
-    delegatorAddress: '',
-    validatorAddress: '',
+    minSelfDelegation: "",
+    delegatorAddress: "",
+    validatorAddress: "",
     pubkey: undefined,
     value: Coin.fromPartial({})
   };
 }
 export const MsgCreateValidator = {
-  typeUrl: '/cosmos.staking.v1beta1.MsgCreateValidator',
-  aminoType: 'cosmos-sdk/MsgCreateValidator',
+  typeUrl: "/cosmos.staking.v1beta1.MsgCreateValidator",
+  aminoType: "cosmos-sdk/MsgCreateValidator",
   is(o: any): o is MsgCreateValidator {
-    return o && (o.$typeUrl === MsgCreateValidator.typeUrl || Description.is(o.description) && CommissionRates.is(o.commission) && typeof o.minSelfDelegation === 'string' && typeof o.delegatorAddress === 'string' && typeof o.validatorAddress === 'string' && Coin.is(o.value));
+    return o && (o.$typeUrl === MsgCreateValidator.typeUrl || Description.is(o.description) && CommissionRates.is(o.commission) && typeof o.minSelfDelegation === "string" && typeof o.delegatorAddress === "string" && typeof o.validatorAddress === "string" && Coin.is(o.value));
   },
   isSDK(o: any): o is MsgCreateValidatorSDKType {
-    return o && (o.$typeUrl === MsgCreateValidator.typeUrl || Description.isSDK(o.description) && CommissionRates.isSDK(o.commission) && typeof o.min_self_delegation === 'string' && typeof o.delegator_address === 'string' && typeof o.validator_address === 'string' && Coin.isSDK(o.value));
+    return o && (o.$typeUrl === MsgCreateValidator.typeUrl || Description.isSDK(o.description) && CommissionRates.isSDK(o.commission) && typeof o.min_self_delegation === "string" && typeof o.delegator_address === "string" && typeof o.validator_address === "string" && Coin.isSDK(o.value));
   },
   isAmino(o: any): o is MsgCreateValidatorAmino {
-    return o && (o.$typeUrl === MsgCreateValidator.typeUrl || Description.isAmino(o.description) && CommissionRates.isAmino(o.commission) && typeof o.min_self_delegation === 'string' && typeof o.delegator_address === 'string' && typeof o.validator_address === 'string' && Coin.isAmino(o.value));
+    return o && (o.$typeUrl === MsgCreateValidator.typeUrl || Description.isAmino(o.description) && CommissionRates.isAmino(o.commission) && typeof o.min_self_delegation === "string" && typeof o.delegator_address === "string" && typeof o.validator_address === "string" && Coin.isAmino(o.value));
   },
   encode(message: MsgCreateValidator, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.description !== undefined) {
@@ -311,13 +310,13 @@ export const MsgCreateValidator = {
     if (message.commission !== undefined) {
       CommissionRates.encode(message.commission, writer.uint32(18).fork()).ldelim();
     }
-    if (message.minSelfDelegation !== '') {
+    if (message.minSelfDelegation !== "") {
       writer.uint32(26).string(message.minSelfDelegation);
     }
-    if (message.delegatorAddress !== '') {
+    if (message.delegatorAddress !== "") {
       writer.uint32(34).string(message.delegatorAddress);
     }
-    if (message.validatorAddress !== '') {
+    if (message.validatorAddress !== "") {
       writer.uint32(42).string(message.validatorAddress);
     }
     if (message.pubkey !== undefined) {
@@ -335,30 +334,30 @@ export const MsgCreateValidator = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.description = Description.decode(reader, reader.uint32());
-        break;
-      case 2:
-        message.commission = CommissionRates.decode(reader, reader.uint32());
-        break;
-      case 3:
-        message.minSelfDelegation = reader.string();
-        break;
-      case 4:
-        message.delegatorAddress = reader.string();
-        break;
-      case 5:
-        message.validatorAddress = reader.string();
-        break;
-      case 6:
-        message.pubkey = GlobalDecoderRegistry.unwrapAny(reader);
-        break;
-      case 7:
-        message.value = Coin.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.description = Description.decode(reader, reader.uint32());
+          break;
+        case 2:
+          message.commission = CommissionRates.decode(reader, reader.uint32());
+          break;
+        case 3:
+          message.minSelfDelegation = reader.string();
+          break;
+        case 4:
+          message.delegatorAddress = reader.string();
+          break;
+        case 5:
+          message.validatorAddress = reader.string();
+          break;
+        case 6:
+          message.pubkey = GlobalDecoderRegistry.unwrapAny(reader);
+          break;
+        case 7:
+          message.value = Coin.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -367,9 +366,9 @@ export const MsgCreateValidator = {
     const message = createBaseMsgCreateValidator();
     message.description = object.description !== undefined && object.description !== null ? Description.fromPartial(object.description) : undefined;
     message.commission = object.commission !== undefined && object.commission !== null ? CommissionRates.fromPartial(object.commission) : undefined;
-    message.minSelfDelegation = object.minSelfDelegation ?? '';
-    message.delegatorAddress = object.delegatorAddress ?? '';
-    message.validatorAddress = object.validatorAddress ?? '';
+    message.minSelfDelegation = object.minSelfDelegation ?? "";
+    message.delegatorAddress = object.delegatorAddress ?? "";
+    message.validatorAddress = object.validatorAddress ?? "";
     message.pubkey = object.pubkey !== undefined && object.pubkey !== null ? GlobalDecoderRegistry.fromPartial(object.pubkey) : undefined;
     message.value = object.value !== undefined && object.value !== null ? Coin.fromPartial(object.value) : undefined;
     return message;
@@ -403,9 +402,9 @@ export const MsgCreateValidator = {
     const obj: any = {};
     obj.description = message.description ? Description.toAmino(message.description) : undefined;
     obj.commission = message.commission ? CommissionRates.toAmino(message.commission) : undefined;
-    obj.min_self_delegation = message.minSelfDelegation === '' ? undefined : message.minSelfDelegation;
-    obj.delegator_address = message.delegatorAddress === '' ? undefined : message.delegatorAddress;
-    obj.validator_address = message.validatorAddress === '' ? undefined : message.validatorAddress;
+    obj.min_self_delegation = message.minSelfDelegation === "" ? undefined : message.minSelfDelegation;
+    obj.delegator_address = message.delegatorAddress === "" ? undefined : message.delegatorAddress;
+    obj.validator_address = message.validatorAddress === "" ? undefined : message.validatorAddress;
     obj.pubkey = message.pubkey ? decodePubkey(message.pubkey) : undefined;
     obj.value = message.value ? Coin.toAmino(message.value) : undefined;
     return obj;
@@ -415,7 +414,7 @@ export const MsgCreateValidator = {
   },
   toAminoMsg(message: MsgCreateValidator): MsgCreateValidatorAminoMsg {
     return {
-      type: 'cosmos-sdk/MsgCreateValidator',
+      type: "cosmos-sdk/MsgCreateValidator",
       value: MsgCreateValidator.toAmino(message)
     };
   },
@@ -427,7 +426,7 @@ export const MsgCreateValidator = {
   },
   toProtoMsg(message: MsgCreateValidator): MsgCreateValidatorProtoMsg {
     return {
-      typeUrl: '/cosmos.staking.v1beta1.MsgCreateValidator',
+      typeUrl: "/cosmos.staking.v1beta1.MsgCreateValidator",
       value: MsgCreateValidator.encode(message).finish()
     };
   }
@@ -438,8 +437,8 @@ function createBaseMsgCreateValidatorResponse(): MsgCreateValidatorResponse {
   return {};
 }
 export const MsgCreateValidatorResponse = {
-  typeUrl: '/cosmos.staking.v1beta1.MsgCreateValidatorResponse',
-  aminoType: 'cosmos-sdk/MsgCreateValidatorResponse',
+  typeUrl: "/cosmos.staking.v1beta1.MsgCreateValidatorResponse",
+  aminoType: "cosmos-sdk/MsgCreateValidatorResponse",
   is(o: any): o is MsgCreateValidatorResponse {
     return o && o.$typeUrl === MsgCreateValidatorResponse.typeUrl;
   },
@@ -459,9 +458,9 @@ export const MsgCreateValidatorResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      default:
-        reader.skipType(tag & 7);
-        break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -483,7 +482,7 @@ export const MsgCreateValidatorResponse = {
   },
   toAminoMsg(message: MsgCreateValidatorResponse): MsgCreateValidatorResponseAminoMsg {
     return {
-      type: 'cosmos-sdk/MsgCreateValidatorResponse',
+      type: "cosmos-sdk/MsgCreateValidatorResponse",
       value: MsgCreateValidatorResponse.toAmino(message)
     };
   },
@@ -495,7 +494,7 @@ export const MsgCreateValidatorResponse = {
   },
   toProtoMsg(message: MsgCreateValidatorResponse): MsgCreateValidatorResponseProtoMsg {
     return {
-      typeUrl: '/cosmos.staking.v1beta1.MsgCreateValidatorResponse',
+      typeUrl: "/cosmos.staking.v1beta1.MsgCreateValidatorResponse",
       value: MsgCreateValidatorResponse.encode(message).finish()
     };
   }
@@ -505,34 +504,34 @@ GlobalDecoderRegistry.registerAminoProtoMapping(MsgCreateValidatorResponse.amino
 function createBaseMsgEditValidator(): MsgEditValidator {
   return {
     description: Description.fromPartial({}),
-    validatorAddress: '',
-    commissionRate: '',
-    minSelfDelegation: ''
+    validatorAddress: "",
+    commissionRate: "",
+    minSelfDelegation: ""
   };
 }
 export const MsgEditValidator = {
-  typeUrl: '/cosmos.staking.v1beta1.MsgEditValidator',
-  aminoType: 'cosmos-sdk/MsgEditValidator',
+  typeUrl: "/cosmos.staking.v1beta1.MsgEditValidator",
+  aminoType: "cosmos-sdk/MsgEditValidator",
   is(o: any): o is MsgEditValidator {
-    return o && (o.$typeUrl === MsgEditValidator.typeUrl || Description.is(o.description) && typeof o.validatorAddress === 'string' && typeof o.commissionRate === 'string' && typeof o.minSelfDelegation === 'string');
+    return o && (o.$typeUrl === MsgEditValidator.typeUrl || Description.is(o.description) && typeof o.validatorAddress === "string" && typeof o.commissionRate === "string" && typeof o.minSelfDelegation === "string");
   },
   isSDK(o: any): o is MsgEditValidatorSDKType {
-    return o && (o.$typeUrl === MsgEditValidator.typeUrl || Description.isSDK(o.description) && typeof o.validator_address === 'string' && typeof o.commission_rate === 'string' && typeof o.min_self_delegation === 'string');
+    return o && (o.$typeUrl === MsgEditValidator.typeUrl || Description.isSDK(o.description) && typeof o.validator_address === "string" && typeof o.commission_rate === "string" && typeof o.min_self_delegation === "string");
   },
   isAmino(o: any): o is MsgEditValidatorAmino {
-    return o && (o.$typeUrl === MsgEditValidator.typeUrl || Description.isAmino(o.description) && typeof o.validator_address === 'string' && typeof o.commission_rate === 'string' && typeof o.min_self_delegation === 'string');
+    return o && (o.$typeUrl === MsgEditValidator.typeUrl || Description.isAmino(o.description) && typeof o.validator_address === "string" && typeof o.commission_rate === "string" && typeof o.min_self_delegation === "string");
   },
   encode(message: MsgEditValidator, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.description !== undefined) {
       Description.encode(message.description, writer.uint32(10).fork()).ldelim();
     }
-    if (message.validatorAddress !== '') {
+    if (message.validatorAddress !== "") {
       writer.uint32(18).string(message.validatorAddress);
     }
-    if (message.commissionRate !== '') {
+    if (message.commissionRate !== "") {
       writer.uint32(26).string(Decimal.fromUserInput(message.commissionRate, 18).atomics);
     }
-    if (message.minSelfDelegation !== '') {
+    if (message.minSelfDelegation !== "") {
       writer.uint32(34).string(message.minSelfDelegation);
     }
     return writer;
@@ -544,21 +543,21 @@ export const MsgEditValidator = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.description = Description.decode(reader, reader.uint32());
-        break;
-      case 2:
-        message.validatorAddress = reader.string();
-        break;
-      case 3:
-        message.commissionRate = Decimal.fromAtomics(reader.string(), 18).toString();
-        break;
-      case 4:
-        message.minSelfDelegation = reader.string();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.description = Description.decode(reader, reader.uint32());
+          break;
+        case 2:
+          message.validatorAddress = reader.string();
+          break;
+        case 3:
+          message.commissionRate = Decimal.fromAtomics(reader.string(), 18).toString();
+          break;
+        case 4:
+          message.minSelfDelegation = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -566,9 +565,9 @@ export const MsgEditValidator = {
   fromPartial(object: Partial<MsgEditValidator>): MsgEditValidator {
     const message = createBaseMsgEditValidator();
     message.description = object.description !== undefined && object.description !== null ? Description.fromPartial(object.description) : undefined;
-    message.validatorAddress = object.validatorAddress ?? '';
-    message.commissionRate = object.commissionRate ?? '';
-    message.minSelfDelegation = object.minSelfDelegation ?? '';
+    message.validatorAddress = object.validatorAddress ?? "";
+    message.commissionRate = object.commissionRate ?? "";
+    message.minSelfDelegation = object.minSelfDelegation ?? "";
     return message;
   },
   fromAmino(object: MsgEditValidatorAmino): MsgEditValidator {
@@ -590,9 +589,9 @@ export const MsgEditValidator = {
   toAmino(message: MsgEditValidator): MsgEditValidatorAmino {
     const obj: any = {};
     obj.description = message.description ? Description.toAmino(message.description) : undefined;
-    obj.validator_address = message.validatorAddress === '' ? undefined : message.validatorAddress;
-    obj.commission_rate = message.commissionRate === '' ? undefined : message.commissionRate;
-    obj.min_self_delegation = message.minSelfDelegation === '' ? undefined : message.minSelfDelegation;
+    obj.validator_address = message.validatorAddress === "" ? undefined : message.validatorAddress;
+    obj.commission_rate = message.commissionRate === "" ? undefined : message.commissionRate;
+    obj.min_self_delegation = message.minSelfDelegation === "" ? undefined : message.minSelfDelegation;
     return obj;
   },
   fromAminoMsg(object: MsgEditValidatorAminoMsg): MsgEditValidator {
@@ -600,7 +599,7 @@ export const MsgEditValidator = {
   },
   toAminoMsg(message: MsgEditValidator): MsgEditValidatorAminoMsg {
     return {
-      type: 'cosmos-sdk/MsgEditValidator',
+      type: "cosmos-sdk/MsgEditValidator",
       value: MsgEditValidator.toAmino(message)
     };
   },
@@ -612,7 +611,7 @@ export const MsgEditValidator = {
   },
   toProtoMsg(message: MsgEditValidator): MsgEditValidatorProtoMsg {
     return {
-      typeUrl: '/cosmos.staking.v1beta1.MsgEditValidator',
+      typeUrl: "/cosmos.staking.v1beta1.MsgEditValidator",
       value: MsgEditValidator.encode(message).finish()
     };
   }
@@ -623,8 +622,8 @@ function createBaseMsgEditValidatorResponse(): MsgEditValidatorResponse {
   return {};
 }
 export const MsgEditValidatorResponse = {
-  typeUrl: '/cosmos.staking.v1beta1.MsgEditValidatorResponse',
-  aminoType: 'cosmos-sdk/MsgEditValidatorResponse',
+  typeUrl: "/cosmos.staking.v1beta1.MsgEditValidatorResponse",
+  aminoType: "cosmos-sdk/MsgEditValidatorResponse",
   is(o: any): o is MsgEditValidatorResponse {
     return o && o.$typeUrl === MsgEditValidatorResponse.typeUrl;
   },
@@ -644,9 +643,9 @@ export const MsgEditValidatorResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      default:
-        reader.skipType(tag & 7);
-        break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -668,7 +667,7 @@ export const MsgEditValidatorResponse = {
   },
   toAminoMsg(message: MsgEditValidatorResponse): MsgEditValidatorResponseAminoMsg {
     return {
-      type: 'cosmos-sdk/MsgEditValidatorResponse',
+      type: "cosmos-sdk/MsgEditValidatorResponse",
       value: MsgEditValidatorResponse.toAmino(message)
     };
   },
@@ -680,7 +679,7 @@ export const MsgEditValidatorResponse = {
   },
   toProtoMsg(message: MsgEditValidatorResponse): MsgEditValidatorResponseProtoMsg {
     return {
-      typeUrl: '/cosmos.staking.v1beta1.MsgEditValidatorResponse',
+      typeUrl: "/cosmos.staking.v1beta1.MsgEditValidatorResponse",
       value: MsgEditValidatorResponse.encode(message).finish()
     };
   }
@@ -689,28 +688,28 @@ GlobalDecoderRegistry.register(MsgEditValidatorResponse.typeUrl, MsgEditValidato
 GlobalDecoderRegistry.registerAminoProtoMapping(MsgEditValidatorResponse.aminoType, MsgEditValidatorResponse.typeUrl);
 function createBaseMsgDelegate(): MsgDelegate {
   return {
-    delegatorAddress: '',
-    validatorAddress: '',
+    delegatorAddress: "",
+    validatorAddress: "",
     amount: Coin.fromPartial({})
   };
 }
 export const MsgDelegate = {
-  typeUrl: '/cosmos.staking.v1beta1.MsgDelegate',
-  aminoType: 'cosmos-sdk/MsgDelegate',
+  typeUrl: "/cosmos.staking.v1beta1.MsgDelegate",
+  aminoType: "cosmos-sdk/MsgDelegate",
   is(o: any): o is MsgDelegate {
-    return o && (o.$typeUrl === MsgDelegate.typeUrl || typeof o.delegatorAddress === 'string' && typeof o.validatorAddress === 'string' && Coin.is(o.amount));
+    return o && (o.$typeUrl === MsgDelegate.typeUrl || typeof o.delegatorAddress === "string" && typeof o.validatorAddress === "string" && Coin.is(o.amount));
   },
   isSDK(o: any): o is MsgDelegateSDKType {
-    return o && (o.$typeUrl === MsgDelegate.typeUrl || typeof o.delegator_address === 'string' && typeof o.validator_address === 'string' && Coin.isSDK(o.amount));
+    return o && (o.$typeUrl === MsgDelegate.typeUrl || typeof o.delegator_address === "string" && typeof o.validator_address === "string" && Coin.isSDK(o.amount));
   },
   isAmino(o: any): o is MsgDelegateAmino {
-    return o && (o.$typeUrl === MsgDelegate.typeUrl || typeof o.delegator_address === 'string' && typeof o.validator_address === 'string' && Coin.isAmino(o.amount));
+    return o && (o.$typeUrl === MsgDelegate.typeUrl || typeof o.delegator_address === "string" && typeof o.validator_address === "string" && Coin.isAmino(o.amount));
   },
   encode(message: MsgDelegate, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.delegatorAddress !== '') {
+    if (message.delegatorAddress !== "") {
       writer.uint32(10).string(message.delegatorAddress);
     }
-    if (message.validatorAddress !== '') {
+    if (message.validatorAddress !== "") {
       writer.uint32(18).string(message.validatorAddress);
     }
     if (message.amount !== undefined) {
@@ -725,26 +724,26 @@ export const MsgDelegate = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.delegatorAddress = reader.string();
-        break;
-      case 2:
-        message.validatorAddress = reader.string();
-        break;
-      case 3:
-        message.amount = Coin.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.delegatorAddress = reader.string();
+          break;
+        case 2:
+          message.validatorAddress = reader.string();
+          break;
+        case 3:
+          message.amount = Coin.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<MsgDelegate>): MsgDelegate {
     const message = createBaseMsgDelegate();
-    message.delegatorAddress = object.delegatorAddress ?? '';
-    message.validatorAddress = object.validatorAddress ?? '';
+    message.delegatorAddress = object.delegatorAddress ?? "";
+    message.validatorAddress = object.validatorAddress ?? "";
     message.amount = object.amount !== undefined && object.amount !== null ? Coin.fromPartial(object.amount) : undefined;
     return message;
   },
@@ -763,8 +762,8 @@ export const MsgDelegate = {
   },
   toAmino(message: MsgDelegate): MsgDelegateAmino {
     const obj: any = {};
-    obj.delegator_address = message.delegatorAddress === '' ? undefined : message.delegatorAddress;
-    obj.validator_address = message.validatorAddress === '' ? undefined : message.validatorAddress;
+    obj.delegator_address = message.delegatorAddress === "" ? undefined : message.delegatorAddress;
+    obj.validator_address = message.validatorAddress === "" ? undefined : message.validatorAddress;
     obj.amount = message.amount ? Coin.toAmino(message.amount) : undefined;
     return obj;
   },
@@ -773,7 +772,7 @@ export const MsgDelegate = {
   },
   toAminoMsg(message: MsgDelegate): MsgDelegateAminoMsg {
     return {
-      type: 'cosmos-sdk/MsgDelegate',
+      type: "cosmos-sdk/MsgDelegate",
       value: MsgDelegate.toAmino(message)
     };
   },
@@ -785,7 +784,7 @@ export const MsgDelegate = {
   },
   toProtoMsg(message: MsgDelegate): MsgDelegateProtoMsg {
     return {
-      typeUrl: '/cosmos.staking.v1beta1.MsgDelegate',
+      typeUrl: "/cosmos.staking.v1beta1.MsgDelegate",
       value: MsgDelegate.encode(message).finish()
     };
   }
@@ -796,8 +795,8 @@ function createBaseMsgDelegateResponse(): MsgDelegateResponse {
   return {};
 }
 export const MsgDelegateResponse = {
-  typeUrl: '/cosmos.staking.v1beta1.MsgDelegateResponse',
-  aminoType: 'cosmos-sdk/MsgDelegateResponse',
+  typeUrl: "/cosmos.staking.v1beta1.MsgDelegateResponse",
+  aminoType: "cosmos-sdk/MsgDelegateResponse",
   is(o: any): o is MsgDelegateResponse {
     return o && o.$typeUrl === MsgDelegateResponse.typeUrl;
   },
@@ -817,9 +816,9 @@ export const MsgDelegateResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      default:
-        reader.skipType(tag & 7);
-        break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -841,7 +840,7 @@ export const MsgDelegateResponse = {
   },
   toAminoMsg(message: MsgDelegateResponse): MsgDelegateResponseAminoMsg {
     return {
-      type: 'cosmos-sdk/MsgDelegateResponse',
+      type: "cosmos-sdk/MsgDelegateResponse",
       value: MsgDelegateResponse.toAmino(message)
     };
   },
@@ -853,7 +852,7 @@ export const MsgDelegateResponse = {
   },
   toProtoMsg(message: MsgDelegateResponse): MsgDelegateResponseProtoMsg {
     return {
-      typeUrl: '/cosmos.staking.v1beta1.MsgDelegateResponse',
+      typeUrl: "/cosmos.staking.v1beta1.MsgDelegateResponse",
       value: MsgDelegateResponse.encode(message).finish()
     };
   }
@@ -862,32 +861,32 @@ GlobalDecoderRegistry.register(MsgDelegateResponse.typeUrl, MsgDelegateResponse)
 GlobalDecoderRegistry.registerAminoProtoMapping(MsgDelegateResponse.aminoType, MsgDelegateResponse.typeUrl);
 function createBaseMsgBeginRedelegate(): MsgBeginRedelegate {
   return {
-    delegatorAddress: '',
-    validatorSrcAddress: '',
-    validatorDstAddress: '',
+    delegatorAddress: "",
+    validatorSrcAddress: "",
+    validatorDstAddress: "",
     amount: Coin.fromPartial({})
   };
 }
 export const MsgBeginRedelegate = {
-  typeUrl: '/cosmos.staking.v1beta1.MsgBeginRedelegate',
-  aminoType: 'cosmos-sdk/MsgBeginRedelegate',
+  typeUrl: "/cosmos.staking.v1beta1.MsgBeginRedelegate",
+  aminoType: "cosmos-sdk/MsgBeginRedelegate",
   is(o: any): o is MsgBeginRedelegate {
-    return o && (o.$typeUrl === MsgBeginRedelegate.typeUrl || typeof o.delegatorAddress === 'string' && typeof o.validatorSrcAddress === 'string' && typeof o.validatorDstAddress === 'string' && Coin.is(o.amount));
+    return o && (o.$typeUrl === MsgBeginRedelegate.typeUrl || typeof o.delegatorAddress === "string" && typeof o.validatorSrcAddress === "string" && typeof o.validatorDstAddress === "string" && Coin.is(o.amount));
   },
   isSDK(o: any): o is MsgBeginRedelegateSDKType {
-    return o && (o.$typeUrl === MsgBeginRedelegate.typeUrl || typeof o.delegator_address === 'string' && typeof o.validator_src_address === 'string' && typeof o.validator_dst_address === 'string' && Coin.isSDK(o.amount));
+    return o && (o.$typeUrl === MsgBeginRedelegate.typeUrl || typeof o.delegator_address === "string" && typeof o.validator_src_address === "string" && typeof o.validator_dst_address === "string" && Coin.isSDK(o.amount));
   },
   isAmino(o: any): o is MsgBeginRedelegateAmino {
-    return o && (o.$typeUrl === MsgBeginRedelegate.typeUrl || typeof o.delegator_address === 'string' && typeof o.validator_src_address === 'string' && typeof o.validator_dst_address === 'string' && Coin.isAmino(o.amount));
+    return o && (o.$typeUrl === MsgBeginRedelegate.typeUrl || typeof o.delegator_address === "string" && typeof o.validator_src_address === "string" && typeof o.validator_dst_address === "string" && Coin.isAmino(o.amount));
   },
   encode(message: MsgBeginRedelegate, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.delegatorAddress !== '') {
+    if (message.delegatorAddress !== "") {
       writer.uint32(10).string(message.delegatorAddress);
     }
-    if (message.validatorSrcAddress !== '') {
+    if (message.validatorSrcAddress !== "") {
       writer.uint32(18).string(message.validatorSrcAddress);
     }
-    if (message.validatorDstAddress !== '') {
+    if (message.validatorDstAddress !== "") {
       writer.uint32(26).string(message.validatorDstAddress);
     }
     if (message.amount !== undefined) {
@@ -902,30 +901,30 @@ export const MsgBeginRedelegate = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.delegatorAddress = reader.string();
-        break;
-      case 2:
-        message.validatorSrcAddress = reader.string();
-        break;
-      case 3:
-        message.validatorDstAddress = reader.string();
-        break;
-      case 4:
-        message.amount = Coin.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.delegatorAddress = reader.string();
+          break;
+        case 2:
+          message.validatorSrcAddress = reader.string();
+          break;
+        case 3:
+          message.validatorDstAddress = reader.string();
+          break;
+        case 4:
+          message.amount = Coin.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<MsgBeginRedelegate>): MsgBeginRedelegate {
     const message = createBaseMsgBeginRedelegate();
-    message.delegatorAddress = object.delegatorAddress ?? '';
-    message.validatorSrcAddress = object.validatorSrcAddress ?? '';
-    message.validatorDstAddress = object.validatorDstAddress ?? '';
+    message.delegatorAddress = object.delegatorAddress ?? "";
+    message.validatorSrcAddress = object.validatorSrcAddress ?? "";
+    message.validatorDstAddress = object.validatorDstAddress ?? "";
     message.amount = object.amount !== undefined && object.amount !== null ? Coin.fromPartial(object.amount) : undefined;
     return message;
   },
@@ -947,9 +946,9 @@ export const MsgBeginRedelegate = {
   },
   toAmino(message: MsgBeginRedelegate): MsgBeginRedelegateAmino {
     const obj: any = {};
-    obj.delegator_address = message.delegatorAddress === '' ? undefined : message.delegatorAddress;
-    obj.validator_src_address = message.validatorSrcAddress === '' ? undefined : message.validatorSrcAddress;
-    obj.validator_dst_address = message.validatorDstAddress === '' ? undefined : message.validatorDstAddress;
+    obj.delegator_address = message.delegatorAddress === "" ? undefined : message.delegatorAddress;
+    obj.validator_src_address = message.validatorSrcAddress === "" ? undefined : message.validatorSrcAddress;
+    obj.validator_dst_address = message.validatorDstAddress === "" ? undefined : message.validatorDstAddress;
     obj.amount = message.amount ? Coin.toAmino(message.amount) : undefined;
     return obj;
   },
@@ -958,7 +957,7 @@ export const MsgBeginRedelegate = {
   },
   toAminoMsg(message: MsgBeginRedelegate): MsgBeginRedelegateAminoMsg {
     return {
-      type: 'cosmos-sdk/MsgBeginRedelegate',
+      type: "cosmos-sdk/MsgBeginRedelegate",
       value: MsgBeginRedelegate.toAmino(message)
     };
   },
@@ -970,7 +969,7 @@ export const MsgBeginRedelegate = {
   },
   toProtoMsg(message: MsgBeginRedelegate): MsgBeginRedelegateProtoMsg {
     return {
-      typeUrl: '/cosmos.staking.v1beta1.MsgBeginRedelegate',
+      typeUrl: "/cosmos.staking.v1beta1.MsgBeginRedelegate",
       value: MsgBeginRedelegate.encode(message).finish()
     };
   }
@@ -983,8 +982,8 @@ function createBaseMsgBeginRedelegateResponse(): MsgBeginRedelegateResponse {
   };
 }
 export const MsgBeginRedelegateResponse = {
-  typeUrl: '/cosmos.staking.v1beta1.MsgBeginRedelegateResponse',
-  aminoType: 'cosmos-sdk/MsgBeginRedelegateResponse',
+  typeUrl: "/cosmos.staking.v1beta1.MsgBeginRedelegateResponse",
+  aminoType: "cosmos-sdk/MsgBeginRedelegateResponse",
   is(o: any): o is MsgBeginRedelegateResponse {
     return o && (o.$typeUrl === MsgBeginRedelegateResponse.typeUrl || Timestamp.is(o.completionTime));
   },
@@ -1007,12 +1006,12 @@ export const MsgBeginRedelegateResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.completionTime = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.completionTime = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1039,7 +1038,7 @@ export const MsgBeginRedelegateResponse = {
   },
   toAminoMsg(message: MsgBeginRedelegateResponse): MsgBeginRedelegateResponseAminoMsg {
     return {
-      type: 'cosmos-sdk/MsgBeginRedelegateResponse',
+      type: "cosmos-sdk/MsgBeginRedelegateResponse",
       value: MsgBeginRedelegateResponse.toAmino(message)
     };
   },
@@ -1051,7 +1050,7 @@ export const MsgBeginRedelegateResponse = {
   },
   toProtoMsg(message: MsgBeginRedelegateResponse): MsgBeginRedelegateResponseProtoMsg {
     return {
-      typeUrl: '/cosmos.staking.v1beta1.MsgBeginRedelegateResponse',
+      typeUrl: "/cosmos.staking.v1beta1.MsgBeginRedelegateResponse",
       value: MsgBeginRedelegateResponse.encode(message).finish()
     };
   }
@@ -1060,28 +1059,28 @@ GlobalDecoderRegistry.register(MsgBeginRedelegateResponse.typeUrl, MsgBeginRedel
 GlobalDecoderRegistry.registerAminoProtoMapping(MsgBeginRedelegateResponse.aminoType, MsgBeginRedelegateResponse.typeUrl);
 function createBaseMsgUndelegate(): MsgUndelegate {
   return {
-    delegatorAddress: '',
-    validatorAddress: '',
+    delegatorAddress: "",
+    validatorAddress: "",
     amount: Coin.fromPartial({})
   };
 }
 export const MsgUndelegate = {
-  typeUrl: '/cosmos.staking.v1beta1.MsgUndelegate',
-  aminoType: 'cosmos-sdk/MsgUndelegate',
+  typeUrl: "/cosmos.staking.v1beta1.MsgUndelegate",
+  aminoType: "cosmos-sdk/MsgUndelegate",
   is(o: any): o is MsgUndelegate {
-    return o && (o.$typeUrl === MsgUndelegate.typeUrl || typeof o.delegatorAddress === 'string' && typeof o.validatorAddress === 'string' && Coin.is(o.amount));
+    return o && (o.$typeUrl === MsgUndelegate.typeUrl || typeof o.delegatorAddress === "string" && typeof o.validatorAddress === "string" && Coin.is(o.amount));
   },
   isSDK(o: any): o is MsgUndelegateSDKType {
-    return o && (o.$typeUrl === MsgUndelegate.typeUrl || typeof o.delegator_address === 'string' && typeof o.validator_address === 'string' && Coin.isSDK(o.amount));
+    return o && (o.$typeUrl === MsgUndelegate.typeUrl || typeof o.delegator_address === "string" && typeof o.validator_address === "string" && Coin.isSDK(o.amount));
   },
   isAmino(o: any): o is MsgUndelegateAmino {
-    return o && (o.$typeUrl === MsgUndelegate.typeUrl || typeof o.delegator_address === 'string' && typeof o.validator_address === 'string' && Coin.isAmino(o.amount));
+    return o && (o.$typeUrl === MsgUndelegate.typeUrl || typeof o.delegator_address === "string" && typeof o.validator_address === "string" && Coin.isAmino(o.amount));
   },
   encode(message: MsgUndelegate, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.delegatorAddress !== '') {
+    if (message.delegatorAddress !== "") {
       writer.uint32(10).string(message.delegatorAddress);
     }
-    if (message.validatorAddress !== '') {
+    if (message.validatorAddress !== "") {
       writer.uint32(18).string(message.validatorAddress);
     }
     if (message.amount !== undefined) {
@@ -1096,26 +1095,26 @@ export const MsgUndelegate = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.delegatorAddress = reader.string();
-        break;
-      case 2:
-        message.validatorAddress = reader.string();
-        break;
-      case 3:
-        message.amount = Coin.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.delegatorAddress = reader.string();
+          break;
+        case 2:
+          message.validatorAddress = reader.string();
+          break;
+        case 3:
+          message.amount = Coin.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<MsgUndelegate>): MsgUndelegate {
     const message = createBaseMsgUndelegate();
-    message.delegatorAddress = object.delegatorAddress ?? '';
-    message.validatorAddress = object.validatorAddress ?? '';
+    message.delegatorAddress = object.delegatorAddress ?? "";
+    message.validatorAddress = object.validatorAddress ?? "";
     message.amount = object.amount !== undefined && object.amount !== null ? Coin.fromPartial(object.amount) : undefined;
     return message;
   },
@@ -1134,8 +1133,8 @@ export const MsgUndelegate = {
   },
   toAmino(message: MsgUndelegate): MsgUndelegateAmino {
     const obj: any = {};
-    obj.delegator_address = message.delegatorAddress === '' ? undefined : message.delegatorAddress;
-    obj.validator_address = message.validatorAddress === '' ? undefined : message.validatorAddress;
+    obj.delegator_address = message.delegatorAddress === "" ? undefined : message.delegatorAddress;
+    obj.validator_address = message.validatorAddress === "" ? undefined : message.validatorAddress;
     obj.amount = message.amount ? Coin.toAmino(message.amount) : undefined;
     return obj;
   },
@@ -1144,7 +1143,7 @@ export const MsgUndelegate = {
   },
   toAminoMsg(message: MsgUndelegate): MsgUndelegateAminoMsg {
     return {
-      type: 'cosmos-sdk/MsgUndelegate',
+      type: "cosmos-sdk/MsgUndelegate",
       value: MsgUndelegate.toAmino(message)
     };
   },
@@ -1156,7 +1155,7 @@ export const MsgUndelegate = {
   },
   toProtoMsg(message: MsgUndelegate): MsgUndelegateProtoMsg {
     return {
-      typeUrl: '/cosmos.staking.v1beta1.MsgUndelegate',
+      typeUrl: "/cosmos.staking.v1beta1.MsgUndelegate",
       value: MsgUndelegate.encode(message).finish()
     };
   }
@@ -1169,8 +1168,8 @@ function createBaseMsgUndelegateResponse(): MsgUndelegateResponse {
   };
 }
 export const MsgUndelegateResponse = {
-  typeUrl: '/cosmos.staking.v1beta1.MsgUndelegateResponse',
-  aminoType: 'cosmos-sdk/MsgUndelegateResponse',
+  typeUrl: "/cosmos.staking.v1beta1.MsgUndelegateResponse",
+  aminoType: "cosmos-sdk/MsgUndelegateResponse",
   is(o: any): o is MsgUndelegateResponse {
     return o && (o.$typeUrl === MsgUndelegateResponse.typeUrl || Timestamp.is(o.completionTime));
   },
@@ -1193,12 +1192,12 @@ export const MsgUndelegateResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.completionTime = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.completionTime = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1225,7 +1224,7 @@ export const MsgUndelegateResponse = {
   },
   toAminoMsg(message: MsgUndelegateResponse): MsgUndelegateResponseAminoMsg {
     return {
-      type: 'cosmos-sdk/MsgUndelegateResponse',
+      type: "cosmos-sdk/MsgUndelegateResponse",
       value: MsgUndelegateResponse.toAmino(message)
     };
   },
@@ -1237,7 +1236,7 @@ export const MsgUndelegateResponse = {
   },
   toProtoMsg(message: MsgUndelegateResponse): MsgUndelegateResponseProtoMsg {
     return {
-      typeUrl: '/cosmos.staking.v1beta1.MsgUndelegateResponse',
+      typeUrl: "/cosmos.staking.v1beta1.MsgUndelegateResponse",
       value: MsgUndelegateResponse.encode(message).finish()
     };
   }

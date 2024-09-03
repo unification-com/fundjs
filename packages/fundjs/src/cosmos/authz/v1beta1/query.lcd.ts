@@ -1,8 +1,7 @@
 //@ts-nocheck
-import { LCDClient } from '@cosmology/lcd';
-
-import { setPaginationParams } from '../../../helpers';
-import { QueryGranteeGrantsRequest, QueryGranteeGrantsResponseSDKType,QueryGranterGrantsRequest, QueryGranterGrantsResponseSDKType, QueryGrantsRequest, QueryGrantsResponseSDKType } from './query';
+import { setPaginationParams } from "../../../helpers";
+import { LCDClient } from "@cosmology/lcd";
+import { QueryGrantsRequest, QueryGrantsResponseSDKType, QueryGranterGrantsRequest, QueryGranterGrantsResponseSDKType, QueryGranteeGrantsRequest, QueryGranteeGrantsResponseSDKType } from "./query";
 export class LCDQueryClient {
   req: LCDClient;
   constructor({
@@ -20,16 +19,16 @@ export class LCDQueryClient {
     const options: any = {
       params: {}
     };
-    if (typeof params?.granter !== 'undefined') {
+    if (typeof params?.granter !== "undefined") {
       options.params.granter = params.granter;
     }
-    if (typeof params?.grantee !== 'undefined') {
+    if (typeof params?.grantee !== "undefined") {
       options.params.grantee = params.grantee;
     }
-    if (typeof params?.msgTypeUrl !== 'undefined') {
+    if (typeof params?.msgTypeUrl !== "undefined") {
       options.params.msg_type_url = params.msgTypeUrl;
     }
-    if (typeof params?.pagination !== 'undefined') {
+    if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
     }
     const endpoint = `cosmos/authz/v1beta1/grants`;
@@ -42,7 +41,7 @@ export class LCDQueryClient {
     const options: any = {
       params: {}
     };
-    if (typeof params?.pagination !== 'undefined') {
+    if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
     }
     const endpoint = `cosmos/authz/v1beta1/grants/granter/${params.granter}`;
@@ -55,7 +54,7 @@ export class LCDQueryClient {
     const options: any = {
       params: {}
     };
-    if (typeof params?.pagination !== 'undefined') {
+    if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
     }
     const endpoint = `cosmos/authz/v1beta1/grants/grantee/${params.grantee}`;
