@@ -1,6 +1,6 @@
 {
   "name": "@unification-com/fundjs",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Paul Hodgson <codegnosis@users.noreply.github.com>",
   "description": "FUND JS",
   "main": "index.js",
