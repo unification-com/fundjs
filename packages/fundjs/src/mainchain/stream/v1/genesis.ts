@@ -1,15 +1,15 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from '../../../binary';
-import { GlobalDecoderRegistry } from '../../../registry';
-import { Params, ParamsAmino, ParamsSDKType } from './params';
-import { Stream, StreamAmino, StreamSDKType } from './stream';
+import { Params, ParamsAmino, ParamsSDKType } from "./params";
+import { Stream, StreamAmino, StreamSDKType } from "./stream";
+import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
 /** GenesisState defines the stream module's genesis state. */
 export interface GenesisState {
   params: Params;
   streams: StreamExport[];
 }
 export interface GenesisStateProtoMsg {
-  typeUrl: '/mainchain.stream.v1.GenesisState';
+  typeUrl: "/mainchain.stream.v1.GenesisState";
   value: Uint8Array;
 }
 /** GenesisState defines the stream module's genesis state. */
@@ -18,7 +18,7 @@ export interface GenesisStateAmino {
   streams?: StreamExportAmino[];
 }
 export interface GenesisStateAminoMsg {
-  type: '/mainchain.stream.v1.GenesisState';
+  type: "/mainchain.stream.v1.GenesisState";
   value: GenesisStateAmino;
 }
 /** GenesisState defines the stream module's genesis state. */
@@ -36,7 +36,7 @@ export interface StreamExport {
   stream: Stream;
 }
 export interface StreamExportProtoMsg {
-  typeUrl: '/mainchain.stream.v1.StreamExport';
+  typeUrl: "/mainchain.stream.v1.StreamExport";
   value: Uint8Array;
 }
 /** StreamExport holds genesis export data for a stream */
@@ -49,7 +49,7 @@ export interface StreamExportAmino {
   stream?: StreamAmino;
 }
 export interface StreamExportAminoMsg {
-  type: '/mainchain.stream.v1.StreamExport';
+  type: "/mainchain.stream.v1.StreamExport";
   value: StreamExportAmino;
 }
 /** StreamExport holds genesis export data for a stream */
@@ -65,7 +65,7 @@ function createBaseGenesisState(): GenesisState {
   };
 }
 export const GenesisState = {
-  typeUrl: '/mainchain.stream.v1.GenesisState',
+  typeUrl: "/mainchain.stream.v1.GenesisState",
   is(o: any): o is GenesisState {
     return o && (o.$typeUrl === GenesisState.typeUrl || Params.is(o.params) && Array.isArray(o.streams) && (!o.streams.length || StreamExport.is(o.streams[0])));
   },
@@ -91,15 +91,15 @@ export const GenesisState = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.params = Params.decode(reader, reader.uint32());
-        break;
-      case 2:
-        message.streams.push(StreamExport.decode(reader, reader.uint32()));
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.params = Params.decode(reader, reader.uint32());
+          break;
+        case 2:
+          message.streams.push(StreamExport.decode(reader, reader.uint32()));
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -139,7 +139,7 @@ export const GenesisState = {
   },
   toProtoMsg(message: GenesisState): GenesisStateProtoMsg {
     return {
-      typeUrl: '/mainchain.stream.v1.GenesisState',
+      typeUrl: "/mainchain.stream.v1.GenesisState",
       value: GenesisState.encode(message).finish()
     };
   }
@@ -147,27 +147,27 @@ export const GenesisState = {
 GlobalDecoderRegistry.register(GenesisState.typeUrl, GenesisState);
 function createBaseStreamExport(): StreamExport {
   return {
-    receiver: '',
-    sender: '',
+    receiver: "",
+    sender: "",
     stream: Stream.fromPartial({})
   };
 }
 export const StreamExport = {
-  typeUrl: '/mainchain.stream.v1.StreamExport',
+  typeUrl: "/mainchain.stream.v1.StreamExport",
   is(o: any): o is StreamExport {
-    return o && (o.$typeUrl === StreamExport.typeUrl || typeof o.receiver === 'string' && typeof o.sender === 'string' && Stream.is(o.stream));
+    return o && (o.$typeUrl === StreamExport.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string" && Stream.is(o.stream));
   },
   isSDK(o: any): o is StreamExportSDKType {
-    return o && (o.$typeUrl === StreamExport.typeUrl || typeof o.receiver === 'string' && typeof o.sender === 'string' && Stream.isSDK(o.stream));
+    return o && (o.$typeUrl === StreamExport.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string" && Stream.isSDK(o.stream));
   },
   isAmino(o: any): o is StreamExportAmino {
-    return o && (o.$typeUrl === StreamExport.typeUrl || typeof o.receiver === 'string' && typeof o.sender === 'string' && Stream.isAmino(o.stream));
+    return o && (o.$typeUrl === StreamExport.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string" && Stream.isAmino(o.stream));
   },
   encode(message: StreamExport, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.receiver !== '') {
+    if (message.receiver !== "") {
       writer.uint32(10).string(message.receiver);
     }
-    if (message.sender !== '') {
+    if (message.sender !== "") {
       writer.uint32(18).string(message.sender);
     }
     if (message.stream !== undefined) {
@@ -182,26 +182,26 @@ export const StreamExport = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.receiver = reader.string();
-        break;
-      case 2:
-        message.sender = reader.string();
-        break;
-      case 3:
-        message.stream = Stream.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.receiver = reader.string();
+          break;
+        case 2:
+          message.sender = reader.string();
+          break;
+        case 3:
+          message.stream = Stream.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<StreamExport>): StreamExport {
     const message = createBaseStreamExport();
-    message.receiver = object.receiver ?? '';
-    message.sender = object.sender ?? '';
+    message.receiver = object.receiver ?? "";
+    message.sender = object.sender ?? "";
     message.stream = object.stream !== undefined && object.stream !== null ? Stream.fromPartial(object.stream) : undefined;
     return message;
   },
@@ -220,8 +220,8 @@ export const StreamExport = {
   },
   toAmino(message: StreamExport): StreamExportAmino {
     const obj: any = {};
-    obj.receiver = message.receiver === '' ? undefined : message.receiver;
-    obj.sender = message.sender === '' ? undefined : message.sender;
+    obj.receiver = message.receiver === "" ? undefined : message.receiver;
+    obj.sender = message.sender === "" ? undefined : message.sender;
     obj.stream = message.stream ? Stream.toAmino(message.stream) : undefined;
     return obj;
   },
@@ -236,7 +236,7 @@ export const StreamExport = {
   },
   toProtoMsg(message: StreamExport): StreamExportProtoMsg {
     return {
-      typeUrl: '/mainchain.stream.v1.StreamExport',
+      typeUrl: "/mainchain.stream.v1.StreamExport",
       value: StreamExport.encode(message).finish()
     };
   }

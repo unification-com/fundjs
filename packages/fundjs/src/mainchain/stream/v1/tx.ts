@@ -1,10 +1,10 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from '../../../binary';
-import { Coin, CoinAmino, CoinSDKType } from '../../../cosmos/base/v1beta1/coin';
-import { Timestamp } from '../../../google/protobuf/timestamp';
-import { fromTimestamp,toTimestamp } from '../../../helpers';
-import { GlobalDecoderRegistry } from '../../../registry';
-import { Params, ParamsAmino, ParamsSDKType } from './params';
+import { Coin, CoinAmino, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
+import { Params, ParamsAmino, ParamsSDKType } from "./params";
+import { Timestamp } from "../../../google/protobuf/timestamp";
+import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
+import { toTimestamp, fromTimestamp } from "../../../helpers";
 /** MsgCreateStream creates a new stream */
 export interface MsgCreateStream {
   /** receiver is the wallet that will receive stream payments */
@@ -17,7 +17,7 @@ export interface MsgCreateStream {
   flowRate: bigint;
 }
 export interface MsgCreateStreamProtoMsg {
-  typeUrl: '/mainchain.stream.v1.MsgCreateStream';
+  typeUrl: "/mainchain.stream.v1.MsgCreateStream";
   value: Uint8Array;
 }
 /** MsgCreateStream creates a new stream */
@@ -32,7 +32,7 @@ export interface MsgCreateStreamAmino {
   flow_rate?: string;
 }
 export interface MsgCreateStreamAminoMsg {
-  type: '/mainchain.stream.v1.MsgCreateStream';
+  type: "/mainchain.stream.v1.MsgCreateStream";
   value: MsgCreateStreamAmino;
 }
 /** MsgCreateStream creates a new stream */
@@ -54,7 +54,7 @@ export interface MsgCreateStreamResponse {
   flowRate: bigint;
 }
 export interface MsgCreateStreamResponseProtoMsg {
-  typeUrl: '/mainchain.stream.v1.MsgCreateStreamResponse';
+  typeUrl: "/mainchain.stream.v1.MsgCreateStreamResponse";
   value: Uint8Array;
 }
 /** MsgCreateStreamResponse is the response for MsgCreateStream */
@@ -69,7 +69,7 @@ export interface MsgCreateStreamResponseAmino {
   flow_rate?: string;
 }
 export interface MsgCreateStreamResponseAminoMsg {
-  type: '/mainchain.stream.v1.MsgCreateStreamResponse';
+  type: "/mainchain.stream.v1.MsgCreateStreamResponse";
   value: MsgCreateStreamResponseAmino;
 }
 /** MsgCreateStreamResponse is the response for MsgCreateStream */
@@ -87,7 +87,7 @@ export interface MsgClaimStream {
   receiver: string;
 }
 export interface MsgClaimStreamProtoMsg {
-  typeUrl: '/mainchain.stream.v1.MsgClaimStream';
+  typeUrl: "/mainchain.stream.v1.MsgClaimStream";
   value: Uint8Array;
 }
 /** MsgClaimStream claims pending payments form a stream using the sender and receiver addresses */
@@ -98,7 +98,7 @@ export interface MsgClaimStreamAmino {
   receiver?: string;
 }
 export interface MsgClaimStreamAminoMsg {
-  type: '/mainchain.stream.v1.MsgClaimStream';
+  type: "/mainchain.stream.v1.MsgClaimStream";
   value: MsgClaimStreamAmino;
 }
 /** MsgClaimStream claims pending payments form a stream using the sender and receiver addresses */
@@ -117,7 +117,7 @@ export interface MsgClaimStreamResponse {
   remainingDeposit: Coin;
 }
 export interface MsgClaimStreamResponseProtoMsg {
-  typeUrl: '/mainchain.stream.v1.MsgClaimStreamResponse';
+  typeUrl: "/mainchain.stream.v1.MsgClaimStreamResponse";
   value: Uint8Array;
 }
 export interface MsgClaimStreamResponseAmino {
@@ -131,7 +131,7 @@ export interface MsgClaimStreamResponseAmino {
   remaining_deposit?: CoinAmino;
 }
 export interface MsgClaimStreamResponseAminoMsg {
-  type: '/mainchain.stream.v1.MsgClaimStreamResponse';
+  type: "/mainchain.stream.v1.MsgClaimStreamResponse";
   value: MsgClaimStreamResponseAmino;
 }
 export interface MsgClaimStreamResponseSDKType {
@@ -150,7 +150,7 @@ export interface MsgTopUpDeposit {
   deposit: Coin;
 }
 export interface MsgTopUpDepositProtoMsg {
-  typeUrl: '/mainchain.stream.v1.MsgTopUpDeposit';
+  typeUrl: "/mainchain.stream.v1.MsgTopUpDeposit";
   value: Uint8Array;
 }
 /** MsgTopUpDeposit tops up deposits in an existing stream */
@@ -163,7 +163,7 @@ export interface MsgTopUpDepositAmino {
   deposit?: CoinAmino;
 }
 export interface MsgTopUpDepositAminoMsg {
-  type: '/mainchain.stream.v1.MsgTopUpDeposit';
+  type: "/mainchain.stream.v1.MsgTopUpDeposit";
   value: MsgTopUpDepositAmino;
 }
 /** MsgTopUpDeposit tops up deposits in an existing stream */
@@ -182,7 +182,7 @@ export interface MsgTopUpDepositResponse {
   depositZeroTime: Date;
 }
 export interface MsgTopUpDepositResponseProtoMsg {
-  typeUrl: '/mainchain.stream.v1.MsgTopUpDepositResponse';
+  typeUrl: "/mainchain.stream.v1.MsgTopUpDepositResponse";
   value: Uint8Array;
 }
 /** MsgTopUpDepositResponse is the response for MsgTopUpDeposit */
@@ -195,7 +195,7 @@ export interface MsgTopUpDepositResponseAmino {
   deposit_zero_time?: string;
 }
 export interface MsgTopUpDepositResponseAminoMsg {
-  type: '/mainchain.stream.v1.MsgTopUpDepositResponse';
+  type: "/mainchain.stream.v1.MsgTopUpDepositResponse";
   value: MsgTopUpDepositResponseAmino;
 }
 /** MsgTopUpDepositResponse is the response for MsgTopUpDeposit */
@@ -214,7 +214,7 @@ export interface MsgUpdateFlowRate {
   flowRate: bigint;
 }
 export interface MsgUpdateFlowRateProtoMsg {
-  typeUrl: '/mainchain.stream.v1.MsgUpdateFlowRate';
+  typeUrl: "/mainchain.stream.v1.MsgUpdateFlowRate";
   value: Uint8Array;
 }
 /** MsgUpdateFlowRate updates a stream's flow rate */
@@ -227,7 +227,7 @@ export interface MsgUpdateFlowRateAmino {
   flow_rate?: string;
 }
 export interface MsgUpdateFlowRateAminoMsg {
-  type: '/mainchain.stream.v1.MsgUpdateFlowRate';
+  type: "/mainchain.stream.v1.MsgUpdateFlowRate";
   value: MsgUpdateFlowRateAmino;
 }
 /** MsgUpdateFlowRate updates a stream's flow rate */
@@ -242,7 +242,7 @@ export interface MsgUpdateFlowRateResponse {
   flowRate: bigint;
 }
 export interface MsgUpdateFlowRateResponseProtoMsg {
-  typeUrl: '/mainchain.stream.v1.MsgUpdateFlowRateResponse';
+  typeUrl: "/mainchain.stream.v1.MsgUpdateFlowRateResponse";
   value: Uint8Array;
 }
 /** MsgUpdateFlowRateResponse is the response for MsgUpdateFlowRate */
@@ -251,7 +251,7 @@ export interface MsgUpdateFlowRateResponseAmino {
   flow_rate?: string;
 }
 export interface MsgUpdateFlowRateResponseAminoMsg {
-  type: '/mainchain.stream.v1.MsgUpdateFlowRateResponse';
+  type: "/mainchain.stream.v1.MsgUpdateFlowRateResponse";
   value: MsgUpdateFlowRateResponseAmino;
 }
 /** MsgUpdateFlowRateResponse is the response for MsgUpdateFlowRate */
@@ -266,7 +266,7 @@ export interface MsgCancelStream {
   sender: string;
 }
 export interface MsgCancelStreamProtoMsg {
-  typeUrl: '/mainchain.stream.v1.MsgCancelStream';
+  typeUrl: "/mainchain.stream.v1.MsgCancelStream";
   value: Uint8Array;
 }
 /** MsgCancelStream */
@@ -277,7 +277,7 @@ export interface MsgCancelStreamAmino {
   sender?: string;
 }
 export interface MsgCancelStreamAminoMsg {
-  type: '/mainchain.stream.v1.MsgCancelStream';
+  type: "/mainchain.stream.v1.MsgCancelStream";
   value: MsgCancelStreamAmino;
 }
 /** MsgCancelStream */
@@ -288,13 +288,13 @@ export interface MsgCancelStreamSDKType {
 /** MsgCancelStreamResponse */
 export interface MsgCancelStreamResponse {}
 export interface MsgCancelStreamResponseProtoMsg {
-  typeUrl: '/mainchain.stream.v1.MsgCancelStreamResponse';
+  typeUrl: "/mainchain.stream.v1.MsgCancelStreamResponse";
   value: Uint8Array;
 }
 /** MsgCancelStreamResponse */
 export interface MsgCancelStreamResponseAmino {}
 export interface MsgCancelStreamResponseAminoMsg {
-  type: '/mainchain.stream.v1.MsgCancelStreamResponse';
+  type: "/mainchain.stream.v1.MsgCancelStreamResponse";
   value: MsgCancelStreamResponseAmino;
 }
 /** MsgCancelStreamResponse */
@@ -315,7 +315,7 @@ export interface MsgUpdateParams {
   params: Params;
 }
 export interface MsgUpdateParamsProtoMsg {
-  typeUrl: '/mainchain.stream.v1.MsgUpdateParams';
+  typeUrl: "/mainchain.stream.v1.MsgUpdateParams";
   value: Uint8Array;
 }
 /**
@@ -334,7 +334,7 @@ export interface MsgUpdateParamsAmino {
   params: ParamsAmino;
 }
 export interface MsgUpdateParamsAminoMsg {
-  type: 'mainchain/x/stream/MsgUpdateParams';
+  type: "mainchain/x/stream/MsgUpdateParams";
   value: MsgUpdateParamsAmino;
 }
 /**
@@ -354,7 +354,7 @@ export interface MsgUpdateParamsSDKType {
  */
 export interface MsgUpdateParamsResponse {}
 export interface MsgUpdateParamsResponseProtoMsg {
-  typeUrl: '/mainchain.stream.v1.MsgUpdateParamsResponse';
+  typeUrl: "/mainchain.stream.v1.MsgUpdateParamsResponse";
   value: Uint8Array;
 }
 /**
@@ -365,7 +365,7 @@ export interface MsgUpdateParamsResponseProtoMsg {
  */
 export interface MsgUpdateParamsResponseAmino {}
 export interface MsgUpdateParamsResponseAminoMsg {
-  type: '/mainchain.stream.v1.MsgUpdateParamsResponse';
+  type: "/mainchain.stream.v1.MsgUpdateParamsResponse";
   value: MsgUpdateParamsResponseAmino;
 }
 /**
@@ -377,28 +377,28 @@ export interface MsgUpdateParamsResponseAminoMsg {
 export interface MsgUpdateParamsResponseSDKType {}
 function createBaseMsgCreateStream(): MsgCreateStream {
   return {
-    receiver: '',
-    sender: '',
+    receiver: "",
+    sender: "",
     deposit: Coin.fromPartial({}),
     flowRate: BigInt(0)
   };
 }
 export const MsgCreateStream = {
-  typeUrl: '/mainchain.stream.v1.MsgCreateStream',
+  typeUrl: "/mainchain.stream.v1.MsgCreateStream",
   is(o: any): o is MsgCreateStream {
-    return o && (o.$typeUrl === MsgCreateStream.typeUrl || typeof o.receiver === 'string' && typeof o.sender === 'string' && Coin.is(o.deposit) && typeof o.flowRate === 'bigint');
+    return o && (o.$typeUrl === MsgCreateStream.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string" && Coin.is(o.deposit) && typeof o.flowRate === "bigint");
   },
   isSDK(o: any): o is MsgCreateStreamSDKType {
-    return o && (o.$typeUrl === MsgCreateStream.typeUrl || typeof o.receiver === 'string' && typeof o.sender === 'string' && Coin.isSDK(o.deposit) && typeof o.flow_rate === 'bigint');
+    return o && (o.$typeUrl === MsgCreateStream.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string" && Coin.isSDK(o.deposit) && typeof o.flow_rate === "bigint");
   },
   isAmino(o: any): o is MsgCreateStreamAmino {
-    return o && (o.$typeUrl === MsgCreateStream.typeUrl || typeof o.receiver === 'string' && typeof o.sender === 'string' && Coin.isAmino(o.deposit) && typeof o.flow_rate === 'bigint');
+    return o && (o.$typeUrl === MsgCreateStream.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string" && Coin.isAmino(o.deposit) && typeof o.flow_rate === "bigint");
   },
   encode(message: MsgCreateStream, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.receiver !== '') {
+    if (message.receiver !== "") {
       writer.uint32(10).string(message.receiver);
     }
-    if (message.sender !== '') {
+    if (message.sender !== "") {
       writer.uint32(18).string(message.sender);
     }
     if (message.deposit !== undefined) {
@@ -416,29 +416,29 @@ export const MsgCreateStream = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.receiver = reader.string();
-        break;
-      case 2:
-        message.sender = reader.string();
-        break;
-      case 3:
-        message.deposit = Coin.decode(reader, reader.uint32());
-        break;
-      case 4:
-        message.flowRate = reader.int64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.receiver = reader.string();
+          break;
+        case 2:
+          message.sender = reader.string();
+          break;
+        case 3:
+          message.deposit = Coin.decode(reader, reader.uint32());
+          break;
+        case 4:
+          message.flowRate = reader.int64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<MsgCreateStream>): MsgCreateStream {
     const message = createBaseMsgCreateStream();
-    message.receiver = object.receiver ?? '';
-    message.sender = object.sender ?? '';
+    message.receiver = object.receiver ?? "";
+    message.sender = object.sender ?? "";
     message.deposit = object.deposit !== undefined && object.deposit !== null ? Coin.fromPartial(object.deposit) : undefined;
     message.flowRate = object.flowRate !== undefined && object.flowRate !== null ? BigInt(object.flowRate.toString()) : BigInt(0);
     return message;
@@ -461,8 +461,8 @@ export const MsgCreateStream = {
   },
   toAmino(message: MsgCreateStream): MsgCreateStreamAmino {
     const obj: any = {};
-    obj.receiver = message.receiver === '' ? undefined : message.receiver;
-    obj.sender = message.sender === '' ? undefined : message.sender;
+    obj.receiver = message.receiver === "" ? undefined : message.receiver;
+    obj.sender = message.sender === "" ? undefined : message.sender;
     obj.deposit = message.deposit ? Coin.toAmino(message.deposit) : undefined;
     obj.flow_rate = message.flowRate !== BigInt(0) ? message.flowRate.toString() : undefined;
     return obj;
@@ -478,7 +478,7 @@ export const MsgCreateStream = {
   },
   toProtoMsg(message: MsgCreateStream): MsgCreateStreamProtoMsg {
     return {
-      typeUrl: '/mainchain.stream.v1.MsgCreateStream',
+      typeUrl: "/mainchain.stream.v1.MsgCreateStream",
       value: MsgCreateStream.encode(message).finish()
     };
   }
@@ -486,28 +486,28 @@ export const MsgCreateStream = {
 GlobalDecoderRegistry.register(MsgCreateStream.typeUrl, MsgCreateStream);
 function createBaseMsgCreateStreamResponse(): MsgCreateStreamResponse {
   return {
-    receiver: '',
-    sender: '',
+    receiver: "",
+    sender: "",
     deposit: Coin.fromPartial({}),
     flowRate: BigInt(0)
   };
 }
 export const MsgCreateStreamResponse = {
-  typeUrl: '/mainchain.stream.v1.MsgCreateStreamResponse',
+  typeUrl: "/mainchain.stream.v1.MsgCreateStreamResponse",
   is(o: any): o is MsgCreateStreamResponse {
-    return o && (o.$typeUrl === MsgCreateStreamResponse.typeUrl || typeof o.receiver === 'string' && typeof o.sender === 'string' && Coin.is(o.deposit) && typeof o.flowRate === 'bigint');
+    return o && (o.$typeUrl === MsgCreateStreamResponse.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string" && Coin.is(o.deposit) && typeof o.flowRate === "bigint");
   },
   isSDK(o: any): o is MsgCreateStreamResponseSDKType {
-    return o && (o.$typeUrl === MsgCreateStreamResponse.typeUrl || typeof o.receiver === 'string' && typeof o.sender === 'string' && Coin.isSDK(o.deposit) && typeof o.flow_rate === 'bigint');
+    return o && (o.$typeUrl === MsgCreateStreamResponse.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string" && Coin.isSDK(o.deposit) && typeof o.flow_rate === "bigint");
   },
   isAmino(o: any): o is MsgCreateStreamResponseAmino {
-    return o && (o.$typeUrl === MsgCreateStreamResponse.typeUrl || typeof o.receiver === 'string' && typeof o.sender === 'string' && Coin.isAmino(o.deposit) && typeof o.flow_rate === 'bigint');
+    return o && (o.$typeUrl === MsgCreateStreamResponse.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string" && Coin.isAmino(o.deposit) && typeof o.flow_rate === "bigint");
   },
   encode(message: MsgCreateStreamResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.receiver !== '') {
+    if (message.receiver !== "") {
       writer.uint32(10).string(message.receiver);
     }
-    if (message.sender !== '') {
+    if (message.sender !== "") {
       writer.uint32(18).string(message.sender);
     }
     if (message.deposit !== undefined) {
@@ -525,29 +525,29 @@ export const MsgCreateStreamResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.receiver = reader.string();
-        break;
-      case 2:
-        message.sender = reader.string();
-        break;
-      case 3:
-        message.deposit = Coin.decode(reader, reader.uint32());
-        break;
-      case 4:
-        message.flowRate = reader.int64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.receiver = reader.string();
+          break;
+        case 2:
+          message.sender = reader.string();
+          break;
+        case 3:
+          message.deposit = Coin.decode(reader, reader.uint32());
+          break;
+        case 4:
+          message.flowRate = reader.int64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<MsgCreateStreamResponse>): MsgCreateStreamResponse {
     const message = createBaseMsgCreateStreamResponse();
-    message.receiver = object.receiver ?? '';
-    message.sender = object.sender ?? '';
+    message.receiver = object.receiver ?? "";
+    message.sender = object.sender ?? "";
     message.deposit = object.deposit !== undefined && object.deposit !== null ? Coin.fromPartial(object.deposit) : undefined;
     message.flowRate = object.flowRate !== undefined && object.flowRate !== null ? BigInt(object.flowRate.toString()) : BigInt(0);
     return message;
@@ -570,8 +570,8 @@ export const MsgCreateStreamResponse = {
   },
   toAmino(message: MsgCreateStreamResponse): MsgCreateStreamResponseAmino {
     const obj: any = {};
-    obj.receiver = message.receiver === '' ? undefined : message.receiver;
-    obj.sender = message.sender === '' ? undefined : message.sender;
+    obj.receiver = message.receiver === "" ? undefined : message.receiver;
+    obj.sender = message.sender === "" ? undefined : message.sender;
     obj.deposit = message.deposit ? Coin.toAmino(message.deposit) : undefined;
     obj.flow_rate = message.flowRate !== BigInt(0) ? message.flowRate.toString() : undefined;
     return obj;
@@ -587,7 +587,7 @@ export const MsgCreateStreamResponse = {
   },
   toProtoMsg(message: MsgCreateStreamResponse): MsgCreateStreamResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.stream.v1.MsgCreateStreamResponse',
+      typeUrl: "/mainchain.stream.v1.MsgCreateStreamResponse",
       value: MsgCreateStreamResponse.encode(message).finish()
     };
   }
@@ -595,26 +595,26 @@ export const MsgCreateStreamResponse = {
 GlobalDecoderRegistry.register(MsgCreateStreamResponse.typeUrl, MsgCreateStreamResponse);
 function createBaseMsgClaimStream(): MsgClaimStream {
   return {
-    sender: '',
-    receiver: ''
+    sender: "",
+    receiver: ""
   };
 }
 export const MsgClaimStream = {
-  typeUrl: '/mainchain.stream.v1.MsgClaimStream',
+  typeUrl: "/mainchain.stream.v1.MsgClaimStream",
   is(o: any): o is MsgClaimStream {
-    return o && (o.$typeUrl === MsgClaimStream.typeUrl || typeof o.sender === 'string' && typeof o.receiver === 'string');
+    return o && (o.$typeUrl === MsgClaimStream.typeUrl || typeof o.sender === "string" && typeof o.receiver === "string");
   },
   isSDK(o: any): o is MsgClaimStreamSDKType {
-    return o && (o.$typeUrl === MsgClaimStream.typeUrl || typeof o.sender === 'string' && typeof o.receiver === 'string');
+    return o && (o.$typeUrl === MsgClaimStream.typeUrl || typeof o.sender === "string" && typeof o.receiver === "string");
   },
   isAmino(o: any): o is MsgClaimStreamAmino {
-    return o && (o.$typeUrl === MsgClaimStream.typeUrl || typeof o.sender === 'string' && typeof o.receiver === 'string');
+    return o && (o.$typeUrl === MsgClaimStream.typeUrl || typeof o.sender === "string" && typeof o.receiver === "string");
   },
   encode(message: MsgClaimStream, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.sender !== '') {
+    if (message.sender !== "") {
       writer.uint32(10).string(message.sender);
     }
-    if (message.receiver !== '') {
+    if (message.receiver !== "") {
       writer.uint32(18).string(message.receiver);
     }
     return writer;
@@ -626,23 +626,23 @@ export const MsgClaimStream = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.sender = reader.string();
-        break;
-      case 2:
-        message.receiver = reader.string();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.sender = reader.string();
+          break;
+        case 2:
+          message.receiver = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<MsgClaimStream>): MsgClaimStream {
     const message = createBaseMsgClaimStream();
-    message.sender = object.sender ?? '';
-    message.receiver = object.receiver ?? '';
+    message.sender = object.sender ?? "";
+    message.receiver = object.receiver ?? "";
     return message;
   },
   fromAmino(object: MsgClaimStreamAmino): MsgClaimStream {
@@ -657,8 +657,8 @@ export const MsgClaimStream = {
   },
   toAmino(message: MsgClaimStream): MsgClaimStreamAmino {
     const obj: any = {};
-    obj.sender = message.sender === '' ? undefined : message.sender;
-    obj.receiver = message.receiver === '' ? undefined : message.receiver;
+    obj.sender = message.sender === "" ? undefined : message.sender;
+    obj.receiver = message.receiver === "" ? undefined : message.receiver;
     return obj;
   },
   fromAminoMsg(object: MsgClaimStreamAminoMsg): MsgClaimStream {
@@ -672,7 +672,7 @@ export const MsgClaimStream = {
   },
   toProtoMsg(message: MsgClaimStream): MsgClaimStreamProtoMsg {
     return {
-      typeUrl: '/mainchain.stream.v1.MsgClaimStream',
+      typeUrl: "/mainchain.stream.v1.MsgClaimStream",
       value: MsgClaimStream.encode(message).finish()
     };
   }
@@ -687,7 +687,7 @@ function createBaseMsgClaimStreamResponse(): MsgClaimStreamResponse {
   };
 }
 export const MsgClaimStreamResponse = {
-  typeUrl: '/mainchain.stream.v1.MsgClaimStreamResponse',
+  typeUrl: "/mainchain.stream.v1.MsgClaimStreamResponse",
   is(o: any): o is MsgClaimStreamResponse {
     return o && (o.$typeUrl === MsgClaimStreamResponse.typeUrl || Coin.is(o.totalClaimed) && Coin.is(o.streamPayment) && Coin.is(o.validatorFee) && Coin.is(o.remainingDeposit));
   },
@@ -719,21 +719,21 @@ export const MsgClaimStreamResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 2:
-        message.totalClaimed = Coin.decode(reader, reader.uint32());
-        break;
-      case 3:
-        message.streamPayment = Coin.decode(reader, reader.uint32());
-        break;
-      case 4:
-        message.validatorFee = Coin.decode(reader, reader.uint32());
-        break;
-      case 5:
-        message.remainingDeposit = Coin.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 2:
+          message.totalClaimed = Coin.decode(reader, reader.uint32());
+          break;
+        case 3:
+          message.streamPayment = Coin.decode(reader, reader.uint32());
+          break;
+        case 4:
+          message.validatorFee = Coin.decode(reader, reader.uint32());
+          break;
+        case 5:
+          message.remainingDeposit = Coin.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -781,7 +781,7 @@ export const MsgClaimStreamResponse = {
   },
   toProtoMsg(message: MsgClaimStreamResponse): MsgClaimStreamResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.stream.v1.MsgClaimStreamResponse',
+      typeUrl: "/mainchain.stream.v1.MsgClaimStreamResponse",
       value: MsgClaimStreamResponse.encode(message).finish()
     };
   }
@@ -789,27 +789,27 @@ export const MsgClaimStreamResponse = {
 GlobalDecoderRegistry.register(MsgClaimStreamResponse.typeUrl, MsgClaimStreamResponse);
 function createBaseMsgTopUpDeposit(): MsgTopUpDeposit {
   return {
-    receiver: '',
-    sender: '',
+    receiver: "",
+    sender: "",
     deposit: Coin.fromPartial({})
   };
 }
 export const MsgTopUpDeposit = {
-  typeUrl: '/mainchain.stream.v1.MsgTopUpDeposit',
+  typeUrl: "/mainchain.stream.v1.MsgTopUpDeposit",
   is(o: any): o is MsgTopUpDeposit {
-    return o && (o.$typeUrl === MsgTopUpDeposit.typeUrl || typeof o.receiver === 'string' && typeof o.sender === 'string' && Coin.is(o.deposit));
+    return o && (o.$typeUrl === MsgTopUpDeposit.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string" && Coin.is(o.deposit));
   },
   isSDK(o: any): o is MsgTopUpDepositSDKType {
-    return o && (o.$typeUrl === MsgTopUpDeposit.typeUrl || typeof o.receiver === 'string' && typeof o.sender === 'string' && Coin.isSDK(o.deposit));
+    return o && (o.$typeUrl === MsgTopUpDeposit.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string" && Coin.isSDK(o.deposit));
   },
   isAmino(o: any): o is MsgTopUpDepositAmino {
-    return o && (o.$typeUrl === MsgTopUpDeposit.typeUrl || typeof o.receiver === 'string' && typeof o.sender === 'string' && Coin.isAmino(o.deposit));
+    return o && (o.$typeUrl === MsgTopUpDeposit.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string" && Coin.isAmino(o.deposit));
   },
   encode(message: MsgTopUpDeposit, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.receiver !== '') {
+    if (message.receiver !== "") {
       writer.uint32(10).string(message.receiver);
     }
-    if (message.sender !== '') {
+    if (message.sender !== "") {
       writer.uint32(18).string(message.sender);
     }
     if (message.deposit !== undefined) {
@@ -824,26 +824,26 @@ export const MsgTopUpDeposit = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.receiver = reader.string();
-        break;
-      case 2:
-        message.sender = reader.string();
-        break;
-      case 3:
-        message.deposit = Coin.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.receiver = reader.string();
+          break;
+        case 2:
+          message.sender = reader.string();
+          break;
+        case 3:
+          message.deposit = Coin.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<MsgTopUpDeposit>): MsgTopUpDeposit {
     const message = createBaseMsgTopUpDeposit();
-    message.receiver = object.receiver ?? '';
-    message.sender = object.sender ?? '';
+    message.receiver = object.receiver ?? "";
+    message.sender = object.sender ?? "";
     message.deposit = object.deposit !== undefined && object.deposit !== null ? Coin.fromPartial(object.deposit) : undefined;
     return message;
   },
@@ -862,8 +862,8 @@ export const MsgTopUpDeposit = {
   },
   toAmino(message: MsgTopUpDeposit): MsgTopUpDepositAmino {
     const obj: any = {};
-    obj.receiver = message.receiver === '' ? undefined : message.receiver;
-    obj.sender = message.sender === '' ? undefined : message.sender;
+    obj.receiver = message.receiver === "" ? undefined : message.receiver;
+    obj.sender = message.sender === "" ? undefined : message.sender;
     obj.deposit = message.deposit ? Coin.toAmino(message.deposit) : undefined;
     return obj;
   },
@@ -878,7 +878,7 @@ export const MsgTopUpDeposit = {
   },
   toProtoMsg(message: MsgTopUpDeposit): MsgTopUpDepositProtoMsg {
     return {
-      typeUrl: '/mainchain.stream.v1.MsgTopUpDeposit',
+      typeUrl: "/mainchain.stream.v1.MsgTopUpDeposit",
       value: MsgTopUpDeposit.encode(message).finish()
     };
   }
@@ -892,7 +892,7 @@ function createBaseMsgTopUpDepositResponse(): MsgTopUpDepositResponse {
   };
 }
 export const MsgTopUpDepositResponse = {
-  typeUrl: '/mainchain.stream.v1.MsgTopUpDepositResponse',
+  typeUrl: "/mainchain.stream.v1.MsgTopUpDepositResponse",
   is(o: any): o is MsgTopUpDepositResponse {
     return o && (o.$typeUrl === MsgTopUpDepositResponse.typeUrl || Coin.is(o.depositAmount) && Coin.is(o.currentDeposit) && Timestamp.is(o.depositZeroTime));
   },
@@ -921,18 +921,18 @@ export const MsgTopUpDepositResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 2:
-        message.depositAmount = Coin.decode(reader, reader.uint32());
-        break;
-      case 3:
-        message.currentDeposit = Coin.decode(reader, reader.uint32());
-        break;
-      case 4:
-        message.depositZeroTime = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 2:
+          message.depositAmount = Coin.decode(reader, reader.uint32());
+          break;
+        case 3:
+          message.currentDeposit = Coin.decode(reader, reader.uint32());
+          break;
+        case 4:
+          message.depositZeroTime = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -975,7 +975,7 @@ export const MsgTopUpDepositResponse = {
   },
   toProtoMsg(message: MsgTopUpDepositResponse): MsgTopUpDepositResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.stream.v1.MsgTopUpDepositResponse',
+      typeUrl: "/mainchain.stream.v1.MsgTopUpDepositResponse",
       value: MsgTopUpDepositResponse.encode(message).finish()
     };
   }
@@ -983,27 +983,27 @@ export const MsgTopUpDepositResponse = {
 GlobalDecoderRegistry.register(MsgTopUpDepositResponse.typeUrl, MsgTopUpDepositResponse);
 function createBaseMsgUpdateFlowRate(): MsgUpdateFlowRate {
   return {
-    receiver: '',
-    sender: '',
+    receiver: "",
+    sender: "",
     flowRate: BigInt(0)
   };
 }
 export const MsgUpdateFlowRate = {
-  typeUrl: '/mainchain.stream.v1.MsgUpdateFlowRate',
+  typeUrl: "/mainchain.stream.v1.MsgUpdateFlowRate",
   is(o: any): o is MsgUpdateFlowRate {
-    return o && (o.$typeUrl === MsgUpdateFlowRate.typeUrl || typeof o.receiver === 'string' && typeof o.sender === 'string' && typeof o.flowRate === 'bigint');
+    return o && (o.$typeUrl === MsgUpdateFlowRate.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string" && typeof o.flowRate === "bigint");
   },
   isSDK(o: any): o is MsgUpdateFlowRateSDKType {
-    return o && (o.$typeUrl === MsgUpdateFlowRate.typeUrl || typeof o.receiver === 'string' && typeof o.sender === 'string' && typeof o.flow_rate === 'bigint');
+    return o && (o.$typeUrl === MsgUpdateFlowRate.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string" && typeof o.flow_rate === "bigint");
   },
   isAmino(o: any): o is MsgUpdateFlowRateAmino {
-    return o && (o.$typeUrl === MsgUpdateFlowRate.typeUrl || typeof o.receiver === 'string' && typeof o.sender === 'string' && typeof o.flow_rate === 'bigint');
+    return o && (o.$typeUrl === MsgUpdateFlowRate.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string" && typeof o.flow_rate === "bigint");
   },
   encode(message: MsgUpdateFlowRate, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.receiver !== '') {
+    if (message.receiver !== "") {
       writer.uint32(10).string(message.receiver);
     }
-    if (message.sender !== '') {
+    if (message.sender !== "") {
       writer.uint32(18).string(message.sender);
     }
     if (message.flowRate !== BigInt(0)) {
@@ -1018,26 +1018,26 @@ export const MsgUpdateFlowRate = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.receiver = reader.string();
-        break;
-      case 2:
-        message.sender = reader.string();
-        break;
-      case 3:
-        message.flowRate = reader.int64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.receiver = reader.string();
+          break;
+        case 2:
+          message.sender = reader.string();
+          break;
+        case 3:
+          message.flowRate = reader.int64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<MsgUpdateFlowRate>): MsgUpdateFlowRate {
     const message = createBaseMsgUpdateFlowRate();
-    message.receiver = object.receiver ?? '';
-    message.sender = object.sender ?? '';
+    message.receiver = object.receiver ?? "";
+    message.sender = object.sender ?? "";
     message.flowRate = object.flowRate !== undefined && object.flowRate !== null ? BigInt(object.flowRate.toString()) : BigInt(0);
     return message;
   },
@@ -1056,8 +1056,8 @@ export const MsgUpdateFlowRate = {
   },
   toAmino(message: MsgUpdateFlowRate): MsgUpdateFlowRateAmino {
     const obj: any = {};
-    obj.receiver = message.receiver === '' ? undefined : message.receiver;
-    obj.sender = message.sender === '' ? undefined : message.sender;
+    obj.receiver = message.receiver === "" ? undefined : message.receiver;
+    obj.sender = message.sender === "" ? undefined : message.sender;
     obj.flow_rate = message.flowRate !== BigInt(0) ? message.flowRate.toString() : undefined;
     return obj;
   },
@@ -1072,7 +1072,7 @@ export const MsgUpdateFlowRate = {
   },
   toProtoMsg(message: MsgUpdateFlowRate): MsgUpdateFlowRateProtoMsg {
     return {
-      typeUrl: '/mainchain.stream.v1.MsgUpdateFlowRate',
+      typeUrl: "/mainchain.stream.v1.MsgUpdateFlowRate",
       value: MsgUpdateFlowRate.encode(message).finish()
     };
   }
@@ -1084,15 +1084,15 @@ function createBaseMsgUpdateFlowRateResponse(): MsgUpdateFlowRateResponse {
   };
 }
 export const MsgUpdateFlowRateResponse = {
-  typeUrl: '/mainchain.stream.v1.MsgUpdateFlowRateResponse',
+  typeUrl: "/mainchain.stream.v1.MsgUpdateFlowRateResponse",
   is(o: any): o is MsgUpdateFlowRateResponse {
-    return o && (o.$typeUrl === MsgUpdateFlowRateResponse.typeUrl || typeof o.flowRate === 'bigint');
+    return o && (o.$typeUrl === MsgUpdateFlowRateResponse.typeUrl || typeof o.flowRate === "bigint");
   },
   isSDK(o: any): o is MsgUpdateFlowRateResponseSDKType {
-    return o && (o.$typeUrl === MsgUpdateFlowRateResponse.typeUrl || typeof o.flow_rate === 'bigint');
+    return o && (o.$typeUrl === MsgUpdateFlowRateResponse.typeUrl || typeof o.flow_rate === "bigint");
   },
   isAmino(o: any): o is MsgUpdateFlowRateResponseAmino {
-    return o && (o.$typeUrl === MsgUpdateFlowRateResponse.typeUrl || typeof o.flow_rate === 'bigint');
+    return o && (o.$typeUrl === MsgUpdateFlowRateResponse.typeUrl || typeof o.flow_rate === "bigint");
   },
   encode(message: MsgUpdateFlowRateResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.flowRate !== BigInt(0)) {
@@ -1107,12 +1107,12 @@ export const MsgUpdateFlowRateResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 2:
-        message.flowRate = reader.int64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 2:
+          message.flowRate = reader.int64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1145,7 +1145,7 @@ export const MsgUpdateFlowRateResponse = {
   },
   toProtoMsg(message: MsgUpdateFlowRateResponse): MsgUpdateFlowRateResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.stream.v1.MsgUpdateFlowRateResponse',
+      typeUrl: "/mainchain.stream.v1.MsgUpdateFlowRateResponse",
       value: MsgUpdateFlowRateResponse.encode(message).finish()
     };
   }
@@ -1153,26 +1153,26 @@ export const MsgUpdateFlowRateResponse = {
 GlobalDecoderRegistry.register(MsgUpdateFlowRateResponse.typeUrl, MsgUpdateFlowRateResponse);
 function createBaseMsgCancelStream(): MsgCancelStream {
   return {
-    receiver: '',
-    sender: ''
+    receiver: "",
+    sender: ""
   };
 }
 export const MsgCancelStream = {
-  typeUrl: '/mainchain.stream.v1.MsgCancelStream',
+  typeUrl: "/mainchain.stream.v1.MsgCancelStream",
   is(o: any): o is MsgCancelStream {
-    return o && (o.$typeUrl === MsgCancelStream.typeUrl || typeof o.receiver === 'string' && typeof o.sender === 'string');
+    return o && (o.$typeUrl === MsgCancelStream.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string");
   },
   isSDK(o: any): o is MsgCancelStreamSDKType {
-    return o && (o.$typeUrl === MsgCancelStream.typeUrl || typeof o.receiver === 'string' && typeof o.sender === 'string');
+    return o && (o.$typeUrl === MsgCancelStream.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string");
   },
   isAmino(o: any): o is MsgCancelStreamAmino {
-    return o && (o.$typeUrl === MsgCancelStream.typeUrl || typeof o.receiver === 'string' && typeof o.sender === 'string');
+    return o && (o.$typeUrl === MsgCancelStream.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string");
   },
   encode(message: MsgCancelStream, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.receiver !== '') {
+    if (message.receiver !== "") {
       writer.uint32(10).string(message.receiver);
     }
-    if (message.sender !== '') {
+    if (message.sender !== "") {
       writer.uint32(18).string(message.sender);
     }
     return writer;
@@ -1184,23 +1184,23 @@ export const MsgCancelStream = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.receiver = reader.string();
-        break;
-      case 2:
-        message.sender = reader.string();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.receiver = reader.string();
+          break;
+        case 2:
+          message.sender = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<MsgCancelStream>): MsgCancelStream {
     const message = createBaseMsgCancelStream();
-    message.receiver = object.receiver ?? '';
-    message.sender = object.sender ?? '';
+    message.receiver = object.receiver ?? "";
+    message.sender = object.sender ?? "";
     return message;
   },
   fromAmino(object: MsgCancelStreamAmino): MsgCancelStream {
@@ -1215,8 +1215,8 @@ export const MsgCancelStream = {
   },
   toAmino(message: MsgCancelStream): MsgCancelStreamAmino {
     const obj: any = {};
-    obj.receiver = message.receiver === '' ? undefined : message.receiver;
-    obj.sender = message.sender === '' ? undefined : message.sender;
+    obj.receiver = message.receiver === "" ? undefined : message.receiver;
+    obj.sender = message.sender === "" ? undefined : message.sender;
     return obj;
   },
   fromAminoMsg(object: MsgCancelStreamAminoMsg): MsgCancelStream {
@@ -1230,7 +1230,7 @@ export const MsgCancelStream = {
   },
   toProtoMsg(message: MsgCancelStream): MsgCancelStreamProtoMsg {
     return {
-      typeUrl: '/mainchain.stream.v1.MsgCancelStream',
+      typeUrl: "/mainchain.stream.v1.MsgCancelStream",
       value: MsgCancelStream.encode(message).finish()
     };
   }
@@ -1240,7 +1240,7 @@ function createBaseMsgCancelStreamResponse(): MsgCancelStreamResponse {
   return {};
 }
 export const MsgCancelStreamResponse = {
-  typeUrl: '/mainchain.stream.v1.MsgCancelStreamResponse',
+  typeUrl: "/mainchain.stream.v1.MsgCancelStreamResponse",
   is(o: any): o is MsgCancelStreamResponse {
     return o && o.$typeUrl === MsgCancelStreamResponse.typeUrl;
   },
@@ -1260,9 +1260,9 @@ export const MsgCancelStreamResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      default:
-        reader.skipType(tag & 7);
-        break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1290,7 +1290,7 @@ export const MsgCancelStreamResponse = {
   },
   toProtoMsg(message: MsgCancelStreamResponse): MsgCancelStreamResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.stream.v1.MsgCancelStreamResponse',
+      typeUrl: "/mainchain.stream.v1.MsgCancelStreamResponse",
       value: MsgCancelStreamResponse.encode(message).finish()
     };
   }
@@ -1298,24 +1298,24 @@ export const MsgCancelStreamResponse = {
 GlobalDecoderRegistry.register(MsgCancelStreamResponse.typeUrl, MsgCancelStreamResponse);
 function createBaseMsgUpdateParams(): MsgUpdateParams {
   return {
-    authority: '',
+    authority: "",
     params: Params.fromPartial({})
   };
 }
 export const MsgUpdateParams = {
-  typeUrl: '/mainchain.stream.v1.MsgUpdateParams',
-  aminoType: 'mainchain/x/stream/MsgUpdateParams',
+  typeUrl: "/mainchain.stream.v1.MsgUpdateParams",
+  aminoType: "mainchain/x/stream/MsgUpdateParams",
   is(o: any): o is MsgUpdateParams {
-    return o && (o.$typeUrl === MsgUpdateParams.typeUrl || typeof o.authority === 'string' && Params.is(o.params));
+    return o && (o.$typeUrl === MsgUpdateParams.typeUrl || typeof o.authority === "string" && Params.is(o.params));
   },
   isSDK(o: any): o is MsgUpdateParamsSDKType {
-    return o && (o.$typeUrl === MsgUpdateParams.typeUrl || typeof o.authority === 'string' && Params.isSDK(o.params));
+    return o && (o.$typeUrl === MsgUpdateParams.typeUrl || typeof o.authority === "string" && Params.isSDK(o.params));
   },
   isAmino(o: any): o is MsgUpdateParamsAmino {
-    return o && (o.$typeUrl === MsgUpdateParams.typeUrl || typeof o.authority === 'string' && Params.isAmino(o.params));
+    return o && (o.$typeUrl === MsgUpdateParams.typeUrl || typeof o.authority === "string" && Params.isAmino(o.params));
   },
   encode(message: MsgUpdateParams, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.authority !== '') {
+    if (message.authority !== "") {
       writer.uint32(10).string(message.authority);
     }
     if (message.params !== undefined) {
@@ -1330,22 +1330,22 @@ export const MsgUpdateParams = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.authority = reader.string();
-        break;
-      case 2:
-        message.params = Params.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.authority = reader.string();
+          break;
+        case 2:
+          message.params = Params.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<MsgUpdateParams>): MsgUpdateParams {
     const message = createBaseMsgUpdateParams();
-    message.authority = object.authority ?? '';
+    message.authority = object.authority ?? "";
     message.params = object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
     return message;
   },
@@ -1361,7 +1361,7 @@ export const MsgUpdateParams = {
   },
   toAmino(message: MsgUpdateParams): MsgUpdateParamsAmino {
     const obj: any = {};
-    obj.authority = message.authority === '' ? undefined : message.authority;
+    obj.authority = message.authority === "" ? undefined : message.authority;
     obj.params = message.params ? Params.toAmino(message.params) : Params.toAmino(Params.fromPartial({}));
     return obj;
   },
@@ -1370,7 +1370,7 @@ export const MsgUpdateParams = {
   },
   toAminoMsg(message: MsgUpdateParams): MsgUpdateParamsAminoMsg {
     return {
-      type: 'mainchain/x/stream/MsgUpdateParams',
+      type: "mainchain/x/stream/MsgUpdateParams",
       value: MsgUpdateParams.toAmino(message)
     };
   },
@@ -1382,7 +1382,7 @@ export const MsgUpdateParams = {
   },
   toProtoMsg(message: MsgUpdateParams): MsgUpdateParamsProtoMsg {
     return {
-      typeUrl: '/mainchain.stream.v1.MsgUpdateParams',
+      typeUrl: "/mainchain.stream.v1.MsgUpdateParams",
       value: MsgUpdateParams.encode(message).finish()
     };
   }
@@ -1393,7 +1393,7 @@ function createBaseMsgUpdateParamsResponse(): MsgUpdateParamsResponse {
   return {};
 }
 export const MsgUpdateParamsResponse = {
-  typeUrl: '/mainchain.stream.v1.MsgUpdateParamsResponse',
+  typeUrl: "/mainchain.stream.v1.MsgUpdateParamsResponse",
   is(o: any): o is MsgUpdateParamsResponse {
     return o && o.$typeUrl === MsgUpdateParamsResponse.typeUrl;
   },
@@ -1413,9 +1413,9 @@ export const MsgUpdateParamsResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      default:
-        reader.skipType(tag & 7);
-        break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1443,7 +1443,7 @@ export const MsgUpdateParamsResponse = {
   },
   toProtoMsg(message: MsgUpdateParamsResponse): MsgUpdateParamsResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.stream.v1.MsgUpdateParamsResponse',
+      typeUrl: "/mainchain.stream.v1.MsgUpdateParamsResponse",
       value: MsgUpdateParamsResponse.encode(message).finish()
     };
   }

@@ -1,11 +1,8 @@
 //@ts-nocheck
-import { createProtobufRpcClient, ProtobufRpcClient,QueryClient } from '@cosmjs/stargate';
-import { useQuery } from '@tanstack/react-query';
-
-import { BinaryReader } from '../../../binary';
-import { Rpc } from '../../../helpers';
-import { ReactQueryParams } from '../../../react-query';
-import { QueryDepositRequest, QueryDepositResponse, QueryDepositsRequest, QueryDepositsResponse, QueryParamsRequest, QueryParamsResponse, QueryProposalRequest, QueryProposalResponse, QueryProposalsRequest, QueryProposalsResponse, QueryTallyResultRequest, QueryTallyResultResponse,QueryVoteRequest, QueryVoteResponse, QueryVotesRequest, QueryVotesResponse } from './query';
+import { Rpc } from "../../../helpers";
+import { BinaryReader } from "../../../binary";
+import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
+import { QueryProposalRequest, QueryProposalResponse, QueryProposalsRequest, QueryProposalsResponse, QueryVoteRequest, QueryVoteResponse, QueryVotesRequest, QueryVotesResponse, QueryParamsRequest, QueryParamsResponse, QueryDepositRequest, QueryDepositResponse, QueryDepositsRequest, QueryDepositsResponse, QueryTallyResultRequest, QueryTallyResultResponse } from "./query";
 /** Query defines the gRPC querier service for gov module */
 export interface Query {
   /** Proposal queries proposal details based on ProposalID. */
@@ -40,42 +37,42 @@ export class QueryClientImpl implements Query {
   }
   proposal(request: QueryProposalRequest): Promise<QueryProposalResponse> {
     const data = QueryProposalRequest.encode(request).finish();
-    const promise = this.rpc.request('cosmos.gov.v1beta1.Query', 'Proposal', data);
+    const promise = this.rpc.request("cosmos.gov.v1beta1.Query", "Proposal", data);
     return promise.then(data => QueryProposalResponse.decode(new BinaryReader(data)));
   }
   proposals(request: QueryProposalsRequest): Promise<QueryProposalsResponse> {
     const data = QueryProposalsRequest.encode(request).finish();
-    const promise = this.rpc.request('cosmos.gov.v1beta1.Query', 'Proposals', data);
+    const promise = this.rpc.request("cosmos.gov.v1beta1.Query", "Proposals", data);
     return promise.then(data => QueryProposalsResponse.decode(new BinaryReader(data)));
   }
   vote(request: QueryVoteRequest): Promise<QueryVoteResponse> {
     const data = QueryVoteRequest.encode(request).finish();
-    const promise = this.rpc.request('cosmos.gov.v1beta1.Query', 'Vote', data);
+    const promise = this.rpc.request("cosmos.gov.v1beta1.Query", "Vote", data);
     return promise.then(data => QueryVoteResponse.decode(new BinaryReader(data)));
   }
   votes(request: QueryVotesRequest): Promise<QueryVotesResponse> {
     const data = QueryVotesRequest.encode(request).finish();
-    const promise = this.rpc.request('cosmos.gov.v1beta1.Query', 'Votes', data);
+    const promise = this.rpc.request("cosmos.gov.v1beta1.Query", "Votes", data);
     return promise.then(data => QueryVotesResponse.decode(new BinaryReader(data)));
   }
   params(request: QueryParamsRequest): Promise<QueryParamsResponse> {
     const data = QueryParamsRequest.encode(request).finish();
-    const promise = this.rpc.request('cosmos.gov.v1beta1.Query', 'Params', data);
+    const promise = this.rpc.request("cosmos.gov.v1beta1.Query", "Params", data);
     return promise.then(data => QueryParamsResponse.decode(new BinaryReader(data)));
   }
   deposit(request: QueryDepositRequest): Promise<QueryDepositResponse> {
     const data = QueryDepositRequest.encode(request).finish();
-    const promise = this.rpc.request('cosmos.gov.v1beta1.Query', 'Deposit', data);
+    const promise = this.rpc.request("cosmos.gov.v1beta1.Query", "Deposit", data);
     return promise.then(data => QueryDepositResponse.decode(new BinaryReader(data)));
   }
   deposits(request: QueryDepositsRequest): Promise<QueryDepositsResponse> {
     const data = QueryDepositsRequest.encode(request).finish();
-    const promise = this.rpc.request('cosmos.gov.v1beta1.Query', 'Deposits', data);
+    const promise = this.rpc.request("cosmos.gov.v1beta1.Query", "Deposits", data);
     return promise.then(data => QueryDepositsResponse.decode(new BinaryReader(data)));
   }
   tallyResult(request: QueryTallyResultRequest): Promise<QueryTallyResultResponse> {
     const data = QueryTallyResultRequest.encode(request).finish();
-    const promise = this.rpc.request('cosmos.gov.v1beta1.Query', 'TallyResult', data);
+    const promise = this.rpc.request("cosmos.gov.v1beta1.Query", "TallyResult", data);
     return promise.then(data => QueryTallyResultResponse.decode(new BinaryReader(data)));
   }
 }
@@ -107,124 +104,5 @@ export const createRpcQueryExtension = (base: QueryClient) => {
     tallyResult(request: QueryTallyResultRequest): Promise<QueryTallyResultResponse> {
       return queryService.tallyResult(request);
     }
-  };
-};
-export interface UseProposalQuery<TData> extends ReactQueryParams<QueryProposalResponse, TData> {
-  request: QueryProposalRequest;
-}
-export interface UseProposalsQuery<TData> extends ReactQueryParams<QueryProposalsResponse, TData> {
-  request: QueryProposalsRequest;
-}
-export interface UseVoteQuery<TData> extends ReactQueryParams<QueryVoteResponse, TData> {
-  request: QueryVoteRequest;
-}
-export interface UseVotesQuery<TData> extends ReactQueryParams<QueryVotesResponse, TData> {
-  request: QueryVotesRequest;
-}
-export interface UseParamsQuery<TData> extends ReactQueryParams<QueryParamsResponse, TData> {
-  request: QueryParamsRequest;
-}
-export interface UseDepositQuery<TData> extends ReactQueryParams<QueryDepositResponse, TData> {
-  request: QueryDepositRequest;
-}
-export interface UseDepositsQuery<TData> extends ReactQueryParams<QueryDepositsResponse, TData> {
-  request: QueryDepositsRequest;
-}
-export interface UseTallyResultQuery<TData> extends ReactQueryParams<QueryTallyResultResponse, TData> {
-  request: QueryTallyResultRequest;
-}
-const _queryClients: WeakMap<ProtobufRpcClient, QueryClientImpl> = new WeakMap();
-const getQueryService = (rpc: ProtobufRpcClient | undefined): QueryClientImpl | undefined => {
-  if (!rpc) return;
-  if (_queryClients.has(rpc)) {
-    return _queryClients.get(rpc);
-  }
-  const queryService = new QueryClientImpl(rpc);
-  _queryClients.set(rpc, queryService);
-  return queryService;
-};
-export const createRpcQueryHooks = (rpc: ProtobufRpcClient | undefined) => {
-  const queryService = getQueryService(rpc);
-  const useProposal = <TData = QueryProposalResponse,>({
-    request,
-    options
-  }: UseProposalQuery<TData>) => {
-    return useQuery<QueryProposalResponse, Error, TData>(['proposalQuery', request], () => {
-      if (!queryService) throw new Error('Query Service not initialized');
-      return queryService.proposal(request);
-    }, options);
-  };
-  const useProposals = <TData = QueryProposalsResponse,>({
-    request,
-    options
-  }: UseProposalsQuery<TData>) => {
-    return useQuery<QueryProposalsResponse, Error, TData>(['proposalsQuery', request], () => {
-      if (!queryService) throw new Error('Query Service not initialized');
-      return queryService.proposals(request);
-    }, options);
-  };
-  const useVote = <TData = QueryVoteResponse,>({
-    request,
-    options
-  }: UseVoteQuery<TData>) => {
-    return useQuery<QueryVoteResponse, Error, TData>(['voteQuery', request], () => {
-      if (!queryService) throw new Error('Query Service not initialized');
-      return queryService.vote(request);
-    }, options);
-  };
-  const useVotes = <TData = QueryVotesResponse,>({
-    request,
-    options
-  }: UseVotesQuery<TData>) => {
-    return useQuery<QueryVotesResponse, Error, TData>(['votesQuery', request], () => {
-      if (!queryService) throw new Error('Query Service not initialized');
-      return queryService.votes(request);
-    }, options);
-  };
-  const useParams = <TData = QueryParamsResponse,>({
-    request,
-    options
-  }: UseParamsQuery<TData>) => {
-    return useQuery<QueryParamsResponse, Error, TData>(['paramsQuery', request], () => {
-      if (!queryService) throw new Error('Query Service not initialized');
-      return queryService.params(request);
-    }, options);
-  };
-  const useDeposit = <TData = QueryDepositResponse,>({
-    request,
-    options
-  }: UseDepositQuery<TData>) => {
-    return useQuery<QueryDepositResponse, Error, TData>(['depositQuery', request], () => {
-      if (!queryService) throw new Error('Query Service not initialized');
-      return queryService.deposit(request);
-    }, options);
-  };
-  const useDeposits = <TData = QueryDepositsResponse,>({
-    request,
-    options
-  }: UseDepositsQuery<TData>) => {
-    return useQuery<QueryDepositsResponse, Error, TData>(['depositsQuery', request], () => {
-      if (!queryService) throw new Error('Query Service not initialized');
-      return queryService.deposits(request);
-    }, options);
-  };
-  const useTallyResult = <TData = QueryTallyResultResponse,>({
-    request,
-    options
-  }: UseTallyResultQuery<TData>) => {
-    return useQuery<QueryTallyResultResponse, Error, TData>(['tallyResultQuery', request], () => {
-      if (!queryService) throw new Error('Query Service not initialized');
-      return queryService.tallyResult(request);
-    }, options);
-  };
-  return {
-    /** Proposal queries proposal details based on ProposalID. */useProposal,
-    /** Proposals queries all proposals based on given status. */useProposals,
-    /** Vote queries voted information based on proposalID, voterAddr. */useVote,
-    /** Votes queries votes of a given proposal. */useVotes,
-    /** Params queries all parameters of the gov module. */useParams,
-    /** Deposit queries single deposit information based proposalID, depositAddr. */useDeposit,
-    /** Deposits queries all deposits of a single proposal. */useDeposits,
-    /** TallyResult queries the tally of a proposal vote. */useTallyResult
   };
 };

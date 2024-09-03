@@ -1,9 +1,9 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from '../../../binary';
-import { Coin, CoinAmino, CoinSDKType } from '../../../cosmos/base/v1beta1/coin';
-import { isSet } from '../../../helpers';
-import { GlobalDecoderRegistry } from '../../../registry';
-import { Params, ParamsAmino, ParamsSDKType,PurchaseOrderStatus, WhitelistAction } from './enterprise';
+import { Coin, CoinAmino, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
+import { PurchaseOrderStatus, WhitelistAction, Params, ParamsAmino, ParamsSDKType } from "./enterprise";
+import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
+import { isSet } from "../../../helpers";
 /** MsgUndPurchaseOrder represents a message to raise a new purchase order */
 export interface MsgUndPurchaseOrder {
   /** purchaser is the address of the account raising the purchase order */
@@ -12,7 +12,7 @@ export interface MsgUndPurchaseOrder {
   amount: Coin;
 }
 export interface MsgUndPurchaseOrderProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.MsgUndPurchaseOrder';
+  typeUrl: "/mainchain.enterprise.v1.MsgUndPurchaseOrder";
   value: Uint8Array;
 }
 /** MsgUndPurchaseOrder represents a message to raise a new purchase order */
@@ -23,7 +23,7 @@ export interface MsgUndPurchaseOrderAmino {
   amount?: CoinAmino;
 }
 export interface MsgUndPurchaseOrderAminoMsg {
-  type: '/mainchain.enterprise.v1.MsgUndPurchaseOrder';
+  type: "/mainchain.enterprise.v1.MsgUndPurchaseOrder";
   value: MsgUndPurchaseOrderAmino;
 }
 /** MsgUndPurchaseOrder represents a message to raise a new purchase order */
@@ -36,7 +36,7 @@ export interface MsgUndPurchaseOrderResponse {
   purchaseOrderId: bigint;
 }
 export interface MsgUndPurchaseOrderResponseProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.MsgUndPurchaseOrderResponse';
+  typeUrl: "/mainchain.enterprise.v1.MsgUndPurchaseOrderResponse";
   value: Uint8Array;
 }
 /** MsgUndPurchaseOrderResponse defines the Msg/UndPurchaseOrder response type. */
@@ -44,7 +44,7 @@ export interface MsgUndPurchaseOrderResponseAmino {
   purchase_order_id?: string;
 }
 export interface MsgUndPurchaseOrderResponseAminoMsg {
-  type: '/mainchain.enterprise.v1.MsgUndPurchaseOrderResponse';
+  type: "/mainchain.enterprise.v1.MsgUndPurchaseOrderResponse";
   value: MsgUndPurchaseOrderResponseAmino;
 }
 /** MsgUndPurchaseOrderResponse defines the Msg/UndPurchaseOrder response type. */
@@ -61,7 +61,7 @@ export interface MsgProcessUndPurchaseOrder {
   signer: string;
 }
 export interface MsgProcessUndPurchaseOrderProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.MsgProcessUndPurchaseOrder';
+  typeUrl: "/mainchain.enterprise.v1.MsgProcessUndPurchaseOrder";
   value: Uint8Array;
 }
 /** MsgProcessUndPurchaseOrder represents a message to processed a raised purchase order */
@@ -74,7 +74,7 @@ export interface MsgProcessUndPurchaseOrderAmino {
   signer?: string;
 }
 export interface MsgProcessUndPurchaseOrderAminoMsg {
-  type: '/mainchain.enterprise.v1.MsgProcessUndPurchaseOrder';
+  type: "/mainchain.enterprise.v1.MsgProcessUndPurchaseOrder";
   value: MsgProcessUndPurchaseOrderAmino;
 }
 /** MsgProcessUndPurchaseOrder represents a message to processed a raised purchase order */
@@ -86,13 +86,13 @@ export interface MsgProcessUndPurchaseOrderSDKType {
 /** MsgProcessUndPurchaseOrderResponse defines the Msg/ProcessUndPurchaseOrder response type. */
 export interface MsgProcessUndPurchaseOrderResponse {}
 export interface MsgProcessUndPurchaseOrderResponseProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.MsgProcessUndPurchaseOrderResponse';
+  typeUrl: "/mainchain.enterprise.v1.MsgProcessUndPurchaseOrderResponse";
   value: Uint8Array;
 }
 /** MsgProcessUndPurchaseOrderResponse defines the Msg/ProcessUndPurchaseOrder response type. */
 export interface MsgProcessUndPurchaseOrderResponseAmino {}
 export interface MsgProcessUndPurchaseOrderResponseAminoMsg {
-  type: '/mainchain.enterprise.v1.MsgProcessUndPurchaseOrderResponse';
+  type: "/mainchain.enterprise.v1.MsgProcessUndPurchaseOrderResponse";
   value: MsgProcessUndPurchaseOrderResponseAmino;
 }
 /** MsgProcessUndPurchaseOrderResponse defines the Msg/ProcessUndPurchaseOrder response type. */
@@ -110,7 +110,7 @@ export interface MsgWhitelistAddress {
   whitelistAction: WhitelistAction;
 }
 export interface MsgWhitelistAddressProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.MsgWhitelistAddress';
+  typeUrl: "/mainchain.enterprise.v1.MsgWhitelistAddress";
   value: Uint8Array;
 }
 /**
@@ -126,7 +126,7 @@ export interface MsgWhitelistAddressAmino {
   whitelist_action: WhitelistAction;
 }
 export interface MsgWhitelistAddressAminoMsg {
-  type: '/mainchain.enterprise.v1.MsgWhitelistAddress';
+  type: "/mainchain.enterprise.v1.MsgWhitelistAddress";
   value: MsgWhitelistAddressAmino;
 }
 /**
@@ -141,13 +141,13 @@ export interface MsgWhitelistAddressSDKType {
 /** MsgWhitelistAddressResponse defines the Msg/WhitelistAddress response type. */
 export interface MsgWhitelistAddressResponse {}
 export interface MsgWhitelistAddressResponseProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.MsgWhitelistAddressResponse';
+  typeUrl: "/mainchain.enterprise.v1.MsgWhitelistAddressResponse";
   value: Uint8Array;
 }
 /** MsgWhitelistAddressResponse defines the Msg/WhitelistAddress response type. */
 export interface MsgWhitelistAddressResponseAmino {}
 export interface MsgWhitelistAddressResponseAminoMsg {
-  type: '/mainchain.enterprise.v1.MsgWhitelistAddressResponse';
+  type: "/mainchain.enterprise.v1.MsgWhitelistAddressResponse";
   value: MsgWhitelistAddressResponseAmino;
 }
 /** MsgWhitelistAddressResponse defines the Msg/WhitelistAddress response type. */
@@ -168,7 +168,7 @@ export interface MsgUpdateParams {
   params: Params;
 }
 export interface MsgUpdateParamsProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.MsgUpdateParams';
+  typeUrl: "/mainchain.enterprise.v1.MsgUpdateParams";
   value: Uint8Array;
 }
 /**
@@ -187,7 +187,7 @@ export interface MsgUpdateParamsAmino {
   params: ParamsAmino;
 }
 export interface MsgUpdateParamsAminoMsg {
-  type: 'mainchain/x/enterprise/MsgUpdateParams';
+  type: "mainchain/x/enterprise/MsgUpdateParams";
   value: MsgUpdateParamsAmino;
 }
 /**
@@ -207,7 +207,7 @@ export interface MsgUpdateParamsSDKType {
  */
 export interface MsgUpdateParamsResponse {}
 export interface MsgUpdateParamsResponseProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.MsgUpdateParamsResponse';
+  typeUrl: "/mainchain.enterprise.v1.MsgUpdateParamsResponse";
   value: Uint8Array;
 }
 /**
@@ -218,7 +218,7 @@ export interface MsgUpdateParamsResponseProtoMsg {
  */
 export interface MsgUpdateParamsResponseAmino {}
 export interface MsgUpdateParamsResponseAminoMsg {
-  type: '/mainchain.enterprise.v1.MsgUpdateParamsResponse';
+  type: "/mainchain.enterprise.v1.MsgUpdateParamsResponse";
   value: MsgUpdateParamsResponseAmino;
 }
 /**
@@ -230,23 +230,23 @@ export interface MsgUpdateParamsResponseAminoMsg {
 export interface MsgUpdateParamsResponseSDKType {}
 function createBaseMsgUndPurchaseOrder(): MsgUndPurchaseOrder {
   return {
-    purchaser: '',
+    purchaser: "",
     amount: Coin.fromPartial({})
   };
 }
 export const MsgUndPurchaseOrder = {
-  typeUrl: '/mainchain.enterprise.v1.MsgUndPurchaseOrder',
+  typeUrl: "/mainchain.enterprise.v1.MsgUndPurchaseOrder",
   is(o: any): o is MsgUndPurchaseOrder {
-    return o && (o.$typeUrl === MsgUndPurchaseOrder.typeUrl || typeof o.purchaser === 'string' && Coin.is(o.amount));
+    return o && (o.$typeUrl === MsgUndPurchaseOrder.typeUrl || typeof o.purchaser === "string" && Coin.is(o.amount));
   },
   isSDK(o: any): o is MsgUndPurchaseOrderSDKType {
-    return o && (o.$typeUrl === MsgUndPurchaseOrder.typeUrl || typeof o.purchaser === 'string' && Coin.isSDK(o.amount));
+    return o && (o.$typeUrl === MsgUndPurchaseOrder.typeUrl || typeof o.purchaser === "string" && Coin.isSDK(o.amount));
   },
   isAmino(o: any): o is MsgUndPurchaseOrderAmino {
-    return o && (o.$typeUrl === MsgUndPurchaseOrder.typeUrl || typeof o.purchaser === 'string' && Coin.isAmino(o.amount));
+    return o && (o.$typeUrl === MsgUndPurchaseOrder.typeUrl || typeof o.purchaser === "string" && Coin.isAmino(o.amount));
   },
   encode(message: MsgUndPurchaseOrder, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.purchaser !== '') {
+    if (message.purchaser !== "") {
       writer.uint32(10).string(message.purchaser);
     }
     if (message.amount !== undefined) {
@@ -261,22 +261,22 @@ export const MsgUndPurchaseOrder = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.purchaser = reader.string();
-        break;
-      case 2:
-        message.amount = Coin.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.purchaser = reader.string();
+          break;
+        case 2:
+          message.amount = Coin.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<MsgUndPurchaseOrder>): MsgUndPurchaseOrder {
     const message = createBaseMsgUndPurchaseOrder();
-    message.purchaser = object.purchaser ?? '';
+    message.purchaser = object.purchaser ?? "";
     message.amount = object.amount !== undefined && object.amount !== null ? Coin.fromPartial(object.amount) : undefined;
     return message;
   },
@@ -292,7 +292,7 @@ export const MsgUndPurchaseOrder = {
   },
   toAmino(message: MsgUndPurchaseOrder): MsgUndPurchaseOrderAmino {
     const obj: any = {};
-    obj.purchaser = message.purchaser === '' ? undefined : message.purchaser;
+    obj.purchaser = message.purchaser === "" ? undefined : message.purchaser;
     obj.amount = message.amount ? Coin.toAmino(message.amount) : undefined;
     return obj;
   },
@@ -307,7 +307,7 @@ export const MsgUndPurchaseOrder = {
   },
   toProtoMsg(message: MsgUndPurchaseOrder): MsgUndPurchaseOrderProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.MsgUndPurchaseOrder',
+      typeUrl: "/mainchain.enterprise.v1.MsgUndPurchaseOrder",
       value: MsgUndPurchaseOrder.encode(message).finish()
     };
   }
@@ -319,15 +319,15 @@ function createBaseMsgUndPurchaseOrderResponse(): MsgUndPurchaseOrderResponse {
   };
 }
 export const MsgUndPurchaseOrderResponse = {
-  typeUrl: '/mainchain.enterprise.v1.MsgUndPurchaseOrderResponse',
+  typeUrl: "/mainchain.enterprise.v1.MsgUndPurchaseOrderResponse",
   is(o: any): o is MsgUndPurchaseOrderResponse {
-    return o && (o.$typeUrl === MsgUndPurchaseOrderResponse.typeUrl || typeof o.purchaseOrderId === 'bigint');
+    return o && (o.$typeUrl === MsgUndPurchaseOrderResponse.typeUrl || typeof o.purchaseOrderId === "bigint");
   },
   isSDK(o: any): o is MsgUndPurchaseOrderResponseSDKType {
-    return o && (o.$typeUrl === MsgUndPurchaseOrderResponse.typeUrl || typeof o.purchase_order_id === 'bigint');
+    return o && (o.$typeUrl === MsgUndPurchaseOrderResponse.typeUrl || typeof o.purchase_order_id === "bigint");
   },
   isAmino(o: any): o is MsgUndPurchaseOrderResponseAmino {
-    return o && (o.$typeUrl === MsgUndPurchaseOrderResponse.typeUrl || typeof o.purchase_order_id === 'bigint');
+    return o && (o.$typeUrl === MsgUndPurchaseOrderResponse.typeUrl || typeof o.purchase_order_id === "bigint");
   },
   encode(message: MsgUndPurchaseOrderResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.purchaseOrderId !== BigInt(0)) {
@@ -342,12 +342,12 @@ export const MsgUndPurchaseOrderResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.purchaseOrderId = reader.uint64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.purchaseOrderId = reader.uint64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -380,7 +380,7 @@ export const MsgUndPurchaseOrderResponse = {
   },
   toProtoMsg(message: MsgUndPurchaseOrderResponse): MsgUndPurchaseOrderResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.MsgUndPurchaseOrderResponse',
+      typeUrl: "/mainchain.enterprise.v1.MsgUndPurchaseOrderResponse",
       value: MsgUndPurchaseOrderResponse.encode(message).finish()
     };
   }
@@ -390,19 +390,19 @@ function createBaseMsgProcessUndPurchaseOrder(): MsgProcessUndPurchaseOrder {
   return {
     purchaseOrderId: BigInt(0),
     decision: 0,
-    signer: ''
+    signer: ""
   };
 }
 export const MsgProcessUndPurchaseOrder = {
-  typeUrl: '/mainchain.enterprise.v1.MsgProcessUndPurchaseOrder',
+  typeUrl: "/mainchain.enterprise.v1.MsgProcessUndPurchaseOrder",
   is(o: any): o is MsgProcessUndPurchaseOrder {
-    return o && (o.$typeUrl === MsgProcessUndPurchaseOrder.typeUrl || typeof o.purchaseOrderId === 'bigint' && isSet(o.decision) && typeof o.signer === 'string');
+    return o && (o.$typeUrl === MsgProcessUndPurchaseOrder.typeUrl || typeof o.purchaseOrderId === "bigint" && isSet(o.decision) && typeof o.signer === "string");
   },
   isSDK(o: any): o is MsgProcessUndPurchaseOrderSDKType {
-    return o && (o.$typeUrl === MsgProcessUndPurchaseOrder.typeUrl || typeof o.purchase_order_id === 'bigint' && isSet(o.decision) && typeof o.signer === 'string');
+    return o && (o.$typeUrl === MsgProcessUndPurchaseOrder.typeUrl || typeof o.purchase_order_id === "bigint" && isSet(o.decision) && typeof o.signer === "string");
   },
   isAmino(o: any): o is MsgProcessUndPurchaseOrderAmino {
-    return o && (o.$typeUrl === MsgProcessUndPurchaseOrder.typeUrl || typeof o.purchase_order_id === 'bigint' && isSet(o.decision) && typeof o.signer === 'string');
+    return o && (o.$typeUrl === MsgProcessUndPurchaseOrder.typeUrl || typeof o.purchase_order_id === "bigint" && isSet(o.decision) && typeof o.signer === "string");
   },
   encode(message: MsgProcessUndPurchaseOrder, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.purchaseOrderId !== BigInt(0)) {
@@ -411,7 +411,7 @@ export const MsgProcessUndPurchaseOrder = {
     if (message.decision !== 0) {
       writer.uint32(16).int32(message.decision);
     }
-    if (message.signer !== '') {
+    if (message.signer !== "") {
       writer.uint32(26).string(message.signer);
     }
     return writer;
@@ -423,18 +423,18 @@ export const MsgProcessUndPurchaseOrder = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.purchaseOrderId = reader.uint64();
-        break;
-      case 2:
-        message.decision = reader.int32() as any;
-        break;
-      case 3:
-        message.signer = reader.string();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.purchaseOrderId = reader.uint64();
+          break;
+        case 2:
+          message.decision = reader.int32() as any;
+          break;
+        case 3:
+          message.signer = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -443,7 +443,7 @@ export const MsgProcessUndPurchaseOrder = {
     const message = createBaseMsgProcessUndPurchaseOrder();
     message.purchaseOrderId = object.purchaseOrderId !== undefined && object.purchaseOrderId !== null ? BigInt(object.purchaseOrderId.toString()) : BigInt(0);
     message.decision = object.decision ?? 0;
-    message.signer = object.signer ?? '';
+    message.signer = object.signer ?? "";
     return message;
   },
   fromAmino(object: MsgProcessUndPurchaseOrderAmino): MsgProcessUndPurchaseOrder {
@@ -461,9 +461,9 @@ export const MsgProcessUndPurchaseOrder = {
   },
   toAmino(message: MsgProcessUndPurchaseOrder): MsgProcessUndPurchaseOrderAmino {
     const obj: any = {};
-    obj.purchase_order_id = message.purchaseOrderId ? message.purchaseOrderId.toString() : '0';
+    obj.purchase_order_id = message.purchaseOrderId ? message.purchaseOrderId.toString() : "0";
     obj.decision = message.decision === 0 ? undefined : message.decision;
-    obj.signer = message.signer === '' ? undefined : message.signer;
+    obj.signer = message.signer === "" ? undefined : message.signer;
     return obj;
   },
   fromAminoMsg(object: MsgProcessUndPurchaseOrderAminoMsg): MsgProcessUndPurchaseOrder {
@@ -477,7 +477,7 @@ export const MsgProcessUndPurchaseOrder = {
   },
   toProtoMsg(message: MsgProcessUndPurchaseOrder): MsgProcessUndPurchaseOrderProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.MsgProcessUndPurchaseOrder',
+      typeUrl: "/mainchain.enterprise.v1.MsgProcessUndPurchaseOrder",
       value: MsgProcessUndPurchaseOrder.encode(message).finish()
     };
   }
@@ -487,7 +487,7 @@ function createBaseMsgProcessUndPurchaseOrderResponse(): MsgProcessUndPurchaseOr
   return {};
 }
 export const MsgProcessUndPurchaseOrderResponse = {
-  typeUrl: '/mainchain.enterprise.v1.MsgProcessUndPurchaseOrderResponse',
+  typeUrl: "/mainchain.enterprise.v1.MsgProcessUndPurchaseOrderResponse",
   is(o: any): o is MsgProcessUndPurchaseOrderResponse {
     return o && o.$typeUrl === MsgProcessUndPurchaseOrderResponse.typeUrl;
   },
@@ -507,9 +507,9 @@ export const MsgProcessUndPurchaseOrderResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      default:
-        reader.skipType(tag & 7);
-        break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -537,7 +537,7 @@ export const MsgProcessUndPurchaseOrderResponse = {
   },
   toProtoMsg(message: MsgProcessUndPurchaseOrderResponse): MsgProcessUndPurchaseOrderResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.MsgProcessUndPurchaseOrderResponse',
+      typeUrl: "/mainchain.enterprise.v1.MsgProcessUndPurchaseOrderResponse",
       value: MsgProcessUndPurchaseOrderResponse.encode(message).finish()
     };
   }
@@ -545,27 +545,27 @@ export const MsgProcessUndPurchaseOrderResponse = {
 GlobalDecoderRegistry.register(MsgProcessUndPurchaseOrderResponse.typeUrl, MsgProcessUndPurchaseOrderResponse);
 function createBaseMsgWhitelistAddress(): MsgWhitelistAddress {
   return {
-    address: '',
-    signer: '',
+    address: "",
+    signer: "",
     whitelistAction: 0
   };
 }
 export const MsgWhitelistAddress = {
-  typeUrl: '/mainchain.enterprise.v1.MsgWhitelistAddress',
+  typeUrl: "/mainchain.enterprise.v1.MsgWhitelistAddress",
   is(o: any): o is MsgWhitelistAddress {
-    return o && (o.$typeUrl === MsgWhitelistAddress.typeUrl || typeof o.address === 'string' && typeof o.signer === 'string' && isSet(o.whitelistAction));
+    return o && (o.$typeUrl === MsgWhitelistAddress.typeUrl || typeof o.address === "string" && typeof o.signer === "string" && isSet(o.whitelistAction));
   },
   isSDK(o: any): o is MsgWhitelistAddressSDKType {
-    return o && (o.$typeUrl === MsgWhitelistAddress.typeUrl || typeof o.address === 'string' && typeof o.signer === 'string' && isSet(o.whitelist_action));
+    return o && (o.$typeUrl === MsgWhitelistAddress.typeUrl || typeof o.address === "string" && typeof o.signer === "string" && isSet(o.whitelist_action));
   },
   isAmino(o: any): o is MsgWhitelistAddressAmino {
-    return o && (o.$typeUrl === MsgWhitelistAddress.typeUrl || typeof o.address === 'string' && typeof o.signer === 'string' && isSet(o.whitelist_action));
+    return o && (o.$typeUrl === MsgWhitelistAddress.typeUrl || typeof o.address === "string" && typeof o.signer === "string" && isSet(o.whitelist_action));
   },
   encode(message: MsgWhitelistAddress, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.address !== '') {
+    if (message.address !== "") {
       writer.uint32(10).string(message.address);
     }
-    if (message.signer !== '') {
+    if (message.signer !== "") {
       writer.uint32(18).string(message.signer);
     }
     if (message.whitelistAction !== 0) {
@@ -580,26 +580,26 @@ export const MsgWhitelistAddress = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.address = reader.string();
-        break;
-      case 2:
-        message.signer = reader.string();
-        break;
-      case 3:
-        message.whitelistAction = reader.int32() as any;
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.address = reader.string();
+          break;
+        case 2:
+          message.signer = reader.string();
+          break;
+        case 3:
+          message.whitelistAction = reader.int32() as any;
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<MsgWhitelistAddress>): MsgWhitelistAddress {
     const message = createBaseMsgWhitelistAddress();
-    message.address = object.address ?? '';
-    message.signer = object.signer ?? '';
+    message.address = object.address ?? "";
+    message.signer = object.signer ?? "";
     message.whitelistAction = object.whitelistAction ?? 0;
     return message;
   },
@@ -618,8 +618,8 @@ export const MsgWhitelistAddress = {
   },
   toAmino(message: MsgWhitelistAddress): MsgWhitelistAddressAmino {
     const obj: any = {};
-    obj.address = message.address === '' ? undefined : message.address;
-    obj.signer = message.signer === '' ? undefined : message.signer;
+    obj.address = message.address === "" ? undefined : message.address;
+    obj.signer = message.signer === "" ? undefined : message.signer;
     obj.whitelist_action = message.whitelistAction ?? 0;
     return obj;
   },
@@ -634,7 +634,7 @@ export const MsgWhitelistAddress = {
   },
   toProtoMsg(message: MsgWhitelistAddress): MsgWhitelistAddressProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.MsgWhitelistAddress',
+      typeUrl: "/mainchain.enterprise.v1.MsgWhitelistAddress",
       value: MsgWhitelistAddress.encode(message).finish()
     };
   }
@@ -644,7 +644,7 @@ function createBaseMsgWhitelistAddressResponse(): MsgWhitelistAddressResponse {
   return {};
 }
 export const MsgWhitelistAddressResponse = {
-  typeUrl: '/mainchain.enterprise.v1.MsgWhitelistAddressResponse',
+  typeUrl: "/mainchain.enterprise.v1.MsgWhitelistAddressResponse",
   is(o: any): o is MsgWhitelistAddressResponse {
     return o && o.$typeUrl === MsgWhitelistAddressResponse.typeUrl;
   },
@@ -664,9 +664,9 @@ export const MsgWhitelistAddressResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      default:
-        reader.skipType(tag & 7);
-        break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -694,7 +694,7 @@ export const MsgWhitelistAddressResponse = {
   },
   toProtoMsg(message: MsgWhitelistAddressResponse): MsgWhitelistAddressResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.MsgWhitelistAddressResponse',
+      typeUrl: "/mainchain.enterprise.v1.MsgWhitelistAddressResponse",
       value: MsgWhitelistAddressResponse.encode(message).finish()
     };
   }
@@ -702,24 +702,24 @@ export const MsgWhitelistAddressResponse = {
 GlobalDecoderRegistry.register(MsgWhitelistAddressResponse.typeUrl, MsgWhitelistAddressResponse);
 function createBaseMsgUpdateParams(): MsgUpdateParams {
   return {
-    authority: '',
+    authority: "",
     params: Params.fromPartial({})
   };
 }
 export const MsgUpdateParams = {
-  typeUrl: '/mainchain.enterprise.v1.MsgUpdateParams',
-  aminoType: 'mainchain/x/enterprise/MsgUpdateParams',
+  typeUrl: "/mainchain.enterprise.v1.MsgUpdateParams",
+  aminoType: "mainchain/x/enterprise/MsgUpdateParams",
   is(o: any): o is MsgUpdateParams {
-    return o && (o.$typeUrl === MsgUpdateParams.typeUrl || typeof o.authority === 'string' && Params.is(o.params));
+    return o && (o.$typeUrl === MsgUpdateParams.typeUrl || typeof o.authority === "string" && Params.is(o.params));
   },
   isSDK(o: any): o is MsgUpdateParamsSDKType {
-    return o && (o.$typeUrl === MsgUpdateParams.typeUrl || typeof o.authority === 'string' && Params.isSDK(o.params));
+    return o && (o.$typeUrl === MsgUpdateParams.typeUrl || typeof o.authority === "string" && Params.isSDK(o.params));
   },
   isAmino(o: any): o is MsgUpdateParamsAmino {
-    return o && (o.$typeUrl === MsgUpdateParams.typeUrl || typeof o.authority === 'string' && Params.isAmino(o.params));
+    return o && (o.$typeUrl === MsgUpdateParams.typeUrl || typeof o.authority === "string" && Params.isAmino(o.params));
   },
   encode(message: MsgUpdateParams, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.authority !== '') {
+    if (message.authority !== "") {
       writer.uint32(10).string(message.authority);
     }
     if (message.params !== undefined) {
@@ -734,22 +734,22 @@ export const MsgUpdateParams = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.authority = reader.string();
-        break;
-      case 2:
-        message.params = Params.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.authority = reader.string();
+          break;
+        case 2:
+          message.params = Params.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<MsgUpdateParams>): MsgUpdateParams {
     const message = createBaseMsgUpdateParams();
-    message.authority = object.authority ?? '';
+    message.authority = object.authority ?? "";
     message.params = object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
     return message;
   },
@@ -765,7 +765,7 @@ export const MsgUpdateParams = {
   },
   toAmino(message: MsgUpdateParams): MsgUpdateParamsAmino {
     const obj: any = {};
-    obj.authority = message.authority === '' ? undefined : message.authority;
+    obj.authority = message.authority === "" ? undefined : message.authority;
     obj.params = message.params ? Params.toAmino(message.params) : Params.toAmino(Params.fromPartial({}));
     return obj;
   },
@@ -774,7 +774,7 @@ export const MsgUpdateParams = {
   },
   toAminoMsg(message: MsgUpdateParams): MsgUpdateParamsAminoMsg {
     return {
-      type: 'mainchain/x/enterprise/MsgUpdateParams',
+      type: "mainchain/x/enterprise/MsgUpdateParams",
       value: MsgUpdateParams.toAmino(message)
     };
   },
@@ -786,7 +786,7 @@ export const MsgUpdateParams = {
   },
   toProtoMsg(message: MsgUpdateParams): MsgUpdateParamsProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.MsgUpdateParams',
+      typeUrl: "/mainchain.enterprise.v1.MsgUpdateParams",
       value: MsgUpdateParams.encode(message).finish()
     };
   }
@@ -797,7 +797,7 @@ function createBaseMsgUpdateParamsResponse(): MsgUpdateParamsResponse {
   return {};
 }
 export const MsgUpdateParamsResponse = {
-  typeUrl: '/mainchain.enterprise.v1.MsgUpdateParamsResponse',
+  typeUrl: "/mainchain.enterprise.v1.MsgUpdateParamsResponse",
   is(o: any): o is MsgUpdateParamsResponse {
     return o && o.$typeUrl === MsgUpdateParamsResponse.typeUrl;
   },
@@ -817,9 +817,9 @@ export const MsgUpdateParamsResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      default:
-        reader.skipType(tag & 7);
-        break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -847,7 +847,7 @@ export const MsgUpdateParamsResponse = {
   },
   toProtoMsg(message: MsgUpdateParamsResponse): MsgUpdateParamsResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.MsgUpdateParamsResponse',
+      typeUrl: "/mainchain.enterprise.v1.MsgUpdateParamsResponse",
       value: MsgUpdateParamsResponse.encode(message).finish()
     };
   }

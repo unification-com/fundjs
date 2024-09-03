@@ -1,7 +1,7 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from '../../../binary';
-import { GlobalDecoderRegistry } from '../../../registry';
-import { Deposit, DepositAmino, DepositParams, DepositParamsAmino, DepositParamsSDKType, DepositSDKType, Proposal, ProposalAmino, ProposalSDKType, TallyParams, TallyParamsAmino, TallyParamsSDKType,Vote, VoteAmino, VoteSDKType, VotingParams, VotingParamsAmino, VotingParamsSDKType } from './gov';
+import { Deposit, DepositAmino, DepositSDKType, Vote, VoteAmino, VoteSDKType, Proposal, ProposalAmino, ProposalSDKType, DepositParams, DepositParamsAmino, DepositParamsSDKType, VotingParams, VotingParamsAmino, VotingParamsSDKType, TallyParams, TallyParamsAmino, TallyParamsSDKType } from "./gov";
+import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
 /** GenesisState defines the gov module's genesis state. */
 export interface GenesisState {
   /** starting_proposal_id is the ID of the starting proposal. */
@@ -20,7 +20,7 @@ export interface GenesisState {
   tallyParams?: TallyParams;
 }
 export interface GenesisStateProtoMsg {
-  typeUrl: '/cosmos.gov.v1.GenesisState';
+  typeUrl: "/cosmos.gov.v1.GenesisState";
   value: Uint8Array;
 }
 /** GenesisState defines the gov module's genesis state. */
@@ -41,7 +41,7 @@ export interface GenesisStateAmino {
   tally_params?: TallyParamsAmino;
 }
 export interface GenesisStateAminoMsg {
-  type: 'cosmos-sdk/v1/GenesisState';
+  type: "cosmos-sdk/v1/GenesisState";
   value: GenesisStateAmino;
 }
 /** GenesisState defines the gov module's genesis state. */
@@ -66,16 +66,16 @@ function createBaseGenesisState(): GenesisState {
   };
 }
 export const GenesisState = {
-  typeUrl: '/cosmos.gov.v1.GenesisState',
-  aminoType: 'cosmos-sdk/v1/GenesisState',
+  typeUrl: "/cosmos.gov.v1.GenesisState",
+  aminoType: "cosmos-sdk/v1/GenesisState",
   is(o: any): o is GenesisState {
-    return o && (o.$typeUrl === GenesisState.typeUrl || typeof o.startingProposalId === 'bigint' && Array.isArray(o.deposits) && (!o.deposits.length || Deposit.is(o.deposits[0])) && Array.isArray(o.votes) && (!o.votes.length || Vote.is(o.votes[0])) && Array.isArray(o.proposals) && (!o.proposals.length || Proposal.is(o.proposals[0])));
+    return o && (o.$typeUrl === GenesisState.typeUrl || typeof o.startingProposalId === "bigint" && Array.isArray(o.deposits) && (!o.deposits.length || Deposit.is(o.deposits[0])) && Array.isArray(o.votes) && (!o.votes.length || Vote.is(o.votes[0])) && Array.isArray(o.proposals) && (!o.proposals.length || Proposal.is(o.proposals[0])));
   },
   isSDK(o: any): o is GenesisStateSDKType {
-    return o && (o.$typeUrl === GenesisState.typeUrl || typeof o.starting_proposal_id === 'bigint' && Array.isArray(o.deposits) && (!o.deposits.length || Deposit.isSDK(o.deposits[0])) && Array.isArray(o.votes) && (!o.votes.length || Vote.isSDK(o.votes[0])) && Array.isArray(o.proposals) && (!o.proposals.length || Proposal.isSDK(o.proposals[0])));
+    return o && (o.$typeUrl === GenesisState.typeUrl || typeof o.starting_proposal_id === "bigint" && Array.isArray(o.deposits) && (!o.deposits.length || Deposit.isSDK(o.deposits[0])) && Array.isArray(o.votes) && (!o.votes.length || Vote.isSDK(o.votes[0])) && Array.isArray(o.proposals) && (!o.proposals.length || Proposal.isSDK(o.proposals[0])));
   },
   isAmino(o: any): o is GenesisStateAmino {
-    return o && (o.$typeUrl === GenesisState.typeUrl || typeof o.starting_proposal_id === 'bigint' && Array.isArray(o.deposits) && (!o.deposits.length || Deposit.isAmino(o.deposits[0])) && Array.isArray(o.votes) && (!o.votes.length || Vote.isAmino(o.votes[0])) && Array.isArray(o.proposals) && (!o.proposals.length || Proposal.isAmino(o.proposals[0])));
+    return o && (o.$typeUrl === GenesisState.typeUrl || typeof o.starting_proposal_id === "bigint" && Array.isArray(o.deposits) && (!o.deposits.length || Deposit.isAmino(o.deposits[0])) && Array.isArray(o.votes) && (!o.votes.length || Vote.isAmino(o.votes[0])) && Array.isArray(o.proposals) && (!o.proposals.length || Proposal.isAmino(o.proposals[0])));
   },
   encode(message: GenesisState, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.startingProposalId !== BigInt(0)) {
@@ -108,30 +108,30 @@ export const GenesisState = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.startingProposalId = reader.uint64();
-        break;
-      case 2:
-        message.deposits.push(Deposit.decode(reader, reader.uint32()));
-        break;
-      case 3:
-        message.votes.push(Vote.decode(reader, reader.uint32()));
-        break;
-      case 4:
-        message.proposals.push(Proposal.decode(reader, reader.uint32()));
-        break;
-      case 5:
-        message.depositParams = DepositParams.decode(reader, reader.uint32());
-        break;
-      case 6:
-        message.votingParams = VotingParams.decode(reader, reader.uint32());
-        break;
-      case 7:
-        message.tallyParams = TallyParams.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.startingProposalId = reader.uint64();
+          break;
+        case 2:
+          message.deposits.push(Deposit.decode(reader, reader.uint32()));
+          break;
+        case 3:
+          message.votes.push(Vote.decode(reader, reader.uint32()));
+          break;
+        case 4:
+          message.proposals.push(Proposal.decode(reader, reader.uint32()));
+          break;
+        case 5:
+          message.depositParams = DepositParams.decode(reader, reader.uint32());
+          break;
+        case 6:
+          message.votingParams = VotingParams.decode(reader, reader.uint32());
+          break;
+        case 7:
+          message.tallyParams = TallyParams.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -194,7 +194,7 @@ export const GenesisState = {
   },
   toAminoMsg(message: GenesisState): GenesisStateAminoMsg {
     return {
-      type: 'cosmos-sdk/v1/GenesisState',
+      type: "cosmos-sdk/v1/GenesisState",
       value: GenesisState.toAmino(message)
     };
   },
@@ -206,7 +206,7 @@ export const GenesisState = {
   },
   toProtoMsg(message: GenesisState): GenesisStateProtoMsg {
     return {
-      typeUrl: '/cosmos.gov.v1.GenesisState',
+      typeUrl: "/cosmos.gov.v1.GenesisState",
       value: GenesisState.encode(message).finish()
     };
   }

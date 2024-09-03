@@ -1,8 +1,7 @@
 //@ts-nocheck
-import { LCDClient } from '@cosmology/lcd';
-
-import { setPaginationParams } from '../../../../helpers';
-import { QueryChannelClientStateRequest, QueryChannelClientStateResponseSDKType, QueryChannelConsensusStateRequest, QueryChannelConsensusStateResponseSDKType, QueryChannelRequest, QueryChannelResponseSDKType, QueryChannelsRequest, QueryChannelsResponseSDKType, QueryConnectionChannelsRequest, QueryConnectionChannelsResponseSDKType, QueryNextSequenceReceiveRequest, QueryNextSequenceReceiveResponseSDKType,QueryPacketAcknowledgementRequest, QueryPacketAcknowledgementResponseSDKType, QueryPacketAcknowledgementsRequest, QueryPacketAcknowledgementsResponseSDKType, QueryPacketCommitmentRequest, QueryPacketCommitmentResponseSDKType, QueryPacketCommitmentsRequest, QueryPacketCommitmentsResponseSDKType, QueryPacketReceiptRequest, QueryPacketReceiptResponseSDKType, QueryUnreceivedAcksRequest, QueryUnreceivedAcksResponseSDKType, QueryUnreceivedPacketsRequest, QueryUnreceivedPacketsResponseSDKType } from './query';
+import { setPaginationParams } from "../../../../helpers";
+import { LCDClient } from "@cosmology/lcd";
+import { QueryChannelRequest, QueryChannelResponseSDKType, QueryChannelsRequest, QueryChannelsResponseSDKType, QueryConnectionChannelsRequest, QueryConnectionChannelsResponseSDKType, QueryChannelClientStateRequest, QueryChannelClientStateResponseSDKType, QueryChannelConsensusStateRequest, QueryChannelConsensusStateResponseSDKType, QueryPacketCommitmentRequest, QueryPacketCommitmentResponseSDKType, QueryPacketCommitmentsRequest, QueryPacketCommitmentsResponseSDKType, QueryPacketReceiptRequest, QueryPacketReceiptResponseSDKType, QueryPacketAcknowledgementRequest, QueryPacketAcknowledgementResponseSDKType, QueryPacketAcknowledgementsRequest, QueryPacketAcknowledgementsResponseSDKType, QueryUnreceivedPacketsRequest, QueryUnreceivedPacketsResponseSDKType, QueryUnreceivedAcksRequest, QueryUnreceivedAcksResponseSDKType, QueryNextSequenceReceiveRequest, QueryNextSequenceReceiveResponseSDKType } from "./query";
 export class LCDQueryClient {
   req: LCDClient;
   constructor({
@@ -37,7 +36,7 @@ export class LCDQueryClient {
     const options: any = {
       params: {}
     };
-    if (typeof params?.pagination !== 'undefined') {
+    if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
     }
     const endpoint = `ibc/core/channel/v1/channels`;
@@ -49,7 +48,7 @@ export class LCDQueryClient {
     const options: any = {
       params: {}
     };
-    if (typeof params?.pagination !== 'undefined') {
+    if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
     }
     const endpoint = `ibc/core/channel/v1/connections/${params.connection}/channels`;
@@ -78,7 +77,7 @@ export class LCDQueryClient {
     const options: any = {
       params: {}
     };
-    if (typeof params?.pagination !== 'undefined') {
+    if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
     }
     const endpoint = `ibc/core/channel/v1/channels/${params.channelId}/ports/${params.portId}/packet_commitments`;
@@ -101,10 +100,10 @@ export class LCDQueryClient {
     const options: any = {
       params: {}
     };
-    if (typeof params?.pagination !== 'undefined') {
+    if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
     }
-    if (typeof params?.packetCommitmentSequences !== 'undefined') {
+    if (typeof params?.packetCommitmentSequences !== "undefined") {
       options.params.packet_commitment_sequences = params.packetCommitmentSequences;
     }
     const endpoint = `ibc/core/channel/v1/channels/${params.channelId}/ports/${params.portId}/packet_acknowledgements`;

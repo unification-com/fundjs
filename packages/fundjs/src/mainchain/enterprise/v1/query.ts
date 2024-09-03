@@ -1,20 +1,20 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from '../../../binary';
-import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from '../../../cosmos/base/query/v1beta1/pagination';
-import { Coin, CoinAmino, CoinSDKType } from '../../../cosmos/base/v1beta1/coin';
-import { isSet } from '../../../helpers';
-import { GlobalDecoderRegistry } from '../../../registry';
-import { EnterpriseUndPurchaseOrder, EnterpriseUndPurchaseOrderAmino, EnterpriseUndPurchaseOrderSDKType, EnterpriseUserAccount, EnterpriseUserAccountAmino, EnterpriseUserAccountSDKType,Params, ParamsAmino, ParamsSDKType, PurchaseOrderStatus, UndSupply, UndSupplyAmino, UndSupplySDKType } from './enterprise';
+import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination";
+import { PurchaseOrderStatus, Params, ParamsAmino, ParamsSDKType, EnterpriseUndPurchaseOrder, EnterpriseUndPurchaseOrderAmino, EnterpriseUndPurchaseOrderSDKType, UndSupply, UndSupplyAmino, UndSupplySDKType, EnterpriseUserAccount, EnterpriseUserAccountAmino, EnterpriseUserAccountSDKType } from "./enterprise";
+import { Coin, CoinAmino, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
+import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
+import { isSet } from "../../../helpers";
 /** QueryParamsRequest is the request type for the Query/Params RPC method */
 export interface QueryParamsRequest {}
 export interface QueryParamsRequestProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.QueryParamsRequest';
+  typeUrl: "/mainchain.enterprise.v1.QueryParamsRequest";
   value: Uint8Array;
 }
 /** QueryParamsRequest is the request type for the Query/Params RPC method */
 export interface QueryParamsRequestAmino {}
 export interface QueryParamsRequestAminoMsg {
-  type: '/mainchain.enterprise.v1.QueryParamsRequest';
+  type: "/mainchain.enterprise.v1.QueryParamsRequest";
   value: QueryParamsRequestAmino;
 }
 /** QueryParamsRequest is the request type for the Query/Params RPC method */
@@ -24,7 +24,7 @@ export interface QueryParamsResponse {
   params: Params;
 }
 export interface QueryParamsResponseProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.QueryParamsResponse';
+  typeUrl: "/mainchain.enterprise.v1.QueryParamsResponse";
   value: Uint8Array;
 }
 /** QueryParamsResponse is the response type for the Query/Params RPC method */
@@ -32,7 +32,7 @@ export interface QueryParamsResponseAmino {
   params?: ParamsAmino;
 }
 export interface QueryParamsResponseAminoMsg {
-  type: '/mainchain.enterprise.v1.QueryParamsResponse';
+  type: "/mainchain.enterprise.v1.QueryParamsResponse";
   value: QueryParamsResponseAmino;
 }
 /** QueryParamsResponse is the response type for the Query/Params RPC method */
@@ -45,7 +45,7 @@ export interface QueryEnterpriseUndPurchaseOrderRequest {
   purchaseOrderId: bigint;
 }
 export interface QueryEnterpriseUndPurchaseOrderRequestProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrderRequest';
+  typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrderRequest";
   value: Uint8Array;
 }
 /** QueryEnterpriseUndPurchaseOrderRequest is the request type for the Query/EnterpriseUndPurchaseOrder RPC method. */
@@ -54,7 +54,7 @@ export interface QueryEnterpriseUndPurchaseOrderRequestAmino {
   purchase_order_id?: string;
 }
 export interface QueryEnterpriseUndPurchaseOrderRequestAminoMsg {
-  type: '/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrderRequest';
+  type: "/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrderRequest";
   value: QueryEnterpriseUndPurchaseOrderRequestAmino;
 }
 /** QueryEnterpriseUndPurchaseOrderRequest is the request type for the Query/EnterpriseUndPurchaseOrder RPC method. */
@@ -66,7 +66,7 @@ export interface QueryEnterpriseUndPurchaseOrderResponse {
   purchaseOrder: EnterpriseUndPurchaseOrder;
 }
 export interface QueryEnterpriseUndPurchaseOrderResponseProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrderResponse';
+  typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrderResponse";
   value: Uint8Array;
 }
 /** QueryEnterpriseUndPurchaseOrderResponse is the response type for the Query/EnterpriseUndPurchaseOrder RPC method. */
@@ -74,7 +74,7 @@ export interface QueryEnterpriseUndPurchaseOrderResponseAmino {
   purchase_order?: EnterpriseUndPurchaseOrderAmino;
 }
 export interface QueryEnterpriseUndPurchaseOrderResponseAminoMsg {
-  type: '/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrderResponse';
+  type: "/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrderResponse";
   value: QueryEnterpriseUndPurchaseOrderResponseAmino;
 }
 /** QueryEnterpriseUndPurchaseOrderResponse is the response type for the Query/EnterpriseUndPurchaseOrder RPC method. */
@@ -91,7 +91,7 @@ export interface QueryEnterpriseUndPurchaseOrdersRequest {
   status: PurchaseOrderStatus;
 }
 export interface QueryEnterpriseUndPurchaseOrdersRequestProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrdersRequest';
+  typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrdersRequest";
   value: Uint8Array;
 }
 /**
@@ -104,7 +104,7 @@ export interface QueryEnterpriseUndPurchaseOrdersRequestAmino {
   status?: PurchaseOrderStatus;
 }
 export interface QueryEnterpriseUndPurchaseOrdersRequestAminoMsg {
-  type: '/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrdersRequest';
+  type: "/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrdersRequest";
   value: QueryEnterpriseUndPurchaseOrdersRequestAmino;
 }
 /**
@@ -127,7 +127,7 @@ export interface QueryEnterpriseUndPurchaseOrdersResponse {
   pagination?: PageResponse;
 }
 export interface QueryEnterpriseUndPurchaseOrdersResponseProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrdersResponse';
+  typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrdersResponse";
   value: Uint8Array;
 }
 /**
@@ -141,7 +141,7 @@ export interface QueryEnterpriseUndPurchaseOrdersResponseAmino {
   pagination?: PageResponseAmino;
 }
 export interface QueryEnterpriseUndPurchaseOrdersResponseAminoMsg {
-  type: '/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrdersResponse';
+  type: "/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrdersResponse";
   value: QueryEnterpriseUndPurchaseOrdersResponseAmino;
 }
 /**
@@ -158,7 +158,7 @@ export interface QueryLockedUndByAddressRequest {
   owner: string;
 }
 export interface QueryLockedUndByAddressRequestProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.QueryLockedUndByAddressRequest';
+  typeUrl: "/mainchain.enterprise.v1.QueryLockedUndByAddressRequest";
   value: Uint8Array;
 }
 /** QueryLockedUndByAddressRequest is the request type for the Query/LockedUndByAddress RPC method */
@@ -167,7 +167,7 @@ export interface QueryLockedUndByAddressRequestAmino {
   owner?: string;
 }
 export interface QueryLockedUndByAddressRequestAminoMsg {
-  type: '/mainchain.enterprise.v1.QueryLockedUndByAddressRequest';
+  type: "/mainchain.enterprise.v1.QueryLockedUndByAddressRequest";
   value: QueryLockedUndByAddressRequestAmino;
 }
 /** QueryLockedUndByAddressRequest is the request type for the Query/LockedUndByAddress RPC method */
@@ -179,7 +179,7 @@ export interface QueryLockedUndByAddressResponse {
   amount: Coin;
 }
 export interface QueryLockedUndByAddressResponseProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.QueryLockedUndByAddressResponse';
+  typeUrl: "/mainchain.enterprise.v1.QueryLockedUndByAddressResponse";
   value: Uint8Array;
 }
 /** QueryLockedUndByAddressResponse is the response type for the Query/LockedUndByAddress RPC method */
@@ -187,7 +187,7 @@ export interface QueryLockedUndByAddressResponseAmino {
   amount?: CoinAmino;
 }
 export interface QueryLockedUndByAddressResponseAminoMsg {
-  type: '/mainchain.enterprise.v1.QueryLockedUndByAddressResponse';
+  type: "/mainchain.enterprise.v1.QueryLockedUndByAddressResponse";
   value: QueryLockedUndByAddressResponseAmino;
 }
 /** QueryLockedUndByAddressResponse is the response type for the Query/LockedUndByAddress RPC method */
@@ -197,13 +197,13 @@ export interface QueryLockedUndByAddressResponseSDKType {
 /** QueryTotalLockedRequest is the request type for the Query/TotalLocked RPC method */
 export interface QueryTotalLockedRequest {}
 export interface QueryTotalLockedRequestProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.QueryTotalLockedRequest';
+  typeUrl: "/mainchain.enterprise.v1.QueryTotalLockedRequest";
   value: Uint8Array;
 }
 /** QueryTotalLockedRequest is the request type for the Query/TotalLocked RPC method */
 export interface QueryTotalLockedRequestAmino {}
 export interface QueryTotalLockedRequestAminoMsg {
-  type: '/mainchain.enterprise.v1.QueryTotalLockedRequest';
+  type: "/mainchain.enterprise.v1.QueryTotalLockedRequest";
   value: QueryTotalLockedRequestAmino;
 }
 /** QueryTotalLockedRequest is the request type for the Query/TotalLocked RPC method */
@@ -213,7 +213,7 @@ export interface QueryTotalLockedResponse {
   amount: Coin;
 }
 export interface QueryTotalLockedResponseProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.QueryTotalLockedResponse';
+  typeUrl: "/mainchain.enterprise.v1.QueryTotalLockedResponse";
   value: Uint8Array;
 }
 /** QueryTotalLockedResponse is the response type for the Query/TotalLocked RPC method */
@@ -221,7 +221,7 @@ export interface QueryTotalLockedResponseAmino {
   amount?: CoinAmino;
 }
 export interface QueryTotalLockedResponseAminoMsg {
-  type: '/mainchain.enterprise.v1.QueryTotalLockedResponse';
+  type: "/mainchain.enterprise.v1.QueryTotalLockedResponse";
   value: QueryTotalLockedResponseAmino;
 }
 /** QueryTotalLockedResponse is the response type for the Query/TotalLocked RPC method */
@@ -231,13 +231,13 @@ export interface QueryTotalLockedResponseSDKType {
 /** QueryTotalUnlockedRequest is the request type for the Query/TotalUnlocked RPC method */
 export interface QueryTotalUnlockedRequest {}
 export interface QueryTotalUnlockedRequestProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.QueryTotalUnlockedRequest';
+  typeUrl: "/mainchain.enterprise.v1.QueryTotalUnlockedRequest";
   value: Uint8Array;
 }
 /** QueryTotalUnlockedRequest is the request type for the Query/TotalUnlocked RPC method */
 export interface QueryTotalUnlockedRequestAmino {}
 export interface QueryTotalUnlockedRequestAminoMsg {
-  type: '/mainchain.enterprise.v1.QueryTotalUnlockedRequest';
+  type: "/mainchain.enterprise.v1.QueryTotalUnlockedRequest";
   value: QueryTotalUnlockedRequestAmino;
 }
 /** QueryTotalUnlockedRequest is the request type for the Query/TotalUnlocked RPC method */
@@ -247,7 +247,7 @@ export interface QueryTotalUnlockedResponse {
   amount: Coin;
 }
 export interface QueryTotalUnlockedResponseProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.QueryTotalUnlockedResponse';
+  typeUrl: "/mainchain.enterprise.v1.QueryTotalUnlockedResponse";
   value: Uint8Array;
 }
 /** QueryTotalUnlockedResponse is the response type for the Query/TotalUnlocked RPC method */
@@ -255,7 +255,7 @@ export interface QueryTotalUnlockedResponseAmino {
   amount?: CoinAmino;
 }
 export interface QueryTotalUnlockedResponseAminoMsg {
-  type: '/mainchain.enterprise.v1.QueryTotalUnlockedResponse';
+  type: "/mainchain.enterprise.v1.QueryTotalUnlockedResponse";
   value: QueryTotalUnlockedResponseAmino;
 }
 /** QueryTotalUnlockedResponse is the response type for the Query/TotalUnlocked RPC method */
@@ -265,13 +265,13 @@ export interface QueryTotalUnlockedResponseSDKType {
 /** QueryEnterpriseSupplyRequest is the request type for the Query/EnterpriseSupply RPC method */
 export interface QueryEnterpriseSupplyRequest {}
 export interface QueryEnterpriseSupplyRequestProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.QueryEnterpriseSupplyRequest';
+  typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseSupplyRequest";
   value: Uint8Array;
 }
 /** QueryEnterpriseSupplyRequest is the request type for the Query/EnterpriseSupply RPC method */
 export interface QueryEnterpriseSupplyRequestAmino {}
 export interface QueryEnterpriseSupplyRequestAminoMsg {
-  type: '/mainchain.enterprise.v1.QueryEnterpriseSupplyRequest';
+  type: "/mainchain.enterprise.v1.QueryEnterpriseSupplyRequest";
   value: QueryEnterpriseSupplyRequestAmino;
 }
 /** QueryEnterpriseSupplyRequest is the request type for the Query/EnterpriseSupply RPC method */
@@ -281,7 +281,7 @@ export interface QueryEnterpriseSupplyResponse {
   supply: UndSupply;
 }
 export interface QueryEnterpriseSupplyResponseProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.QueryEnterpriseSupplyResponse';
+  typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseSupplyResponse";
   value: Uint8Array;
 }
 /** QueryEnterpriseSupplyResponse is the response type for the Query/EnterpriseSupply RPC method */
@@ -289,7 +289,7 @@ export interface QueryEnterpriseSupplyResponseAmino {
   supply?: UndSupplyAmino;
 }
 export interface QueryEnterpriseSupplyResponseAminoMsg {
-  type: '/mainchain.enterprise.v1.QueryEnterpriseSupplyResponse';
+  type: "/mainchain.enterprise.v1.QueryEnterpriseSupplyResponse";
   value: QueryEnterpriseSupplyResponseAmino;
 }
 /** QueryEnterpriseSupplyResponse is the response type for the Query/EnterpriseSupply RPC method */
@@ -301,7 +301,7 @@ export interface QueryTotalSupplyRequest {
   pagination?: PageRequest;
 }
 export interface QueryTotalSupplyRequestProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.QueryTotalSupplyRequest';
+  typeUrl: "/mainchain.enterprise.v1.QueryTotalSupplyRequest";
   value: Uint8Array;
 }
 /** QueryTotalSupplyRequest is the request type for the Query/TotalSupply RPC method */
@@ -309,7 +309,7 @@ export interface QueryTotalSupplyRequestAmino {
   pagination?: PageRequestAmino;
 }
 export interface QueryTotalSupplyRequestAminoMsg {
-  type: '/mainchain.enterprise.v1.QueryTotalSupplyRequest';
+  type: "/mainchain.enterprise.v1.QueryTotalSupplyRequest";
   value: QueryTotalSupplyRequestAmino;
 }
 /** QueryTotalSupplyRequest is the request type for the Query/TotalSupply RPC method */
@@ -322,7 +322,7 @@ export interface QueryTotalSupplyResponse {
   pagination?: PageResponse;
 }
 export interface QueryTotalSupplyResponseProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.QueryTotalSupplyResponse';
+  typeUrl: "/mainchain.enterprise.v1.QueryTotalSupplyResponse";
   value: Uint8Array;
 }
 /** QueryTotalSupplyResponse is the response type for the Query/TotalSupply RPC method */
@@ -331,7 +331,7 @@ export interface QueryTotalSupplyResponseAmino {
   pagination?: PageResponseAmino;
 }
 export interface QueryTotalSupplyResponseAminoMsg {
-  type: '/mainchain.enterprise.v1.QueryTotalSupplyResponse';
+  type: "/mainchain.enterprise.v1.QueryTotalSupplyResponse";
   value: QueryTotalSupplyResponseAmino;
 }
 /** QueryTotalSupplyResponse is the response type for the Query/TotalSupply RPC method */
@@ -345,7 +345,7 @@ export interface QuerySupplyOfRequest {
   denom: string;
 }
 export interface QuerySupplyOfRequestProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.QuerySupplyOfRequest';
+  typeUrl: "/mainchain.enterprise.v1.QuerySupplyOfRequest";
   value: Uint8Array;
 }
 /** QuerySupplyOfRequest is the request type for the Query/SupplyOf RPC method. */
@@ -354,7 +354,7 @@ export interface QuerySupplyOfRequestAmino {
   denom?: string;
 }
 export interface QuerySupplyOfRequestAminoMsg {
-  type: '/mainchain.enterprise.v1.QuerySupplyOfRequest';
+  type: "/mainchain.enterprise.v1.QuerySupplyOfRequest";
   value: QuerySupplyOfRequestAmino;
 }
 /** QuerySupplyOfRequest is the request type for the Query/SupplyOf RPC method. */
@@ -367,7 +367,7 @@ export interface QuerySupplyOfResponse {
   amount: Coin;
 }
 export interface QuerySupplyOfResponseProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.QuerySupplyOfResponse';
+  typeUrl: "/mainchain.enterprise.v1.QuerySupplyOfResponse";
   value: Uint8Array;
 }
 /** QuerySupplyOfResponse is the response type for the Query/SupplyOf RPC method. */
@@ -376,7 +376,7 @@ export interface QuerySupplyOfResponseAmino {
   amount?: CoinAmino;
 }
 export interface QuerySupplyOfResponseAminoMsg {
-  type: '/mainchain.enterprise.v1.QuerySupplyOfResponse';
+  type: "/mainchain.enterprise.v1.QuerySupplyOfResponse";
   value: QuerySupplyOfResponseAmino;
 }
 /** QuerySupplyOfResponse is the response type for the Query/SupplyOf RPC method. */
@@ -386,13 +386,13 @@ export interface QuerySupplyOfResponseSDKType {
 /** QueryWhitelistRequest is the request type for the Query/Whitelist RPC method. */
 export interface QueryWhitelistRequest {}
 export interface QueryWhitelistRequestProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.QueryWhitelistRequest';
+  typeUrl: "/mainchain.enterprise.v1.QueryWhitelistRequest";
   value: Uint8Array;
 }
 /** QueryWhitelistRequest is the request type for the Query/Whitelist RPC method. */
 export interface QueryWhitelistRequestAmino {}
 export interface QueryWhitelistRequestAminoMsg {
-  type: '/mainchain.enterprise.v1.QueryWhitelistRequest';
+  type: "/mainchain.enterprise.v1.QueryWhitelistRequest";
   value: QueryWhitelistRequestAmino;
 }
 /** QueryWhitelistRequest is the request type for the Query/Whitelist RPC method. */
@@ -402,7 +402,7 @@ export interface QueryWhitelistResponse {
   addresses: string[];
 }
 export interface QueryWhitelistResponseProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.QueryWhitelistResponse';
+  typeUrl: "/mainchain.enterprise.v1.QueryWhitelistResponse";
   value: Uint8Array;
 }
 /** QueryWhitelistResponse is the response type for the Query/Whitelist RPC method. */
@@ -410,7 +410,7 @@ export interface QueryWhitelistResponseAmino {
   addresses?: string[];
 }
 export interface QueryWhitelistResponseAminoMsg {
-  type: '/mainchain.enterprise.v1.QueryWhitelistResponse';
+  type: "/mainchain.enterprise.v1.QueryWhitelistResponse";
   value: QueryWhitelistResponseAmino;
 }
 /** QueryWhitelistResponse is the response type for the Query/Whitelist RPC method. */
@@ -423,7 +423,7 @@ export interface QueryWhitelistedRequest {
   address: string;
 }
 export interface QueryWhitelistedRequestProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.QueryWhitelistedRequest';
+  typeUrl: "/mainchain.enterprise.v1.QueryWhitelistedRequest";
   value: Uint8Array;
 }
 /** QueryWhitelistedRequest is the request type for the Query/Whitelisted RPC method. */
@@ -432,7 +432,7 @@ export interface QueryWhitelistedRequestAmino {
   address?: string;
 }
 export interface QueryWhitelistedRequestAminoMsg {
-  type: '/mainchain.enterprise.v1.QueryWhitelistedRequest';
+  type: "/mainchain.enterprise.v1.QueryWhitelistedRequest";
   value: QueryWhitelistedRequestAmino;
 }
 /** QueryWhitelistedRequest is the request type for the Query/Whitelisted RPC method. */
@@ -445,7 +445,7 @@ export interface QueryWhitelistedResponse {
   whitelisted: boolean;
 }
 export interface QueryWhitelistedResponseProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.QueryWhitelistedResponse';
+  typeUrl: "/mainchain.enterprise.v1.QueryWhitelistedResponse";
   value: Uint8Array;
 }
 /** QueryWhitelistedResponse is the response type for the Query/Whitelisted RPC method. */
@@ -454,7 +454,7 @@ export interface QueryWhitelistedResponseAmino {
   whitelisted?: boolean;
 }
 export interface QueryWhitelistedResponseAminoMsg {
-  type: '/mainchain.enterprise.v1.QueryWhitelistedResponse';
+  type: "/mainchain.enterprise.v1.QueryWhitelistedResponse";
   value: QueryWhitelistedResponseAmino;
 }
 /** QueryWhitelistedResponse is the response type for the Query/Whitelisted RPC method. */
@@ -468,7 +468,7 @@ export interface QueryEnterpriseAccountRequest {
   address: string;
 }
 export interface QueryEnterpriseAccountRequestProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.QueryEnterpriseAccountRequest';
+  typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseAccountRequest";
   value: Uint8Array;
 }
 /** QueryEnterpriseAccountRequest is the request type for the Query/EnterpriseAccount RPC method. */
@@ -477,7 +477,7 @@ export interface QueryEnterpriseAccountRequestAmino {
   address?: string;
 }
 export interface QueryEnterpriseAccountRequestAminoMsg {
-  type: '/mainchain.enterprise.v1.QueryEnterpriseAccountRequest';
+  type: "/mainchain.enterprise.v1.QueryEnterpriseAccountRequest";
   value: QueryEnterpriseAccountRequestAmino;
 }
 /** QueryEnterpriseAccountRequest is the request type for the Query/EnterpriseAccount RPC method. */
@@ -489,7 +489,7 @@ export interface QueryEnterpriseAccountResponse {
   account: EnterpriseUserAccount;
 }
 export interface QueryEnterpriseAccountResponseProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.QueryEnterpriseAccountResponse';
+  typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseAccountResponse";
   value: Uint8Array;
 }
 /** QueryEnterpriseAccountResponse is the response type for the Query/EnterpriseAccount RPC method. */
@@ -497,7 +497,7 @@ export interface QueryEnterpriseAccountResponseAmino {
   account?: EnterpriseUserAccountAmino;
 }
 export interface QueryEnterpriseAccountResponseAminoMsg {
-  type: '/mainchain.enterprise.v1.QueryEnterpriseAccountResponse';
+  type: "/mainchain.enterprise.v1.QueryEnterpriseAccountResponse";
   value: QueryEnterpriseAccountResponseAmino;
 }
 /** QueryEnterpriseAccountResponse is the response type for the Query/EnterpriseAccount RPC method. */
@@ -507,13 +507,13 @@ export interface QueryEnterpriseAccountResponseSDKType {
 /** QueryTotalSpentEFUNDRequest is the request type for the Query/TotalSpentEFUND RPC method. */
 export interface QueryTotalSpentEFUNDRequest {}
 export interface QueryTotalSpentEFUNDRequestProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.QueryTotalSpentEFUNDRequest';
+  typeUrl: "/mainchain.enterprise.v1.QueryTotalSpentEFUNDRequest";
   value: Uint8Array;
 }
 /** QueryTotalSpentEFUNDRequest is the request type for the Query/TotalSpentEFUND RPC method. */
 export interface QueryTotalSpentEFUNDRequestAmino {}
 export interface QueryTotalSpentEFUNDRequestAminoMsg {
-  type: '/mainchain.enterprise.v1.QueryTotalSpentEFUNDRequest';
+  type: "/mainchain.enterprise.v1.QueryTotalSpentEFUNDRequest";
   value: QueryTotalSpentEFUNDRequestAmino;
 }
 /** QueryTotalSpentEFUNDRequest is the request type for the Query/TotalSpentEFUND RPC method. */
@@ -523,7 +523,7 @@ export interface QueryTotalSpentEFUNDResponse {
   amount: Coin;
 }
 export interface QueryTotalSpentEFUNDResponseProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.QueryTotalSpentEFUNDResponse';
+  typeUrl: "/mainchain.enterprise.v1.QueryTotalSpentEFUNDResponse";
   value: Uint8Array;
 }
 /** QueryTotalSpentEFUNDResponse is the response type for the Query/TotalSpentEFUND RPC method. */
@@ -531,7 +531,7 @@ export interface QueryTotalSpentEFUNDResponseAmino {
   amount?: CoinAmino;
 }
 export interface QueryTotalSpentEFUNDResponseAminoMsg {
-  type: '/mainchain.enterprise.v1.QueryTotalSpentEFUNDResponse';
+  type: "/mainchain.enterprise.v1.QueryTotalSpentEFUNDResponse";
   value: QueryTotalSpentEFUNDResponseAmino;
 }
 /** QueryTotalSpentEFUNDResponse is the response type for the Query/TotalSpentEFUND RPC method. */
@@ -544,7 +544,7 @@ export interface QuerySpentEFUNDByAddressRequest {
   address: string;
 }
 export interface QuerySpentEFUNDByAddressRequestProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.QuerySpentEFUNDByAddressRequest';
+  typeUrl: "/mainchain.enterprise.v1.QuerySpentEFUNDByAddressRequest";
   value: Uint8Array;
 }
 /** QuerySpentEFUNDByAddressRequest is the request type for the Query/SpentEFUNDByAddress RPC method. */
@@ -553,7 +553,7 @@ export interface QuerySpentEFUNDByAddressRequestAmino {
   address?: string;
 }
 export interface QuerySpentEFUNDByAddressRequestAminoMsg {
-  type: '/mainchain.enterprise.v1.QuerySpentEFUNDByAddressRequest';
+  type: "/mainchain.enterprise.v1.QuerySpentEFUNDByAddressRequest";
   value: QuerySpentEFUNDByAddressRequestAmino;
 }
 /** QuerySpentEFUNDByAddressRequest is the request type for the Query/SpentEFUNDByAddress RPC method. */
@@ -565,7 +565,7 @@ export interface QuerySpentEFUNDByAddressResponse {
   amount: Coin;
 }
 export interface QuerySpentEFUNDByAddressResponseProtoMsg {
-  typeUrl: '/mainchain.enterprise.v1.QuerySpentEFUNDByAddressResponse';
+  typeUrl: "/mainchain.enterprise.v1.QuerySpentEFUNDByAddressResponse";
   value: Uint8Array;
 }
 /** QuerySpentEFUNDByAddressResponse is the response type for the Query/SpentEFUNDByAddress RPC method. */
@@ -573,7 +573,7 @@ export interface QuerySpentEFUNDByAddressResponseAmino {
   amount?: CoinAmino;
 }
 export interface QuerySpentEFUNDByAddressResponseAminoMsg {
-  type: '/mainchain.enterprise.v1.QuerySpentEFUNDByAddressResponse';
+  type: "/mainchain.enterprise.v1.QuerySpentEFUNDByAddressResponse";
   value: QuerySpentEFUNDByAddressResponseAmino;
 }
 /** QuerySpentEFUNDByAddressResponse is the response type for the Query/SpentEFUNDByAddress RPC method. */
@@ -584,7 +584,7 @@ function createBaseQueryParamsRequest(): QueryParamsRequest {
   return {};
 }
 export const QueryParamsRequest = {
-  typeUrl: '/mainchain.enterprise.v1.QueryParamsRequest',
+  typeUrl: "/mainchain.enterprise.v1.QueryParamsRequest",
   is(o: any): o is QueryParamsRequest {
     return o && o.$typeUrl === QueryParamsRequest.typeUrl;
   },
@@ -604,9 +604,9 @@ export const QueryParamsRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      default:
-        reader.skipType(tag & 7);
-        break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -634,7 +634,7 @@ export const QueryParamsRequest = {
   },
   toProtoMsg(message: QueryParamsRequest): QueryParamsRequestProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.QueryParamsRequest',
+      typeUrl: "/mainchain.enterprise.v1.QueryParamsRequest",
       value: QueryParamsRequest.encode(message).finish()
     };
   }
@@ -646,7 +646,7 @@ function createBaseQueryParamsResponse(): QueryParamsResponse {
   };
 }
 export const QueryParamsResponse = {
-  typeUrl: '/mainchain.enterprise.v1.QueryParamsResponse',
+  typeUrl: "/mainchain.enterprise.v1.QueryParamsResponse",
   is(o: any): o is QueryParamsResponse {
     return o && (o.$typeUrl === QueryParamsResponse.typeUrl || Params.is(o.params));
   },
@@ -669,12 +669,12 @@ export const QueryParamsResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.params = Params.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.params = Params.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -707,7 +707,7 @@ export const QueryParamsResponse = {
   },
   toProtoMsg(message: QueryParamsResponse): QueryParamsResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.QueryParamsResponse',
+      typeUrl: "/mainchain.enterprise.v1.QueryParamsResponse",
       value: QueryParamsResponse.encode(message).finish()
     };
   }
@@ -719,15 +719,15 @@ function createBaseQueryEnterpriseUndPurchaseOrderRequest(): QueryEnterpriseUndP
   };
 }
 export const QueryEnterpriseUndPurchaseOrderRequest = {
-  typeUrl: '/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrderRequest',
+  typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrderRequest",
   is(o: any): o is QueryEnterpriseUndPurchaseOrderRequest {
-    return o && (o.$typeUrl === QueryEnterpriseUndPurchaseOrderRequest.typeUrl || typeof o.purchaseOrderId === 'bigint');
+    return o && (o.$typeUrl === QueryEnterpriseUndPurchaseOrderRequest.typeUrl || typeof o.purchaseOrderId === "bigint");
   },
   isSDK(o: any): o is QueryEnterpriseUndPurchaseOrderRequestSDKType {
-    return o && (o.$typeUrl === QueryEnterpriseUndPurchaseOrderRequest.typeUrl || typeof o.purchase_order_id === 'bigint');
+    return o && (o.$typeUrl === QueryEnterpriseUndPurchaseOrderRequest.typeUrl || typeof o.purchase_order_id === "bigint");
   },
   isAmino(o: any): o is QueryEnterpriseUndPurchaseOrderRequestAmino {
-    return o && (o.$typeUrl === QueryEnterpriseUndPurchaseOrderRequest.typeUrl || typeof o.purchase_order_id === 'bigint');
+    return o && (o.$typeUrl === QueryEnterpriseUndPurchaseOrderRequest.typeUrl || typeof o.purchase_order_id === "bigint");
   },
   encode(message: QueryEnterpriseUndPurchaseOrderRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.purchaseOrderId !== BigInt(0)) {
@@ -742,12 +742,12 @@ export const QueryEnterpriseUndPurchaseOrderRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.purchaseOrderId = reader.uint64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.purchaseOrderId = reader.uint64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -780,7 +780,7 @@ export const QueryEnterpriseUndPurchaseOrderRequest = {
   },
   toProtoMsg(message: QueryEnterpriseUndPurchaseOrderRequest): QueryEnterpriseUndPurchaseOrderRequestProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrderRequest',
+      typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrderRequest",
       value: QueryEnterpriseUndPurchaseOrderRequest.encode(message).finish()
     };
   }
@@ -792,7 +792,7 @@ function createBaseQueryEnterpriseUndPurchaseOrderResponse(): QueryEnterpriseUnd
   };
 }
 export const QueryEnterpriseUndPurchaseOrderResponse = {
-  typeUrl: '/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrderResponse',
+  typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrderResponse",
   is(o: any): o is QueryEnterpriseUndPurchaseOrderResponse {
     return o && (o.$typeUrl === QueryEnterpriseUndPurchaseOrderResponse.typeUrl || EnterpriseUndPurchaseOrder.is(o.purchaseOrder));
   },
@@ -815,12 +815,12 @@ export const QueryEnterpriseUndPurchaseOrderResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.purchaseOrder = EnterpriseUndPurchaseOrder.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.purchaseOrder = EnterpriseUndPurchaseOrder.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -853,7 +853,7 @@ export const QueryEnterpriseUndPurchaseOrderResponse = {
   },
   toProtoMsg(message: QueryEnterpriseUndPurchaseOrderResponse): QueryEnterpriseUndPurchaseOrderResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrderResponse',
+      typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrderResponse",
       value: QueryEnterpriseUndPurchaseOrderResponse.encode(message).finish()
     };
   }
@@ -862,26 +862,26 @@ GlobalDecoderRegistry.register(QueryEnterpriseUndPurchaseOrderResponse.typeUrl, 
 function createBaseQueryEnterpriseUndPurchaseOrdersRequest(): QueryEnterpriseUndPurchaseOrdersRequest {
   return {
     pagination: undefined,
-    purchaser: '',
+    purchaser: "",
     status: 0
   };
 }
 export const QueryEnterpriseUndPurchaseOrdersRequest = {
-  typeUrl: '/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrdersRequest',
+  typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrdersRequest",
   is(o: any): o is QueryEnterpriseUndPurchaseOrdersRequest {
-    return o && (o.$typeUrl === QueryEnterpriseUndPurchaseOrdersRequest.typeUrl || typeof o.purchaser === 'string' && isSet(o.status));
+    return o && (o.$typeUrl === QueryEnterpriseUndPurchaseOrdersRequest.typeUrl || typeof o.purchaser === "string" && isSet(o.status));
   },
   isSDK(o: any): o is QueryEnterpriseUndPurchaseOrdersRequestSDKType {
-    return o && (o.$typeUrl === QueryEnterpriseUndPurchaseOrdersRequest.typeUrl || typeof o.purchaser === 'string' && isSet(o.status));
+    return o && (o.$typeUrl === QueryEnterpriseUndPurchaseOrdersRequest.typeUrl || typeof o.purchaser === "string" && isSet(o.status));
   },
   isAmino(o: any): o is QueryEnterpriseUndPurchaseOrdersRequestAmino {
-    return o && (o.$typeUrl === QueryEnterpriseUndPurchaseOrdersRequest.typeUrl || typeof o.purchaser === 'string' && isSet(o.status));
+    return o && (o.$typeUrl === QueryEnterpriseUndPurchaseOrdersRequest.typeUrl || typeof o.purchaser === "string" && isSet(o.status));
   },
   encode(message: QueryEnterpriseUndPurchaseOrdersRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.pagination !== undefined) {
       PageRequest.encode(message.pagination, writer.uint32(10).fork()).ldelim();
     }
-    if (message.purchaser !== '') {
+    if (message.purchaser !== "") {
       writer.uint32(18).string(message.purchaser);
     }
     if (message.status !== 0) {
@@ -896,18 +896,18 @@ export const QueryEnterpriseUndPurchaseOrdersRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.pagination = PageRequest.decode(reader, reader.uint32());
-        break;
-      case 2:
-        message.purchaser = reader.string();
-        break;
-      case 3:
-        message.status = reader.int32() as any;
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.pagination = PageRequest.decode(reader, reader.uint32());
+          break;
+        case 2:
+          message.purchaser = reader.string();
+          break;
+        case 3:
+          message.status = reader.int32() as any;
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -915,7 +915,7 @@ export const QueryEnterpriseUndPurchaseOrdersRequest = {
   fromPartial(object: Partial<QueryEnterpriseUndPurchaseOrdersRequest>): QueryEnterpriseUndPurchaseOrdersRequest {
     const message = createBaseQueryEnterpriseUndPurchaseOrdersRequest();
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageRequest.fromPartial(object.pagination) : undefined;
-    message.purchaser = object.purchaser ?? '';
+    message.purchaser = object.purchaser ?? "";
     message.status = object.status ?? 0;
     return message;
   },
@@ -935,7 +935,7 @@ export const QueryEnterpriseUndPurchaseOrdersRequest = {
   toAmino(message: QueryEnterpriseUndPurchaseOrdersRequest): QueryEnterpriseUndPurchaseOrdersRequestAmino {
     const obj: any = {};
     obj.pagination = message.pagination ? PageRequest.toAmino(message.pagination) : undefined;
-    obj.purchaser = message.purchaser === '' ? undefined : message.purchaser;
+    obj.purchaser = message.purchaser === "" ? undefined : message.purchaser;
     obj.status = message.status === 0 ? undefined : message.status;
     return obj;
   },
@@ -950,7 +950,7 @@ export const QueryEnterpriseUndPurchaseOrdersRequest = {
   },
   toProtoMsg(message: QueryEnterpriseUndPurchaseOrdersRequest): QueryEnterpriseUndPurchaseOrdersRequestProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrdersRequest',
+      typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrdersRequest",
       value: QueryEnterpriseUndPurchaseOrdersRequest.encode(message).finish()
     };
   }
@@ -963,7 +963,7 @@ function createBaseQueryEnterpriseUndPurchaseOrdersResponse(): QueryEnterpriseUn
   };
 }
 export const QueryEnterpriseUndPurchaseOrdersResponse = {
-  typeUrl: '/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrdersResponse',
+  typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrdersResponse",
   is(o: any): o is QueryEnterpriseUndPurchaseOrdersResponse {
     return o && (o.$typeUrl === QueryEnterpriseUndPurchaseOrdersResponse.typeUrl || Array.isArray(o.purchaseOrders) && (!o.purchaseOrders.length || EnterpriseUndPurchaseOrder.is(o.purchaseOrders[0])));
   },
@@ -989,15 +989,15 @@ export const QueryEnterpriseUndPurchaseOrdersResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.purchaseOrders.push(EnterpriseUndPurchaseOrder.decode(reader, reader.uint32()));
-        break;
-      case 2:
-        message.pagination = PageResponse.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.purchaseOrders.push(EnterpriseUndPurchaseOrder.decode(reader, reader.uint32()));
+          break;
+        case 2:
+          message.pagination = PageResponse.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1037,7 +1037,7 @@ export const QueryEnterpriseUndPurchaseOrdersResponse = {
   },
   toProtoMsg(message: QueryEnterpriseUndPurchaseOrdersResponse): QueryEnterpriseUndPurchaseOrdersResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrdersResponse',
+      typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrdersResponse",
       value: QueryEnterpriseUndPurchaseOrdersResponse.encode(message).finish()
     };
   }
@@ -1045,22 +1045,22 @@ export const QueryEnterpriseUndPurchaseOrdersResponse = {
 GlobalDecoderRegistry.register(QueryEnterpriseUndPurchaseOrdersResponse.typeUrl, QueryEnterpriseUndPurchaseOrdersResponse);
 function createBaseQueryLockedUndByAddressRequest(): QueryLockedUndByAddressRequest {
   return {
-    owner: ''
+    owner: ""
   };
 }
 export const QueryLockedUndByAddressRequest = {
-  typeUrl: '/mainchain.enterprise.v1.QueryLockedUndByAddressRequest',
+  typeUrl: "/mainchain.enterprise.v1.QueryLockedUndByAddressRequest",
   is(o: any): o is QueryLockedUndByAddressRequest {
-    return o && (o.$typeUrl === QueryLockedUndByAddressRequest.typeUrl || typeof o.owner === 'string');
+    return o && (o.$typeUrl === QueryLockedUndByAddressRequest.typeUrl || typeof o.owner === "string");
   },
   isSDK(o: any): o is QueryLockedUndByAddressRequestSDKType {
-    return o && (o.$typeUrl === QueryLockedUndByAddressRequest.typeUrl || typeof o.owner === 'string');
+    return o && (o.$typeUrl === QueryLockedUndByAddressRequest.typeUrl || typeof o.owner === "string");
   },
   isAmino(o: any): o is QueryLockedUndByAddressRequestAmino {
-    return o && (o.$typeUrl === QueryLockedUndByAddressRequest.typeUrl || typeof o.owner === 'string');
+    return o && (o.$typeUrl === QueryLockedUndByAddressRequest.typeUrl || typeof o.owner === "string");
   },
   encode(message: QueryLockedUndByAddressRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.owner !== '') {
+    if (message.owner !== "") {
       writer.uint32(10).string(message.owner);
     }
     return writer;
@@ -1072,19 +1072,19 @@ export const QueryLockedUndByAddressRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.owner = reader.string();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.owner = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<QueryLockedUndByAddressRequest>): QueryLockedUndByAddressRequest {
     const message = createBaseQueryLockedUndByAddressRequest();
-    message.owner = object.owner ?? '';
+    message.owner = object.owner ?? "";
     return message;
   },
   fromAmino(object: QueryLockedUndByAddressRequestAmino): QueryLockedUndByAddressRequest {
@@ -1096,7 +1096,7 @@ export const QueryLockedUndByAddressRequest = {
   },
   toAmino(message: QueryLockedUndByAddressRequest): QueryLockedUndByAddressRequestAmino {
     const obj: any = {};
-    obj.owner = message.owner === '' ? undefined : message.owner;
+    obj.owner = message.owner === "" ? undefined : message.owner;
     return obj;
   },
   fromAminoMsg(object: QueryLockedUndByAddressRequestAminoMsg): QueryLockedUndByAddressRequest {
@@ -1110,7 +1110,7 @@ export const QueryLockedUndByAddressRequest = {
   },
   toProtoMsg(message: QueryLockedUndByAddressRequest): QueryLockedUndByAddressRequestProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.QueryLockedUndByAddressRequest',
+      typeUrl: "/mainchain.enterprise.v1.QueryLockedUndByAddressRequest",
       value: QueryLockedUndByAddressRequest.encode(message).finish()
     };
   }
@@ -1122,7 +1122,7 @@ function createBaseQueryLockedUndByAddressResponse(): QueryLockedUndByAddressRes
   };
 }
 export const QueryLockedUndByAddressResponse = {
-  typeUrl: '/mainchain.enterprise.v1.QueryLockedUndByAddressResponse',
+  typeUrl: "/mainchain.enterprise.v1.QueryLockedUndByAddressResponse",
   is(o: any): o is QueryLockedUndByAddressResponse {
     return o && (o.$typeUrl === QueryLockedUndByAddressResponse.typeUrl || Coin.is(o.amount));
   },
@@ -1145,12 +1145,12 @@ export const QueryLockedUndByAddressResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.amount = Coin.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.amount = Coin.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1183,7 +1183,7 @@ export const QueryLockedUndByAddressResponse = {
   },
   toProtoMsg(message: QueryLockedUndByAddressResponse): QueryLockedUndByAddressResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.QueryLockedUndByAddressResponse',
+      typeUrl: "/mainchain.enterprise.v1.QueryLockedUndByAddressResponse",
       value: QueryLockedUndByAddressResponse.encode(message).finish()
     };
   }
@@ -1193,7 +1193,7 @@ function createBaseQueryTotalLockedRequest(): QueryTotalLockedRequest {
   return {};
 }
 export const QueryTotalLockedRequest = {
-  typeUrl: '/mainchain.enterprise.v1.QueryTotalLockedRequest',
+  typeUrl: "/mainchain.enterprise.v1.QueryTotalLockedRequest",
   is(o: any): o is QueryTotalLockedRequest {
     return o && o.$typeUrl === QueryTotalLockedRequest.typeUrl;
   },
@@ -1213,9 +1213,9 @@ export const QueryTotalLockedRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      default:
-        reader.skipType(tag & 7);
-        break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1243,7 +1243,7 @@ export const QueryTotalLockedRequest = {
   },
   toProtoMsg(message: QueryTotalLockedRequest): QueryTotalLockedRequestProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.QueryTotalLockedRequest',
+      typeUrl: "/mainchain.enterprise.v1.QueryTotalLockedRequest",
       value: QueryTotalLockedRequest.encode(message).finish()
     };
   }
@@ -1255,7 +1255,7 @@ function createBaseQueryTotalLockedResponse(): QueryTotalLockedResponse {
   };
 }
 export const QueryTotalLockedResponse = {
-  typeUrl: '/mainchain.enterprise.v1.QueryTotalLockedResponse',
+  typeUrl: "/mainchain.enterprise.v1.QueryTotalLockedResponse",
   is(o: any): o is QueryTotalLockedResponse {
     return o && (o.$typeUrl === QueryTotalLockedResponse.typeUrl || Coin.is(o.amount));
   },
@@ -1278,12 +1278,12 @@ export const QueryTotalLockedResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.amount = Coin.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.amount = Coin.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1316,7 +1316,7 @@ export const QueryTotalLockedResponse = {
   },
   toProtoMsg(message: QueryTotalLockedResponse): QueryTotalLockedResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.QueryTotalLockedResponse',
+      typeUrl: "/mainchain.enterprise.v1.QueryTotalLockedResponse",
       value: QueryTotalLockedResponse.encode(message).finish()
     };
   }
@@ -1326,7 +1326,7 @@ function createBaseQueryTotalUnlockedRequest(): QueryTotalUnlockedRequest {
   return {};
 }
 export const QueryTotalUnlockedRequest = {
-  typeUrl: '/mainchain.enterprise.v1.QueryTotalUnlockedRequest',
+  typeUrl: "/mainchain.enterprise.v1.QueryTotalUnlockedRequest",
   is(o: any): o is QueryTotalUnlockedRequest {
     return o && o.$typeUrl === QueryTotalUnlockedRequest.typeUrl;
   },
@@ -1346,9 +1346,9 @@ export const QueryTotalUnlockedRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      default:
-        reader.skipType(tag & 7);
-        break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1376,7 +1376,7 @@ export const QueryTotalUnlockedRequest = {
   },
   toProtoMsg(message: QueryTotalUnlockedRequest): QueryTotalUnlockedRequestProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.QueryTotalUnlockedRequest',
+      typeUrl: "/mainchain.enterprise.v1.QueryTotalUnlockedRequest",
       value: QueryTotalUnlockedRequest.encode(message).finish()
     };
   }
@@ -1388,7 +1388,7 @@ function createBaseQueryTotalUnlockedResponse(): QueryTotalUnlockedResponse {
   };
 }
 export const QueryTotalUnlockedResponse = {
-  typeUrl: '/mainchain.enterprise.v1.QueryTotalUnlockedResponse',
+  typeUrl: "/mainchain.enterprise.v1.QueryTotalUnlockedResponse",
   is(o: any): o is QueryTotalUnlockedResponse {
     return o && (o.$typeUrl === QueryTotalUnlockedResponse.typeUrl || Coin.is(o.amount));
   },
@@ -1411,12 +1411,12 @@ export const QueryTotalUnlockedResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.amount = Coin.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.amount = Coin.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1449,7 +1449,7 @@ export const QueryTotalUnlockedResponse = {
   },
   toProtoMsg(message: QueryTotalUnlockedResponse): QueryTotalUnlockedResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.QueryTotalUnlockedResponse',
+      typeUrl: "/mainchain.enterprise.v1.QueryTotalUnlockedResponse",
       value: QueryTotalUnlockedResponse.encode(message).finish()
     };
   }
@@ -1459,7 +1459,7 @@ function createBaseQueryEnterpriseSupplyRequest(): QueryEnterpriseSupplyRequest 
   return {};
 }
 export const QueryEnterpriseSupplyRequest = {
-  typeUrl: '/mainchain.enterprise.v1.QueryEnterpriseSupplyRequest',
+  typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseSupplyRequest",
   is(o: any): o is QueryEnterpriseSupplyRequest {
     return o && o.$typeUrl === QueryEnterpriseSupplyRequest.typeUrl;
   },
@@ -1479,9 +1479,9 @@ export const QueryEnterpriseSupplyRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      default:
-        reader.skipType(tag & 7);
-        break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1509,7 +1509,7 @@ export const QueryEnterpriseSupplyRequest = {
   },
   toProtoMsg(message: QueryEnterpriseSupplyRequest): QueryEnterpriseSupplyRequestProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.QueryEnterpriseSupplyRequest',
+      typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseSupplyRequest",
       value: QueryEnterpriseSupplyRequest.encode(message).finish()
     };
   }
@@ -1521,7 +1521,7 @@ function createBaseQueryEnterpriseSupplyResponse(): QueryEnterpriseSupplyRespons
   };
 }
 export const QueryEnterpriseSupplyResponse = {
-  typeUrl: '/mainchain.enterprise.v1.QueryEnterpriseSupplyResponse',
+  typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseSupplyResponse",
   is(o: any): o is QueryEnterpriseSupplyResponse {
     return o && (o.$typeUrl === QueryEnterpriseSupplyResponse.typeUrl || UndSupply.is(o.supply));
   },
@@ -1544,12 +1544,12 @@ export const QueryEnterpriseSupplyResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.supply = UndSupply.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.supply = UndSupply.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1582,7 +1582,7 @@ export const QueryEnterpriseSupplyResponse = {
   },
   toProtoMsg(message: QueryEnterpriseSupplyResponse): QueryEnterpriseSupplyResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.QueryEnterpriseSupplyResponse',
+      typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseSupplyResponse",
       value: QueryEnterpriseSupplyResponse.encode(message).finish()
     };
   }
@@ -1594,7 +1594,7 @@ function createBaseQueryTotalSupplyRequest(): QueryTotalSupplyRequest {
   };
 }
 export const QueryTotalSupplyRequest = {
-  typeUrl: '/mainchain.enterprise.v1.QueryTotalSupplyRequest',
+  typeUrl: "/mainchain.enterprise.v1.QueryTotalSupplyRequest",
   is(o: any): o is QueryTotalSupplyRequest {
     return o && o.$typeUrl === QueryTotalSupplyRequest.typeUrl;
   },
@@ -1617,12 +1617,12 @@ export const QueryTotalSupplyRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.pagination = PageRequest.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.pagination = PageRequest.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1655,7 +1655,7 @@ export const QueryTotalSupplyRequest = {
   },
   toProtoMsg(message: QueryTotalSupplyRequest): QueryTotalSupplyRequestProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.QueryTotalSupplyRequest',
+      typeUrl: "/mainchain.enterprise.v1.QueryTotalSupplyRequest",
       value: QueryTotalSupplyRequest.encode(message).finish()
     };
   }
@@ -1668,7 +1668,7 @@ function createBaseQueryTotalSupplyResponse(): QueryTotalSupplyResponse {
   };
 }
 export const QueryTotalSupplyResponse = {
-  typeUrl: '/mainchain.enterprise.v1.QueryTotalSupplyResponse',
+  typeUrl: "/mainchain.enterprise.v1.QueryTotalSupplyResponse",
   is(o: any): o is QueryTotalSupplyResponse {
     return o && (o.$typeUrl === QueryTotalSupplyResponse.typeUrl || Array.isArray(o.supply) && (!o.supply.length || Coin.is(o.supply[0])));
   },
@@ -1694,15 +1694,15 @@ export const QueryTotalSupplyResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.supply.push(Coin.decode(reader, reader.uint32()));
-        break;
-      case 2:
-        message.pagination = PageResponse.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.supply.push(Coin.decode(reader, reader.uint32()));
+          break;
+        case 2:
+          message.pagination = PageResponse.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1742,7 +1742,7 @@ export const QueryTotalSupplyResponse = {
   },
   toProtoMsg(message: QueryTotalSupplyResponse): QueryTotalSupplyResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.QueryTotalSupplyResponse',
+      typeUrl: "/mainchain.enterprise.v1.QueryTotalSupplyResponse",
       value: QueryTotalSupplyResponse.encode(message).finish()
     };
   }
@@ -1750,22 +1750,22 @@ export const QueryTotalSupplyResponse = {
 GlobalDecoderRegistry.register(QueryTotalSupplyResponse.typeUrl, QueryTotalSupplyResponse);
 function createBaseQuerySupplyOfRequest(): QuerySupplyOfRequest {
   return {
-    denom: ''
+    denom: ""
   };
 }
 export const QuerySupplyOfRequest = {
-  typeUrl: '/mainchain.enterprise.v1.QuerySupplyOfRequest',
+  typeUrl: "/mainchain.enterprise.v1.QuerySupplyOfRequest",
   is(o: any): o is QuerySupplyOfRequest {
-    return o && (o.$typeUrl === QuerySupplyOfRequest.typeUrl || typeof o.denom === 'string');
+    return o && (o.$typeUrl === QuerySupplyOfRequest.typeUrl || typeof o.denom === "string");
   },
   isSDK(o: any): o is QuerySupplyOfRequestSDKType {
-    return o && (o.$typeUrl === QuerySupplyOfRequest.typeUrl || typeof o.denom === 'string');
+    return o && (o.$typeUrl === QuerySupplyOfRequest.typeUrl || typeof o.denom === "string");
   },
   isAmino(o: any): o is QuerySupplyOfRequestAmino {
-    return o && (o.$typeUrl === QuerySupplyOfRequest.typeUrl || typeof o.denom === 'string');
+    return o && (o.$typeUrl === QuerySupplyOfRequest.typeUrl || typeof o.denom === "string");
   },
   encode(message: QuerySupplyOfRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.denom !== '') {
+    if (message.denom !== "") {
       writer.uint32(10).string(message.denom);
     }
     return writer;
@@ -1777,19 +1777,19 @@ export const QuerySupplyOfRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.denom = reader.string();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.denom = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<QuerySupplyOfRequest>): QuerySupplyOfRequest {
     const message = createBaseQuerySupplyOfRequest();
-    message.denom = object.denom ?? '';
+    message.denom = object.denom ?? "";
     return message;
   },
   fromAmino(object: QuerySupplyOfRequestAmino): QuerySupplyOfRequest {
@@ -1801,7 +1801,7 @@ export const QuerySupplyOfRequest = {
   },
   toAmino(message: QuerySupplyOfRequest): QuerySupplyOfRequestAmino {
     const obj: any = {};
-    obj.denom = message.denom === '' ? undefined : message.denom;
+    obj.denom = message.denom === "" ? undefined : message.denom;
     return obj;
   },
   fromAminoMsg(object: QuerySupplyOfRequestAminoMsg): QuerySupplyOfRequest {
@@ -1815,7 +1815,7 @@ export const QuerySupplyOfRequest = {
   },
   toProtoMsg(message: QuerySupplyOfRequest): QuerySupplyOfRequestProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.QuerySupplyOfRequest',
+      typeUrl: "/mainchain.enterprise.v1.QuerySupplyOfRequest",
       value: QuerySupplyOfRequest.encode(message).finish()
     };
   }
@@ -1827,7 +1827,7 @@ function createBaseQuerySupplyOfResponse(): QuerySupplyOfResponse {
   };
 }
 export const QuerySupplyOfResponse = {
-  typeUrl: '/mainchain.enterprise.v1.QuerySupplyOfResponse',
+  typeUrl: "/mainchain.enterprise.v1.QuerySupplyOfResponse",
   is(o: any): o is QuerySupplyOfResponse {
     return o && (o.$typeUrl === QuerySupplyOfResponse.typeUrl || Coin.is(o.amount));
   },
@@ -1850,12 +1850,12 @@ export const QuerySupplyOfResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.amount = Coin.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.amount = Coin.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1888,7 +1888,7 @@ export const QuerySupplyOfResponse = {
   },
   toProtoMsg(message: QuerySupplyOfResponse): QuerySupplyOfResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.QuerySupplyOfResponse',
+      typeUrl: "/mainchain.enterprise.v1.QuerySupplyOfResponse",
       value: QuerySupplyOfResponse.encode(message).finish()
     };
   }
@@ -1898,7 +1898,7 @@ function createBaseQueryWhitelistRequest(): QueryWhitelistRequest {
   return {};
 }
 export const QueryWhitelistRequest = {
-  typeUrl: '/mainchain.enterprise.v1.QueryWhitelistRequest',
+  typeUrl: "/mainchain.enterprise.v1.QueryWhitelistRequest",
   is(o: any): o is QueryWhitelistRequest {
     return o && o.$typeUrl === QueryWhitelistRequest.typeUrl;
   },
@@ -1918,9 +1918,9 @@ export const QueryWhitelistRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      default:
-        reader.skipType(tag & 7);
-        break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1948,7 +1948,7 @@ export const QueryWhitelistRequest = {
   },
   toProtoMsg(message: QueryWhitelistRequest): QueryWhitelistRequestProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.QueryWhitelistRequest',
+      typeUrl: "/mainchain.enterprise.v1.QueryWhitelistRequest",
       value: QueryWhitelistRequest.encode(message).finish()
     };
   }
@@ -1960,15 +1960,15 @@ function createBaseQueryWhitelistResponse(): QueryWhitelistResponse {
   };
 }
 export const QueryWhitelistResponse = {
-  typeUrl: '/mainchain.enterprise.v1.QueryWhitelistResponse',
+  typeUrl: "/mainchain.enterprise.v1.QueryWhitelistResponse",
   is(o: any): o is QueryWhitelistResponse {
-    return o && (o.$typeUrl === QueryWhitelistResponse.typeUrl || Array.isArray(o.addresses) && (!o.addresses.length || typeof o.addresses[0] === 'string'));
+    return o && (o.$typeUrl === QueryWhitelistResponse.typeUrl || Array.isArray(o.addresses) && (!o.addresses.length || typeof o.addresses[0] === "string"));
   },
   isSDK(o: any): o is QueryWhitelistResponseSDKType {
-    return o && (o.$typeUrl === QueryWhitelistResponse.typeUrl || Array.isArray(o.addresses) && (!o.addresses.length || typeof o.addresses[0] === 'string'));
+    return o && (o.$typeUrl === QueryWhitelistResponse.typeUrl || Array.isArray(o.addresses) && (!o.addresses.length || typeof o.addresses[0] === "string"));
   },
   isAmino(o: any): o is QueryWhitelistResponseAmino {
-    return o && (o.$typeUrl === QueryWhitelistResponse.typeUrl || Array.isArray(o.addresses) && (!o.addresses.length || typeof o.addresses[0] === 'string'));
+    return o && (o.$typeUrl === QueryWhitelistResponse.typeUrl || Array.isArray(o.addresses) && (!o.addresses.length || typeof o.addresses[0] === "string"));
   },
   encode(message: QueryWhitelistResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.addresses) {
@@ -1983,12 +1983,12 @@ export const QueryWhitelistResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.addresses.push(reader.string());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.addresses.push(reader.string());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -2023,7 +2023,7 @@ export const QueryWhitelistResponse = {
   },
   toProtoMsg(message: QueryWhitelistResponse): QueryWhitelistResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.QueryWhitelistResponse',
+      typeUrl: "/mainchain.enterprise.v1.QueryWhitelistResponse",
       value: QueryWhitelistResponse.encode(message).finish()
     };
   }
@@ -2031,22 +2031,22 @@ export const QueryWhitelistResponse = {
 GlobalDecoderRegistry.register(QueryWhitelistResponse.typeUrl, QueryWhitelistResponse);
 function createBaseQueryWhitelistedRequest(): QueryWhitelistedRequest {
   return {
-    address: ''
+    address: ""
   };
 }
 export const QueryWhitelistedRequest = {
-  typeUrl: '/mainchain.enterprise.v1.QueryWhitelistedRequest',
+  typeUrl: "/mainchain.enterprise.v1.QueryWhitelistedRequest",
   is(o: any): o is QueryWhitelistedRequest {
-    return o && (o.$typeUrl === QueryWhitelistedRequest.typeUrl || typeof o.address === 'string');
+    return o && (o.$typeUrl === QueryWhitelistedRequest.typeUrl || typeof o.address === "string");
   },
   isSDK(o: any): o is QueryWhitelistedRequestSDKType {
-    return o && (o.$typeUrl === QueryWhitelistedRequest.typeUrl || typeof o.address === 'string');
+    return o && (o.$typeUrl === QueryWhitelistedRequest.typeUrl || typeof o.address === "string");
   },
   isAmino(o: any): o is QueryWhitelistedRequestAmino {
-    return o && (o.$typeUrl === QueryWhitelistedRequest.typeUrl || typeof o.address === 'string');
+    return o && (o.$typeUrl === QueryWhitelistedRequest.typeUrl || typeof o.address === "string");
   },
   encode(message: QueryWhitelistedRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.address !== '') {
+    if (message.address !== "") {
       writer.uint32(10).string(message.address);
     }
     return writer;
@@ -2058,19 +2058,19 @@ export const QueryWhitelistedRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.address = reader.string();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.address = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<QueryWhitelistedRequest>): QueryWhitelistedRequest {
     const message = createBaseQueryWhitelistedRequest();
-    message.address = object.address ?? '';
+    message.address = object.address ?? "";
     return message;
   },
   fromAmino(object: QueryWhitelistedRequestAmino): QueryWhitelistedRequest {
@@ -2082,7 +2082,7 @@ export const QueryWhitelistedRequest = {
   },
   toAmino(message: QueryWhitelistedRequest): QueryWhitelistedRequestAmino {
     const obj: any = {};
-    obj.address = message.address === '' ? undefined : message.address;
+    obj.address = message.address === "" ? undefined : message.address;
     return obj;
   },
   fromAminoMsg(object: QueryWhitelistedRequestAminoMsg): QueryWhitelistedRequest {
@@ -2096,7 +2096,7 @@ export const QueryWhitelistedRequest = {
   },
   toProtoMsg(message: QueryWhitelistedRequest): QueryWhitelistedRequestProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.QueryWhitelistedRequest',
+      typeUrl: "/mainchain.enterprise.v1.QueryWhitelistedRequest",
       value: QueryWhitelistedRequest.encode(message).finish()
     };
   }
@@ -2104,23 +2104,23 @@ export const QueryWhitelistedRequest = {
 GlobalDecoderRegistry.register(QueryWhitelistedRequest.typeUrl, QueryWhitelistedRequest);
 function createBaseQueryWhitelistedResponse(): QueryWhitelistedResponse {
   return {
-    address: '',
+    address: "",
     whitelisted: false
   };
 }
 export const QueryWhitelistedResponse = {
-  typeUrl: '/mainchain.enterprise.v1.QueryWhitelistedResponse',
+  typeUrl: "/mainchain.enterprise.v1.QueryWhitelistedResponse",
   is(o: any): o is QueryWhitelistedResponse {
-    return o && (o.$typeUrl === QueryWhitelistedResponse.typeUrl || typeof o.address === 'string' && typeof o.whitelisted === 'boolean');
+    return o && (o.$typeUrl === QueryWhitelistedResponse.typeUrl || typeof o.address === "string" && typeof o.whitelisted === "boolean");
   },
   isSDK(o: any): o is QueryWhitelistedResponseSDKType {
-    return o && (o.$typeUrl === QueryWhitelistedResponse.typeUrl || typeof o.address === 'string' && typeof o.whitelisted === 'boolean');
+    return o && (o.$typeUrl === QueryWhitelistedResponse.typeUrl || typeof o.address === "string" && typeof o.whitelisted === "boolean");
   },
   isAmino(o: any): o is QueryWhitelistedResponseAmino {
-    return o && (o.$typeUrl === QueryWhitelistedResponse.typeUrl || typeof o.address === 'string' && typeof o.whitelisted === 'boolean');
+    return o && (o.$typeUrl === QueryWhitelistedResponse.typeUrl || typeof o.address === "string" && typeof o.whitelisted === "boolean");
   },
   encode(message: QueryWhitelistedResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.address !== '') {
+    if (message.address !== "") {
       writer.uint32(10).string(message.address);
     }
     if (message.whitelisted === true) {
@@ -2135,22 +2135,22 @@ export const QueryWhitelistedResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.address = reader.string();
-        break;
-      case 2:
-        message.whitelisted = reader.bool();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.address = reader.string();
+          break;
+        case 2:
+          message.whitelisted = reader.bool();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<QueryWhitelistedResponse>): QueryWhitelistedResponse {
     const message = createBaseQueryWhitelistedResponse();
-    message.address = object.address ?? '';
+    message.address = object.address ?? "";
     message.whitelisted = object.whitelisted ?? false;
     return message;
   },
@@ -2166,7 +2166,7 @@ export const QueryWhitelistedResponse = {
   },
   toAmino(message: QueryWhitelistedResponse): QueryWhitelistedResponseAmino {
     const obj: any = {};
-    obj.address = message.address === '' ? undefined : message.address;
+    obj.address = message.address === "" ? undefined : message.address;
     obj.whitelisted = message.whitelisted === false ? undefined : message.whitelisted;
     return obj;
   },
@@ -2181,7 +2181,7 @@ export const QueryWhitelistedResponse = {
   },
   toProtoMsg(message: QueryWhitelistedResponse): QueryWhitelistedResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.QueryWhitelistedResponse',
+      typeUrl: "/mainchain.enterprise.v1.QueryWhitelistedResponse",
       value: QueryWhitelistedResponse.encode(message).finish()
     };
   }
@@ -2189,22 +2189,22 @@ export const QueryWhitelistedResponse = {
 GlobalDecoderRegistry.register(QueryWhitelistedResponse.typeUrl, QueryWhitelistedResponse);
 function createBaseQueryEnterpriseAccountRequest(): QueryEnterpriseAccountRequest {
   return {
-    address: ''
+    address: ""
   };
 }
 export const QueryEnterpriseAccountRequest = {
-  typeUrl: '/mainchain.enterprise.v1.QueryEnterpriseAccountRequest',
+  typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseAccountRequest",
   is(o: any): o is QueryEnterpriseAccountRequest {
-    return o && (o.$typeUrl === QueryEnterpriseAccountRequest.typeUrl || typeof o.address === 'string');
+    return o && (o.$typeUrl === QueryEnterpriseAccountRequest.typeUrl || typeof o.address === "string");
   },
   isSDK(o: any): o is QueryEnterpriseAccountRequestSDKType {
-    return o && (o.$typeUrl === QueryEnterpriseAccountRequest.typeUrl || typeof o.address === 'string');
+    return o && (o.$typeUrl === QueryEnterpriseAccountRequest.typeUrl || typeof o.address === "string");
   },
   isAmino(o: any): o is QueryEnterpriseAccountRequestAmino {
-    return o && (o.$typeUrl === QueryEnterpriseAccountRequest.typeUrl || typeof o.address === 'string');
+    return o && (o.$typeUrl === QueryEnterpriseAccountRequest.typeUrl || typeof o.address === "string");
   },
   encode(message: QueryEnterpriseAccountRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.address !== '') {
+    if (message.address !== "") {
       writer.uint32(10).string(message.address);
     }
     return writer;
@@ -2216,19 +2216,19 @@ export const QueryEnterpriseAccountRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.address = reader.string();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.address = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<QueryEnterpriseAccountRequest>): QueryEnterpriseAccountRequest {
     const message = createBaseQueryEnterpriseAccountRequest();
-    message.address = object.address ?? '';
+    message.address = object.address ?? "";
     return message;
   },
   fromAmino(object: QueryEnterpriseAccountRequestAmino): QueryEnterpriseAccountRequest {
@@ -2240,7 +2240,7 @@ export const QueryEnterpriseAccountRequest = {
   },
   toAmino(message: QueryEnterpriseAccountRequest): QueryEnterpriseAccountRequestAmino {
     const obj: any = {};
-    obj.address = message.address === '' ? undefined : message.address;
+    obj.address = message.address === "" ? undefined : message.address;
     return obj;
   },
   fromAminoMsg(object: QueryEnterpriseAccountRequestAminoMsg): QueryEnterpriseAccountRequest {
@@ -2254,7 +2254,7 @@ export const QueryEnterpriseAccountRequest = {
   },
   toProtoMsg(message: QueryEnterpriseAccountRequest): QueryEnterpriseAccountRequestProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.QueryEnterpriseAccountRequest',
+      typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseAccountRequest",
       value: QueryEnterpriseAccountRequest.encode(message).finish()
     };
   }
@@ -2266,7 +2266,7 @@ function createBaseQueryEnterpriseAccountResponse(): QueryEnterpriseAccountRespo
   };
 }
 export const QueryEnterpriseAccountResponse = {
-  typeUrl: '/mainchain.enterprise.v1.QueryEnterpriseAccountResponse',
+  typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseAccountResponse",
   is(o: any): o is QueryEnterpriseAccountResponse {
     return o && (o.$typeUrl === QueryEnterpriseAccountResponse.typeUrl || EnterpriseUserAccount.is(o.account));
   },
@@ -2289,12 +2289,12 @@ export const QueryEnterpriseAccountResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.account = EnterpriseUserAccount.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.account = EnterpriseUserAccount.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -2327,7 +2327,7 @@ export const QueryEnterpriseAccountResponse = {
   },
   toProtoMsg(message: QueryEnterpriseAccountResponse): QueryEnterpriseAccountResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.QueryEnterpriseAccountResponse',
+      typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseAccountResponse",
       value: QueryEnterpriseAccountResponse.encode(message).finish()
     };
   }
@@ -2337,7 +2337,7 @@ function createBaseQueryTotalSpentEFUNDRequest(): QueryTotalSpentEFUNDRequest {
   return {};
 }
 export const QueryTotalSpentEFUNDRequest = {
-  typeUrl: '/mainchain.enterprise.v1.QueryTotalSpentEFUNDRequest',
+  typeUrl: "/mainchain.enterprise.v1.QueryTotalSpentEFUNDRequest",
   is(o: any): o is QueryTotalSpentEFUNDRequest {
     return o && o.$typeUrl === QueryTotalSpentEFUNDRequest.typeUrl;
   },
@@ -2357,9 +2357,9 @@ export const QueryTotalSpentEFUNDRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      default:
-        reader.skipType(tag & 7);
-        break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -2387,7 +2387,7 @@ export const QueryTotalSpentEFUNDRequest = {
   },
   toProtoMsg(message: QueryTotalSpentEFUNDRequest): QueryTotalSpentEFUNDRequestProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.QueryTotalSpentEFUNDRequest',
+      typeUrl: "/mainchain.enterprise.v1.QueryTotalSpentEFUNDRequest",
       value: QueryTotalSpentEFUNDRequest.encode(message).finish()
     };
   }
@@ -2399,7 +2399,7 @@ function createBaseQueryTotalSpentEFUNDResponse(): QueryTotalSpentEFUNDResponse 
   };
 }
 export const QueryTotalSpentEFUNDResponse = {
-  typeUrl: '/mainchain.enterprise.v1.QueryTotalSpentEFUNDResponse',
+  typeUrl: "/mainchain.enterprise.v1.QueryTotalSpentEFUNDResponse",
   is(o: any): o is QueryTotalSpentEFUNDResponse {
     return o && (o.$typeUrl === QueryTotalSpentEFUNDResponse.typeUrl || Coin.is(o.amount));
   },
@@ -2422,12 +2422,12 @@ export const QueryTotalSpentEFUNDResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.amount = Coin.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.amount = Coin.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -2460,7 +2460,7 @@ export const QueryTotalSpentEFUNDResponse = {
   },
   toProtoMsg(message: QueryTotalSpentEFUNDResponse): QueryTotalSpentEFUNDResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.QueryTotalSpentEFUNDResponse',
+      typeUrl: "/mainchain.enterprise.v1.QueryTotalSpentEFUNDResponse",
       value: QueryTotalSpentEFUNDResponse.encode(message).finish()
     };
   }
@@ -2468,22 +2468,22 @@ export const QueryTotalSpentEFUNDResponse = {
 GlobalDecoderRegistry.register(QueryTotalSpentEFUNDResponse.typeUrl, QueryTotalSpentEFUNDResponse);
 function createBaseQuerySpentEFUNDByAddressRequest(): QuerySpentEFUNDByAddressRequest {
   return {
-    address: ''
+    address: ""
   };
 }
 export const QuerySpentEFUNDByAddressRequest = {
-  typeUrl: '/mainchain.enterprise.v1.QuerySpentEFUNDByAddressRequest',
+  typeUrl: "/mainchain.enterprise.v1.QuerySpentEFUNDByAddressRequest",
   is(o: any): o is QuerySpentEFUNDByAddressRequest {
-    return o && (o.$typeUrl === QuerySpentEFUNDByAddressRequest.typeUrl || typeof o.address === 'string');
+    return o && (o.$typeUrl === QuerySpentEFUNDByAddressRequest.typeUrl || typeof o.address === "string");
   },
   isSDK(o: any): o is QuerySpentEFUNDByAddressRequestSDKType {
-    return o && (o.$typeUrl === QuerySpentEFUNDByAddressRequest.typeUrl || typeof o.address === 'string');
+    return o && (o.$typeUrl === QuerySpentEFUNDByAddressRequest.typeUrl || typeof o.address === "string");
   },
   isAmino(o: any): o is QuerySpentEFUNDByAddressRequestAmino {
-    return o && (o.$typeUrl === QuerySpentEFUNDByAddressRequest.typeUrl || typeof o.address === 'string');
+    return o && (o.$typeUrl === QuerySpentEFUNDByAddressRequest.typeUrl || typeof o.address === "string");
   },
   encode(message: QuerySpentEFUNDByAddressRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.address !== '') {
+    if (message.address !== "") {
       writer.uint32(10).string(message.address);
     }
     return writer;
@@ -2495,19 +2495,19 @@ export const QuerySpentEFUNDByAddressRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.address = reader.string();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.address = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<QuerySpentEFUNDByAddressRequest>): QuerySpentEFUNDByAddressRequest {
     const message = createBaseQuerySpentEFUNDByAddressRequest();
-    message.address = object.address ?? '';
+    message.address = object.address ?? "";
     return message;
   },
   fromAmino(object: QuerySpentEFUNDByAddressRequestAmino): QuerySpentEFUNDByAddressRequest {
@@ -2519,7 +2519,7 @@ export const QuerySpentEFUNDByAddressRequest = {
   },
   toAmino(message: QuerySpentEFUNDByAddressRequest): QuerySpentEFUNDByAddressRequestAmino {
     const obj: any = {};
-    obj.address = message.address === '' ? undefined : message.address;
+    obj.address = message.address === "" ? undefined : message.address;
     return obj;
   },
   fromAminoMsg(object: QuerySpentEFUNDByAddressRequestAminoMsg): QuerySpentEFUNDByAddressRequest {
@@ -2533,7 +2533,7 @@ export const QuerySpentEFUNDByAddressRequest = {
   },
   toProtoMsg(message: QuerySpentEFUNDByAddressRequest): QuerySpentEFUNDByAddressRequestProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.QuerySpentEFUNDByAddressRequest',
+      typeUrl: "/mainchain.enterprise.v1.QuerySpentEFUNDByAddressRequest",
       value: QuerySpentEFUNDByAddressRequest.encode(message).finish()
     };
   }
@@ -2545,7 +2545,7 @@ function createBaseQuerySpentEFUNDByAddressResponse(): QuerySpentEFUNDByAddressR
   };
 }
 export const QuerySpentEFUNDByAddressResponse = {
-  typeUrl: '/mainchain.enterprise.v1.QuerySpentEFUNDByAddressResponse',
+  typeUrl: "/mainchain.enterprise.v1.QuerySpentEFUNDByAddressResponse",
   is(o: any): o is QuerySpentEFUNDByAddressResponse {
     return o && (o.$typeUrl === QuerySpentEFUNDByAddressResponse.typeUrl || Coin.is(o.amount));
   },
@@ -2568,12 +2568,12 @@ export const QuerySpentEFUNDByAddressResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.amount = Coin.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.amount = Coin.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -2606,7 +2606,7 @@ export const QuerySpentEFUNDByAddressResponse = {
   },
   toProtoMsg(message: QuerySpentEFUNDByAddressResponse): QuerySpentEFUNDByAddressResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.enterprise.v1.QuerySpentEFUNDByAddressResponse',
+      typeUrl: "/mainchain.enterprise.v1.QuerySpentEFUNDByAddressResponse",
       value: QuerySpentEFUNDByAddressResponse.encode(message).finish()
     };
   }

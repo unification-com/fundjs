@@ -1,8 +1,7 @@
 //@ts-nocheck
-import { LCDClient } from '@cosmology/lcd';
-
-import { setPaginationParams } from '../../../helpers';
-import { QueryGroupInfoRequest, QueryGroupInfoResponseSDKType, QueryGroupMembersRequest, QueryGroupMembersResponseSDKType, QueryGroupPoliciesByAdminRequest, QueryGroupPoliciesByAdminResponseSDKType, QueryGroupPoliciesByGroupRequest, QueryGroupPoliciesByGroupResponseSDKType, QueryGroupPolicyInfoRequest, QueryGroupPolicyInfoResponseSDKType, QueryGroupsByAdminRequest, QueryGroupsByAdminResponseSDKType, QueryGroupsByMemberRequest, QueryGroupsByMemberResponseSDKType, QueryProposalRequest, QueryProposalResponseSDKType, QueryProposalsByGroupPolicyRequest, QueryProposalsByGroupPolicyResponseSDKType, QueryTallyResultRequest, QueryTallyResultResponseSDKType,QueryVoteByProposalVoterRequest, QueryVoteByProposalVoterResponseSDKType, QueryVotesByProposalRequest, QueryVotesByProposalResponseSDKType, QueryVotesByVoterRequest, QueryVotesByVoterResponseSDKType } from './query';
+import { setPaginationParams } from "../../../helpers";
+import { LCDClient } from "@cosmology/lcd";
+import { QueryGroupInfoRequest, QueryGroupInfoResponseSDKType, QueryGroupPolicyInfoRequest, QueryGroupPolicyInfoResponseSDKType, QueryGroupMembersRequest, QueryGroupMembersResponseSDKType, QueryGroupsByAdminRequest, QueryGroupsByAdminResponseSDKType, QueryGroupPoliciesByGroupRequest, QueryGroupPoliciesByGroupResponseSDKType, QueryGroupPoliciesByAdminRequest, QueryGroupPoliciesByAdminResponseSDKType, QueryProposalRequest, QueryProposalResponseSDKType, QueryProposalsByGroupPolicyRequest, QueryProposalsByGroupPolicyResponseSDKType, QueryVoteByProposalVoterRequest, QueryVoteByProposalVoterResponseSDKType, QueryVotesByProposalRequest, QueryVotesByProposalResponseSDKType, QueryVotesByVoterRequest, QueryVotesByVoterResponseSDKType, QueryGroupsByMemberRequest, QueryGroupsByMemberResponseSDKType, QueryTallyResultRequest, QueryTallyResultResponseSDKType } from "./query";
 export class LCDQueryClient {
   req: LCDClient;
   constructor({
@@ -40,7 +39,7 @@ export class LCDQueryClient {
     const options: any = {
       params: {}
     };
-    if (typeof params?.pagination !== 'undefined') {
+    if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
     }
     const endpoint = `cosmos/group/v1/group_members/${params.groupId}`;
@@ -51,7 +50,7 @@ export class LCDQueryClient {
     const options: any = {
       params: {}
     };
-    if (typeof params?.pagination !== 'undefined') {
+    if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
     }
     const endpoint = `cosmos/group/v1/groups_by_admin/${params.admin}`;
@@ -62,7 +61,7 @@ export class LCDQueryClient {
     const options: any = {
       params: {}
     };
-    if (typeof params?.pagination !== 'undefined') {
+    if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
     }
     const endpoint = `cosmos/group/v1/group_policies_by_group/${params.groupId}`;
@@ -73,7 +72,7 @@ export class LCDQueryClient {
     const options: any = {
       params: {}
     };
-    if (typeof params?.pagination !== 'undefined') {
+    if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
     }
     const endpoint = `cosmos/group/v1/group_policies_by_admin/${params.admin}`;
@@ -89,7 +88,7 @@ export class LCDQueryClient {
     const options: any = {
       params: {}
     };
-    if (typeof params?.pagination !== 'undefined') {
+    if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
     }
     const endpoint = `cosmos/group/v1/proposals_by_group_policy/${params.address}`;
@@ -105,7 +104,7 @@ export class LCDQueryClient {
     const options: any = {
       params: {}
     };
-    if (typeof params?.pagination !== 'undefined') {
+    if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
     }
     const endpoint = `cosmos/group/v1/votes_by_proposal/${params.proposalId}`;
@@ -116,7 +115,7 @@ export class LCDQueryClient {
     const options: any = {
       params: {}
     };
-    if (typeof params?.pagination !== 'undefined') {
+    if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
     }
     const endpoint = `cosmos/group/v1/votes_by_voter/${params.voter}`;
@@ -127,7 +126,7 @@ export class LCDQueryClient {
     const options: any = {
       params: {}
     };
-    if (typeof params?.pagination !== 'undefined') {
+    if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
     }
     const endpoint = `cosmos/group/v1/groups_by_member/${params.address}`;

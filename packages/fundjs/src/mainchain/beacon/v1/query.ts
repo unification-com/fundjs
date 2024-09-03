@@ -1,18 +1,18 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from '../../../binary';
-import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from '../../../cosmos/base/query/v1beta1/pagination';
-import { GlobalDecoderRegistry } from '../../../registry';
-import { Beacon, BeaconAmino, BeaconSDKType, BeaconTimestamp, BeaconTimestampAmino, BeaconTimestampSDKType,Params, ParamsAmino, ParamsSDKType } from './beacon';
+import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination";
+import { Params, ParamsAmino, ParamsSDKType, Beacon, BeaconAmino, BeaconSDKType, BeaconTimestamp, BeaconTimestampAmino, BeaconTimestampSDKType } from "./beacon";
+import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
 /** QueryParamsRequest is the request type for the Query/Params RPC method */
 export interface QueryParamsRequest {}
 export interface QueryParamsRequestProtoMsg {
-  typeUrl: '/mainchain.beacon.v1.QueryParamsRequest';
+  typeUrl: "/mainchain.beacon.v1.QueryParamsRequest";
   value: Uint8Array;
 }
 /** QueryParamsRequest is the request type for the Query/Params RPC method */
 export interface QueryParamsRequestAmino {}
 export interface QueryParamsRequestAminoMsg {
-  type: '/mainchain.beacon.v1.QueryParamsRequest';
+  type: "/mainchain.beacon.v1.QueryParamsRequest";
   value: QueryParamsRequestAmino;
 }
 /** QueryParamsRequest is the request type for the Query/Params RPC method */
@@ -22,7 +22,7 @@ export interface QueryParamsResponse {
   params: Params;
 }
 export interface QueryParamsResponseProtoMsg {
-  typeUrl: '/mainchain.beacon.v1.QueryParamsResponse';
+  typeUrl: "/mainchain.beacon.v1.QueryParamsResponse";
   value: Uint8Array;
 }
 /** QueryParamsResponse is the response type for the Query/Params RPC method */
@@ -30,7 +30,7 @@ export interface QueryParamsResponseAmino {
   params?: ParamsAmino;
 }
 export interface QueryParamsResponseAminoMsg {
-  type: '/mainchain.beacon.v1.QueryParamsResponse';
+  type: "/mainchain.beacon.v1.QueryParamsResponse";
   value: QueryParamsResponseAmino;
 }
 /** QueryParamsResponse is the response type for the Query/Params RPC method */
@@ -43,7 +43,7 @@ export interface QueryBeaconRequest {
   beaconId: bigint;
 }
 export interface QueryBeaconRequestProtoMsg {
-  typeUrl: '/mainchain.beacon.v1.QueryBeaconRequest';
+  typeUrl: "/mainchain.beacon.v1.QueryBeaconRequest";
   value: Uint8Array;
 }
 /** QueryBeaconRequest is the request type for the Query/Beacon RPC method */
@@ -52,7 +52,7 @@ export interface QueryBeaconRequestAmino {
   beacon_id?: string;
 }
 export interface QueryBeaconRequestAminoMsg {
-  type: '/mainchain.beacon.v1.QueryBeaconRequest';
+  type: "/mainchain.beacon.v1.QueryBeaconRequest";
   value: QueryBeaconRequestAmino;
 }
 /** QueryBeaconRequest is the request type for the Query/Beacon RPC method */
@@ -64,7 +64,7 @@ export interface QueryBeaconResponse {
   beacon?: Beacon;
 }
 export interface QueryBeaconResponseProtoMsg {
-  typeUrl: '/mainchain.beacon.v1.QueryBeaconResponse';
+  typeUrl: "/mainchain.beacon.v1.QueryBeaconResponse";
   value: Uint8Array;
 }
 /** QueryBeaconResponse is the response type for the Query/Beacon RPC method */
@@ -72,7 +72,7 @@ export interface QueryBeaconResponseAmino {
   beacon?: BeaconAmino;
 }
 export interface QueryBeaconResponseAminoMsg {
-  type: '/mainchain.beacon.v1.QueryBeaconResponse';
+  type: "/mainchain.beacon.v1.QueryBeaconResponse";
   value: QueryBeaconResponseAmino;
 }
 /** QueryBeaconResponse is the response type for the Query/Beacon RPC method */
@@ -87,7 +87,7 @@ export interface QueryBeaconTimestampRequest {
   timestampId: bigint;
 }
 export interface QueryBeaconTimestampRequestProtoMsg {
-  typeUrl: '/mainchain.beacon.v1.QueryBeaconTimestampRequest';
+  typeUrl: "/mainchain.beacon.v1.QueryBeaconTimestampRequest";
   value: Uint8Array;
 }
 /** QueryBeaconTimestampRequest is the request type for the Query/BeaconTimestamp RPC method */
@@ -98,7 +98,7 @@ export interface QueryBeaconTimestampRequestAmino {
   timestamp_id?: string;
 }
 export interface QueryBeaconTimestampRequestAminoMsg {
-  type: '/mainchain.beacon.v1.QueryBeaconTimestampRequest';
+  type: "/mainchain.beacon.v1.QueryBeaconTimestampRequest";
   value: QueryBeaconTimestampRequestAmino;
 }
 /** QueryBeaconTimestampRequest is the request type for the Query/BeaconTimestamp RPC method */
@@ -113,7 +113,7 @@ export interface QueryBeaconTimestampResponse {
   owner: string;
 }
 export interface QueryBeaconTimestampResponseProtoMsg {
-  typeUrl: '/mainchain.beacon.v1.QueryBeaconTimestampResponse';
+  typeUrl: "/mainchain.beacon.v1.QueryBeaconTimestampResponse";
   value: Uint8Array;
 }
 /** QueryBeaconTimestampResponse is the response type for the Query/BeaconTimestamp RPC method */
@@ -123,7 +123,7 @@ export interface QueryBeaconTimestampResponseAmino {
   owner?: string;
 }
 export interface QueryBeaconTimestampResponseAminoMsg {
-  type: '/mainchain.beacon.v1.QueryBeaconTimestampResponse';
+  type: "/mainchain.beacon.v1.QueryBeaconTimestampResponse";
   value: QueryBeaconTimestampResponseAmino;
 }
 /** QueryBeaconTimestampResponse is the response type for the Query/BeaconTimestamp RPC method */
@@ -142,7 +142,7 @@ export interface QueryBeaconsFilteredRequest {
   pagination?: PageRequest;
 }
 export interface QueryBeaconsFilteredRequestProtoMsg {
-  typeUrl: '/mainchain.beacon.v1.QueryBeaconsFilteredRequest';
+  typeUrl: "/mainchain.beacon.v1.QueryBeaconsFilteredRequest";
   value: Uint8Array;
 }
 /** QueryBeaconsFilteredRequest is the request type for the Query/BeaconsFiltered RPC method */
@@ -155,7 +155,7 @@ export interface QueryBeaconsFilteredRequestAmino {
   pagination?: PageRequestAmino;
 }
 export interface QueryBeaconsFilteredRequestAminoMsg {
-  type: '/mainchain.beacon.v1.QueryBeaconsFilteredRequest';
+  type: "/mainchain.beacon.v1.QueryBeaconsFilteredRequest";
   value: QueryBeaconsFilteredRequestAmino;
 }
 /** QueryBeaconsFilteredRequest is the request type for the Query/BeaconsFiltered RPC method */
@@ -171,7 +171,7 @@ export interface QueryBeaconsFilteredResponse {
   pagination?: PageResponse;
 }
 export interface QueryBeaconsFilteredResponseProtoMsg {
-  typeUrl: '/mainchain.beacon.v1.QueryBeaconsFilteredResponse';
+  typeUrl: "/mainchain.beacon.v1.QueryBeaconsFilteredResponse";
   value: Uint8Array;
 }
 /** QueryBeaconsFilteredResponse is the response type for the Query/BeaconsFiltered RPC method */
@@ -181,7 +181,7 @@ export interface QueryBeaconsFilteredResponseAmino {
   pagination?: PageResponseAmino;
 }
 export interface QueryBeaconsFilteredResponseAminoMsg {
-  type: '/mainchain.beacon.v1.QueryBeaconsFilteredResponse';
+  type: "/mainchain.beacon.v1.QueryBeaconsFilteredResponse";
   value: QueryBeaconsFilteredResponseAmino;
 }
 /** QueryBeaconsFilteredResponse is the response type for the Query/BeaconsFiltered RPC method */
@@ -195,7 +195,7 @@ export interface QueryBeaconStorageRequest {
   beaconId: bigint;
 }
 export interface QueryBeaconStorageRequestProtoMsg {
-  typeUrl: '/mainchain.beacon.v1.QueryBeaconStorageRequest';
+  typeUrl: "/mainchain.beacon.v1.QueryBeaconStorageRequest";
   value: Uint8Array;
 }
 /** QueryBeaconStorageRequest is the request type for the Query/BeaconStorage RPC method */
@@ -204,7 +204,7 @@ export interface QueryBeaconStorageRequestAmino {
   beacon_id?: string;
 }
 export interface QueryBeaconStorageRequestAminoMsg {
-  type: '/mainchain.beacon.v1.QueryBeaconStorageRequest';
+  type: "/mainchain.beacon.v1.QueryBeaconStorageRequest";
   value: QueryBeaconStorageRequestAmino;
 }
 /** QueryBeaconStorageRequest is the request type for the Query/BeaconStorage RPC method */
@@ -225,7 +225,7 @@ export interface QueryBeaconStorageResponse {
   maxPurchasable: bigint;
 }
 export interface QueryBeaconStorageResponseProtoMsg {
-  typeUrl: '/mainchain.beacon.v1.QueryBeaconStorageResponse';
+  typeUrl: "/mainchain.beacon.v1.QueryBeaconStorageResponse";
   value: Uint8Array;
 }
 /** QueryBeaconStorageResponse is the response type for the Query/BeaconStorage RPC method */
@@ -242,7 +242,7 @@ export interface QueryBeaconStorageResponseAmino {
   max_purchasable?: string;
 }
 export interface QueryBeaconStorageResponseAminoMsg {
-  type: '/mainchain.beacon.v1.QueryBeaconStorageResponse';
+  type: "/mainchain.beacon.v1.QueryBeaconStorageResponse";
   value: QueryBeaconStorageResponseAmino;
 }
 /** QueryBeaconStorageResponse is the response type for the Query/BeaconStorage RPC method */
@@ -258,7 +258,7 @@ function createBaseQueryParamsRequest(): QueryParamsRequest {
   return {};
 }
 export const QueryParamsRequest = {
-  typeUrl: '/mainchain.beacon.v1.QueryParamsRequest',
+  typeUrl: "/mainchain.beacon.v1.QueryParamsRequest",
   is(o: any): o is QueryParamsRequest {
     return o && o.$typeUrl === QueryParamsRequest.typeUrl;
   },
@@ -278,9 +278,9 @@ export const QueryParamsRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      default:
-        reader.skipType(tag & 7);
-        break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -308,7 +308,7 @@ export const QueryParamsRequest = {
   },
   toProtoMsg(message: QueryParamsRequest): QueryParamsRequestProtoMsg {
     return {
-      typeUrl: '/mainchain.beacon.v1.QueryParamsRequest',
+      typeUrl: "/mainchain.beacon.v1.QueryParamsRequest",
       value: QueryParamsRequest.encode(message).finish()
     };
   }
@@ -320,7 +320,7 @@ function createBaseQueryParamsResponse(): QueryParamsResponse {
   };
 }
 export const QueryParamsResponse = {
-  typeUrl: '/mainchain.beacon.v1.QueryParamsResponse',
+  typeUrl: "/mainchain.beacon.v1.QueryParamsResponse",
   is(o: any): o is QueryParamsResponse {
     return o && (o.$typeUrl === QueryParamsResponse.typeUrl || Params.is(o.params));
   },
@@ -343,12 +343,12 @@ export const QueryParamsResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.params = Params.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.params = Params.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -381,7 +381,7 @@ export const QueryParamsResponse = {
   },
   toProtoMsg(message: QueryParamsResponse): QueryParamsResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.beacon.v1.QueryParamsResponse',
+      typeUrl: "/mainchain.beacon.v1.QueryParamsResponse",
       value: QueryParamsResponse.encode(message).finish()
     };
   }
@@ -393,15 +393,15 @@ function createBaseQueryBeaconRequest(): QueryBeaconRequest {
   };
 }
 export const QueryBeaconRequest = {
-  typeUrl: '/mainchain.beacon.v1.QueryBeaconRequest',
+  typeUrl: "/mainchain.beacon.v1.QueryBeaconRequest",
   is(o: any): o is QueryBeaconRequest {
-    return o && (o.$typeUrl === QueryBeaconRequest.typeUrl || typeof o.beaconId === 'bigint');
+    return o && (o.$typeUrl === QueryBeaconRequest.typeUrl || typeof o.beaconId === "bigint");
   },
   isSDK(o: any): o is QueryBeaconRequestSDKType {
-    return o && (o.$typeUrl === QueryBeaconRequest.typeUrl || typeof o.beacon_id === 'bigint');
+    return o && (o.$typeUrl === QueryBeaconRequest.typeUrl || typeof o.beacon_id === "bigint");
   },
   isAmino(o: any): o is QueryBeaconRequestAmino {
-    return o && (o.$typeUrl === QueryBeaconRequest.typeUrl || typeof o.beacon_id === 'bigint');
+    return o && (o.$typeUrl === QueryBeaconRequest.typeUrl || typeof o.beacon_id === "bigint");
   },
   encode(message: QueryBeaconRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.beaconId !== BigInt(0)) {
@@ -416,12 +416,12 @@ export const QueryBeaconRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.beaconId = reader.uint64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.beaconId = reader.uint64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -454,7 +454,7 @@ export const QueryBeaconRequest = {
   },
   toProtoMsg(message: QueryBeaconRequest): QueryBeaconRequestProtoMsg {
     return {
-      typeUrl: '/mainchain.beacon.v1.QueryBeaconRequest',
+      typeUrl: "/mainchain.beacon.v1.QueryBeaconRequest",
       value: QueryBeaconRequest.encode(message).finish()
     };
   }
@@ -466,7 +466,7 @@ function createBaseQueryBeaconResponse(): QueryBeaconResponse {
   };
 }
 export const QueryBeaconResponse = {
-  typeUrl: '/mainchain.beacon.v1.QueryBeaconResponse',
+  typeUrl: "/mainchain.beacon.v1.QueryBeaconResponse",
   is(o: any): o is QueryBeaconResponse {
     return o && o.$typeUrl === QueryBeaconResponse.typeUrl;
   },
@@ -489,12 +489,12 @@ export const QueryBeaconResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.beacon = Beacon.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.beacon = Beacon.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -527,7 +527,7 @@ export const QueryBeaconResponse = {
   },
   toProtoMsg(message: QueryBeaconResponse): QueryBeaconResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.beacon.v1.QueryBeaconResponse',
+      typeUrl: "/mainchain.beacon.v1.QueryBeaconResponse",
       value: QueryBeaconResponse.encode(message).finish()
     };
   }
@@ -540,15 +540,15 @@ function createBaseQueryBeaconTimestampRequest(): QueryBeaconTimestampRequest {
   };
 }
 export const QueryBeaconTimestampRequest = {
-  typeUrl: '/mainchain.beacon.v1.QueryBeaconTimestampRequest',
+  typeUrl: "/mainchain.beacon.v1.QueryBeaconTimestampRequest",
   is(o: any): o is QueryBeaconTimestampRequest {
-    return o && (o.$typeUrl === QueryBeaconTimestampRequest.typeUrl || typeof o.beaconId === 'bigint' && typeof o.timestampId === 'bigint');
+    return o && (o.$typeUrl === QueryBeaconTimestampRequest.typeUrl || typeof o.beaconId === "bigint" && typeof o.timestampId === "bigint");
   },
   isSDK(o: any): o is QueryBeaconTimestampRequestSDKType {
-    return o && (o.$typeUrl === QueryBeaconTimestampRequest.typeUrl || typeof o.beacon_id === 'bigint' && typeof o.timestamp_id === 'bigint');
+    return o && (o.$typeUrl === QueryBeaconTimestampRequest.typeUrl || typeof o.beacon_id === "bigint" && typeof o.timestamp_id === "bigint");
   },
   isAmino(o: any): o is QueryBeaconTimestampRequestAmino {
-    return o && (o.$typeUrl === QueryBeaconTimestampRequest.typeUrl || typeof o.beacon_id === 'bigint' && typeof o.timestamp_id === 'bigint');
+    return o && (o.$typeUrl === QueryBeaconTimestampRequest.typeUrl || typeof o.beacon_id === "bigint" && typeof o.timestamp_id === "bigint");
   },
   encode(message: QueryBeaconTimestampRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.beaconId !== BigInt(0)) {
@@ -566,15 +566,15 @@ export const QueryBeaconTimestampRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.beaconId = reader.uint64();
-        break;
-      case 2:
-        message.timestampId = reader.uint64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.beaconId = reader.uint64();
+          break;
+        case 2:
+          message.timestampId = reader.uint64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -612,7 +612,7 @@ export const QueryBeaconTimestampRequest = {
   },
   toProtoMsg(message: QueryBeaconTimestampRequest): QueryBeaconTimestampRequestProtoMsg {
     return {
-      typeUrl: '/mainchain.beacon.v1.QueryBeaconTimestampRequest',
+      typeUrl: "/mainchain.beacon.v1.QueryBeaconTimestampRequest",
       value: QueryBeaconTimestampRequest.encode(message).finish()
     };
   }
@@ -622,19 +622,19 @@ function createBaseQueryBeaconTimestampResponse(): QueryBeaconTimestampResponse 
   return {
     timestamp: undefined,
     beaconId: BigInt(0),
-    owner: ''
+    owner: ""
   };
 }
 export const QueryBeaconTimestampResponse = {
-  typeUrl: '/mainchain.beacon.v1.QueryBeaconTimestampResponse',
+  typeUrl: "/mainchain.beacon.v1.QueryBeaconTimestampResponse",
   is(o: any): o is QueryBeaconTimestampResponse {
-    return o && (o.$typeUrl === QueryBeaconTimestampResponse.typeUrl || typeof o.beaconId === 'bigint' && typeof o.owner === 'string');
+    return o && (o.$typeUrl === QueryBeaconTimestampResponse.typeUrl || typeof o.beaconId === "bigint" && typeof o.owner === "string");
   },
   isSDK(o: any): o is QueryBeaconTimestampResponseSDKType {
-    return o && (o.$typeUrl === QueryBeaconTimestampResponse.typeUrl || typeof o.beacon_id === 'bigint' && typeof o.owner === 'string');
+    return o && (o.$typeUrl === QueryBeaconTimestampResponse.typeUrl || typeof o.beacon_id === "bigint" && typeof o.owner === "string");
   },
   isAmino(o: any): o is QueryBeaconTimestampResponseAmino {
-    return o && (o.$typeUrl === QueryBeaconTimestampResponse.typeUrl || typeof o.beacon_id === 'bigint' && typeof o.owner === 'string');
+    return o && (o.$typeUrl === QueryBeaconTimestampResponse.typeUrl || typeof o.beacon_id === "bigint" && typeof o.owner === "string");
   },
   encode(message: QueryBeaconTimestampResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.timestamp !== undefined) {
@@ -643,7 +643,7 @@ export const QueryBeaconTimestampResponse = {
     if (message.beaconId !== BigInt(0)) {
       writer.uint32(16).uint64(message.beaconId);
     }
-    if (message.owner !== '') {
+    if (message.owner !== "") {
       writer.uint32(26).string(message.owner);
     }
     return writer;
@@ -655,18 +655,18 @@ export const QueryBeaconTimestampResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.timestamp = BeaconTimestamp.decode(reader, reader.uint32());
-        break;
-      case 2:
-        message.beaconId = reader.uint64();
-        break;
-      case 3:
-        message.owner = reader.string();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.timestamp = BeaconTimestamp.decode(reader, reader.uint32());
+          break;
+        case 2:
+          message.beaconId = reader.uint64();
+          break;
+        case 3:
+          message.owner = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -675,7 +675,7 @@ export const QueryBeaconTimestampResponse = {
     const message = createBaseQueryBeaconTimestampResponse();
     message.timestamp = object.timestamp !== undefined && object.timestamp !== null ? BeaconTimestamp.fromPartial(object.timestamp) : undefined;
     message.beaconId = object.beaconId !== undefined && object.beaconId !== null ? BigInt(object.beaconId.toString()) : BigInt(0);
-    message.owner = object.owner ?? '';
+    message.owner = object.owner ?? "";
     return message;
   },
   fromAmino(object: QueryBeaconTimestampResponseAmino): QueryBeaconTimestampResponse {
@@ -695,7 +695,7 @@ export const QueryBeaconTimestampResponse = {
     const obj: any = {};
     obj.timestamp = message.timestamp ? BeaconTimestamp.toAmino(message.timestamp) : undefined;
     obj.beacon_id = message.beaconId !== BigInt(0) ? message.beaconId.toString() : undefined;
-    obj.owner = message.owner === '' ? undefined : message.owner;
+    obj.owner = message.owner === "" ? undefined : message.owner;
     return obj;
   },
   fromAminoMsg(object: QueryBeaconTimestampResponseAminoMsg): QueryBeaconTimestampResponse {
@@ -709,7 +709,7 @@ export const QueryBeaconTimestampResponse = {
   },
   toProtoMsg(message: QueryBeaconTimestampResponse): QueryBeaconTimestampResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.beacon.v1.QueryBeaconTimestampResponse',
+      typeUrl: "/mainchain.beacon.v1.QueryBeaconTimestampResponse",
       value: QueryBeaconTimestampResponse.encode(message).finish()
     };
   }
@@ -717,27 +717,27 @@ export const QueryBeaconTimestampResponse = {
 GlobalDecoderRegistry.register(QueryBeaconTimestampResponse.typeUrl, QueryBeaconTimestampResponse);
 function createBaseQueryBeaconsFilteredRequest(): QueryBeaconsFilteredRequest {
   return {
-    moniker: '',
-    owner: '',
+    moniker: "",
+    owner: "",
     pagination: undefined
   };
 }
 export const QueryBeaconsFilteredRequest = {
-  typeUrl: '/mainchain.beacon.v1.QueryBeaconsFilteredRequest',
+  typeUrl: "/mainchain.beacon.v1.QueryBeaconsFilteredRequest",
   is(o: any): o is QueryBeaconsFilteredRequest {
-    return o && (o.$typeUrl === QueryBeaconsFilteredRequest.typeUrl || typeof o.moniker === 'string' && typeof o.owner === 'string');
+    return o && (o.$typeUrl === QueryBeaconsFilteredRequest.typeUrl || typeof o.moniker === "string" && typeof o.owner === "string");
   },
   isSDK(o: any): o is QueryBeaconsFilteredRequestSDKType {
-    return o && (o.$typeUrl === QueryBeaconsFilteredRequest.typeUrl || typeof o.moniker === 'string' && typeof o.owner === 'string');
+    return o && (o.$typeUrl === QueryBeaconsFilteredRequest.typeUrl || typeof o.moniker === "string" && typeof o.owner === "string");
   },
   isAmino(o: any): o is QueryBeaconsFilteredRequestAmino {
-    return o && (o.$typeUrl === QueryBeaconsFilteredRequest.typeUrl || typeof o.moniker === 'string' && typeof o.owner === 'string');
+    return o && (o.$typeUrl === QueryBeaconsFilteredRequest.typeUrl || typeof o.moniker === "string" && typeof o.owner === "string");
   },
   encode(message: QueryBeaconsFilteredRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.moniker !== '') {
+    if (message.moniker !== "") {
       writer.uint32(10).string(message.moniker);
     }
-    if (message.owner !== '') {
+    if (message.owner !== "") {
       writer.uint32(18).string(message.owner);
     }
     if (message.pagination !== undefined) {
@@ -752,26 +752,26 @@ export const QueryBeaconsFilteredRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.moniker = reader.string();
-        break;
-      case 2:
-        message.owner = reader.string();
-        break;
-      case 3:
-        message.pagination = PageRequest.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.moniker = reader.string();
+          break;
+        case 2:
+          message.owner = reader.string();
+          break;
+        case 3:
+          message.pagination = PageRequest.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<QueryBeaconsFilteredRequest>): QueryBeaconsFilteredRequest {
     const message = createBaseQueryBeaconsFilteredRequest();
-    message.moniker = object.moniker ?? '';
-    message.owner = object.owner ?? '';
+    message.moniker = object.moniker ?? "";
+    message.owner = object.owner ?? "";
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageRequest.fromPartial(object.pagination) : undefined;
     return message;
   },
@@ -790,8 +790,8 @@ export const QueryBeaconsFilteredRequest = {
   },
   toAmino(message: QueryBeaconsFilteredRequest): QueryBeaconsFilteredRequestAmino {
     const obj: any = {};
-    obj.moniker = message.moniker === '' ? undefined : message.moniker;
-    obj.owner = message.owner === '' ? undefined : message.owner;
+    obj.moniker = message.moniker === "" ? undefined : message.moniker;
+    obj.owner = message.owner === "" ? undefined : message.owner;
     obj.pagination = message.pagination ? PageRequest.toAmino(message.pagination) : undefined;
     return obj;
   },
@@ -806,7 +806,7 @@ export const QueryBeaconsFilteredRequest = {
   },
   toProtoMsg(message: QueryBeaconsFilteredRequest): QueryBeaconsFilteredRequestProtoMsg {
     return {
-      typeUrl: '/mainchain.beacon.v1.QueryBeaconsFilteredRequest',
+      typeUrl: "/mainchain.beacon.v1.QueryBeaconsFilteredRequest",
       value: QueryBeaconsFilteredRequest.encode(message).finish()
     };
   }
@@ -819,7 +819,7 @@ function createBaseQueryBeaconsFilteredResponse(): QueryBeaconsFilteredResponse 
   };
 }
 export const QueryBeaconsFilteredResponse = {
-  typeUrl: '/mainchain.beacon.v1.QueryBeaconsFilteredResponse',
+  typeUrl: "/mainchain.beacon.v1.QueryBeaconsFilteredResponse",
   is(o: any): o is QueryBeaconsFilteredResponse {
     return o && (o.$typeUrl === QueryBeaconsFilteredResponse.typeUrl || Array.isArray(o.beacons) && (!o.beacons.length || Beacon.is(o.beacons[0])));
   },
@@ -845,15 +845,15 @@ export const QueryBeaconsFilteredResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.beacons.push(Beacon.decode(reader, reader.uint32()));
-        break;
-      case 2:
-        message.pagination = PageResponse.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.beacons.push(Beacon.decode(reader, reader.uint32()));
+          break;
+        case 2:
+          message.pagination = PageResponse.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -893,7 +893,7 @@ export const QueryBeaconsFilteredResponse = {
   },
   toProtoMsg(message: QueryBeaconsFilteredResponse): QueryBeaconsFilteredResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.beacon.v1.QueryBeaconsFilteredResponse',
+      typeUrl: "/mainchain.beacon.v1.QueryBeaconsFilteredResponse",
       value: QueryBeaconsFilteredResponse.encode(message).finish()
     };
   }
@@ -905,15 +905,15 @@ function createBaseQueryBeaconStorageRequest(): QueryBeaconStorageRequest {
   };
 }
 export const QueryBeaconStorageRequest = {
-  typeUrl: '/mainchain.beacon.v1.QueryBeaconStorageRequest',
+  typeUrl: "/mainchain.beacon.v1.QueryBeaconStorageRequest",
   is(o: any): o is QueryBeaconStorageRequest {
-    return o && (o.$typeUrl === QueryBeaconStorageRequest.typeUrl || typeof o.beaconId === 'bigint');
+    return o && (o.$typeUrl === QueryBeaconStorageRequest.typeUrl || typeof o.beaconId === "bigint");
   },
   isSDK(o: any): o is QueryBeaconStorageRequestSDKType {
-    return o && (o.$typeUrl === QueryBeaconStorageRequest.typeUrl || typeof o.beacon_id === 'bigint');
+    return o && (o.$typeUrl === QueryBeaconStorageRequest.typeUrl || typeof o.beacon_id === "bigint");
   },
   isAmino(o: any): o is QueryBeaconStorageRequestAmino {
-    return o && (o.$typeUrl === QueryBeaconStorageRequest.typeUrl || typeof o.beacon_id === 'bigint');
+    return o && (o.$typeUrl === QueryBeaconStorageRequest.typeUrl || typeof o.beacon_id === "bigint");
   },
   encode(message: QueryBeaconStorageRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.beaconId !== BigInt(0)) {
@@ -928,12 +928,12 @@ export const QueryBeaconStorageRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.beaconId = reader.uint64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.beaconId = reader.uint64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -966,7 +966,7 @@ export const QueryBeaconStorageRequest = {
   },
   toProtoMsg(message: QueryBeaconStorageRequest): QueryBeaconStorageRequestProtoMsg {
     return {
-      typeUrl: '/mainchain.beacon.v1.QueryBeaconStorageRequest',
+      typeUrl: "/mainchain.beacon.v1.QueryBeaconStorageRequest",
       value: QueryBeaconStorageRequest.encode(message).finish()
     };
   }
@@ -975,7 +975,7 @@ GlobalDecoderRegistry.register(QueryBeaconStorageRequest.typeUrl, QueryBeaconSto
 function createBaseQueryBeaconStorageResponse(): QueryBeaconStorageResponse {
   return {
     beaconId: BigInt(0),
-    owner: '',
+    owner: "",
     currentLimit: BigInt(0),
     currentUsed: BigInt(0),
     max: BigInt(0),
@@ -983,21 +983,21 @@ function createBaseQueryBeaconStorageResponse(): QueryBeaconStorageResponse {
   };
 }
 export const QueryBeaconStorageResponse = {
-  typeUrl: '/mainchain.beacon.v1.QueryBeaconStorageResponse',
+  typeUrl: "/mainchain.beacon.v1.QueryBeaconStorageResponse",
   is(o: any): o is QueryBeaconStorageResponse {
-    return o && (o.$typeUrl === QueryBeaconStorageResponse.typeUrl || typeof o.beaconId === 'bigint' && typeof o.owner === 'string' && typeof o.currentLimit === 'bigint' && typeof o.currentUsed === 'bigint' && typeof o.max === 'bigint' && typeof o.maxPurchasable === 'bigint');
+    return o && (o.$typeUrl === QueryBeaconStorageResponse.typeUrl || typeof o.beaconId === "bigint" && typeof o.owner === "string" && typeof o.currentLimit === "bigint" && typeof o.currentUsed === "bigint" && typeof o.max === "bigint" && typeof o.maxPurchasable === "bigint");
   },
   isSDK(o: any): o is QueryBeaconStorageResponseSDKType {
-    return o && (o.$typeUrl === QueryBeaconStorageResponse.typeUrl || typeof o.beacon_id === 'bigint' && typeof o.owner === 'string' && typeof o.current_limit === 'bigint' && typeof o.current_used === 'bigint' && typeof o.max === 'bigint' && typeof o.max_purchasable === 'bigint');
+    return o && (o.$typeUrl === QueryBeaconStorageResponse.typeUrl || typeof o.beacon_id === "bigint" && typeof o.owner === "string" && typeof o.current_limit === "bigint" && typeof o.current_used === "bigint" && typeof o.max === "bigint" && typeof o.max_purchasable === "bigint");
   },
   isAmino(o: any): o is QueryBeaconStorageResponseAmino {
-    return o && (o.$typeUrl === QueryBeaconStorageResponse.typeUrl || typeof o.beacon_id === 'bigint' && typeof o.owner === 'string' && typeof o.current_limit === 'bigint' && typeof o.current_used === 'bigint' && typeof o.max === 'bigint' && typeof o.max_purchasable === 'bigint');
+    return o && (o.$typeUrl === QueryBeaconStorageResponse.typeUrl || typeof o.beacon_id === "bigint" && typeof o.owner === "string" && typeof o.current_limit === "bigint" && typeof o.current_used === "bigint" && typeof o.max === "bigint" && typeof o.max_purchasable === "bigint");
   },
   encode(message: QueryBeaconStorageResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.beaconId !== BigInt(0)) {
       writer.uint32(8).uint64(message.beaconId);
     }
-    if (message.owner !== '') {
+    if (message.owner !== "") {
       writer.uint32(18).string(message.owner);
     }
     if (message.currentLimit !== BigInt(0)) {
@@ -1021,27 +1021,27 @@ export const QueryBeaconStorageResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.beaconId = reader.uint64();
-        break;
-      case 2:
-        message.owner = reader.string();
-        break;
-      case 3:
-        message.currentLimit = reader.uint64();
-        break;
-      case 4:
-        message.currentUsed = reader.uint64();
-        break;
-      case 5:
-        message.max = reader.uint64();
-        break;
-      case 6:
-        message.maxPurchasable = reader.uint64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.beaconId = reader.uint64();
+          break;
+        case 2:
+          message.owner = reader.string();
+          break;
+        case 3:
+          message.currentLimit = reader.uint64();
+          break;
+        case 4:
+          message.currentUsed = reader.uint64();
+          break;
+        case 5:
+          message.max = reader.uint64();
+          break;
+        case 6:
+          message.maxPurchasable = reader.uint64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1049,7 +1049,7 @@ export const QueryBeaconStorageResponse = {
   fromPartial(object: Partial<QueryBeaconStorageResponse>): QueryBeaconStorageResponse {
     const message = createBaseQueryBeaconStorageResponse();
     message.beaconId = object.beaconId !== undefined && object.beaconId !== null ? BigInt(object.beaconId.toString()) : BigInt(0);
-    message.owner = object.owner ?? '';
+    message.owner = object.owner ?? "";
     message.currentLimit = object.currentLimit !== undefined && object.currentLimit !== null ? BigInt(object.currentLimit.toString()) : BigInt(0);
     message.currentUsed = object.currentUsed !== undefined && object.currentUsed !== null ? BigInt(object.currentUsed.toString()) : BigInt(0);
     message.max = object.max !== undefined && object.max !== null ? BigInt(object.max.toString()) : BigInt(0);
@@ -1081,7 +1081,7 @@ export const QueryBeaconStorageResponse = {
   toAmino(message: QueryBeaconStorageResponse): QueryBeaconStorageResponseAmino {
     const obj: any = {};
     obj.beacon_id = message.beaconId !== BigInt(0) ? message.beaconId.toString() : undefined;
-    obj.owner = message.owner === '' ? undefined : message.owner;
+    obj.owner = message.owner === "" ? undefined : message.owner;
     obj.current_limit = message.currentLimit !== BigInt(0) ? message.currentLimit.toString() : undefined;
     obj.current_used = message.currentUsed !== BigInt(0) ? message.currentUsed.toString() : undefined;
     obj.max = message.max !== BigInt(0) ? message.max.toString() : undefined;
@@ -1099,7 +1099,7 @@ export const QueryBeaconStorageResponse = {
   },
   toProtoMsg(message: QueryBeaconStorageResponse): QueryBeaconStorageResponseProtoMsg {
     return {
-      typeUrl: '/mainchain.beacon.v1.QueryBeaconStorageResponse',
+      typeUrl: "/mainchain.beacon.v1.QueryBeaconStorageResponse",
       value: QueryBeaconStorageResponse.encode(message).finish()
     };
   }

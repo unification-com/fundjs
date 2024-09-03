@@ -1,8 +1,8 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from '../../../../binary';
-import { Plan, PlanAmino, PlanSDKType } from '../../../../cosmos/upgrade/v1beta1/upgrade';
-import { Any, AnyAmino, AnySDKType } from '../../../../google/protobuf/any';
-import { GlobalDecoderRegistry } from '../../../../registry';
+import { Any, AnyAmino, AnySDKType } from "../../../../google/protobuf/any";
+import { Plan, PlanAmino, PlanSDKType } from "../../../../cosmos/upgrade/v1beta1/upgrade";
+import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { GlobalDecoderRegistry } from "../../../../registry";
 /**
  * IdentifiedClientState defines a client state with an additional client
  * identifier field.
@@ -14,7 +14,7 @@ export interface IdentifiedClientState {
   clientState?: Any;
 }
 export interface IdentifiedClientStateProtoMsg {
-  typeUrl: '/ibc.core.client.v1.IdentifiedClientState';
+  typeUrl: "/ibc.core.client.v1.IdentifiedClientState";
   value: Uint8Array;
 }
 /**
@@ -28,7 +28,7 @@ export interface IdentifiedClientStateAmino {
   client_state?: AnyAmino;
 }
 export interface IdentifiedClientStateAminoMsg {
-  type: 'cosmos-sdk/IdentifiedClientState';
+  type: "cosmos-sdk/IdentifiedClientState";
   value: IdentifiedClientStateAmino;
 }
 /**
@@ -50,7 +50,7 @@ export interface ConsensusStateWithHeight {
   consensusState?: Any;
 }
 export interface ConsensusStateWithHeightProtoMsg {
-  typeUrl: '/ibc.core.client.v1.ConsensusStateWithHeight';
+  typeUrl: "/ibc.core.client.v1.ConsensusStateWithHeight";
   value: Uint8Array;
 }
 /**
@@ -64,7 +64,7 @@ export interface ConsensusStateWithHeightAmino {
   consensus_state?: AnyAmino;
 }
 export interface ConsensusStateWithHeightAminoMsg {
-  type: 'cosmos-sdk/ConsensusStateWithHeight';
+  type: "cosmos-sdk/ConsensusStateWithHeight";
   value: ConsensusStateWithHeightAmino;
 }
 /**
@@ -86,7 +86,7 @@ export interface ClientConsensusStates {
   consensusStates: ConsensusStateWithHeight[];
 }
 export interface ClientConsensusStatesProtoMsg {
-  typeUrl: '/ibc.core.client.v1.ClientConsensusStates';
+  typeUrl: "/ibc.core.client.v1.ClientConsensusStates";
   value: Uint8Array;
 }
 /**
@@ -100,7 +100,7 @@ export interface ClientConsensusStatesAmino {
   consensus_states?: ConsensusStateWithHeightAmino[];
 }
 export interface ClientConsensusStatesAminoMsg {
-  type: 'cosmos-sdk/ClientConsensusStates';
+  type: "cosmos-sdk/ClientConsensusStates";
   value: ClientConsensusStatesAmino;
 }
 /**
@@ -118,7 +118,7 @@ export interface ClientConsensusStatesSDKType {
  * chain parameters (with exception to latest height, frozen height, and chain-id).
  */
 export interface ClientUpdateProposal {
-  $typeUrl?: '/ibc.core.client.v1.ClientUpdateProposal';
+  $typeUrl?: "/ibc.core.client.v1.ClientUpdateProposal";
   /** the title of the update proposal */
   title: string;
   /** the description of the proposal */
@@ -132,7 +132,7 @@ export interface ClientUpdateProposal {
   substituteClientId: string;
 }
 export interface ClientUpdateProposalProtoMsg {
-  typeUrl: '/ibc.core.client.v1.ClientUpdateProposal';
+  typeUrl: "/ibc.core.client.v1.ClientUpdateProposal";
   value: Uint8Array;
 }
 /**
@@ -155,7 +155,7 @@ export interface ClientUpdateProposalAmino {
   substitute_client_id?: string;
 }
 export interface ClientUpdateProposalAminoMsg {
-  type: 'cosmos-sdk/ClientUpdateProposal';
+  type: "cosmos-sdk/ClientUpdateProposal";
   value: ClientUpdateProposalAmino;
 }
 /**
@@ -165,7 +165,7 @@ export interface ClientUpdateProposalAminoMsg {
  * chain parameters (with exception to latest height, frozen height, and chain-id).
  */
 export interface ClientUpdateProposalSDKType {
-  $typeUrl?: '/ibc.core.client.v1.ClientUpdateProposal';
+  $typeUrl?: "/ibc.core.client.v1.ClientUpdateProposal";
   title: string;
   description: string;
   subject_client_id: string;
@@ -176,7 +176,7 @@ export interface ClientUpdateProposalSDKType {
  * upgrade.
  */
 export interface UpgradeProposal {
-  $typeUrl?: '/ibc.core.client.v1.UpgradeProposal';
+  $typeUrl?: "/ibc.core.client.v1.UpgradeProposal";
   title: string;
   description: string;
   plan: Plan;
@@ -191,7 +191,7 @@ export interface UpgradeProposal {
   upgradedClientState?: Any;
 }
 export interface UpgradeProposalProtoMsg {
-  typeUrl: '/ibc.core.client.v1.UpgradeProposal';
+  typeUrl: "/ibc.core.client.v1.UpgradeProposal";
   value: Uint8Array;
 }
 /**
@@ -213,7 +213,7 @@ export interface UpgradeProposalAmino {
   upgraded_client_state?: AnyAmino;
 }
 export interface UpgradeProposalAminoMsg {
-  type: 'cosmos-sdk/UpgradeProposal';
+  type: "cosmos-sdk/UpgradeProposal";
   value: UpgradeProposalAmino;
 }
 /**
@@ -221,7 +221,7 @@ export interface UpgradeProposalAminoMsg {
  * upgrade.
  */
 export interface UpgradeProposalSDKType {
-  $typeUrl?: '/ibc.core.client.v1.UpgradeProposal';
+  $typeUrl?: "/ibc.core.client.v1.UpgradeProposal";
   title: string;
   description: string;
   plan: PlanSDKType;
@@ -246,7 +246,7 @@ export interface Height {
   revisionHeight: bigint;
 }
 export interface HeightProtoMsg {
-  typeUrl: '/ibc.core.client.v1.Height';
+  typeUrl: "/ibc.core.client.v1.Height";
   value: Uint8Array;
 }
 /**
@@ -268,7 +268,7 @@ export interface HeightAmino {
   revision_height?: string;
 }
 export interface HeightAminoMsg {
-  type: 'cosmos-sdk/Height';
+  type: "cosmos-sdk/Height";
   value: HeightAmino;
 }
 /**
@@ -293,7 +293,7 @@ export interface Params {
   allowedClients: string[];
 }
 export interface ParamsProtoMsg {
-  typeUrl: '/ibc.core.client.v1.Params';
+  typeUrl: "/ibc.core.client.v1.Params";
   value: Uint8Array;
 }
 /** Params defines the set of IBC light client parameters. */
@@ -302,7 +302,7 @@ export interface ParamsAmino {
   allowed_clients?: string[];
 }
 export interface ParamsAminoMsg {
-  type: 'cosmos-sdk/Params';
+  type: "cosmos-sdk/Params";
   value: ParamsAmino;
 }
 /** Params defines the set of IBC light client parameters. */
@@ -311,24 +311,24 @@ export interface ParamsSDKType {
 }
 function createBaseIdentifiedClientState(): IdentifiedClientState {
   return {
-    clientId: '',
+    clientId: "",
     clientState: undefined
   };
 }
 export const IdentifiedClientState = {
-  typeUrl: '/ibc.core.client.v1.IdentifiedClientState',
-  aminoType: 'cosmos-sdk/IdentifiedClientState',
+  typeUrl: "/ibc.core.client.v1.IdentifiedClientState",
+  aminoType: "cosmos-sdk/IdentifiedClientState",
   is(o: any): o is IdentifiedClientState {
-    return o && (o.$typeUrl === IdentifiedClientState.typeUrl || typeof o.clientId === 'string');
+    return o && (o.$typeUrl === IdentifiedClientState.typeUrl || typeof o.clientId === "string");
   },
   isSDK(o: any): o is IdentifiedClientStateSDKType {
-    return o && (o.$typeUrl === IdentifiedClientState.typeUrl || typeof o.client_id === 'string');
+    return o && (o.$typeUrl === IdentifiedClientState.typeUrl || typeof o.client_id === "string");
   },
   isAmino(o: any): o is IdentifiedClientStateAmino {
-    return o && (o.$typeUrl === IdentifiedClientState.typeUrl || typeof o.client_id === 'string');
+    return o && (o.$typeUrl === IdentifiedClientState.typeUrl || typeof o.client_id === "string");
   },
   encode(message: IdentifiedClientState, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.clientId !== '') {
+    if (message.clientId !== "") {
       writer.uint32(10).string(message.clientId);
     }
     if (message.clientState !== undefined) {
@@ -343,22 +343,22 @@ export const IdentifiedClientState = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.clientId = reader.string();
-        break;
-      case 2:
-        message.clientState = Any.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.clientId = reader.string();
+          break;
+        case 2:
+          message.clientState = Any.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<IdentifiedClientState>): IdentifiedClientState {
     const message = createBaseIdentifiedClientState();
-    message.clientId = object.clientId ?? '';
+    message.clientId = object.clientId ?? "";
     message.clientState = object.clientState !== undefined && object.clientState !== null ? Any.fromPartial(object.clientState) : undefined;
     return message;
   },
@@ -374,7 +374,7 @@ export const IdentifiedClientState = {
   },
   toAmino(message: IdentifiedClientState): IdentifiedClientStateAmino {
     const obj: any = {};
-    obj.client_id = message.clientId === '' ? undefined : message.clientId;
+    obj.client_id = message.clientId === "" ? undefined : message.clientId;
     obj.client_state = message.clientState ? Any.toAmino(message.clientState) : undefined;
     return obj;
   },
@@ -383,7 +383,7 @@ export const IdentifiedClientState = {
   },
   toAminoMsg(message: IdentifiedClientState): IdentifiedClientStateAminoMsg {
     return {
-      type: 'cosmos-sdk/IdentifiedClientState',
+      type: "cosmos-sdk/IdentifiedClientState",
       value: IdentifiedClientState.toAmino(message)
     };
   },
@@ -395,7 +395,7 @@ export const IdentifiedClientState = {
   },
   toProtoMsg(message: IdentifiedClientState): IdentifiedClientStateProtoMsg {
     return {
-      typeUrl: '/ibc.core.client.v1.IdentifiedClientState',
+      typeUrl: "/ibc.core.client.v1.IdentifiedClientState",
       value: IdentifiedClientState.encode(message).finish()
     };
   }
@@ -409,8 +409,8 @@ function createBaseConsensusStateWithHeight(): ConsensusStateWithHeight {
   };
 }
 export const ConsensusStateWithHeight = {
-  typeUrl: '/ibc.core.client.v1.ConsensusStateWithHeight',
-  aminoType: 'cosmos-sdk/ConsensusStateWithHeight',
+  typeUrl: "/ibc.core.client.v1.ConsensusStateWithHeight",
+  aminoType: "cosmos-sdk/ConsensusStateWithHeight",
   is(o: any): o is ConsensusStateWithHeight {
     return o && (o.$typeUrl === ConsensusStateWithHeight.typeUrl || Height.is(o.height));
   },
@@ -436,15 +436,15 @@ export const ConsensusStateWithHeight = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.height = Height.decode(reader, reader.uint32());
-        break;
-      case 2:
-        message.consensusState = Any.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.height = Height.decode(reader, reader.uint32());
+          break;
+        case 2:
+          message.consensusState = Any.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -476,7 +476,7 @@ export const ConsensusStateWithHeight = {
   },
   toAminoMsg(message: ConsensusStateWithHeight): ConsensusStateWithHeightAminoMsg {
     return {
-      type: 'cosmos-sdk/ConsensusStateWithHeight',
+      type: "cosmos-sdk/ConsensusStateWithHeight",
       value: ConsensusStateWithHeight.toAmino(message)
     };
   },
@@ -488,7 +488,7 @@ export const ConsensusStateWithHeight = {
   },
   toProtoMsg(message: ConsensusStateWithHeight): ConsensusStateWithHeightProtoMsg {
     return {
-      typeUrl: '/ibc.core.client.v1.ConsensusStateWithHeight',
+      typeUrl: "/ibc.core.client.v1.ConsensusStateWithHeight",
       value: ConsensusStateWithHeight.encode(message).finish()
     };
   }
@@ -497,24 +497,24 @@ GlobalDecoderRegistry.register(ConsensusStateWithHeight.typeUrl, ConsensusStateW
 GlobalDecoderRegistry.registerAminoProtoMapping(ConsensusStateWithHeight.aminoType, ConsensusStateWithHeight.typeUrl);
 function createBaseClientConsensusStates(): ClientConsensusStates {
   return {
-    clientId: '',
+    clientId: "",
     consensusStates: []
   };
 }
 export const ClientConsensusStates = {
-  typeUrl: '/ibc.core.client.v1.ClientConsensusStates',
-  aminoType: 'cosmos-sdk/ClientConsensusStates',
+  typeUrl: "/ibc.core.client.v1.ClientConsensusStates",
+  aminoType: "cosmos-sdk/ClientConsensusStates",
   is(o: any): o is ClientConsensusStates {
-    return o && (o.$typeUrl === ClientConsensusStates.typeUrl || typeof o.clientId === 'string' && Array.isArray(o.consensusStates) && (!o.consensusStates.length || ConsensusStateWithHeight.is(o.consensusStates[0])));
+    return o && (o.$typeUrl === ClientConsensusStates.typeUrl || typeof o.clientId === "string" && Array.isArray(o.consensusStates) && (!o.consensusStates.length || ConsensusStateWithHeight.is(o.consensusStates[0])));
   },
   isSDK(o: any): o is ClientConsensusStatesSDKType {
-    return o && (o.$typeUrl === ClientConsensusStates.typeUrl || typeof o.client_id === 'string' && Array.isArray(o.consensus_states) && (!o.consensus_states.length || ConsensusStateWithHeight.isSDK(o.consensus_states[0])));
+    return o && (o.$typeUrl === ClientConsensusStates.typeUrl || typeof o.client_id === "string" && Array.isArray(o.consensus_states) && (!o.consensus_states.length || ConsensusStateWithHeight.isSDK(o.consensus_states[0])));
   },
   isAmino(o: any): o is ClientConsensusStatesAmino {
-    return o && (o.$typeUrl === ClientConsensusStates.typeUrl || typeof o.client_id === 'string' && Array.isArray(o.consensus_states) && (!o.consensus_states.length || ConsensusStateWithHeight.isAmino(o.consensus_states[0])));
+    return o && (o.$typeUrl === ClientConsensusStates.typeUrl || typeof o.client_id === "string" && Array.isArray(o.consensus_states) && (!o.consensus_states.length || ConsensusStateWithHeight.isAmino(o.consensus_states[0])));
   },
   encode(message: ClientConsensusStates, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.clientId !== '') {
+    if (message.clientId !== "") {
       writer.uint32(10).string(message.clientId);
     }
     for (const v of message.consensusStates) {
@@ -529,22 +529,22 @@ export const ClientConsensusStates = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.clientId = reader.string();
-        break;
-      case 2:
-        message.consensusStates.push(ConsensusStateWithHeight.decode(reader, reader.uint32()));
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.clientId = reader.string();
+          break;
+        case 2:
+          message.consensusStates.push(ConsensusStateWithHeight.decode(reader, reader.uint32()));
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<ClientConsensusStates>): ClientConsensusStates {
     const message = createBaseClientConsensusStates();
-    message.clientId = object.clientId ?? '';
+    message.clientId = object.clientId ?? "";
     message.consensusStates = object.consensusStates?.map(e => ConsensusStateWithHeight.fromPartial(e)) || [];
     return message;
   },
@@ -558,7 +558,7 @@ export const ClientConsensusStates = {
   },
   toAmino(message: ClientConsensusStates): ClientConsensusStatesAmino {
     const obj: any = {};
-    obj.client_id = message.clientId === '' ? undefined : message.clientId;
+    obj.client_id = message.clientId === "" ? undefined : message.clientId;
     if (message.consensusStates) {
       obj.consensus_states = message.consensusStates.map(e => e ? ConsensusStateWithHeight.toAmino(e) : undefined);
     } else {
@@ -571,7 +571,7 @@ export const ClientConsensusStates = {
   },
   toAminoMsg(message: ClientConsensusStates): ClientConsensusStatesAminoMsg {
     return {
-      type: 'cosmos-sdk/ClientConsensusStates',
+      type: "cosmos-sdk/ClientConsensusStates",
       value: ClientConsensusStates.toAmino(message)
     };
   },
@@ -583,7 +583,7 @@ export const ClientConsensusStates = {
   },
   toProtoMsg(message: ClientConsensusStates): ClientConsensusStatesProtoMsg {
     return {
-      typeUrl: '/ibc.core.client.v1.ClientConsensusStates',
+      typeUrl: "/ibc.core.client.v1.ClientConsensusStates",
       value: ClientConsensusStates.encode(message).finish()
     };
   }
@@ -592,36 +592,36 @@ GlobalDecoderRegistry.register(ClientConsensusStates.typeUrl, ClientConsensusSta
 GlobalDecoderRegistry.registerAminoProtoMapping(ClientConsensusStates.aminoType, ClientConsensusStates.typeUrl);
 function createBaseClientUpdateProposal(): ClientUpdateProposal {
   return {
-    $typeUrl: '/ibc.core.client.v1.ClientUpdateProposal',
-    title: '',
-    description: '',
-    subjectClientId: '',
-    substituteClientId: ''
+    $typeUrl: "/ibc.core.client.v1.ClientUpdateProposal",
+    title: "",
+    description: "",
+    subjectClientId: "",
+    substituteClientId: ""
   };
 }
 export const ClientUpdateProposal = {
-  typeUrl: '/ibc.core.client.v1.ClientUpdateProposal',
-  aminoType: 'cosmos-sdk/ClientUpdateProposal',
+  typeUrl: "/ibc.core.client.v1.ClientUpdateProposal",
+  aminoType: "cosmos-sdk/ClientUpdateProposal",
   is(o: any): o is ClientUpdateProposal {
-    return o && (o.$typeUrl === ClientUpdateProposal.typeUrl || typeof o.title === 'string' && typeof o.description === 'string' && typeof o.subjectClientId === 'string' && typeof o.substituteClientId === 'string');
+    return o && (o.$typeUrl === ClientUpdateProposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && typeof o.subjectClientId === "string" && typeof o.substituteClientId === "string");
   },
   isSDK(o: any): o is ClientUpdateProposalSDKType {
-    return o && (o.$typeUrl === ClientUpdateProposal.typeUrl || typeof o.title === 'string' && typeof o.description === 'string' && typeof o.subject_client_id === 'string' && typeof o.substitute_client_id === 'string');
+    return o && (o.$typeUrl === ClientUpdateProposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && typeof o.subject_client_id === "string" && typeof o.substitute_client_id === "string");
   },
   isAmino(o: any): o is ClientUpdateProposalAmino {
-    return o && (o.$typeUrl === ClientUpdateProposal.typeUrl || typeof o.title === 'string' && typeof o.description === 'string' && typeof o.subject_client_id === 'string' && typeof o.substitute_client_id === 'string');
+    return o && (o.$typeUrl === ClientUpdateProposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && typeof o.subject_client_id === "string" && typeof o.substitute_client_id === "string");
   },
   encode(message: ClientUpdateProposal, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.title !== '') {
+    if (message.title !== "") {
       writer.uint32(10).string(message.title);
     }
-    if (message.description !== '') {
+    if (message.description !== "") {
       writer.uint32(18).string(message.description);
     }
-    if (message.subjectClientId !== '') {
+    if (message.subjectClientId !== "") {
       writer.uint32(26).string(message.subjectClientId);
     }
-    if (message.substituteClientId !== '') {
+    if (message.substituteClientId !== "") {
       writer.uint32(34).string(message.substituteClientId);
     }
     return writer;
@@ -633,31 +633,31 @@ export const ClientUpdateProposal = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.title = reader.string();
-        break;
-      case 2:
-        message.description = reader.string();
-        break;
-      case 3:
-        message.subjectClientId = reader.string();
-        break;
-      case 4:
-        message.substituteClientId = reader.string();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.title = reader.string();
+          break;
+        case 2:
+          message.description = reader.string();
+          break;
+        case 3:
+          message.subjectClientId = reader.string();
+          break;
+        case 4:
+          message.substituteClientId = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<ClientUpdateProposal>): ClientUpdateProposal {
     const message = createBaseClientUpdateProposal();
-    message.title = object.title ?? '';
-    message.description = object.description ?? '';
-    message.subjectClientId = object.subjectClientId ?? '';
-    message.substituteClientId = object.substituteClientId ?? '';
+    message.title = object.title ?? "";
+    message.description = object.description ?? "";
+    message.subjectClientId = object.subjectClientId ?? "";
+    message.substituteClientId = object.substituteClientId ?? "";
     return message;
   },
   fromAmino(object: ClientUpdateProposalAmino): ClientUpdateProposal {
@@ -678,10 +678,10 @@ export const ClientUpdateProposal = {
   },
   toAmino(message: ClientUpdateProposal): ClientUpdateProposalAmino {
     const obj: any = {};
-    obj.title = message.title === '' ? undefined : message.title;
-    obj.description = message.description === '' ? undefined : message.description;
-    obj.subject_client_id = message.subjectClientId === '' ? undefined : message.subjectClientId;
-    obj.substitute_client_id = message.substituteClientId === '' ? undefined : message.substituteClientId;
+    obj.title = message.title === "" ? undefined : message.title;
+    obj.description = message.description === "" ? undefined : message.description;
+    obj.subject_client_id = message.subjectClientId === "" ? undefined : message.subjectClientId;
+    obj.substitute_client_id = message.substituteClientId === "" ? undefined : message.substituteClientId;
     return obj;
   },
   fromAminoMsg(object: ClientUpdateProposalAminoMsg): ClientUpdateProposal {
@@ -689,7 +689,7 @@ export const ClientUpdateProposal = {
   },
   toAminoMsg(message: ClientUpdateProposal): ClientUpdateProposalAminoMsg {
     return {
-      type: 'cosmos-sdk/ClientUpdateProposal',
+      type: "cosmos-sdk/ClientUpdateProposal",
       value: ClientUpdateProposal.toAmino(message)
     };
   },
@@ -701,7 +701,7 @@ export const ClientUpdateProposal = {
   },
   toProtoMsg(message: ClientUpdateProposal): ClientUpdateProposalProtoMsg {
     return {
-      typeUrl: '/ibc.core.client.v1.ClientUpdateProposal',
+      typeUrl: "/ibc.core.client.v1.ClientUpdateProposal",
       value: ClientUpdateProposal.encode(message).finish()
     };
   }
@@ -710,30 +710,30 @@ GlobalDecoderRegistry.register(ClientUpdateProposal.typeUrl, ClientUpdateProposa
 GlobalDecoderRegistry.registerAminoProtoMapping(ClientUpdateProposal.aminoType, ClientUpdateProposal.typeUrl);
 function createBaseUpgradeProposal(): UpgradeProposal {
   return {
-    $typeUrl: '/ibc.core.client.v1.UpgradeProposal',
-    title: '',
-    description: '',
+    $typeUrl: "/ibc.core.client.v1.UpgradeProposal",
+    title: "",
+    description: "",
     plan: Plan.fromPartial({}),
     upgradedClientState: undefined
   };
 }
 export const UpgradeProposal = {
-  typeUrl: '/ibc.core.client.v1.UpgradeProposal',
-  aminoType: 'cosmos-sdk/UpgradeProposal',
+  typeUrl: "/ibc.core.client.v1.UpgradeProposal",
+  aminoType: "cosmos-sdk/UpgradeProposal",
   is(o: any): o is UpgradeProposal {
-    return o && (o.$typeUrl === UpgradeProposal.typeUrl || typeof o.title === 'string' && typeof o.description === 'string' && Plan.is(o.plan));
+    return o && (o.$typeUrl === UpgradeProposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && Plan.is(o.plan));
   },
   isSDK(o: any): o is UpgradeProposalSDKType {
-    return o && (o.$typeUrl === UpgradeProposal.typeUrl || typeof o.title === 'string' && typeof o.description === 'string' && Plan.isSDK(o.plan));
+    return o && (o.$typeUrl === UpgradeProposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && Plan.isSDK(o.plan));
   },
   isAmino(o: any): o is UpgradeProposalAmino {
-    return o && (o.$typeUrl === UpgradeProposal.typeUrl || typeof o.title === 'string' && typeof o.description === 'string' && Plan.isAmino(o.plan));
+    return o && (o.$typeUrl === UpgradeProposal.typeUrl || typeof o.title === "string" && typeof o.description === "string" && Plan.isAmino(o.plan));
   },
   encode(message: UpgradeProposal, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.title !== '') {
+    if (message.title !== "") {
       writer.uint32(10).string(message.title);
     }
-    if (message.description !== '') {
+    if (message.description !== "") {
       writer.uint32(18).string(message.description);
     }
     if (message.plan !== undefined) {
@@ -751,29 +751,29 @@ export const UpgradeProposal = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.title = reader.string();
-        break;
-      case 2:
-        message.description = reader.string();
-        break;
-      case 3:
-        message.plan = Plan.decode(reader, reader.uint32());
-        break;
-      case 4:
-        message.upgradedClientState = Any.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.title = reader.string();
+          break;
+        case 2:
+          message.description = reader.string();
+          break;
+        case 3:
+          message.plan = Plan.decode(reader, reader.uint32());
+          break;
+        case 4:
+          message.upgradedClientState = Any.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<UpgradeProposal>): UpgradeProposal {
     const message = createBaseUpgradeProposal();
-    message.title = object.title ?? '';
-    message.description = object.description ?? '';
+    message.title = object.title ?? "";
+    message.description = object.description ?? "";
     message.plan = object.plan !== undefined && object.plan !== null ? Plan.fromPartial(object.plan) : undefined;
     message.upgradedClientState = object.upgradedClientState !== undefined && object.upgradedClientState !== null ? Any.fromPartial(object.upgradedClientState) : undefined;
     return message;
@@ -796,8 +796,8 @@ export const UpgradeProposal = {
   },
   toAmino(message: UpgradeProposal): UpgradeProposalAmino {
     const obj: any = {};
-    obj.title = message.title === '' ? undefined : message.title;
-    obj.description = message.description === '' ? undefined : message.description;
+    obj.title = message.title === "" ? undefined : message.title;
+    obj.description = message.description === "" ? undefined : message.description;
     obj.plan = message.plan ? Plan.toAmino(message.plan) : undefined;
     obj.upgraded_client_state = message.upgradedClientState ? Any.toAmino(message.upgradedClientState) : undefined;
     return obj;
@@ -807,7 +807,7 @@ export const UpgradeProposal = {
   },
   toAminoMsg(message: UpgradeProposal): UpgradeProposalAminoMsg {
     return {
-      type: 'cosmos-sdk/UpgradeProposal',
+      type: "cosmos-sdk/UpgradeProposal",
       value: UpgradeProposal.toAmino(message)
     };
   },
@@ -819,7 +819,7 @@ export const UpgradeProposal = {
   },
   toProtoMsg(message: UpgradeProposal): UpgradeProposalProtoMsg {
     return {
-      typeUrl: '/ibc.core.client.v1.UpgradeProposal',
+      typeUrl: "/ibc.core.client.v1.UpgradeProposal",
       value: UpgradeProposal.encode(message).finish()
     };
   }
@@ -833,16 +833,16 @@ function createBaseHeight(): Height {
   };
 }
 export const Height = {
-  typeUrl: '/ibc.core.client.v1.Height',
-  aminoType: 'cosmos-sdk/Height',
+  typeUrl: "/ibc.core.client.v1.Height",
+  aminoType: "cosmos-sdk/Height",
   is(o: any): o is Height {
-    return o && (o.$typeUrl === Height.typeUrl || typeof o.revisionNumber === 'bigint' && typeof o.revisionHeight === 'bigint');
+    return o && (o.$typeUrl === Height.typeUrl || typeof o.revisionNumber === "bigint" && typeof o.revisionHeight === "bigint");
   },
   isSDK(o: any): o is HeightSDKType {
-    return o && (o.$typeUrl === Height.typeUrl || typeof o.revision_number === 'bigint' && typeof o.revision_height === 'bigint');
+    return o && (o.$typeUrl === Height.typeUrl || typeof o.revision_number === "bigint" && typeof o.revision_height === "bigint");
   },
   isAmino(o: any): o is HeightAmino {
-    return o && (o.$typeUrl === Height.typeUrl || typeof o.revision_number === 'bigint' && typeof o.revision_height === 'bigint');
+    return o && (o.$typeUrl === Height.typeUrl || typeof o.revision_number === "bigint" && typeof o.revision_height === "bigint");
   },
   encode(message: Height, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.revisionNumber !== BigInt(0)) {
@@ -860,15 +860,15 @@ export const Height = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.revisionNumber = reader.uint64();
-        break;
-      case 2:
-        message.revisionHeight = reader.uint64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.revisionNumber = reader.uint64();
+          break;
+        case 2:
+          message.revisionHeight = reader.uint64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -881,8 +881,8 @@ export const Height = {
   },
   fromAmino(object: HeightAmino): Height {
     return {
-      revisionNumber: BigInt(object.revision_number || '0'),
-      revisionHeight: BigInt(object.revision_height || '0')
+      revisionNumber: BigInt(object.revision_number || "0"),
+      revisionHeight: BigInt(object.revision_height || "0")
     };
   },
   toAmino(message: Height): HeightAmino {
@@ -896,7 +896,7 @@ export const Height = {
   },
   toAminoMsg(message: Height): HeightAminoMsg {
     return {
-      type: 'cosmos-sdk/Height',
+      type: "cosmos-sdk/Height",
       value: Height.toAmino(message)
     };
   },
@@ -908,7 +908,7 @@ export const Height = {
   },
   toProtoMsg(message: Height): HeightProtoMsg {
     return {
-      typeUrl: '/ibc.core.client.v1.Height',
+      typeUrl: "/ibc.core.client.v1.Height",
       value: Height.encode(message).finish()
     };
   }
@@ -921,16 +921,16 @@ function createBaseParams(): Params {
   };
 }
 export const Params = {
-  typeUrl: '/ibc.core.client.v1.Params',
-  aminoType: 'cosmos-sdk/Params',
+  typeUrl: "/ibc.core.client.v1.Params",
+  aminoType: "cosmos-sdk/Params",
   is(o: any): o is Params {
-    return o && (o.$typeUrl === Params.typeUrl || Array.isArray(o.allowedClients) && (!o.allowedClients.length || typeof o.allowedClients[0] === 'string'));
+    return o && (o.$typeUrl === Params.typeUrl || Array.isArray(o.allowedClients) && (!o.allowedClients.length || typeof o.allowedClients[0] === "string"));
   },
   isSDK(o: any): o is ParamsSDKType {
-    return o && (o.$typeUrl === Params.typeUrl || Array.isArray(o.allowed_clients) && (!o.allowed_clients.length || typeof o.allowed_clients[0] === 'string'));
+    return o && (o.$typeUrl === Params.typeUrl || Array.isArray(o.allowed_clients) && (!o.allowed_clients.length || typeof o.allowed_clients[0] === "string"));
   },
   isAmino(o: any): o is ParamsAmino {
-    return o && (o.$typeUrl === Params.typeUrl || Array.isArray(o.allowed_clients) && (!o.allowed_clients.length || typeof o.allowed_clients[0] === 'string'));
+    return o && (o.$typeUrl === Params.typeUrl || Array.isArray(o.allowed_clients) && (!o.allowed_clients.length || typeof o.allowed_clients[0] === "string"));
   },
   encode(message: Params, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.allowedClients) {
@@ -945,12 +945,12 @@ export const Params = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.allowedClients.push(reader.string());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.allowedClients.push(reader.string());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -979,7 +979,7 @@ export const Params = {
   },
   toAminoMsg(message: Params): ParamsAminoMsg {
     return {
-      type: 'cosmos-sdk/Params',
+      type: "cosmos-sdk/Params",
       value: Params.toAmino(message)
     };
   },
@@ -991,7 +991,7 @@ export const Params = {
   },
   toProtoMsg(message: Params): ParamsProtoMsg {
     return {
-      typeUrl: '/ibc.core.client.v1.Params',
+      typeUrl: "/ibc.core.client.v1.Params",
       value: Params.encode(message).finish()
     };
   }

@@ -1,7 +1,7 @@
 //@ts-nocheck
-import { BinaryReader } from '../../../binary';
-import { Rpc } from '../../../helpers';
-import { MsgGrantAllowance, MsgGrantAllowanceResponse, MsgRevokeAllowance, MsgRevokeAllowanceResponse } from './tx';
+import { Rpc } from "../../../helpers";
+import { BinaryReader } from "../../../binary";
+import { MsgGrantAllowance, MsgGrantAllowanceResponse, MsgRevokeAllowance, MsgRevokeAllowanceResponse } from "./tx";
 /** Msg defines the feegrant msg service. */
 export interface Msg {
   /**
@@ -24,12 +24,12 @@ export class MsgClientImpl implements Msg {
   }
   grantAllowance(request: MsgGrantAllowance): Promise<MsgGrantAllowanceResponse> {
     const data = MsgGrantAllowance.encode(request).finish();
-    const promise = this.rpc.request('cosmos.feegrant.v1beta1.Msg', 'GrantAllowance', data);
+    const promise = this.rpc.request("cosmos.feegrant.v1beta1.Msg", "GrantAllowance", data);
     return promise.then(data => MsgGrantAllowanceResponse.decode(new BinaryReader(data)));
   }
   revokeAllowance(request: MsgRevokeAllowance): Promise<MsgRevokeAllowanceResponse> {
     const data = MsgRevokeAllowance.encode(request).finish();
-    const promise = this.rpc.request('cosmos.feegrant.v1beta1.Msg', 'RevokeAllowance', data);
+    const promise = this.rpc.request("cosmos.feegrant.v1beta1.Msg", "RevokeAllowance", data);
     return promise.then(data => MsgRevokeAllowanceResponse.decode(new BinaryReader(data)));
   }
 }

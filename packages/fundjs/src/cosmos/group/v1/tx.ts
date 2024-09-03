@@ -1,9 +1,9 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from '../../../binary';
-import { Any, AnyAmino, AnyProtoMsg, AnySDKType } from '../../../google/protobuf/any';
-import { isSet } from '../../../helpers';
-import { GlobalDecoderRegistry } from '../../../registry';
-import { Member, MemberAmino, MemberSDKType, PercentageDecisionPolicy, PercentageDecisionPolicyProtoMsg, PercentageDecisionPolicySDKType,ThresholdDecisionPolicy, ThresholdDecisionPolicyProtoMsg, ThresholdDecisionPolicySDKType, VoteOption } from './types';
+import { Member, MemberAmino, MemberSDKType, VoteOption, ThresholdDecisionPolicy, ThresholdDecisionPolicyProtoMsg, ThresholdDecisionPolicySDKType, PercentageDecisionPolicy, PercentageDecisionPolicyProtoMsg, PercentageDecisionPolicySDKType } from "./types";
+import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
+import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
+import { isSet } from "../../../helpers";
 /** Exec defines modes of execution of a proposal on creation or on new vote. */
 export enum Exec {
   /**
@@ -24,27 +24,27 @@ export const ExecSDKType = Exec;
 export const ExecAmino = Exec;
 export function execFromJSON(object: any): Exec {
   switch (object) {
-  case 0:
-  case 'EXEC_UNSPECIFIED':
-    return Exec.EXEC_UNSPECIFIED;
-  case 1:
-  case 'EXEC_TRY':
-    return Exec.EXEC_TRY;
-  case -1:
-  case 'UNRECOGNIZED':
-  default:
-    return Exec.UNRECOGNIZED;
+    case 0:
+    case "EXEC_UNSPECIFIED":
+      return Exec.EXEC_UNSPECIFIED;
+    case 1:
+    case "EXEC_TRY":
+      return Exec.EXEC_TRY;
+    case -1:
+    case "UNRECOGNIZED":
+    default:
+      return Exec.UNRECOGNIZED;
   }
 }
 export function execToJSON(object: Exec): string {
   switch (object) {
-  case Exec.EXEC_UNSPECIFIED:
-    return 'EXEC_UNSPECIFIED';
-  case Exec.EXEC_TRY:
-    return 'EXEC_TRY';
-  case Exec.UNRECOGNIZED:
-  default:
-    return 'UNRECOGNIZED';
+    case Exec.EXEC_UNSPECIFIED:
+      return "EXEC_UNSPECIFIED";
+    case Exec.EXEC_TRY:
+      return "EXEC_TRY";
+    case Exec.UNRECOGNIZED:
+    default:
+      return "UNRECOGNIZED";
   }
 }
 /** MsgCreateGroup is the Msg/CreateGroup request type. */
@@ -57,7 +57,7 @@ export interface MsgCreateGroup {
   metadata: string;
 }
 export interface MsgCreateGroupProtoMsg {
-  typeUrl: '/cosmos.group.v1.MsgCreateGroup';
+  typeUrl: "/cosmos.group.v1.MsgCreateGroup";
   value: Uint8Array;
 }
 /** MsgCreateGroup is the Msg/CreateGroup request type. */
@@ -70,7 +70,7 @@ export interface MsgCreateGroupAmino {
   metadata?: string;
 }
 export interface MsgCreateGroupAminoMsg {
-  type: 'cosmos-sdk/MsgCreateGroup';
+  type: "cosmos-sdk/MsgCreateGroup";
   value: MsgCreateGroupAmino;
 }
 /** MsgCreateGroup is the Msg/CreateGroup request type. */
@@ -85,7 +85,7 @@ export interface MsgCreateGroupResponse {
   groupId: bigint;
 }
 export interface MsgCreateGroupResponseProtoMsg {
-  typeUrl: '/cosmos.group.v1.MsgCreateGroupResponse';
+  typeUrl: "/cosmos.group.v1.MsgCreateGroupResponse";
   value: Uint8Array;
 }
 /** MsgCreateGroupResponse is the Msg/CreateGroup response type. */
@@ -94,7 +94,7 @@ export interface MsgCreateGroupResponseAmino {
   group_id?: string;
 }
 export interface MsgCreateGroupResponseAminoMsg {
-  type: 'cosmos-sdk/MsgCreateGroupResponse';
+  type: "cosmos-sdk/MsgCreateGroupResponse";
   value: MsgCreateGroupResponseAmino;
 }
 /** MsgCreateGroupResponse is the Msg/CreateGroup response type. */
@@ -114,7 +114,7 @@ export interface MsgUpdateGroupMembers {
   memberUpdates: Member[];
 }
 export interface MsgUpdateGroupMembersProtoMsg {
-  typeUrl: '/cosmos.group.v1.MsgUpdateGroupMembers';
+  typeUrl: "/cosmos.group.v1.MsgUpdateGroupMembers";
   value: Uint8Array;
 }
 /** MsgUpdateGroupMembers is the Msg/UpdateGroupMembers request type. */
@@ -130,7 +130,7 @@ export interface MsgUpdateGroupMembersAmino {
   member_updates?: MemberAmino[];
 }
 export interface MsgUpdateGroupMembersAminoMsg {
-  type: 'cosmos-sdk/MsgUpdateGroupMembers';
+  type: "cosmos-sdk/MsgUpdateGroupMembers";
   value: MsgUpdateGroupMembersAmino;
 }
 /** MsgUpdateGroupMembers is the Msg/UpdateGroupMembers request type. */
@@ -142,13 +142,13 @@ export interface MsgUpdateGroupMembersSDKType {
 /** MsgUpdateGroupMembersResponse is the Msg/UpdateGroupMembers response type. */
 export interface MsgUpdateGroupMembersResponse {}
 export interface MsgUpdateGroupMembersResponseProtoMsg {
-  typeUrl: '/cosmos.group.v1.MsgUpdateGroupMembersResponse';
+  typeUrl: "/cosmos.group.v1.MsgUpdateGroupMembersResponse";
   value: Uint8Array;
 }
 /** MsgUpdateGroupMembersResponse is the Msg/UpdateGroupMembers response type. */
 export interface MsgUpdateGroupMembersResponseAmino {}
 export interface MsgUpdateGroupMembersResponseAminoMsg {
-  type: 'cosmos-sdk/MsgUpdateGroupMembersResponse';
+  type: "cosmos-sdk/MsgUpdateGroupMembersResponse";
   value: MsgUpdateGroupMembersResponseAmino;
 }
 /** MsgUpdateGroupMembersResponse is the Msg/UpdateGroupMembers response type. */
@@ -163,7 +163,7 @@ export interface MsgUpdateGroupAdmin {
   newAdmin: string;
 }
 export interface MsgUpdateGroupAdminProtoMsg {
-  typeUrl: '/cosmos.group.v1.MsgUpdateGroupAdmin';
+  typeUrl: "/cosmos.group.v1.MsgUpdateGroupAdmin";
   value: Uint8Array;
 }
 /** MsgUpdateGroupAdmin is the Msg/UpdateGroupAdmin request type. */
@@ -176,7 +176,7 @@ export interface MsgUpdateGroupAdminAmino {
   new_admin?: string;
 }
 export interface MsgUpdateGroupAdminAminoMsg {
-  type: 'cosmos-sdk/MsgUpdateGroupAdmin';
+  type: "cosmos-sdk/MsgUpdateGroupAdmin";
   value: MsgUpdateGroupAdminAmino;
 }
 /** MsgUpdateGroupAdmin is the Msg/UpdateGroupAdmin request type. */
@@ -188,13 +188,13 @@ export interface MsgUpdateGroupAdminSDKType {
 /** MsgUpdateGroupAdminResponse is the Msg/UpdateGroupAdmin response type. */
 export interface MsgUpdateGroupAdminResponse {}
 export interface MsgUpdateGroupAdminResponseProtoMsg {
-  typeUrl: '/cosmos.group.v1.MsgUpdateGroupAdminResponse';
+  typeUrl: "/cosmos.group.v1.MsgUpdateGroupAdminResponse";
   value: Uint8Array;
 }
 /** MsgUpdateGroupAdminResponse is the Msg/UpdateGroupAdmin response type. */
 export interface MsgUpdateGroupAdminResponseAmino {}
 export interface MsgUpdateGroupAdminResponseAminoMsg {
-  type: 'cosmos-sdk/MsgUpdateGroupAdminResponse';
+  type: "cosmos-sdk/MsgUpdateGroupAdminResponse";
   value: MsgUpdateGroupAdminResponseAmino;
 }
 /** MsgUpdateGroupAdminResponse is the Msg/UpdateGroupAdmin response type. */
@@ -209,7 +209,7 @@ export interface MsgUpdateGroupMetadata {
   metadata: string;
 }
 export interface MsgUpdateGroupMetadataProtoMsg {
-  typeUrl: '/cosmos.group.v1.MsgUpdateGroupMetadata';
+  typeUrl: "/cosmos.group.v1.MsgUpdateGroupMetadata";
   value: Uint8Array;
 }
 /** MsgUpdateGroupMetadata is the Msg/UpdateGroupMetadata request type. */
@@ -222,7 +222,7 @@ export interface MsgUpdateGroupMetadataAmino {
   metadata?: string;
 }
 export interface MsgUpdateGroupMetadataAminoMsg {
-  type: 'cosmos-sdk/MsgUpdateGroupMetadata';
+  type: "cosmos-sdk/MsgUpdateGroupMetadata";
   value: MsgUpdateGroupMetadataAmino;
 }
 /** MsgUpdateGroupMetadata is the Msg/UpdateGroupMetadata request type. */
@@ -234,13 +234,13 @@ export interface MsgUpdateGroupMetadataSDKType {
 /** MsgUpdateGroupMetadataResponse is the Msg/UpdateGroupMetadata response type. */
 export interface MsgUpdateGroupMetadataResponse {}
 export interface MsgUpdateGroupMetadataResponseProtoMsg {
-  typeUrl: '/cosmos.group.v1.MsgUpdateGroupMetadataResponse';
+  typeUrl: "/cosmos.group.v1.MsgUpdateGroupMetadataResponse";
   value: Uint8Array;
 }
 /** MsgUpdateGroupMetadataResponse is the Msg/UpdateGroupMetadata response type. */
 export interface MsgUpdateGroupMetadataResponseAmino {}
 export interface MsgUpdateGroupMetadataResponseAminoMsg {
-  type: 'cosmos-sdk/MsgUpdateGroupMetadataResponse';
+  type: "cosmos-sdk/MsgUpdateGroupMetadataResponse";
   value: MsgUpdateGroupMetadataResponseAmino;
 }
 /** MsgUpdateGroupMetadataResponse is the Msg/UpdateGroupMetadata response type. */
@@ -257,10 +257,10 @@ export interface MsgCreateGroupPolicy {
   decisionPolicy?: ThresholdDecisionPolicy | PercentageDecisionPolicy | Any | undefined;
 }
 export interface MsgCreateGroupPolicyProtoMsg {
-  typeUrl: '/cosmos.group.v1.MsgCreateGroupPolicy';
+  typeUrl: "/cosmos.group.v1.MsgCreateGroupPolicy";
   value: Uint8Array;
 }
-export type MsgCreateGroupPolicyEncoded = Omit<MsgCreateGroupPolicy, 'decisionPolicy'> & {
+export type MsgCreateGroupPolicyEncoded = Omit<MsgCreateGroupPolicy, "decisionPolicy"> & {
   /** decision_policy specifies the group policy's decision policy. */decisionPolicy?: ThresholdDecisionPolicyProtoMsg | PercentageDecisionPolicyProtoMsg | AnyProtoMsg | undefined;
 };
 /** MsgCreateGroupPolicy is the Msg/CreateGroupPolicy request type. */
@@ -275,7 +275,7 @@ export interface MsgCreateGroupPolicyAmino {
   decision_policy?: AnyAmino;
 }
 export interface MsgCreateGroupPolicyAminoMsg {
-  type: 'cosmos-sdk/MsgCreateGroupPolicy';
+  type: "cosmos-sdk/MsgCreateGroupPolicy";
   value: MsgCreateGroupPolicyAmino;
 }
 /** MsgCreateGroupPolicy is the Msg/CreateGroupPolicy request type. */
@@ -291,7 +291,7 @@ export interface MsgCreateGroupPolicyResponse {
   address: string;
 }
 export interface MsgCreateGroupPolicyResponseProtoMsg {
-  typeUrl: '/cosmos.group.v1.MsgCreateGroupPolicyResponse';
+  typeUrl: "/cosmos.group.v1.MsgCreateGroupPolicyResponse";
   value: Uint8Array;
 }
 /** MsgCreateGroupPolicyResponse is the Msg/CreateGroupPolicy response type. */
@@ -300,7 +300,7 @@ export interface MsgCreateGroupPolicyResponseAmino {
   address?: string;
 }
 export interface MsgCreateGroupPolicyResponseAminoMsg {
-  type: 'cosmos-sdk/MsgCreateGroupPolicyResponse';
+  type: "cosmos-sdk/MsgCreateGroupPolicyResponse";
   value: MsgCreateGroupPolicyResponseAmino;
 }
 /** MsgCreateGroupPolicyResponse is the Msg/CreateGroupPolicy response type. */
@@ -317,7 +317,7 @@ export interface MsgUpdateGroupPolicyAdmin {
   newAdmin: string;
 }
 export interface MsgUpdateGroupPolicyAdminProtoMsg {
-  typeUrl: '/cosmos.group.v1.MsgUpdateGroupPolicyAdmin';
+  typeUrl: "/cosmos.group.v1.MsgUpdateGroupPolicyAdmin";
   value: Uint8Array;
 }
 /** MsgUpdateGroupPolicyAdmin is the Msg/UpdateGroupPolicyAdmin request type. */
@@ -330,7 +330,7 @@ export interface MsgUpdateGroupPolicyAdminAmino {
   new_admin?: string;
 }
 export interface MsgUpdateGroupPolicyAdminAminoMsg {
-  type: 'cosmos-sdk/MsgUpdateGroupPolicyAdmin';
+  type: "cosmos-sdk/MsgUpdateGroupPolicyAdmin";
   value: MsgUpdateGroupPolicyAdminAmino;
 }
 /** MsgUpdateGroupPolicyAdmin is the Msg/UpdateGroupPolicyAdmin request type. */
@@ -355,10 +355,10 @@ export interface MsgCreateGroupWithPolicy {
   decisionPolicy?: ThresholdDecisionPolicy | PercentageDecisionPolicy | Any | undefined;
 }
 export interface MsgCreateGroupWithPolicyProtoMsg {
-  typeUrl: '/cosmos.group.v1.MsgCreateGroupWithPolicy';
+  typeUrl: "/cosmos.group.v1.MsgCreateGroupWithPolicy";
   value: Uint8Array;
 }
-export type MsgCreateGroupWithPolicyEncoded = Omit<MsgCreateGroupWithPolicy, 'decisionPolicy'> & {
+export type MsgCreateGroupWithPolicyEncoded = Omit<MsgCreateGroupWithPolicy, "decisionPolicy"> & {
   /** decision_policy specifies the group policy's decision policy. */decisionPolicy?: ThresholdDecisionPolicyProtoMsg | PercentageDecisionPolicyProtoMsg | AnyProtoMsg | undefined;
 };
 /** MsgCreateGroupWithPolicy is the Msg/CreateGroupWithPolicy request type. */
@@ -377,7 +377,7 @@ export interface MsgCreateGroupWithPolicyAmino {
   decision_policy?: AnyAmino;
 }
 export interface MsgCreateGroupWithPolicyAminoMsg {
-  type: 'cosmos-sdk/MsgCreateGroupWithPolicy';
+  type: "cosmos-sdk/MsgCreateGroupWithPolicy";
   value: MsgCreateGroupWithPolicyAmino;
 }
 /** MsgCreateGroupWithPolicy is the Msg/CreateGroupWithPolicy request type. */
@@ -397,7 +397,7 @@ export interface MsgCreateGroupWithPolicyResponse {
   groupPolicyAddress: string;
 }
 export interface MsgCreateGroupWithPolicyResponseProtoMsg {
-  typeUrl: '/cosmos.group.v1.MsgCreateGroupWithPolicyResponse';
+  typeUrl: "/cosmos.group.v1.MsgCreateGroupWithPolicyResponse";
   value: Uint8Array;
 }
 /** MsgCreateGroupWithPolicyResponse is the Msg/CreateGroupWithPolicy response type. */
@@ -408,7 +408,7 @@ export interface MsgCreateGroupWithPolicyResponseAmino {
   group_policy_address?: string;
 }
 export interface MsgCreateGroupWithPolicyResponseAminoMsg {
-  type: 'cosmos-sdk/MsgCreateGroupWithPolicyResponse';
+  type: "cosmos-sdk/MsgCreateGroupWithPolicyResponse";
   value: MsgCreateGroupWithPolicyResponseAmino;
 }
 /** MsgCreateGroupWithPolicyResponse is the Msg/CreateGroupWithPolicy response type. */
@@ -419,13 +419,13 @@ export interface MsgCreateGroupWithPolicyResponseSDKType {
 /** MsgUpdateGroupPolicyAdminResponse is the Msg/UpdateGroupPolicyAdmin response type. */
 export interface MsgUpdateGroupPolicyAdminResponse {}
 export interface MsgUpdateGroupPolicyAdminResponseProtoMsg {
-  typeUrl: '/cosmos.group.v1.MsgUpdateGroupPolicyAdminResponse';
+  typeUrl: "/cosmos.group.v1.MsgUpdateGroupPolicyAdminResponse";
   value: Uint8Array;
 }
 /** MsgUpdateGroupPolicyAdminResponse is the Msg/UpdateGroupPolicyAdmin response type. */
 export interface MsgUpdateGroupPolicyAdminResponseAmino {}
 export interface MsgUpdateGroupPolicyAdminResponseAminoMsg {
-  type: 'cosmos-sdk/MsgUpdateGroupPolicyAdminResponse';
+  type: "cosmos-sdk/MsgUpdateGroupPolicyAdminResponse";
   value: MsgUpdateGroupPolicyAdminResponseAmino;
 }
 /** MsgUpdateGroupPolicyAdminResponse is the Msg/UpdateGroupPolicyAdmin response type. */
@@ -440,10 +440,10 @@ export interface MsgUpdateGroupPolicyDecisionPolicy {
   decisionPolicy?: ThresholdDecisionPolicy | PercentageDecisionPolicy | Any | undefined;
 }
 export interface MsgUpdateGroupPolicyDecisionPolicyProtoMsg {
-  typeUrl: '/cosmos.group.v1.MsgUpdateGroupPolicyDecisionPolicy';
+  typeUrl: "/cosmos.group.v1.MsgUpdateGroupPolicyDecisionPolicy";
   value: Uint8Array;
 }
-export type MsgUpdateGroupPolicyDecisionPolicyEncoded = Omit<MsgUpdateGroupPolicyDecisionPolicy, 'decisionPolicy'> & {
+export type MsgUpdateGroupPolicyDecisionPolicyEncoded = Omit<MsgUpdateGroupPolicyDecisionPolicy, "decisionPolicy"> & {
   /** decision_policy is the updated group policy's decision policy. */decisionPolicy?: ThresholdDecisionPolicyProtoMsg | PercentageDecisionPolicyProtoMsg | AnyProtoMsg | undefined;
 };
 /** MsgUpdateGroupPolicyDecisionPolicy is the Msg/UpdateGroupPolicyDecisionPolicy request type. */
@@ -456,7 +456,7 @@ export interface MsgUpdateGroupPolicyDecisionPolicyAmino {
   decision_policy?: AnyAmino;
 }
 export interface MsgUpdateGroupPolicyDecisionPolicyAminoMsg {
-  type: 'cosmos-sdk/MsgUpdateGroupPolicyDecisionPolicy';
+  type: "cosmos-sdk/MsgUpdateGroupPolicyDecisionPolicy";
   value: MsgUpdateGroupPolicyDecisionPolicyAmino;
 }
 /** MsgUpdateGroupPolicyDecisionPolicy is the Msg/UpdateGroupPolicyDecisionPolicy request type. */
@@ -468,13 +468,13 @@ export interface MsgUpdateGroupPolicyDecisionPolicySDKType {
 /** MsgUpdateGroupPolicyDecisionPolicyResponse is the Msg/UpdateGroupPolicyDecisionPolicy response type. */
 export interface MsgUpdateGroupPolicyDecisionPolicyResponse {}
 export interface MsgUpdateGroupPolicyDecisionPolicyResponseProtoMsg {
-  typeUrl: '/cosmos.group.v1.MsgUpdateGroupPolicyDecisionPolicyResponse';
+  typeUrl: "/cosmos.group.v1.MsgUpdateGroupPolicyDecisionPolicyResponse";
   value: Uint8Array;
 }
 /** MsgUpdateGroupPolicyDecisionPolicyResponse is the Msg/UpdateGroupPolicyDecisionPolicy response type. */
 export interface MsgUpdateGroupPolicyDecisionPolicyResponseAmino {}
 export interface MsgUpdateGroupPolicyDecisionPolicyResponseAminoMsg {
-  type: 'cosmos-sdk/MsgUpdateGroupPolicyDecisionPolicyResponse';
+  type: "cosmos-sdk/MsgUpdateGroupPolicyDecisionPolicyResponse";
   value: MsgUpdateGroupPolicyDecisionPolicyResponseAmino;
 }
 /** MsgUpdateGroupPolicyDecisionPolicyResponse is the Msg/UpdateGroupPolicyDecisionPolicy response type. */
@@ -489,7 +489,7 @@ export interface MsgUpdateGroupPolicyMetadata {
   metadata: string;
 }
 export interface MsgUpdateGroupPolicyMetadataProtoMsg {
-  typeUrl: '/cosmos.group.v1.MsgUpdateGroupPolicyMetadata';
+  typeUrl: "/cosmos.group.v1.MsgUpdateGroupPolicyMetadata";
   value: Uint8Array;
 }
 /** MsgUpdateGroupPolicyMetadata is the Msg/UpdateGroupPolicyMetadata request type. */
@@ -502,7 +502,7 @@ export interface MsgUpdateGroupPolicyMetadataAmino {
   metadata?: string;
 }
 export interface MsgUpdateGroupPolicyMetadataAminoMsg {
-  type: 'cosmos-sdk/MsgUpdateGroupPolicyMetadata';
+  type: "cosmos-sdk/MsgUpdateGroupPolicyMetadata";
   value: MsgUpdateGroupPolicyMetadataAmino;
 }
 /** MsgUpdateGroupPolicyMetadata is the Msg/UpdateGroupPolicyMetadata request type. */
@@ -514,13 +514,13 @@ export interface MsgUpdateGroupPolicyMetadataSDKType {
 /** MsgUpdateGroupPolicyMetadataResponse is the Msg/UpdateGroupPolicyMetadata response type. */
 export interface MsgUpdateGroupPolicyMetadataResponse {}
 export interface MsgUpdateGroupPolicyMetadataResponseProtoMsg {
-  typeUrl: '/cosmos.group.v1.MsgUpdateGroupPolicyMetadataResponse';
+  typeUrl: "/cosmos.group.v1.MsgUpdateGroupPolicyMetadataResponse";
   value: Uint8Array;
 }
 /** MsgUpdateGroupPolicyMetadataResponse is the Msg/UpdateGroupPolicyMetadata response type. */
 export interface MsgUpdateGroupPolicyMetadataResponseAmino {}
 export interface MsgUpdateGroupPolicyMetadataResponseAminoMsg {
-  type: 'cosmos-sdk/MsgUpdateGroupPolicyMetadataResponse';
+  type: "cosmos-sdk/MsgUpdateGroupPolicyMetadataResponse";
   value: MsgUpdateGroupPolicyMetadataResponseAmino;
 }
 /** MsgUpdateGroupPolicyMetadataResponse is the Msg/UpdateGroupPolicyMetadata response type. */
@@ -546,7 +546,7 @@ export interface MsgSubmitProposal {
   exec: Exec;
 }
 export interface MsgSubmitProposalProtoMsg {
-  typeUrl: '/cosmos.group.v1.MsgSubmitProposal';
+  typeUrl: "/cosmos.group.v1.MsgSubmitProposal";
   value: Uint8Array;
 }
 /** MsgSubmitProposal is the Msg/SubmitProposal request type. */
@@ -570,7 +570,7 @@ export interface MsgSubmitProposalAmino {
   exec?: Exec;
 }
 export interface MsgSubmitProposalAminoMsg {
-  type: 'cosmos-sdk/group/MsgSubmitProposal';
+  type: "cosmos-sdk/group/MsgSubmitProposal";
   value: MsgSubmitProposalAmino;
 }
 /** MsgSubmitProposal is the Msg/SubmitProposal request type. */
@@ -587,7 +587,7 @@ export interface MsgSubmitProposalResponse {
   proposalId: bigint;
 }
 export interface MsgSubmitProposalResponseProtoMsg {
-  typeUrl: '/cosmos.group.v1.MsgSubmitProposalResponse';
+  typeUrl: "/cosmos.group.v1.MsgSubmitProposalResponse";
   value: Uint8Array;
 }
 /** MsgSubmitProposalResponse is the Msg/SubmitProposal response type. */
@@ -596,7 +596,7 @@ export interface MsgSubmitProposalResponseAmino {
   proposal_id?: string;
 }
 export interface MsgSubmitProposalResponseAminoMsg {
-  type: 'cosmos-sdk/MsgSubmitProposalResponse';
+  type: "cosmos-sdk/MsgSubmitProposalResponse";
   value: MsgSubmitProposalResponseAmino;
 }
 /** MsgSubmitProposalResponse is the Msg/SubmitProposal response type. */
@@ -611,7 +611,7 @@ export interface MsgWithdrawProposal {
   address: string;
 }
 export interface MsgWithdrawProposalProtoMsg {
-  typeUrl: '/cosmos.group.v1.MsgWithdrawProposal';
+  typeUrl: "/cosmos.group.v1.MsgWithdrawProposal";
   value: Uint8Array;
 }
 /** MsgWithdrawProposal is the Msg/WithdrawProposal request type. */
@@ -622,7 +622,7 @@ export interface MsgWithdrawProposalAmino {
   address?: string;
 }
 export interface MsgWithdrawProposalAminoMsg {
-  type: 'cosmos-sdk/group/MsgWithdrawProposal';
+  type: "cosmos-sdk/group/MsgWithdrawProposal";
   value: MsgWithdrawProposalAmino;
 }
 /** MsgWithdrawProposal is the Msg/WithdrawProposal request type. */
@@ -633,13 +633,13 @@ export interface MsgWithdrawProposalSDKType {
 /** MsgWithdrawProposalResponse is the Msg/WithdrawProposal response type. */
 export interface MsgWithdrawProposalResponse {}
 export interface MsgWithdrawProposalResponseProtoMsg {
-  typeUrl: '/cosmos.group.v1.MsgWithdrawProposalResponse';
+  typeUrl: "/cosmos.group.v1.MsgWithdrawProposalResponse";
   value: Uint8Array;
 }
 /** MsgWithdrawProposalResponse is the Msg/WithdrawProposal response type. */
 export interface MsgWithdrawProposalResponseAmino {}
 export interface MsgWithdrawProposalResponseAminoMsg {
-  type: 'cosmos-sdk/MsgWithdrawProposalResponse';
+  type: "cosmos-sdk/MsgWithdrawProposalResponse";
   value: MsgWithdrawProposalResponseAmino;
 }
 /** MsgWithdrawProposalResponse is the Msg/WithdrawProposal response type. */
@@ -661,7 +661,7 @@ export interface MsgVote {
   exec: Exec;
 }
 export interface MsgVoteProtoMsg {
-  typeUrl: '/cosmos.group.v1.MsgVote';
+  typeUrl: "/cosmos.group.v1.MsgVote";
   value: Uint8Array;
 }
 /** MsgVote is the Msg/Vote request type. */
@@ -681,7 +681,7 @@ export interface MsgVoteAmino {
   exec?: Exec;
 }
 export interface MsgVoteAminoMsg {
-  type: 'cosmos-sdk/group/MsgVote';
+  type: "cosmos-sdk/group/MsgVote";
   value: MsgVoteAmino;
 }
 /** MsgVote is the Msg/Vote request type. */
@@ -695,13 +695,13 @@ export interface MsgVoteSDKType {
 /** MsgVoteResponse is the Msg/Vote response type. */
 export interface MsgVoteResponse {}
 export interface MsgVoteResponseProtoMsg {
-  typeUrl: '/cosmos.group.v1.MsgVoteResponse';
+  typeUrl: "/cosmos.group.v1.MsgVoteResponse";
   value: Uint8Array;
 }
 /** MsgVoteResponse is the Msg/Vote response type. */
 export interface MsgVoteResponseAmino {}
 export interface MsgVoteResponseAminoMsg {
-  type: 'cosmos-sdk/MsgVoteResponse';
+  type: "cosmos-sdk/MsgVoteResponse";
   value: MsgVoteResponseAmino;
 }
 /** MsgVoteResponse is the Msg/Vote response type. */
@@ -714,7 +714,7 @@ export interface MsgExec {
   signer: string;
 }
 export interface MsgExecProtoMsg {
-  typeUrl: '/cosmos.group.v1.MsgExec';
+  typeUrl: "/cosmos.group.v1.MsgExec";
   value: Uint8Array;
 }
 /** MsgExec is the Msg/Exec request type. */
@@ -725,7 +725,7 @@ export interface MsgExecAmino {
   signer?: string;
 }
 export interface MsgExecAminoMsg {
-  type: 'cosmos-sdk/group/MsgExec';
+  type: "cosmos-sdk/group/MsgExec";
   value: MsgExecAmino;
 }
 /** MsgExec is the Msg/Exec request type. */
@@ -736,13 +736,13 @@ export interface MsgExecSDKType {
 /** MsgExecResponse is the Msg/Exec request type. */
 export interface MsgExecResponse {}
 export interface MsgExecResponseProtoMsg {
-  typeUrl: '/cosmos.group.v1.MsgExecResponse';
+  typeUrl: "/cosmos.group.v1.MsgExecResponse";
   value: Uint8Array;
 }
 /** MsgExecResponse is the Msg/Exec request type. */
 export interface MsgExecResponseAmino {}
 export interface MsgExecResponseAminoMsg {
-  type: 'cosmos-sdk/MsgExecResponse';
+  type: "cosmos-sdk/MsgExecResponse";
   value: MsgExecResponseAmino;
 }
 /** MsgExecResponse is the Msg/Exec request type. */
@@ -755,7 +755,7 @@ export interface MsgLeaveGroup {
   groupId: bigint;
 }
 export interface MsgLeaveGroupProtoMsg {
-  typeUrl: '/cosmos.group.v1.MsgLeaveGroup';
+  typeUrl: "/cosmos.group.v1.MsgLeaveGroup";
   value: Uint8Array;
 }
 /** MsgLeaveGroup is the Msg/LeaveGroup request type. */
@@ -766,7 +766,7 @@ export interface MsgLeaveGroupAmino {
   group_id?: string;
 }
 export interface MsgLeaveGroupAminoMsg {
-  type: 'cosmos-sdk/group/MsgLeaveGroup';
+  type: "cosmos-sdk/group/MsgLeaveGroup";
   value: MsgLeaveGroupAmino;
 }
 /** MsgLeaveGroup is the Msg/LeaveGroup request type. */
@@ -777,44 +777,44 @@ export interface MsgLeaveGroupSDKType {
 /** MsgLeaveGroupResponse is the Msg/LeaveGroup response type. */
 export interface MsgLeaveGroupResponse {}
 export interface MsgLeaveGroupResponseProtoMsg {
-  typeUrl: '/cosmos.group.v1.MsgLeaveGroupResponse';
+  typeUrl: "/cosmos.group.v1.MsgLeaveGroupResponse";
   value: Uint8Array;
 }
 /** MsgLeaveGroupResponse is the Msg/LeaveGroup response type. */
 export interface MsgLeaveGroupResponseAmino {}
 export interface MsgLeaveGroupResponseAminoMsg {
-  type: 'cosmos-sdk/MsgLeaveGroupResponse';
+  type: "cosmos-sdk/MsgLeaveGroupResponse";
   value: MsgLeaveGroupResponseAmino;
 }
 /** MsgLeaveGroupResponse is the Msg/LeaveGroup response type. */
 export interface MsgLeaveGroupResponseSDKType {}
 function createBaseMsgCreateGroup(): MsgCreateGroup {
   return {
-    admin: '',
+    admin: "",
     members: [],
-    metadata: ''
+    metadata: ""
   };
 }
 export const MsgCreateGroup = {
-  typeUrl: '/cosmos.group.v1.MsgCreateGroup',
-  aminoType: 'cosmos-sdk/MsgCreateGroup',
+  typeUrl: "/cosmos.group.v1.MsgCreateGroup",
+  aminoType: "cosmos-sdk/MsgCreateGroup",
   is(o: any): o is MsgCreateGroup {
-    return o && (o.$typeUrl === MsgCreateGroup.typeUrl || typeof o.admin === 'string' && Array.isArray(o.members) && (!o.members.length || Member.is(o.members[0])) && typeof o.metadata === 'string');
+    return o && (o.$typeUrl === MsgCreateGroup.typeUrl || typeof o.admin === "string" && Array.isArray(o.members) && (!o.members.length || Member.is(o.members[0])) && typeof o.metadata === "string");
   },
   isSDK(o: any): o is MsgCreateGroupSDKType {
-    return o && (o.$typeUrl === MsgCreateGroup.typeUrl || typeof o.admin === 'string' && Array.isArray(o.members) && (!o.members.length || Member.isSDK(o.members[0])) && typeof o.metadata === 'string');
+    return o && (o.$typeUrl === MsgCreateGroup.typeUrl || typeof o.admin === "string" && Array.isArray(o.members) && (!o.members.length || Member.isSDK(o.members[0])) && typeof o.metadata === "string");
   },
   isAmino(o: any): o is MsgCreateGroupAmino {
-    return o && (o.$typeUrl === MsgCreateGroup.typeUrl || typeof o.admin === 'string' && Array.isArray(o.members) && (!o.members.length || Member.isAmino(o.members[0])) && typeof o.metadata === 'string');
+    return o && (o.$typeUrl === MsgCreateGroup.typeUrl || typeof o.admin === "string" && Array.isArray(o.members) && (!o.members.length || Member.isAmino(o.members[0])) && typeof o.metadata === "string");
   },
   encode(message: MsgCreateGroup, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.admin !== '') {
+    if (message.admin !== "") {
       writer.uint32(10).string(message.admin);
     }
     for (const v of message.members) {
       Member.encode(v!, writer.uint32(18).fork()).ldelim();
     }
-    if (message.metadata !== '') {
+    if (message.metadata !== "") {
       writer.uint32(26).string(message.metadata);
     }
     return writer;
@@ -826,27 +826,27 @@ export const MsgCreateGroup = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.admin = reader.string();
-        break;
-      case 2:
-        message.members.push(Member.decode(reader, reader.uint32()));
-        break;
-      case 3:
-        message.metadata = reader.string();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.admin = reader.string();
+          break;
+        case 2:
+          message.members.push(Member.decode(reader, reader.uint32()));
+          break;
+        case 3:
+          message.metadata = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<MsgCreateGroup>): MsgCreateGroup {
     const message = createBaseMsgCreateGroup();
-    message.admin = object.admin ?? '';
+    message.admin = object.admin ?? "";
     message.members = object.members?.map(e => Member.fromPartial(e)) || [];
-    message.metadata = object.metadata ?? '';
+    message.metadata = object.metadata ?? "";
     return message;
   },
   fromAmino(object: MsgCreateGroupAmino): MsgCreateGroup {
@@ -862,13 +862,13 @@ export const MsgCreateGroup = {
   },
   toAmino(message: MsgCreateGroup): MsgCreateGroupAmino {
     const obj: any = {};
-    obj.admin = message.admin === '' ? undefined : message.admin;
+    obj.admin = message.admin === "" ? undefined : message.admin;
     if (message.members) {
       obj.members = message.members.map(e => e ? Member.toAmino(e) : undefined);
     } else {
       obj.members = message.members;
     }
-    obj.metadata = message.metadata === '' ? undefined : message.metadata;
+    obj.metadata = message.metadata === "" ? undefined : message.metadata;
     return obj;
   },
   fromAminoMsg(object: MsgCreateGroupAminoMsg): MsgCreateGroup {
@@ -876,7 +876,7 @@ export const MsgCreateGroup = {
   },
   toAminoMsg(message: MsgCreateGroup): MsgCreateGroupAminoMsg {
     return {
-      type: 'cosmos-sdk/MsgCreateGroup',
+      type: "cosmos-sdk/MsgCreateGroup",
       value: MsgCreateGroup.toAmino(message)
     };
   },
@@ -888,7 +888,7 @@ export const MsgCreateGroup = {
   },
   toProtoMsg(message: MsgCreateGroup): MsgCreateGroupProtoMsg {
     return {
-      typeUrl: '/cosmos.group.v1.MsgCreateGroup',
+      typeUrl: "/cosmos.group.v1.MsgCreateGroup",
       value: MsgCreateGroup.encode(message).finish()
     };
   }
@@ -901,16 +901,16 @@ function createBaseMsgCreateGroupResponse(): MsgCreateGroupResponse {
   };
 }
 export const MsgCreateGroupResponse = {
-  typeUrl: '/cosmos.group.v1.MsgCreateGroupResponse',
-  aminoType: 'cosmos-sdk/MsgCreateGroupResponse',
+  typeUrl: "/cosmos.group.v1.MsgCreateGroupResponse",
+  aminoType: "cosmos-sdk/MsgCreateGroupResponse",
   is(o: any): o is MsgCreateGroupResponse {
-    return o && (o.$typeUrl === MsgCreateGroupResponse.typeUrl || typeof o.groupId === 'bigint');
+    return o && (o.$typeUrl === MsgCreateGroupResponse.typeUrl || typeof o.groupId === "bigint");
   },
   isSDK(o: any): o is MsgCreateGroupResponseSDKType {
-    return o && (o.$typeUrl === MsgCreateGroupResponse.typeUrl || typeof o.group_id === 'bigint');
+    return o && (o.$typeUrl === MsgCreateGroupResponse.typeUrl || typeof o.group_id === "bigint");
   },
   isAmino(o: any): o is MsgCreateGroupResponseAmino {
-    return o && (o.$typeUrl === MsgCreateGroupResponse.typeUrl || typeof o.group_id === 'bigint');
+    return o && (o.$typeUrl === MsgCreateGroupResponse.typeUrl || typeof o.group_id === "bigint");
   },
   encode(message: MsgCreateGroupResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.groupId !== BigInt(0)) {
@@ -925,12 +925,12 @@ export const MsgCreateGroupResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.groupId = reader.uint64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.groupId = reader.uint64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -957,7 +957,7 @@ export const MsgCreateGroupResponse = {
   },
   toAminoMsg(message: MsgCreateGroupResponse): MsgCreateGroupResponseAminoMsg {
     return {
-      type: 'cosmos-sdk/MsgCreateGroupResponse',
+      type: "cosmos-sdk/MsgCreateGroupResponse",
       value: MsgCreateGroupResponse.toAmino(message)
     };
   },
@@ -969,7 +969,7 @@ export const MsgCreateGroupResponse = {
   },
   toProtoMsg(message: MsgCreateGroupResponse): MsgCreateGroupResponseProtoMsg {
     return {
-      typeUrl: '/cosmos.group.v1.MsgCreateGroupResponse',
+      typeUrl: "/cosmos.group.v1.MsgCreateGroupResponse",
       value: MsgCreateGroupResponse.encode(message).finish()
     };
   }
@@ -978,25 +978,25 @@ GlobalDecoderRegistry.register(MsgCreateGroupResponse.typeUrl, MsgCreateGroupRes
 GlobalDecoderRegistry.registerAminoProtoMapping(MsgCreateGroupResponse.aminoType, MsgCreateGroupResponse.typeUrl);
 function createBaseMsgUpdateGroupMembers(): MsgUpdateGroupMembers {
   return {
-    admin: '',
+    admin: "",
     groupId: BigInt(0),
     memberUpdates: []
   };
 }
 export const MsgUpdateGroupMembers = {
-  typeUrl: '/cosmos.group.v1.MsgUpdateGroupMembers',
-  aminoType: 'cosmos-sdk/MsgUpdateGroupMembers',
+  typeUrl: "/cosmos.group.v1.MsgUpdateGroupMembers",
+  aminoType: "cosmos-sdk/MsgUpdateGroupMembers",
   is(o: any): o is MsgUpdateGroupMembers {
-    return o && (o.$typeUrl === MsgUpdateGroupMembers.typeUrl || typeof o.admin === 'string' && typeof o.groupId === 'bigint' && Array.isArray(o.memberUpdates) && (!o.memberUpdates.length || Member.is(o.memberUpdates[0])));
+    return o && (o.$typeUrl === MsgUpdateGroupMembers.typeUrl || typeof o.admin === "string" && typeof o.groupId === "bigint" && Array.isArray(o.memberUpdates) && (!o.memberUpdates.length || Member.is(o.memberUpdates[0])));
   },
   isSDK(o: any): o is MsgUpdateGroupMembersSDKType {
-    return o && (o.$typeUrl === MsgUpdateGroupMembers.typeUrl || typeof o.admin === 'string' && typeof o.group_id === 'bigint' && Array.isArray(o.member_updates) && (!o.member_updates.length || Member.isSDK(o.member_updates[0])));
+    return o && (o.$typeUrl === MsgUpdateGroupMembers.typeUrl || typeof o.admin === "string" && typeof o.group_id === "bigint" && Array.isArray(o.member_updates) && (!o.member_updates.length || Member.isSDK(o.member_updates[0])));
   },
   isAmino(o: any): o is MsgUpdateGroupMembersAmino {
-    return o && (o.$typeUrl === MsgUpdateGroupMembers.typeUrl || typeof o.admin === 'string' && typeof o.group_id === 'bigint' && Array.isArray(o.member_updates) && (!o.member_updates.length || Member.isAmino(o.member_updates[0])));
+    return o && (o.$typeUrl === MsgUpdateGroupMembers.typeUrl || typeof o.admin === "string" && typeof o.group_id === "bigint" && Array.isArray(o.member_updates) && (!o.member_updates.length || Member.isAmino(o.member_updates[0])));
   },
   encode(message: MsgUpdateGroupMembers, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.admin !== '') {
+    if (message.admin !== "") {
       writer.uint32(10).string(message.admin);
     }
     if (message.groupId !== BigInt(0)) {
@@ -1014,25 +1014,25 @@ export const MsgUpdateGroupMembers = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.admin = reader.string();
-        break;
-      case 2:
-        message.groupId = reader.uint64();
-        break;
-      case 3:
-        message.memberUpdates.push(Member.decode(reader, reader.uint32()));
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.admin = reader.string();
+          break;
+        case 2:
+          message.groupId = reader.uint64();
+          break;
+        case 3:
+          message.memberUpdates.push(Member.decode(reader, reader.uint32()));
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<MsgUpdateGroupMembers>): MsgUpdateGroupMembers {
     const message = createBaseMsgUpdateGroupMembers();
-    message.admin = object.admin ?? '';
+    message.admin = object.admin ?? "";
     message.groupId = object.groupId !== undefined && object.groupId !== null ? BigInt(object.groupId.toString()) : BigInt(0);
     message.memberUpdates = object.memberUpdates?.map(e => Member.fromPartial(e)) || [];
     return message;
@@ -1050,7 +1050,7 @@ export const MsgUpdateGroupMembers = {
   },
   toAmino(message: MsgUpdateGroupMembers): MsgUpdateGroupMembersAmino {
     const obj: any = {};
-    obj.admin = message.admin === '' ? undefined : message.admin;
+    obj.admin = message.admin === "" ? undefined : message.admin;
     obj.group_id = message.groupId !== BigInt(0) ? message.groupId.toString() : undefined;
     if (message.memberUpdates) {
       obj.member_updates = message.memberUpdates.map(e => e ? Member.toAmino(e) : undefined);
@@ -1064,7 +1064,7 @@ export const MsgUpdateGroupMembers = {
   },
   toAminoMsg(message: MsgUpdateGroupMembers): MsgUpdateGroupMembersAminoMsg {
     return {
-      type: 'cosmos-sdk/MsgUpdateGroupMembers',
+      type: "cosmos-sdk/MsgUpdateGroupMembers",
       value: MsgUpdateGroupMembers.toAmino(message)
     };
   },
@@ -1076,7 +1076,7 @@ export const MsgUpdateGroupMembers = {
   },
   toProtoMsg(message: MsgUpdateGroupMembers): MsgUpdateGroupMembersProtoMsg {
     return {
-      typeUrl: '/cosmos.group.v1.MsgUpdateGroupMembers',
+      typeUrl: "/cosmos.group.v1.MsgUpdateGroupMembers",
       value: MsgUpdateGroupMembers.encode(message).finish()
     };
   }
@@ -1087,8 +1087,8 @@ function createBaseMsgUpdateGroupMembersResponse(): MsgUpdateGroupMembersRespons
   return {};
 }
 export const MsgUpdateGroupMembersResponse = {
-  typeUrl: '/cosmos.group.v1.MsgUpdateGroupMembersResponse',
-  aminoType: 'cosmos-sdk/MsgUpdateGroupMembersResponse',
+  typeUrl: "/cosmos.group.v1.MsgUpdateGroupMembersResponse",
+  aminoType: "cosmos-sdk/MsgUpdateGroupMembersResponse",
   is(o: any): o is MsgUpdateGroupMembersResponse {
     return o && o.$typeUrl === MsgUpdateGroupMembersResponse.typeUrl;
   },
@@ -1108,9 +1108,9 @@ export const MsgUpdateGroupMembersResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      default:
-        reader.skipType(tag & 7);
-        break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1132,7 +1132,7 @@ export const MsgUpdateGroupMembersResponse = {
   },
   toAminoMsg(message: MsgUpdateGroupMembersResponse): MsgUpdateGroupMembersResponseAminoMsg {
     return {
-      type: 'cosmos-sdk/MsgUpdateGroupMembersResponse',
+      type: "cosmos-sdk/MsgUpdateGroupMembersResponse",
       value: MsgUpdateGroupMembersResponse.toAmino(message)
     };
   },
@@ -1144,7 +1144,7 @@ export const MsgUpdateGroupMembersResponse = {
   },
   toProtoMsg(message: MsgUpdateGroupMembersResponse): MsgUpdateGroupMembersResponseProtoMsg {
     return {
-      typeUrl: '/cosmos.group.v1.MsgUpdateGroupMembersResponse',
+      typeUrl: "/cosmos.group.v1.MsgUpdateGroupMembersResponse",
       value: MsgUpdateGroupMembersResponse.encode(message).finish()
     };
   }
@@ -1153,31 +1153,31 @@ GlobalDecoderRegistry.register(MsgUpdateGroupMembersResponse.typeUrl, MsgUpdateG
 GlobalDecoderRegistry.registerAminoProtoMapping(MsgUpdateGroupMembersResponse.aminoType, MsgUpdateGroupMembersResponse.typeUrl);
 function createBaseMsgUpdateGroupAdmin(): MsgUpdateGroupAdmin {
   return {
-    admin: '',
+    admin: "",
     groupId: BigInt(0),
-    newAdmin: ''
+    newAdmin: ""
   };
 }
 export const MsgUpdateGroupAdmin = {
-  typeUrl: '/cosmos.group.v1.MsgUpdateGroupAdmin',
-  aminoType: 'cosmos-sdk/MsgUpdateGroupAdmin',
+  typeUrl: "/cosmos.group.v1.MsgUpdateGroupAdmin",
+  aminoType: "cosmos-sdk/MsgUpdateGroupAdmin",
   is(o: any): o is MsgUpdateGroupAdmin {
-    return o && (o.$typeUrl === MsgUpdateGroupAdmin.typeUrl || typeof o.admin === 'string' && typeof o.groupId === 'bigint' && typeof o.newAdmin === 'string');
+    return o && (o.$typeUrl === MsgUpdateGroupAdmin.typeUrl || typeof o.admin === "string" && typeof o.groupId === "bigint" && typeof o.newAdmin === "string");
   },
   isSDK(o: any): o is MsgUpdateGroupAdminSDKType {
-    return o && (o.$typeUrl === MsgUpdateGroupAdmin.typeUrl || typeof o.admin === 'string' && typeof o.group_id === 'bigint' && typeof o.new_admin === 'string');
+    return o && (o.$typeUrl === MsgUpdateGroupAdmin.typeUrl || typeof o.admin === "string" && typeof o.group_id === "bigint" && typeof o.new_admin === "string");
   },
   isAmino(o: any): o is MsgUpdateGroupAdminAmino {
-    return o && (o.$typeUrl === MsgUpdateGroupAdmin.typeUrl || typeof o.admin === 'string' && typeof o.group_id === 'bigint' && typeof o.new_admin === 'string');
+    return o && (o.$typeUrl === MsgUpdateGroupAdmin.typeUrl || typeof o.admin === "string" && typeof o.group_id === "bigint" && typeof o.new_admin === "string");
   },
   encode(message: MsgUpdateGroupAdmin, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.admin !== '') {
+    if (message.admin !== "") {
       writer.uint32(10).string(message.admin);
     }
     if (message.groupId !== BigInt(0)) {
       writer.uint32(16).uint64(message.groupId);
     }
-    if (message.newAdmin !== '') {
+    if (message.newAdmin !== "") {
       writer.uint32(26).string(message.newAdmin);
     }
     return writer;
@@ -1189,27 +1189,27 @@ export const MsgUpdateGroupAdmin = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.admin = reader.string();
-        break;
-      case 2:
-        message.groupId = reader.uint64();
-        break;
-      case 3:
-        message.newAdmin = reader.string();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.admin = reader.string();
+          break;
+        case 2:
+          message.groupId = reader.uint64();
+          break;
+        case 3:
+          message.newAdmin = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<MsgUpdateGroupAdmin>): MsgUpdateGroupAdmin {
     const message = createBaseMsgUpdateGroupAdmin();
-    message.admin = object.admin ?? '';
+    message.admin = object.admin ?? "";
     message.groupId = object.groupId !== undefined && object.groupId !== null ? BigInt(object.groupId.toString()) : BigInt(0);
-    message.newAdmin = object.newAdmin ?? '';
+    message.newAdmin = object.newAdmin ?? "";
     return message;
   },
   fromAmino(object: MsgUpdateGroupAdminAmino): MsgUpdateGroupAdmin {
@@ -1227,9 +1227,9 @@ export const MsgUpdateGroupAdmin = {
   },
   toAmino(message: MsgUpdateGroupAdmin): MsgUpdateGroupAdminAmino {
     const obj: any = {};
-    obj.admin = message.admin === '' ? undefined : message.admin;
+    obj.admin = message.admin === "" ? undefined : message.admin;
     obj.group_id = message.groupId !== BigInt(0) ? message.groupId.toString() : undefined;
-    obj.new_admin = message.newAdmin === '' ? undefined : message.newAdmin;
+    obj.new_admin = message.newAdmin === "" ? undefined : message.newAdmin;
     return obj;
   },
   fromAminoMsg(object: MsgUpdateGroupAdminAminoMsg): MsgUpdateGroupAdmin {
@@ -1237,7 +1237,7 @@ export const MsgUpdateGroupAdmin = {
   },
   toAminoMsg(message: MsgUpdateGroupAdmin): MsgUpdateGroupAdminAminoMsg {
     return {
-      type: 'cosmos-sdk/MsgUpdateGroupAdmin',
+      type: "cosmos-sdk/MsgUpdateGroupAdmin",
       value: MsgUpdateGroupAdmin.toAmino(message)
     };
   },
@@ -1249,7 +1249,7 @@ export const MsgUpdateGroupAdmin = {
   },
   toProtoMsg(message: MsgUpdateGroupAdmin): MsgUpdateGroupAdminProtoMsg {
     return {
-      typeUrl: '/cosmos.group.v1.MsgUpdateGroupAdmin',
+      typeUrl: "/cosmos.group.v1.MsgUpdateGroupAdmin",
       value: MsgUpdateGroupAdmin.encode(message).finish()
     };
   }
@@ -1260,8 +1260,8 @@ function createBaseMsgUpdateGroupAdminResponse(): MsgUpdateGroupAdminResponse {
   return {};
 }
 export const MsgUpdateGroupAdminResponse = {
-  typeUrl: '/cosmos.group.v1.MsgUpdateGroupAdminResponse',
-  aminoType: 'cosmos-sdk/MsgUpdateGroupAdminResponse',
+  typeUrl: "/cosmos.group.v1.MsgUpdateGroupAdminResponse",
+  aminoType: "cosmos-sdk/MsgUpdateGroupAdminResponse",
   is(o: any): o is MsgUpdateGroupAdminResponse {
     return o && o.$typeUrl === MsgUpdateGroupAdminResponse.typeUrl;
   },
@@ -1281,9 +1281,9 @@ export const MsgUpdateGroupAdminResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      default:
-        reader.skipType(tag & 7);
-        break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1305,7 +1305,7 @@ export const MsgUpdateGroupAdminResponse = {
   },
   toAminoMsg(message: MsgUpdateGroupAdminResponse): MsgUpdateGroupAdminResponseAminoMsg {
     return {
-      type: 'cosmos-sdk/MsgUpdateGroupAdminResponse',
+      type: "cosmos-sdk/MsgUpdateGroupAdminResponse",
       value: MsgUpdateGroupAdminResponse.toAmino(message)
     };
   },
@@ -1317,7 +1317,7 @@ export const MsgUpdateGroupAdminResponse = {
   },
   toProtoMsg(message: MsgUpdateGroupAdminResponse): MsgUpdateGroupAdminResponseProtoMsg {
     return {
-      typeUrl: '/cosmos.group.v1.MsgUpdateGroupAdminResponse',
+      typeUrl: "/cosmos.group.v1.MsgUpdateGroupAdminResponse",
       value: MsgUpdateGroupAdminResponse.encode(message).finish()
     };
   }
@@ -1326,31 +1326,31 @@ GlobalDecoderRegistry.register(MsgUpdateGroupAdminResponse.typeUrl, MsgUpdateGro
 GlobalDecoderRegistry.registerAminoProtoMapping(MsgUpdateGroupAdminResponse.aminoType, MsgUpdateGroupAdminResponse.typeUrl);
 function createBaseMsgUpdateGroupMetadata(): MsgUpdateGroupMetadata {
   return {
-    admin: '',
+    admin: "",
     groupId: BigInt(0),
-    metadata: ''
+    metadata: ""
   };
 }
 export const MsgUpdateGroupMetadata = {
-  typeUrl: '/cosmos.group.v1.MsgUpdateGroupMetadata',
-  aminoType: 'cosmos-sdk/MsgUpdateGroupMetadata',
+  typeUrl: "/cosmos.group.v1.MsgUpdateGroupMetadata",
+  aminoType: "cosmos-sdk/MsgUpdateGroupMetadata",
   is(o: any): o is MsgUpdateGroupMetadata {
-    return o && (o.$typeUrl === MsgUpdateGroupMetadata.typeUrl || typeof o.admin === 'string' && typeof o.groupId === 'bigint' && typeof o.metadata === 'string');
+    return o && (o.$typeUrl === MsgUpdateGroupMetadata.typeUrl || typeof o.admin === "string" && typeof o.groupId === "bigint" && typeof o.metadata === "string");
   },
   isSDK(o: any): o is MsgUpdateGroupMetadataSDKType {
-    return o && (o.$typeUrl === MsgUpdateGroupMetadata.typeUrl || typeof o.admin === 'string' && typeof o.group_id === 'bigint' && typeof o.metadata === 'string');
+    return o && (o.$typeUrl === MsgUpdateGroupMetadata.typeUrl || typeof o.admin === "string" && typeof o.group_id === "bigint" && typeof o.metadata === "string");
   },
   isAmino(o: any): o is MsgUpdateGroupMetadataAmino {
-    return o && (o.$typeUrl === MsgUpdateGroupMetadata.typeUrl || typeof o.admin === 'string' && typeof o.group_id === 'bigint' && typeof o.metadata === 'string');
+    return o && (o.$typeUrl === MsgUpdateGroupMetadata.typeUrl || typeof o.admin === "string" && typeof o.group_id === "bigint" && typeof o.metadata === "string");
   },
   encode(message: MsgUpdateGroupMetadata, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.admin !== '') {
+    if (message.admin !== "") {
       writer.uint32(10).string(message.admin);
     }
     if (message.groupId !== BigInt(0)) {
       writer.uint32(16).uint64(message.groupId);
     }
-    if (message.metadata !== '') {
+    if (message.metadata !== "") {
       writer.uint32(26).string(message.metadata);
     }
     return writer;
@@ -1362,27 +1362,27 @@ export const MsgUpdateGroupMetadata = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.admin = reader.string();
-        break;
-      case 2:
-        message.groupId = reader.uint64();
-        break;
-      case 3:
-        message.metadata = reader.string();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.admin = reader.string();
+          break;
+        case 2:
+          message.groupId = reader.uint64();
+          break;
+        case 3:
+          message.metadata = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<MsgUpdateGroupMetadata>): MsgUpdateGroupMetadata {
     const message = createBaseMsgUpdateGroupMetadata();
-    message.admin = object.admin ?? '';
+    message.admin = object.admin ?? "";
     message.groupId = object.groupId !== undefined && object.groupId !== null ? BigInt(object.groupId.toString()) : BigInt(0);
-    message.metadata = object.metadata ?? '';
+    message.metadata = object.metadata ?? "";
     return message;
   },
   fromAmino(object: MsgUpdateGroupMetadataAmino): MsgUpdateGroupMetadata {
@@ -1400,9 +1400,9 @@ export const MsgUpdateGroupMetadata = {
   },
   toAmino(message: MsgUpdateGroupMetadata): MsgUpdateGroupMetadataAmino {
     const obj: any = {};
-    obj.admin = message.admin === '' ? undefined : message.admin;
+    obj.admin = message.admin === "" ? undefined : message.admin;
     obj.group_id = message.groupId !== BigInt(0) ? message.groupId.toString() : undefined;
-    obj.metadata = message.metadata === '' ? undefined : message.metadata;
+    obj.metadata = message.metadata === "" ? undefined : message.metadata;
     return obj;
   },
   fromAminoMsg(object: MsgUpdateGroupMetadataAminoMsg): MsgUpdateGroupMetadata {
@@ -1410,7 +1410,7 @@ export const MsgUpdateGroupMetadata = {
   },
   toAminoMsg(message: MsgUpdateGroupMetadata): MsgUpdateGroupMetadataAminoMsg {
     return {
-      type: 'cosmos-sdk/MsgUpdateGroupMetadata',
+      type: "cosmos-sdk/MsgUpdateGroupMetadata",
       value: MsgUpdateGroupMetadata.toAmino(message)
     };
   },
@@ -1422,7 +1422,7 @@ export const MsgUpdateGroupMetadata = {
   },
   toProtoMsg(message: MsgUpdateGroupMetadata): MsgUpdateGroupMetadataProtoMsg {
     return {
-      typeUrl: '/cosmos.group.v1.MsgUpdateGroupMetadata',
+      typeUrl: "/cosmos.group.v1.MsgUpdateGroupMetadata",
       value: MsgUpdateGroupMetadata.encode(message).finish()
     };
   }
@@ -1433,8 +1433,8 @@ function createBaseMsgUpdateGroupMetadataResponse(): MsgUpdateGroupMetadataRespo
   return {};
 }
 export const MsgUpdateGroupMetadataResponse = {
-  typeUrl: '/cosmos.group.v1.MsgUpdateGroupMetadataResponse',
-  aminoType: 'cosmos-sdk/MsgUpdateGroupMetadataResponse',
+  typeUrl: "/cosmos.group.v1.MsgUpdateGroupMetadataResponse",
+  aminoType: "cosmos-sdk/MsgUpdateGroupMetadataResponse",
   is(o: any): o is MsgUpdateGroupMetadataResponse {
     return o && o.$typeUrl === MsgUpdateGroupMetadataResponse.typeUrl;
   },
@@ -1454,9 +1454,9 @@ export const MsgUpdateGroupMetadataResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      default:
-        reader.skipType(tag & 7);
-        break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1478,7 +1478,7 @@ export const MsgUpdateGroupMetadataResponse = {
   },
   toAminoMsg(message: MsgUpdateGroupMetadataResponse): MsgUpdateGroupMetadataResponseAminoMsg {
     return {
-      type: 'cosmos-sdk/MsgUpdateGroupMetadataResponse',
+      type: "cosmos-sdk/MsgUpdateGroupMetadataResponse",
       value: MsgUpdateGroupMetadataResponse.toAmino(message)
     };
   },
@@ -1490,7 +1490,7 @@ export const MsgUpdateGroupMetadataResponse = {
   },
   toProtoMsg(message: MsgUpdateGroupMetadataResponse): MsgUpdateGroupMetadataResponseProtoMsg {
     return {
-      typeUrl: '/cosmos.group.v1.MsgUpdateGroupMetadataResponse',
+      typeUrl: "/cosmos.group.v1.MsgUpdateGroupMetadataResponse",
       value: MsgUpdateGroupMetadataResponse.encode(message).finish()
     };
   }
@@ -1499,32 +1499,32 @@ GlobalDecoderRegistry.register(MsgUpdateGroupMetadataResponse.typeUrl, MsgUpdate
 GlobalDecoderRegistry.registerAminoProtoMapping(MsgUpdateGroupMetadataResponse.aminoType, MsgUpdateGroupMetadataResponse.typeUrl);
 function createBaseMsgCreateGroupPolicy(): MsgCreateGroupPolicy {
   return {
-    admin: '',
+    admin: "",
     groupId: BigInt(0),
-    metadata: '',
+    metadata: "",
     decisionPolicy: undefined
   };
 }
 export const MsgCreateGroupPolicy = {
-  typeUrl: '/cosmos.group.v1.MsgCreateGroupPolicy',
-  aminoType: 'cosmos-sdk/MsgCreateGroupPolicy',
+  typeUrl: "/cosmos.group.v1.MsgCreateGroupPolicy",
+  aminoType: "cosmos-sdk/MsgCreateGroupPolicy",
   is(o: any): o is MsgCreateGroupPolicy {
-    return o && (o.$typeUrl === MsgCreateGroupPolicy.typeUrl || typeof o.admin === 'string' && typeof o.groupId === 'bigint' && typeof o.metadata === 'string');
+    return o && (o.$typeUrl === MsgCreateGroupPolicy.typeUrl || typeof o.admin === "string" && typeof o.groupId === "bigint" && typeof o.metadata === "string");
   },
   isSDK(o: any): o is MsgCreateGroupPolicySDKType {
-    return o && (o.$typeUrl === MsgCreateGroupPolicy.typeUrl || typeof o.admin === 'string' && typeof o.group_id === 'bigint' && typeof o.metadata === 'string');
+    return o && (o.$typeUrl === MsgCreateGroupPolicy.typeUrl || typeof o.admin === "string" && typeof o.group_id === "bigint" && typeof o.metadata === "string");
   },
   isAmino(o: any): o is MsgCreateGroupPolicyAmino {
-    return o && (o.$typeUrl === MsgCreateGroupPolicy.typeUrl || typeof o.admin === 'string' && typeof o.group_id === 'bigint' && typeof o.metadata === 'string');
+    return o && (o.$typeUrl === MsgCreateGroupPolicy.typeUrl || typeof o.admin === "string" && typeof o.group_id === "bigint" && typeof o.metadata === "string");
   },
   encode(message: MsgCreateGroupPolicy, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.admin !== '') {
+    if (message.admin !== "") {
       writer.uint32(10).string(message.admin);
     }
     if (message.groupId !== BigInt(0)) {
       writer.uint32(16).uint64(message.groupId);
     }
-    if (message.metadata !== '') {
+    if (message.metadata !== "") {
       writer.uint32(26).string(message.metadata);
     }
     if (message.decisionPolicy !== undefined) {
@@ -1539,30 +1539,30 @@ export const MsgCreateGroupPolicy = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.admin = reader.string();
-        break;
-      case 2:
-        message.groupId = reader.uint64();
-        break;
-      case 3:
-        message.metadata = reader.string();
-        break;
-      case 4:
-        message.decisionPolicy = GlobalDecoderRegistry.unwrapAny(reader);
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.admin = reader.string();
+          break;
+        case 2:
+          message.groupId = reader.uint64();
+          break;
+        case 3:
+          message.metadata = reader.string();
+          break;
+        case 4:
+          message.decisionPolicy = GlobalDecoderRegistry.unwrapAny(reader);
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<MsgCreateGroupPolicy>): MsgCreateGroupPolicy {
     const message = createBaseMsgCreateGroupPolicy();
-    message.admin = object.admin ?? '';
+    message.admin = object.admin ?? "";
     message.groupId = object.groupId !== undefined && object.groupId !== null ? BigInt(object.groupId.toString()) : BigInt(0);
-    message.metadata = object.metadata ?? '';
+    message.metadata = object.metadata ?? "";
     message.decisionPolicy = object.decisionPolicy !== undefined && object.decisionPolicy !== null ? GlobalDecoderRegistry.fromPartial(object.decisionPolicy) : undefined;
     return message;
   },
@@ -1584,9 +1584,9 @@ export const MsgCreateGroupPolicy = {
   },
   toAmino(message: MsgCreateGroupPolicy): MsgCreateGroupPolicyAmino {
     const obj: any = {};
-    obj.admin = message.admin === '' ? undefined : message.admin;
+    obj.admin = message.admin === "" ? undefined : message.admin;
     obj.group_id = message.groupId !== BigInt(0) ? message.groupId.toString() : undefined;
-    obj.metadata = message.metadata === '' ? undefined : message.metadata;
+    obj.metadata = message.metadata === "" ? undefined : message.metadata;
     obj.decision_policy = message.decisionPolicy ? GlobalDecoderRegistry.toAminoMsg(message.decisionPolicy) : undefined;
     return obj;
   },
@@ -1595,7 +1595,7 @@ export const MsgCreateGroupPolicy = {
   },
   toAminoMsg(message: MsgCreateGroupPolicy): MsgCreateGroupPolicyAminoMsg {
     return {
-      type: 'cosmos-sdk/MsgCreateGroupPolicy',
+      type: "cosmos-sdk/MsgCreateGroupPolicy",
       value: MsgCreateGroupPolicy.toAmino(message)
     };
   },
@@ -1607,7 +1607,7 @@ export const MsgCreateGroupPolicy = {
   },
   toProtoMsg(message: MsgCreateGroupPolicy): MsgCreateGroupPolicyProtoMsg {
     return {
-      typeUrl: '/cosmos.group.v1.MsgCreateGroupPolicy',
+      typeUrl: "/cosmos.group.v1.MsgCreateGroupPolicy",
       value: MsgCreateGroupPolicy.encode(message).finish()
     };
   }
@@ -1616,23 +1616,23 @@ GlobalDecoderRegistry.register(MsgCreateGroupPolicy.typeUrl, MsgCreateGroupPolic
 GlobalDecoderRegistry.registerAminoProtoMapping(MsgCreateGroupPolicy.aminoType, MsgCreateGroupPolicy.typeUrl);
 function createBaseMsgCreateGroupPolicyResponse(): MsgCreateGroupPolicyResponse {
   return {
-    address: ''
+    address: ""
   };
 }
 export const MsgCreateGroupPolicyResponse = {
-  typeUrl: '/cosmos.group.v1.MsgCreateGroupPolicyResponse',
-  aminoType: 'cosmos-sdk/MsgCreateGroupPolicyResponse',
+  typeUrl: "/cosmos.group.v1.MsgCreateGroupPolicyResponse",
+  aminoType: "cosmos-sdk/MsgCreateGroupPolicyResponse",
   is(o: any): o is MsgCreateGroupPolicyResponse {
-    return o && (o.$typeUrl === MsgCreateGroupPolicyResponse.typeUrl || typeof o.address === 'string');
+    return o && (o.$typeUrl === MsgCreateGroupPolicyResponse.typeUrl || typeof o.address === "string");
   },
   isSDK(o: any): o is MsgCreateGroupPolicyResponseSDKType {
-    return o && (o.$typeUrl === MsgCreateGroupPolicyResponse.typeUrl || typeof o.address === 'string');
+    return o && (o.$typeUrl === MsgCreateGroupPolicyResponse.typeUrl || typeof o.address === "string");
   },
   isAmino(o: any): o is MsgCreateGroupPolicyResponseAmino {
-    return o && (o.$typeUrl === MsgCreateGroupPolicyResponse.typeUrl || typeof o.address === 'string');
+    return o && (o.$typeUrl === MsgCreateGroupPolicyResponse.typeUrl || typeof o.address === "string");
   },
   encode(message: MsgCreateGroupPolicyResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.address !== '') {
+    if (message.address !== "") {
       writer.uint32(10).string(message.address);
     }
     return writer;
@@ -1644,19 +1644,19 @@ export const MsgCreateGroupPolicyResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.address = reader.string();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.address = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<MsgCreateGroupPolicyResponse>): MsgCreateGroupPolicyResponse {
     const message = createBaseMsgCreateGroupPolicyResponse();
-    message.address = object.address ?? '';
+    message.address = object.address ?? "";
     return message;
   },
   fromAmino(object: MsgCreateGroupPolicyResponseAmino): MsgCreateGroupPolicyResponse {
@@ -1668,7 +1668,7 @@ export const MsgCreateGroupPolicyResponse = {
   },
   toAmino(message: MsgCreateGroupPolicyResponse): MsgCreateGroupPolicyResponseAmino {
     const obj: any = {};
-    obj.address = message.address === '' ? undefined : message.address;
+    obj.address = message.address === "" ? undefined : message.address;
     return obj;
   },
   fromAminoMsg(object: MsgCreateGroupPolicyResponseAminoMsg): MsgCreateGroupPolicyResponse {
@@ -1676,7 +1676,7 @@ export const MsgCreateGroupPolicyResponse = {
   },
   toAminoMsg(message: MsgCreateGroupPolicyResponse): MsgCreateGroupPolicyResponseAminoMsg {
     return {
-      type: 'cosmos-sdk/MsgCreateGroupPolicyResponse',
+      type: "cosmos-sdk/MsgCreateGroupPolicyResponse",
       value: MsgCreateGroupPolicyResponse.toAmino(message)
     };
   },
@@ -1688,7 +1688,7 @@ export const MsgCreateGroupPolicyResponse = {
   },
   toProtoMsg(message: MsgCreateGroupPolicyResponse): MsgCreateGroupPolicyResponseProtoMsg {
     return {
-      typeUrl: '/cosmos.group.v1.MsgCreateGroupPolicyResponse',
+      typeUrl: "/cosmos.group.v1.MsgCreateGroupPolicyResponse",
       value: MsgCreateGroupPolicyResponse.encode(message).finish()
     };
   }
@@ -1697,31 +1697,31 @@ GlobalDecoderRegistry.register(MsgCreateGroupPolicyResponse.typeUrl, MsgCreateGr
 GlobalDecoderRegistry.registerAminoProtoMapping(MsgCreateGroupPolicyResponse.aminoType, MsgCreateGroupPolicyResponse.typeUrl);
 function createBaseMsgUpdateGroupPolicyAdmin(): MsgUpdateGroupPolicyAdmin {
   return {
-    admin: '',
-    address: '',
-    newAdmin: ''
+    admin: "",
+    address: "",
+    newAdmin: ""
   };
 }
 export const MsgUpdateGroupPolicyAdmin = {
-  typeUrl: '/cosmos.group.v1.MsgUpdateGroupPolicyAdmin',
-  aminoType: 'cosmos-sdk/MsgUpdateGroupPolicyAdmin',
+  typeUrl: "/cosmos.group.v1.MsgUpdateGroupPolicyAdmin",
+  aminoType: "cosmos-sdk/MsgUpdateGroupPolicyAdmin",
   is(o: any): o is MsgUpdateGroupPolicyAdmin {
-    return o && (o.$typeUrl === MsgUpdateGroupPolicyAdmin.typeUrl || typeof o.admin === 'string' && typeof o.address === 'string' && typeof o.newAdmin === 'string');
+    return o && (o.$typeUrl === MsgUpdateGroupPolicyAdmin.typeUrl || typeof o.admin === "string" && typeof o.address === "string" && typeof o.newAdmin === "string");
   },
   isSDK(o: any): o is MsgUpdateGroupPolicyAdminSDKType {
-    return o && (o.$typeUrl === MsgUpdateGroupPolicyAdmin.typeUrl || typeof o.admin === 'string' && typeof o.address === 'string' && typeof o.new_admin === 'string');
+    return o && (o.$typeUrl === MsgUpdateGroupPolicyAdmin.typeUrl || typeof o.admin === "string" && typeof o.address === "string" && typeof o.new_admin === "string");
   },
   isAmino(o: any): o is MsgUpdateGroupPolicyAdminAmino {
-    return o && (o.$typeUrl === MsgUpdateGroupPolicyAdmin.typeUrl || typeof o.admin === 'string' && typeof o.address === 'string' && typeof o.new_admin === 'string');
+    return o && (o.$typeUrl === MsgUpdateGroupPolicyAdmin.typeUrl || typeof o.admin === "string" && typeof o.address === "string" && typeof o.new_admin === "string");
   },
   encode(message: MsgUpdateGroupPolicyAdmin, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.admin !== '') {
+    if (message.admin !== "") {
       writer.uint32(10).string(message.admin);
     }
-    if (message.address !== '') {
+    if (message.address !== "") {
       writer.uint32(18).string(message.address);
     }
-    if (message.newAdmin !== '') {
+    if (message.newAdmin !== "") {
       writer.uint32(26).string(message.newAdmin);
     }
     return writer;
@@ -1733,27 +1733,27 @@ export const MsgUpdateGroupPolicyAdmin = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.admin = reader.string();
-        break;
-      case 2:
-        message.address = reader.string();
-        break;
-      case 3:
-        message.newAdmin = reader.string();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.admin = reader.string();
+          break;
+        case 2:
+          message.address = reader.string();
+          break;
+        case 3:
+          message.newAdmin = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<MsgUpdateGroupPolicyAdmin>): MsgUpdateGroupPolicyAdmin {
     const message = createBaseMsgUpdateGroupPolicyAdmin();
-    message.admin = object.admin ?? '';
-    message.address = object.address ?? '';
-    message.newAdmin = object.newAdmin ?? '';
+    message.admin = object.admin ?? "";
+    message.address = object.address ?? "";
+    message.newAdmin = object.newAdmin ?? "";
     return message;
   },
   fromAmino(object: MsgUpdateGroupPolicyAdminAmino): MsgUpdateGroupPolicyAdmin {
@@ -1771,9 +1771,9 @@ export const MsgUpdateGroupPolicyAdmin = {
   },
   toAmino(message: MsgUpdateGroupPolicyAdmin): MsgUpdateGroupPolicyAdminAmino {
     const obj: any = {};
-    obj.admin = message.admin === '' ? undefined : message.admin;
-    obj.address = message.address === '' ? undefined : message.address;
-    obj.new_admin = message.newAdmin === '' ? undefined : message.newAdmin;
+    obj.admin = message.admin === "" ? undefined : message.admin;
+    obj.address = message.address === "" ? undefined : message.address;
+    obj.new_admin = message.newAdmin === "" ? undefined : message.newAdmin;
     return obj;
   },
   fromAminoMsg(object: MsgUpdateGroupPolicyAdminAminoMsg): MsgUpdateGroupPolicyAdmin {
@@ -1781,7 +1781,7 @@ export const MsgUpdateGroupPolicyAdmin = {
   },
   toAminoMsg(message: MsgUpdateGroupPolicyAdmin): MsgUpdateGroupPolicyAdminAminoMsg {
     return {
-      type: 'cosmos-sdk/MsgUpdateGroupPolicyAdmin',
+      type: "cosmos-sdk/MsgUpdateGroupPolicyAdmin",
       value: MsgUpdateGroupPolicyAdmin.toAmino(message)
     };
   },
@@ -1793,7 +1793,7 @@ export const MsgUpdateGroupPolicyAdmin = {
   },
   toProtoMsg(message: MsgUpdateGroupPolicyAdmin): MsgUpdateGroupPolicyAdminProtoMsg {
     return {
-      typeUrl: '/cosmos.group.v1.MsgUpdateGroupPolicyAdmin',
+      typeUrl: "/cosmos.group.v1.MsgUpdateGroupPolicyAdmin",
       value: MsgUpdateGroupPolicyAdmin.encode(message).finish()
     };
   }
@@ -1802,37 +1802,37 @@ GlobalDecoderRegistry.register(MsgUpdateGroupPolicyAdmin.typeUrl, MsgUpdateGroup
 GlobalDecoderRegistry.registerAminoProtoMapping(MsgUpdateGroupPolicyAdmin.aminoType, MsgUpdateGroupPolicyAdmin.typeUrl);
 function createBaseMsgCreateGroupWithPolicy(): MsgCreateGroupWithPolicy {
   return {
-    admin: '',
+    admin: "",
     members: [],
-    groupMetadata: '',
-    groupPolicyMetadata: '',
+    groupMetadata: "",
+    groupPolicyMetadata: "",
     groupPolicyAsAdmin: false,
     decisionPolicy: undefined
   };
 }
 export const MsgCreateGroupWithPolicy = {
-  typeUrl: '/cosmos.group.v1.MsgCreateGroupWithPolicy',
-  aminoType: 'cosmos-sdk/MsgCreateGroupWithPolicy',
+  typeUrl: "/cosmos.group.v1.MsgCreateGroupWithPolicy",
+  aminoType: "cosmos-sdk/MsgCreateGroupWithPolicy",
   is(o: any): o is MsgCreateGroupWithPolicy {
-    return o && (o.$typeUrl === MsgCreateGroupWithPolicy.typeUrl || typeof o.admin === 'string' && Array.isArray(o.members) && (!o.members.length || Member.is(o.members[0])) && typeof o.groupMetadata === 'string' && typeof o.groupPolicyMetadata === 'string' && typeof o.groupPolicyAsAdmin === 'boolean');
+    return o && (o.$typeUrl === MsgCreateGroupWithPolicy.typeUrl || typeof o.admin === "string" && Array.isArray(o.members) && (!o.members.length || Member.is(o.members[0])) && typeof o.groupMetadata === "string" && typeof o.groupPolicyMetadata === "string" && typeof o.groupPolicyAsAdmin === "boolean");
   },
   isSDK(o: any): o is MsgCreateGroupWithPolicySDKType {
-    return o && (o.$typeUrl === MsgCreateGroupWithPolicy.typeUrl || typeof o.admin === 'string' && Array.isArray(o.members) && (!o.members.length || Member.isSDK(o.members[0])) && typeof o.group_metadata === 'string' && typeof o.group_policy_metadata === 'string' && typeof o.group_policy_as_admin === 'boolean');
+    return o && (o.$typeUrl === MsgCreateGroupWithPolicy.typeUrl || typeof o.admin === "string" && Array.isArray(o.members) && (!o.members.length || Member.isSDK(o.members[0])) && typeof o.group_metadata === "string" && typeof o.group_policy_metadata === "string" && typeof o.group_policy_as_admin === "boolean");
   },
   isAmino(o: any): o is MsgCreateGroupWithPolicyAmino {
-    return o && (o.$typeUrl === MsgCreateGroupWithPolicy.typeUrl || typeof o.admin === 'string' && Array.isArray(o.members) && (!o.members.length || Member.isAmino(o.members[0])) && typeof o.group_metadata === 'string' && typeof o.group_policy_metadata === 'string' && typeof o.group_policy_as_admin === 'boolean');
+    return o && (o.$typeUrl === MsgCreateGroupWithPolicy.typeUrl || typeof o.admin === "string" && Array.isArray(o.members) && (!o.members.length || Member.isAmino(o.members[0])) && typeof o.group_metadata === "string" && typeof o.group_policy_metadata === "string" && typeof o.group_policy_as_admin === "boolean");
   },
   encode(message: MsgCreateGroupWithPolicy, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.admin !== '') {
+    if (message.admin !== "") {
       writer.uint32(10).string(message.admin);
     }
     for (const v of message.members) {
       Member.encode(v!, writer.uint32(18).fork()).ldelim();
     }
-    if (message.groupMetadata !== '') {
+    if (message.groupMetadata !== "") {
       writer.uint32(26).string(message.groupMetadata);
     }
-    if (message.groupPolicyMetadata !== '') {
+    if (message.groupPolicyMetadata !== "") {
       writer.uint32(34).string(message.groupPolicyMetadata);
     }
     if (message.groupPolicyAsAdmin === true) {
@@ -1850,37 +1850,37 @@ export const MsgCreateGroupWithPolicy = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.admin = reader.string();
-        break;
-      case 2:
-        message.members.push(Member.decode(reader, reader.uint32()));
-        break;
-      case 3:
-        message.groupMetadata = reader.string();
-        break;
-      case 4:
-        message.groupPolicyMetadata = reader.string();
-        break;
-      case 5:
-        message.groupPolicyAsAdmin = reader.bool();
-        break;
-      case 6:
-        message.decisionPolicy = GlobalDecoderRegistry.unwrapAny(reader);
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.admin = reader.string();
+          break;
+        case 2:
+          message.members.push(Member.decode(reader, reader.uint32()));
+          break;
+        case 3:
+          message.groupMetadata = reader.string();
+          break;
+        case 4:
+          message.groupPolicyMetadata = reader.string();
+          break;
+        case 5:
+          message.groupPolicyAsAdmin = reader.bool();
+          break;
+        case 6:
+          message.decisionPolicy = GlobalDecoderRegistry.unwrapAny(reader);
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<MsgCreateGroupWithPolicy>): MsgCreateGroupWithPolicy {
     const message = createBaseMsgCreateGroupWithPolicy();
-    message.admin = object.admin ?? '';
+    message.admin = object.admin ?? "";
     message.members = object.members?.map(e => Member.fromPartial(e)) || [];
-    message.groupMetadata = object.groupMetadata ?? '';
-    message.groupPolicyMetadata = object.groupPolicyMetadata ?? '';
+    message.groupMetadata = object.groupMetadata ?? "";
+    message.groupPolicyMetadata = object.groupPolicyMetadata ?? "";
     message.groupPolicyAsAdmin = object.groupPolicyAsAdmin ?? false;
     message.decisionPolicy = object.decisionPolicy !== undefined && object.decisionPolicy !== null ? GlobalDecoderRegistry.fromPartial(object.decisionPolicy) : undefined;
     return message;
@@ -1907,14 +1907,14 @@ export const MsgCreateGroupWithPolicy = {
   },
   toAmino(message: MsgCreateGroupWithPolicy): MsgCreateGroupWithPolicyAmino {
     const obj: any = {};
-    obj.admin = message.admin === '' ? undefined : message.admin;
+    obj.admin = message.admin === "" ? undefined : message.admin;
     if (message.members) {
       obj.members = message.members.map(e => e ? Member.toAmino(e) : undefined);
     } else {
       obj.members = message.members;
     }
-    obj.group_metadata = message.groupMetadata === '' ? undefined : message.groupMetadata;
-    obj.group_policy_metadata = message.groupPolicyMetadata === '' ? undefined : message.groupPolicyMetadata;
+    obj.group_metadata = message.groupMetadata === "" ? undefined : message.groupMetadata;
+    obj.group_policy_metadata = message.groupPolicyMetadata === "" ? undefined : message.groupPolicyMetadata;
     obj.group_policy_as_admin = message.groupPolicyAsAdmin === false ? undefined : message.groupPolicyAsAdmin;
     obj.decision_policy = message.decisionPolicy ? GlobalDecoderRegistry.toAminoMsg(message.decisionPolicy) : undefined;
     return obj;
@@ -1924,7 +1924,7 @@ export const MsgCreateGroupWithPolicy = {
   },
   toAminoMsg(message: MsgCreateGroupWithPolicy): MsgCreateGroupWithPolicyAminoMsg {
     return {
-      type: 'cosmos-sdk/MsgCreateGroupWithPolicy',
+      type: "cosmos-sdk/MsgCreateGroupWithPolicy",
       value: MsgCreateGroupWithPolicy.toAmino(message)
     };
   },
@@ -1936,7 +1936,7 @@ export const MsgCreateGroupWithPolicy = {
   },
   toProtoMsg(message: MsgCreateGroupWithPolicy): MsgCreateGroupWithPolicyProtoMsg {
     return {
-      typeUrl: '/cosmos.group.v1.MsgCreateGroupWithPolicy',
+      typeUrl: "/cosmos.group.v1.MsgCreateGroupWithPolicy",
       value: MsgCreateGroupWithPolicy.encode(message).finish()
     };
   }
@@ -1946,26 +1946,26 @@ GlobalDecoderRegistry.registerAminoProtoMapping(MsgCreateGroupWithPolicy.aminoTy
 function createBaseMsgCreateGroupWithPolicyResponse(): MsgCreateGroupWithPolicyResponse {
   return {
     groupId: BigInt(0),
-    groupPolicyAddress: ''
+    groupPolicyAddress: ""
   };
 }
 export const MsgCreateGroupWithPolicyResponse = {
-  typeUrl: '/cosmos.group.v1.MsgCreateGroupWithPolicyResponse',
-  aminoType: 'cosmos-sdk/MsgCreateGroupWithPolicyResponse',
+  typeUrl: "/cosmos.group.v1.MsgCreateGroupWithPolicyResponse",
+  aminoType: "cosmos-sdk/MsgCreateGroupWithPolicyResponse",
   is(o: any): o is MsgCreateGroupWithPolicyResponse {
-    return o && (o.$typeUrl === MsgCreateGroupWithPolicyResponse.typeUrl || typeof o.groupId === 'bigint' && typeof o.groupPolicyAddress === 'string');
+    return o && (o.$typeUrl === MsgCreateGroupWithPolicyResponse.typeUrl || typeof o.groupId === "bigint" && typeof o.groupPolicyAddress === "string");
   },
   isSDK(o: any): o is MsgCreateGroupWithPolicyResponseSDKType {
-    return o && (o.$typeUrl === MsgCreateGroupWithPolicyResponse.typeUrl || typeof o.group_id === 'bigint' && typeof o.group_policy_address === 'string');
+    return o && (o.$typeUrl === MsgCreateGroupWithPolicyResponse.typeUrl || typeof o.group_id === "bigint" && typeof o.group_policy_address === "string");
   },
   isAmino(o: any): o is MsgCreateGroupWithPolicyResponseAmino {
-    return o && (o.$typeUrl === MsgCreateGroupWithPolicyResponse.typeUrl || typeof o.group_id === 'bigint' && typeof o.group_policy_address === 'string');
+    return o && (o.$typeUrl === MsgCreateGroupWithPolicyResponse.typeUrl || typeof o.group_id === "bigint" && typeof o.group_policy_address === "string");
   },
   encode(message: MsgCreateGroupWithPolicyResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.groupId !== BigInt(0)) {
       writer.uint32(8).uint64(message.groupId);
     }
-    if (message.groupPolicyAddress !== '') {
+    if (message.groupPolicyAddress !== "") {
       writer.uint32(18).string(message.groupPolicyAddress);
     }
     return writer;
@@ -1977,15 +1977,15 @@ export const MsgCreateGroupWithPolicyResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.groupId = reader.uint64();
-        break;
-      case 2:
-        message.groupPolicyAddress = reader.string();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.groupId = reader.uint64();
+          break;
+        case 2:
+          message.groupPolicyAddress = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1993,7 +1993,7 @@ export const MsgCreateGroupWithPolicyResponse = {
   fromPartial(object: Partial<MsgCreateGroupWithPolicyResponse>): MsgCreateGroupWithPolicyResponse {
     const message = createBaseMsgCreateGroupWithPolicyResponse();
     message.groupId = object.groupId !== undefined && object.groupId !== null ? BigInt(object.groupId.toString()) : BigInt(0);
-    message.groupPolicyAddress = object.groupPolicyAddress ?? '';
+    message.groupPolicyAddress = object.groupPolicyAddress ?? "";
     return message;
   },
   fromAmino(object: MsgCreateGroupWithPolicyResponseAmino): MsgCreateGroupWithPolicyResponse {
@@ -2009,7 +2009,7 @@ export const MsgCreateGroupWithPolicyResponse = {
   toAmino(message: MsgCreateGroupWithPolicyResponse): MsgCreateGroupWithPolicyResponseAmino {
     const obj: any = {};
     obj.group_id = message.groupId !== BigInt(0) ? message.groupId.toString() : undefined;
-    obj.group_policy_address = message.groupPolicyAddress === '' ? undefined : message.groupPolicyAddress;
+    obj.group_policy_address = message.groupPolicyAddress === "" ? undefined : message.groupPolicyAddress;
     return obj;
   },
   fromAminoMsg(object: MsgCreateGroupWithPolicyResponseAminoMsg): MsgCreateGroupWithPolicyResponse {
@@ -2017,7 +2017,7 @@ export const MsgCreateGroupWithPolicyResponse = {
   },
   toAminoMsg(message: MsgCreateGroupWithPolicyResponse): MsgCreateGroupWithPolicyResponseAminoMsg {
     return {
-      type: 'cosmos-sdk/MsgCreateGroupWithPolicyResponse',
+      type: "cosmos-sdk/MsgCreateGroupWithPolicyResponse",
       value: MsgCreateGroupWithPolicyResponse.toAmino(message)
     };
   },
@@ -2029,7 +2029,7 @@ export const MsgCreateGroupWithPolicyResponse = {
   },
   toProtoMsg(message: MsgCreateGroupWithPolicyResponse): MsgCreateGroupWithPolicyResponseProtoMsg {
     return {
-      typeUrl: '/cosmos.group.v1.MsgCreateGroupWithPolicyResponse',
+      typeUrl: "/cosmos.group.v1.MsgCreateGroupWithPolicyResponse",
       value: MsgCreateGroupWithPolicyResponse.encode(message).finish()
     };
   }
@@ -2040,8 +2040,8 @@ function createBaseMsgUpdateGroupPolicyAdminResponse(): MsgUpdateGroupPolicyAdmi
   return {};
 }
 export const MsgUpdateGroupPolicyAdminResponse = {
-  typeUrl: '/cosmos.group.v1.MsgUpdateGroupPolicyAdminResponse',
-  aminoType: 'cosmos-sdk/MsgUpdateGroupPolicyAdminResponse',
+  typeUrl: "/cosmos.group.v1.MsgUpdateGroupPolicyAdminResponse",
+  aminoType: "cosmos-sdk/MsgUpdateGroupPolicyAdminResponse",
   is(o: any): o is MsgUpdateGroupPolicyAdminResponse {
     return o && o.$typeUrl === MsgUpdateGroupPolicyAdminResponse.typeUrl;
   },
@@ -2061,9 +2061,9 @@ export const MsgUpdateGroupPolicyAdminResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      default:
-        reader.skipType(tag & 7);
-        break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -2085,7 +2085,7 @@ export const MsgUpdateGroupPolicyAdminResponse = {
   },
   toAminoMsg(message: MsgUpdateGroupPolicyAdminResponse): MsgUpdateGroupPolicyAdminResponseAminoMsg {
     return {
-      type: 'cosmos-sdk/MsgUpdateGroupPolicyAdminResponse',
+      type: "cosmos-sdk/MsgUpdateGroupPolicyAdminResponse",
       value: MsgUpdateGroupPolicyAdminResponse.toAmino(message)
     };
   },
@@ -2097,7 +2097,7 @@ export const MsgUpdateGroupPolicyAdminResponse = {
   },
   toProtoMsg(message: MsgUpdateGroupPolicyAdminResponse): MsgUpdateGroupPolicyAdminResponseProtoMsg {
     return {
-      typeUrl: '/cosmos.group.v1.MsgUpdateGroupPolicyAdminResponse',
+      typeUrl: "/cosmos.group.v1.MsgUpdateGroupPolicyAdminResponse",
       value: MsgUpdateGroupPolicyAdminResponse.encode(message).finish()
     };
   }
@@ -2106,28 +2106,28 @@ GlobalDecoderRegistry.register(MsgUpdateGroupPolicyAdminResponse.typeUrl, MsgUpd
 GlobalDecoderRegistry.registerAminoProtoMapping(MsgUpdateGroupPolicyAdminResponse.aminoType, MsgUpdateGroupPolicyAdminResponse.typeUrl);
 function createBaseMsgUpdateGroupPolicyDecisionPolicy(): MsgUpdateGroupPolicyDecisionPolicy {
   return {
-    admin: '',
-    address: '',
+    admin: "",
+    address: "",
     decisionPolicy: undefined
   };
 }
 export const MsgUpdateGroupPolicyDecisionPolicy = {
-  typeUrl: '/cosmos.group.v1.MsgUpdateGroupPolicyDecisionPolicy',
-  aminoType: 'cosmos-sdk/MsgUpdateGroupPolicyDecisionPolicy',
+  typeUrl: "/cosmos.group.v1.MsgUpdateGroupPolicyDecisionPolicy",
+  aminoType: "cosmos-sdk/MsgUpdateGroupPolicyDecisionPolicy",
   is(o: any): o is MsgUpdateGroupPolicyDecisionPolicy {
-    return o && (o.$typeUrl === MsgUpdateGroupPolicyDecisionPolicy.typeUrl || typeof o.admin === 'string' && typeof o.address === 'string');
+    return o && (o.$typeUrl === MsgUpdateGroupPolicyDecisionPolicy.typeUrl || typeof o.admin === "string" && typeof o.address === "string");
   },
   isSDK(o: any): o is MsgUpdateGroupPolicyDecisionPolicySDKType {
-    return o && (o.$typeUrl === MsgUpdateGroupPolicyDecisionPolicy.typeUrl || typeof o.admin === 'string' && typeof o.address === 'string');
+    return o && (o.$typeUrl === MsgUpdateGroupPolicyDecisionPolicy.typeUrl || typeof o.admin === "string" && typeof o.address === "string");
   },
   isAmino(o: any): o is MsgUpdateGroupPolicyDecisionPolicyAmino {
-    return o && (o.$typeUrl === MsgUpdateGroupPolicyDecisionPolicy.typeUrl || typeof o.admin === 'string' && typeof o.address === 'string');
+    return o && (o.$typeUrl === MsgUpdateGroupPolicyDecisionPolicy.typeUrl || typeof o.admin === "string" && typeof o.address === "string");
   },
   encode(message: MsgUpdateGroupPolicyDecisionPolicy, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.admin !== '') {
+    if (message.admin !== "") {
       writer.uint32(10).string(message.admin);
     }
-    if (message.address !== '') {
+    if (message.address !== "") {
       writer.uint32(18).string(message.address);
     }
     if (message.decisionPolicy !== undefined) {
@@ -2142,26 +2142,26 @@ export const MsgUpdateGroupPolicyDecisionPolicy = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.admin = reader.string();
-        break;
-      case 2:
-        message.address = reader.string();
-        break;
-      case 3:
-        message.decisionPolicy = GlobalDecoderRegistry.unwrapAny(reader);
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.admin = reader.string();
+          break;
+        case 2:
+          message.address = reader.string();
+          break;
+        case 3:
+          message.decisionPolicy = GlobalDecoderRegistry.unwrapAny(reader);
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<MsgUpdateGroupPolicyDecisionPolicy>): MsgUpdateGroupPolicyDecisionPolicy {
     const message = createBaseMsgUpdateGroupPolicyDecisionPolicy();
-    message.admin = object.admin ?? '';
-    message.address = object.address ?? '';
+    message.admin = object.admin ?? "";
+    message.address = object.address ?? "";
     message.decisionPolicy = object.decisionPolicy !== undefined && object.decisionPolicy !== null ? GlobalDecoderRegistry.fromPartial(object.decisionPolicy) : undefined;
     return message;
   },
@@ -2180,8 +2180,8 @@ export const MsgUpdateGroupPolicyDecisionPolicy = {
   },
   toAmino(message: MsgUpdateGroupPolicyDecisionPolicy): MsgUpdateGroupPolicyDecisionPolicyAmino {
     const obj: any = {};
-    obj.admin = message.admin === '' ? undefined : message.admin;
-    obj.address = message.address === '' ? undefined : message.address;
+    obj.admin = message.admin === "" ? undefined : message.admin;
+    obj.address = message.address === "" ? undefined : message.address;
     obj.decision_policy = message.decisionPolicy ? GlobalDecoderRegistry.toAminoMsg(message.decisionPolicy) : undefined;
     return obj;
   },
@@ -2190,7 +2190,7 @@ export const MsgUpdateGroupPolicyDecisionPolicy = {
   },
   toAminoMsg(message: MsgUpdateGroupPolicyDecisionPolicy): MsgUpdateGroupPolicyDecisionPolicyAminoMsg {
     return {
-      type: 'cosmos-sdk/MsgUpdateGroupPolicyDecisionPolicy',
+      type: "cosmos-sdk/MsgUpdateGroupPolicyDecisionPolicy",
       value: MsgUpdateGroupPolicyDecisionPolicy.toAmino(message)
     };
   },
@@ -2202,7 +2202,7 @@ export const MsgUpdateGroupPolicyDecisionPolicy = {
   },
   toProtoMsg(message: MsgUpdateGroupPolicyDecisionPolicy): MsgUpdateGroupPolicyDecisionPolicyProtoMsg {
     return {
-      typeUrl: '/cosmos.group.v1.MsgUpdateGroupPolicyDecisionPolicy',
+      typeUrl: "/cosmos.group.v1.MsgUpdateGroupPolicyDecisionPolicy",
       value: MsgUpdateGroupPolicyDecisionPolicy.encode(message).finish()
     };
   }
@@ -2213,8 +2213,8 @@ function createBaseMsgUpdateGroupPolicyDecisionPolicyResponse(): MsgUpdateGroupP
   return {};
 }
 export const MsgUpdateGroupPolicyDecisionPolicyResponse = {
-  typeUrl: '/cosmos.group.v1.MsgUpdateGroupPolicyDecisionPolicyResponse',
-  aminoType: 'cosmos-sdk/MsgUpdateGroupPolicyDecisionPolicyResponse',
+  typeUrl: "/cosmos.group.v1.MsgUpdateGroupPolicyDecisionPolicyResponse",
+  aminoType: "cosmos-sdk/MsgUpdateGroupPolicyDecisionPolicyResponse",
   is(o: any): o is MsgUpdateGroupPolicyDecisionPolicyResponse {
     return o && o.$typeUrl === MsgUpdateGroupPolicyDecisionPolicyResponse.typeUrl;
   },
@@ -2234,9 +2234,9 @@ export const MsgUpdateGroupPolicyDecisionPolicyResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      default:
-        reader.skipType(tag & 7);
-        break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -2258,7 +2258,7 @@ export const MsgUpdateGroupPolicyDecisionPolicyResponse = {
   },
   toAminoMsg(message: MsgUpdateGroupPolicyDecisionPolicyResponse): MsgUpdateGroupPolicyDecisionPolicyResponseAminoMsg {
     return {
-      type: 'cosmos-sdk/MsgUpdateGroupPolicyDecisionPolicyResponse',
+      type: "cosmos-sdk/MsgUpdateGroupPolicyDecisionPolicyResponse",
       value: MsgUpdateGroupPolicyDecisionPolicyResponse.toAmino(message)
     };
   },
@@ -2270,7 +2270,7 @@ export const MsgUpdateGroupPolicyDecisionPolicyResponse = {
   },
   toProtoMsg(message: MsgUpdateGroupPolicyDecisionPolicyResponse): MsgUpdateGroupPolicyDecisionPolicyResponseProtoMsg {
     return {
-      typeUrl: '/cosmos.group.v1.MsgUpdateGroupPolicyDecisionPolicyResponse',
+      typeUrl: "/cosmos.group.v1.MsgUpdateGroupPolicyDecisionPolicyResponse",
       value: MsgUpdateGroupPolicyDecisionPolicyResponse.encode(message).finish()
     };
   }
@@ -2279,31 +2279,31 @@ GlobalDecoderRegistry.register(MsgUpdateGroupPolicyDecisionPolicyResponse.typeUr
 GlobalDecoderRegistry.registerAminoProtoMapping(MsgUpdateGroupPolicyDecisionPolicyResponse.aminoType, MsgUpdateGroupPolicyDecisionPolicyResponse.typeUrl);
 function createBaseMsgUpdateGroupPolicyMetadata(): MsgUpdateGroupPolicyMetadata {
   return {
-    admin: '',
-    address: '',
-    metadata: ''
+    admin: "",
+    address: "",
+    metadata: ""
   };
 }
 export const MsgUpdateGroupPolicyMetadata = {
-  typeUrl: '/cosmos.group.v1.MsgUpdateGroupPolicyMetadata',
-  aminoType: 'cosmos-sdk/MsgUpdateGroupPolicyMetadata',
+  typeUrl: "/cosmos.group.v1.MsgUpdateGroupPolicyMetadata",
+  aminoType: "cosmos-sdk/MsgUpdateGroupPolicyMetadata",
   is(o: any): o is MsgUpdateGroupPolicyMetadata {
-    return o && (o.$typeUrl === MsgUpdateGroupPolicyMetadata.typeUrl || typeof o.admin === 'string' && typeof o.address === 'string' && typeof o.metadata === 'string');
+    return o && (o.$typeUrl === MsgUpdateGroupPolicyMetadata.typeUrl || typeof o.admin === "string" && typeof o.address === "string" && typeof o.metadata === "string");
   },
   isSDK(o: any): o is MsgUpdateGroupPolicyMetadataSDKType {
-    return o && (o.$typeUrl === MsgUpdateGroupPolicyMetadata.typeUrl || typeof o.admin === 'string' && typeof o.address === 'string' && typeof o.metadata === 'string');
+    return o && (o.$typeUrl === MsgUpdateGroupPolicyMetadata.typeUrl || typeof o.admin === "string" && typeof o.address === "string" && typeof o.metadata === "string");
   },
   isAmino(o: any): o is MsgUpdateGroupPolicyMetadataAmino {
-    return o && (o.$typeUrl === MsgUpdateGroupPolicyMetadata.typeUrl || typeof o.admin === 'string' && typeof o.address === 'string' && typeof o.metadata === 'string');
+    return o && (o.$typeUrl === MsgUpdateGroupPolicyMetadata.typeUrl || typeof o.admin === "string" && typeof o.address === "string" && typeof o.metadata === "string");
   },
   encode(message: MsgUpdateGroupPolicyMetadata, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.admin !== '') {
+    if (message.admin !== "") {
       writer.uint32(10).string(message.admin);
     }
-    if (message.address !== '') {
+    if (message.address !== "") {
       writer.uint32(18).string(message.address);
     }
-    if (message.metadata !== '') {
+    if (message.metadata !== "") {
       writer.uint32(26).string(message.metadata);
     }
     return writer;
@@ -2315,27 +2315,27 @@ export const MsgUpdateGroupPolicyMetadata = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.admin = reader.string();
-        break;
-      case 2:
-        message.address = reader.string();
-        break;
-      case 3:
-        message.metadata = reader.string();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.admin = reader.string();
+          break;
+        case 2:
+          message.address = reader.string();
+          break;
+        case 3:
+          message.metadata = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<MsgUpdateGroupPolicyMetadata>): MsgUpdateGroupPolicyMetadata {
     const message = createBaseMsgUpdateGroupPolicyMetadata();
-    message.admin = object.admin ?? '';
-    message.address = object.address ?? '';
-    message.metadata = object.metadata ?? '';
+    message.admin = object.admin ?? "";
+    message.address = object.address ?? "";
+    message.metadata = object.metadata ?? "";
     return message;
   },
   fromAmino(object: MsgUpdateGroupPolicyMetadataAmino): MsgUpdateGroupPolicyMetadata {
@@ -2353,9 +2353,9 @@ export const MsgUpdateGroupPolicyMetadata = {
   },
   toAmino(message: MsgUpdateGroupPolicyMetadata): MsgUpdateGroupPolicyMetadataAmino {
     const obj: any = {};
-    obj.admin = message.admin === '' ? undefined : message.admin;
-    obj.address = message.address === '' ? undefined : message.address;
-    obj.metadata = message.metadata === '' ? undefined : message.metadata;
+    obj.admin = message.admin === "" ? undefined : message.admin;
+    obj.address = message.address === "" ? undefined : message.address;
+    obj.metadata = message.metadata === "" ? undefined : message.metadata;
     return obj;
   },
   fromAminoMsg(object: MsgUpdateGroupPolicyMetadataAminoMsg): MsgUpdateGroupPolicyMetadata {
@@ -2363,7 +2363,7 @@ export const MsgUpdateGroupPolicyMetadata = {
   },
   toAminoMsg(message: MsgUpdateGroupPolicyMetadata): MsgUpdateGroupPolicyMetadataAminoMsg {
     return {
-      type: 'cosmos-sdk/MsgUpdateGroupPolicyMetadata',
+      type: "cosmos-sdk/MsgUpdateGroupPolicyMetadata",
       value: MsgUpdateGroupPolicyMetadata.toAmino(message)
     };
   },
@@ -2375,7 +2375,7 @@ export const MsgUpdateGroupPolicyMetadata = {
   },
   toProtoMsg(message: MsgUpdateGroupPolicyMetadata): MsgUpdateGroupPolicyMetadataProtoMsg {
     return {
-      typeUrl: '/cosmos.group.v1.MsgUpdateGroupPolicyMetadata',
+      typeUrl: "/cosmos.group.v1.MsgUpdateGroupPolicyMetadata",
       value: MsgUpdateGroupPolicyMetadata.encode(message).finish()
     };
   }
@@ -2386,8 +2386,8 @@ function createBaseMsgUpdateGroupPolicyMetadataResponse(): MsgUpdateGroupPolicyM
   return {};
 }
 export const MsgUpdateGroupPolicyMetadataResponse = {
-  typeUrl: '/cosmos.group.v1.MsgUpdateGroupPolicyMetadataResponse',
-  aminoType: 'cosmos-sdk/MsgUpdateGroupPolicyMetadataResponse',
+  typeUrl: "/cosmos.group.v1.MsgUpdateGroupPolicyMetadataResponse",
+  aminoType: "cosmos-sdk/MsgUpdateGroupPolicyMetadataResponse",
   is(o: any): o is MsgUpdateGroupPolicyMetadataResponse {
     return o && o.$typeUrl === MsgUpdateGroupPolicyMetadataResponse.typeUrl;
   },
@@ -2407,9 +2407,9 @@ export const MsgUpdateGroupPolicyMetadataResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      default:
-        reader.skipType(tag & 7);
-        break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -2431,7 +2431,7 @@ export const MsgUpdateGroupPolicyMetadataResponse = {
   },
   toAminoMsg(message: MsgUpdateGroupPolicyMetadataResponse): MsgUpdateGroupPolicyMetadataResponseAminoMsg {
     return {
-      type: 'cosmos-sdk/MsgUpdateGroupPolicyMetadataResponse',
+      type: "cosmos-sdk/MsgUpdateGroupPolicyMetadataResponse",
       value: MsgUpdateGroupPolicyMetadataResponse.toAmino(message)
     };
   },
@@ -2443,7 +2443,7 @@ export const MsgUpdateGroupPolicyMetadataResponse = {
   },
   toProtoMsg(message: MsgUpdateGroupPolicyMetadataResponse): MsgUpdateGroupPolicyMetadataResponseProtoMsg {
     return {
-      typeUrl: '/cosmos.group.v1.MsgUpdateGroupPolicyMetadataResponse',
+      typeUrl: "/cosmos.group.v1.MsgUpdateGroupPolicyMetadataResponse",
       value: MsgUpdateGroupPolicyMetadataResponse.encode(message).finish()
     };
   }
@@ -2452,33 +2452,33 @@ GlobalDecoderRegistry.register(MsgUpdateGroupPolicyMetadataResponse.typeUrl, Msg
 GlobalDecoderRegistry.registerAminoProtoMapping(MsgUpdateGroupPolicyMetadataResponse.aminoType, MsgUpdateGroupPolicyMetadataResponse.typeUrl);
 function createBaseMsgSubmitProposal(): MsgSubmitProposal {
   return {
-    address: '',
+    address: "",
     proposers: [],
-    metadata: '',
+    metadata: "",
     messages: [],
     exec: 0
   };
 }
 export const MsgSubmitProposal = {
-  typeUrl: '/cosmos.group.v1.MsgSubmitProposal',
-  aminoType: 'cosmos-sdk/group/MsgSubmitProposal',
+  typeUrl: "/cosmos.group.v1.MsgSubmitProposal",
+  aminoType: "cosmos-sdk/group/MsgSubmitProposal",
   is(o: any): o is MsgSubmitProposal {
-    return o && (o.$typeUrl === MsgSubmitProposal.typeUrl || typeof o.address === 'string' && Array.isArray(o.proposers) && (!o.proposers.length || typeof o.proposers[0] === 'string') && typeof o.metadata === 'string' && Array.isArray(o.messages) && (!o.messages.length || Any.is(o.messages[0])) && isSet(o.exec));
+    return o && (o.$typeUrl === MsgSubmitProposal.typeUrl || typeof o.address === "string" && Array.isArray(o.proposers) && (!o.proposers.length || typeof o.proposers[0] === "string") && typeof o.metadata === "string" && Array.isArray(o.messages) && (!o.messages.length || Any.is(o.messages[0])) && isSet(o.exec));
   },
   isSDK(o: any): o is MsgSubmitProposalSDKType {
-    return o && (o.$typeUrl === MsgSubmitProposal.typeUrl || typeof o.address === 'string' && Array.isArray(o.proposers) && (!o.proposers.length || typeof o.proposers[0] === 'string') && typeof o.metadata === 'string' && Array.isArray(o.messages) && (!o.messages.length || Any.isSDK(o.messages[0])) && isSet(o.exec));
+    return o && (o.$typeUrl === MsgSubmitProposal.typeUrl || typeof o.address === "string" && Array.isArray(o.proposers) && (!o.proposers.length || typeof o.proposers[0] === "string") && typeof o.metadata === "string" && Array.isArray(o.messages) && (!o.messages.length || Any.isSDK(o.messages[0])) && isSet(o.exec));
   },
   isAmino(o: any): o is MsgSubmitProposalAmino {
-    return o && (o.$typeUrl === MsgSubmitProposal.typeUrl || typeof o.address === 'string' && Array.isArray(o.proposers) && (!o.proposers.length || typeof o.proposers[0] === 'string') && typeof o.metadata === 'string' && Array.isArray(o.messages) && (!o.messages.length || Any.isAmino(o.messages[0])) && isSet(o.exec));
+    return o && (o.$typeUrl === MsgSubmitProposal.typeUrl || typeof o.address === "string" && Array.isArray(o.proposers) && (!o.proposers.length || typeof o.proposers[0] === "string") && typeof o.metadata === "string" && Array.isArray(o.messages) && (!o.messages.length || Any.isAmino(o.messages[0])) && isSet(o.exec));
   },
   encode(message: MsgSubmitProposal, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.address !== '') {
+    if (message.address !== "") {
       writer.uint32(10).string(message.address);
     }
     for (const v of message.proposers) {
       writer.uint32(18).string(v!);
     }
-    if (message.metadata !== '') {
+    if (message.metadata !== "") {
       writer.uint32(26).string(message.metadata);
     }
     for (const v of message.messages) {
@@ -2496,33 +2496,33 @@ export const MsgSubmitProposal = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.address = reader.string();
-        break;
-      case 2:
-        message.proposers.push(reader.string());
-        break;
-      case 3:
-        message.metadata = reader.string();
-        break;
-      case 4:
-        message.messages.push(Any.decode(reader, reader.uint32()));
-        break;
-      case 5:
-        message.exec = reader.int32() as any;
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.address = reader.string();
+          break;
+        case 2:
+          message.proposers.push(reader.string());
+          break;
+        case 3:
+          message.metadata = reader.string();
+          break;
+        case 4:
+          message.messages.push(Any.decode(reader, reader.uint32()));
+          break;
+        case 5:
+          message.exec = reader.int32() as any;
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<MsgSubmitProposal>): MsgSubmitProposal {
     const message = createBaseMsgSubmitProposal();
-    message.address = object.address ?? '';
+    message.address = object.address ?? "";
     message.proposers = object.proposers?.map(e => e) || [];
-    message.metadata = object.metadata ?? '';
+    message.metadata = object.metadata ?? "";
     message.messages = object.messages?.map(e => Any.fromPartial(e)) || [];
     message.exec = object.exec ?? 0;
     return message;
@@ -2544,13 +2544,13 @@ export const MsgSubmitProposal = {
   },
   toAmino(message: MsgSubmitProposal): MsgSubmitProposalAmino {
     const obj: any = {};
-    obj.address = message.address === '' ? undefined : message.address;
+    obj.address = message.address === "" ? undefined : message.address;
     if (message.proposers) {
       obj.proposers = message.proposers.map(e => e);
     } else {
       obj.proposers = message.proposers;
     }
-    obj.metadata = message.metadata === '' ? undefined : message.metadata;
+    obj.metadata = message.metadata === "" ? undefined : message.metadata;
     if (message.messages) {
       obj.messages = message.messages.map(e => e ? Any.toAmino(e) : undefined);
     } else {
@@ -2564,7 +2564,7 @@ export const MsgSubmitProposal = {
   },
   toAminoMsg(message: MsgSubmitProposal): MsgSubmitProposalAminoMsg {
     return {
-      type: 'cosmos-sdk/group/MsgSubmitProposal',
+      type: "cosmos-sdk/group/MsgSubmitProposal",
       value: MsgSubmitProposal.toAmino(message)
     };
   },
@@ -2576,7 +2576,7 @@ export const MsgSubmitProposal = {
   },
   toProtoMsg(message: MsgSubmitProposal): MsgSubmitProposalProtoMsg {
     return {
-      typeUrl: '/cosmos.group.v1.MsgSubmitProposal',
+      typeUrl: "/cosmos.group.v1.MsgSubmitProposal",
       value: MsgSubmitProposal.encode(message).finish()
     };
   }
@@ -2589,16 +2589,16 @@ function createBaseMsgSubmitProposalResponse(): MsgSubmitProposalResponse {
   };
 }
 export const MsgSubmitProposalResponse = {
-  typeUrl: '/cosmos.group.v1.MsgSubmitProposalResponse',
-  aminoType: 'cosmos-sdk/MsgSubmitProposalResponse',
+  typeUrl: "/cosmos.group.v1.MsgSubmitProposalResponse",
+  aminoType: "cosmos-sdk/MsgSubmitProposalResponse",
   is(o: any): o is MsgSubmitProposalResponse {
-    return o && (o.$typeUrl === MsgSubmitProposalResponse.typeUrl || typeof o.proposalId === 'bigint');
+    return o && (o.$typeUrl === MsgSubmitProposalResponse.typeUrl || typeof o.proposalId === "bigint");
   },
   isSDK(o: any): o is MsgSubmitProposalResponseSDKType {
-    return o && (o.$typeUrl === MsgSubmitProposalResponse.typeUrl || typeof o.proposal_id === 'bigint');
+    return o && (o.$typeUrl === MsgSubmitProposalResponse.typeUrl || typeof o.proposal_id === "bigint");
   },
   isAmino(o: any): o is MsgSubmitProposalResponseAmino {
-    return o && (o.$typeUrl === MsgSubmitProposalResponse.typeUrl || typeof o.proposal_id === 'bigint');
+    return o && (o.$typeUrl === MsgSubmitProposalResponse.typeUrl || typeof o.proposal_id === "bigint");
   },
   encode(message: MsgSubmitProposalResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.proposalId !== BigInt(0)) {
@@ -2613,12 +2613,12 @@ export const MsgSubmitProposalResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.proposalId = reader.uint64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.proposalId = reader.uint64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -2645,7 +2645,7 @@ export const MsgSubmitProposalResponse = {
   },
   toAminoMsg(message: MsgSubmitProposalResponse): MsgSubmitProposalResponseAminoMsg {
     return {
-      type: 'cosmos-sdk/MsgSubmitProposalResponse',
+      type: "cosmos-sdk/MsgSubmitProposalResponse",
       value: MsgSubmitProposalResponse.toAmino(message)
     };
   },
@@ -2657,7 +2657,7 @@ export const MsgSubmitProposalResponse = {
   },
   toProtoMsg(message: MsgSubmitProposalResponse): MsgSubmitProposalResponseProtoMsg {
     return {
-      typeUrl: '/cosmos.group.v1.MsgSubmitProposalResponse',
+      typeUrl: "/cosmos.group.v1.MsgSubmitProposalResponse",
       value: MsgSubmitProposalResponse.encode(message).finish()
     };
   }
@@ -2667,26 +2667,26 @@ GlobalDecoderRegistry.registerAminoProtoMapping(MsgSubmitProposalResponse.aminoT
 function createBaseMsgWithdrawProposal(): MsgWithdrawProposal {
   return {
     proposalId: BigInt(0),
-    address: ''
+    address: ""
   };
 }
 export const MsgWithdrawProposal = {
-  typeUrl: '/cosmos.group.v1.MsgWithdrawProposal',
-  aminoType: 'cosmos-sdk/group/MsgWithdrawProposal',
+  typeUrl: "/cosmos.group.v1.MsgWithdrawProposal",
+  aminoType: "cosmos-sdk/group/MsgWithdrawProposal",
   is(o: any): o is MsgWithdrawProposal {
-    return o && (o.$typeUrl === MsgWithdrawProposal.typeUrl || typeof o.proposalId === 'bigint' && typeof o.address === 'string');
+    return o && (o.$typeUrl === MsgWithdrawProposal.typeUrl || typeof o.proposalId === "bigint" && typeof o.address === "string");
   },
   isSDK(o: any): o is MsgWithdrawProposalSDKType {
-    return o && (o.$typeUrl === MsgWithdrawProposal.typeUrl || typeof o.proposal_id === 'bigint' && typeof o.address === 'string');
+    return o && (o.$typeUrl === MsgWithdrawProposal.typeUrl || typeof o.proposal_id === "bigint" && typeof o.address === "string");
   },
   isAmino(o: any): o is MsgWithdrawProposalAmino {
-    return o && (o.$typeUrl === MsgWithdrawProposal.typeUrl || typeof o.proposal_id === 'bigint' && typeof o.address === 'string');
+    return o && (o.$typeUrl === MsgWithdrawProposal.typeUrl || typeof o.proposal_id === "bigint" && typeof o.address === "string");
   },
   encode(message: MsgWithdrawProposal, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.proposalId !== BigInt(0)) {
       writer.uint32(8).uint64(message.proposalId);
     }
-    if (message.address !== '') {
+    if (message.address !== "") {
       writer.uint32(18).string(message.address);
     }
     return writer;
@@ -2698,15 +2698,15 @@ export const MsgWithdrawProposal = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.proposalId = reader.uint64();
-        break;
-      case 2:
-        message.address = reader.string();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.proposalId = reader.uint64();
+          break;
+        case 2:
+          message.address = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -2714,7 +2714,7 @@ export const MsgWithdrawProposal = {
   fromPartial(object: Partial<MsgWithdrawProposal>): MsgWithdrawProposal {
     const message = createBaseMsgWithdrawProposal();
     message.proposalId = object.proposalId !== undefined && object.proposalId !== null ? BigInt(object.proposalId.toString()) : BigInt(0);
-    message.address = object.address ?? '';
+    message.address = object.address ?? "";
     return message;
   },
   fromAmino(object: MsgWithdrawProposalAmino): MsgWithdrawProposal {
@@ -2730,7 +2730,7 @@ export const MsgWithdrawProposal = {
   toAmino(message: MsgWithdrawProposal): MsgWithdrawProposalAmino {
     const obj: any = {};
     obj.proposal_id = message.proposalId !== BigInt(0) ? message.proposalId.toString() : undefined;
-    obj.address = message.address === '' ? undefined : message.address;
+    obj.address = message.address === "" ? undefined : message.address;
     return obj;
   },
   fromAminoMsg(object: MsgWithdrawProposalAminoMsg): MsgWithdrawProposal {
@@ -2738,7 +2738,7 @@ export const MsgWithdrawProposal = {
   },
   toAminoMsg(message: MsgWithdrawProposal): MsgWithdrawProposalAminoMsg {
     return {
-      type: 'cosmos-sdk/group/MsgWithdrawProposal',
+      type: "cosmos-sdk/group/MsgWithdrawProposal",
       value: MsgWithdrawProposal.toAmino(message)
     };
   },
@@ -2750,7 +2750,7 @@ export const MsgWithdrawProposal = {
   },
   toProtoMsg(message: MsgWithdrawProposal): MsgWithdrawProposalProtoMsg {
     return {
-      typeUrl: '/cosmos.group.v1.MsgWithdrawProposal',
+      typeUrl: "/cosmos.group.v1.MsgWithdrawProposal",
       value: MsgWithdrawProposal.encode(message).finish()
     };
   }
@@ -2761,8 +2761,8 @@ function createBaseMsgWithdrawProposalResponse(): MsgWithdrawProposalResponse {
   return {};
 }
 export const MsgWithdrawProposalResponse = {
-  typeUrl: '/cosmos.group.v1.MsgWithdrawProposalResponse',
-  aminoType: 'cosmos-sdk/MsgWithdrawProposalResponse',
+  typeUrl: "/cosmos.group.v1.MsgWithdrawProposalResponse",
+  aminoType: "cosmos-sdk/MsgWithdrawProposalResponse",
   is(o: any): o is MsgWithdrawProposalResponse {
     return o && o.$typeUrl === MsgWithdrawProposalResponse.typeUrl;
   },
@@ -2782,9 +2782,9 @@ export const MsgWithdrawProposalResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      default:
-        reader.skipType(tag & 7);
-        break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -2806,7 +2806,7 @@ export const MsgWithdrawProposalResponse = {
   },
   toAminoMsg(message: MsgWithdrawProposalResponse): MsgWithdrawProposalResponseAminoMsg {
     return {
-      type: 'cosmos-sdk/MsgWithdrawProposalResponse',
+      type: "cosmos-sdk/MsgWithdrawProposalResponse",
       value: MsgWithdrawProposalResponse.toAmino(message)
     };
   },
@@ -2818,7 +2818,7 @@ export const MsgWithdrawProposalResponse = {
   },
   toProtoMsg(message: MsgWithdrawProposalResponse): MsgWithdrawProposalResponseProtoMsg {
     return {
-      typeUrl: '/cosmos.group.v1.MsgWithdrawProposalResponse',
+      typeUrl: "/cosmos.group.v1.MsgWithdrawProposalResponse",
       value: MsgWithdrawProposalResponse.encode(message).finish()
     };
   }
@@ -2828,35 +2828,35 @@ GlobalDecoderRegistry.registerAminoProtoMapping(MsgWithdrawProposalResponse.amin
 function createBaseMsgVote(): MsgVote {
   return {
     proposalId: BigInt(0),
-    voter: '',
+    voter: "",
     option: 0,
-    metadata: '',
+    metadata: "",
     exec: 0
   };
 }
 export const MsgVote = {
-  typeUrl: '/cosmos.group.v1.MsgVote',
-  aminoType: 'cosmos-sdk/group/MsgVote',
+  typeUrl: "/cosmos.group.v1.MsgVote",
+  aminoType: "cosmos-sdk/group/MsgVote",
   is(o: any): o is MsgVote {
-    return o && (o.$typeUrl === MsgVote.typeUrl || typeof o.proposalId === 'bigint' && typeof o.voter === 'string' && isSet(o.option) && typeof o.metadata === 'string' && isSet(o.exec));
+    return o && (o.$typeUrl === MsgVote.typeUrl || typeof o.proposalId === "bigint" && typeof o.voter === "string" && isSet(o.option) && typeof o.metadata === "string" && isSet(o.exec));
   },
   isSDK(o: any): o is MsgVoteSDKType {
-    return o && (o.$typeUrl === MsgVote.typeUrl || typeof o.proposal_id === 'bigint' && typeof o.voter === 'string' && isSet(o.option) && typeof o.metadata === 'string' && isSet(o.exec));
+    return o && (o.$typeUrl === MsgVote.typeUrl || typeof o.proposal_id === "bigint" && typeof o.voter === "string" && isSet(o.option) && typeof o.metadata === "string" && isSet(o.exec));
   },
   isAmino(o: any): o is MsgVoteAmino {
-    return o && (o.$typeUrl === MsgVote.typeUrl || typeof o.proposal_id === 'bigint' && typeof o.voter === 'string' && isSet(o.option) && typeof o.metadata === 'string' && isSet(o.exec));
+    return o && (o.$typeUrl === MsgVote.typeUrl || typeof o.proposal_id === "bigint" && typeof o.voter === "string" && isSet(o.option) && typeof o.metadata === "string" && isSet(o.exec));
   },
   encode(message: MsgVote, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.proposalId !== BigInt(0)) {
       writer.uint32(8).uint64(message.proposalId);
     }
-    if (message.voter !== '') {
+    if (message.voter !== "") {
       writer.uint32(18).string(message.voter);
     }
     if (message.option !== 0) {
       writer.uint32(24).int32(message.option);
     }
-    if (message.metadata !== '') {
+    if (message.metadata !== "") {
       writer.uint32(34).string(message.metadata);
     }
     if (message.exec !== 0) {
@@ -2871,24 +2871,24 @@ export const MsgVote = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.proposalId = reader.uint64();
-        break;
-      case 2:
-        message.voter = reader.string();
-        break;
-      case 3:
-        message.option = reader.int32() as any;
-        break;
-      case 4:
-        message.metadata = reader.string();
-        break;
-      case 5:
-        message.exec = reader.int32() as any;
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.proposalId = reader.uint64();
+          break;
+        case 2:
+          message.voter = reader.string();
+          break;
+        case 3:
+          message.option = reader.int32() as any;
+          break;
+        case 4:
+          message.metadata = reader.string();
+          break;
+        case 5:
+          message.exec = reader.int32() as any;
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -2896,9 +2896,9 @@ export const MsgVote = {
   fromPartial(object: Partial<MsgVote>): MsgVote {
     const message = createBaseMsgVote();
     message.proposalId = object.proposalId !== undefined && object.proposalId !== null ? BigInt(object.proposalId.toString()) : BigInt(0);
-    message.voter = object.voter ?? '';
+    message.voter = object.voter ?? "";
     message.option = object.option ?? 0;
-    message.metadata = object.metadata ?? '';
+    message.metadata = object.metadata ?? "";
     message.exec = object.exec ?? 0;
     return message;
   },
@@ -2924,9 +2924,9 @@ export const MsgVote = {
   toAmino(message: MsgVote): MsgVoteAmino {
     const obj: any = {};
     obj.proposal_id = message.proposalId !== BigInt(0) ? message.proposalId.toString() : undefined;
-    obj.voter = message.voter === '' ? undefined : message.voter;
+    obj.voter = message.voter === "" ? undefined : message.voter;
     obj.option = message.option === 0 ? undefined : message.option;
-    obj.metadata = message.metadata === '' ? undefined : message.metadata;
+    obj.metadata = message.metadata === "" ? undefined : message.metadata;
     obj.exec = message.exec === 0 ? undefined : message.exec;
     return obj;
   },
@@ -2935,7 +2935,7 @@ export const MsgVote = {
   },
   toAminoMsg(message: MsgVote): MsgVoteAminoMsg {
     return {
-      type: 'cosmos-sdk/group/MsgVote',
+      type: "cosmos-sdk/group/MsgVote",
       value: MsgVote.toAmino(message)
     };
   },
@@ -2947,7 +2947,7 @@ export const MsgVote = {
   },
   toProtoMsg(message: MsgVote): MsgVoteProtoMsg {
     return {
-      typeUrl: '/cosmos.group.v1.MsgVote',
+      typeUrl: "/cosmos.group.v1.MsgVote",
       value: MsgVote.encode(message).finish()
     };
   }
@@ -2958,8 +2958,8 @@ function createBaseMsgVoteResponse(): MsgVoteResponse {
   return {};
 }
 export const MsgVoteResponse = {
-  typeUrl: '/cosmos.group.v1.MsgVoteResponse',
-  aminoType: 'cosmos-sdk/MsgVoteResponse',
+  typeUrl: "/cosmos.group.v1.MsgVoteResponse",
+  aminoType: "cosmos-sdk/MsgVoteResponse",
   is(o: any): o is MsgVoteResponse {
     return o && o.$typeUrl === MsgVoteResponse.typeUrl;
   },
@@ -2979,9 +2979,9 @@ export const MsgVoteResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      default:
-        reader.skipType(tag & 7);
-        break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -3003,7 +3003,7 @@ export const MsgVoteResponse = {
   },
   toAminoMsg(message: MsgVoteResponse): MsgVoteResponseAminoMsg {
     return {
-      type: 'cosmos-sdk/MsgVoteResponse',
+      type: "cosmos-sdk/MsgVoteResponse",
       value: MsgVoteResponse.toAmino(message)
     };
   },
@@ -3015,7 +3015,7 @@ export const MsgVoteResponse = {
   },
   toProtoMsg(message: MsgVoteResponse): MsgVoteResponseProtoMsg {
     return {
-      typeUrl: '/cosmos.group.v1.MsgVoteResponse',
+      typeUrl: "/cosmos.group.v1.MsgVoteResponse",
       value: MsgVoteResponse.encode(message).finish()
     };
   }
@@ -3025,26 +3025,26 @@ GlobalDecoderRegistry.registerAminoProtoMapping(MsgVoteResponse.aminoType, MsgVo
 function createBaseMsgExec(): MsgExec {
   return {
     proposalId: BigInt(0),
-    signer: ''
+    signer: ""
   };
 }
 export const MsgExec = {
-  typeUrl: '/cosmos.group.v1.MsgExec',
-  aminoType: 'cosmos-sdk/group/MsgExec',
+  typeUrl: "/cosmos.group.v1.MsgExec",
+  aminoType: "cosmos-sdk/group/MsgExec",
   is(o: any): o is MsgExec {
-    return o && (o.$typeUrl === MsgExec.typeUrl || typeof o.proposalId === 'bigint' && typeof o.signer === 'string');
+    return o && (o.$typeUrl === MsgExec.typeUrl || typeof o.proposalId === "bigint" && typeof o.signer === "string");
   },
   isSDK(o: any): o is MsgExecSDKType {
-    return o && (o.$typeUrl === MsgExec.typeUrl || typeof o.proposal_id === 'bigint' && typeof o.signer === 'string');
+    return o && (o.$typeUrl === MsgExec.typeUrl || typeof o.proposal_id === "bigint" && typeof o.signer === "string");
   },
   isAmino(o: any): o is MsgExecAmino {
-    return o && (o.$typeUrl === MsgExec.typeUrl || typeof o.proposal_id === 'bigint' && typeof o.signer === 'string');
+    return o && (o.$typeUrl === MsgExec.typeUrl || typeof o.proposal_id === "bigint" && typeof o.signer === "string");
   },
   encode(message: MsgExec, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.proposalId !== BigInt(0)) {
       writer.uint32(8).uint64(message.proposalId);
     }
-    if (message.signer !== '') {
+    if (message.signer !== "") {
       writer.uint32(18).string(message.signer);
     }
     return writer;
@@ -3056,15 +3056,15 @@ export const MsgExec = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.proposalId = reader.uint64();
-        break;
-      case 2:
-        message.signer = reader.string();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.proposalId = reader.uint64();
+          break;
+        case 2:
+          message.signer = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -3072,7 +3072,7 @@ export const MsgExec = {
   fromPartial(object: Partial<MsgExec>): MsgExec {
     const message = createBaseMsgExec();
     message.proposalId = object.proposalId !== undefined && object.proposalId !== null ? BigInt(object.proposalId.toString()) : BigInt(0);
-    message.signer = object.signer ?? '';
+    message.signer = object.signer ?? "";
     return message;
   },
   fromAmino(object: MsgExecAmino): MsgExec {
@@ -3088,7 +3088,7 @@ export const MsgExec = {
   toAmino(message: MsgExec): MsgExecAmino {
     const obj: any = {};
     obj.proposal_id = message.proposalId !== BigInt(0) ? message.proposalId.toString() : undefined;
-    obj.signer = message.signer === '' ? undefined : message.signer;
+    obj.signer = message.signer === "" ? undefined : message.signer;
     return obj;
   },
   fromAminoMsg(object: MsgExecAminoMsg): MsgExec {
@@ -3096,7 +3096,7 @@ export const MsgExec = {
   },
   toAminoMsg(message: MsgExec): MsgExecAminoMsg {
     return {
-      type: 'cosmos-sdk/group/MsgExec',
+      type: "cosmos-sdk/group/MsgExec",
       value: MsgExec.toAmino(message)
     };
   },
@@ -3108,7 +3108,7 @@ export const MsgExec = {
   },
   toProtoMsg(message: MsgExec): MsgExecProtoMsg {
     return {
-      typeUrl: '/cosmos.group.v1.MsgExec',
+      typeUrl: "/cosmos.group.v1.MsgExec",
       value: MsgExec.encode(message).finish()
     };
   }
@@ -3119,8 +3119,8 @@ function createBaseMsgExecResponse(): MsgExecResponse {
   return {};
 }
 export const MsgExecResponse = {
-  typeUrl: '/cosmos.group.v1.MsgExecResponse',
-  aminoType: 'cosmos-sdk/MsgExecResponse',
+  typeUrl: "/cosmos.group.v1.MsgExecResponse",
+  aminoType: "cosmos-sdk/MsgExecResponse",
   is(o: any): o is MsgExecResponse {
     return o && o.$typeUrl === MsgExecResponse.typeUrl;
   },
@@ -3140,9 +3140,9 @@ export const MsgExecResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      default:
-        reader.skipType(tag & 7);
-        break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -3164,7 +3164,7 @@ export const MsgExecResponse = {
   },
   toAminoMsg(message: MsgExecResponse): MsgExecResponseAminoMsg {
     return {
-      type: 'cosmos-sdk/MsgExecResponse',
+      type: "cosmos-sdk/MsgExecResponse",
       value: MsgExecResponse.toAmino(message)
     };
   },
@@ -3176,7 +3176,7 @@ export const MsgExecResponse = {
   },
   toProtoMsg(message: MsgExecResponse): MsgExecResponseProtoMsg {
     return {
-      typeUrl: '/cosmos.group.v1.MsgExecResponse',
+      typeUrl: "/cosmos.group.v1.MsgExecResponse",
       value: MsgExecResponse.encode(message).finish()
     };
   }
@@ -3185,24 +3185,24 @@ GlobalDecoderRegistry.register(MsgExecResponse.typeUrl, MsgExecResponse);
 GlobalDecoderRegistry.registerAminoProtoMapping(MsgExecResponse.aminoType, MsgExecResponse.typeUrl);
 function createBaseMsgLeaveGroup(): MsgLeaveGroup {
   return {
-    address: '',
+    address: "",
     groupId: BigInt(0)
   };
 }
 export const MsgLeaveGroup = {
-  typeUrl: '/cosmos.group.v1.MsgLeaveGroup',
-  aminoType: 'cosmos-sdk/group/MsgLeaveGroup',
+  typeUrl: "/cosmos.group.v1.MsgLeaveGroup",
+  aminoType: "cosmos-sdk/group/MsgLeaveGroup",
   is(o: any): o is MsgLeaveGroup {
-    return o && (o.$typeUrl === MsgLeaveGroup.typeUrl || typeof o.address === 'string' && typeof o.groupId === 'bigint');
+    return o && (o.$typeUrl === MsgLeaveGroup.typeUrl || typeof o.address === "string" && typeof o.groupId === "bigint");
   },
   isSDK(o: any): o is MsgLeaveGroupSDKType {
-    return o && (o.$typeUrl === MsgLeaveGroup.typeUrl || typeof o.address === 'string' && typeof o.group_id === 'bigint');
+    return o && (o.$typeUrl === MsgLeaveGroup.typeUrl || typeof o.address === "string" && typeof o.group_id === "bigint");
   },
   isAmino(o: any): o is MsgLeaveGroupAmino {
-    return o && (o.$typeUrl === MsgLeaveGroup.typeUrl || typeof o.address === 'string' && typeof o.group_id === 'bigint');
+    return o && (o.$typeUrl === MsgLeaveGroup.typeUrl || typeof o.address === "string" && typeof o.group_id === "bigint");
   },
   encode(message: MsgLeaveGroup, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.address !== '') {
+    if (message.address !== "") {
       writer.uint32(10).string(message.address);
     }
     if (message.groupId !== BigInt(0)) {
@@ -3217,22 +3217,22 @@ export const MsgLeaveGroup = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.address = reader.string();
-        break;
-      case 2:
-        message.groupId = reader.uint64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.address = reader.string();
+          break;
+        case 2:
+          message.groupId = reader.uint64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<MsgLeaveGroup>): MsgLeaveGroup {
     const message = createBaseMsgLeaveGroup();
-    message.address = object.address ?? '';
+    message.address = object.address ?? "";
     message.groupId = object.groupId !== undefined && object.groupId !== null ? BigInt(object.groupId.toString()) : BigInt(0);
     return message;
   },
@@ -3248,7 +3248,7 @@ export const MsgLeaveGroup = {
   },
   toAmino(message: MsgLeaveGroup): MsgLeaveGroupAmino {
     const obj: any = {};
-    obj.address = message.address === '' ? undefined : message.address;
+    obj.address = message.address === "" ? undefined : message.address;
     obj.group_id = message.groupId !== BigInt(0) ? message.groupId.toString() : undefined;
     return obj;
   },
@@ -3257,7 +3257,7 @@ export const MsgLeaveGroup = {
   },
   toAminoMsg(message: MsgLeaveGroup): MsgLeaveGroupAminoMsg {
     return {
-      type: 'cosmos-sdk/group/MsgLeaveGroup',
+      type: "cosmos-sdk/group/MsgLeaveGroup",
       value: MsgLeaveGroup.toAmino(message)
     };
   },
@@ -3269,7 +3269,7 @@ export const MsgLeaveGroup = {
   },
   toProtoMsg(message: MsgLeaveGroup): MsgLeaveGroupProtoMsg {
     return {
-      typeUrl: '/cosmos.group.v1.MsgLeaveGroup',
+      typeUrl: "/cosmos.group.v1.MsgLeaveGroup",
       value: MsgLeaveGroup.encode(message).finish()
     };
   }
@@ -3280,8 +3280,8 @@ function createBaseMsgLeaveGroupResponse(): MsgLeaveGroupResponse {
   return {};
 }
 export const MsgLeaveGroupResponse = {
-  typeUrl: '/cosmos.group.v1.MsgLeaveGroupResponse',
-  aminoType: 'cosmos-sdk/MsgLeaveGroupResponse',
+  typeUrl: "/cosmos.group.v1.MsgLeaveGroupResponse",
+  aminoType: "cosmos-sdk/MsgLeaveGroupResponse",
   is(o: any): o is MsgLeaveGroupResponse {
     return o && o.$typeUrl === MsgLeaveGroupResponse.typeUrl;
   },
@@ -3301,9 +3301,9 @@ export const MsgLeaveGroupResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      default:
-        reader.skipType(tag & 7);
-        break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -3325,7 +3325,7 @@ export const MsgLeaveGroupResponse = {
   },
   toAminoMsg(message: MsgLeaveGroupResponse): MsgLeaveGroupResponseAminoMsg {
     return {
-      type: 'cosmos-sdk/MsgLeaveGroupResponse',
+      type: "cosmos-sdk/MsgLeaveGroupResponse",
       value: MsgLeaveGroupResponse.toAmino(message)
     };
   },
@@ -3337,7 +3337,7 @@ export const MsgLeaveGroupResponse = {
   },
   toProtoMsg(message: MsgLeaveGroupResponse): MsgLeaveGroupResponseProtoMsg {
     return {
-      typeUrl: '/cosmos.group.v1.MsgLeaveGroupResponse',
+      typeUrl: "/cosmos.group.v1.MsgLeaveGroupResponse",
       value: MsgLeaveGroupResponse.encode(message).finish()
     };
   }

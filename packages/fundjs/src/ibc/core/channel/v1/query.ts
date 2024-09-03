@@ -1,11 +1,11 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from '../../../../binary';
-import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from '../../../../cosmos/base/query/v1beta1/pagination';
-import { Any, AnyAmino, AnySDKType } from '../../../../google/protobuf/any';
-import { base64FromBytes,bytesFromBase64 } from '../../../../helpers';
-import { GlobalDecoderRegistry } from '../../../../registry';
-import { Height, HeightAmino, HeightSDKType, IdentifiedClientState, IdentifiedClientStateAmino, IdentifiedClientStateSDKType } from '../../client/v1/client';
-import { Channel, ChannelAmino, ChannelSDKType, IdentifiedChannel, IdentifiedChannelAmino, IdentifiedChannelSDKType, PacketState, PacketStateAmino, PacketStateSDKType } from './channel';
+import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from "../../../../cosmos/base/query/v1beta1/pagination";
+import { Channel, ChannelAmino, ChannelSDKType, IdentifiedChannel, IdentifiedChannelAmino, IdentifiedChannelSDKType, PacketState, PacketStateAmino, PacketStateSDKType } from "./channel";
+import { Height, HeightAmino, HeightSDKType, IdentifiedClientState, IdentifiedClientStateAmino, IdentifiedClientStateSDKType } from "../../client/v1/client";
+import { Any, AnyAmino, AnySDKType } from "../../../../google/protobuf/any";
+import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { GlobalDecoderRegistry } from "../../../../registry";
+import { bytesFromBase64, base64FromBytes } from "../../../../helpers";
 /** QueryChannelRequest is the request type for the Query/Channel RPC method */
 export interface QueryChannelRequest {
   /** port unique identifier */
@@ -14,7 +14,7 @@ export interface QueryChannelRequest {
   channelId: string;
 }
 export interface QueryChannelRequestProtoMsg {
-  typeUrl: '/ibc.core.channel.v1.QueryChannelRequest';
+  typeUrl: "/ibc.core.channel.v1.QueryChannelRequest";
   value: Uint8Array;
 }
 /** QueryChannelRequest is the request type for the Query/Channel RPC method */
@@ -25,7 +25,7 @@ export interface QueryChannelRequestAmino {
   channel_id?: string;
 }
 export interface QueryChannelRequestAminoMsg {
-  type: 'cosmos-sdk/QueryChannelRequest';
+  type: "cosmos-sdk/QueryChannelRequest";
   value: QueryChannelRequestAmino;
 }
 /** QueryChannelRequest is the request type for the Query/Channel RPC method */
@@ -47,7 +47,7 @@ export interface QueryChannelResponse {
   proofHeight: Height;
 }
 export interface QueryChannelResponseProtoMsg {
-  typeUrl: '/ibc.core.channel.v1.QueryChannelResponse';
+  typeUrl: "/ibc.core.channel.v1.QueryChannelResponse";
   value: Uint8Array;
 }
 /**
@@ -64,7 +64,7 @@ export interface QueryChannelResponseAmino {
   proof_height?: HeightAmino;
 }
 export interface QueryChannelResponseAminoMsg {
-  type: 'cosmos-sdk/QueryChannelResponse';
+  type: "cosmos-sdk/QueryChannelResponse";
   value: QueryChannelResponseAmino;
 }
 /**
@@ -83,7 +83,7 @@ export interface QueryChannelsRequest {
   pagination?: PageRequest;
 }
 export interface QueryChannelsRequestProtoMsg {
-  typeUrl: '/ibc.core.channel.v1.QueryChannelsRequest';
+  typeUrl: "/ibc.core.channel.v1.QueryChannelsRequest";
   value: Uint8Array;
 }
 /** QueryChannelsRequest is the request type for the Query/Channels RPC method */
@@ -92,7 +92,7 @@ export interface QueryChannelsRequestAmino {
   pagination?: PageRequestAmino;
 }
 export interface QueryChannelsRequestAminoMsg {
-  type: 'cosmos-sdk/QueryChannelsRequest';
+  type: "cosmos-sdk/QueryChannelsRequest";
   value: QueryChannelsRequestAmino;
 }
 /** QueryChannelsRequest is the request type for the Query/Channels RPC method */
@@ -109,7 +109,7 @@ export interface QueryChannelsResponse {
   height: Height;
 }
 export interface QueryChannelsResponseProtoMsg {
-  typeUrl: '/ibc.core.channel.v1.QueryChannelsResponse';
+  typeUrl: "/ibc.core.channel.v1.QueryChannelsResponse";
   value: Uint8Array;
 }
 /** QueryChannelsResponse is the response type for the Query/Channels RPC method. */
@@ -122,7 +122,7 @@ export interface QueryChannelsResponseAmino {
   height?: HeightAmino;
 }
 export interface QueryChannelsResponseAminoMsg {
-  type: 'cosmos-sdk/QueryChannelsResponse';
+  type: "cosmos-sdk/QueryChannelsResponse";
   value: QueryChannelsResponseAmino;
 }
 /** QueryChannelsResponse is the response type for the Query/Channels RPC method. */
@@ -142,7 +142,7 @@ export interface QueryConnectionChannelsRequest {
   pagination?: PageRequest;
 }
 export interface QueryConnectionChannelsRequestProtoMsg {
-  typeUrl: '/ibc.core.channel.v1.QueryConnectionChannelsRequest';
+  typeUrl: "/ibc.core.channel.v1.QueryConnectionChannelsRequest";
   value: Uint8Array;
 }
 /**
@@ -156,7 +156,7 @@ export interface QueryConnectionChannelsRequestAmino {
   pagination?: PageRequestAmino;
 }
 export interface QueryConnectionChannelsRequestAminoMsg {
-  type: 'cosmos-sdk/QueryConnectionChannelsRequest';
+  type: "cosmos-sdk/QueryConnectionChannelsRequest";
   value: QueryConnectionChannelsRequestAmino;
 }
 /**
@@ -180,7 +180,7 @@ export interface QueryConnectionChannelsResponse {
   height: Height;
 }
 export interface QueryConnectionChannelsResponseProtoMsg {
-  typeUrl: '/ibc.core.channel.v1.QueryConnectionChannelsResponse';
+  typeUrl: "/ibc.core.channel.v1.QueryConnectionChannelsResponse";
   value: Uint8Array;
 }
 /**
@@ -196,7 +196,7 @@ export interface QueryConnectionChannelsResponseAmino {
   height?: HeightAmino;
 }
 export interface QueryConnectionChannelsResponseAminoMsg {
-  type: 'cosmos-sdk/QueryConnectionChannelsResponse';
+  type: "cosmos-sdk/QueryConnectionChannelsResponse";
   value: QueryConnectionChannelsResponseAmino;
 }
 /**
@@ -219,7 +219,7 @@ export interface QueryChannelClientStateRequest {
   channelId: string;
 }
 export interface QueryChannelClientStateRequestProtoMsg {
-  typeUrl: '/ibc.core.channel.v1.QueryChannelClientStateRequest';
+  typeUrl: "/ibc.core.channel.v1.QueryChannelClientStateRequest";
   value: Uint8Array;
 }
 /**
@@ -233,7 +233,7 @@ export interface QueryChannelClientStateRequestAmino {
   channel_id?: string;
 }
 export interface QueryChannelClientStateRequestAminoMsg {
-  type: 'cosmos-sdk/QueryChannelClientStateRequest';
+  type: "cosmos-sdk/QueryChannelClientStateRequest";
   value: QueryChannelClientStateRequestAmino;
 }
 /**
@@ -257,7 +257,7 @@ export interface QueryChannelClientStateResponse {
   proofHeight: Height;
 }
 export interface QueryChannelClientStateResponseProtoMsg {
-  typeUrl: '/ibc.core.channel.v1.QueryChannelClientStateResponse';
+  typeUrl: "/ibc.core.channel.v1.QueryChannelClientStateResponse";
   value: Uint8Array;
 }
 /**
@@ -273,7 +273,7 @@ export interface QueryChannelClientStateResponseAmino {
   proof_height?: HeightAmino;
 }
 export interface QueryChannelClientStateResponseAminoMsg {
-  type: 'cosmos-sdk/QueryChannelClientStateResponse';
+  type: "cosmos-sdk/QueryChannelClientStateResponse";
   value: QueryChannelClientStateResponseAmino;
 }
 /**
@@ -300,7 +300,7 @@ export interface QueryChannelConsensusStateRequest {
   revisionHeight: bigint;
 }
 export interface QueryChannelConsensusStateRequestProtoMsg {
-  typeUrl: '/ibc.core.channel.v1.QueryChannelConsensusStateRequest';
+  typeUrl: "/ibc.core.channel.v1.QueryChannelConsensusStateRequest";
   value: Uint8Array;
 }
 /**
@@ -318,7 +318,7 @@ export interface QueryChannelConsensusStateRequestAmino {
   revision_height?: string;
 }
 export interface QueryChannelConsensusStateRequestAminoMsg {
-  type: 'cosmos-sdk/QueryChannelConsensusStateRequest';
+  type: "cosmos-sdk/QueryChannelConsensusStateRequest";
   value: QueryChannelConsensusStateRequestAmino;
 }
 /**
@@ -346,7 +346,7 @@ export interface QueryChannelConsensusStateResponse {
   proofHeight: Height;
 }
 export interface QueryChannelConsensusStateResponseProtoMsg {
-  typeUrl: '/ibc.core.channel.v1.QueryChannelConsensusStateResponse';
+  typeUrl: "/ibc.core.channel.v1.QueryChannelConsensusStateResponse";
   value: Uint8Array;
 }
 /**
@@ -364,7 +364,7 @@ export interface QueryChannelConsensusStateResponseAmino {
   proof_height?: HeightAmino;
 }
 export interface QueryChannelConsensusStateResponseAminoMsg {
-  type: 'cosmos-sdk/QueryChannelConsensusStateResponse';
+  type: "cosmos-sdk/QueryChannelConsensusStateResponse";
   value: QueryChannelConsensusStateResponseAmino;
 }
 /**
@@ -390,7 +390,7 @@ export interface QueryPacketCommitmentRequest {
   sequence: bigint;
 }
 export interface QueryPacketCommitmentRequestProtoMsg {
-  typeUrl: '/ibc.core.channel.v1.QueryPacketCommitmentRequest';
+  typeUrl: "/ibc.core.channel.v1.QueryPacketCommitmentRequest";
   value: Uint8Array;
 }
 /**
@@ -406,7 +406,7 @@ export interface QueryPacketCommitmentRequestAmino {
   sequence?: string;
 }
 export interface QueryPacketCommitmentRequestAminoMsg {
-  type: 'cosmos-sdk/QueryPacketCommitmentRequest';
+  type: "cosmos-sdk/QueryPacketCommitmentRequest";
   value: QueryPacketCommitmentRequestAmino;
 }
 /**
@@ -432,7 +432,7 @@ export interface QueryPacketCommitmentResponse {
   proofHeight: Height;
 }
 export interface QueryPacketCommitmentResponseProtoMsg {
-  typeUrl: '/ibc.core.channel.v1.QueryPacketCommitmentResponse';
+  typeUrl: "/ibc.core.channel.v1.QueryPacketCommitmentResponse";
   value: Uint8Array;
 }
 /**
@@ -449,7 +449,7 @@ export interface QueryPacketCommitmentResponseAmino {
   proof_height?: HeightAmino;
 }
 export interface QueryPacketCommitmentResponseAminoMsg {
-  type: 'cosmos-sdk/QueryPacketCommitmentResponse';
+  type: "cosmos-sdk/QueryPacketCommitmentResponse";
   value: QueryPacketCommitmentResponseAmino;
 }
 /**
@@ -475,7 +475,7 @@ export interface QueryPacketCommitmentsRequest {
   pagination?: PageRequest;
 }
 export interface QueryPacketCommitmentsRequestProtoMsg {
-  typeUrl: '/ibc.core.channel.v1.QueryPacketCommitmentsRequest';
+  typeUrl: "/ibc.core.channel.v1.QueryPacketCommitmentsRequest";
   value: Uint8Array;
 }
 /**
@@ -491,7 +491,7 @@ export interface QueryPacketCommitmentsRequestAmino {
   pagination?: PageRequestAmino;
 }
 export interface QueryPacketCommitmentsRequestAminoMsg {
-  type: 'cosmos-sdk/QueryPacketCommitmentsRequest';
+  type: "cosmos-sdk/QueryPacketCommitmentsRequest";
   value: QueryPacketCommitmentsRequestAmino;
 }
 /**
@@ -515,7 +515,7 @@ export interface QueryPacketCommitmentsResponse {
   height: Height;
 }
 export interface QueryPacketCommitmentsResponseProtoMsg {
-  typeUrl: '/ibc.core.channel.v1.QueryPacketCommitmentsResponse';
+  typeUrl: "/ibc.core.channel.v1.QueryPacketCommitmentsResponse";
   value: Uint8Array;
 }
 /**
@@ -530,7 +530,7 @@ export interface QueryPacketCommitmentsResponseAmino {
   height?: HeightAmino;
 }
 export interface QueryPacketCommitmentsResponseAminoMsg {
-  type: 'cosmos-sdk/QueryPacketCommitmentsResponse';
+  type: "cosmos-sdk/QueryPacketCommitmentsResponse";
   value: QueryPacketCommitmentsResponseAmino;
 }
 /**
@@ -555,7 +555,7 @@ export interface QueryPacketReceiptRequest {
   sequence: bigint;
 }
 export interface QueryPacketReceiptRequestProtoMsg {
-  typeUrl: '/ibc.core.channel.v1.QueryPacketReceiptRequest';
+  typeUrl: "/ibc.core.channel.v1.QueryPacketReceiptRequest";
   value: Uint8Array;
 }
 /**
@@ -571,7 +571,7 @@ export interface QueryPacketReceiptRequestAmino {
   sequence?: string;
 }
 export interface QueryPacketReceiptRequestAminoMsg {
-  type: 'cosmos-sdk/QueryPacketReceiptRequest';
+  type: "cosmos-sdk/QueryPacketReceiptRequest";
   value: QueryPacketReceiptRequestAmino;
 }
 /**
@@ -597,7 +597,7 @@ export interface QueryPacketReceiptResponse {
   proofHeight: Height;
 }
 export interface QueryPacketReceiptResponseProtoMsg {
-  typeUrl: '/ibc.core.channel.v1.QueryPacketReceiptResponse';
+  typeUrl: "/ibc.core.channel.v1.QueryPacketReceiptResponse";
   value: Uint8Array;
 }
 /**
@@ -614,7 +614,7 @@ export interface QueryPacketReceiptResponseAmino {
   proof_height?: HeightAmino;
 }
 export interface QueryPacketReceiptResponseAminoMsg {
-  type: 'cosmos-sdk/QueryPacketReceiptResponse';
+  type: "cosmos-sdk/QueryPacketReceiptResponse";
   value: QueryPacketReceiptResponseAmino;
 }
 /**
@@ -640,7 +640,7 @@ export interface QueryPacketAcknowledgementRequest {
   sequence: bigint;
 }
 export interface QueryPacketAcknowledgementRequestProtoMsg {
-  typeUrl: '/ibc.core.channel.v1.QueryPacketAcknowledgementRequest';
+  typeUrl: "/ibc.core.channel.v1.QueryPacketAcknowledgementRequest";
   value: Uint8Array;
 }
 /**
@@ -656,7 +656,7 @@ export interface QueryPacketAcknowledgementRequestAmino {
   sequence?: string;
 }
 export interface QueryPacketAcknowledgementRequestAminoMsg {
-  type: 'cosmos-sdk/QueryPacketAcknowledgementRequest';
+  type: "cosmos-sdk/QueryPacketAcknowledgementRequest";
   value: QueryPacketAcknowledgementRequestAmino;
 }
 /**
@@ -682,7 +682,7 @@ export interface QueryPacketAcknowledgementResponse {
   proofHeight: Height;
 }
 export interface QueryPacketAcknowledgementResponseProtoMsg {
-  typeUrl: '/ibc.core.channel.v1.QueryPacketAcknowledgementResponse';
+  typeUrl: "/ibc.core.channel.v1.QueryPacketAcknowledgementResponse";
   value: Uint8Array;
 }
 /**
@@ -699,7 +699,7 @@ export interface QueryPacketAcknowledgementResponseAmino {
   proof_height?: HeightAmino;
 }
 export interface QueryPacketAcknowledgementResponseAminoMsg {
-  type: 'cosmos-sdk/QueryPacketAcknowledgementResponse';
+  type: "cosmos-sdk/QueryPacketAcknowledgementResponse";
   value: QueryPacketAcknowledgementResponseAmino;
 }
 /**
@@ -727,7 +727,7 @@ export interface QueryPacketAcknowledgementsRequest {
   packetCommitmentSequences: bigint[];
 }
 export interface QueryPacketAcknowledgementsRequestProtoMsg {
-  typeUrl: '/ibc.core.channel.v1.QueryPacketAcknowledgementsRequest';
+  typeUrl: "/ibc.core.channel.v1.QueryPacketAcknowledgementsRequest";
   value: Uint8Array;
 }
 /**
@@ -745,7 +745,7 @@ export interface QueryPacketAcknowledgementsRequestAmino {
   packet_commitment_sequences?: string[];
 }
 export interface QueryPacketAcknowledgementsRequestAminoMsg {
-  type: 'cosmos-sdk/QueryPacketAcknowledgementsRequest';
+  type: "cosmos-sdk/QueryPacketAcknowledgementsRequest";
   value: QueryPacketAcknowledgementsRequestAmino;
 }
 /**
@@ -770,7 +770,7 @@ export interface QueryPacketAcknowledgementsResponse {
   height: Height;
 }
 export interface QueryPacketAcknowledgementsResponseProtoMsg {
-  typeUrl: '/ibc.core.channel.v1.QueryPacketAcknowledgementsResponse';
+  typeUrl: "/ibc.core.channel.v1.QueryPacketAcknowledgementsResponse";
   value: Uint8Array;
 }
 /**
@@ -785,7 +785,7 @@ export interface QueryPacketAcknowledgementsResponseAmino {
   height?: HeightAmino;
 }
 export interface QueryPacketAcknowledgementsResponseAminoMsg {
-  type: 'cosmos-sdk/QueryPacketAcknowledgementsResponse';
+  type: "cosmos-sdk/QueryPacketAcknowledgementsResponse";
   value: QueryPacketAcknowledgementsResponseAmino;
 }
 /**
@@ -810,7 +810,7 @@ export interface QueryUnreceivedPacketsRequest {
   packetCommitmentSequences: bigint[];
 }
 export interface QueryUnreceivedPacketsRequestProtoMsg {
-  typeUrl: '/ibc.core.channel.v1.QueryUnreceivedPacketsRequest';
+  typeUrl: "/ibc.core.channel.v1.QueryUnreceivedPacketsRequest";
   value: Uint8Array;
 }
 /**
@@ -826,7 +826,7 @@ export interface QueryUnreceivedPacketsRequestAmino {
   packet_commitment_sequences?: string[];
 }
 export interface QueryUnreceivedPacketsRequestAminoMsg {
-  type: 'cosmos-sdk/QueryUnreceivedPacketsRequest';
+  type: "cosmos-sdk/QueryUnreceivedPacketsRequest";
   value: QueryUnreceivedPacketsRequestAmino;
 }
 /**
@@ -849,7 +849,7 @@ export interface QueryUnreceivedPacketsResponse {
   height: Height;
 }
 export interface QueryUnreceivedPacketsResponseProtoMsg {
-  typeUrl: '/ibc.core.channel.v1.QueryUnreceivedPacketsResponse';
+  typeUrl: "/ibc.core.channel.v1.QueryUnreceivedPacketsResponse";
   value: Uint8Array;
 }
 /**
@@ -863,7 +863,7 @@ export interface QueryUnreceivedPacketsResponseAmino {
   height?: HeightAmino;
 }
 export interface QueryUnreceivedPacketsResponseAminoMsg {
-  type: 'cosmos-sdk/QueryUnreceivedPacketsResponse';
+  type: "cosmos-sdk/QueryUnreceivedPacketsResponse";
   value: QueryUnreceivedPacketsResponseAmino;
 }
 /**
@@ -887,7 +887,7 @@ export interface QueryUnreceivedAcksRequest {
   packetAckSequences: bigint[];
 }
 export interface QueryUnreceivedAcksRequestProtoMsg {
-  typeUrl: '/ibc.core.channel.v1.QueryUnreceivedAcksRequest';
+  typeUrl: "/ibc.core.channel.v1.QueryUnreceivedAcksRequest";
   value: Uint8Array;
 }
 /**
@@ -903,7 +903,7 @@ export interface QueryUnreceivedAcksRequestAmino {
   packet_ack_sequences?: string[];
 }
 export interface QueryUnreceivedAcksRequestAminoMsg {
-  type: 'cosmos-sdk/QueryUnreceivedAcksRequest';
+  type: "cosmos-sdk/QueryUnreceivedAcksRequest";
   value: QueryUnreceivedAcksRequestAmino;
 }
 /**
@@ -926,7 +926,7 @@ export interface QueryUnreceivedAcksResponse {
   height: Height;
 }
 export interface QueryUnreceivedAcksResponseProtoMsg {
-  typeUrl: '/ibc.core.channel.v1.QueryUnreceivedAcksResponse';
+  typeUrl: "/ibc.core.channel.v1.QueryUnreceivedAcksResponse";
   value: Uint8Array;
 }
 /**
@@ -940,7 +940,7 @@ export interface QueryUnreceivedAcksResponseAmino {
   height?: HeightAmino;
 }
 export interface QueryUnreceivedAcksResponseAminoMsg {
-  type: 'cosmos-sdk/QueryUnreceivedAcksResponse';
+  type: "cosmos-sdk/QueryUnreceivedAcksResponse";
   value: QueryUnreceivedAcksResponseAmino;
 }
 /**
@@ -962,7 +962,7 @@ export interface QueryNextSequenceReceiveRequest {
   channelId: string;
 }
 export interface QueryNextSequenceReceiveRequestProtoMsg {
-  typeUrl: '/ibc.core.channel.v1.QueryNextSequenceReceiveRequest';
+  typeUrl: "/ibc.core.channel.v1.QueryNextSequenceReceiveRequest";
   value: Uint8Array;
 }
 /**
@@ -976,7 +976,7 @@ export interface QueryNextSequenceReceiveRequestAmino {
   channel_id?: string;
 }
 export interface QueryNextSequenceReceiveRequestAminoMsg {
-  type: 'cosmos-sdk/QueryNextSequenceReceiveRequest';
+  type: "cosmos-sdk/QueryNextSequenceReceiveRequest";
   value: QueryNextSequenceReceiveRequestAmino;
 }
 /**
@@ -1000,7 +1000,7 @@ export interface QueryNextSequenceReceiveResponse {
   proofHeight: Height;
 }
 export interface QueryNextSequenceReceiveResponseProtoMsg {
-  typeUrl: '/ibc.core.channel.v1.QueryNextSequenceReceiveResponse';
+  typeUrl: "/ibc.core.channel.v1.QueryNextSequenceReceiveResponse";
   value: Uint8Array;
 }
 /**
@@ -1016,7 +1016,7 @@ export interface QueryNextSequenceReceiveResponseAmino {
   proof_height?: HeightAmino;
 }
 export interface QueryNextSequenceReceiveResponseAminoMsg {
-  type: 'cosmos-sdk/QueryNextSequenceReceiveResponse';
+  type: "cosmos-sdk/QueryNextSequenceReceiveResponse";
   value: QueryNextSequenceReceiveResponseAmino;
 }
 /**
@@ -1030,27 +1030,27 @@ export interface QueryNextSequenceReceiveResponseSDKType {
 }
 function createBaseQueryChannelRequest(): QueryChannelRequest {
   return {
-    portId: '',
-    channelId: ''
+    portId: "",
+    channelId: ""
   };
 }
 export const QueryChannelRequest = {
-  typeUrl: '/ibc.core.channel.v1.QueryChannelRequest',
-  aminoType: 'cosmos-sdk/QueryChannelRequest',
+  typeUrl: "/ibc.core.channel.v1.QueryChannelRequest",
+  aminoType: "cosmos-sdk/QueryChannelRequest",
   is(o: any): o is QueryChannelRequest {
-    return o && (o.$typeUrl === QueryChannelRequest.typeUrl || typeof o.portId === 'string' && typeof o.channelId === 'string');
+    return o && (o.$typeUrl === QueryChannelRequest.typeUrl || typeof o.portId === "string" && typeof o.channelId === "string");
   },
   isSDK(o: any): o is QueryChannelRequestSDKType {
-    return o && (o.$typeUrl === QueryChannelRequest.typeUrl || typeof o.port_id === 'string' && typeof o.channel_id === 'string');
+    return o && (o.$typeUrl === QueryChannelRequest.typeUrl || typeof o.port_id === "string" && typeof o.channel_id === "string");
   },
   isAmino(o: any): o is QueryChannelRequestAmino {
-    return o && (o.$typeUrl === QueryChannelRequest.typeUrl || typeof o.port_id === 'string' && typeof o.channel_id === 'string');
+    return o && (o.$typeUrl === QueryChannelRequest.typeUrl || typeof o.port_id === "string" && typeof o.channel_id === "string");
   },
   encode(message: QueryChannelRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.portId !== '') {
+    if (message.portId !== "") {
       writer.uint32(10).string(message.portId);
     }
-    if (message.channelId !== '') {
+    if (message.channelId !== "") {
       writer.uint32(18).string(message.channelId);
     }
     return writer;
@@ -1062,23 +1062,23 @@ export const QueryChannelRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.portId = reader.string();
-        break;
-      case 2:
-        message.channelId = reader.string();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.portId = reader.string();
+          break;
+        case 2:
+          message.channelId = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<QueryChannelRequest>): QueryChannelRequest {
     const message = createBaseQueryChannelRequest();
-    message.portId = object.portId ?? '';
-    message.channelId = object.channelId ?? '';
+    message.portId = object.portId ?? "";
+    message.channelId = object.channelId ?? "";
     return message;
   },
   fromAmino(object: QueryChannelRequestAmino): QueryChannelRequest {
@@ -1093,8 +1093,8 @@ export const QueryChannelRequest = {
   },
   toAmino(message: QueryChannelRequest): QueryChannelRequestAmino {
     const obj: any = {};
-    obj.port_id = message.portId === '' ? undefined : message.portId;
-    obj.channel_id = message.channelId === '' ? undefined : message.channelId;
+    obj.port_id = message.portId === "" ? undefined : message.portId;
+    obj.channel_id = message.channelId === "" ? undefined : message.channelId;
     return obj;
   },
   fromAminoMsg(object: QueryChannelRequestAminoMsg): QueryChannelRequest {
@@ -1102,7 +1102,7 @@ export const QueryChannelRequest = {
   },
   toAminoMsg(message: QueryChannelRequest): QueryChannelRequestAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryChannelRequest',
+      type: "cosmos-sdk/QueryChannelRequest",
       value: QueryChannelRequest.toAmino(message)
     };
   },
@@ -1114,7 +1114,7 @@ export const QueryChannelRequest = {
   },
   toProtoMsg(message: QueryChannelRequest): QueryChannelRequestProtoMsg {
     return {
-      typeUrl: '/ibc.core.channel.v1.QueryChannelRequest',
+      typeUrl: "/ibc.core.channel.v1.QueryChannelRequest",
       value: QueryChannelRequest.encode(message).finish()
     };
   }
@@ -1129,16 +1129,16 @@ function createBaseQueryChannelResponse(): QueryChannelResponse {
   };
 }
 export const QueryChannelResponse = {
-  typeUrl: '/ibc.core.channel.v1.QueryChannelResponse',
-  aminoType: 'cosmos-sdk/QueryChannelResponse',
+  typeUrl: "/ibc.core.channel.v1.QueryChannelResponse",
+  aminoType: "cosmos-sdk/QueryChannelResponse",
   is(o: any): o is QueryChannelResponse {
-    return o && (o.$typeUrl === QueryChannelResponse.typeUrl || (o.proof instanceof Uint8Array || typeof o.proof === 'string') && Height.is(o.proofHeight));
+    return o && (o.$typeUrl === QueryChannelResponse.typeUrl || (o.proof instanceof Uint8Array || typeof o.proof === "string") && Height.is(o.proofHeight));
   },
   isSDK(o: any): o is QueryChannelResponseSDKType {
-    return o && (o.$typeUrl === QueryChannelResponse.typeUrl || (o.proof instanceof Uint8Array || typeof o.proof === 'string') && Height.isSDK(o.proof_height));
+    return o && (o.$typeUrl === QueryChannelResponse.typeUrl || (o.proof instanceof Uint8Array || typeof o.proof === "string") && Height.isSDK(o.proof_height));
   },
   isAmino(o: any): o is QueryChannelResponseAmino {
-    return o && (o.$typeUrl === QueryChannelResponse.typeUrl || (o.proof instanceof Uint8Array || typeof o.proof === 'string') && Height.isAmino(o.proof_height));
+    return o && (o.$typeUrl === QueryChannelResponse.typeUrl || (o.proof instanceof Uint8Array || typeof o.proof === "string") && Height.isAmino(o.proof_height));
   },
   encode(message: QueryChannelResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.channel !== undefined) {
@@ -1159,18 +1159,18 @@ export const QueryChannelResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.channel = Channel.decode(reader, reader.uint32());
-        break;
-      case 2:
-        message.proof = reader.bytes();
-        break;
-      case 3:
-        message.proofHeight = Height.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.channel = Channel.decode(reader, reader.uint32());
+          break;
+        case 2:
+          message.proof = reader.bytes();
+          break;
+        case 3:
+          message.proofHeight = Height.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1207,7 +1207,7 @@ export const QueryChannelResponse = {
   },
   toAminoMsg(message: QueryChannelResponse): QueryChannelResponseAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryChannelResponse',
+      type: "cosmos-sdk/QueryChannelResponse",
       value: QueryChannelResponse.toAmino(message)
     };
   },
@@ -1219,7 +1219,7 @@ export const QueryChannelResponse = {
   },
   toProtoMsg(message: QueryChannelResponse): QueryChannelResponseProtoMsg {
     return {
-      typeUrl: '/ibc.core.channel.v1.QueryChannelResponse',
+      typeUrl: "/ibc.core.channel.v1.QueryChannelResponse",
       value: QueryChannelResponse.encode(message).finish()
     };
   }
@@ -1232,8 +1232,8 @@ function createBaseQueryChannelsRequest(): QueryChannelsRequest {
   };
 }
 export const QueryChannelsRequest = {
-  typeUrl: '/ibc.core.channel.v1.QueryChannelsRequest',
-  aminoType: 'cosmos-sdk/QueryChannelsRequest',
+  typeUrl: "/ibc.core.channel.v1.QueryChannelsRequest",
+  aminoType: "cosmos-sdk/QueryChannelsRequest",
   is(o: any): o is QueryChannelsRequest {
     return o && o.$typeUrl === QueryChannelsRequest.typeUrl;
   },
@@ -1256,12 +1256,12 @@ export const QueryChannelsRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.pagination = PageRequest.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.pagination = PageRequest.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1288,7 +1288,7 @@ export const QueryChannelsRequest = {
   },
   toAminoMsg(message: QueryChannelsRequest): QueryChannelsRequestAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryChannelsRequest',
+      type: "cosmos-sdk/QueryChannelsRequest",
       value: QueryChannelsRequest.toAmino(message)
     };
   },
@@ -1300,7 +1300,7 @@ export const QueryChannelsRequest = {
   },
   toProtoMsg(message: QueryChannelsRequest): QueryChannelsRequestProtoMsg {
     return {
-      typeUrl: '/ibc.core.channel.v1.QueryChannelsRequest',
+      typeUrl: "/ibc.core.channel.v1.QueryChannelsRequest",
       value: QueryChannelsRequest.encode(message).finish()
     };
   }
@@ -1315,8 +1315,8 @@ function createBaseQueryChannelsResponse(): QueryChannelsResponse {
   };
 }
 export const QueryChannelsResponse = {
-  typeUrl: '/ibc.core.channel.v1.QueryChannelsResponse',
-  aminoType: 'cosmos-sdk/QueryChannelsResponse',
+  typeUrl: "/ibc.core.channel.v1.QueryChannelsResponse",
+  aminoType: "cosmos-sdk/QueryChannelsResponse",
   is(o: any): o is QueryChannelsResponse {
     return o && (o.$typeUrl === QueryChannelsResponse.typeUrl || Array.isArray(o.channels) && (!o.channels.length || IdentifiedChannel.is(o.channels[0])) && Height.is(o.height));
   },
@@ -1345,18 +1345,18 @@ export const QueryChannelsResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.channels.push(IdentifiedChannel.decode(reader, reader.uint32()));
-        break;
-      case 2:
-        message.pagination = PageResponse.decode(reader, reader.uint32());
-        break;
-      case 3:
-        message.height = Height.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.channels.push(IdentifiedChannel.decode(reader, reader.uint32()));
+          break;
+        case 2:
+          message.pagination = PageResponse.decode(reader, reader.uint32());
+          break;
+        case 3:
+          message.height = Height.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1395,7 +1395,7 @@ export const QueryChannelsResponse = {
   },
   toAminoMsg(message: QueryChannelsResponse): QueryChannelsResponseAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryChannelsResponse',
+      type: "cosmos-sdk/QueryChannelsResponse",
       value: QueryChannelsResponse.toAmino(message)
     };
   },
@@ -1407,7 +1407,7 @@ export const QueryChannelsResponse = {
   },
   toProtoMsg(message: QueryChannelsResponse): QueryChannelsResponseProtoMsg {
     return {
-      typeUrl: '/ibc.core.channel.v1.QueryChannelsResponse',
+      typeUrl: "/ibc.core.channel.v1.QueryChannelsResponse",
       value: QueryChannelsResponse.encode(message).finish()
     };
   }
@@ -1416,24 +1416,24 @@ GlobalDecoderRegistry.register(QueryChannelsResponse.typeUrl, QueryChannelsRespo
 GlobalDecoderRegistry.registerAminoProtoMapping(QueryChannelsResponse.aminoType, QueryChannelsResponse.typeUrl);
 function createBaseQueryConnectionChannelsRequest(): QueryConnectionChannelsRequest {
   return {
-    connection: '',
+    connection: "",
     pagination: undefined
   };
 }
 export const QueryConnectionChannelsRequest = {
-  typeUrl: '/ibc.core.channel.v1.QueryConnectionChannelsRequest',
-  aminoType: 'cosmos-sdk/QueryConnectionChannelsRequest',
+  typeUrl: "/ibc.core.channel.v1.QueryConnectionChannelsRequest",
+  aminoType: "cosmos-sdk/QueryConnectionChannelsRequest",
   is(o: any): o is QueryConnectionChannelsRequest {
-    return o && (o.$typeUrl === QueryConnectionChannelsRequest.typeUrl || typeof o.connection === 'string');
+    return o && (o.$typeUrl === QueryConnectionChannelsRequest.typeUrl || typeof o.connection === "string");
   },
   isSDK(o: any): o is QueryConnectionChannelsRequestSDKType {
-    return o && (o.$typeUrl === QueryConnectionChannelsRequest.typeUrl || typeof o.connection === 'string');
+    return o && (o.$typeUrl === QueryConnectionChannelsRequest.typeUrl || typeof o.connection === "string");
   },
   isAmino(o: any): o is QueryConnectionChannelsRequestAmino {
-    return o && (o.$typeUrl === QueryConnectionChannelsRequest.typeUrl || typeof o.connection === 'string');
+    return o && (o.$typeUrl === QueryConnectionChannelsRequest.typeUrl || typeof o.connection === "string");
   },
   encode(message: QueryConnectionChannelsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.connection !== '') {
+    if (message.connection !== "") {
       writer.uint32(10).string(message.connection);
     }
     if (message.pagination !== undefined) {
@@ -1448,22 +1448,22 @@ export const QueryConnectionChannelsRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.connection = reader.string();
-        break;
-      case 2:
-        message.pagination = PageRequest.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.connection = reader.string();
+          break;
+        case 2:
+          message.pagination = PageRequest.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<QueryConnectionChannelsRequest>): QueryConnectionChannelsRequest {
     const message = createBaseQueryConnectionChannelsRequest();
-    message.connection = object.connection ?? '';
+    message.connection = object.connection ?? "";
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageRequest.fromPartial(object.pagination) : undefined;
     return message;
   },
@@ -1479,7 +1479,7 @@ export const QueryConnectionChannelsRequest = {
   },
   toAmino(message: QueryConnectionChannelsRequest): QueryConnectionChannelsRequestAmino {
     const obj: any = {};
-    obj.connection = message.connection === '' ? undefined : message.connection;
+    obj.connection = message.connection === "" ? undefined : message.connection;
     obj.pagination = message.pagination ? PageRequest.toAmino(message.pagination) : undefined;
     return obj;
   },
@@ -1488,7 +1488,7 @@ export const QueryConnectionChannelsRequest = {
   },
   toAminoMsg(message: QueryConnectionChannelsRequest): QueryConnectionChannelsRequestAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryConnectionChannelsRequest',
+      type: "cosmos-sdk/QueryConnectionChannelsRequest",
       value: QueryConnectionChannelsRequest.toAmino(message)
     };
   },
@@ -1500,7 +1500,7 @@ export const QueryConnectionChannelsRequest = {
   },
   toProtoMsg(message: QueryConnectionChannelsRequest): QueryConnectionChannelsRequestProtoMsg {
     return {
-      typeUrl: '/ibc.core.channel.v1.QueryConnectionChannelsRequest',
+      typeUrl: "/ibc.core.channel.v1.QueryConnectionChannelsRequest",
       value: QueryConnectionChannelsRequest.encode(message).finish()
     };
   }
@@ -1515,8 +1515,8 @@ function createBaseQueryConnectionChannelsResponse(): QueryConnectionChannelsRes
   };
 }
 export const QueryConnectionChannelsResponse = {
-  typeUrl: '/ibc.core.channel.v1.QueryConnectionChannelsResponse',
-  aminoType: 'cosmos-sdk/QueryConnectionChannelsResponse',
+  typeUrl: "/ibc.core.channel.v1.QueryConnectionChannelsResponse",
+  aminoType: "cosmos-sdk/QueryConnectionChannelsResponse",
   is(o: any): o is QueryConnectionChannelsResponse {
     return o && (o.$typeUrl === QueryConnectionChannelsResponse.typeUrl || Array.isArray(o.channels) && (!o.channels.length || IdentifiedChannel.is(o.channels[0])) && Height.is(o.height));
   },
@@ -1545,18 +1545,18 @@ export const QueryConnectionChannelsResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.channels.push(IdentifiedChannel.decode(reader, reader.uint32()));
-        break;
-      case 2:
-        message.pagination = PageResponse.decode(reader, reader.uint32());
-        break;
-      case 3:
-        message.height = Height.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.channels.push(IdentifiedChannel.decode(reader, reader.uint32()));
+          break;
+        case 2:
+          message.pagination = PageResponse.decode(reader, reader.uint32());
+          break;
+        case 3:
+          message.height = Height.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1595,7 +1595,7 @@ export const QueryConnectionChannelsResponse = {
   },
   toAminoMsg(message: QueryConnectionChannelsResponse): QueryConnectionChannelsResponseAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryConnectionChannelsResponse',
+      type: "cosmos-sdk/QueryConnectionChannelsResponse",
       value: QueryConnectionChannelsResponse.toAmino(message)
     };
   },
@@ -1607,7 +1607,7 @@ export const QueryConnectionChannelsResponse = {
   },
   toProtoMsg(message: QueryConnectionChannelsResponse): QueryConnectionChannelsResponseProtoMsg {
     return {
-      typeUrl: '/ibc.core.channel.v1.QueryConnectionChannelsResponse',
+      typeUrl: "/ibc.core.channel.v1.QueryConnectionChannelsResponse",
       value: QueryConnectionChannelsResponse.encode(message).finish()
     };
   }
@@ -1616,27 +1616,27 @@ GlobalDecoderRegistry.register(QueryConnectionChannelsResponse.typeUrl, QueryCon
 GlobalDecoderRegistry.registerAminoProtoMapping(QueryConnectionChannelsResponse.aminoType, QueryConnectionChannelsResponse.typeUrl);
 function createBaseQueryChannelClientStateRequest(): QueryChannelClientStateRequest {
   return {
-    portId: '',
-    channelId: ''
+    portId: "",
+    channelId: ""
   };
 }
 export const QueryChannelClientStateRequest = {
-  typeUrl: '/ibc.core.channel.v1.QueryChannelClientStateRequest',
-  aminoType: 'cosmos-sdk/QueryChannelClientStateRequest',
+  typeUrl: "/ibc.core.channel.v1.QueryChannelClientStateRequest",
+  aminoType: "cosmos-sdk/QueryChannelClientStateRequest",
   is(o: any): o is QueryChannelClientStateRequest {
-    return o && (o.$typeUrl === QueryChannelClientStateRequest.typeUrl || typeof o.portId === 'string' && typeof o.channelId === 'string');
+    return o && (o.$typeUrl === QueryChannelClientStateRequest.typeUrl || typeof o.portId === "string" && typeof o.channelId === "string");
   },
   isSDK(o: any): o is QueryChannelClientStateRequestSDKType {
-    return o && (o.$typeUrl === QueryChannelClientStateRequest.typeUrl || typeof o.port_id === 'string' && typeof o.channel_id === 'string');
+    return o && (o.$typeUrl === QueryChannelClientStateRequest.typeUrl || typeof o.port_id === "string" && typeof o.channel_id === "string");
   },
   isAmino(o: any): o is QueryChannelClientStateRequestAmino {
-    return o && (o.$typeUrl === QueryChannelClientStateRequest.typeUrl || typeof o.port_id === 'string' && typeof o.channel_id === 'string');
+    return o && (o.$typeUrl === QueryChannelClientStateRequest.typeUrl || typeof o.port_id === "string" && typeof o.channel_id === "string");
   },
   encode(message: QueryChannelClientStateRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.portId !== '') {
+    if (message.portId !== "") {
       writer.uint32(10).string(message.portId);
     }
-    if (message.channelId !== '') {
+    if (message.channelId !== "") {
       writer.uint32(18).string(message.channelId);
     }
     return writer;
@@ -1648,23 +1648,23 @@ export const QueryChannelClientStateRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.portId = reader.string();
-        break;
-      case 2:
-        message.channelId = reader.string();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.portId = reader.string();
+          break;
+        case 2:
+          message.channelId = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<QueryChannelClientStateRequest>): QueryChannelClientStateRequest {
     const message = createBaseQueryChannelClientStateRequest();
-    message.portId = object.portId ?? '';
-    message.channelId = object.channelId ?? '';
+    message.portId = object.portId ?? "";
+    message.channelId = object.channelId ?? "";
     return message;
   },
   fromAmino(object: QueryChannelClientStateRequestAmino): QueryChannelClientStateRequest {
@@ -1679,8 +1679,8 @@ export const QueryChannelClientStateRequest = {
   },
   toAmino(message: QueryChannelClientStateRequest): QueryChannelClientStateRequestAmino {
     const obj: any = {};
-    obj.port_id = message.portId === '' ? undefined : message.portId;
-    obj.channel_id = message.channelId === '' ? undefined : message.channelId;
+    obj.port_id = message.portId === "" ? undefined : message.portId;
+    obj.channel_id = message.channelId === "" ? undefined : message.channelId;
     return obj;
   },
   fromAminoMsg(object: QueryChannelClientStateRequestAminoMsg): QueryChannelClientStateRequest {
@@ -1688,7 +1688,7 @@ export const QueryChannelClientStateRequest = {
   },
   toAminoMsg(message: QueryChannelClientStateRequest): QueryChannelClientStateRequestAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryChannelClientStateRequest',
+      type: "cosmos-sdk/QueryChannelClientStateRequest",
       value: QueryChannelClientStateRequest.toAmino(message)
     };
   },
@@ -1700,7 +1700,7 @@ export const QueryChannelClientStateRequest = {
   },
   toProtoMsg(message: QueryChannelClientStateRequest): QueryChannelClientStateRequestProtoMsg {
     return {
-      typeUrl: '/ibc.core.channel.v1.QueryChannelClientStateRequest',
+      typeUrl: "/ibc.core.channel.v1.QueryChannelClientStateRequest",
       value: QueryChannelClientStateRequest.encode(message).finish()
     };
   }
@@ -1715,16 +1715,16 @@ function createBaseQueryChannelClientStateResponse(): QueryChannelClientStateRes
   };
 }
 export const QueryChannelClientStateResponse = {
-  typeUrl: '/ibc.core.channel.v1.QueryChannelClientStateResponse',
-  aminoType: 'cosmos-sdk/QueryChannelClientStateResponse',
+  typeUrl: "/ibc.core.channel.v1.QueryChannelClientStateResponse",
+  aminoType: "cosmos-sdk/QueryChannelClientStateResponse",
   is(o: any): o is QueryChannelClientStateResponse {
-    return o && (o.$typeUrl === QueryChannelClientStateResponse.typeUrl || (o.proof instanceof Uint8Array || typeof o.proof === 'string') && Height.is(o.proofHeight));
+    return o && (o.$typeUrl === QueryChannelClientStateResponse.typeUrl || (o.proof instanceof Uint8Array || typeof o.proof === "string") && Height.is(o.proofHeight));
   },
   isSDK(o: any): o is QueryChannelClientStateResponseSDKType {
-    return o && (o.$typeUrl === QueryChannelClientStateResponse.typeUrl || (o.proof instanceof Uint8Array || typeof o.proof === 'string') && Height.isSDK(o.proof_height));
+    return o && (o.$typeUrl === QueryChannelClientStateResponse.typeUrl || (o.proof instanceof Uint8Array || typeof o.proof === "string") && Height.isSDK(o.proof_height));
   },
   isAmino(o: any): o is QueryChannelClientStateResponseAmino {
-    return o && (o.$typeUrl === QueryChannelClientStateResponse.typeUrl || (o.proof instanceof Uint8Array || typeof o.proof === 'string') && Height.isAmino(o.proof_height));
+    return o && (o.$typeUrl === QueryChannelClientStateResponse.typeUrl || (o.proof instanceof Uint8Array || typeof o.proof === "string") && Height.isAmino(o.proof_height));
   },
   encode(message: QueryChannelClientStateResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.identifiedClientState !== undefined) {
@@ -1745,18 +1745,18 @@ export const QueryChannelClientStateResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.identifiedClientState = IdentifiedClientState.decode(reader, reader.uint32());
-        break;
-      case 2:
-        message.proof = reader.bytes();
-        break;
-      case 3:
-        message.proofHeight = Height.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.identifiedClientState = IdentifiedClientState.decode(reader, reader.uint32());
+          break;
+        case 2:
+          message.proof = reader.bytes();
+          break;
+        case 3:
+          message.proofHeight = Height.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1793,7 +1793,7 @@ export const QueryChannelClientStateResponse = {
   },
   toAminoMsg(message: QueryChannelClientStateResponse): QueryChannelClientStateResponseAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryChannelClientStateResponse',
+      type: "cosmos-sdk/QueryChannelClientStateResponse",
       value: QueryChannelClientStateResponse.toAmino(message)
     };
   },
@@ -1805,7 +1805,7 @@ export const QueryChannelClientStateResponse = {
   },
   toProtoMsg(message: QueryChannelClientStateResponse): QueryChannelClientStateResponseProtoMsg {
     return {
-      typeUrl: '/ibc.core.channel.v1.QueryChannelClientStateResponse',
+      typeUrl: "/ibc.core.channel.v1.QueryChannelClientStateResponse",
       value: QueryChannelClientStateResponse.encode(message).finish()
     };
   }
@@ -1814,29 +1814,29 @@ GlobalDecoderRegistry.register(QueryChannelClientStateResponse.typeUrl, QueryCha
 GlobalDecoderRegistry.registerAminoProtoMapping(QueryChannelClientStateResponse.aminoType, QueryChannelClientStateResponse.typeUrl);
 function createBaseQueryChannelConsensusStateRequest(): QueryChannelConsensusStateRequest {
   return {
-    portId: '',
-    channelId: '',
+    portId: "",
+    channelId: "",
     revisionNumber: BigInt(0),
     revisionHeight: BigInt(0)
   };
 }
 export const QueryChannelConsensusStateRequest = {
-  typeUrl: '/ibc.core.channel.v1.QueryChannelConsensusStateRequest',
-  aminoType: 'cosmos-sdk/QueryChannelConsensusStateRequest',
+  typeUrl: "/ibc.core.channel.v1.QueryChannelConsensusStateRequest",
+  aminoType: "cosmos-sdk/QueryChannelConsensusStateRequest",
   is(o: any): o is QueryChannelConsensusStateRequest {
-    return o && (o.$typeUrl === QueryChannelConsensusStateRequest.typeUrl || typeof o.portId === 'string' && typeof o.channelId === 'string' && typeof o.revisionNumber === 'bigint' && typeof o.revisionHeight === 'bigint');
+    return o && (o.$typeUrl === QueryChannelConsensusStateRequest.typeUrl || typeof o.portId === "string" && typeof o.channelId === "string" && typeof o.revisionNumber === "bigint" && typeof o.revisionHeight === "bigint");
   },
   isSDK(o: any): o is QueryChannelConsensusStateRequestSDKType {
-    return o && (o.$typeUrl === QueryChannelConsensusStateRequest.typeUrl || typeof o.port_id === 'string' && typeof o.channel_id === 'string' && typeof o.revision_number === 'bigint' && typeof o.revision_height === 'bigint');
+    return o && (o.$typeUrl === QueryChannelConsensusStateRequest.typeUrl || typeof o.port_id === "string" && typeof o.channel_id === "string" && typeof o.revision_number === "bigint" && typeof o.revision_height === "bigint");
   },
   isAmino(o: any): o is QueryChannelConsensusStateRequestAmino {
-    return o && (o.$typeUrl === QueryChannelConsensusStateRequest.typeUrl || typeof o.port_id === 'string' && typeof o.channel_id === 'string' && typeof o.revision_number === 'bigint' && typeof o.revision_height === 'bigint');
+    return o && (o.$typeUrl === QueryChannelConsensusStateRequest.typeUrl || typeof o.port_id === "string" && typeof o.channel_id === "string" && typeof o.revision_number === "bigint" && typeof o.revision_height === "bigint");
   },
   encode(message: QueryChannelConsensusStateRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.portId !== '') {
+    if (message.portId !== "") {
       writer.uint32(10).string(message.portId);
     }
-    if (message.channelId !== '') {
+    if (message.channelId !== "") {
       writer.uint32(18).string(message.channelId);
     }
     if (message.revisionNumber !== BigInt(0)) {
@@ -1854,29 +1854,29 @@ export const QueryChannelConsensusStateRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.portId = reader.string();
-        break;
-      case 2:
-        message.channelId = reader.string();
-        break;
-      case 3:
-        message.revisionNumber = reader.uint64();
-        break;
-      case 4:
-        message.revisionHeight = reader.uint64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.portId = reader.string();
+          break;
+        case 2:
+          message.channelId = reader.string();
+          break;
+        case 3:
+          message.revisionNumber = reader.uint64();
+          break;
+        case 4:
+          message.revisionHeight = reader.uint64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<QueryChannelConsensusStateRequest>): QueryChannelConsensusStateRequest {
     const message = createBaseQueryChannelConsensusStateRequest();
-    message.portId = object.portId ?? '';
-    message.channelId = object.channelId ?? '';
+    message.portId = object.portId ?? "";
+    message.channelId = object.channelId ?? "";
     message.revisionNumber = object.revisionNumber !== undefined && object.revisionNumber !== null ? BigInt(object.revisionNumber.toString()) : BigInt(0);
     message.revisionHeight = object.revisionHeight !== undefined && object.revisionHeight !== null ? BigInt(object.revisionHeight.toString()) : BigInt(0);
     return message;
@@ -1899,8 +1899,8 @@ export const QueryChannelConsensusStateRequest = {
   },
   toAmino(message: QueryChannelConsensusStateRequest): QueryChannelConsensusStateRequestAmino {
     const obj: any = {};
-    obj.port_id = message.portId === '' ? undefined : message.portId;
-    obj.channel_id = message.channelId === '' ? undefined : message.channelId;
+    obj.port_id = message.portId === "" ? undefined : message.portId;
+    obj.channel_id = message.channelId === "" ? undefined : message.channelId;
     obj.revision_number = message.revisionNumber !== BigInt(0) ? message.revisionNumber.toString() : undefined;
     obj.revision_height = message.revisionHeight !== BigInt(0) ? message.revisionHeight.toString() : undefined;
     return obj;
@@ -1910,7 +1910,7 @@ export const QueryChannelConsensusStateRequest = {
   },
   toAminoMsg(message: QueryChannelConsensusStateRequest): QueryChannelConsensusStateRequestAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryChannelConsensusStateRequest',
+      type: "cosmos-sdk/QueryChannelConsensusStateRequest",
       value: QueryChannelConsensusStateRequest.toAmino(message)
     };
   },
@@ -1922,7 +1922,7 @@ export const QueryChannelConsensusStateRequest = {
   },
   toProtoMsg(message: QueryChannelConsensusStateRequest): QueryChannelConsensusStateRequestProtoMsg {
     return {
-      typeUrl: '/ibc.core.channel.v1.QueryChannelConsensusStateRequest',
+      typeUrl: "/ibc.core.channel.v1.QueryChannelConsensusStateRequest",
       value: QueryChannelConsensusStateRequest.encode(message).finish()
     };
   }
@@ -1932,28 +1932,28 @@ GlobalDecoderRegistry.registerAminoProtoMapping(QueryChannelConsensusStateReques
 function createBaseQueryChannelConsensusStateResponse(): QueryChannelConsensusStateResponse {
   return {
     consensusState: undefined,
-    clientId: '',
+    clientId: "",
     proof: new Uint8Array(),
     proofHeight: Height.fromPartial({})
   };
 }
 export const QueryChannelConsensusStateResponse = {
-  typeUrl: '/ibc.core.channel.v1.QueryChannelConsensusStateResponse',
-  aminoType: 'cosmos-sdk/QueryChannelConsensusStateResponse',
+  typeUrl: "/ibc.core.channel.v1.QueryChannelConsensusStateResponse",
+  aminoType: "cosmos-sdk/QueryChannelConsensusStateResponse",
   is(o: any): o is QueryChannelConsensusStateResponse {
-    return o && (o.$typeUrl === QueryChannelConsensusStateResponse.typeUrl || typeof o.clientId === 'string' && (o.proof instanceof Uint8Array || typeof o.proof === 'string') && Height.is(o.proofHeight));
+    return o && (o.$typeUrl === QueryChannelConsensusStateResponse.typeUrl || typeof o.clientId === "string" && (o.proof instanceof Uint8Array || typeof o.proof === "string") && Height.is(o.proofHeight));
   },
   isSDK(o: any): o is QueryChannelConsensusStateResponseSDKType {
-    return o && (o.$typeUrl === QueryChannelConsensusStateResponse.typeUrl || typeof o.client_id === 'string' && (o.proof instanceof Uint8Array || typeof o.proof === 'string') && Height.isSDK(o.proof_height));
+    return o && (o.$typeUrl === QueryChannelConsensusStateResponse.typeUrl || typeof o.client_id === "string" && (o.proof instanceof Uint8Array || typeof o.proof === "string") && Height.isSDK(o.proof_height));
   },
   isAmino(o: any): o is QueryChannelConsensusStateResponseAmino {
-    return o && (o.$typeUrl === QueryChannelConsensusStateResponse.typeUrl || typeof o.client_id === 'string' && (o.proof instanceof Uint8Array || typeof o.proof === 'string') && Height.isAmino(o.proof_height));
+    return o && (o.$typeUrl === QueryChannelConsensusStateResponse.typeUrl || typeof o.client_id === "string" && (o.proof instanceof Uint8Array || typeof o.proof === "string") && Height.isAmino(o.proof_height));
   },
   encode(message: QueryChannelConsensusStateResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.consensusState !== undefined) {
       Any.encode(message.consensusState, writer.uint32(10).fork()).ldelim();
     }
-    if (message.clientId !== '') {
+    if (message.clientId !== "") {
       writer.uint32(18).string(message.clientId);
     }
     if (message.proof.length !== 0) {
@@ -1971,21 +1971,21 @@ export const QueryChannelConsensusStateResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.consensusState = Any.decode(reader, reader.uint32());
-        break;
-      case 2:
-        message.clientId = reader.string();
-        break;
-      case 3:
-        message.proof = reader.bytes();
-        break;
-      case 4:
-        message.proofHeight = Height.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.consensusState = Any.decode(reader, reader.uint32());
+          break;
+        case 2:
+          message.clientId = reader.string();
+          break;
+        case 3:
+          message.proof = reader.bytes();
+          break;
+        case 4:
+          message.proofHeight = Height.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1993,7 +1993,7 @@ export const QueryChannelConsensusStateResponse = {
   fromPartial(object: Partial<QueryChannelConsensusStateResponse>): QueryChannelConsensusStateResponse {
     const message = createBaseQueryChannelConsensusStateResponse();
     message.consensusState = object.consensusState !== undefined && object.consensusState !== null ? Any.fromPartial(object.consensusState) : undefined;
-    message.clientId = object.clientId ?? '';
+    message.clientId = object.clientId ?? "";
     message.proof = object.proof ?? new Uint8Array();
     message.proofHeight = object.proofHeight !== undefined && object.proofHeight !== null ? Height.fromPartial(object.proofHeight) : undefined;
     return message;
@@ -2017,7 +2017,7 @@ export const QueryChannelConsensusStateResponse = {
   toAmino(message: QueryChannelConsensusStateResponse): QueryChannelConsensusStateResponseAmino {
     const obj: any = {};
     obj.consensus_state = message.consensusState ? Any.toAmino(message.consensusState) : undefined;
-    obj.client_id = message.clientId === '' ? undefined : message.clientId;
+    obj.client_id = message.clientId === "" ? undefined : message.clientId;
     obj.proof = message.proof ? base64FromBytes(message.proof) : undefined;
     obj.proof_height = message.proofHeight ? Height.toAmino(message.proofHeight) : {};
     return obj;
@@ -2027,7 +2027,7 @@ export const QueryChannelConsensusStateResponse = {
   },
   toAminoMsg(message: QueryChannelConsensusStateResponse): QueryChannelConsensusStateResponseAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryChannelConsensusStateResponse',
+      type: "cosmos-sdk/QueryChannelConsensusStateResponse",
       value: QueryChannelConsensusStateResponse.toAmino(message)
     };
   },
@@ -2039,7 +2039,7 @@ export const QueryChannelConsensusStateResponse = {
   },
   toProtoMsg(message: QueryChannelConsensusStateResponse): QueryChannelConsensusStateResponseProtoMsg {
     return {
-      typeUrl: '/ibc.core.channel.v1.QueryChannelConsensusStateResponse',
+      typeUrl: "/ibc.core.channel.v1.QueryChannelConsensusStateResponse",
       value: QueryChannelConsensusStateResponse.encode(message).finish()
     };
   }
@@ -2048,28 +2048,28 @@ GlobalDecoderRegistry.register(QueryChannelConsensusStateResponse.typeUrl, Query
 GlobalDecoderRegistry.registerAminoProtoMapping(QueryChannelConsensusStateResponse.aminoType, QueryChannelConsensusStateResponse.typeUrl);
 function createBaseQueryPacketCommitmentRequest(): QueryPacketCommitmentRequest {
   return {
-    portId: '',
-    channelId: '',
+    portId: "",
+    channelId: "",
     sequence: BigInt(0)
   };
 }
 export const QueryPacketCommitmentRequest = {
-  typeUrl: '/ibc.core.channel.v1.QueryPacketCommitmentRequest',
-  aminoType: 'cosmos-sdk/QueryPacketCommitmentRequest',
+  typeUrl: "/ibc.core.channel.v1.QueryPacketCommitmentRequest",
+  aminoType: "cosmos-sdk/QueryPacketCommitmentRequest",
   is(o: any): o is QueryPacketCommitmentRequest {
-    return o && (o.$typeUrl === QueryPacketCommitmentRequest.typeUrl || typeof o.portId === 'string' && typeof o.channelId === 'string' && typeof o.sequence === 'bigint');
+    return o && (o.$typeUrl === QueryPacketCommitmentRequest.typeUrl || typeof o.portId === "string" && typeof o.channelId === "string" && typeof o.sequence === "bigint");
   },
   isSDK(o: any): o is QueryPacketCommitmentRequestSDKType {
-    return o && (o.$typeUrl === QueryPacketCommitmentRequest.typeUrl || typeof o.port_id === 'string' && typeof o.channel_id === 'string' && typeof o.sequence === 'bigint');
+    return o && (o.$typeUrl === QueryPacketCommitmentRequest.typeUrl || typeof o.port_id === "string" && typeof o.channel_id === "string" && typeof o.sequence === "bigint");
   },
   isAmino(o: any): o is QueryPacketCommitmentRequestAmino {
-    return o && (o.$typeUrl === QueryPacketCommitmentRequest.typeUrl || typeof o.port_id === 'string' && typeof o.channel_id === 'string' && typeof o.sequence === 'bigint');
+    return o && (o.$typeUrl === QueryPacketCommitmentRequest.typeUrl || typeof o.port_id === "string" && typeof o.channel_id === "string" && typeof o.sequence === "bigint");
   },
   encode(message: QueryPacketCommitmentRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.portId !== '') {
+    if (message.portId !== "") {
       writer.uint32(10).string(message.portId);
     }
-    if (message.channelId !== '') {
+    if (message.channelId !== "") {
       writer.uint32(18).string(message.channelId);
     }
     if (message.sequence !== BigInt(0)) {
@@ -2084,26 +2084,26 @@ export const QueryPacketCommitmentRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.portId = reader.string();
-        break;
-      case 2:
-        message.channelId = reader.string();
-        break;
-      case 3:
-        message.sequence = reader.uint64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.portId = reader.string();
+          break;
+        case 2:
+          message.channelId = reader.string();
+          break;
+        case 3:
+          message.sequence = reader.uint64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<QueryPacketCommitmentRequest>): QueryPacketCommitmentRequest {
     const message = createBaseQueryPacketCommitmentRequest();
-    message.portId = object.portId ?? '';
-    message.channelId = object.channelId ?? '';
+    message.portId = object.portId ?? "";
+    message.channelId = object.channelId ?? "";
     message.sequence = object.sequence !== undefined && object.sequence !== null ? BigInt(object.sequence.toString()) : BigInt(0);
     return message;
   },
@@ -2122,8 +2122,8 @@ export const QueryPacketCommitmentRequest = {
   },
   toAmino(message: QueryPacketCommitmentRequest): QueryPacketCommitmentRequestAmino {
     const obj: any = {};
-    obj.port_id = message.portId === '' ? undefined : message.portId;
-    obj.channel_id = message.channelId === '' ? undefined : message.channelId;
+    obj.port_id = message.portId === "" ? undefined : message.portId;
+    obj.channel_id = message.channelId === "" ? undefined : message.channelId;
     obj.sequence = message.sequence !== BigInt(0) ? message.sequence.toString() : undefined;
     return obj;
   },
@@ -2132,7 +2132,7 @@ export const QueryPacketCommitmentRequest = {
   },
   toAminoMsg(message: QueryPacketCommitmentRequest): QueryPacketCommitmentRequestAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryPacketCommitmentRequest',
+      type: "cosmos-sdk/QueryPacketCommitmentRequest",
       value: QueryPacketCommitmentRequest.toAmino(message)
     };
   },
@@ -2144,7 +2144,7 @@ export const QueryPacketCommitmentRequest = {
   },
   toProtoMsg(message: QueryPacketCommitmentRequest): QueryPacketCommitmentRequestProtoMsg {
     return {
-      typeUrl: '/ibc.core.channel.v1.QueryPacketCommitmentRequest',
+      typeUrl: "/ibc.core.channel.v1.QueryPacketCommitmentRequest",
       value: QueryPacketCommitmentRequest.encode(message).finish()
     };
   }
@@ -2159,16 +2159,16 @@ function createBaseQueryPacketCommitmentResponse(): QueryPacketCommitmentRespons
   };
 }
 export const QueryPacketCommitmentResponse = {
-  typeUrl: '/ibc.core.channel.v1.QueryPacketCommitmentResponse',
-  aminoType: 'cosmos-sdk/QueryPacketCommitmentResponse',
+  typeUrl: "/ibc.core.channel.v1.QueryPacketCommitmentResponse",
+  aminoType: "cosmos-sdk/QueryPacketCommitmentResponse",
   is(o: any): o is QueryPacketCommitmentResponse {
-    return o && (o.$typeUrl === QueryPacketCommitmentResponse.typeUrl || (o.commitment instanceof Uint8Array || typeof o.commitment === 'string') && (o.proof instanceof Uint8Array || typeof o.proof === 'string') && Height.is(o.proofHeight));
+    return o && (o.$typeUrl === QueryPacketCommitmentResponse.typeUrl || (o.commitment instanceof Uint8Array || typeof o.commitment === "string") && (o.proof instanceof Uint8Array || typeof o.proof === "string") && Height.is(o.proofHeight));
   },
   isSDK(o: any): o is QueryPacketCommitmentResponseSDKType {
-    return o && (o.$typeUrl === QueryPacketCommitmentResponse.typeUrl || (o.commitment instanceof Uint8Array || typeof o.commitment === 'string') && (o.proof instanceof Uint8Array || typeof o.proof === 'string') && Height.isSDK(o.proof_height));
+    return o && (o.$typeUrl === QueryPacketCommitmentResponse.typeUrl || (o.commitment instanceof Uint8Array || typeof o.commitment === "string") && (o.proof instanceof Uint8Array || typeof o.proof === "string") && Height.isSDK(o.proof_height));
   },
   isAmino(o: any): o is QueryPacketCommitmentResponseAmino {
-    return o && (o.$typeUrl === QueryPacketCommitmentResponse.typeUrl || (o.commitment instanceof Uint8Array || typeof o.commitment === 'string') && (o.proof instanceof Uint8Array || typeof o.proof === 'string') && Height.isAmino(o.proof_height));
+    return o && (o.$typeUrl === QueryPacketCommitmentResponse.typeUrl || (o.commitment instanceof Uint8Array || typeof o.commitment === "string") && (o.proof instanceof Uint8Array || typeof o.proof === "string") && Height.isAmino(o.proof_height));
   },
   encode(message: QueryPacketCommitmentResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.commitment.length !== 0) {
@@ -2189,18 +2189,18 @@ export const QueryPacketCommitmentResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.commitment = reader.bytes();
-        break;
-      case 2:
-        message.proof = reader.bytes();
-        break;
-      case 3:
-        message.proofHeight = Height.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.commitment = reader.bytes();
+          break;
+        case 2:
+          message.proof = reader.bytes();
+          break;
+        case 3:
+          message.proofHeight = Height.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -2237,7 +2237,7 @@ export const QueryPacketCommitmentResponse = {
   },
   toAminoMsg(message: QueryPacketCommitmentResponse): QueryPacketCommitmentResponseAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryPacketCommitmentResponse',
+      type: "cosmos-sdk/QueryPacketCommitmentResponse",
       value: QueryPacketCommitmentResponse.toAmino(message)
     };
   },
@@ -2249,7 +2249,7 @@ export const QueryPacketCommitmentResponse = {
   },
   toProtoMsg(message: QueryPacketCommitmentResponse): QueryPacketCommitmentResponseProtoMsg {
     return {
-      typeUrl: '/ibc.core.channel.v1.QueryPacketCommitmentResponse',
+      typeUrl: "/ibc.core.channel.v1.QueryPacketCommitmentResponse",
       value: QueryPacketCommitmentResponse.encode(message).finish()
     };
   }
@@ -2258,28 +2258,28 @@ GlobalDecoderRegistry.register(QueryPacketCommitmentResponse.typeUrl, QueryPacke
 GlobalDecoderRegistry.registerAminoProtoMapping(QueryPacketCommitmentResponse.aminoType, QueryPacketCommitmentResponse.typeUrl);
 function createBaseQueryPacketCommitmentsRequest(): QueryPacketCommitmentsRequest {
   return {
-    portId: '',
-    channelId: '',
+    portId: "",
+    channelId: "",
     pagination: undefined
   };
 }
 export const QueryPacketCommitmentsRequest = {
-  typeUrl: '/ibc.core.channel.v1.QueryPacketCommitmentsRequest',
-  aminoType: 'cosmos-sdk/QueryPacketCommitmentsRequest',
+  typeUrl: "/ibc.core.channel.v1.QueryPacketCommitmentsRequest",
+  aminoType: "cosmos-sdk/QueryPacketCommitmentsRequest",
   is(o: any): o is QueryPacketCommitmentsRequest {
-    return o && (o.$typeUrl === QueryPacketCommitmentsRequest.typeUrl || typeof o.portId === 'string' && typeof o.channelId === 'string');
+    return o && (o.$typeUrl === QueryPacketCommitmentsRequest.typeUrl || typeof o.portId === "string" && typeof o.channelId === "string");
   },
   isSDK(o: any): o is QueryPacketCommitmentsRequestSDKType {
-    return o && (o.$typeUrl === QueryPacketCommitmentsRequest.typeUrl || typeof o.port_id === 'string' && typeof o.channel_id === 'string');
+    return o && (o.$typeUrl === QueryPacketCommitmentsRequest.typeUrl || typeof o.port_id === "string" && typeof o.channel_id === "string");
   },
   isAmino(o: any): o is QueryPacketCommitmentsRequestAmino {
-    return o && (o.$typeUrl === QueryPacketCommitmentsRequest.typeUrl || typeof o.port_id === 'string' && typeof o.channel_id === 'string');
+    return o && (o.$typeUrl === QueryPacketCommitmentsRequest.typeUrl || typeof o.port_id === "string" && typeof o.channel_id === "string");
   },
   encode(message: QueryPacketCommitmentsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.portId !== '') {
+    if (message.portId !== "") {
       writer.uint32(10).string(message.portId);
     }
-    if (message.channelId !== '') {
+    if (message.channelId !== "") {
       writer.uint32(18).string(message.channelId);
     }
     if (message.pagination !== undefined) {
@@ -2294,26 +2294,26 @@ export const QueryPacketCommitmentsRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.portId = reader.string();
-        break;
-      case 2:
-        message.channelId = reader.string();
-        break;
-      case 3:
-        message.pagination = PageRequest.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.portId = reader.string();
+          break;
+        case 2:
+          message.channelId = reader.string();
+          break;
+        case 3:
+          message.pagination = PageRequest.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<QueryPacketCommitmentsRequest>): QueryPacketCommitmentsRequest {
     const message = createBaseQueryPacketCommitmentsRequest();
-    message.portId = object.portId ?? '';
-    message.channelId = object.channelId ?? '';
+    message.portId = object.portId ?? "";
+    message.channelId = object.channelId ?? "";
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageRequest.fromPartial(object.pagination) : undefined;
     return message;
   },
@@ -2332,8 +2332,8 @@ export const QueryPacketCommitmentsRequest = {
   },
   toAmino(message: QueryPacketCommitmentsRequest): QueryPacketCommitmentsRequestAmino {
     const obj: any = {};
-    obj.port_id = message.portId === '' ? undefined : message.portId;
-    obj.channel_id = message.channelId === '' ? undefined : message.channelId;
+    obj.port_id = message.portId === "" ? undefined : message.portId;
+    obj.channel_id = message.channelId === "" ? undefined : message.channelId;
     obj.pagination = message.pagination ? PageRequest.toAmino(message.pagination) : undefined;
     return obj;
   },
@@ -2342,7 +2342,7 @@ export const QueryPacketCommitmentsRequest = {
   },
   toAminoMsg(message: QueryPacketCommitmentsRequest): QueryPacketCommitmentsRequestAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryPacketCommitmentsRequest',
+      type: "cosmos-sdk/QueryPacketCommitmentsRequest",
       value: QueryPacketCommitmentsRequest.toAmino(message)
     };
   },
@@ -2354,7 +2354,7 @@ export const QueryPacketCommitmentsRequest = {
   },
   toProtoMsg(message: QueryPacketCommitmentsRequest): QueryPacketCommitmentsRequestProtoMsg {
     return {
-      typeUrl: '/ibc.core.channel.v1.QueryPacketCommitmentsRequest',
+      typeUrl: "/ibc.core.channel.v1.QueryPacketCommitmentsRequest",
       value: QueryPacketCommitmentsRequest.encode(message).finish()
     };
   }
@@ -2369,8 +2369,8 @@ function createBaseQueryPacketCommitmentsResponse(): QueryPacketCommitmentsRespo
   };
 }
 export const QueryPacketCommitmentsResponse = {
-  typeUrl: '/ibc.core.channel.v1.QueryPacketCommitmentsResponse',
-  aminoType: 'cosmos-sdk/QueryPacketCommitmentsResponse',
+  typeUrl: "/ibc.core.channel.v1.QueryPacketCommitmentsResponse",
+  aminoType: "cosmos-sdk/QueryPacketCommitmentsResponse",
   is(o: any): o is QueryPacketCommitmentsResponse {
     return o && (o.$typeUrl === QueryPacketCommitmentsResponse.typeUrl || Array.isArray(o.commitments) && (!o.commitments.length || PacketState.is(o.commitments[0])) && Height.is(o.height));
   },
@@ -2399,18 +2399,18 @@ export const QueryPacketCommitmentsResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.commitments.push(PacketState.decode(reader, reader.uint32()));
-        break;
-      case 2:
-        message.pagination = PageResponse.decode(reader, reader.uint32());
-        break;
-      case 3:
-        message.height = Height.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.commitments.push(PacketState.decode(reader, reader.uint32()));
+          break;
+        case 2:
+          message.pagination = PageResponse.decode(reader, reader.uint32());
+          break;
+        case 3:
+          message.height = Height.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -2449,7 +2449,7 @@ export const QueryPacketCommitmentsResponse = {
   },
   toAminoMsg(message: QueryPacketCommitmentsResponse): QueryPacketCommitmentsResponseAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryPacketCommitmentsResponse',
+      type: "cosmos-sdk/QueryPacketCommitmentsResponse",
       value: QueryPacketCommitmentsResponse.toAmino(message)
     };
   },
@@ -2461,7 +2461,7 @@ export const QueryPacketCommitmentsResponse = {
   },
   toProtoMsg(message: QueryPacketCommitmentsResponse): QueryPacketCommitmentsResponseProtoMsg {
     return {
-      typeUrl: '/ibc.core.channel.v1.QueryPacketCommitmentsResponse',
+      typeUrl: "/ibc.core.channel.v1.QueryPacketCommitmentsResponse",
       value: QueryPacketCommitmentsResponse.encode(message).finish()
     };
   }
@@ -2470,28 +2470,28 @@ GlobalDecoderRegistry.register(QueryPacketCommitmentsResponse.typeUrl, QueryPack
 GlobalDecoderRegistry.registerAminoProtoMapping(QueryPacketCommitmentsResponse.aminoType, QueryPacketCommitmentsResponse.typeUrl);
 function createBaseQueryPacketReceiptRequest(): QueryPacketReceiptRequest {
   return {
-    portId: '',
-    channelId: '',
+    portId: "",
+    channelId: "",
     sequence: BigInt(0)
   };
 }
 export const QueryPacketReceiptRequest = {
-  typeUrl: '/ibc.core.channel.v1.QueryPacketReceiptRequest',
-  aminoType: 'cosmos-sdk/QueryPacketReceiptRequest',
+  typeUrl: "/ibc.core.channel.v1.QueryPacketReceiptRequest",
+  aminoType: "cosmos-sdk/QueryPacketReceiptRequest",
   is(o: any): o is QueryPacketReceiptRequest {
-    return o && (o.$typeUrl === QueryPacketReceiptRequest.typeUrl || typeof o.portId === 'string' && typeof o.channelId === 'string' && typeof o.sequence === 'bigint');
+    return o && (o.$typeUrl === QueryPacketReceiptRequest.typeUrl || typeof o.portId === "string" && typeof o.channelId === "string" && typeof o.sequence === "bigint");
   },
   isSDK(o: any): o is QueryPacketReceiptRequestSDKType {
-    return o && (o.$typeUrl === QueryPacketReceiptRequest.typeUrl || typeof o.port_id === 'string' && typeof o.channel_id === 'string' && typeof o.sequence === 'bigint');
+    return o && (o.$typeUrl === QueryPacketReceiptRequest.typeUrl || typeof o.port_id === "string" && typeof o.channel_id === "string" && typeof o.sequence === "bigint");
   },
   isAmino(o: any): o is QueryPacketReceiptRequestAmino {
-    return o && (o.$typeUrl === QueryPacketReceiptRequest.typeUrl || typeof o.port_id === 'string' && typeof o.channel_id === 'string' && typeof o.sequence === 'bigint');
+    return o && (o.$typeUrl === QueryPacketReceiptRequest.typeUrl || typeof o.port_id === "string" && typeof o.channel_id === "string" && typeof o.sequence === "bigint");
   },
   encode(message: QueryPacketReceiptRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.portId !== '') {
+    if (message.portId !== "") {
       writer.uint32(10).string(message.portId);
     }
-    if (message.channelId !== '') {
+    if (message.channelId !== "") {
       writer.uint32(18).string(message.channelId);
     }
     if (message.sequence !== BigInt(0)) {
@@ -2506,26 +2506,26 @@ export const QueryPacketReceiptRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.portId = reader.string();
-        break;
-      case 2:
-        message.channelId = reader.string();
-        break;
-      case 3:
-        message.sequence = reader.uint64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.portId = reader.string();
+          break;
+        case 2:
+          message.channelId = reader.string();
+          break;
+        case 3:
+          message.sequence = reader.uint64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<QueryPacketReceiptRequest>): QueryPacketReceiptRequest {
     const message = createBaseQueryPacketReceiptRequest();
-    message.portId = object.portId ?? '';
-    message.channelId = object.channelId ?? '';
+    message.portId = object.portId ?? "";
+    message.channelId = object.channelId ?? "";
     message.sequence = object.sequence !== undefined && object.sequence !== null ? BigInt(object.sequence.toString()) : BigInt(0);
     return message;
   },
@@ -2544,8 +2544,8 @@ export const QueryPacketReceiptRequest = {
   },
   toAmino(message: QueryPacketReceiptRequest): QueryPacketReceiptRequestAmino {
     const obj: any = {};
-    obj.port_id = message.portId === '' ? undefined : message.portId;
-    obj.channel_id = message.channelId === '' ? undefined : message.channelId;
+    obj.port_id = message.portId === "" ? undefined : message.portId;
+    obj.channel_id = message.channelId === "" ? undefined : message.channelId;
     obj.sequence = message.sequence !== BigInt(0) ? message.sequence.toString() : undefined;
     return obj;
   },
@@ -2554,7 +2554,7 @@ export const QueryPacketReceiptRequest = {
   },
   toAminoMsg(message: QueryPacketReceiptRequest): QueryPacketReceiptRequestAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryPacketReceiptRequest',
+      type: "cosmos-sdk/QueryPacketReceiptRequest",
       value: QueryPacketReceiptRequest.toAmino(message)
     };
   },
@@ -2566,7 +2566,7 @@ export const QueryPacketReceiptRequest = {
   },
   toProtoMsg(message: QueryPacketReceiptRequest): QueryPacketReceiptRequestProtoMsg {
     return {
-      typeUrl: '/ibc.core.channel.v1.QueryPacketReceiptRequest',
+      typeUrl: "/ibc.core.channel.v1.QueryPacketReceiptRequest",
       value: QueryPacketReceiptRequest.encode(message).finish()
     };
   }
@@ -2581,16 +2581,16 @@ function createBaseQueryPacketReceiptResponse(): QueryPacketReceiptResponse {
   };
 }
 export const QueryPacketReceiptResponse = {
-  typeUrl: '/ibc.core.channel.v1.QueryPacketReceiptResponse',
-  aminoType: 'cosmos-sdk/QueryPacketReceiptResponse',
+  typeUrl: "/ibc.core.channel.v1.QueryPacketReceiptResponse",
+  aminoType: "cosmos-sdk/QueryPacketReceiptResponse",
   is(o: any): o is QueryPacketReceiptResponse {
-    return o && (o.$typeUrl === QueryPacketReceiptResponse.typeUrl || typeof o.received === 'boolean' && (o.proof instanceof Uint8Array || typeof o.proof === 'string') && Height.is(o.proofHeight));
+    return o && (o.$typeUrl === QueryPacketReceiptResponse.typeUrl || typeof o.received === "boolean" && (o.proof instanceof Uint8Array || typeof o.proof === "string") && Height.is(o.proofHeight));
   },
   isSDK(o: any): o is QueryPacketReceiptResponseSDKType {
-    return o && (o.$typeUrl === QueryPacketReceiptResponse.typeUrl || typeof o.received === 'boolean' && (o.proof instanceof Uint8Array || typeof o.proof === 'string') && Height.isSDK(o.proof_height));
+    return o && (o.$typeUrl === QueryPacketReceiptResponse.typeUrl || typeof o.received === "boolean" && (o.proof instanceof Uint8Array || typeof o.proof === "string") && Height.isSDK(o.proof_height));
   },
   isAmino(o: any): o is QueryPacketReceiptResponseAmino {
-    return o && (o.$typeUrl === QueryPacketReceiptResponse.typeUrl || typeof o.received === 'boolean' && (o.proof instanceof Uint8Array || typeof o.proof === 'string') && Height.isAmino(o.proof_height));
+    return o && (o.$typeUrl === QueryPacketReceiptResponse.typeUrl || typeof o.received === "boolean" && (o.proof instanceof Uint8Array || typeof o.proof === "string") && Height.isAmino(o.proof_height));
   },
   encode(message: QueryPacketReceiptResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.received === true) {
@@ -2611,18 +2611,18 @@ export const QueryPacketReceiptResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 2:
-        message.received = reader.bool();
-        break;
-      case 3:
-        message.proof = reader.bytes();
-        break;
-      case 4:
-        message.proofHeight = Height.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 2:
+          message.received = reader.bool();
+          break;
+        case 3:
+          message.proof = reader.bytes();
+          break;
+        case 4:
+          message.proofHeight = Height.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -2659,7 +2659,7 @@ export const QueryPacketReceiptResponse = {
   },
   toAminoMsg(message: QueryPacketReceiptResponse): QueryPacketReceiptResponseAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryPacketReceiptResponse',
+      type: "cosmos-sdk/QueryPacketReceiptResponse",
       value: QueryPacketReceiptResponse.toAmino(message)
     };
   },
@@ -2671,7 +2671,7 @@ export const QueryPacketReceiptResponse = {
   },
   toProtoMsg(message: QueryPacketReceiptResponse): QueryPacketReceiptResponseProtoMsg {
     return {
-      typeUrl: '/ibc.core.channel.v1.QueryPacketReceiptResponse',
+      typeUrl: "/ibc.core.channel.v1.QueryPacketReceiptResponse",
       value: QueryPacketReceiptResponse.encode(message).finish()
     };
   }
@@ -2680,28 +2680,28 @@ GlobalDecoderRegistry.register(QueryPacketReceiptResponse.typeUrl, QueryPacketRe
 GlobalDecoderRegistry.registerAminoProtoMapping(QueryPacketReceiptResponse.aminoType, QueryPacketReceiptResponse.typeUrl);
 function createBaseQueryPacketAcknowledgementRequest(): QueryPacketAcknowledgementRequest {
   return {
-    portId: '',
-    channelId: '',
+    portId: "",
+    channelId: "",
     sequence: BigInt(0)
   };
 }
 export const QueryPacketAcknowledgementRequest = {
-  typeUrl: '/ibc.core.channel.v1.QueryPacketAcknowledgementRequest',
-  aminoType: 'cosmos-sdk/QueryPacketAcknowledgementRequest',
+  typeUrl: "/ibc.core.channel.v1.QueryPacketAcknowledgementRequest",
+  aminoType: "cosmos-sdk/QueryPacketAcknowledgementRequest",
   is(o: any): o is QueryPacketAcknowledgementRequest {
-    return o && (o.$typeUrl === QueryPacketAcknowledgementRequest.typeUrl || typeof o.portId === 'string' && typeof o.channelId === 'string' && typeof o.sequence === 'bigint');
+    return o && (o.$typeUrl === QueryPacketAcknowledgementRequest.typeUrl || typeof o.portId === "string" && typeof o.channelId === "string" && typeof o.sequence === "bigint");
   },
   isSDK(o: any): o is QueryPacketAcknowledgementRequestSDKType {
-    return o && (o.$typeUrl === QueryPacketAcknowledgementRequest.typeUrl || typeof o.port_id === 'string' && typeof o.channel_id === 'string' && typeof o.sequence === 'bigint');
+    return o && (o.$typeUrl === QueryPacketAcknowledgementRequest.typeUrl || typeof o.port_id === "string" && typeof o.channel_id === "string" && typeof o.sequence === "bigint");
   },
   isAmino(o: any): o is QueryPacketAcknowledgementRequestAmino {
-    return o && (o.$typeUrl === QueryPacketAcknowledgementRequest.typeUrl || typeof o.port_id === 'string' && typeof o.channel_id === 'string' && typeof o.sequence === 'bigint');
+    return o && (o.$typeUrl === QueryPacketAcknowledgementRequest.typeUrl || typeof o.port_id === "string" && typeof o.channel_id === "string" && typeof o.sequence === "bigint");
   },
   encode(message: QueryPacketAcknowledgementRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.portId !== '') {
+    if (message.portId !== "") {
       writer.uint32(10).string(message.portId);
     }
-    if (message.channelId !== '') {
+    if (message.channelId !== "") {
       writer.uint32(18).string(message.channelId);
     }
     if (message.sequence !== BigInt(0)) {
@@ -2716,26 +2716,26 @@ export const QueryPacketAcknowledgementRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.portId = reader.string();
-        break;
-      case 2:
-        message.channelId = reader.string();
-        break;
-      case 3:
-        message.sequence = reader.uint64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.portId = reader.string();
+          break;
+        case 2:
+          message.channelId = reader.string();
+          break;
+        case 3:
+          message.sequence = reader.uint64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<QueryPacketAcknowledgementRequest>): QueryPacketAcknowledgementRequest {
     const message = createBaseQueryPacketAcknowledgementRequest();
-    message.portId = object.portId ?? '';
-    message.channelId = object.channelId ?? '';
+    message.portId = object.portId ?? "";
+    message.channelId = object.channelId ?? "";
     message.sequence = object.sequence !== undefined && object.sequence !== null ? BigInt(object.sequence.toString()) : BigInt(0);
     return message;
   },
@@ -2754,8 +2754,8 @@ export const QueryPacketAcknowledgementRequest = {
   },
   toAmino(message: QueryPacketAcknowledgementRequest): QueryPacketAcknowledgementRequestAmino {
     const obj: any = {};
-    obj.port_id = message.portId === '' ? undefined : message.portId;
-    obj.channel_id = message.channelId === '' ? undefined : message.channelId;
+    obj.port_id = message.portId === "" ? undefined : message.portId;
+    obj.channel_id = message.channelId === "" ? undefined : message.channelId;
     obj.sequence = message.sequence !== BigInt(0) ? message.sequence.toString() : undefined;
     return obj;
   },
@@ -2764,7 +2764,7 @@ export const QueryPacketAcknowledgementRequest = {
   },
   toAminoMsg(message: QueryPacketAcknowledgementRequest): QueryPacketAcknowledgementRequestAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryPacketAcknowledgementRequest',
+      type: "cosmos-sdk/QueryPacketAcknowledgementRequest",
       value: QueryPacketAcknowledgementRequest.toAmino(message)
     };
   },
@@ -2776,7 +2776,7 @@ export const QueryPacketAcknowledgementRequest = {
   },
   toProtoMsg(message: QueryPacketAcknowledgementRequest): QueryPacketAcknowledgementRequestProtoMsg {
     return {
-      typeUrl: '/ibc.core.channel.v1.QueryPacketAcknowledgementRequest',
+      typeUrl: "/ibc.core.channel.v1.QueryPacketAcknowledgementRequest",
       value: QueryPacketAcknowledgementRequest.encode(message).finish()
     };
   }
@@ -2791,16 +2791,16 @@ function createBaseQueryPacketAcknowledgementResponse(): QueryPacketAcknowledgem
   };
 }
 export const QueryPacketAcknowledgementResponse = {
-  typeUrl: '/ibc.core.channel.v1.QueryPacketAcknowledgementResponse',
-  aminoType: 'cosmos-sdk/QueryPacketAcknowledgementResponse',
+  typeUrl: "/ibc.core.channel.v1.QueryPacketAcknowledgementResponse",
+  aminoType: "cosmos-sdk/QueryPacketAcknowledgementResponse",
   is(o: any): o is QueryPacketAcknowledgementResponse {
-    return o && (o.$typeUrl === QueryPacketAcknowledgementResponse.typeUrl || (o.acknowledgement instanceof Uint8Array || typeof o.acknowledgement === 'string') && (o.proof instanceof Uint8Array || typeof o.proof === 'string') && Height.is(o.proofHeight));
+    return o && (o.$typeUrl === QueryPacketAcknowledgementResponse.typeUrl || (o.acknowledgement instanceof Uint8Array || typeof o.acknowledgement === "string") && (o.proof instanceof Uint8Array || typeof o.proof === "string") && Height.is(o.proofHeight));
   },
   isSDK(o: any): o is QueryPacketAcknowledgementResponseSDKType {
-    return o && (o.$typeUrl === QueryPacketAcknowledgementResponse.typeUrl || (o.acknowledgement instanceof Uint8Array || typeof o.acknowledgement === 'string') && (o.proof instanceof Uint8Array || typeof o.proof === 'string') && Height.isSDK(o.proof_height));
+    return o && (o.$typeUrl === QueryPacketAcknowledgementResponse.typeUrl || (o.acknowledgement instanceof Uint8Array || typeof o.acknowledgement === "string") && (o.proof instanceof Uint8Array || typeof o.proof === "string") && Height.isSDK(o.proof_height));
   },
   isAmino(o: any): o is QueryPacketAcknowledgementResponseAmino {
-    return o && (o.$typeUrl === QueryPacketAcknowledgementResponse.typeUrl || (o.acknowledgement instanceof Uint8Array || typeof o.acknowledgement === 'string') && (o.proof instanceof Uint8Array || typeof o.proof === 'string') && Height.isAmino(o.proof_height));
+    return o && (o.$typeUrl === QueryPacketAcknowledgementResponse.typeUrl || (o.acknowledgement instanceof Uint8Array || typeof o.acknowledgement === "string") && (o.proof instanceof Uint8Array || typeof o.proof === "string") && Height.isAmino(o.proof_height));
   },
   encode(message: QueryPacketAcknowledgementResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.acknowledgement.length !== 0) {
@@ -2821,18 +2821,18 @@ export const QueryPacketAcknowledgementResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.acknowledgement = reader.bytes();
-        break;
-      case 2:
-        message.proof = reader.bytes();
-        break;
-      case 3:
-        message.proofHeight = Height.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.acknowledgement = reader.bytes();
+          break;
+        case 2:
+          message.proof = reader.bytes();
+          break;
+        case 3:
+          message.proofHeight = Height.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -2869,7 +2869,7 @@ export const QueryPacketAcknowledgementResponse = {
   },
   toAminoMsg(message: QueryPacketAcknowledgementResponse): QueryPacketAcknowledgementResponseAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryPacketAcknowledgementResponse',
+      type: "cosmos-sdk/QueryPacketAcknowledgementResponse",
       value: QueryPacketAcknowledgementResponse.toAmino(message)
     };
   },
@@ -2881,7 +2881,7 @@ export const QueryPacketAcknowledgementResponse = {
   },
   toProtoMsg(message: QueryPacketAcknowledgementResponse): QueryPacketAcknowledgementResponseProtoMsg {
     return {
-      typeUrl: '/ibc.core.channel.v1.QueryPacketAcknowledgementResponse',
+      typeUrl: "/ibc.core.channel.v1.QueryPacketAcknowledgementResponse",
       value: QueryPacketAcknowledgementResponse.encode(message).finish()
     };
   }
@@ -2890,29 +2890,29 @@ GlobalDecoderRegistry.register(QueryPacketAcknowledgementResponse.typeUrl, Query
 GlobalDecoderRegistry.registerAminoProtoMapping(QueryPacketAcknowledgementResponse.aminoType, QueryPacketAcknowledgementResponse.typeUrl);
 function createBaseQueryPacketAcknowledgementsRequest(): QueryPacketAcknowledgementsRequest {
   return {
-    portId: '',
-    channelId: '',
+    portId: "",
+    channelId: "",
     pagination: undefined,
     packetCommitmentSequences: []
   };
 }
 export const QueryPacketAcknowledgementsRequest = {
-  typeUrl: '/ibc.core.channel.v1.QueryPacketAcknowledgementsRequest',
-  aminoType: 'cosmos-sdk/QueryPacketAcknowledgementsRequest',
+  typeUrl: "/ibc.core.channel.v1.QueryPacketAcknowledgementsRequest",
+  aminoType: "cosmos-sdk/QueryPacketAcknowledgementsRequest",
   is(o: any): o is QueryPacketAcknowledgementsRequest {
-    return o && (o.$typeUrl === QueryPacketAcknowledgementsRequest.typeUrl || typeof o.portId === 'string' && typeof o.channelId === 'string' && Array.isArray(o.packetCommitmentSequences) && (!o.packetCommitmentSequences.length || typeof o.packetCommitmentSequences[0] === 'bigint'));
+    return o && (o.$typeUrl === QueryPacketAcknowledgementsRequest.typeUrl || typeof o.portId === "string" && typeof o.channelId === "string" && Array.isArray(o.packetCommitmentSequences) && (!o.packetCommitmentSequences.length || typeof o.packetCommitmentSequences[0] === "bigint"));
   },
   isSDK(o: any): o is QueryPacketAcknowledgementsRequestSDKType {
-    return o && (o.$typeUrl === QueryPacketAcknowledgementsRequest.typeUrl || typeof o.port_id === 'string' && typeof o.channel_id === 'string' && Array.isArray(o.packet_commitment_sequences) && (!o.packet_commitment_sequences.length || typeof o.packet_commitment_sequences[0] === 'bigint'));
+    return o && (o.$typeUrl === QueryPacketAcknowledgementsRequest.typeUrl || typeof o.port_id === "string" && typeof o.channel_id === "string" && Array.isArray(o.packet_commitment_sequences) && (!o.packet_commitment_sequences.length || typeof o.packet_commitment_sequences[0] === "bigint"));
   },
   isAmino(o: any): o is QueryPacketAcknowledgementsRequestAmino {
-    return o && (o.$typeUrl === QueryPacketAcknowledgementsRequest.typeUrl || typeof o.port_id === 'string' && typeof o.channel_id === 'string' && Array.isArray(o.packet_commitment_sequences) && (!o.packet_commitment_sequences.length || typeof o.packet_commitment_sequences[0] === 'bigint'));
+    return o && (o.$typeUrl === QueryPacketAcknowledgementsRequest.typeUrl || typeof o.port_id === "string" && typeof o.channel_id === "string" && Array.isArray(o.packet_commitment_sequences) && (!o.packet_commitment_sequences.length || typeof o.packet_commitment_sequences[0] === "bigint"));
   },
   encode(message: QueryPacketAcknowledgementsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.portId !== '') {
+    if (message.portId !== "") {
       writer.uint32(10).string(message.portId);
     }
-    if (message.channelId !== '') {
+    if (message.channelId !== "") {
       writer.uint32(18).string(message.channelId);
     }
     if (message.pagination !== undefined) {
@@ -2932,36 +2932,36 @@ export const QueryPacketAcknowledgementsRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.portId = reader.string();
-        break;
-      case 2:
-        message.channelId = reader.string();
-        break;
-      case 3:
-        message.pagination = PageRequest.decode(reader, reader.uint32());
-        break;
-      case 4:
-        if ((tag & 7) === 2) {
-          const end2 = reader.uint32() + reader.pos;
-          while (reader.pos < end2) {
+        case 1:
+          message.portId = reader.string();
+          break;
+        case 2:
+          message.channelId = reader.string();
+          break;
+        case 3:
+          message.pagination = PageRequest.decode(reader, reader.uint32());
+          break;
+        case 4:
+          if ((tag & 7) === 2) {
+            const end2 = reader.uint32() + reader.pos;
+            while (reader.pos < end2) {
+              message.packetCommitmentSequences.push(reader.uint64());
+            }
+          } else {
             message.packetCommitmentSequences.push(reader.uint64());
           }
-        } else {
-          message.packetCommitmentSequences.push(reader.uint64());
-        }
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<QueryPacketAcknowledgementsRequest>): QueryPacketAcknowledgementsRequest {
     const message = createBaseQueryPacketAcknowledgementsRequest();
-    message.portId = object.portId ?? '';
-    message.channelId = object.channelId ?? '';
+    message.portId = object.portId ?? "";
+    message.channelId = object.channelId ?? "";
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageRequest.fromPartial(object.pagination) : undefined;
     message.packetCommitmentSequences = object.packetCommitmentSequences?.map(e => BigInt(e.toString())) || [];
     return message;
@@ -2982,8 +2982,8 @@ export const QueryPacketAcknowledgementsRequest = {
   },
   toAmino(message: QueryPacketAcknowledgementsRequest): QueryPacketAcknowledgementsRequestAmino {
     const obj: any = {};
-    obj.port_id = message.portId === '' ? undefined : message.portId;
-    obj.channel_id = message.channelId === '' ? undefined : message.channelId;
+    obj.port_id = message.portId === "" ? undefined : message.portId;
+    obj.channel_id = message.channelId === "" ? undefined : message.channelId;
     obj.pagination = message.pagination ? PageRequest.toAmino(message.pagination) : undefined;
     if (message.packetCommitmentSequences) {
       obj.packet_commitment_sequences = message.packetCommitmentSequences.map(e => e.toString());
@@ -2997,7 +2997,7 @@ export const QueryPacketAcknowledgementsRequest = {
   },
   toAminoMsg(message: QueryPacketAcknowledgementsRequest): QueryPacketAcknowledgementsRequestAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryPacketAcknowledgementsRequest',
+      type: "cosmos-sdk/QueryPacketAcknowledgementsRequest",
       value: QueryPacketAcknowledgementsRequest.toAmino(message)
     };
   },
@@ -3009,7 +3009,7 @@ export const QueryPacketAcknowledgementsRequest = {
   },
   toProtoMsg(message: QueryPacketAcknowledgementsRequest): QueryPacketAcknowledgementsRequestProtoMsg {
     return {
-      typeUrl: '/ibc.core.channel.v1.QueryPacketAcknowledgementsRequest',
+      typeUrl: "/ibc.core.channel.v1.QueryPacketAcknowledgementsRequest",
       value: QueryPacketAcknowledgementsRequest.encode(message).finish()
     };
   }
@@ -3024,8 +3024,8 @@ function createBaseQueryPacketAcknowledgementsResponse(): QueryPacketAcknowledge
   };
 }
 export const QueryPacketAcknowledgementsResponse = {
-  typeUrl: '/ibc.core.channel.v1.QueryPacketAcknowledgementsResponse',
-  aminoType: 'cosmos-sdk/QueryPacketAcknowledgementsResponse',
+  typeUrl: "/ibc.core.channel.v1.QueryPacketAcknowledgementsResponse",
+  aminoType: "cosmos-sdk/QueryPacketAcknowledgementsResponse",
   is(o: any): o is QueryPacketAcknowledgementsResponse {
     return o && (o.$typeUrl === QueryPacketAcknowledgementsResponse.typeUrl || Array.isArray(o.acknowledgements) && (!o.acknowledgements.length || PacketState.is(o.acknowledgements[0])) && Height.is(o.height));
   },
@@ -3054,18 +3054,18 @@ export const QueryPacketAcknowledgementsResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.acknowledgements.push(PacketState.decode(reader, reader.uint32()));
-        break;
-      case 2:
-        message.pagination = PageResponse.decode(reader, reader.uint32());
-        break;
-      case 3:
-        message.height = Height.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.acknowledgements.push(PacketState.decode(reader, reader.uint32()));
+          break;
+        case 2:
+          message.pagination = PageResponse.decode(reader, reader.uint32());
+          break;
+        case 3:
+          message.height = Height.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -3104,7 +3104,7 @@ export const QueryPacketAcknowledgementsResponse = {
   },
   toAminoMsg(message: QueryPacketAcknowledgementsResponse): QueryPacketAcknowledgementsResponseAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryPacketAcknowledgementsResponse',
+      type: "cosmos-sdk/QueryPacketAcknowledgementsResponse",
       value: QueryPacketAcknowledgementsResponse.toAmino(message)
     };
   },
@@ -3116,7 +3116,7 @@ export const QueryPacketAcknowledgementsResponse = {
   },
   toProtoMsg(message: QueryPacketAcknowledgementsResponse): QueryPacketAcknowledgementsResponseProtoMsg {
     return {
-      typeUrl: '/ibc.core.channel.v1.QueryPacketAcknowledgementsResponse',
+      typeUrl: "/ibc.core.channel.v1.QueryPacketAcknowledgementsResponse",
       value: QueryPacketAcknowledgementsResponse.encode(message).finish()
     };
   }
@@ -3125,28 +3125,28 @@ GlobalDecoderRegistry.register(QueryPacketAcknowledgementsResponse.typeUrl, Quer
 GlobalDecoderRegistry.registerAminoProtoMapping(QueryPacketAcknowledgementsResponse.aminoType, QueryPacketAcknowledgementsResponse.typeUrl);
 function createBaseQueryUnreceivedPacketsRequest(): QueryUnreceivedPacketsRequest {
   return {
-    portId: '',
-    channelId: '',
+    portId: "",
+    channelId: "",
     packetCommitmentSequences: []
   };
 }
 export const QueryUnreceivedPacketsRequest = {
-  typeUrl: '/ibc.core.channel.v1.QueryUnreceivedPacketsRequest',
-  aminoType: 'cosmos-sdk/QueryUnreceivedPacketsRequest',
+  typeUrl: "/ibc.core.channel.v1.QueryUnreceivedPacketsRequest",
+  aminoType: "cosmos-sdk/QueryUnreceivedPacketsRequest",
   is(o: any): o is QueryUnreceivedPacketsRequest {
-    return o && (o.$typeUrl === QueryUnreceivedPacketsRequest.typeUrl || typeof o.portId === 'string' && typeof o.channelId === 'string' && Array.isArray(o.packetCommitmentSequences) && (!o.packetCommitmentSequences.length || typeof o.packetCommitmentSequences[0] === 'bigint'));
+    return o && (o.$typeUrl === QueryUnreceivedPacketsRequest.typeUrl || typeof o.portId === "string" && typeof o.channelId === "string" && Array.isArray(o.packetCommitmentSequences) && (!o.packetCommitmentSequences.length || typeof o.packetCommitmentSequences[0] === "bigint"));
   },
   isSDK(o: any): o is QueryUnreceivedPacketsRequestSDKType {
-    return o && (o.$typeUrl === QueryUnreceivedPacketsRequest.typeUrl || typeof o.port_id === 'string' && typeof o.channel_id === 'string' && Array.isArray(o.packet_commitment_sequences) && (!o.packet_commitment_sequences.length || typeof o.packet_commitment_sequences[0] === 'bigint'));
+    return o && (o.$typeUrl === QueryUnreceivedPacketsRequest.typeUrl || typeof o.port_id === "string" && typeof o.channel_id === "string" && Array.isArray(o.packet_commitment_sequences) && (!o.packet_commitment_sequences.length || typeof o.packet_commitment_sequences[0] === "bigint"));
   },
   isAmino(o: any): o is QueryUnreceivedPacketsRequestAmino {
-    return o && (o.$typeUrl === QueryUnreceivedPacketsRequest.typeUrl || typeof o.port_id === 'string' && typeof o.channel_id === 'string' && Array.isArray(o.packet_commitment_sequences) && (!o.packet_commitment_sequences.length || typeof o.packet_commitment_sequences[0] === 'bigint'));
+    return o && (o.$typeUrl === QueryUnreceivedPacketsRequest.typeUrl || typeof o.port_id === "string" && typeof o.channel_id === "string" && Array.isArray(o.packet_commitment_sequences) && (!o.packet_commitment_sequences.length || typeof o.packet_commitment_sequences[0] === "bigint"));
   },
   encode(message: QueryUnreceivedPacketsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.portId !== '') {
+    if (message.portId !== "") {
       writer.uint32(10).string(message.portId);
     }
-    if (message.channelId !== '') {
+    if (message.channelId !== "") {
       writer.uint32(18).string(message.channelId);
     }
     writer.uint32(26).fork();
@@ -3163,33 +3163,33 @@ export const QueryUnreceivedPacketsRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.portId = reader.string();
-        break;
-      case 2:
-        message.channelId = reader.string();
-        break;
-      case 3:
-        if ((tag & 7) === 2) {
-          const end2 = reader.uint32() + reader.pos;
-          while (reader.pos < end2) {
+        case 1:
+          message.portId = reader.string();
+          break;
+        case 2:
+          message.channelId = reader.string();
+          break;
+        case 3:
+          if ((tag & 7) === 2) {
+            const end2 = reader.uint32() + reader.pos;
+            while (reader.pos < end2) {
+              message.packetCommitmentSequences.push(reader.uint64());
+            }
+          } else {
             message.packetCommitmentSequences.push(reader.uint64());
           }
-        } else {
-          message.packetCommitmentSequences.push(reader.uint64());
-        }
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<QueryUnreceivedPacketsRequest>): QueryUnreceivedPacketsRequest {
     const message = createBaseQueryUnreceivedPacketsRequest();
-    message.portId = object.portId ?? '';
-    message.channelId = object.channelId ?? '';
+    message.portId = object.portId ?? "";
+    message.channelId = object.channelId ?? "";
     message.packetCommitmentSequences = object.packetCommitmentSequences?.map(e => BigInt(e.toString())) || [];
     return message;
   },
@@ -3206,8 +3206,8 @@ export const QueryUnreceivedPacketsRequest = {
   },
   toAmino(message: QueryUnreceivedPacketsRequest): QueryUnreceivedPacketsRequestAmino {
     const obj: any = {};
-    obj.port_id = message.portId === '' ? undefined : message.portId;
-    obj.channel_id = message.channelId === '' ? undefined : message.channelId;
+    obj.port_id = message.portId === "" ? undefined : message.portId;
+    obj.channel_id = message.channelId === "" ? undefined : message.channelId;
     if (message.packetCommitmentSequences) {
       obj.packet_commitment_sequences = message.packetCommitmentSequences.map(e => e.toString());
     } else {
@@ -3220,7 +3220,7 @@ export const QueryUnreceivedPacketsRequest = {
   },
   toAminoMsg(message: QueryUnreceivedPacketsRequest): QueryUnreceivedPacketsRequestAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryUnreceivedPacketsRequest',
+      type: "cosmos-sdk/QueryUnreceivedPacketsRequest",
       value: QueryUnreceivedPacketsRequest.toAmino(message)
     };
   },
@@ -3232,7 +3232,7 @@ export const QueryUnreceivedPacketsRequest = {
   },
   toProtoMsg(message: QueryUnreceivedPacketsRequest): QueryUnreceivedPacketsRequestProtoMsg {
     return {
-      typeUrl: '/ibc.core.channel.v1.QueryUnreceivedPacketsRequest',
+      typeUrl: "/ibc.core.channel.v1.QueryUnreceivedPacketsRequest",
       value: QueryUnreceivedPacketsRequest.encode(message).finish()
     };
   }
@@ -3246,16 +3246,16 @@ function createBaseQueryUnreceivedPacketsResponse(): QueryUnreceivedPacketsRespo
   };
 }
 export const QueryUnreceivedPacketsResponse = {
-  typeUrl: '/ibc.core.channel.v1.QueryUnreceivedPacketsResponse',
-  aminoType: 'cosmos-sdk/QueryUnreceivedPacketsResponse',
+  typeUrl: "/ibc.core.channel.v1.QueryUnreceivedPacketsResponse",
+  aminoType: "cosmos-sdk/QueryUnreceivedPacketsResponse",
   is(o: any): o is QueryUnreceivedPacketsResponse {
-    return o && (o.$typeUrl === QueryUnreceivedPacketsResponse.typeUrl || Array.isArray(o.sequences) && (!o.sequences.length || typeof o.sequences[0] === 'bigint') && Height.is(o.height));
+    return o && (o.$typeUrl === QueryUnreceivedPacketsResponse.typeUrl || Array.isArray(o.sequences) && (!o.sequences.length || typeof o.sequences[0] === "bigint") && Height.is(o.height));
   },
   isSDK(o: any): o is QueryUnreceivedPacketsResponseSDKType {
-    return o && (o.$typeUrl === QueryUnreceivedPacketsResponse.typeUrl || Array.isArray(o.sequences) && (!o.sequences.length || typeof o.sequences[0] === 'bigint') && Height.isSDK(o.height));
+    return o && (o.$typeUrl === QueryUnreceivedPacketsResponse.typeUrl || Array.isArray(o.sequences) && (!o.sequences.length || typeof o.sequences[0] === "bigint") && Height.isSDK(o.height));
   },
   isAmino(o: any): o is QueryUnreceivedPacketsResponseAmino {
-    return o && (o.$typeUrl === QueryUnreceivedPacketsResponse.typeUrl || Array.isArray(o.sequences) && (!o.sequences.length || typeof o.sequences[0] === 'bigint') && Height.isAmino(o.height));
+    return o && (o.$typeUrl === QueryUnreceivedPacketsResponse.typeUrl || Array.isArray(o.sequences) && (!o.sequences.length || typeof o.sequences[0] === "bigint") && Height.isAmino(o.height));
   },
   encode(message: QueryUnreceivedPacketsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     writer.uint32(10).fork();
@@ -3275,22 +3275,22 @@ export const QueryUnreceivedPacketsResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        if ((tag & 7) === 2) {
-          const end2 = reader.uint32() + reader.pos;
-          while (reader.pos < end2) {
+        case 1:
+          if ((tag & 7) === 2) {
+            const end2 = reader.uint32() + reader.pos;
+            while (reader.pos < end2) {
+              message.sequences.push(reader.uint64());
+            }
+          } else {
             message.sequences.push(reader.uint64());
           }
-        } else {
-          message.sequences.push(reader.uint64());
-        }
-        break;
-      case 2:
-        message.height = Height.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+          break;
+        case 2:
+          message.height = Height.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -3324,7 +3324,7 @@ export const QueryUnreceivedPacketsResponse = {
   },
   toAminoMsg(message: QueryUnreceivedPacketsResponse): QueryUnreceivedPacketsResponseAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryUnreceivedPacketsResponse',
+      type: "cosmos-sdk/QueryUnreceivedPacketsResponse",
       value: QueryUnreceivedPacketsResponse.toAmino(message)
     };
   },
@@ -3336,7 +3336,7 @@ export const QueryUnreceivedPacketsResponse = {
   },
   toProtoMsg(message: QueryUnreceivedPacketsResponse): QueryUnreceivedPacketsResponseProtoMsg {
     return {
-      typeUrl: '/ibc.core.channel.v1.QueryUnreceivedPacketsResponse',
+      typeUrl: "/ibc.core.channel.v1.QueryUnreceivedPacketsResponse",
       value: QueryUnreceivedPacketsResponse.encode(message).finish()
     };
   }
@@ -3345,28 +3345,28 @@ GlobalDecoderRegistry.register(QueryUnreceivedPacketsResponse.typeUrl, QueryUnre
 GlobalDecoderRegistry.registerAminoProtoMapping(QueryUnreceivedPacketsResponse.aminoType, QueryUnreceivedPacketsResponse.typeUrl);
 function createBaseQueryUnreceivedAcksRequest(): QueryUnreceivedAcksRequest {
   return {
-    portId: '',
-    channelId: '',
+    portId: "",
+    channelId: "",
     packetAckSequences: []
   };
 }
 export const QueryUnreceivedAcksRequest = {
-  typeUrl: '/ibc.core.channel.v1.QueryUnreceivedAcksRequest',
-  aminoType: 'cosmos-sdk/QueryUnreceivedAcksRequest',
+  typeUrl: "/ibc.core.channel.v1.QueryUnreceivedAcksRequest",
+  aminoType: "cosmos-sdk/QueryUnreceivedAcksRequest",
   is(o: any): o is QueryUnreceivedAcksRequest {
-    return o && (o.$typeUrl === QueryUnreceivedAcksRequest.typeUrl || typeof o.portId === 'string' && typeof o.channelId === 'string' && Array.isArray(o.packetAckSequences) && (!o.packetAckSequences.length || typeof o.packetAckSequences[0] === 'bigint'));
+    return o && (o.$typeUrl === QueryUnreceivedAcksRequest.typeUrl || typeof o.portId === "string" && typeof o.channelId === "string" && Array.isArray(o.packetAckSequences) && (!o.packetAckSequences.length || typeof o.packetAckSequences[0] === "bigint"));
   },
   isSDK(o: any): o is QueryUnreceivedAcksRequestSDKType {
-    return o && (o.$typeUrl === QueryUnreceivedAcksRequest.typeUrl || typeof o.port_id === 'string' && typeof o.channel_id === 'string' && Array.isArray(o.packet_ack_sequences) && (!o.packet_ack_sequences.length || typeof o.packet_ack_sequences[0] === 'bigint'));
+    return o && (o.$typeUrl === QueryUnreceivedAcksRequest.typeUrl || typeof o.port_id === "string" && typeof o.channel_id === "string" && Array.isArray(o.packet_ack_sequences) && (!o.packet_ack_sequences.length || typeof o.packet_ack_sequences[0] === "bigint"));
   },
   isAmino(o: any): o is QueryUnreceivedAcksRequestAmino {
-    return o && (o.$typeUrl === QueryUnreceivedAcksRequest.typeUrl || typeof o.port_id === 'string' && typeof o.channel_id === 'string' && Array.isArray(o.packet_ack_sequences) && (!o.packet_ack_sequences.length || typeof o.packet_ack_sequences[0] === 'bigint'));
+    return o && (o.$typeUrl === QueryUnreceivedAcksRequest.typeUrl || typeof o.port_id === "string" && typeof o.channel_id === "string" && Array.isArray(o.packet_ack_sequences) && (!o.packet_ack_sequences.length || typeof o.packet_ack_sequences[0] === "bigint"));
   },
   encode(message: QueryUnreceivedAcksRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.portId !== '') {
+    if (message.portId !== "") {
       writer.uint32(10).string(message.portId);
     }
-    if (message.channelId !== '') {
+    if (message.channelId !== "") {
       writer.uint32(18).string(message.channelId);
     }
     writer.uint32(26).fork();
@@ -3383,33 +3383,33 @@ export const QueryUnreceivedAcksRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.portId = reader.string();
-        break;
-      case 2:
-        message.channelId = reader.string();
-        break;
-      case 3:
-        if ((tag & 7) === 2) {
-          const end2 = reader.uint32() + reader.pos;
-          while (reader.pos < end2) {
+        case 1:
+          message.portId = reader.string();
+          break;
+        case 2:
+          message.channelId = reader.string();
+          break;
+        case 3:
+          if ((tag & 7) === 2) {
+            const end2 = reader.uint32() + reader.pos;
+            while (reader.pos < end2) {
+              message.packetAckSequences.push(reader.uint64());
+            }
+          } else {
             message.packetAckSequences.push(reader.uint64());
           }
-        } else {
-          message.packetAckSequences.push(reader.uint64());
-        }
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<QueryUnreceivedAcksRequest>): QueryUnreceivedAcksRequest {
     const message = createBaseQueryUnreceivedAcksRequest();
-    message.portId = object.portId ?? '';
-    message.channelId = object.channelId ?? '';
+    message.portId = object.portId ?? "";
+    message.channelId = object.channelId ?? "";
     message.packetAckSequences = object.packetAckSequences?.map(e => BigInt(e.toString())) || [];
     return message;
   },
@@ -3426,8 +3426,8 @@ export const QueryUnreceivedAcksRequest = {
   },
   toAmino(message: QueryUnreceivedAcksRequest): QueryUnreceivedAcksRequestAmino {
     const obj: any = {};
-    obj.port_id = message.portId === '' ? undefined : message.portId;
-    obj.channel_id = message.channelId === '' ? undefined : message.channelId;
+    obj.port_id = message.portId === "" ? undefined : message.portId;
+    obj.channel_id = message.channelId === "" ? undefined : message.channelId;
     if (message.packetAckSequences) {
       obj.packet_ack_sequences = message.packetAckSequences.map(e => e.toString());
     } else {
@@ -3440,7 +3440,7 @@ export const QueryUnreceivedAcksRequest = {
   },
   toAminoMsg(message: QueryUnreceivedAcksRequest): QueryUnreceivedAcksRequestAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryUnreceivedAcksRequest',
+      type: "cosmos-sdk/QueryUnreceivedAcksRequest",
       value: QueryUnreceivedAcksRequest.toAmino(message)
     };
   },
@@ -3452,7 +3452,7 @@ export const QueryUnreceivedAcksRequest = {
   },
   toProtoMsg(message: QueryUnreceivedAcksRequest): QueryUnreceivedAcksRequestProtoMsg {
     return {
-      typeUrl: '/ibc.core.channel.v1.QueryUnreceivedAcksRequest',
+      typeUrl: "/ibc.core.channel.v1.QueryUnreceivedAcksRequest",
       value: QueryUnreceivedAcksRequest.encode(message).finish()
     };
   }
@@ -3466,16 +3466,16 @@ function createBaseQueryUnreceivedAcksResponse(): QueryUnreceivedAcksResponse {
   };
 }
 export const QueryUnreceivedAcksResponse = {
-  typeUrl: '/ibc.core.channel.v1.QueryUnreceivedAcksResponse',
-  aminoType: 'cosmos-sdk/QueryUnreceivedAcksResponse',
+  typeUrl: "/ibc.core.channel.v1.QueryUnreceivedAcksResponse",
+  aminoType: "cosmos-sdk/QueryUnreceivedAcksResponse",
   is(o: any): o is QueryUnreceivedAcksResponse {
-    return o && (o.$typeUrl === QueryUnreceivedAcksResponse.typeUrl || Array.isArray(o.sequences) && (!o.sequences.length || typeof o.sequences[0] === 'bigint') && Height.is(o.height));
+    return o && (o.$typeUrl === QueryUnreceivedAcksResponse.typeUrl || Array.isArray(o.sequences) && (!o.sequences.length || typeof o.sequences[0] === "bigint") && Height.is(o.height));
   },
   isSDK(o: any): o is QueryUnreceivedAcksResponseSDKType {
-    return o && (o.$typeUrl === QueryUnreceivedAcksResponse.typeUrl || Array.isArray(o.sequences) && (!o.sequences.length || typeof o.sequences[0] === 'bigint') && Height.isSDK(o.height));
+    return o && (o.$typeUrl === QueryUnreceivedAcksResponse.typeUrl || Array.isArray(o.sequences) && (!o.sequences.length || typeof o.sequences[0] === "bigint") && Height.isSDK(o.height));
   },
   isAmino(o: any): o is QueryUnreceivedAcksResponseAmino {
-    return o && (o.$typeUrl === QueryUnreceivedAcksResponse.typeUrl || Array.isArray(o.sequences) && (!o.sequences.length || typeof o.sequences[0] === 'bigint') && Height.isAmino(o.height));
+    return o && (o.$typeUrl === QueryUnreceivedAcksResponse.typeUrl || Array.isArray(o.sequences) && (!o.sequences.length || typeof o.sequences[0] === "bigint") && Height.isAmino(o.height));
   },
   encode(message: QueryUnreceivedAcksResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     writer.uint32(10).fork();
@@ -3495,22 +3495,22 @@ export const QueryUnreceivedAcksResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        if ((tag & 7) === 2) {
-          const end2 = reader.uint32() + reader.pos;
-          while (reader.pos < end2) {
+        case 1:
+          if ((tag & 7) === 2) {
+            const end2 = reader.uint32() + reader.pos;
+            while (reader.pos < end2) {
+              message.sequences.push(reader.uint64());
+            }
+          } else {
             message.sequences.push(reader.uint64());
           }
-        } else {
-          message.sequences.push(reader.uint64());
-        }
-        break;
-      case 2:
-        message.height = Height.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+          break;
+        case 2:
+          message.height = Height.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -3544,7 +3544,7 @@ export const QueryUnreceivedAcksResponse = {
   },
   toAminoMsg(message: QueryUnreceivedAcksResponse): QueryUnreceivedAcksResponseAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryUnreceivedAcksResponse',
+      type: "cosmos-sdk/QueryUnreceivedAcksResponse",
       value: QueryUnreceivedAcksResponse.toAmino(message)
     };
   },
@@ -3556,7 +3556,7 @@ export const QueryUnreceivedAcksResponse = {
   },
   toProtoMsg(message: QueryUnreceivedAcksResponse): QueryUnreceivedAcksResponseProtoMsg {
     return {
-      typeUrl: '/ibc.core.channel.v1.QueryUnreceivedAcksResponse',
+      typeUrl: "/ibc.core.channel.v1.QueryUnreceivedAcksResponse",
       value: QueryUnreceivedAcksResponse.encode(message).finish()
     };
   }
@@ -3565,27 +3565,27 @@ GlobalDecoderRegistry.register(QueryUnreceivedAcksResponse.typeUrl, QueryUnrecei
 GlobalDecoderRegistry.registerAminoProtoMapping(QueryUnreceivedAcksResponse.aminoType, QueryUnreceivedAcksResponse.typeUrl);
 function createBaseQueryNextSequenceReceiveRequest(): QueryNextSequenceReceiveRequest {
   return {
-    portId: '',
-    channelId: ''
+    portId: "",
+    channelId: ""
   };
 }
 export const QueryNextSequenceReceiveRequest = {
-  typeUrl: '/ibc.core.channel.v1.QueryNextSequenceReceiveRequest',
-  aminoType: 'cosmos-sdk/QueryNextSequenceReceiveRequest',
+  typeUrl: "/ibc.core.channel.v1.QueryNextSequenceReceiveRequest",
+  aminoType: "cosmos-sdk/QueryNextSequenceReceiveRequest",
   is(o: any): o is QueryNextSequenceReceiveRequest {
-    return o && (o.$typeUrl === QueryNextSequenceReceiveRequest.typeUrl || typeof o.portId === 'string' && typeof o.channelId === 'string');
+    return o && (o.$typeUrl === QueryNextSequenceReceiveRequest.typeUrl || typeof o.portId === "string" && typeof o.channelId === "string");
   },
   isSDK(o: any): o is QueryNextSequenceReceiveRequestSDKType {
-    return o && (o.$typeUrl === QueryNextSequenceReceiveRequest.typeUrl || typeof o.port_id === 'string' && typeof o.channel_id === 'string');
+    return o && (o.$typeUrl === QueryNextSequenceReceiveRequest.typeUrl || typeof o.port_id === "string" && typeof o.channel_id === "string");
   },
   isAmino(o: any): o is QueryNextSequenceReceiveRequestAmino {
-    return o && (o.$typeUrl === QueryNextSequenceReceiveRequest.typeUrl || typeof o.port_id === 'string' && typeof o.channel_id === 'string');
+    return o && (o.$typeUrl === QueryNextSequenceReceiveRequest.typeUrl || typeof o.port_id === "string" && typeof o.channel_id === "string");
   },
   encode(message: QueryNextSequenceReceiveRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.portId !== '') {
+    if (message.portId !== "") {
       writer.uint32(10).string(message.portId);
     }
-    if (message.channelId !== '') {
+    if (message.channelId !== "") {
       writer.uint32(18).string(message.channelId);
     }
     return writer;
@@ -3597,23 +3597,23 @@ export const QueryNextSequenceReceiveRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.portId = reader.string();
-        break;
-      case 2:
-        message.channelId = reader.string();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.portId = reader.string();
+          break;
+        case 2:
+          message.channelId = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<QueryNextSequenceReceiveRequest>): QueryNextSequenceReceiveRequest {
     const message = createBaseQueryNextSequenceReceiveRequest();
-    message.portId = object.portId ?? '';
-    message.channelId = object.channelId ?? '';
+    message.portId = object.portId ?? "";
+    message.channelId = object.channelId ?? "";
     return message;
   },
   fromAmino(object: QueryNextSequenceReceiveRequestAmino): QueryNextSequenceReceiveRequest {
@@ -3628,8 +3628,8 @@ export const QueryNextSequenceReceiveRequest = {
   },
   toAmino(message: QueryNextSequenceReceiveRequest): QueryNextSequenceReceiveRequestAmino {
     const obj: any = {};
-    obj.port_id = message.portId === '' ? undefined : message.portId;
-    obj.channel_id = message.channelId === '' ? undefined : message.channelId;
+    obj.port_id = message.portId === "" ? undefined : message.portId;
+    obj.channel_id = message.channelId === "" ? undefined : message.channelId;
     return obj;
   },
   fromAminoMsg(object: QueryNextSequenceReceiveRequestAminoMsg): QueryNextSequenceReceiveRequest {
@@ -3637,7 +3637,7 @@ export const QueryNextSequenceReceiveRequest = {
   },
   toAminoMsg(message: QueryNextSequenceReceiveRequest): QueryNextSequenceReceiveRequestAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryNextSequenceReceiveRequest',
+      type: "cosmos-sdk/QueryNextSequenceReceiveRequest",
       value: QueryNextSequenceReceiveRequest.toAmino(message)
     };
   },
@@ -3649,7 +3649,7 @@ export const QueryNextSequenceReceiveRequest = {
   },
   toProtoMsg(message: QueryNextSequenceReceiveRequest): QueryNextSequenceReceiveRequestProtoMsg {
     return {
-      typeUrl: '/ibc.core.channel.v1.QueryNextSequenceReceiveRequest',
+      typeUrl: "/ibc.core.channel.v1.QueryNextSequenceReceiveRequest",
       value: QueryNextSequenceReceiveRequest.encode(message).finish()
     };
   }
@@ -3664,16 +3664,16 @@ function createBaseQueryNextSequenceReceiveResponse(): QueryNextSequenceReceiveR
   };
 }
 export const QueryNextSequenceReceiveResponse = {
-  typeUrl: '/ibc.core.channel.v1.QueryNextSequenceReceiveResponse',
-  aminoType: 'cosmos-sdk/QueryNextSequenceReceiveResponse',
+  typeUrl: "/ibc.core.channel.v1.QueryNextSequenceReceiveResponse",
+  aminoType: "cosmos-sdk/QueryNextSequenceReceiveResponse",
   is(o: any): o is QueryNextSequenceReceiveResponse {
-    return o && (o.$typeUrl === QueryNextSequenceReceiveResponse.typeUrl || typeof o.nextSequenceReceive === 'bigint' && (o.proof instanceof Uint8Array || typeof o.proof === 'string') && Height.is(o.proofHeight));
+    return o && (o.$typeUrl === QueryNextSequenceReceiveResponse.typeUrl || typeof o.nextSequenceReceive === "bigint" && (o.proof instanceof Uint8Array || typeof o.proof === "string") && Height.is(o.proofHeight));
   },
   isSDK(o: any): o is QueryNextSequenceReceiveResponseSDKType {
-    return o && (o.$typeUrl === QueryNextSequenceReceiveResponse.typeUrl || typeof o.next_sequence_receive === 'bigint' && (o.proof instanceof Uint8Array || typeof o.proof === 'string') && Height.isSDK(o.proof_height));
+    return o && (o.$typeUrl === QueryNextSequenceReceiveResponse.typeUrl || typeof o.next_sequence_receive === "bigint" && (o.proof instanceof Uint8Array || typeof o.proof === "string") && Height.isSDK(o.proof_height));
   },
   isAmino(o: any): o is QueryNextSequenceReceiveResponseAmino {
-    return o && (o.$typeUrl === QueryNextSequenceReceiveResponse.typeUrl || typeof o.next_sequence_receive === 'bigint' && (o.proof instanceof Uint8Array || typeof o.proof === 'string') && Height.isAmino(o.proof_height));
+    return o && (o.$typeUrl === QueryNextSequenceReceiveResponse.typeUrl || typeof o.next_sequence_receive === "bigint" && (o.proof instanceof Uint8Array || typeof o.proof === "string") && Height.isAmino(o.proof_height));
   },
   encode(message: QueryNextSequenceReceiveResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.nextSequenceReceive !== BigInt(0)) {
@@ -3694,18 +3694,18 @@ export const QueryNextSequenceReceiveResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.nextSequenceReceive = reader.uint64();
-        break;
-      case 2:
-        message.proof = reader.bytes();
-        break;
-      case 3:
-        message.proofHeight = Height.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.nextSequenceReceive = reader.uint64();
+          break;
+        case 2:
+          message.proof = reader.bytes();
+          break;
+        case 3:
+          message.proofHeight = Height.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -3742,7 +3742,7 @@ export const QueryNextSequenceReceiveResponse = {
   },
   toAminoMsg(message: QueryNextSequenceReceiveResponse): QueryNextSequenceReceiveResponseAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryNextSequenceReceiveResponse',
+      type: "cosmos-sdk/QueryNextSequenceReceiveResponse",
       value: QueryNextSequenceReceiveResponse.toAmino(message)
     };
   },
@@ -3754,7 +3754,7 @@ export const QueryNextSequenceReceiveResponse = {
   },
   toProtoMsg(message: QueryNextSequenceReceiveResponse): QueryNextSequenceReceiveResponseProtoMsg {
     return {
-      typeUrl: '/ibc.core.channel.v1.QueryNextSequenceReceiveResponse',
+      typeUrl: "/ibc.core.channel.v1.QueryNextSequenceReceiveResponse",
       value: QueryNextSequenceReceiveResponse.encode(message).finish()
     };
   }

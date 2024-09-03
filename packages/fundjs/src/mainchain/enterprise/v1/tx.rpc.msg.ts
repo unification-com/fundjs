@@ -1,7 +1,7 @@
 //@ts-nocheck
-import { BinaryReader } from '../../../binary';
-import { Rpc } from '../../../helpers';
-import { MsgProcessUndPurchaseOrder, MsgProcessUndPurchaseOrderResponse, MsgUndPurchaseOrder, MsgUndPurchaseOrderResponse, MsgUpdateParams, MsgUpdateParamsResponse,MsgWhitelistAddress, MsgWhitelistAddressResponse } from './tx';
+import { Rpc } from "../../../helpers";
+import { BinaryReader } from "../../../binary";
+import { MsgUndPurchaseOrder, MsgUndPurchaseOrderResponse, MsgProcessUndPurchaseOrder, MsgProcessUndPurchaseOrderResponse, MsgWhitelistAddress, MsgWhitelistAddressResponse, MsgUpdateParams, MsgUpdateParamsResponse } from "./tx";
 /** Msg defines the enterprise Msg service. */
 export interface Msg {
   /** UndPurchaseOrder defines a method to create new purchase order. */
@@ -28,22 +28,22 @@ export class MsgClientImpl implements Msg {
   }
   undPurchaseOrder(request: MsgUndPurchaseOrder): Promise<MsgUndPurchaseOrderResponse> {
     const data = MsgUndPurchaseOrder.encode(request).finish();
-    const promise = this.rpc.request('mainchain.enterprise.v1.Msg', 'UndPurchaseOrder', data);
+    const promise = this.rpc.request("mainchain.enterprise.v1.Msg", "UndPurchaseOrder", data);
     return promise.then(data => MsgUndPurchaseOrderResponse.decode(new BinaryReader(data)));
   }
   processUndPurchaseOrder(request: MsgProcessUndPurchaseOrder): Promise<MsgProcessUndPurchaseOrderResponse> {
     const data = MsgProcessUndPurchaseOrder.encode(request).finish();
-    const promise = this.rpc.request('mainchain.enterprise.v1.Msg', 'ProcessUndPurchaseOrder', data);
+    const promise = this.rpc.request("mainchain.enterprise.v1.Msg", "ProcessUndPurchaseOrder", data);
     return promise.then(data => MsgProcessUndPurchaseOrderResponse.decode(new BinaryReader(data)));
   }
   whitelistAddress(request: MsgWhitelistAddress): Promise<MsgWhitelistAddressResponse> {
     const data = MsgWhitelistAddress.encode(request).finish();
-    const promise = this.rpc.request('mainchain.enterprise.v1.Msg', 'WhitelistAddress', data);
+    const promise = this.rpc.request("mainchain.enterprise.v1.Msg", "WhitelistAddress", data);
     return promise.then(data => MsgWhitelistAddressResponse.decode(new BinaryReader(data)));
   }
   updateParams(request: MsgUpdateParams): Promise<MsgUpdateParamsResponse> {
     const data = MsgUpdateParams.encode(request).finish();
-    const promise = this.rpc.request('mainchain.enterprise.v1.Msg', 'UpdateParams', data);
+    const promise = this.rpc.request("mainchain.enterprise.v1.Msg", "UpdateParams", data);
     return promise.then(data => MsgUpdateParamsResponse.decode(new BinaryReader(data)));
   }
 }

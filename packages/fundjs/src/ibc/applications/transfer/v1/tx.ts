@@ -1,8 +1,8 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from '../../../../binary';
-import { Coin, CoinAmino, CoinSDKType } from '../../../../cosmos/base/v1beta1/coin';
-import { GlobalDecoderRegistry } from '../../../../registry';
-import { Height, HeightAmino, HeightSDKType } from '../../../core/client/v1/client';
+import { Coin, CoinAmino, CoinSDKType } from "../../../../cosmos/base/v1beta1/coin";
+import { Height, HeightAmino, HeightSDKType } from "../../../core/client/v1/client";
+import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { GlobalDecoderRegistry } from "../../../../registry";
 /**
  * MsgTransfer defines a msg to transfer fungible tokens (i.e Coins) between
  * ICS20 enabled chains. See ICS Spec here:
@@ -31,7 +31,7 @@ export interface MsgTransfer {
   timeoutTimestamp: bigint;
 }
 export interface MsgTransferProtoMsg {
-  typeUrl: '/ibc.applications.transfer.v1.MsgTransfer';
+  typeUrl: "/ibc.applications.transfer.v1.MsgTransfer";
   value: Uint8Array;
 }
 /**
@@ -62,7 +62,7 @@ export interface MsgTransferAmino {
   timeout_timestamp?: string;
 }
 export interface MsgTransferAminoMsg {
-  type: 'cosmos-sdk/MsgTransfer';
+  type: "cosmos-sdk/MsgTransfer";
   value: MsgTransferAmino;
 }
 /**
@@ -82,54 +82,54 @@ export interface MsgTransferSDKType {
 /** MsgTransferResponse defines the Msg/Transfer response type. */
 export interface MsgTransferResponse {}
 export interface MsgTransferResponseProtoMsg {
-  typeUrl: '/ibc.applications.transfer.v1.MsgTransferResponse';
+  typeUrl: "/ibc.applications.transfer.v1.MsgTransferResponse";
   value: Uint8Array;
 }
 /** MsgTransferResponse defines the Msg/Transfer response type. */
 export interface MsgTransferResponseAmino {}
 export interface MsgTransferResponseAminoMsg {
-  type: 'cosmos-sdk/MsgTransferResponse';
+  type: "cosmos-sdk/MsgTransferResponse";
   value: MsgTransferResponseAmino;
 }
 /** MsgTransferResponse defines the Msg/Transfer response type. */
 export interface MsgTransferResponseSDKType {}
 function createBaseMsgTransfer(): MsgTransfer {
   return {
-    sourcePort: '',
-    sourceChannel: '',
+    sourcePort: "",
+    sourceChannel: "",
     token: Coin.fromPartial({}),
-    sender: '',
-    receiver: '',
+    sender: "",
+    receiver: "",
     timeoutHeight: Height.fromPartial({}),
     timeoutTimestamp: BigInt(0)
   };
 }
 export const MsgTransfer = {
-  typeUrl: '/ibc.applications.transfer.v1.MsgTransfer',
-  aminoType: 'cosmos-sdk/MsgTransfer',
+  typeUrl: "/ibc.applications.transfer.v1.MsgTransfer",
+  aminoType: "cosmos-sdk/MsgTransfer",
   is(o: any): o is MsgTransfer {
-    return o && (o.$typeUrl === MsgTransfer.typeUrl || typeof o.sourcePort === 'string' && typeof o.sourceChannel === 'string' && Coin.is(o.token) && typeof o.sender === 'string' && typeof o.receiver === 'string' && Height.is(o.timeoutHeight) && typeof o.timeoutTimestamp === 'bigint');
+    return o && (o.$typeUrl === MsgTransfer.typeUrl || typeof o.sourcePort === "string" && typeof o.sourceChannel === "string" && Coin.is(o.token) && typeof o.sender === "string" && typeof o.receiver === "string" && Height.is(o.timeoutHeight) && typeof o.timeoutTimestamp === "bigint");
   },
   isSDK(o: any): o is MsgTransferSDKType {
-    return o && (o.$typeUrl === MsgTransfer.typeUrl || typeof o.source_port === 'string' && typeof o.source_channel === 'string' && Coin.isSDK(o.token) && typeof o.sender === 'string' && typeof o.receiver === 'string' && Height.isSDK(o.timeout_height) && typeof o.timeout_timestamp === 'bigint');
+    return o && (o.$typeUrl === MsgTransfer.typeUrl || typeof o.source_port === "string" && typeof o.source_channel === "string" && Coin.isSDK(o.token) && typeof o.sender === "string" && typeof o.receiver === "string" && Height.isSDK(o.timeout_height) && typeof o.timeout_timestamp === "bigint");
   },
   isAmino(o: any): o is MsgTransferAmino {
-    return o && (o.$typeUrl === MsgTransfer.typeUrl || typeof o.source_port === 'string' && typeof o.source_channel === 'string' && Coin.isAmino(o.token) && typeof o.sender === 'string' && typeof o.receiver === 'string' && Height.isAmino(o.timeout_height) && typeof o.timeout_timestamp === 'bigint');
+    return o && (o.$typeUrl === MsgTransfer.typeUrl || typeof o.source_port === "string" && typeof o.source_channel === "string" && Coin.isAmino(o.token) && typeof o.sender === "string" && typeof o.receiver === "string" && Height.isAmino(o.timeout_height) && typeof o.timeout_timestamp === "bigint");
   },
   encode(message: MsgTransfer, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.sourcePort !== '') {
+    if (message.sourcePort !== "") {
       writer.uint32(10).string(message.sourcePort);
     }
-    if (message.sourceChannel !== '') {
+    if (message.sourceChannel !== "") {
       writer.uint32(18).string(message.sourceChannel);
     }
     if (message.token !== undefined) {
       Coin.encode(message.token, writer.uint32(26).fork()).ldelim();
     }
-    if (message.sender !== '') {
+    if (message.sender !== "") {
       writer.uint32(34).string(message.sender);
     }
-    if (message.receiver !== '') {
+    if (message.receiver !== "") {
       writer.uint32(42).string(message.receiver);
     }
     if (message.timeoutHeight !== undefined) {
@@ -147,41 +147,41 @@ export const MsgTransfer = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.sourcePort = reader.string();
-        break;
-      case 2:
-        message.sourceChannel = reader.string();
-        break;
-      case 3:
-        message.token = Coin.decode(reader, reader.uint32());
-        break;
-      case 4:
-        message.sender = reader.string();
-        break;
-      case 5:
-        message.receiver = reader.string();
-        break;
-      case 6:
-        message.timeoutHeight = Height.decode(reader, reader.uint32());
-        break;
-      case 7:
-        message.timeoutTimestamp = reader.uint64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.sourcePort = reader.string();
+          break;
+        case 2:
+          message.sourceChannel = reader.string();
+          break;
+        case 3:
+          message.token = Coin.decode(reader, reader.uint32());
+          break;
+        case 4:
+          message.sender = reader.string();
+          break;
+        case 5:
+          message.receiver = reader.string();
+          break;
+        case 6:
+          message.timeoutHeight = Height.decode(reader, reader.uint32());
+          break;
+        case 7:
+          message.timeoutTimestamp = reader.uint64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<MsgTransfer>): MsgTransfer {
     const message = createBaseMsgTransfer();
-    message.sourcePort = object.sourcePort ?? '';
-    message.sourceChannel = object.sourceChannel ?? '';
+    message.sourcePort = object.sourcePort ?? "";
+    message.sourceChannel = object.sourceChannel ?? "";
     message.token = object.token !== undefined && object.token !== null ? Coin.fromPartial(object.token) : undefined;
-    message.sender = object.sender ?? '';
-    message.receiver = object.receiver ?? '';
+    message.sender = object.sender ?? "";
+    message.receiver = object.receiver ?? "";
     message.timeoutHeight = object.timeoutHeight !== undefined && object.timeoutHeight !== null ? Height.fromPartial(object.timeoutHeight) : undefined;
     message.timeoutTimestamp = object.timeoutTimestamp !== undefined && object.timeoutTimestamp !== null ? BigInt(object.timeoutTimestamp.toString()) : BigInt(0);
     return message;
@@ -213,11 +213,11 @@ export const MsgTransfer = {
   },
   toAmino(message: MsgTransfer): MsgTransferAmino {
     const obj: any = {};
-    obj.source_port = message.sourcePort === '' ? undefined : message.sourcePort;
-    obj.source_channel = message.sourceChannel === '' ? undefined : message.sourceChannel;
+    obj.source_port = message.sourcePort === "" ? undefined : message.sourcePort;
+    obj.source_channel = message.sourceChannel === "" ? undefined : message.sourceChannel;
     obj.token = message.token ? Coin.toAmino(message.token) : undefined;
-    obj.sender = message.sender === '' ? undefined : message.sender;
-    obj.receiver = message.receiver === '' ? undefined : message.receiver;
+    obj.sender = message.sender === "" ? undefined : message.sender;
+    obj.receiver = message.receiver === "" ? undefined : message.receiver;
     obj.timeout_height = message.timeoutHeight ? Height.toAmino(message.timeoutHeight) : {};
     obj.timeout_timestamp = message.timeoutTimestamp !== BigInt(0) ? message.timeoutTimestamp.toString() : undefined;
     return obj;
@@ -227,7 +227,7 @@ export const MsgTransfer = {
   },
   toAminoMsg(message: MsgTransfer): MsgTransferAminoMsg {
     return {
-      type: 'cosmos-sdk/MsgTransfer',
+      type: "cosmos-sdk/MsgTransfer",
       value: MsgTransfer.toAmino(message)
     };
   },
@@ -239,7 +239,7 @@ export const MsgTransfer = {
   },
   toProtoMsg(message: MsgTransfer): MsgTransferProtoMsg {
     return {
-      typeUrl: '/ibc.applications.transfer.v1.MsgTransfer',
+      typeUrl: "/ibc.applications.transfer.v1.MsgTransfer",
       value: MsgTransfer.encode(message).finish()
     };
   }
@@ -250,8 +250,8 @@ function createBaseMsgTransferResponse(): MsgTransferResponse {
   return {};
 }
 export const MsgTransferResponse = {
-  typeUrl: '/ibc.applications.transfer.v1.MsgTransferResponse',
-  aminoType: 'cosmos-sdk/MsgTransferResponse',
+  typeUrl: "/ibc.applications.transfer.v1.MsgTransferResponse",
+  aminoType: "cosmos-sdk/MsgTransferResponse",
   is(o: any): o is MsgTransferResponse {
     return o && o.$typeUrl === MsgTransferResponse.typeUrl;
   },
@@ -271,9 +271,9 @@ export const MsgTransferResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      default:
-        reader.skipType(tag & 7);
-        break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -295,7 +295,7 @@ export const MsgTransferResponse = {
   },
   toAminoMsg(message: MsgTransferResponse): MsgTransferResponseAminoMsg {
     return {
-      type: 'cosmos-sdk/MsgTransferResponse',
+      type: "cosmos-sdk/MsgTransferResponse",
       value: MsgTransferResponse.toAmino(message)
     };
   },
@@ -307,7 +307,7 @@ export const MsgTransferResponse = {
   },
   toProtoMsg(message: MsgTransferResponse): MsgTransferResponseProtoMsg {
     return {
-      typeUrl: '/ibc.applications.transfer.v1.MsgTransferResponse',
+      typeUrl: "/ibc.applications.transfer.v1.MsgTransferResponse",
       value: MsgTransferResponse.encode(message).finish()
     };
   }

@@ -1,8 +1,7 @@
 //@ts-nocheck
-import { LCDClient } from '@cosmology/lcd';
-
-import { setPaginationParams } from '../../../helpers';
-import { AddressBytesToStringRequest, AddressBytesToStringResponseSDKType, AddressStringToBytesRequest, AddressStringToBytesResponseSDKType,Bech32PrefixRequest, Bech32PrefixResponseSDKType, QueryAccountRequest, QueryAccountResponseSDKType, QueryAccountsRequest, QueryAccountsResponseSDKType, QueryModuleAccountsRequest, QueryModuleAccountsResponseSDKType, QueryParamsRequest, QueryParamsResponseSDKType } from './query';
+import { setPaginationParams } from "../../../helpers";
+import { LCDClient } from "@cosmology/lcd";
+import { QueryAccountsRequest, QueryAccountsResponseSDKType, QueryAccountRequest, QueryAccountResponseSDKType, QueryParamsRequest, QueryParamsResponseSDKType, QueryModuleAccountsRequest, QueryModuleAccountsResponseSDKType, Bech32PrefixRequest, Bech32PrefixResponseSDKType, AddressBytesToStringRequest, AddressBytesToStringResponseSDKType, AddressStringToBytesRequest, AddressStringToBytesResponseSDKType } from "./query";
 export class LCDQueryClient {
   req: LCDClient;
   constructor({
@@ -28,7 +27,7 @@ export class LCDQueryClient {
     const options: any = {
       params: {}
     };
-    if (typeof params?.pagination !== 'undefined') {
+    if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
     }
     const endpoint = `cosmos/auth/v1beta1/accounts`;

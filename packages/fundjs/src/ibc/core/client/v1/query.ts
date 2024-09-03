@@ -1,10 +1,10 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from '../../../../binary';
-import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from '../../../../cosmos/base/query/v1beta1/pagination';
-import { Any, AnyAmino, AnySDKType } from '../../../../google/protobuf/any';
-import { base64FromBytes,bytesFromBase64 } from '../../../../helpers';
-import { GlobalDecoderRegistry } from '../../../../registry';
-import { ConsensusStateWithHeight, ConsensusStateWithHeightAmino, ConsensusStateWithHeightSDKType, Height, HeightAmino, HeightSDKType, IdentifiedClientState, IdentifiedClientStateAmino, IdentifiedClientStateSDKType, Params, ParamsAmino, ParamsSDKType } from './client';
+import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from "../../../../cosmos/base/query/v1beta1/pagination";
+import { Any, AnyAmino, AnySDKType } from "../../../../google/protobuf/any";
+import { Height, HeightAmino, HeightSDKType, IdentifiedClientState, IdentifiedClientStateAmino, IdentifiedClientStateSDKType, ConsensusStateWithHeight, ConsensusStateWithHeightAmino, ConsensusStateWithHeightSDKType, Params, ParamsAmino, ParamsSDKType } from "./client";
+import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { GlobalDecoderRegistry } from "../../../../registry";
+import { bytesFromBase64, base64FromBytes } from "../../../../helpers";
 /**
  * QueryClientStateRequest is the request type for the Query/ClientState RPC
  * method
@@ -14,7 +14,7 @@ export interface QueryClientStateRequest {
   clientId: string;
 }
 export interface QueryClientStateRequestProtoMsg {
-  typeUrl: '/ibc.core.client.v1.QueryClientStateRequest';
+  typeUrl: "/ibc.core.client.v1.QueryClientStateRequest";
   value: Uint8Array;
 }
 /**
@@ -26,7 +26,7 @@ export interface QueryClientStateRequestAmino {
   client_id?: string;
 }
 export interface QueryClientStateRequestAminoMsg {
-  type: 'cosmos-sdk/QueryClientStateRequest';
+  type: "cosmos-sdk/QueryClientStateRequest";
   value: QueryClientStateRequestAmino;
 }
 /**
@@ -50,7 +50,7 @@ export interface QueryClientStateResponse {
   proofHeight: Height;
 }
 export interface QueryClientStateResponseProtoMsg {
-  typeUrl: '/ibc.core.client.v1.QueryClientStateResponse';
+  typeUrl: "/ibc.core.client.v1.QueryClientStateResponse";
   value: Uint8Array;
 }
 /**
@@ -67,7 +67,7 @@ export interface QueryClientStateResponseAmino {
   proof_height?: HeightAmino;
 }
 export interface QueryClientStateResponseAminoMsg {
-  type: 'cosmos-sdk/QueryClientStateResponse';
+  type: "cosmos-sdk/QueryClientStateResponse";
   value: QueryClientStateResponseAmino;
 }
 /**
@@ -89,7 +89,7 @@ export interface QueryClientStatesRequest {
   pagination?: PageRequest;
 }
 export interface QueryClientStatesRequestProtoMsg {
-  typeUrl: '/ibc.core.client.v1.QueryClientStatesRequest';
+  typeUrl: "/ibc.core.client.v1.QueryClientStatesRequest";
   value: Uint8Array;
 }
 /**
@@ -101,7 +101,7 @@ export interface QueryClientStatesRequestAmino {
   pagination?: PageRequestAmino;
 }
 export interface QueryClientStatesRequestAminoMsg {
-  type: 'cosmos-sdk/QueryClientStatesRequest';
+  type: "cosmos-sdk/QueryClientStatesRequest";
   value: QueryClientStatesRequestAmino;
 }
 /**
@@ -122,7 +122,7 @@ export interface QueryClientStatesResponse {
   pagination?: PageResponse;
 }
 export interface QueryClientStatesResponseProtoMsg {
-  typeUrl: '/ibc.core.client.v1.QueryClientStatesResponse';
+  typeUrl: "/ibc.core.client.v1.QueryClientStatesResponse";
   value: Uint8Array;
 }
 /**
@@ -136,7 +136,7 @@ export interface QueryClientStatesResponseAmino {
   pagination?: PageResponseAmino;
 }
 export interface QueryClientStatesResponseAminoMsg {
-  type: 'cosmos-sdk/QueryClientStatesResponse';
+  type: "cosmos-sdk/QueryClientStatesResponse";
   value: QueryClientStatesResponseAmino;
 }
 /**
@@ -166,7 +166,7 @@ export interface QueryConsensusStateRequest {
   latestHeight: boolean;
 }
 export interface QueryConsensusStateRequestProtoMsg {
-  typeUrl: '/ibc.core.client.v1.QueryConsensusStateRequest';
+  typeUrl: "/ibc.core.client.v1.QueryConsensusStateRequest";
   value: Uint8Array;
 }
 /**
@@ -188,7 +188,7 @@ export interface QueryConsensusStateRequestAmino {
   latest_height?: boolean;
 }
 export interface QueryConsensusStateRequestAminoMsg {
-  type: 'cosmos-sdk/QueryConsensusStateRequest';
+  type: "cosmos-sdk/QueryConsensusStateRequest";
   value: QueryConsensusStateRequestAmino;
 }
 /**
@@ -215,7 +215,7 @@ export interface QueryConsensusStateResponse {
   proofHeight: Height;
 }
 export interface QueryConsensusStateResponseProtoMsg {
-  typeUrl: '/ibc.core.client.v1.QueryConsensusStateResponse';
+  typeUrl: "/ibc.core.client.v1.QueryConsensusStateResponse";
   value: Uint8Array;
 }
 /**
@@ -231,7 +231,7 @@ export interface QueryConsensusStateResponseAmino {
   proof_height?: HeightAmino;
 }
 export interface QueryConsensusStateResponseAminoMsg {
-  type: 'cosmos-sdk/QueryConsensusStateResponse';
+  type: "cosmos-sdk/QueryConsensusStateResponse";
   value: QueryConsensusStateResponseAmino;
 }
 /**
@@ -254,7 +254,7 @@ export interface QueryConsensusStatesRequest {
   pagination?: PageRequest;
 }
 export interface QueryConsensusStatesRequestProtoMsg {
-  typeUrl: '/ibc.core.client.v1.QueryConsensusStatesRequest';
+  typeUrl: "/ibc.core.client.v1.QueryConsensusStatesRequest";
   value: Uint8Array;
 }
 /**
@@ -268,7 +268,7 @@ export interface QueryConsensusStatesRequestAmino {
   pagination?: PageRequestAmino;
 }
 export interface QueryConsensusStatesRequestAminoMsg {
-  type: 'cosmos-sdk/QueryConsensusStatesRequest';
+  type: "cosmos-sdk/QueryConsensusStatesRequest";
   value: QueryConsensusStatesRequestAmino;
 }
 /**
@@ -290,7 +290,7 @@ export interface QueryConsensusStatesResponse {
   pagination?: PageResponse;
 }
 export interface QueryConsensusStatesResponseProtoMsg {
-  typeUrl: '/ibc.core.client.v1.QueryConsensusStatesResponse';
+  typeUrl: "/ibc.core.client.v1.QueryConsensusStatesResponse";
   value: Uint8Array;
 }
 /**
@@ -304,7 +304,7 @@ export interface QueryConsensusStatesResponseAmino {
   pagination?: PageResponseAmino;
 }
 export interface QueryConsensusStatesResponseAminoMsg {
-  type: 'cosmos-sdk/QueryConsensusStatesResponse';
+  type: "cosmos-sdk/QueryConsensusStatesResponse";
   value: QueryConsensusStatesResponseAmino;
 }
 /**
@@ -324,7 +324,7 @@ export interface QueryClientStatusRequest {
   clientId: string;
 }
 export interface QueryClientStatusRequestProtoMsg {
-  typeUrl: '/ibc.core.client.v1.QueryClientStatusRequest';
+  typeUrl: "/ibc.core.client.v1.QueryClientStatusRequest";
   value: Uint8Array;
 }
 /**
@@ -336,7 +336,7 @@ export interface QueryClientStatusRequestAmino {
   client_id?: string;
 }
 export interface QueryClientStatusRequestAminoMsg {
-  type: 'cosmos-sdk/QueryClientStatusRequest';
+  type: "cosmos-sdk/QueryClientStatusRequest";
   value: QueryClientStatusRequestAmino;
 }
 /**
@@ -354,7 +354,7 @@ export interface QueryClientStatusResponse {
   status: string;
 }
 export interface QueryClientStatusResponseProtoMsg {
-  typeUrl: '/ibc.core.client.v1.QueryClientStatusResponse';
+  typeUrl: "/ibc.core.client.v1.QueryClientStatusResponse";
   value: Uint8Array;
 }
 /**
@@ -365,7 +365,7 @@ export interface QueryClientStatusResponseAmino {
   status?: string;
 }
 export interface QueryClientStatusResponseAminoMsg {
-  type: 'cosmos-sdk/QueryClientStatusResponse';
+  type: "cosmos-sdk/QueryClientStatusResponse";
   value: QueryClientStatusResponseAmino;
 }
 /**
@@ -381,7 +381,7 @@ export interface QueryClientStatusResponseSDKType {
  */
 export interface QueryClientParamsRequest {}
 export interface QueryClientParamsRequestProtoMsg {
-  typeUrl: '/ibc.core.client.v1.QueryClientParamsRequest';
+  typeUrl: "/ibc.core.client.v1.QueryClientParamsRequest";
   value: Uint8Array;
 }
 /**
@@ -390,7 +390,7 @@ export interface QueryClientParamsRequestProtoMsg {
  */
 export interface QueryClientParamsRequestAmino {}
 export interface QueryClientParamsRequestAminoMsg {
-  type: 'cosmos-sdk/QueryClientParamsRequest';
+  type: "cosmos-sdk/QueryClientParamsRequest";
   value: QueryClientParamsRequestAmino;
 }
 /**
@@ -407,7 +407,7 @@ export interface QueryClientParamsResponse {
   params?: Params;
 }
 export interface QueryClientParamsResponseProtoMsg {
-  typeUrl: '/ibc.core.client.v1.QueryClientParamsResponse';
+  typeUrl: "/ibc.core.client.v1.QueryClientParamsResponse";
   value: Uint8Array;
 }
 /**
@@ -419,7 +419,7 @@ export interface QueryClientParamsResponseAmino {
   params?: ParamsAmino;
 }
 export interface QueryClientParamsResponseAminoMsg {
-  type: 'cosmos-sdk/QueryClientParamsResponse';
+  type: "cosmos-sdk/QueryClientParamsResponse";
   value: QueryClientParamsResponseAmino;
 }
 /**
@@ -435,7 +435,7 @@ export interface QueryClientParamsResponseSDKType {
  */
 export interface QueryUpgradedClientStateRequest {}
 export interface QueryUpgradedClientStateRequestProtoMsg {
-  typeUrl: '/ibc.core.client.v1.QueryUpgradedClientStateRequest';
+  typeUrl: "/ibc.core.client.v1.QueryUpgradedClientStateRequest";
   value: Uint8Array;
 }
 /**
@@ -444,7 +444,7 @@ export interface QueryUpgradedClientStateRequestProtoMsg {
  */
 export interface QueryUpgradedClientStateRequestAmino {}
 export interface QueryUpgradedClientStateRequestAminoMsg {
-  type: 'cosmos-sdk/QueryUpgradedClientStateRequest';
+  type: "cosmos-sdk/QueryUpgradedClientStateRequest";
   value: QueryUpgradedClientStateRequestAmino;
 }
 /**
@@ -461,7 +461,7 @@ export interface QueryUpgradedClientStateResponse {
   upgradedClientState?: Any;
 }
 export interface QueryUpgradedClientStateResponseProtoMsg {
-  typeUrl: '/ibc.core.client.v1.QueryUpgradedClientStateResponse';
+  typeUrl: "/ibc.core.client.v1.QueryUpgradedClientStateResponse";
   value: Uint8Array;
 }
 /**
@@ -473,7 +473,7 @@ export interface QueryUpgradedClientStateResponseAmino {
   upgraded_client_state?: AnyAmino;
 }
 export interface QueryUpgradedClientStateResponseAminoMsg {
-  type: 'cosmos-sdk/QueryUpgradedClientStateResponse';
+  type: "cosmos-sdk/QueryUpgradedClientStateResponse";
   value: QueryUpgradedClientStateResponseAmino;
 }
 /**
@@ -489,7 +489,7 @@ export interface QueryUpgradedClientStateResponseSDKType {
  */
 export interface QueryUpgradedConsensusStateRequest {}
 export interface QueryUpgradedConsensusStateRequestProtoMsg {
-  typeUrl: '/ibc.core.client.v1.QueryUpgradedConsensusStateRequest';
+  typeUrl: "/ibc.core.client.v1.QueryUpgradedConsensusStateRequest";
   value: Uint8Array;
 }
 /**
@@ -498,7 +498,7 @@ export interface QueryUpgradedConsensusStateRequestProtoMsg {
  */
 export interface QueryUpgradedConsensusStateRequestAmino {}
 export interface QueryUpgradedConsensusStateRequestAminoMsg {
-  type: 'cosmos-sdk/QueryUpgradedConsensusStateRequest';
+  type: "cosmos-sdk/QueryUpgradedConsensusStateRequest";
   value: QueryUpgradedConsensusStateRequestAmino;
 }
 /**
@@ -515,7 +515,7 @@ export interface QueryUpgradedConsensusStateResponse {
   upgradedConsensusState?: Any;
 }
 export interface QueryUpgradedConsensusStateResponseProtoMsg {
-  typeUrl: '/ibc.core.client.v1.QueryUpgradedConsensusStateResponse';
+  typeUrl: "/ibc.core.client.v1.QueryUpgradedConsensusStateResponse";
   value: Uint8Array;
 }
 /**
@@ -527,7 +527,7 @@ export interface QueryUpgradedConsensusStateResponseAmino {
   upgraded_consensus_state?: AnyAmino;
 }
 export interface QueryUpgradedConsensusStateResponseAminoMsg {
-  type: 'cosmos-sdk/QueryUpgradedConsensusStateResponse';
+  type: "cosmos-sdk/QueryUpgradedConsensusStateResponse";
   value: QueryUpgradedConsensusStateResponseAmino;
 }
 /**
@@ -539,23 +539,23 @@ export interface QueryUpgradedConsensusStateResponseSDKType {
 }
 function createBaseQueryClientStateRequest(): QueryClientStateRequest {
   return {
-    clientId: ''
+    clientId: ""
   };
 }
 export const QueryClientStateRequest = {
-  typeUrl: '/ibc.core.client.v1.QueryClientStateRequest',
-  aminoType: 'cosmos-sdk/QueryClientStateRequest',
+  typeUrl: "/ibc.core.client.v1.QueryClientStateRequest",
+  aminoType: "cosmos-sdk/QueryClientStateRequest",
   is(o: any): o is QueryClientStateRequest {
-    return o && (o.$typeUrl === QueryClientStateRequest.typeUrl || typeof o.clientId === 'string');
+    return o && (o.$typeUrl === QueryClientStateRequest.typeUrl || typeof o.clientId === "string");
   },
   isSDK(o: any): o is QueryClientStateRequestSDKType {
-    return o && (o.$typeUrl === QueryClientStateRequest.typeUrl || typeof o.client_id === 'string');
+    return o && (o.$typeUrl === QueryClientStateRequest.typeUrl || typeof o.client_id === "string");
   },
   isAmino(o: any): o is QueryClientStateRequestAmino {
-    return o && (o.$typeUrl === QueryClientStateRequest.typeUrl || typeof o.client_id === 'string');
+    return o && (o.$typeUrl === QueryClientStateRequest.typeUrl || typeof o.client_id === "string");
   },
   encode(message: QueryClientStateRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.clientId !== '') {
+    if (message.clientId !== "") {
       writer.uint32(10).string(message.clientId);
     }
     return writer;
@@ -567,19 +567,19 @@ export const QueryClientStateRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.clientId = reader.string();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.clientId = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<QueryClientStateRequest>): QueryClientStateRequest {
     const message = createBaseQueryClientStateRequest();
-    message.clientId = object.clientId ?? '';
+    message.clientId = object.clientId ?? "";
     return message;
   },
   fromAmino(object: QueryClientStateRequestAmino): QueryClientStateRequest {
@@ -591,7 +591,7 @@ export const QueryClientStateRequest = {
   },
   toAmino(message: QueryClientStateRequest): QueryClientStateRequestAmino {
     const obj: any = {};
-    obj.client_id = message.clientId === '' ? undefined : message.clientId;
+    obj.client_id = message.clientId === "" ? undefined : message.clientId;
     return obj;
   },
   fromAminoMsg(object: QueryClientStateRequestAminoMsg): QueryClientStateRequest {
@@ -599,7 +599,7 @@ export const QueryClientStateRequest = {
   },
   toAminoMsg(message: QueryClientStateRequest): QueryClientStateRequestAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryClientStateRequest',
+      type: "cosmos-sdk/QueryClientStateRequest",
       value: QueryClientStateRequest.toAmino(message)
     };
   },
@@ -611,7 +611,7 @@ export const QueryClientStateRequest = {
   },
   toProtoMsg(message: QueryClientStateRequest): QueryClientStateRequestProtoMsg {
     return {
-      typeUrl: '/ibc.core.client.v1.QueryClientStateRequest',
+      typeUrl: "/ibc.core.client.v1.QueryClientStateRequest",
       value: QueryClientStateRequest.encode(message).finish()
     };
   }
@@ -626,16 +626,16 @@ function createBaseQueryClientStateResponse(): QueryClientStateResponse {
   };
 }
 export const QueryClientStateResponse = {
-  typeUrl: '/ibc.core.client.v1.QueryClientStateResponse',
-  aminoType: 'cosmos-sdk/QueryClientStateResponse',
+  typeUrl: "/ibc.core.client.v1.QueryClientStateResponse",
+  aminoType: "cosmos-sdk/QueryClientStateResponse",
   is(o: any): o is QueryClientStateResponse {
-    return o && (o.$typeUrl === QueryClientStateResponse.typeUrl || (o.proof instanceof Uint8Array || typeof o.proof === 'string') && Height.is(o.proofHeight));
+    return o && (o.$typeUrl === QueryClientStateResponse.typeUrl || (o.proof instanceof Uint8Array || typeof o.proof === "string") && Height.is(o.proofHeight));
   },
   isSDK(o: any): o is QueryClientStateResponseSDKType {
-    return o && (o.$typeUrl === QueryClientStateResponse.typeUrl || (o.proof instanceof Uint8Array || typeof o.proof === 'string') && Height.isSDK(o.proof_height));
+    return o && (o.$typeUrl === QueryClientStateResponse.typeUrl || (o.proof instanceof Uint8Array || typeof o.proof === "string") && Height.isSDK(o.proof_height));
   },
   isAmino(o: any): o is QueryClientStateResponseAmino {
-    return o && (o.$typeUrl === QueryClientStateResponse.typeUrl || (o.proof instanceof Uint8Array || typeof o.proof === 'string') && Height.isAmino(o.proof_height));
+    return o && (o.$typeUrl === QueryClientStateResponse.typeUrl || (o.proof instanceof Uint8Array || typeof o.proof === "string") && Height.isAmino(o.proof_height));
   },
   encode(message: QueryClientStateResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.clientState !== undefined) {
@@ -656,18 +656,18 @@ export const QueryClientStateResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.clientState = Any.decode(reader, reader.uint32());
-        break;
-      case 2:
-        message.proof = reader.bytes();
-        break;
-      case 3:
-        message.proofHeight = Height.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.clientState = Any.decode(reader, reader.uint32());
+          break;
+        case 2:
+          message.proof = reader.bytes();
+          break;
+        case 3:
+          message.proofHeight = Height.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -704,7 +704,7 @@ export const QueryClientStateResponse = {
   },
   toAminoMsg(message: QueryClientStateResponse): QueryClientStateResponseAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryClientStateResponse',
+      type: "cosmos-sdk/QueryClientStateResponse",
       value: QueryClientStateResponse.toAmino(message)
     };
   },
@@ -716,7 +716,7 @@ export const QueryClientStateResponse = {
   },
   toProtoMsg(message: QueryClientStateResponse): QueryClientStateResponseProtoMsg {
     return {
-      typeUrl: '/ibc.core.client.v1.QueryClientStateResponse',
+      typeUrl: "/ibc.core.client.v1.QueryClientStateResponse",
       value: QueryClientStateResponse.encode(message).finish()
     };
   }
@@ -729,8 +729,8 @@ function createBaseQueryClientStatesRequest(): QueryClientStatesRequest {
   };
 }
 export const QueryClientStatesRequest = {
-  typeUrl: '/ibc.core.client.v1.QueryClientStatesRequest',
-  aminoType: 'cosmos-sdk/QueryClientStatesRequest',
+  typeUrl: "/ibc.core.client.v1.QueryClientStatesRequest",
+  aminoType: "cosmos-sdk/QueryClientStatesRequest",
   is(o: any): o is QueryClientStatesRequest {
     return o && o.$typeUrl === QueryClientStatesRequest.typeUrl;
   },
@@ -753,12 +753,12 @@ export const QueryClientStatesRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.pagination = PageRequest.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.pagination = PageRequest.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -785,7 +785,7 @@ export const QueryClientStatesRequest = {
   },
   toAminoMsg(message: QueryClientStatesRequest): QueryClientStatesRequestAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryClientStatesRequest',
+      type: "cosmos-sdk/QueryClientStatesRequest",
       value: QueryClientStatesRequest.toAmino(message)
     };
   },
@@ -797,7 +797,7 @@ export const QueryClientStatesRequest = {
   },
   toProtoMsg(message: QueryClientStatesRequest): QueryClientStatesRequestProtoMsg {
     return {
-      typeUrl: '/ibc.core.client.v1.QueryClientStatesRequest',
+      typeUrl: "/ibc.core.client.v1.QueryClientStatesRequest",
       value: QueryClientStatesRequest.encode(message).finish()
     };
   }
@@ -811,8 +811,8 @@ function createBaseQueryClientStatesResponse(): QueryClientStatesResponse {
   };
 }
 export const QueryClientStatesResponse = {
-  typeUrl: '/ibc.core.client.v1.QueryClientStatesResponse',
-  aminoType: 'cosmos-sdk/QueryClientStatesResponse',
+  typeUrl: "/ibc.core.client.v1.QueryClientStatesResponse",
+  aminoType: "cosmos-sdk/QueryClientStatesResponse",
   is(o: any): o is QueryClientStatesResponse {
     return o && (o.$typeUrl === QueryClientStatesResponse.typeUrl || Array.isArray(o.clientStates) && (!o.clientStates.length || IdentifiedClientState.is(o.clientStates[0])));
   },
@@ -838,15 +838,15 @@ export const QueryClientStatesResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.clientStates.push(IdentifiedClientState.decode(reader, reader.uint32()));
-        break;
-      case 2:
-        message.pagination = PageResponse.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.clientStates.push(IdentifiedClientState.decode(reader, reader.uint32()));
+          break;
+        case 2:
+          message.pagination = PageResponse.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -880,7 +880,7 @@ export const QueryClientStatesResponse = {
   },
   toAminoMsg(message: QueryClientStatesResponse): QueryClientStatesResponseAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryClientStatesResponse',
+      type: "cosmos-sdk/QueryClientStatesResponse",
       value: QueryClientStatesResponse.toAmino(message)
     };
   },
@@ -892,7 +892,7 @@ export const QueryClientStatesResponse = {
   },
   toProtoMsg(message: QueryClientStatesResponse): QueryClientStatesResponseProtoMsg {
     return {
-      typeUrl: '/ibc.core.client.v1.QueryClientStatesResponse',
+      typeUrl: "/ibc.core.client.v1.QueryClientStatesResponse",
       value: QueryClientStatesResponse.encode(message).finish()
     };
   }
@@ -901,26 +901,26 @@ GlobalDecoderRegistry.register(QueryClientStatesResponse.typeUrl, QueryClientSta
 GlobalDecoderRegistry.registerAminoProtoMapping(QueryClientStatesResponse.aminoType, QueryClientStatesResponse.typeUrl);
 function createBaseQueryConsensusStateRequest(): QueryConsensusStateRequest {
   return {
-    clientId: '',
+    clientId: "",
     revisionNumber: BigInt(0),
     revisionHeight: BigInt(0),
     latestHeight: false
   };
 }
 export const QueryConsensusStateRequest = {
-  typeUrl: '/ibc.core.client.v1.QueryConsensusStateRequest',
-  aminoType: 'cosmos-sdk/QueryConsensusStateRequest',
+  typeUrl: "/ibc.core.client.v1.QueryConsensusStateRequest",
+  aminoType: "cosmos-sdk/QueryConsensusStateRequest",
   is(o: any): o is QueryConsensusStateRequest {
-    return o && (o.$typeUrl === QueryConsensusStateRequest.typeUrl || typeof o.clientId === 'string' && typeof o.revisionNumber === 'bigint' && typeof o.revisionHeight === 'bigint' && typeof o.latestHeight === 'boolean');
+    return o && (o.$typeUrl === QueryConsensusStateRequest.typeUrl || typeof o.clientId === "string" && typeof o.revisionNumber === "bigint" && typeof o.revisionHeight === "bigint" && typeof o.latestHeight === "boolean");
   },
   isSDK(o: any): o is QueryConsensusStateRequestSDKType {
-    return o && (o.$typeUrl === QueryConsensusStateRequest.typeUrl || typeof o.client_id === 'string' && typeof o.revision_number === 'bigint' && typeof o.revision_height === 'bigint' && typeof o.latest_height === 'boolean');
+    return o && (o.$typeUrl === QueryConsensusStateRequest.typeUrl || typeof o.client_id === "string" && typeof o.revision_number === "bigint" && typeof o.revision_height === "bigint" && typeof o.latest_height === "boolean");
   },
   isAmino(o: any): o is QueryConsensusStateRequestAmino {
-    return o && (o.$typeUrl === QueryConsensusStateRequest.typeUrl || typeof o.client_id === 'string' && typeof o.revision_number === 'bigint' && typeof o.revision_height === 'bigint' && typeof o.latest_height === 'boolean');
+    return o && (o.$typeUrl === QueryConsensusStateRequest.typeUrl || typeof o.client_id === "string" && typeof o.revision_number === "bigint" && typeof o.revision_height === "bigint" && typeof o.latest_height === "boolean");
   },
   encode(message: QueryConsensusStateRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.clientId !== '') {
+    if (message.clientId !== "") {
       writer.uint32(10).string(message.clientId);
     }
     if (message.revisionNumber !== BigInt(0)) {
@@ -941,28 +941,28 @@ export const QueryConsensusStateRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.clientId = reader.string();
-        break;
-      case 2:
-        message.revisionNumber = reader.uint64();
-        break;
-      case 3:
-        message.revisionHeight = reader.uint64();
-        break;
-      case 4:
-        message.latestHeight = reader.bool();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.clientId = reader.string();
+          break;
+        case 2:
+          message.revisionNumber = reader.uint64();
+          break;
+        case 3:
+          message.revisionHeight = reader.uint64();
+          break;
+        case 4:
+          message.latestHeight = reader.bool();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<QueryConsensusStateRequest>): QueryConsensusStateRequest {
     const message = createBaseQueryConsensusStateRequest();
-    message.clientId = object.clientId ?? '';
+    message.clientId = object.clientId ?? "";
     message.revisionNumber = object.revisionNumber !== undefined && object.revisionNumber !== null ? BigInt(object.revisionNumber.toString()) : BigInt(0);
     message.revisionHeight = object.revisionHeight !== undefined && object.revisionHeight !== null ? BigInt(object.revisionHeight.toString()) : BigInt(0);
     message.latestHeight = object.latestHeight ?? false;
@@ -986,7 +986,7 @@ export const QueryConsensusStateRequest = {
   },
   toAmino(message: QueryConsensusStateRequest): QueryConsensusStateRequestAmino {
     const obj: any = {};
-    obj.client_id = message.clientId === '' ? undefined : message.clientId;
+    obj.client_id = message.clientId === "" ? undefined : message.clientId;
     obj.revision_number = message.revisionNumber !== BigInt(0) ? message.revisionNumber.toString() : undefined;
     obj.revision_height = message.revisionHeight !== BigInt(0) ? message.revisionHeight.toString() : undefined;
     obj.latest_height = message.latestHeight === false ? undefined : message.latestHeight;
@@ -997,7 +997,7 @@ export const QueryConsensusStateRequest = {
   },
   toAminoMsg(message: QueryConsensusStateRequest): QueryConsensusStateRequestAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryConsensusStateRequest',
+      type: "cosmos-sdk/QueryConsensusStateRequest",
       value: QueryConsensusStateRequest.toAmino(message)
     };
   },
@@ -1009,7 +1009,7 @@ export const QueryConsensusStateRequest = {
   },
   toProtoMsg(message: QueryConsensusStateRequest): QueryConsensusStateRequestProtoMsg {
     return {
-      typeUrl: '/ibc.core.client.v1.QueryConsensusStateRequest',
+      typeUrl: "/ibc.core.client.v1.QueryConsensusStateRequest",
       value: QueryConsensusStateRequest.encode(message).finish()
     };
   }
@@ -1024,16 +1024,16 @@ function createBaseQueryConsensusStateResponse(): QueryConsensusStateResponse {
   };
 }
 export const QueryConsensusStateResponse = {
-  typeUrl: '/ibc.core.client.v1.QueryConsensusStateResponse',
-  aminoType: 'cosmos-sdk/QueryConsensusStateResponse',
+  typeUrl: "/ibc.core.client.v1.QueryConsensusStateResponse",
+  aminoType: "cosmos-sdk/QueryConsensusStateResponse",
   is(o: any): o is QueryConsensusStateResponse {
-    return o && (o.$typeUrl === QueryConsensusStateResponse.typeUrl || (o.proof instanceof Uint8Array || typeof o.proof === 'string') && Height.is(o.proofHeight));
+    return o && (o.$typeUrl === QueryConsensusStateResponse.typeUrl || (o.proof instanceof Uint8Array || typeof o.proof === "string") && Height.is(o.proofHeight));
   },
   isSDK(o: any): o is QueryConsensusStateResponseSDKType {
-    return o && (o.$typeUrl === QueryConsensusStateResponse.typeUrl || (o.proof instanceof Uint8Array || typeof o.proof === 'string') && Height.isSDK(o.proof_height));
+    return o && (o.$typeUrl === QueryConsensusStateResponse.typeUrl || (o.proof instanceof Uint8Array || typeof o.proof === "string") && Height.isSDK(o.proof_height));
   },
   isAmino(o: any): o is QueryConsensusStateResponseAmino {
-    return o && (o.$typeUrl === QueryConsensusStateResponse.typeUrl || (o.proof instanceof Uint8Array || typeof o.proof === 'string') && Height.isAmino(o.proof_height));
+    return o && (o.$typeUrl === QueryConsensusStateResponse.typeUrl || (o.proof instanceof Uint8Array || typeof o.proof === "string") && Height.isAmino(o.proof_height));
   },
   encode(message: QueryConsensusStateResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.consensusState !== undefined) {
@@ -1054,18 +1054,18 @@ export const QueryConsensusStateResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.consensusState = Any.decode(reader, reader.uint32());
-        break;
-      case 2:
-        message.proof = reader.bytes();
-        break;
-      case 3:
-        message.proofHeight = Height.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.consensusState = Any.decode(reader, reader.uint32());
+          break;
+        case 2:
+          message.proof = reader.bytes();
+          break;
+        case 3:
+          message.proofHeight = Height.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1102,7 +1102,7 @@ export const QueryConsensusStateResponse = {
   },
   toAminoMsg(message: QueryConsensusStateResponse): QueryConsensusStateResponseAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryConsensusStateResponse',
+      type: "cosmos-sdk/QueryConsensusStateResponse",
       value: QueryConsensusStateResponse.toAmino(message)
     };
   },
@@ -1114,7 +1114,7 @@ export const QueryConsensusStateResponse = {
   },
   toProtoMsg(message: QueryConsensusStateResponse): QueryConsensusStateResponseProtoMsg {
     return {
-      typeUrl: '/ibc.core.client.v1.QueryConsensusStateResponse',
+      typeUrl: "/ibc.core.client.v1.QueryConsensusStateResponse",
       value: QueryConsensusStateResponse.encode(message).finish()
     };
   }
@@ -1123,24 +1123,24 @@ GlobalDecoderRegistry.register(QueryConsensusStateResponse.typeUrl, QueryConsens
 GlobalDecoderRegistry.registerAminoProtoMapping(QueryConsensusStateResponse.aminoType, QueryConsensusStateResponse.typeUrl);
 function createBaseQueryConsensusStatesRequest(): QueryConsensusStatesRequest {
   return {
-    clientId: '',
+    clientId: "",
     pagination: undefined
   };
 }
 export const QueryConsensusStatesRequest = {
-  typeUrl: '/ibc.core.client.v1.QueryConsensusStatesRequest',
-  aminoType: 'cosmos-sdk/QueryConsensusStatesRequest',
+  typeUrl: "/ibc.core.client.v1.QueryConsensusStatesRequest",
+  aminoType: "cosmos-sdk/QueryConsensusStatesRequest",
   is(o: any): o is QueryConsensusStatesRequest {
-    return o && (o.$typeUrl === QueryConsensusStatesRequest.typeUrl || typeof o.clientId === 'string');
+    return o && (o.$typeUrl === QueryConsensusStatesRequest.typeUrl || typeof o.clientId === "string");
   },
   isSDK(o: any): o is QueryConsensusStatesRequestSDKType {
-    return o && (o.$typeUrl === QueryConsensusStatesRequest.typeUrl || typeof o.client_id === 'string');
+    return o && (o.$typeUrl === QueryConsensusStatesRequest.typeUrl || typeof o.client_id === "string");
   },
   isAmino(o: any): o is QueryConsensusStatesRequestAmino {
-    return o && (o.$typeUrl === QueryConsensusStatesRequest.typeUrl || typeof o.client_id === 'string');
+    return o && (o.$typeUrl === QueryConsensusStatesRequest.typeUrl || typeof o.client_id === "string");
   },
   encode(message: QueryConsensusStatesRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.clientId !== '') {
+    if (message.clientId !== "") {
       writer.uint32(10).string(message.clientId);
     }
     if (message.pagination !== undefined) {
@@ -1155,22 +1155,22 @@ export const QueryConsensusStatesRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.clientId = reader.string();
-        break;
-      case 2:
-        message.pagination = PageRequest.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.clientId = reader.string();
+          break;
+        case 2:
+          message.pagination = PageRequest.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<QueryConsensusStatesRequest>): QueryConsensusStatesRequest {
     const message = createBaseQueryConsensusStatesRequest();
-    message.clientId = object.clientId ?? '';
+    message.clientId = object.clientId ?? "";
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageRequest.fromPartial(object.pagination) : undefined;
     return message;
   },
@@ -1186,7 +1186,7 @@ export const QueryConsensusStatesRequest = {
   },
   toAmino(message: QueryConsensusStatesRequest): QueryConsensusStatesRequestAmino {
     const obj: any = {};
-    obj.client_id = message.clientId === '' ? undefined : message.clientId;
+    obj.client_id = message.clientId === "" ? undefined : message.clientId;
     obj.pagination = message.pagination ? PageRequest.toAmino(message.pagination) : undefined;
     return obj;
   },
@@ -1195,7 +1195,7 @@ export const QueryConsensusStatesRequest = {
   },
   toAminoMsg(message: QueryConsensusStatesRequest): QueryConsensusStatesRequestAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryConsensusStatesRequest',
+      type: "cosmos-sdk/QueryConsensusStatesRequest",
       value: QueryConsensusStatesRequest.toAmino(message)
     };
   },
@@ -1207,7 +1207,7 @@ export const QueryConsensusStatesRequest = {
   },
   toProtoMsg(message: QueryConsensusStatesRequest): QueryConsensusStatesRequestProtoMsg {
     return {
-      typeUrl: '/ibc.core.client.v1.QueryConsensusStatesRequest',
+      typeUrl: "/ibc.core.client.v1.QueryConsensusStatesRequest",
       value: QueryConsensusStatesRequest.encode(message).finish()
     };
   }
@@ -1221,8 +1221,8 @@ function createBaseQueryConsensusStatesResponse(): QueryConsensusStatesResponse 
   };
 }
 export const QueryConsensusStatesResponse = {
-  typeUrl: '/ibc.core.client.v1.QueryConsensusStatesResponse',
-  aminoType: 'cosmos-sdk/QueryConsensusStatesResponse',
+  typeUrl: "/ibc.core.client.v1.QueryConsensusStatesResponse",
+  aminoType: "cosmos-sdk/QueryConsensusStatesResponse",
   is(o: any): o is QueryConsensusStatesResponse {
     return o && (o.$typeUrl === QueryConsensusStatesResponse.typeUrl || Array.isArray(o.consensusStates) && (!o.consensusStates.length || ConsensusStateWithHeight.is(o.consensusStates[0])));
   },
@@ -1248,15 +1248,15 @@ export const QueryConsensusStatesResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.consensusStates.push(ConsensusStateWithHeight.decode(reader, reader.uint32()));
-        break;
-      case 2:
-        message.pagination = PageResponse.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.consensusStates.push(ConsensusStateWithHeight.decode(reader, reader.uint32()));
+          break;
+        case 2:
+          message.pagination = PageResponse.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1290,7 +1290,7 @@ export const QueryConsensusStatesResponse = {
   },
   toAminoMsg(message: QueryConsensusStatesResponse): QueryConsensusStatesResponseAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryConsensusStatesResponse',
+      type: "cosmos-sdk/QueryConsensusStatesResponse",
       value: QueryConsensusStatesResponse.toAmino(message)
     };
   },
@@ -1302,7 +1302,7 @@ export const QueryConsensusStatesResponse = {
   },
   toProtoMsg(message: QueryConsensusStatesResponse): QueryConsensusStatesResponseProtoMsg {
     return {
-      typeUrl: '/ibc.core.client.v1.QueryConsensusStatesResponse',
+      typeUrl: "/ibc.core.client.v1.QueryConsensusStatesResponse",
       value: QueryConsensusStatesResponse.encode(message).finish()
     };
   }
@@ -1311,23 +1311,23 @@ GlobalDecoderRegistry.register(QueryConsensusStatesResponse.typeUrl, QueryConsen
 GlobalDecoderRegistry.registerAminoProtoMapping(QueryConsensusStatesResponse.aminoType, QueryConsensusStatesResponse.typeUrl);
 function createBaseQueryClientStatusRequest(): QueryClientStatusRequest {
   return {
-    clientId: ''
+    clientId: ""
   };
 }
 export const QueryClientStatusRequest = {
-  typeUrl: '/ibc.core.client.v1.QueryClientStatusRequest',
-  aminoType: 'cosmos-sdk/QueryClientStatusRequest',
+  typeUrl: "/ibc.core.client.v1.QueryClientStatusRequest",
+  aminoType: "cosmos-sdk/QueryClientStatusRequest",
   is(o: any): o is QueryClientStatusRequest {
-    return o && (o.$typeUrl === QueryClientStatusRequest.typeUrl || typeof o.clientId === 'string');
+    return o && (o.$typeUrl === QueryClientStatusRequest.typeUrl || typeof o.clientId === "string");
   },
   isSDK(o: any): o is QueryClientStatusRequestSDKType {
-    return o && (o.$typeUrl === QueryClientStatusRequest.typeUrl || typeof o.client_id === 'string');
+    return o && (o.$typeUrl === QueryClientStatusRequest.typeUrl || typeof o.client_id === "string");
   },
   isAmino(o: any): o is QueryClientStatusRequestAmino {
-    return o && (o.$typeUrl === QueryClientStatusRequest.typeUrl || typeof o.client_id === 'string');
+    return o && (o.$typeUrl === QueryClientStatusRequest.typeUrl || typeof o.client_id === "string");
   },
   encode(message: QueryClientStatusRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.clientId !== '') {
+    if (message.clientId !== "") {
       writer.uint32(10).string(message.clientId);
     }
     return writer;
@@ -1339,19 +1339,19 @@ export const QueryClientStatusRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.clientId = reader.string();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.clientId = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<QueryClientStatusRequest>): QueryClientStatusRequest {
     const message = createBaseQueryClientStatusRequest();
-    message.clientId = object.clientId ?? '';
+    message.clientId = object.clientId ?? "";
     return message;
   },
   fromAmino(object: QueryClientStatusRequestAmino): QueryClientStatusRequest {
@@ -1363,7 +1363,7 @@ export const QueryClientStatusRequest = {
   },
   toAmino(message: QueryClientStatusRequest): QueryClientStatusRequestAmino {
     const obj: any = {};
-    obj.client_id = message.clientId === '' ? undefined : message.clientId;
+    obj.client_id = message.clientId === "" ? undefined : message.clientId;
     return obj;
   },
   fromAminoMsg(object: QueryClientStatusRequestAminoMsg): QueryClientStatusRequest {
@@ -1371,7 +1371,7 @@ export const QueryClientStatusRequest = {
   },
   toAminoMsg(message: QueryClientStatusRequest): QueryClientStatusRequestAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryClientStatusRequest',
+      type: "cosmos-sdk/QueryClientStatusRequest",
       value: QueryClientStatusRequest.toAmino(message)
     };
   },
@@ -1383,7 +1383,7 @@ export const QueryClientStatusRequest = {
   },
   toProtoMsg(message: QueryClientStatusRequest): QueryClientStatusRequestProtoMsg {
     return {
-      typeUrl: '/ibc.core.client.v1.QueryClientStatusRequest',
+      typeUrl: "/ibc.core.client.v1.QueryClientStatusRequest",
       value: QueryClientStatusRequest.encode(message).finish()
     };
   }
@@ -1392,23 +1392,23 @@ GlobalDecoderRegistry.register(QueryClientStatusRequest.typeUrl, QueryClientStat
 GlobalDecoderRegistry.registerAminoProtoMapping(QueryClientStatusRequest.aminoType, QueryClientStatusRequest.typeUrl);
 function createBaseQueryClientStatusResponse(): QueryClientStatusResponse {
   return {
-    status: ''
+    status: ""
   };
 }
 export const QueryClientStatusResponse = {
-  typeUrl: '/ibc.core.client.v1.QueryClientStatusResponse',
-  aminoType: 'cosmos-sdk/QueryClientStatusResponse',
+  typeUrl: "/ibc.core.client.v1.QueryClientStatusResponse",
+  aminoType: "cosmos-sdk/QueryClientStatusResponse",
   is(o: any): o is QueryClientStatusResponse {
-    return o && (o.$typeUrl === QueryClientStatusResponse.typeUrl || typeof o.status === 'string');
+    return o && (o.$typeUrl === QueryClientStatusResponse.typeUrl || typeof o.status === "string");
   },
   isSDK(o: any): o is QueryClientStatusResponseSDKType {
-    return o && (o.$typeUrl === QueryClientStatusResponse.typeUrl || typeof o.status === 'string');
+    return o && (o.$typeUrl === QueryClientStatusResponse.typeUrl || typeof o.status === "string");
   },
   isAmino(o: any): o is QueryClientStatusResponseAmino {
-    return o && (o.$typeUrl === QueryClientStatusResponse.typeUrl || typeof o.status === 'string');
+    return o && (o.$typeUrl === QueryClientStatusResponse.typeUrl || typeof o.status === "string");
   },
   encode(message: QueryClientStatusResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.status !== '') {
+    if (message.status !== "") {
       writer.uint32(10).string(message.status);
     }
     return writer;
@@ -1420,19 +1420,19 @@ export const QueryClientStatusResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.status = reader.string();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.status = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<QueryClientStatusResponse>): QueryClientStatusResponse {
     const message = createBaseQueryClientStatusResponse();
-    message.status = object.status ?? '';
+    message.status = object.status ?? "";
     return message;
   },
   fromAmino(object: QueryClientStatusResponseAmino): QueryClientStatusResponse {
@@ -1444,7 +1444,7 @@ export const QueryClientStatusResponse = {
   },
   toAmino(message: QueryClientStatusResponse): QueryClientStatusResponseAmino {
     const obj: any = {};
-    obj.status = message.status === '' ? undefined : message.status;
+    obj.status = message.status === "" ? undefined : message.status;
     return obj;
   },
   fromAminoMsg(object: QueryClientStatusResponseAminoMsg): QueryClientStatusResponse {
@@ -1452,7 +1452,7 @@ export const QueryClientStatusResponse = {
   },
   toAminoMsg(message: QueryClientStatusResponse): QueryClientStatusResponseAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryClientStatusResponse',
+      type: "cosmos-sdk/QueryClientStatusResponse",
       value: QueryClientStatusResponse.toAmino(message)
     };
   },
@@ -1464,7 +1464,7 @@ export const QueryClientStatusResponse = {
   },
   toProtoMsg(message: QueryClientStatusResponse): QueryClientStatusResponseProtoMsg {
     return {
-      typeUrl: '/ibc.core.client.v1.QueryClientStatusResponse',
+      typeUrl: "/ibc.core.client.v1.QueryClientStatusResponse",
       value: QueryClientStatusResponse.encode(message).finish()
     };
   }
@@ -1475,8 +1475,8 @@ function createBaseQueryClientParamsRequest(): QueryClientParamsRequest {
   return {};
 }
 export const QueryClientParamsRequest = {
-  typeUrl: '/ibc.core.client.v1.QueryClientParamsRequest',
-  aminoType: 'cosmos-sdk/QueryClientParamsRequest',
+  typeUrl: "/ibc.core.client.v1.QueryClientParamsRequest",
+  aminoType: "cosmos-sdk/QueryClientParamsRequest",
   is(o: any): o is QueryClientParamsRequest {
     return o && o.$typeUrl === QueryClientParamsRequest.typeUrl;
   },
@@ -1496,9 +1496,9 @@ export const QueryClientParamsRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      default:
-        reader.skipType(tag & 7);
-        break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1520,7 +1520,7 @@ export const QueryClientParamsRequest = {
   },
   toAminoMsg(message: QueryClientParamsRequest): QueryClientParamsRequestAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryClientParamsRequest',
+      type: "cosmos-sdk/QueryClientParamsRequest",
       value: QueryClientParamsRequest.toAmino(message)
     };
   },
@@ -1532,7 +1532,7 @@ export const QueryClientParamsRequest = {
   },
   toProtoMsg(message: QueryClientParamsRequest): QueryClientParamsRequestProtoMsg {
     return {
-      typeUrl: '/ibc.core.client.v1.QueryClientParamsRequest',
+      typeUrl: "/ibc.core.client.v1.QueryClientParamsRequest",
       value: QueryClientParamsRequest.encode(message).finish()
     };
   }
@@ -1545,8 +1545,8 @@ function createBaseQueryClientParamsResponse(): QueryClientParamsResponse {
   };
 }
 export const QueryClientParamsResponse = {
-  typeUrl: '/ibc.core.client.v1.QueryClientParamsResponse',
-  aminoType: 'cosmos-sdk/QueryClientParamsResponse',
+  typeUrl: "/ibc.core.client.v1.QueryClientParamsResponse",
+  aminoType: "cosmos-sdk/QueryClientParamsResponse",
   is(o: any): o is QueryClientParamsResponse {
     return o && o.$typeUrl === QueryClientParamsResponse.typeUrl;
   },
@@ -1569,12 +1569,12 @@ export const QueryClientParamsResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.params = Params.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.params = Params.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1601,7 +1601,7 @@ export const QueryClientParamsResponse = {
   },
   toAminoMsg(message: QueryClientParamsResponse): QueryClientParamsResponseAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryClientParamsResponse',
+      type: "cosmos-sdk/QueryClientParamsResponse",
       value: QueryClientParamsResponse.toAmino(message)
     };
   },
@@ -1613,7 +1613,7 @@ export const QueryClientParamsResponse = {
   },
   toProtoMsg(message: QueryClientParamsResponse): QueryClientParamsResponseProtoMsg {
     return {
-      typeUrl: '/ibc.core.client.v1.QueryClientParamsResponse',
+      typeUrl: "/ibc.core.client.v1.QueryClientParamsResponse",
       value: QueryClientParamsResponse.encode(message).finish()
     };
   }
@@ -1624,8 +1624,8 @@ function createBaseQueryUpgradedClientStateRequest(): QueryUpgradedClientStateRe
   return {};
 }
 export const QueryUpgradedClientStateRequest = {
-  typeUrl: '/ibc.core.client.v1.QueryUpgradedClientStateRequest',
-  aminoType: 'cosmos-sdk/QueryUpgradedClientStateRequest',
+  typeUrl: "/ibc.core.client.v1.QueryUpgradedClientStateRequest",
+  aminoType: "cosmos-sdk/QueryUpgradedClientStateRequest",
   is(o: any): o is QueryUpgradedClientStateRequest {
     return o && o.$typeUrl === QueryUpgradedClientStateRequest.typeUrl;
   },
@@ -1645,9 +1645,9 @@ export const QueryUpgradedClientStateRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      default:
-        reader.skipType(tag & 7);
-        break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1669,7 +1669,7 @@ export const QueryUpgradedClientStateRequest = {
   },
   toAminoMsg(message: QueryUpgradedClientStateRequest): QueryUpgradedClientStateRequestAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryUpgradedClientStateRequest',
+      type: "cosmos-sdk/QueryUpgradedClientStateRequest",
       value: QueryUpgradedClientStateRequest.toAmino(message)
     };
   },
@@ -1681,7 +1681,7 @@ export const QueryUpgradedClientStateRequest = {
   },
   toProtoMsg(message: QueryUpgradedClientStateRequest): QueryUpgradedClientStateRequestProtoMsg {
     return {
-      typeUrl: '/ibc.core.client.v1.QueryUpgradedClientStateRequest',
+      typeUrl: "/ibc.core.client.v1.QueryUpgradedClientStateRequest",
       value: QueryUpgradedClientStateRequest.encode(message).finish()
     };
   }
@@ -1694,8 +1694,8 @@ function createBaseQueryUpgradedClientStateResponse(): QueryUpgradedClientStateR
   };
 }
 export const QueryUpgradedClientStateResponse = {
-  typeUrl: '/ibc.core.client.v1.QueryUpgradedClientStateResponse',
-  aminoType: 'cosmos-sdk/QueryUpgradedClientStateResponse',
+  typeUrl: "/ibc.core.client.v1.QueryUpgradedClientStateResponse",
+  aminoType: "cosmos-sdk/QueryUpgradedClientStateResponse",
   is(o: any): o is QueryUpgradedClientStateResponse {
     return o && o.$typeUrl === QueryUpgradedClientStateResponse.typeUrl;
   },
@@ -1718,12 +1718,12 @@ export const QueryUpgradedClientStateResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.upgradedClientState = Any.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.upgradedClientState = Any.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1750,7 +1750,7 @@ export const QueryUpgradedClientStateResponse = {
   },
   toAminoMsg(message: QueryUpgradedClientStateResponse): QueryUpgradedClientStateResponseAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryUpgradedClientStateResponse',
+      type: "cosmos-sdk/QueryUpgradedClientStateResponse",
       value: QueryUpgradedClientStateResponse.toAmino(message)
     };
   },
@@ -1762,7 +1762,7 @@ export const QueryUpgradedClientStateResponse = {
   },
   toProtoMsg(message: QueryUpgradedClientStateResponse): QueryUpgradedClientStateResponseProtoMsg {
     return {
-      typeUrl: '/ibc.core.client.v1.QueryUpgradedClientStateResponse',
+      typeUrl: "/ibc.core.client.v1.QueryUpgradedClientStateResponse",
       value: QueryUpgradedClientStateResponse.encode(message).finish()
     };
   }
@@ -1773,8 +1773,8 @@ function createBaseQueryUpgradedConsensusStateRequest(): QueryUpgradedConsensusS
   return {};
 }
 export const QueryUpgradedConsensusStateRequest = {
-  typeUrl: '/ibc.core.client.v1.QueryUpgradedConsensusStateRequest',
-  aminoType: 'cosmos-sdk/QueryUpgradedConsensusStateRequest',
+  typeUrl: "/ibc.core.client.v1.QueryUpgradedConsensusStateRequest",
+  aminoType: "cosmos-sdk/QueryUpgradedConsensusStateRequest",
   is(o: any): o is QueryUpgradedConsensusStateRequest {
     return o && o.$typeUrl === QueryUpgradedConsensusStateRequest.typeUrl;
   },
@@ -1794,9 +1794,9 @@ export const QueryUpgradedConsensusStateRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      default:
-        reader.skipType(tag & 7);
-        break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1818,7 +1818,7 @@ export const QueryUpgradedConsensusStateRequest = {
   },
   toAminoMsg(message: QueryUpgradedConsensusStateRequest): QueryUpgradedConsensusStateRequestAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryUpgradedConsensusStateRequest',
+      type: "cosmos-sdk/QueryUpgradedConsensusStateRequest",
       value: QueryUpgradedConsensusStateRequest.toAmino(message)
     };
   },
@@ -1830,7 +1830,7 @@ export const QueryUpgradedConsensusStateRequest = {
   },
   toProtoMsg(message: QueryUpgradedConsensusStateRequest): QueryUpgradedConsensusStateRequestProtoMsg {
     return {
-      typeUrl: '/ibc.core.client.v1.QueryUpgradedConsensusStateRequest',
+      typeUrl: "/ibc.core.client.v1.QueryUpgradedConsensusStateRequest",
       value: QueryUpgradedConsensusStateRequest.encode(message).finish()
     };
   }
@@ -1843,8 +1843,8 @@ function createBaseQueryUpgradedConsensusStateResponse(): QueryUpgradedConsensus
   };
 }
 export const QueryUpgradedConsensusStateResponse = {
-  typeUrl: '/ibc.core.client.v1.QueryUpgradedConsensusStateResponse',
-  aminoType: 'cosmos-sdk/QueryUpgradedConsensusStateResponse',
+  typeUrl: "/ibc.core.client.v1.QueryUpgradedConsensusStateResponse",
+  aminoType: "cosmos-sdk/QueryUpgradedConsensusStateResponse",
   is(o: any): o is QueryUpgradedConsensusStateResponse {
     return o && o.$typeUrl === QueryUpgradedConsensusStateResponse.typeUrl;
   },
@@ -1867,12 +1867,12 @@ export const QueryUpgradedConsensusStateResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.upgradedConsensusState = Any.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.upgradedConsensusState = Any.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1899,7 +1899,7 @@ export const QueryUpgradedConsensusStateResponse = {
   },
   toAminoMsg(message: QueryUpgradedConsensusStateResponse): QueryUpgradedConsensusStateResponseAminoMsg {
     return {
-      type: 'cosmos-sdk/QueryUpgradedConsensusStateResponse',
+      type: "cosmos-sdk/QueryUpgradedConsensusStateResponse",
       value: QueryUpgradedConsensusStateResponse.toAmino(message)
     };
   },
@@ -1911,7 +1911,7 @@ export const QueryUpgradedConsensusStateResponse = {
   },
   toProtoMsg(message: QueryUpgradedConsensusStateResponse): QueryUpgradedConsensusStateResponseProtoMsg {
     return {
-      typeUrl: '/ibc.core.client.v1.QueryUpgradedConsensusStateResponse',
+      typeUrl: "/ibc.core.client.v1.QueryUpgradedConsensusStateResponse",
       value: QueryUpgradedConsensusStateResponse.encode(message).finish()
     };
   }

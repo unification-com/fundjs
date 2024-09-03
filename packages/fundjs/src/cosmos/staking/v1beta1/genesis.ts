@@ -1,8 +1,8 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from '../../../binary';
-import { base64FromBytes,bytesFromBase64 } from '../../../helpers';
-import { GlobalDecoderRegistry } from '../../../registry';
-import { Delegation, DelegationAmino, DelegationSDKType, Params, ParamsAmino, ParamsSDKType, Redelegation, RedelegationAmino, RedelegationSDKType,UnbondingDelegation, UnbondingDelegationAmino, UnbondingDelegationSDKType, Validator, ValidatorAmino, ValidatorSDKType } from './staking';
+import { Params, ParamsAmino, ParamsSDKType, Validator, ValidatorAmino, ValidatorSDKType, Delegation, DelegationAmino, DelegationSDKType, UnbondingDelegation, UnbondingDelegationAmino, UnbondingDelegationSDKType, Redelegation, RedelegationAmino, RedelegationSDKType } from "./staking";
+import { BinaryReader, BinaryWriter } from "../../../binary";
+import { bytesFromBase64, base64FromBytes } from "../../../helpers";
+import { GlobalDecoderRegistry } from "../../../registry";
 /** GenesisState defines the staking module's genesis state. */
 export interface GenesisState {
   /** params defines all the paramaters of related to deposit. */
@@ -28,7 +28,7 @@ export interface GenesisState {
   exported: boolean;
 }
 export interface GenesisStateProtoMsg {
-  typeUrl: '/cosmos.staking.v1beta1.GenesisState';
+  typeUrl: "/cosmos.staking.v1beta1.GenesisState";
   value: Uint8Array;
 }
 /** GenesisState defines the staking module's genesis state. */
@@ -56,7 +56,7 @@ export interface GenesisStateAmino {
   exported?: boolean;
 }
 export interface GenesisStateAminoMsg {
-  type: 'cosmos-sdk/GenesisState';
+  type: "cosmos-sdk/GenesisState";
   value: GenesisStateAmino;
 }
 /** GenesisState defines the staking module's genesis state. */
@@ -78,7 +78,7 @@ export interface LastValidatorPower {
   power: bigint;
 }
 export interface LastValidatorPowerProtoMsg {
-  typeUrl: '/cosmos.staking.v1beta1.LastValidatorPower';
+  typeUrl: "/cosmos.staking.v1beta1.LastValidatorPower";
   value: Uint8Array;
 }
 /** LastValidatorPower required for validator set update logic. */
@@ -89,7 +89,7 @@ export interface LastValidatorPowerAmino {
   power?: string;
 }
 export interface LastValidatorPowerAminoMsg {
-  type: 'cosmos-sdk/LastValidatorPower';
+  type: "cosmos-sdk/LastValidatorPower";
   value: LastValidatorPowerAmino;
 }
 /** LastValidatorPower required for validator set update logic. */
@@ -110,16 +110,16 @@ function createBaseGenesisState(): GenesisState {
   };
 }
 export const GenesisState = {
-  typeUrl: '/cosmos.staking.v1beta1.GenesisState',
-  aminoType: 'cosmos-sdk/GenesisState',
+  typeUrl: "/cosmos.staking.v1beta1.GenesisState",
+  aminoType: "cosmos-sdk/GenesisState",
   is(o: any): o is GenesisState {
-    return o && (o.$typeUrl === GenesisState.typeUrl || Params.is(o.params) && (o.lastTotalPower instanceof Uint8Array || typeof o.lastTotalPower === 'string') && Array.isArray(o.lastValidatorPowers) && (!o.lastValidatorPowers.length || LastValidatorPower.is(o.lastValidatorPowers[0])) && Array.isArray(o.validators) && (!o.validators.length || Validator.is(o.validators[0])) && Array.isArray(o.delegations) && (!o.delegations.length || Delegation.is(o.delegations[0])) && Array.isArray(o.unbondingDelegations) && (!o.unbondingDelegations.length || UnbondingDelegation.is(o.unbondingDelegations[0])) && Array.isArray(o.redelegations) && (!o.redelegations.length || Redelegation.is(o.redelegations[0])) && typeof o.exported === 'boolean');
+    return o && (o.$typeUrl === GenesisState.typeUrl || Params.is(o.params) && (o.lastTotalPower instanceof Uint8Array || typeof o.lastTotalPower === "string") && Array.isArray(o.lastValidatorPowers) && (!o.lastValidatorPowers.length || LastValidatorPower.is(o.lastValidatorPowers[0])) && Array.isArray(o.validators) && (!o.validators.length || Validator.is(o.validators[0])) && Array.isArray(o.delegations) && (!o.delegations.length || Delegation.is(o.delegations[0])) && Array.isArray(o.unbondingDelegations) && (!o.unbondingDelegations.length || UnbondingDelegation.is(o.unbondingDelegations[0])) && Array.isArray(o.redelegations) && (!o.redelegations.length || Redelegation.is(o.redelegations[0])) && typeof o.exported === "boolean");
   },
   isSDK(o: any): o is GenesisStateSDKType {
-    return o && (o.$typeUrl === GenesisState.typeUrl || Params.isSDK(o.params) && (o.last_total_power instanceof Uint8Array || typeof o.last_total_power === 'string') && Array.isArray(o.last_validator_powers) && (!o.last_validator_powers.length || LastValidatorPower.isSDK(o.last_validator_powers[0])) && Array.isArray(o.validators) && (!o.validators.length || Validator.isSDK(o.validators[0])) && Array.isArray(o.delegations) && (!o.delegations.length || Delegation.isSDK(o.delegations[0])) && Array.isArray(o.unbonding_delegations) && (!o.unbonding_delegations.length || UnbondingDelegation.isSDK(o.unbonding_delegations[0])) && Array.isArray(o.redelegations) && (!o.redelegations.length || Redelegation.isSDK(o.redelegations[0])) && typeof o.exported === 'boolean');
+    return o && (o.$typeUrl === GenesisState.typeUrl || Params.isSDK(o.params) && (o.last_total_power instanceof Uint8Array || typeof o.last_total_power === "string") && Array.isArray(o.last_validator_powers) && (!o.last_validator_powers.length || LastValidatorPower.isSDK(o.last_validator_powers[0])) && Array.isArray(o.validators) && (!o.validators.length || Validator.isSDK(o.validators[0])) && Array.isArray(o.delegations) && (!o.delegations.length || Delegation.isSDK(o.delegations[0])) && Array.isArray(o.unbonding_delegations) && (!o.unbonding_delegations.length || UnbondingDelegation.isSDK(o.unbonding_delegations[0])) && Array.isArray(o.redelegations) && (!o.redelegations.length || Redelegation.isSDK(o.redelegations[0])) && typeof o.exported === "boolean");
   },
   isAmino(o: any): o is GenesisStateAmino {
-    return o && (o.$typeUrl === GenesisState.typeUrl || Params.isAmino(o.params) && (o.last_total_power instanceof Uint8Array || typeof o.last_total_power === 'string') && Array.isArray(o.last_validator_powers) && (!o.last_validator_powers.length || LastValidatorPower.isAmino(o.last_validator_powers[0])) && Array.isArray(o.validators) && (!o.validators.length || Validator.isAmino(o.validators[0])) && Array.isArray(o.delegations) && (!o.delegations.length || Delegation.isAmino(o.delegations[0])) && Array.isArray(o.unbonding_delegations) && (!o.unbonding_delegations.length || UnbondingDelegation.isAmino(o.unbonding_delegations[0])) && Array.isArray(o.redelegations) && (!o.redelegations.length || Redelegation.isAmino(o.redelegations[0])) && typeof o.exported === 'boolean');
+    return o && (o.$typeUrl === GenesisState.typeUrl || Params.isAmino(o.params) && (o.last_total_power instanceof Uint8Array || typeof o.last_total_power === "string") && Array.isArray(o.last_validator_powers) && (!o.last_validator_powers.length || LastValidatorPower.isAmino(o.last_validator_powers[0])) && Array.isArray(o.validators) && (!o.validators.length || Validator.isAmino(o.validators[0])) && Array.isArray(o.delegations) && (!o.delegations.length || Delegation.isAmino(o.delegations[0])) && Array.isArray(o.unbonding_delegations) && (!o.unbonding_delegations.length || UnbondingDelegation.isAmino(o.unbonding_delegations[0])) && Array.isArray(o.redelegations) && (!o.redelegations.length || Redelegation.isAmino(o.redelegations[0])) && typeof o.exported === "boolean");
   },
   encode(message: GenesisState, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.params !== undefined) {
@@ -155,33 +155,33 @@ export const GenesisState = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.params = Params.decode(reader, reader.uint32());
-        break;
-      case 2:
-        message.lastTotalPower = reader.bytes();
-        break;
-      case 3:
-        message.lastValidatorPowers.push(LastValidatorPower.decode(reader, reader.uint32()));
-        break;
-      case 4:
-        message.validators.push(Validator.decode(reader, reader.uint32()));
-        break;
-      case 5:
-        message.delegations.push(Delegation.decode(reader, reader.uint32()));
-        break;
-      case 6:
-        message.unbondingDelegations.push(UnbondingDelegation.decode(reader, reader.uint32()));
-        break;
-      case 7:
-        message.redelegations.push(Redelegation.decode(reader, reader.uint32()));
-        break;
-      case 8:
-        message.exported = reader.bool();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.params = Params.decode(reader, reader.uint32());
+          break;
+        case 2:
+          message.lastTotalPower = reader.bytes();
+          break;
+        case 3:
+          message.lastValidatorPowers.push(LastValidatorPower.decode(reader, reader.uint32()));
+          break;
+        case 4:
+          message.validators.push(Validator.decode(reader, reader.uint32()));
+          break;
+        case 5:
+          message.delegations.push(Delegation.decode(reader, reader.uint32()));
+          break;
+        case 6:
+          message.unbondingDelegations.push(UnbondingDelegation.decode(reader, reader.uint32()));
+          break;
+        case 7:
+          message.redelegations.push(Redelegation.decode(reader, reader.uint32()));
+          break;
+        case 8:
+          message.exported = reader.bool();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -253,7 +253,7 @@ export const GenesisState = {
   },
   toAminoMsg(message: GenesisState): GenesisStateAminoMsg {
     return {
-      type: 'cosmos-sdk/GenesisState',
+      type: "cosmos-sdk/GenesisState",
       value: GenesisState.toAmino(message)
     };
   },
@@ -265,7 +265,7 @@ export const GenesisState = {
   },
   toProtoMsg(message: GenesisState): GenesisStateProtoMsg {
     return {
-      typeUrl: '/cosmos.staking.v1beta1.GenesisState',
+      typeUrl: "/cosmos.staking.v1beta1.GenesisState",
       value: GenesisState.encode(message).finish()
     };
   }
@@ -274,24 +274,24 @@ GlobalDecoderRegistry.register(GenesisState.typeUrl, GenesisState);
 GlobalDecoderRegistry.registerAminoProtoMapping(GenesisState.aminoType, GenesisState.typeUrl);
 function createBaseLastValidatorPower(): LastValidatorPower {
   return {
-    address: '',
+    address: "",
     power: BigInt(0)
   };
 }
 export const LastValidatorPower = {
-  typeUrl: '/cosmos.staking.v1beta1.LastValidatorPower',
-  aminoType: 'cosmos-sdk/LastValidatorPower',
+  typeUrl: "/cosmos.staking.v1beta1.LastValidatorPower",
+  aminoType: "cosmos-sdk/LastValidatorPower",
   is(o: any): o is LastValidatorPower {
-    return o && (o.$typeUrl === LastValidatorPower.typeUrl || typeof o.address === 'string' && typeof o.power === 'bigint');
+    return o && (o.$typeUrl === LastValidatorPower.typeUrl || typeof o.address === "string" && typeof o.power === "bigint");
   },
   isSDK(o: any): o is LastValidatorPowerSDKType {
-    return o && (o.$typeUrl === LastValidatorPower.typeUrl || typeof o.address === 'string' && typeof o.power === 'bigint');
+    return o && (o.$typeUrl === LastValidatorPower.typeUrl || typeof o.address === "string" && typeof o.power === "bigint");
   },
   isAmino(o: any): o is LastValidatorPowerAmino {
-    return o && (o.$typeUrl === LastValidatorPower.typeUrl || typeof o.address === 'string' && typeof o.power === 'bigint');
+    return o && (o.$typeUrl === LastValidatorPower.typeUrl || typeof o.address === "string" && typeof o.power === "bigint");
   },
   encode(message: LastValidatorPower, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.address !== '') {
+    if (message.address !== "") {
       writer.uint32(10).string(message.address);
     }
     if (message.power !== BigInt(0)) {
@@ -306,22 +306,22 @@ export const LastValidatorPower = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.address = reader.string();
-        break;
-      case 2:
-        message.power = reader.int64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.address = reader.string();
+          break;
+        case 2:
+          message.power = reader.int64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<LastValidatorPower>): LastValidatorPower {
     const message = createBaseLastValidatorPower();
-    message.address = object.address ?? '';
+    message.address = object.address ?? "";
     message.power = object.power !== undefined && object.power !== null ? BigInt(object.power.toString()) : BigInt(0);
     return message;
   },
@@ -337,7 +337,7 @@ export const LastValidatorPower = {
   },
   toAmino(message: LastValidatorPower): LastValidatorPowerAmino {
     const obj: any = {};
-    obj.address = message.address === '' ? undefined : message.address;
+    obj.address = message.address === "" ? undefined : message.address;
     obj.power = message.power !== BigInt(0) ? message.power.toString() : undefined;
     return obj;
   },
@@ -346,7 +346,7 @@ export const LastValidatorPower = {
   },
   toAminoMsg(message: LastValidatorPower): LastValidatorPowerAminoMsg {
     return {
-      type: 'cosmos-sdk/LastValidatorPower',
+      type: "cosmos-sdk/LastValidatorPower",
       value: LastValidatorPower.toAmino(message)
     };
   },
@@ -358,7 +358,7 @@ export const LastValidatorPower = {
   },
   toProtoMsg(message: LastValidatorPower): LastValidatorPowerProtoMsg {
     return {
-      typeUrl: '/cosmos.staking.v1beta1.LastValidatorPower',
+      typeUrl: "/cosmos.staking.v1beta1.LastValidatorPower",
       value: LastValidatorPower.encode(message).finish()
     };
   }

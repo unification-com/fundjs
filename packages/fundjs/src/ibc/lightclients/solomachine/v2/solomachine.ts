@@ -1,10 +1,10 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from '../../../../binary';
-import { Any, AnyAmino, AnySDKType } from '../../../../google/protobuf/any';
-import { base64FromBytes, bytesFromBase64, isSet } from '../../../../helpers';
-import { GlobalDecoderRegistry } from '../../../../registry';
-import { Channel, ChannelAmino, ChannelSDKType } from '../../../core/channel/v1/channel';
-import { ConnectionEnd, ConnectionEndAmino, ConnectionEndSDKType } from '../../../core/connection/v1/connection';
+import { Any, AnyAmino, AnySDKType } from "../../../../google/protobuf/any";
+import { ConnectionEnd, ConnectionEndAmino, ConnectionEndSDKType } from "../../../core/connection/v1/connection";
+import { Channel, ChannelAmino, ChannelSDKType } from "../../../core/channel/v1/channel";
+import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { GlobalDecoderRegistry } from "../../../../registry";
+import { bytesFromBase64, base64FromBytes, isSet } from "../../../../helpers";
 /**
  * DataType defines the type of solo machine proof being created. This is done
  * to preserve uniqueness of different data sign byte encodings.
@@ -36,67 +36,67 @@ export const DataTypeSDKType = DataType;
 export const DataTypeAmino = DataType;
 export function dataTypeFromJSON(object: any): DataType {
   switch (object) {
-  case 0:
-  case 'DATA_TYPE_UNINITIALIZED_UNSPECIFIED':
-    return DataType.DATA_TYPE_UNINITIALIZED_UNSPECIFIED;
-  case 1:
-  case 'DATA_TYPE_CLIENT_STATE':
-    return DataType.DATA_TYPE_CLIENT_STATE;
-  case 2:
-  case 'DATA_TYPE_CONSENSUS_STATE':
-    return DataType.DATA_TYPE_CONSENSUS_STATE;
-  case 3:
-  case 'DATA_TYPE_CONNECTION_STATE':
-    return DataType.DATA_TYPE_CONNECTION_STATE;
-  case 4:
-  case 'DATA_TYPE_CHANNEL_STATE':
-    return DataType.DATA_TYPE_CHANNEL_STATE;
-  case 5:
-  case 'DATA_TYPE_PACKET_COMMITMENT':
-    return DataType.DATA_TYPE_PACKET_COMMITMENT;
-  case 6:
-  case 'DATA_TYPE_PACKET_ACKNOWLEDGEMENT':
-    return DataType.DATA_TYPE_PACKET_ACKNOWLEDGEMENT;
-  case 7:
-  case 'DATA_TYPE_PACKET_RECEIPT_ABSENCE':
-    return DataType.DATA_TYPE_PACKET_RECEIPT_ABSENCE;
-  case 8:
-  case 'DATA_TYPE_NEXT_SEQUENCE_RECV':
-    return DataType.DATA_TYPE_NEXT_SEQUENCE_RECV;
-  case 9:
-  case 'DATA_TYPE_HEADER':
-    return DataType.DATA_TYPE_HEADER;
-  case -1:
-  case 'UNRECOGNIZED':
-  default:
-    return DataType.UNRECOGNIZED;
+    case 0:
+    case "DATA_TYPE_UNINITIALIZED_UNSPECIFIED":
+      return DataType.DATA_TYPE_UNINITIALIZED_UNSPECIFIED;
+    case 1:
+    case "DATA_TYPE_CLIENT_STATE":
+      return DataType.DATA_TYPE_CLIENT_STATE;
+    case 2:
+    case "DATA_TYPE_CONSENSUS_STATE":
+      return DataType.DATA_TYPE_CONSENSUS_STATE;
+    case 3:
+    case "DATA_TYPE_CONNECTION_STATE":
+      return DataType.DATA_TYPE_CONNECTION_STATE;
+    case 4:
+    case "DATA_TYPE_CHANNEL_STATE":
+      return DataType.DATA_TYPE_CHANNEL_STATE;
+    case 5:
+    case "DATA_TYPE_PACKET_COMMITMENT":
+      return DataType.DATA_TYPE_PACKET_COMMITMENT;
+    case 6:
+    case "DATA_TYPE_PACKET_ACKNOWLEDGEMENT":
+      return DataType.DATA_TYPE_PACKET_ACKNOWLEDGEMENT;
+    case 7:
+    case "DATA_TYPE_PACKET_RECEIPT_ABSENCE":
+      return DataType.DATA_TYPE_PACKET_RECEIPT_ABSENCE;
+    case 8:
+    case "DATA_TYPE_NEXT_SEQUENCE_RECV":
+      return DataType.DATA_TYPE_NEXT_SEQUENCE_RECV;
+    case 9:
+    case "DATA_TYPE_HEADER":
+      return DataType.DATA_TYPE_HEADER;
+    case -1:
+    case "UNRECOGNIZED":
+    default:
+      return DataType.UNRECOGNIZED;
   }
 }
 export function dataTypeToJSON(object: DataType): string {
   switch (object) {
-  case DataType.DATA_TYPE_UNINITIALIZED_UNSPECIFIED:
-    return 'DATA_TYPE_UNINITIALIZED_UNSPECIFIED';
-  case DataType.DATA_TYPE_CLIENT_STATE:
-    return 'DATA_TYPE_CLIENT_STATE';
-  case DataType.DATA_TYPE_CONSENSUS_STATE:
-    return 'DATA_TYPE_CONSENSUS_STATE';
-  case DataType.DATA_TYPE_CONNECTION_STATE:
-    return 'DATA_TYPE_CONNECTION_STATE';
-  case DataType.DATA_TYPE_CHANNEL_STATE:
-    return 'DATA_TYPE_CHANNEL_STATE';
-  case DataType.DATA_TYPE_PACKET_COMMITMENT:
-    return 'DATA_TYPE_PACKET_COMMITMENT';
-  case DataType.DATA_TYPE_PACKET_ACKNOWLEDGEMENT:
-    return 'DATA_TYPE_PACKET_ACKNOWLEDGEMENT';
-  case DataType.DATA_TYPE_PACKET_RECEIPT_ABSENCE:
-    return 'DATA_TYPE_PACKET_RECEIPT_ABSENCE';
-  case DataType.DATA_TYPE_NEXT_SEQUENCE_RECV:
-    return 'DATA_TYPE_NEXT_SEQUENCE_RECV';
-  case DataType.DATA_TYPE_HEADER:
-    return 'DATA_TYPE_HEADER';
-  case DataType.UNRECOGNIZED:
-  default:
-    return 'UNRECOGNIZED';
+    case DataType.DATA_TYPE_UNINITIALIZED_UNSPECIFIED:
+      return "DATA_TYPE_UNINITIALIZED_UNSPECIFIED";
+    case DataType.DATA_TYPE_CLIENT_STATE:
+      return "DATA_TYPE_CLIENT_STATE";
+    case DataType.DATA_TYPE_CONSENSUS_STATE:
+      return "DATA_TYPE_CONSENSUS_STATE";
+    case DataType.DATA_TYPE_CONNECTION_STATE:
+      return "DATA_TYPE_CONNECTION_STATE";
+    case DataType.DATA_TYPE_CHANNEL_STATE:
+      return "DATA_TYPE_CHANNEL_STATE";
+    case DataType.DATA_TYPE_PACKET_COMMITMENT:
+      return "DATA_TYPE_PACKET_COMMITMENT";
+    case DataType.DATA_TYPE_PACKET_ACKNOWLEDGEMENT:
+      return "DATA_TYPE_PACKET_ACKNOWLEDGEMENT";
+    case DataType.DATA_TYPE_PACKET_RECEIPT_ABSENCE:
+      return "DATA_TYPE_PACKET_RECEIPT_ABSENCE";
+    case DataType.DATA_TYPE_NEXT_SEQUENCE_RECV:
+      return "DATA_TYPE_NEXT_SEQUENCE_RECV";
+    case DataType.DATA_TYPE_HEADER:
+      return "DATA_TYPE_HEADER";
+    case DataType.UNRECOGNIZED:
+    default:
+      return "UNRECOGNIZED";
   }
 }
 /**
@@ -116,7 +116,7 @@ export interface ClientState {
   allowUpdateAfterProposal: boolean;
 }
 export interface ClientStateProtoMsg {
-  typeUrl: '/ibc.lightclients.solomachine.v2.ClientState';
+  typeUrl: "/ibc.lightclients.solomachine.v2.ClientState";
   value: Uint8Array;
 }
 /**
@@ -136,7 +136,7 @@ export interface ClientStateAmino {
   allow_update_after_proposal?: boolean;
 }
 export interface ClientStateAminoMsg {
-  type: 'cosmos-sdk/ClientState';
+  type: "cosmos-sdk/ClientState";
   value: ClientStateAmino;
 }
 /**
@@ -166,7 +166,7 @@ export interface ConsensusState {
   timestamp: bigint;
 }
 export interface ConsensusStateProtoMsg {
-  typeUrl: '/ibc.lightclients.solomachine.v2.ConsensusState';
+  typeUrl: "/ibc.lightclients.solomachine.v2.ConsensusState";
   value: Uint8Array;
 }
 /**
@@ -186,7 +186,7 @@ export interface ConsensusStateAmino {
   timestamp?: string;
 }
 export interface ConsensusStateAminoMsg {
-  type: 'cosmos-sdk/ConsensusState';
+  type: "cosmos-sdk/ConsensusState";
   value: ConsensusStateAmino;
 }
 /**
@@ -209,7 +209,7 @@ export interface Header {
   newDiversifier: string;
 }
 export interface HeaderProtoMsg {
-  typeUrl: '/ibc.lightclients.solomachine.v2.Header';
+  typeUrl: "/ibc.lightclients.solomachine.v2.Header";
   value: Uint8Array;
 }
 /** Header defines a solo machine consensus header */
@@ -222,7 +222,7 @@ export interface HeaderAmino {
   new_diversifier?: string;
 }
 export interface HeaderAminoMsg {
-  type: 'cosmos-sdk/Header';
+  type: "cosmos-sdk/Header";
   value: HeaderAmino;
 }
 /** Header defines a solo machine consensus header */
@@ -244,7 +244,7 @@ export interface Misbehaviour {
   signatureTwo?: SignatureAndData;
 }
 export interface MisbehaviourProtoMsg {
-  typeUrl: '/ibc.lightclients.solomachine.v2.Misbehaviour';
+  typeUrl: "/ibc.lightclients.solomachine.v2.Misbehaviour";
   value: Uint8Array;
 }
 /**
@@ -258,7 +258,7 @@ export interface MisbehaviourAmino {
   signature_two?: SignatureAndDataAmino;
 }
 export interface MisbehaviourAminoMsg {
-  type: 'cosmos-sdk/Misbehaviour';
+  type: "cosmos-sdk/Misbehaviour";
   value: MisbehaviourAmino;
 }
 /**
@@ -282,7 +282,7 @@ export interface SignatureAndData {
   timestamp: bigint;
 }
 export interface SignatureAndDataProtoMsg {
-  typeUrl: '/ibc.lightclients.solomachine.v2.SignatureAndData';
+  typeUrl: "/ibc.lightclients.solomachine.v2.SignatureAndData";
   value: Uint8Array;
 }
 /**
@@ -296,7 +296,7 @@ export interface SignatureAndDataAmino {
   timestamp?: string;
 }
 export interface SignatureAndDataAminoMsg {
-  type: 'cosmos-sdk/SignatureAndData';
+  type: "cosmos-sdk/SignatureAndData";
   value: SignatureAndDataAmino;
 }
 /**
@@ -318,7 +318,7 @@ export interface TimestampedSignatureData {
   timestamp: bigint;
 }
 export interface TimestampedSignatureDataProtoMsg {
-  typeUrl: '/ibc.lightclients.solomachine.v2.TimestampedSignatureData';
+  typeUrl: "/ibc.lightclients.solomachine.v2.TimestampedSignatureData";
   value: Uint8Array;
 }
 /**
@@ -330,7 +330,7 @@ export interface TimestampedSignatureDataAmino {
   timestamp?: string;
 }
 export interface TimestampedSignatureDataAminoMsg {
-  type: 'cosmos-sdk/TimestampedSignatureData';
+  type: "cosmos-sdk/TimestampedSignatureData";
   value: TimestampedSignatureDataAmino;
 }
 /**
@@ -352,7 +352,7 @@ export interface SignBytes {
   data: Uint8Array;
 }
 export interface SignBytesProtoMsg {
-  typeUrl: '/ibc.lightclients.solomachine.v2.SignBytes';
+  typeUrl: "/ibc.lightclients.solomachine.v2.SignBytes";
   value: Uint8Array;
 }
 /** SignBytes defines the signed bytes used for signature verification. */
@@ -366,7 +366,7 @@ export interface SignBytesAmino {
   data?: string;
 }
 export interface SignBytesAminoMsg {
-  type: 'cosmos-sdk/SignBytes';
+  type: "cosmos-sdk/SignBytes";
   value: SignBytesAmino;
 }
 /** SignBytes defines the signed bytes used for signature verification. */
@@ -385,7 +385,7 @@ export interface HeaderData {
   newDiversifier: string;
 }
 export interface HeaderDataProtoMsg {
-  typeUrl: '/ibc.lightclients.solomachine.v2.HeaderData';
+  typeUrl: "/ibc.lightclients.solomachine.v2.HeaderData";
   value: Uint8Array;
 }
 /** HeaderData returns the SignBytes data for update verification. */
@@ -396,7 +396,7 @@ export interface HeaderDataAmino {
   new_diversifier?: string;
 }
 export interface HeaderDataAminoMsg {
-  type: 'cosmos-sdk/HeaderData';
+  type: "cosmos-sdk/HeaderData";
   value: HeaderDataAmino;
 }
 /** HeaderData returns the SignBytes data for update verification. */
@@ -410,7 +410,7 @@ export interface ClientStateData {
   clientState?: Any;
 }
 export interface ClientStateDataProtoMsg {
-  typeUrl: '/ibc.lightclients.solomachine.v2.ClientStateData';
+  typeUrl: "/ibc.lightclients.solomachine.v2.ClientStateData";
   value: Uint8Array;
 }
 /** ClientStateData returns the SignBytes data for client state verification. */
@@ -419,7 +419,7 @@ export interface ClientStateDataAmino {
   client_state?: AnyAmino;
 }
 export interface ClientStateDataAminoMsg {
-  type: 'cosmos-sdk/ClientStateData';
+  type: "cosmos-sdk/ClientStateData";
   value: ClientStateDataAmino;
 }
 /** ClientStateData returns the SignBytes data for client state verification. */
@@ -436,7 +436,7 @@ export interface ConsensusStateData {
   consensusState?: Any;
 }
 export interface ConsensusStateDataProtoMsg {
-  typeUrl: '/ibc.lightclients.solomachine.v2.ConsensusStateData';
+  typeUrl: "/ibc.lightclients.solomachine.v2.ConsensusStateData";
   value: Uint8Array;
 }
 /**
@@ -448,7 +448,7 @@ export interface ConsensusStateDataAmino {
   consensus_state?: AnyAmino;
 }
 export interface ConsensusStateDataAminoMsg {
-  type: 'cosmos-sdk/ConsensusStateData';
+  type: "cosmos-sdk/ConsensusStateData";
   value: ConsensusStateDataAmino;
 }
 /**
@@ -468,7 +468,7 @@ export interface ConnectionStateData {
   connection?: ConnectionEnd;
 }
 export interface ConnectionStateDataProtoMsg {
-  typeUrl: '/ibc.lightclients.solomachine.v2.ConnectionStateData';
+  typeUrl: "/ibc.lightclients.solomachine.v2.ConnectionStateData";
   value: Uint8Array;
 }
 /**
@@ -480,7 +480,7 @@ export interface ConnectionStateDataAmino {
   connection?: ConnectionEndAmino;
 }
 export interface ConnectionStateDataAminoMsg {
-  type: 'cosmos-sdk/ConnectionStateData';
+  type: "cosmos-sdk/ConnectionStateData";
   value: ConnectionStateDataAmino;
 }
 /**
@@ -500,7 +500,7 @@ export interface ChannelStateData {
   channel?: Channel;
 }
 export interface ChannelStateDataProtoMsg {
-  typeUrl: '/ibc.lightclients.solomachine.v2.ChannelStateData';
+  typeUrl: "/ibc.lightclients.solomachine.v2.ChannelStateData";
   value: Uint8Array;
 }
 /**
@@ -512,7 +512,7 @@ export interface ChannelStateDataAmino {
   channel?: ChannelAmino;
 }
 export interface ChannelStateDataAminoMsg {
-  type: 'cosmos-sdk/ChannelStateData';
+  type: "cosmos-sdk/ChannelStateData";
   value: ChannelStateDataAmino;
 }
 /**
@@ -532,7 +532,7 @@ export interface PacketCommitmentData {
   commitment: Uint8Array;
 }
 export interface PacketCommitmentDataProtoMsg {
-  typeUrl: '/ibc.lightclients.solomachine.v2.PacketCommitmentData';
+  typeUrl: "/ibc.lightclients.solomachine.v2.PacketCommitmentData";
   value: Uint8Array;
 }
 /**
@@ -544,7 +544,7 @@ export interface PacketCommitmentDataAmino {
   commitment?: string;
 }
 export interface PacketCommitmentDataAminoMsg {
-  type: 'cosmos-sdk/PacketCommitmentData';
+  type: "cosmos-sdk/PacketCommitmentData";
   value: PacketCommitmentDataAmino;
 }
 /**
@@ -564,7 +564,7 @@ export interface PacketAcknowledgementData {
   acknowledgement: Uint8Array;
 }
 export interface PacketAcknowledgementDataProtoMsg {
-  typeUrl: '/ibc.lightclients.solomachine.v2.PacketAcknowledgementData';
+  typeUrl: "/ibc.lightclients.solomachine.v2.PacketAcknowledgementData";
   value: Uint8Array;
 }
 /**
@@ -576,7 +576,7 @@ export interface PacketAcknowledgementDataAmino {
   acknowledgement?: string;
 }
 export interface PacketAcknowledgementDataAminoMsg {
-  type: 'cosmos-sdk/PacketAcknowledgementData';
+  type: "cosmos-sdk/PacketAcknowledgementData";
   value: PacketAcknowledgementDataAmino;
 }
 /**
@@ -595,7 +595,7 @@ export interface PacketReceiptAbsenceData {
   path: Uint8Array;
 }
 export interface PacketReceiptAbsenceDataProtoMsg {
-  typeUrl: '/ibc.lightclients.solomachine.v2.PacketReceiptAbsenceData';
+  typeUrl: "/ibc.lightclients.solomachine.v2.PacketReceiptAbsenceData";
   value: Uint8Array;
 }
 /**
@@ -606,7 +606,7 @@ export interface PacketReceiptAbsenceDataAmino {
   path?: string;
 }
 export interface PacketReceiptAbsenceDataAminoMsg {
-  type: 'cosmos-sdk/PacketReceiptAbsenceData';
+  type: "cosmos-sdk/PacketReceiptAbsenceData";
   value: PacketReceiptAbsenceDataAmino;
 }
 /**
@@ -625,7 +625,7 @@ export interface NextSequenceRecvData {
   nextSeqRecv: bigint;
 }
 export interface NextSequenceRecvDataProtoMsg {
-  typeUrl: '/ibc.lightclients.solomachine.v2.NextSequenceRecvData';
+  typeUrl: "/ibc.lightclients.solomachine.v2.NextSequenceRecvData";
   value: Uint8Array;
 }
 /**
@@ -637,7 +637,7 @@ export interface NextSequenceRecvDataAmino {
   next_seq_recv?: string;
 }
 export interface NextSequenceRecvDataAminoMsg {
-  type: 'cosmos-sdk/NextSequenceRecvData';
+  type: "cosmos-sdk/NextSequenceRecvData";
   value: NextSequenceRecvDataAmino;
 }
 /**
@@ -657,16 +657,16 @@ function createBaseClientState(): ClientState {
   };
 }
 export const ClientState = {
-  typeUrl: '/ibc.lightclients.solomachine.v2.ClientState',
-  aminoType: 'cosmos-sdk/ClientState',
+  typeUrl: "/ibc.lightclients.solomachine.v2.ClientState",
+  aminoType: "cosmos-sdk/ClientState",
   is(o: any): o is ClientState {
-    return o && (o.$typeUrl === ClientState.typeUrl || typeof o.sequence === 'bigint' && typeof o.isFrozen === 'boolean' && typeof o.allowUpdateAfterProposal === 'boolean');
+    return o && (o.$typeUrl === ClientState.typeUrl || typeof o.sequence === "bigint" && typeof o.isFrozen === "boolean" && typeof o.allowUpdateAfterProposal === "boolean");
   },
   isSDK(o: any): o is ClientStateSDKType {
-    return o && (o.$typeUrl === ClientState.typeUrl || typeof o.sequence === 'bigint' && typeof o.is_frozen === 'boolean' && typeof o.allow_update_after_proposal === 'boolean');
+    return o && (o.$typeUrl === ClientState.typeUrl || typeof o.sequence === "bigint" && typeof o.is_frozen === "boolean" && typeof o.allow_update_after_proposal === "boolean");
   },
   isAmino(o: any): o is ClientStateAmino {
-    return o && (o.$typeUrl === ClientState.typeUrl || typeof o.sequence === 'bigint' && typeof o.is_frozen === 'boolean' && typeof o.allow_update_after_proposal === 'boolean');
+    return o && (o.$typeUrl === ClientState.typeUrl || typeof o.sequence === "bigint" && typeof o.is_frozen === "boolean" && typeof o.allow_update_after_proposal === "boolean");
   },
   encode(message: ClientState, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.sequence !== BigInt(0)) {
@@ -690,21 +690,21 @@ export const ClientState = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.sequence = reader.uint64();
-        break;
-      case 2:
-        message.isFrozen = reader.bool();
-        break;
-      case 3:
-        message.consensusState = ConsensusState.decode(reader, reader.uint32());
-        break;
-      case 4:
-        message.allowUpdateAfterProposal = reader.bool();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.sequence = reader.uint64();
+          break;
+        case 2:
+          message.isFrozen = reader.bool();
+          break;
+        case 3:
+          message.consensusState = ConsensusState.decode(reader, reader.uint32());
+          break;
+        case 4:
+          message.allowUpdateAfterProposal = reader.bool();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -746,7 +746,7 @@ export const ClientState = {
   },
   toAminoMsg(message: ClientState): ClientStateAminoMsg {
     return {
-      type: 'cosmos-sdk/ClientState',
+      type: "cosmos-sdk/ClientState",
       value: ClientState.toAmino(message)
     };
   },
@@ -758,7 +758,7 @@ export const ClientState = {
   },
   toProtoMsg(message: ClientState): ClientStateProtoMsg {
     return {
-      typeUrl: '/ibc.lightclients.solomachine.v2.ClientState',
+      typeUrl: "/ibc.lightclients.solomachine.v2.ClientState",
       value: ClientState.encode(message).finish()
     };
   }
@@ -768,27 +768,27 @@ GlobalDecoderRegistry.registerAminoProtoMapping(ClientState.aminoType, ClientSta
 function createBaseConsensusState(): ConsensusState {
   return {
     publicKey: undefined,
-    diversifier: '',
+    diversifier: "",
     timestamp: BigInt(0)
   };
 }
 export const ConsensusState = {
-  typeUrl: '/ibc.lightclients.solomachine.v2.ConsensusState',
-  aminoType: 'cosmos-sdk/ConsensusState',
+  typeUrl: "/ibc.lightclients.solomachine.v2.ConsensusState",
+  aminoType: "cosmos-sdk/ConsensusState",
   is(o: any): o is ConsensusState {
-    return o && (o.$typeUrl === ConsensusState.typeUrl || typeof o.diversifier === 'string' && typeof o.timestamp === 'bigint');
+    return o && (o.$typeUrl === ConsensusState.typeUrl || typeof o.diversifier === "string" && typeof o.timestamp === "bigint");
   },
   isSDK(o: any): o is ConsensusStateSDKType {
-    return o && (o.$typeUrl === ConsensusState.typeUrl || typeof o.diversifier === 'string' && typeof o.timestamp === 'bigint');
+    return o && (o.$typeUrl === ConsensusState.typeUrl || typeof o.diversifier === "string" && typeof o.timestamp === "bigint");
   },
   isAmino(o: any): o is ConsensusStateAmino {
-    return o && (o.$typeUrl === ConsensusState.typeUrl || typeof o.diversifier === 'string' && typeof o.timestamp === 'bigint');
+    return o && (o.$typeUrl === ConsensusState.typeUrl || typeof o.diversifier === "string" && typeof o.timestamp === "bigint");
   },
   encode(message: ConsensusState, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.publicKey !== undefined) {
       Any.encode(message.publicKey, writer.uint32(10).fork()).ldelim();
     }
-    if (message.diversifier !== '') {
+    if (message.diversifier !== "") {
       writer.uint32(18).string(message.diversifier);
     }
     if (message.timestamp !== BigInt(0)) {
@@ -803,18 +803,18 @@ export const ConsensusState = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.publicKey = Any.decode(reader, reader.uint32());
-        break;
-      case 2:
-        message.diversifier = reader.string();
-        break;
-      case 3:
-        message.timestamp = reader.uint64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.publicKey = Any.decode(reader, reader.uint32());
+          break;
+        case 2:
+          message.diversifier = reader.string();
+          break;
+        case 3:
+          message.timestamp = reader.uint64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -822,7 +822,7 @@ export const ConsensusState = {
   fromPartial(object: Partial<ConsensusState>): ConsensusState {
     const message = createBaseConsensusState();
     message.publicKey = object.publicKey !== undefined && object.publicKey !== null ? Any.fromPartial(object.publicKey) : undefined;
-    message.diversifier = object.diversifier ?? '';
+    message.diversifier = object.diversifier ?? "";
     message.timestamp = object.timestamp !== undefined && object.timestamp !== null ? BigInt(object.timestamp.toString()) : BigInt(0);
     return message;
   },
@@ -842,7 +842,7 @@ export const ConsensusState = {
   toAmino(message: ConsensusState): ConsensusStateAmino {
     const obj: any = {};
     obj.public_key = message.publicKey ? Any.toAmino(message.publicKey) : undefined;
-    obj.diversifier = message.diversifier === '' ? undefined : message.diversifier;
+    obj.diversifier = message.diversifier === "" ? undefined : message.diversifier;
     obj.timestamp = message.timestamp !== BigInt(0) ? message.timestamp.toString() : undefined;
     return obj;
   },
@@ -851,7 +851,7 @@ export const ConsensusState = {
   },
   toAminoMsg(message: ConsensusState): ConsensusStateAminoMsg {
     return {
-      type: 'cosmos-sdk/ConsensusState',
+      type: "cosmos-sdk/ConsensusState",
       value: ConsensusState.toAmino(message)
     };
   },
@@ -863,7 +863,7 @@ export const ConsensusState = {
   },
   toProtoMsg(message: ConsensusState): ConsensusStateProtoMsg {
     return {
-      typeUrl: '/ibc.lightclients.solomachine.v2.ConsensusState',
+      typeUrl: "/ibc.lightclients.solomachine.v2.ConsensusState",
       value: ConsensusState.encode(message).finish()
     };
   }
@@ -876,20 +876,20 @@ function createBaseHeader(): Header {
     timestamp: BigInt(0),
     signature: new Uint8Array(),
     newPublicKey: undefined,
-    newDiversifier: ''
+    newDiversifier: ""
   };
 }
 export const Header = {
-  typeUrl: '/ibc.lightclients.solomachine.v2.Header',
-  aminoType: 'cosmos-sdk/Header',
+  typeUrl: "/ibc.lightclients.solomachine.v2.Header",
+  aminoType: "cosmos-sdk/Header",
   is(o: any): o is Header {
-    return o && (o.$typeUrl === Header.typeUrl || typeof o.sequence === 'bigint' && typeof o.timestamp === 'bigint' && (o.signature instanceof Uint8Array || typeof o.signature === 'string') && typeof o.newDiversifier === 'string');
+    return o && (o.$typeUrl === Header.typeUrl || typeof o.sequence === "bigint" && typeof o.timestamp === "bigint" && (o.signature instanceof Uint8Array || typeof o.signature === "string") && typeof o.newDiversifier === "string");
   },
   isSDK(o: any): o is HeaderSDKType {
-    return o && (o.$typeUrl === Header.typeUrl || typeof o.sequence === 'bigint' && typeof o.timestamp === 'bigint' && (o.signature instanceof Uint8Array || typeof o.signature === 'string') && typeof o.new_diversifier === 'string');
+    return o && (o.$typeUrl === Header.typeUrl || typeof o.sequence === "bigint" && typeof o.timestamp === "bigint" && (o.signature instanceof Uint8Array || typeof o.signature === "string") && typeof o.new_diversifier === "string");
   },
   isAmino(o: any): o is HeaderAmino {
-    return o && (o.$typeUrl === Header.typeUrl || typeof o.sequence === 'bigint' && typeof o.timestamp === 'bigint' && (o.signature instanceof Uint8Array || typeof o.signature === 'string') && typeof o.new_diversifier === 'string');
+    return o && (o.$typeUrl === Header.typeUrl || typeof o.sequence === "bigint" && typeof o.timestamp === "bigint" && (o.signature instanceof Uint8Array || typeof o.signature === "string") && typeof o.new_diversifier === "string");
   },
   encode(message: Header, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.sequence !== BigInt(0)) {
@@ -904,7 +904,7 @@ export const Header = {
     if (message.newPublicKey !== undefined) {
       Any.encode(message.newPublicKey, writer.uint32(34).fork()).ldelim();
     }
-    if (message.newDiversifier !== '') {
+    if (message.newDiversifier !== "") {
       writer.uint32(42).string(message.newDiversifier);
     }
     return writer;
@@ -916,24 +916,24 @@ export const Header = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.sequence = reader.uint64();
-        break;
-      case 2:
-        message.timestamp = reader.uint64();
-        break;
-      case 3:
-        message.signature = reader.bytes();
-        break;
-      case 4:
-        message.newPublicKey = Any.decode(reader, reader.uint32());
-        break;
-      case 5:
-        message.newDiversifier = reader.string();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.sequence = reader.uint64();
+          break;
+        case 2:
+          message.timestamp = reader.uint64();
+          break;
+        case 3:
+          message.signature = reader.bytes();
+          break;
+        case 4:
+          message.newPublicKey = Any.decode(reader, reader.uint32());
+          break;
+        case 5:
+          message.newDiversifier = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -944,7 +944,7 @@ export const Header = {
     message.timestamp = object.timestamp !== undefined && object.timestamp !== null ? BigInt(object.timestamp.toString()) : BigInt(0);
     message.signature = object.signature ?? new Uint8Array();
     message.newPublicKey = object.newPublicKey !== undefined && object.newPublicKey !== null ? Any.fromPartial(object.newPublicKey) : undefined;
-    message.newDiversifier = object.newDiversifier ?? '';
+    message.newDiversifier = object.newDiversifier ?? "";
     return message;
   },
   fromAmino(object: HeaderAmino): Header {
@@ -972,7 +972,7 @@ export const Header = {
     obj.timestamp = message.timestamp !== BigInt(0) ? message.timestamp.toString() : undefined;
     obj.signature = message.signature ? base64FromBytes(message.signature) : undefined;
     obj.new_public_key = message.newPublicKey ? Any.toAmino(message.newPublicKey) : undefined;
-    obj.new_diversifier = message.newDiversifier === '' ? undefined : message.newDiversifier;
+    obj.new_diversifier = message.newDiversifier === "" ? undefined : message.newDiversifier;
     return obj;
   },
   fromAminoMsg(object: HeaderAminoMsg): Header {
@@ -980,7 +980,7 @@ export const Header = {
   },
   toAminoMsg(message: Header): HeaderAminoMsg {
     return {
-      type: 'cosmos-sdk/Header',
+      type: "cosmos-sdk/Header",
       value: Header.toAmino(message)
     };
   },
@@ -992,7 +992,7 @@ export const Header = {
   },
   toProtoMsg(message: Header): HeaderProtoMsg {
     return {
-      typeUrl: '/ibc.lightclients.solomachine.v2.Header',
+      typeUrl: "/ibc.lightclients.solomachine.v2.Header",
       value: Header.encode(message).finish()
     };
   }
@@ -1001,26 +1001,26 @@ GlobalDecoderRegistry.register(Header.typeUrl, Header);
 GlobalDecoderRegistry.registerAminoProtoMapping(Header.aminoType, Header.typeUrl);
 function createBaseMisbehaviour(): Misbehaviour {
   return {
-    clientId: '',
+    clientId: "",
     sequence: BigInt(0),
     signatureOne: undefined,
     signatureTwo: undefined
   };
 }
 export const Misbehaviour = {
-  typeUrl: '/ibc.lightclients.solomachine.v2.Misbehaviour',
-  aminoType: 'cosmos-sdk/Misbehaviour',
+  typeUrl: "/ibc.lightclients.solomachine.v2.Misbehaviour",
+  aminoType: "cosmos-sdk/Misbehaviour",
   is(o: any): o is Misbehaviour {
-    return o && (o.$typeUrl === Misbehaviour.typeUrl || typeof o.clientId === 'string' && typeof o.sequence === 'bigint');
+    return o && (o.$typeUrl === Misbehaviour.typeUrl || typeof o.clientId === "string" && typeof o.sequence === "bigint");
   },
   isSDK(o: any): o is MisbehaviourSDKType {
-    return o && (o.$typeUrl === Misbehaviour.typeUrl || typeof o.client_id === 'string' && typeof o.sequence === 'bigint');
+    return o && (o.$typeUrl === Misbehaviour.typeUrl || typeof o.client_id === "string" && typeof o.sequence === "bigint");
   },
   isAmino(o: any): o is MisbehaviourAmino {
-    return o && (o.$typeUrl === Misbehaviour.typeUrl || typeof o.client_id === 'string' && typeof o.sequence === 'bigint');
+    return o && (o.$typeUrl === Misbehaviour.typeUrl || typeof o.client_id === "string" && typeof o.sequence === "bigint");
   },
   encode(message: Misbehaviour, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.clientId !== '') {
+    if (message.clientId !== "") {
       writer.uint32(10).string(message.clientId);
     }
     if (message.sequence !== BigInt(0)) {
@@ -1041,28 +1041,28 @@ export const Misbehaviour = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.clientId = reader.string();
-        break;
-      case 2:
-        message.sequence = reader.uint64();
-        break;
-      case 3:
-        message.signatureOne = SignatureAndData.decode(reader, reader.uint32());
-        break;
-      case 4:
-        message.signatureTwo = SignatureAndData.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.clientId = reader.string();
+          break;
+        case 2:
+          message.sequence = reader.uint64();
+          break;
+        case 3:
+          message.signatureOne = SignatureAndData.decode(reader, reader.uint32());
+          break;
+        case 4:
+          message.signatureTwo = SignatureAndData.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<Misbehaviour>): Misbehaviour {
     const message = createBaseMisbehaviour();
-    message.clientId = object.clientId ?? '';
+    message.clientId = object.clientId ?? "";
     message.sequence = object.sequence !== undefined && object.sequence !== null ? BigInt(object.sequence.toString()) : BigInt(0);
     message.signatureOne = object.signatureOne !== undefined && object.signatureOne !== null ? SignatureAndData.fromPartial(object.signatureOne) : undefined;
     message.signatureTwo = object.signatureTwo !== undefined && object.signatureTwo !== null ? SignatureAndData.fromPartial(object.signatureTwo) : undefined;
@@ -1086,7 +1086,7 @@ export const Misbehaviour = {
   },
   toAmino(message: Misbehaviour): MisbehaviourAmino {
     const obj: any = {};
-    obj.client_id = message.clientId === '' ? undefined : message.clientId;
+    obj.client_id = message.clientId === "" ? undefined : message.clientId;
     obj.sequence = message.sequence !== BigInt(0) ? message.sequence.toString() : undefined;
     obj.signature_one = message.signatureOne ? SignatureAndData.toAmino(message.signatureOne) : undefined;
     obj.signature_two = message.signatureTwo ? SignatureAndData.toAmino(message.signatureTwo) : undefined;
@@ -1097,7 +1097,7 @@ export const Misbehaviour = {
   },
   toAminoMsg(message: Misbehaviour): MisbehaviourAminoMsg {
     return {
-      type: 'cosmos-sdk/Misbehaviour',
+      type: "cosmos-sdk/Misbehaviour",
       value: Misbehaviour.toAmino(message)
     };
   },
@@ -1109,7 +1109,7 @@ export const Misbehaviour = {
   },
   toProtoMsg(message: Misbehaviour): MisbehaviourProtoMsg {
     return {
-      typeUrl: '/ibc.lightclients.solomachine.v2.Misbehaviour',
+      typeUrl: "/ibc.lightclients.solomachine.v2.Misbehaviour",
       value: Misbehaviour.encode(message).finish()
     };
   }
@@ -1125,16 +1125,16 @@ function createBaseSignatureAndData(): SignatureAndData {
   };
 }
 export const SignatureAndData = {
-  typeUrl: '/ibc.lightclients.solomachine.v2.SignatureAndData',
-  aminoType: 'cosmos-sdk/SignatureAndData',
+  typeUrl: "/ibc.lightclients.solomachine.v2.SignatureAndData",
+  aminoType: "cosmos-sdk/SignatureAndData",
   is(o: any): o is SignatureAndData {
-    return o && (o.$typeUrl === SignatureAndData.typeUrl || (o.signature instanceof Uint8Array || typeof o.signature === 'string') && isSet(o.dataType) && (o.data instanceof Uint8Array || typeof o.data === 'string') && typeof o.timestamp === 'bigint');
+    return o && (o.$typeUrl === SignatureAndData.typeUrl || (o.signature instanceof Uint8Array || typeof o.signature === "string") && isSet(o.dataType) && (o.data instanceof Uint8Array || typeof o.data === "string") && typeof o.timestamp === "bigint");
   },
   isSDK(o: any): o is SignatureAndDataSDKType {
-    return o && (o.$typeUrl === SignatureAndData.typeUrl || (o.signature instanceof Uint8Array || typeof o.signature === 'string') && isSet(o.data_type) && (o.data instanceof Uint8Array || typeof o.data === 'string') && typeof o.timestamp === 'bigint');
+    return o && (o.$typeUrl === SignatureAndData.typeUrl || (o.signature instanceof Uint8Array || typeof o.signature === "string") && isSet(o.data_type) && (o.data instanceof Uint8Array || typeof o.data === "string") && typeof o.timestamp === "bigint");
   },
   isAmino(o: any): o is SignatureAndDataAmino {
-    return o && (o.$typeUrl === SignatureAndData.typeUrl || (o.signature instanceof Uint8Array || typeof o.signature === 'string') && isSet(o.data_type) && (o.data instanceof Uint8Array || typeof o.data === 'string') && typeof o.timestamp === 'bigint');
+    return o && (o.$typeUrl === SignatureAndData.typeUrl || (o.signature instanceof Uint8Array || typeof o.signature === "string") && isSet(o.data_type) && (o.data instanceof Uint8Array || typeof o.data === "string") && typeof o.timestamp === "bigint");
   },
   encode(message: SignatureAndData, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.signature.length !== 0) {
@@ -1158,21 +1158,21 @@ export const SignatureAndData = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.signature = reader.bytes();
-        break;
-      case 2:
-        message.dataType = reader.int32() as any;
-        break;
-      case 3:
-        message.data = reader.bytes();
-        break;
-      case 4:
-        message.timestamp = reader.uint64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.signature = reader.bytes();
+          break;
+        case 2:
+          message.dataType = reader.int32() as any;
+          break;
+        case 3:
+          message.data = reader.bytes();
+          break;
+        case 4:
+          message.timestamp = reader.uint64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1214,7 +1214,7 @@ export const SignatureAndData = {
   },
   toAminoMsg(message: SignatureAndData): SignatureAndDataAminoMsg {
     return {
-      type: 'cosmos-sdk/SignatureAndData',
+      type: "cosmos-sdk/SignatureAndData",
       value: SignatureAndData.toAmino(message)
     };
   },
@@ -1226,7 +1226,7 @@ export const SignatureAndData = {
   },
   toProtoMsg(message: SignatureAndData): SignatureAndDataProtoMsg {
     return {
-      typeUrl: '/ibc.lightclients.solomachine.v2.SignatureAndData',
+      typeUrl: "/ibc.lightclients.solomachine.v2.SignatureAndData",
       value: SignatureAndData.encode(message).finish()
     };
   }
@@ -1240,16 +1240,16 @@ function createBaseTimestampedSignatureData(): TimestampedSignatureData {
   };
 }
 export const TimestampedSignatureData = {
-  typeUrl: '/ibc.lightclients.solomachine.v2.TimestampedSignatureData',
-  aminoType: 'cosmos-sdk/TimestampedSignatureData',
+  typeUrl: "/ibc.lightclients.solomachine.v2.TimestampedSignatureData",
+  aminoType: "cosmos-sdk/TimestampedSignatureData",
   is(o: any): o is TimestampedSignatureData {
-    return o && (o.$typeUrl === TimestampedSignatureData.typeUrl || (o.signatureData instanceof Uint8Array || typeof o.signatureData === 'string') && typeof o.timestamp === 'bigint');
+    return o && (o.$typeUrl === TimestampedSignatureData.typeUrl || (o.signatureData instanceof Uint8Array || typeof o.signatureData === "string") && typeof o.timestamp === "bigint");
   },
   isSDK(o: any): o is TimestampedSignatureDataSDKType {
-    return o && (o.$typeUrl === TimestampedSignatureData.typeUrl || (o.signature_data instanceof Uint8Array || typeof o.signature_data === 'string') && typeof o.timestamp === 'bigint');
+    return o && (o.$typeUrl === TimestampedSignatureData.typeUrl || (o.signature_data instanceof Uint8Array || typeof o.signature_data === "string") && typeof o.timestamp === "bigint");
   },
   isAmino(o: any): o is TimestampedSignatureDataAmino {
-    return o && (o.$typeUrl === TimestampedSignatureData.typeUrl || (o.signature_data instanceof Uint8Array || typeof o.signature_data === 'string') && typeof o.timestamp === 'bigint');
+    return o && (o.$typeUrl === TimestampedSignatureData.typeUrl || (o.signature_data instanceof Uint8Array || typeof o.signature_data === "string") && typeof o.timestamp === "bigint");
   },
   encode(message: TimestampedSignatureData, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.signatureData.length !== 0) {
@@ -1267,15 +1267,15 @@ export const TimestampedSignatureData = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.signatureData = reader.bytes();
-        break;
-      case 2:
-        message.timestamp = reader.uint64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.signatureData = reader.bytes();
+          break;
+        case 2:
+          message.timestamp = reader.uint64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1307,7 +1307,7 @@ export const TimestampedSignatureData = {
   },
   toAminoMsg(message: TimestampedSignatureData): TimestampedSignatureDataAminoMsg {
     return {
-      type: 'cosmos-sdk/TimestampedSignatureData',
+      type: "cosmos-sdk/TimestampedSignatureData",
       value: TimestampedSignatureData.toAmino(message)
     };
   },
@@ -1319,7 +1319,7 @@ export const TimestampedSignatureData = {
   },
   toProtoMsg(message: TimestampedSignatureData): TimestampedSignatureDataProtoMsg {
     return {
-      typeUrl: '/ibc.lightclients.solomachine.v2.TimestampedSignatureData',
+      typeUrl: "/ibc.lightclients.solomachine.v2.TimestampedSignatureData",
       value: TimestampedSignatureData.encode(message).finish()
     };
   }
@@ -1330,22 +1330,22 @@ function createBaseSignBytes(): SignBytes {
   return {
     sequence: BigInt(0),
     timestamp: BigInt(0),
-    diversifier: '',
+    diversifier: "",
     dataType: 0,
     data: new Uint8Array()
   };
 }
 export const SignBytes = {
-  typeUrl: '/ibc.lightclients.solomachine.v2.SignBytes',
-  aminoType: 'cosmos-sdk/SignBytes',
+  typeUrl: "/ibc.lightclients.solomachine.v2.SignBytes",
+  aminoType: "cosmos-sdk/SignBytes",
   is(o: any): o is SignBytes {
-    return o && (o.$typeUrl === SignBytes.typeUrl || typeof o.sequence === 'bigint' && typeof o.timestamp === 'bigint' && typeof o.diversifier === 'string' && isSet(o.dataType) && (o.data instanceof Uint8Array || typeof o.data === 'string'));
+    return o && (o.$typeUrl === SignBytes.typeUrl || typeof o.sequence === "bigint" && typeof o.timestamp === "bigint" && typeof o.diversifier === "string" && isSet(o.dataType) && (o.data instanceof Uint8Array || typeof o.data === "string"));
   },
   isSDK(o: any): o is SignBytesSDKType {
-    return o && (o.$typeUrl === SignBytes.typeUrl || typeof o.sequence === 'bigint' && typeof o.timestamp === 'bigint' && typeof o.diversifier === 'string' && isSet(o.data_type) && (o.data instanceof Uint8Array || typeof o.data === 'string'));
+    return o && (o.$typeUrl === SignBytes.typeUrl || typeof o.sequence === "bigint" && typeof o.timestamp === "bigint" && typeof o.diversifier === "string" && isSet(o.data_type) && (o.data instanceof Uint8Array || typeof o.data === "string"));
   },
   isAmino(o: any): o is SignBytesAmino {
-    return o && (o.$typeUrl === SignBytes.typeUrl || typeof o.sequence === 'bigint' && typeof o.timestamp === 'bigint' && typeof o.diversifier === 'string' && isSet(o.data_type) && (o.data instanceof Uint8Array || typeof o.data === 'string'));
+    return o && (o.$typeUrl === SignBytes.typeUrl || typeof o.sequence === "bigint" && typeof o.timestamp === "bigint" && typeof o.diversifier === "string" && isSet(o.data_type) && (o.data instanceof Uint8Array || typeof o.data === "string"));
   },
   encode(message: SignBytes, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.sequence !== BigInt(0)) {
@@ -1354,7 +1354,7 @@ export const SignBytes = {
     if (message.timestamp !== BigInt(0)) {
       writer.uint32(16).uint64(message.timestamp);
     }
-    if (message.diversifier !== '') {
+    if (message.diversifier !== "") {
       writer.uint32(26).string(message.diversifier);
     }
     if (message.dataType !== 0) {
@@ -1372,24 +1372,24 @@ export const SignBytes = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.sequence = reader.uint64();
-        break;
-      case 2:
-        message.timestamp = reader.uint64();
-        break;
-      case 3:
-        message.diversifier = reader.string();
-        break;
-      case 4:
-        message.dataType = reader.int32() as any;
-        break;
-      case 5:
-        message.data = reader.bytes();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.sequence = reader.uint64();
+          break;
+        case 2:
+          message.timestamp = reader.uint64();
+          break;
+        case 3:
+          message.diversifier = reader.string();
+          break;
+        case 4:
+          message.dataType = reader.int32() as any;
+          break;
+        case 5:
+          message.data = reader.bytes();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1398,7 +1398,7 @@ export const SignBytes = {
     const message = createBaseSignBytes();
     message.sequence = object.sequence !== undefined && object.sequence !== null ? BigInt(object.sequence.toString()) : BigInt(0);
     message.timestamp = object.timestamp !== undefined && object.timestamp !== null ? BigInt(object.timestamp.toString()) : BigInt(0);
-    message.diversifier = object.diversifier ?? '';
+    message.diversifier = object.diversifier ?? "";
     message.dataType = object.dataType ?? 0;
     message.data = object.data ?? new Uint8Array();
     return message;
@@ -1426,7 +1426,7 @@ export const SignBytes = {
     const obj: any = {};
     obj.sequence = message.sequence !== BigInt(0) ? message.sequence.toString() : undefined;
     obj.timestamp = message.timestamp !== BigInt(0) ? message.timestamp.toString() : undefined;
-    obj.diversifier = message.diversifier === '' ? undefined : message.diversifier;
+    obj.diversifier = message.diversifier === "" ? undefined : message.diversifier;
     obj.data_type = message.dataType === 0 ? undefined : message.dataType;
     obj.data = message.data ? base64FromBytes(message.data) : undefined;
     return obj;
@@ -1436,7 +1436,7 @@ export const SignBytes = {
   },
   toAminoMsg(message: SignBytes): SignBytesAminoMsg {
     return {
-      type: 'cosmos-sdk/SignBytes',
+      type: "cosmos-sdk/SignBytes",
       value: SignBytes.toAmino(message)
     };
   },
@@ -1448,7 +1448,7 @@ export const SignBytes = {
   },
   toProtoMsg(message: SignBytes): SignBytesProtoMsg {
     return {
-      typeUrl: '/ibc.lightclients.solomachine.v2.SignBytes',
+      typeUrl: "/ibc.lightclients.solomachine.v2.SignBytes",
       value: SignBytes.encode(message).finish()
     };
   }
@@ -1458,26 +1458,26 @@ GlobalDecoderRegistry.registerAminoProtoMapping(SignBytes.aminoType, SignBytes.t
 function createBaseHeaderData(): HeaderData {
   return {
     newPubKey: undefined,
-    newDiversifier: ''
+    newDiversifier: ""
   };
 }
 export const HeaderData = {
-  typeUrl: '/ibc.lightclients.solomachine.v2.HeaderData',
-  aminoType: 'cosmos-sdk/HeaderData',
+  typeUrl: "/ibc.lightclients.solomachine.v2.HeaderData",
+  aminoType: "cosmos-sdk/HeaderData",
   is(o: any): o is HeaderData {
-    return o && (o.$typeUrl === HeaderData.typeUrl || typeof o.newDiversifier === 'string');
+    return o && (o.$typeUrl === HeaderData.typeUrl || typeof o.newDiversifier === "string");
   },
   isSDK(o: any): o is HeaderDataSDKType {
-    return o && (o.$typeUrl === HeaderData.typeUrl || typeof o.new_diversifier === 'string');
+    return o && (o.$typeUrl === HeaderData.typeUrl || typeof o.new_diversifier === "string");
   },
   isAmino(o: any): o is HeaderDataAmino {
-    return o && (o.$typeUrl === HeaderData.typeUrl || typeof o.new_diversifier === 'string');
+    return o && (o.$typeUrl === HeaderData.typeUrl || typeof o.new_diversifier === "string");
   },
   encode(message: HeaderData, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.newPubKey !== undefined) {
       Any.encode(message.newPubKey, writer.uint32(10).fork()).ldelim();
     }
-    if (message.newDiversifier !== '') {
+    if (message.newDiversifier !== "") {
       writer.uint32(18).string(message.newDiversifier);
     }
     return writer;
@@ -1489,15 +1489,15 @@ export const HeaderData = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.newPubKey = Any.decode(reader, reader.uint32());
-        break;
-      case 2:
-        message.newDiversifier = reader.string();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.newPubKey = Any.decode(reader, reader.uint32());
+          break;
+        case 2:
+          message.newDiversifier = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1505,7 +1505,7 @@ export const HeaderData = {
   fromPartial(object: Partial<HeaderData>): HeaderData {
     const message = createBaseHeaderData();
     message.newPubKey = object.newPubKey !== undefined && object.newPubKey !== null ? Any.fromPartial(object.newPubKey) : undefined;
-    message.newDiversifier = object.newDiversifier ?? '';
+    message.newDiversifier = object.newDiversifier ?? "";
     return message;
   },
   fromAmino(object: HeaderDataAmino): HeaderData {
@@ -1521,7 +1521,7 @@ export const HeaderData = {
   toAmino(message: HeaderData): HeaderDataAmino {
     const obj: any = {};
     obj.new_pub_key = message.newPubKey ? Any.toAmino(message.newPubKey) : undefined;
-    obj.new_diversifier = message.newDiversifier === '' ? undefined : message.newDiversifier;
+    obj.new_diversifier = message.newDiversifier === "" ? undefined : message.newDiversifier;
     return obj;
   },
   fromAminoMsg(object: HeaderDataAminoMsg): HeaderData {
@@ -1529,7 +1529,7 @@ export const HeaderData = {
   },
   toAminoMsg(message: HeaderData): HeaderDataAminoMsg {
     return {
-      type: 'cosmos-sdk/HeaderData',
+      type: "cosmos-sdk/HeaderData",
       value: HeaderData.toAmino(message)
     };
   },
@@ -1541,7 +1541,7 @@ export const HeaderData = {
   },
   toProtoMsg(message: HeaderData): HeaderDataProtoMsg {
     return {
-      typeUrl: '/ibc.lightclients.solomachine.v2.HeaderData',
+      typeUrl: "/ibc.lightclients.solomachine.v2.HeaderData",
       value: HeaderData.encode(message).finish()
     };
   }
@@ -1555,16 +1555,16 @@ function createBaseClientStateData(): ClientStateData {
   };
 }
 export const ClientStateData = {
-  typeUrl: '/ibc.lightclients.solomachine.v2.ClientStateData',
-  aminoType: 'cosmos-sdk/ClientStateData',
+  typeUrl: "/ibc.lightclients.solomachine.v2.ClientStateData",
+  aminoType: "cosmos-sdk/ClientStateData",
   is(o: any): o is ClientStateData {
-    return o && (o.$typeUrl === ClientStateData.typeUrl || o.path instanceof Uint8Array || typeof o.path === 'string');
+    return o && (o.$typeUrl === ClientStateData.typeUrl || o.path instanceof Uint8Array || typeof o.path === "string");
   },
   isSDK(o: any): o is ClientStateDataSDKType {
-    return o && (o.$typeUrl === ClientStateData.typeUrl || o.path instanceof Uint8Array || typeof o.path === 'string');
+    return o && (o.$typeUrl === ClientStateData.typeUrl || o.path instanceof Uint8Array || typeof o.path === "string");
   },
   isAmino(o: any): o is ClientStateDataAmino {
-    return o && (o.$typeUrl === ClientStateData.typeUrl || o.path instanceof Uint8Array || typeof o.path === 'string');
+    return o && (o.$typeUrl === ClientStateData.typeUrl || o.path instanceof Uint8Array || typeof o.path === "string");
   },
   encode(message: ClientStateData, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.path.length !== 0) {
@@ -1582,15 +1582,15 @@ export const ClientStateData = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.path = reader.bytes();
-        break;
-      case 2:
-        message.clientState = Any.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.path = reader.bytes();
+          break;
+        case 2:
+          message.clientState = Any.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1622,7 +1622,7 @@ export const ClientStateData = {
   },
   toAminoMsg(message: ClientStateData): ClientStateDataAminoMsg {
     return {
-      type: 'cosmos-sdk/ClientStateData',
+      type: "cosmos-sdk/ClientStateData",
       value: ClientStateData.toAmino(message)
     };
   },
@@ -1634,7 +1634,7 @@ export const ClientStateData = {
   },
   toProtoMsg(message: ClientStateData): ClientStateDataProtoMsg {
     return {
-      typeUrl: '/ibc.lightclients.solomachine.v2.ClientStateData',
+      typeUrl: "/ibc.lightclients.solomachine.v2.ClientStateData",
       value: ClientStateData.encode(message).finish()
     };
   }
@@ -1648,16 +1648,16 @@ function createBaseConsensusStateData(): ConsensusStateData {
   };
 }
 export const ConsensusStateData = {
-  typeUrl: '/ibc.lightclients.solomachine.v2.ConsensusStateData',
-  aminoType: 'cosmos-sdk/ConsensusStateData',
+  typeUrl: "/ibc.lightclients.solomachine.v2.ConsensusStateData",
+  aminoType: "cosmos-sdk/ConsensusStateData",
   is(o: any): o is ConsensusStateData {
-    return o && (o.$typeUrl === ConsensusStateData.typeUrl || o.path instanceof Uint8Array || typeof o.path === 'string');
+    return o && (o.$typeUrl === ConsensusStateData.typeUrl || o.path instanceof Uint8Array || typeof o.path === "string");
   },
   isSDK(o: any): o is ConsensusStateDataSDKType {
-    return o && (o.$typeUrl === ConsensusStateData.typeUrl || o.path instanceof Uint8Array || typeof o.path === 'string');
+    return o && (o.$typeUrl === ConsensusStateData.typeUrl || o.path instanceof Uint8Array || typeof o.path === "string");
   },
   isAmino(o: any): o is ConsensusStateDataAmino {
-    return o && (o.$typeUrl === ConsensusStateData.typeUrl || o.path instanceof Uint8Array || typeof o.path === 'string');
+    return o && (o.$typeUrl === ConsensusStateData.typeUrl || o.path instanceof Uint8Array || typeof o.path === "string");
   },
   encode(message: ConsensusStateData, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.path.length !== 0) {
@@ -1675,15 +1675,15 @@ export const ConsensusStateData = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.path = reader.bytes();
-        break;
-      case 2:
-        message.consensusState = Any.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.path = reader.bytes();
+          break;
+        case 2:
+          message.consensusState = Any.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1715,7 +1715,7 @@ export const ConsensusStateData = {
   },
   toAminoMsg(message: ConsensusStateData): ConsensusStateDataAminoMsg {
     return {
-      type: 'cosmos-sdk/ConsensusStateData',
+      type: "cosmos-sdk/ConsensusStateData",
       value: ConsensusStateData.toAmino(message)
     };
   },
@@ -1727,7 +1727,7 @@ export const ConsensusStateData = {
   },
   toProtoMsg(message: ConsensusStateData): ConsensusStateDataProtoMsg {
     return {
-      typeUrl: '/ibc.lightclients.solomachine.v2.ConsensusStateData',
+      typeUrl: "/ibc.lightclients.solomachine.v2.ConsensusStateData",
       value: ConsensusStateData.encode(message).finish()
     };
   }
@@ -1741,16 +1741,16 @@ function createBaseConnectionStateData(): ConnectionStateData {
   };
 }
 export const ConnectionStateData = {
-  typeUrl: '/ibc.lightclients.solomachine.v2.ConnectionStateData',
-  aminoType: 'cosmos-sdk/ConnectionStateData',
+  typeUrl: "/ibc.lightclients.solomachine.v2.ConnectionStateData",
+  aminoType: "cosmos-sdk/ConnectionStateData",
   is(o: any): o is ConnectionStateData {
-    return o && (o.$typeUrl === ConnectionStateData.typeUrl || o.path instanceof Uint8Array || typeof o.path === 'string');
+    return o && (o.$typeUrl === ConnectionStateData.typeUrl || o.path instanceof Uint8Array || typeof o.path === "string");
   },
   isSDK(o: any): o is ConnectionStateDataSDKType {
-    return o && (o.$typeUrl === ConnectionStateData.typeUrl || o.path instanceof Uint8Array || typeof o.path === 'string');
+    return o && (o.$typeUrl === ConnectionStateData.typeUrl || o.path instanceof Uint8Array || typeof o.path === "string");
   },
   isAmino(o: any): o is ConnectionStateDataAmino {
-    return o && (o.$typeUrl === ConnectionStateData.typeUrl || o.path instanceof Uint8Array || typeof o.path === 'string');
+    return o && (o.$typeUrl === ConnectionStateData.typeUrl || o.path instanceof Uint8Array || typeof o.path === "string");
   },
   encode(message: ConnectionStateData, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.path.length !== 0) {
@@ -1768,15 +1768,15 @@ export const ConnectionStateData = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.path = reader.bytes();
-        break;
-      case 2:
-        message.connection = ConnectionEnd.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.path = reader.bytes();
+          break;
+        case 2:
+          message.connection = ConnectionEnd.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1808,7 +1808,7 @@ export const ConnectionStateData = {
   },
   toAminoMsg(message: ConnectionStateData): ConnectionStateDataAminoMsg {
     return {
-      type: 'cosmos-sdk/ConnectionStateData',
+      type: "cosmos-sdk/ConnectionStateData",
       value: ConnectionStateData.toAmino(message)
     };
   },
@@ -1820,7 +1820,7 @@ export const ConnectionStateData = {
   },
   toProtoMsg(message: ConnectionStateData): ConnectionStateDataProtoMsg {
     return {
-      typeUrl: '/ibc.lightclients.solomachine.v2.ConnectionStateData',
+      typeUrl: "/ibc.lightclients.solomachine.v2.ConnectionStateData",
       value: ConnectionStateData.encode(message).finish()
     };
   }
@@ -1834,16 +1834,16 @@ function createBaseChannelStateData(): ChannelStateData {
   };
 }
 export const ChannelStateData = {
-  typeUrl: '/ibc.lightclients.solomachine.v2.ChannelStateData',
-  aminoType: 'cosmos-sdk/ChannelStateData',
+  typeUrl: "/ibc.lightclients.solomachine.v2.ChannelStateData",
+  aminoType: "cosmos-sdk/ChannelStateData",
   is(o: any): o is ChannelStateData {
-    return o && (o.$typeUrl === ChannelStateData.typeUrl || o.path instanceof Uint8Array || typeof o.path === 'string');
+    return o && (o.$typeUrl === ChannelStateData.typeUrl || o.path instanceof Uint8Array || typeof o.path === "string");
   },
   isSDK(o: any): o is ChannelStateDataSDKType {
-    return o && (o.$typeUrl === ChannelStateData.typeUrl || o.path instanceof Uint8Array || typeof o.path === 'string');
+    return o && (o.$typeUrl === ChannelStateData.typeUrl || o.path instanceof Uint8Array || typeof o.path === "string");
   },
   isAmino(o: any): o is ChannelStateDataAmino {
-    return o && (o.$typeUrl === ChannelStateData.typeUrl || o.path instanceof Uint8Array || typeof o.path === 'string');
+    return o && (o.$typeUrl === ChannelStateData.typeUrl || o.path instanceof Uint8Array || typeof o.path === "string");
   },
   encode(message: ChannelStateData, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.path.length !== 0) {
@@ -1861,15 +1861,15 @@ export const ChannelStateData = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.path = reader.bytes();
-        break;
-      case 2:
-        message.channel = Channel.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.path = reader.bytes();
+          break;
+        case 2:
+          message.channel = Channel.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1901,7 +1901,7 @@ export const ChannelStateData = {
   },
   toAminoMsg(message: ChannelStateData): ChannelStateDataAminoMsg {
     return {
-      type: 'cosmos-sdk/ChannelStateData',
+      type: "cosmos-sdk/ChannelStateData",
       value: ChannelStateData.toAmino(message)
     };
   },
@@ -1913,7 +1913,7 @@ export const ChannelStateData = {
   },
   toProtoMsg(message: ChannelStateData): ChannelStateDataProtoMsg {
     return {
-      typeUrl: '/ibc.lightclients.solomachine.v2.ChannelStateData',
+      typeUrl: "/ibc.lightclients.solomachine.v2.ChannelStateData",
       value: ChannelStateData.encode(message).finish()
     };
   }
@@ -1927,16 +1927,16 @@ function createBasePacketCommitmentData(): PacketCommitmentData {
   };
 }
 export const PacketCommitmentData = {
-  typeUrl: '/ibc.lightclients.solomachine.v2.PacketCommitmentData',
-  aminoType: 'cosmos-sdk/PacketCommitmentData',
+  typeUrl: "/ibc.lightclients.solomachine.v2.PacketCommitmentData",
+  aminoType: "cosmos-sdk/PacketCommitmentData",
   is(o: any): o is PacketCommitmentData {
-    return o && (o.$typeUrl === PacketCommitmentData.typeUrl || (o.path instanceof Uint8Array || typeof o.path === 'string') && (o.commitment instanceof Uint8Array || typeof o.commitment === 'string'));
+    return o && (o.$typeUrl === PacketCommitmentData.typeUrl || (o.path instanceof Uint8Array || typeof o.path === "string") && (o.commitment instanceof Uint8Array || typeof o.commitment === "string"));
   },
   isSDK(o: any): o is PacketCommitmentDataSDKType {
-    return o && (o.$typeUrl === PacketCommitmentData.typeUrl || (o.path instanceof Uint8Array || typeof o.path === 'string') && (o.commitment instanceof Uint8Array || typeof o.commitment === 'string'));
+    return o && (o.$typeUrl === PacketCommitmentData.typeUrl || (o.path instanceof Uint8Array || typeof o.path === "string") && (o.commitment instanceof Uint8Array || typeof o.commitment === "string"));
   },
   isAmino(o: any): o is PacketCommitmentDataAmino {
-    return o && (o.$typeUrl === PacketCommitmentData.typeUrl || (o.path instanceof Uint8Array || typeof o.path === 'string') && (o.commitment instanceof Uint8Array || typeof o.commitment === 'string'));
+    return o && (o.$typeUrl === PacketCommitmentData.typeUrl || (o.path instanceof Uint8Array || typeof o.path === "string") && (o.commitment instanceof Uint8Array || typeof o.commitment === "string"));
   },
   encode(message: PacketCommitmentData, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.path.length !== 0) {
@@ -1954,15 +1954,15 @@ export const PacketCommitmentData = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.path = reader.bytes();
-        break;
-      case 2:
-        message.commitment = reader.bytes();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.path = reader.bytes();
+          break;
+        case 2:
+          message.commitment = reader.bytes();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -1994,7 +1994,7 @@ export const PacketCommitmentData = {
   },
   toAminoMsg(message: PacketCommitmentData): PacketCommitmentDataAminoMsg {
     return {
-      type: 'cosmos-sdk/PacketCommitmentData',
+      type: "cosmos-sdk/PacketCommitmentData",
       value: PacketCommitmentData.toAmino(message)
     };
   },
@@ -2006,7 +2006,7 @@ export const PacketCommitmentData = {
   },
   toProtoMsg(message: PacketCommitmentData): PacketCommitmentDataProtoMsg {
     return {
-      typeUrl: '/ibc.lightclients.solomachine.v2.PacketCommitmentData',
+      typeUrl: "/ibc.lightclients.solomachine.v2.PacketCommitmentData",
       value: PacketCommitmentData.encode(message).finish()
     };
   }
@@ -2020,16 +2020,16 @@ function createBasePacketAcknowledgementData(): PacketAcknowledgementData {
   };
 }
 export const PacketAcknowledgementData = {
-  typeUrl: '/ibc.lightclients.solomachine.v2.PacketAcknowledgementData',
-  aminoType: 'cosmos-sdk/PacketAcknowledgementData',
+  typeUrl: "/ibc.lightclients.solomachine.v2.PacketAcknowledgementData",
+  aminoType: "cosmos-sdk/PacketAcknowledgementData",
   is(o: any): o is PacketAcknowledgementData {
-    return o && (o.$typeUrl === PacketAcknowledgementData.typeUrl || (o.path instanceof Uint8Array || typeof o.path === 'string') && (o.acknowledgement instanceof Uint8Array || typeof o.acknowledgement === 'string'));
+    return o && (o.$typeUrl === PacketAcknowledgementData.typeUrl || (o.path instanceof Uint8Array || typeof o.path === "string") && (o.acknowledgement instanceof Uint8Array || typeof o.acknowledgement === "string"));
   },
   isSDK(o: any): o is PacketAcknowledgementDataSDKType {
-    return o && (o.$typeUrl === PacketAcknowledgementData.typeUrl || (o.path instanceof Uint8Array || typeof o.path === 'string') && (o.acknowledgement instanceof Uint8Array || typeof o.acknowledgement === 'string'));
+    return o && (o.$typeUrl === PacketAcknowledgementData.typeUrl || (o.path instanceof Uint8Array || typeof o.path === "string") && (o.acknowledgement instanceof Uint8Array || typeof o.acknowledgement === "string"));
   },
   isAmino(o: any): o is PacketAcknowledgementDataAmino {
-    return o && (o.$typeUrl === PacketAcknowledgementData.typeUrl || (o.path instanceof Uint8Array || typeof o.path === 'string') && (o.acknowledgement instanceof Uint8Array || typeof o.acknowledgement === 'string'));
+    return o && (o.$typeUrl === PacketAcknowledgementData.typeUrl || (o.path instanceof Uint8Array || typeof o.path === "string") && (o.acknowledgement instanceof Uint8Array || typeof o.acknowledgement === "string"));
   },
   encode(message: PacketAcknowledgementData, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.path.length !== 0) {
@@ -2047,15 +2047,15 @@ export const PacketAcknowledgementData = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.path = reader.bytes();
-        break;
-      case 2:
-        message.acknowledgement = reader.bytes();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.path = reader.bytes();
+          break;
+        case 2:
+          message.acknowledgement = reader.bytes();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -2087,7 +2087,7 @@ export const PacketAcknowledgementData = {
   },
   toAminoMsg(message: PacketAcknowledgementData): PacketAcknowledgementDataAminoMsg {
     return {
-      type: 'cosmos-sdk/PacketAcknowledgementData',
+      type: "cosmos-sdk/PacketAcknowledgementData",
       value: PacketAcknowledgementData.toAmino(message)
     };
   },
@@ -2099,7 +2099,7 @@ export const PacketAcknowledgementData = {
   },
   toProtoMsg(message: PacketAcknowledgementData): PacketAcknowledgementDataProtoMsg {
     return {
-      typeUrl: '/ibc.lightclients.solomachine.v2.PacketAcknowledgementData',
+      typeUrl: "/ibc.lightclients.solomachine.v2.PacketAcknowledgementData",
       value: PacketAcknowledgementData.encode(message).finish()
     };
   }
@@ -2112,16 +2112,16 @@ function createBasePacketReceiptAbsenceData(): PacketReceiptAbsenceData {
   };
 }
 export const PacketReceiptAbsenceData = {
-  typeUrl: '/ibc.lightclients.solomachine.v2.PacketReceiptAbsenceData',
-  aminoType: 'cosmos-sdk/PacketReceiptAbsenceData',
+  typeUrl: "/ibc.lightclients.solomachine.v2.PacketReceiptAbsenceData",
+  aminoType: "cosmos-sdk/PacketReceiptAbsenceData",
   is(o: any): o is PacketReceiptAbsenceData {
-    return o && (o.$typeUrl === PacketReceiptAbsenceData.typeUrl || o.path instanceof Uint8Array || typeof o.path === 'string');
+    return o && (o.$typeUrl === PacketReceiptAbsenceData.typeUrl || o.path instanceof Uint8Array || typeof o.path === "string");
   },
   isSDK(o: any): o is PacketReceiptAbsenceDataSDKType {
-    return o && (o.$typeUrl === PacketReceiptAbsenceData.typeUrl || o.path instanceof Uint8Array || typeof o.path === 'string');
+    return o && (o.$typeUrl === PacketReceiptAbsenceData.typeUrl || o.path instanceof Uint8Array || typeof o.path === "string");
   },
   isAmino(o: any): o is PacketReceiptAbsenceDataAmino {
-    return o && (o.$typeUrl === PacketReceiptAbsenceData.typeUrl || o.path instanceof Uint8Array || typeof o.path === 'string');
+    return o && (o.$typeUrl === PacketReceiptAbsenceData.typeUrl || o.path instanceof Uint8Array || typeof o.path === "string");
   },
   encode(message: PacketReceiptAbsenceData, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.path.length !== 0) {
@@ -2136,12 +2136,12 @@ export const PacketReceiptAbsenceData = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.path = reader.bytes();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.path = reader.bytes();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -2168,7 +2168,7 @@ export const PacketReceiptAbsenceData = {
   },
   toAminoMsg(message: PacketReceiptAbsenceData): PacketReceiptAbsenceDataAminoMsg {
     return {
-      type: 'cosmos-sdk/PacketReceiptAbsenceData',
+      type: "cosmos-sdk/PacketReceiptAbsenceData",
       value: PacketReceiptAbsenceData.toAmino(message)
     };
   },
@@ -2180,7 +2180,7 @@ export const PacketReceiptAbsenceData = {
   },
   toProtoMsg(message: PacketReceiptAbsenceData): PacketReceiptAbsenceDataProtoMsg {
     return {
-      typeUrl: '/ibc.lightclients.solomachine.v2.PacketReceiptAbsenceData',
+      typeUrl: "/ibc.lightclients.solomachine.v2.PacketReceiptAbsenceData",
       value: PacketReceiptAbsenceData.encode(message).finish()
     };
   }
@@ -2194,16 +2194,16 @@ function createBaseNextSequenceRecvData(): NextSequenceRecvData {
   };
 }
 export const NextSequenceRecvData = {
-  typeUrl: '/ibc.lightclients.solomachine.v2.NextSequenceRecvData',
-  aminoType: 'cosmos-sdk/NextSequenceRecvData',
+  typeUrl: "/ibc.lightclients.solomachine.v2.NextSequenceRecvData",
+  aminoType: "cosmos-sdk/NextSequenceRecvData",
   is(o: any): o is NextSequenceRecvData {
-    return o && (o.$typeUrl === NextSequenceRecvData.typeUrl || (o.path instanceof Uint8Array || typeof o.path === 'string') && typeof o.nextSeqRecv === 'bigint');
+    return o && (o.$typeUrl === NextSequenceRecvData.typeUrl || (o.path instanceof Uint8Array || typeof o.path === "string") && typeof o.nextSeqRecv === "bigint");
   },
   isSDK(o: any): o is NextSequenceRecvDataSDKType {
-    return o && (o.$typeUrl === NextSequenceRecvData.typeUrl || (o.path instanceof Uint8Array || typeof o.path === 'string') && typeof o.next_seq_recv === 'bigint');
+    return o && (o.$typeUrl === NextSequenceRecvData.typeUrl || (o.path instanceof Uint8Array || typeof o.path === "string") && typeof o.next_seq_recv === "bigint");
   },
   isAmino(o: any): o is NextSequenceRecvDataAmino {
-    return o && (o.$typeUrl === NextSequenceRecvData.typeUrl || (o.path instanceof Uint8Array || typeof o.path === 'string') && typeof o.next_seq_recv === 'bigint');
+    return o && (o.$typeUrl === NextSequenceRecvData.typeUrl || (o.path instanceof Uint8Array || typeof o.path === "string") && typeof o.next_seq_recv === "bigint");
   },
   encode(message: NextSequenceRecvData, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.path.length !== 0) {
@@ -2221,15 +2221,15 @@ export const NextSequenceRecvData = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.path = reader.bytes();
-        break;
-      case 2:
-        message.nextSeqRecv = reader.uint64();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.path = reader.bytes();
+          break;
+        case 2:
+          message.nextSeqRecv = reader.uint64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -2261,7 +2261,7 @@ export const NextSequenceRecvData = {
   },
   toAminoMsg(message: NextSequenceRecvData): NextSequenceRecvDataAminoMsg {
     return {
-      type: 'cosmos-sdk/NextSequenceRecvData',
+      type: "cosmos-sdk/NextSequenceRecvData",
       value: NextSequenceRecvData.toAmino(message)
     };
   },
@@ -2273,7 +2273,7 @@ export const NextSequenceRecvData = {
   },
   toProtoMsg(message: NextSequenceRecvData): NextSequenceRecvDataProtoMsg {
     return {
-      typeUrl: '/ibc.lightclients.solomachine.v2.NextSequenceRecvData',
+      typeUrl: "/ibc.lightclients.solomachine.v2.NextSequenceRecvData",
       value: NextSequenceRecvData.encode(message).finish()
     };
   }

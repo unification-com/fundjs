@@ -1,7 +1,7 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from '../../../binary';
-import { base64FromBytes,bytesFromBase64 } from '../../../helpers';
-import { GlobalDecoderRegistry } from '../../../registry';
+import { BinaryReader, BinaryWriter } from "../../../binary";
+import { bytesFromBase64, base64FromBytes } from "../../../helpers";
+import { GlobalDecoderRegistry } from "../../../registry";
 /**
  * PubKey is an ed25519 public key for handling Tendermint keys in SDK.
  * It's needed for Any serialization and SDK compatibility.
@@ -13,7 +13,7 @@ export interface PubKey {
   key: Uint8Array;
 }
 export interface PubKeyProtoMsg {
-  typeUrl: '/cosmos.crypto.ed25519.PubKey';
+  typeUrl: "/cosmos.crypto.ed25519.PubKey";
   value: Uint8Array;
 }
 /**
@@ -27,7 +27,7 @@ export interface PubKeyAmino {
   key?: string;
 }
 export interface PubKeyAminoMsg {
-  type: 'cosmos-sdk/PubKey';
+  type: "cosmos-sdk/PubKey";
   value: PubKeyAmino;
 }
 /**
@@ -48,7 +48,7 @@ export interface PrivKey {
   key: Uint8Array;
 }
 export interface PrivKeyProtoMsg {
-  typeUrl: '/cosmos.crypto.ed25519.PrivKey';
+  typeUrl: "/cosmos.crypto.ed25519.PrivKey";
   value: Uint8Array;
 }
 /**
@@ -59,7 +59,7 @@ export interface PrivKeyAmino {
   key?: string;
 }
 export interface PrivKeyAminoMsg {
-  type: 'cosmos-sdk/PrivKey';
+  type: "cosmos-sdk/PrivKey";
   value: PrivKeyAmino;
 }
 /**
@@ -75,16 +75,16 @@ function createBasePubKey(): PubKey {
   };
 }
 export const PubKey = {
-  typeUrl: '/cosmos.crypto.ed25519.PubKey',
-  aminoType: 'cosmos-sdk/PubKey',
+  typeUrl: "/cosmos.crypto.ed25519.PubKey",
+  aminoType: "cosmos-sdk/PubKey",
   is(o: any): o is PubKey {
-    return o && (o.$typeUrl === PubKey.typeUrl || o.key instanceof Uint8Array || typeof o.key === 'string');
+    return o && (o.$typeUrl === PubKey.typeUrl || o.key instanceof Uint8Array || typeof o.key === "string");
   },
   isSDK(o: any): o is PubKeySDKType {
-    return o && (o.$typeUrl === PubKey.typeUrl || o.key instanceof Uint8Array || typeof o.key === 'string');
+    return o && (o.$typeUrl === PubKey.typeUrl || o.key instanceof Uint8Array || typeof o.key === "string");
   },
   isAmino(o: any): o is PubKeyAmino {
-    return o && (o.$typeUrl === PubKey.typeUrl || o.key instanceof Uint8Array || typeof o.key === 'string');
+    return o && (o.$typeUrl === PubKey.typeUrl || o.key instanceof Uint8Array || typeof o.key === "string");
   },
   encode(message: PubKey, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.key.length !== 0) {
@@ -99,12 +99,12 @@ export const PubKey = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.key = reader.bytes();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.key = reader.bytes();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -131,7 +131,7 @@ export const PubKey = {
   },
   toAminoMsg(message: PubKey): PubKeyAminoMsg {
     return {
-      type: 'cosmos-sdk/PubKey',
+      type: "cosmos-sdk/PubKey",
       value: PubKey.toAmino(message)
     };
   },
@@ -143,7 +143,7 @@ export const PubKey = {
   },
   toProtoMsg(message: PubKey): PubKeyProtoMsg {
     return {
-      typeUrl: '/cosmos.crypto.ed25519.PubKey',
+      typeUrl: "/cosmos.crypto.ed25519.PubKey",
       value: PubKey.encode(message).finish()
     };
   }
@@ -156,16 +156,16 @@ function createBasePrivKey(): PrivKey {
   };
 }
 export const PrivKey = {
-  typeUrl: '/cosmos.crypto.ed25519.PrivKey',
-  aminoType: 'cosmos-sdk/PrivKey',
+  typeUrl: "/cosmos.crypto.ed25519.PrivKey",
+  aminoType: "cosmos-sdk/PrivKey",
   is(o: any): o is PrivKey {
-    return o && (o.$typeUrl === PrivKey.typeUrl || o.key instanceof Uint8Array || typeof o.key === 'string');
+    return o && (o.$typeUrl === PrivKey.typeUrl || o.key instanceof Uint8Array || typeof o.key === "string");
   },
   isSDK(o: any): o is PrivKeySDKType {
-    return o && (o.$typeUrl === PrivKey.typeUrl || o.key instanceof Uint8Array || typeof o.key === 'string');
+    return o && (o.$typeUrl === PrivKey.typeUrl || o.key instanceof Uint8Array || typeof o.key === "string");
   },
   isAmino(o: any): o is PrivKeyAmino {
-    return o && (o.$typeUrl === PrivKey.typeUrl || o.key instanceof Uint8Array || typeof o.key === 'string');
+    return o && (o.$typeUrl === PrivKey.typeUrl || o.key instanceof Uint8Array || typeof o.key === "string");
   },
   encode(message: PrivKey, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.key.length !== 0) {
@@ -180,12 +180,12 @@ export const PrivKey = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.key = reader.bytes();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.key = reader.bytes();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -212,7 +212,7 @@ export const PrivKey = {
   },
   toAminoMsg(message: PrivKey): PrivKeyAminoMsg {
     return {
-      type: 'cosmos-sdk/PrivKey',
+      type: "cosmos-sdk/PrivKey",
       value: PrivKey.toAmino(message)
     };
   },
@@ -224,7 +224,7 @@ export const PrivKey = {
   },
   toProtoMsg(message: PrivKey): PrivKeyProtoMsg {
     return {
-      typeUrl: '/cosmos.crypto.ed25519.PrivKey',
+      typeUrl: "/cosmos.crypto.ed25519.PrivKey",
       value: PrivKey.encode(message).finish()
     };
   }

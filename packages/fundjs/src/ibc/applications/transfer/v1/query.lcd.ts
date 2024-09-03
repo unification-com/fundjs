@@ -1,8 +1,7 @@
 //@ts-nocheck
-import { LCDClient } from '@cosmology/lcd';
-
-import { setPaginationParams } from '../../../../helpers';
-import { QueryDenomTraceRequest, QueryDenomTraceResponseSDKType, QueryDenomTracesRequest, QueryDenomTracesResponseSDKType, QueryParamsRequest, QueryParamsResponseSDKType } from './query';
+import { setPaginationParams } from "../../../../helpers";
+import { LCDClient } from "@cosmology/lcd";
+import { QueryDenomTraceRequest, QueryDenomTraceResponseSDKType, QueryDenomTracesRequest, QueryDenomTracesResponseSDKType, QueryParamsRequest, QueryParamsResponseSDKType } from "./query";
 export class LCDQueryClient {
   req: LCDClient;
   constructor({
@@ -27,7 +26,7 @@ export class LCDQueryClient {
     const options: any = {
       params: {}
     };
-    if (typeof params?.pagination !== 'undefined') {
+    if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
     }
     const endpoint = `ibc/apps/transfer/v1/denom_traces`;

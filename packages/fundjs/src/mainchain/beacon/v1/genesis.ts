@@ -1,7 +1,7 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from '../../../binary';
-import { GlobalDecoderRegistry } from '../../../registry';
-import { Beacon, BeaconAmino, BeaconSDKType,Params, ParamsAmino, ParamsSDKType } from './beacon';
+import { Params, ParamsAmino, ParamsSDKType, Beacon, BeaconAmino, BeaconSDKType } from "./beacon";
+import { BinaryReader, BinaryWriter } from "../../../binary";
+import { GlobalDecoderRegistry } from "../../../registry";
 /** GenesisState defines the beacon module's genesis state. */
 export interface GenesisState {
   /** params defines all the paramaters of the module. */
@@ -10,7 +10,7 @@ export interface GenesisState {
   registeredBeacons: BeaconExport[];
 }
 export interface GenesisStateProtoMsg {
-  typeUrl: '/mainchain.beacon.v1.GenesisState';
+  typeUrl: "/mainchain.beacon.v1.GenesisState";
   value: Uint8Array;
 }
 /** GenesisState defines the beacon module's genesis state. */
@@ -21,7 +21,7 @@ export interface GenesisStateAmino {
   registered_beacons?: BeaconExportAmino[];
 }
 export interface GenesisStateAminoMsg {
-  type: '/mainchain.beacon.v1.GenesisState';
+  type: "/mainchain.beacon.v1.GenesisState";
   value: GenesisStateAmino;
 }
 /** GenesisState defines the beacon module's genesis state. */
@@ -40,7 +40,7 @@ export interface BeaconTimestampGenesisExport {
   h: string;
 }
 export interface BeaconTimestampGenesisExportProtoMsg {
-  typeUrl: '/mainchain.beacon.v1.BeaconTimestampGenesisExport';
+  typeUrl: "/mainchain.beacon.v1.BeaconTimestampGenesisExport";
   value: Uint8Array;
 }
 /**
@@ -53,7 +53,7 @@ export interface BeaconTimestampGenesisExportAmino {
   h?: string;
 }
 export interface BeaconTimestampGenesisExportAminoMsg {
-  type: '/mainchain.beacon.v1.BeaconTimestampGenesisExport';
+  type: "/mainchain.beacon.v1.BeaconTimestampGenesisExport";
   value: BeaconTimestampGenesisExportAmino;
 }
 /**
@@ -72,7 +72,7 @@ export interface BeaconExport {
   timestamps: BeaconTimestampGenesisExport[];
 }
 export interface BeaconExportProtoMsg {
-  typeUrl: '/mainchain.beacon.v1.BeaconExport';
+  typeUrl: "/mainchain.beacon.v1.BeaconExport";
   value: Uint8Array;
 }
 /** BeaconExport holds genesis export data for a beacon, including submitted timestamps */
@@ -82,7 +82,7 @@ export interface BeaconExportAmino {
   timestamps?: BeaconTimestampGenesisExportAmino[];
 }
 export interface BeaconExportAminoMsg {
-  type: '/mainchain.beacon.v1.BeaconExport';
+  type: "/mainchain.beacon.v1.BeaconExport";
   value: BeaconExportAmino;
 }
 /** BeaconExport holds genesis export data for a beacon, including submitted timestamps */
@@ -99,15 +99,15 @@ function createBaseGenesisState(): GenesisState {
   };
 }
 export const GenesisState = {
-  typeUrl: '/mainchain.beacon.v1.GenesisState',
+  typeUrl: "/mainchain.beacon.v1.GenesisState",
   is(o: any): o is GenesisState {
-    return o && (o.$typeUrl === GenesisState.typeUrl || Params.is(o.params) && typeof o.startingBeaconId === 'bigint' && Array.isArray(o.registeredBeacons) && (!o.registeredBeacons.length || BeaconExport.is(o.registeredBeacons[0])));
+    return o && (o.$typeUrl === GenesisState.typeUrl || Params.is(o.params) && typeof o.startingBeaconId === "bigint" && Array.isArray(o.registeredBeacons) && (!o.registeredBeacons.length || BeaconExport.is(o.registeredBeacons[0])));
   },
   isSDK(o: any): o is GenesisStateSDKType {
-    return o && (o.$typeUrl === GenesisState.typeUrl || Params.isSDK(o.params) && typeof o.starting_beacon_id === 'bigint' && Array.isArray(o.registered_beacons) && (!o.registered_beacons.length || BeaconExport.isSDK(o.registered_beacons[0])));
+    return o && (o.$typeUrl === GenesisState.typeUrl || Params.isSDK(o.params) && typeof o.starting_beacon_id === "bigint" && Array.isArray(o.registered_beacons) && (!o.registered_beacons.length || BeaconExport.isSDK(o.registered_beacons[0])));
   },
   isAmino(o: any): o is GenesisStateAmino {
-    return o && (o.$typeUrl === GenesisState.typeUrl || Params.isAmino(o.params) && typeof o.starting_beacon_id === 'bigint' && Array.isArray(o.registered_beacons) && (!o.registered_beacons.length || BeaconExport.isAmino(o.registered_beacons[0])));
+    return o && (o.$typeUrl === GenesisState.typeUrl || Params.isAmino(o.params) && typeof o.starting_beacon_id === "bigint" && Array.isArray(o.registered_beacons) && (!o.registered_beacons.length || BeaconExport.isAmino(o.registered_beacons[0])));
   },
   encode(message: GenesisState, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.params !== undefined) {
@@ -128,18 +128,18 @@ export const GenesisState = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.params = Params.decode(reader, reader.uint32());
-        break;
-      case 2:
-        message.startingBeaconId = reader.uint64();
-        break;
-      case 3:
-        message.registeredBeacons.push(BeaconExport.decode(reader, reader.uint32()));
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.params = Params.decode(reader, reader.uint32());
+          break;
+        case 2:
+          message.startingBeaconId = reader.uint64();
+          break;
+        case 3:
+          message.registeredBeacons.push(BeaconExport.decode(reader, reader.uint32()));
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -184,7 +184,7 @@ export const GenesisState = {
   },
   toProtoMsg(message: GenesisState): GenesisStateProtoMsg {
     return {
-      typeUrl: '/mainchain.beacon.v1.GenesisState',
+      typeUrl: "/mainchain.beacon.v1.GenesisState",
       value: GenesisState.encode(message).finish()
     };
   }
@@ -194,19 +194,19 @@ function createBaseBeaconTimestampGenesisExport(): BeaconTimestampGenesisExport 
   return {
     id: BigInt(0),
     t: BigInt(0),
-    h: ''
+    h: ""
   };
 }
 export const BeaconTimestampGenesisExport = {
-  typeUrl: '/mainchain.beacon.v1.BeaconTimestampGenesisExport',
+  typeUrl: "/mainchain.beacon.v1.BeaconTimestampGenesisExport",
   is(o: any): o is BeaconTimestampGenesisExport {
-    return o && (o.$typeUrl === BeaconTimestampGenesisExport.typeUrl || typeof o.id === 'bigint' && typeof o.t === 'bigint' && typeof o.h === 'string');
+    return o && (o.$typeUrl === BeaconTimestampGenesisExport.typeUrl || typeof o.id === "bigint" && typeof o.t === "bigint" && typeof o.h === "string");
   },
   isSDK(o: any): o is BeaconTimestampGenesisExportSDKType {
-    return o && (o.$typeUrl === BeaconTimestampGenesisExport.typeUrl || typeof o.id === 'bigint' && typeof o.t === 'bigint' && typeof o.h === 'string');
+    return o && (o.$typeUrl === BeaconTimestampGenesisExport.typeUrl || typeof o.id === "bigint" && typeof o.t === "bigint" && typeof o.h === "string");
   },
   isAmino(o: any): o is BeaconTimestampGenesisExportAmino {
-    return o && (o.$typeUrl === BeaconTimestampGenesisExport.typeUrl || typeof o.id === 'bigint' && typeof o.t === 'bigint' && typeof o.h === 'string');
+    return o && (o.$typeUrl === BeaconTimestampGenesisExport.typeUrl || typeof o.id === "bigint" && typeof o.t === "bigint" && typeof o.h === "string");
   },
   encode(message: BeaconTimestampGenesisExport, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.id !== BigInt(0)) {
@@ -215,7 +215,7 @@ export const BeaconTimestampGenesisExport = {
     if (message.t !== BigInt(0)) {
       writer.uint32(16).uint64(message.t);
     }
-    if (message.h !== '') {
+    if (message.h !== "") {
       writer.uint32(26).string(message.h);
     }
     return writer;
@@ -227,18 +227,18 @@ export const BeaconTimestampGenesisExport = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.id = reader.uint64();
-        break;
-      case 2:
-        message.t = reader.uint64();
-        break;
-      case 3:
-        message.h = reader.string();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.id = reader.uint64();
+          break;
+        case 2:
+          message.t = reader.uint64();
+          break;
+        case 3:
+          message.h = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -247,7 +247,7 @@ export const BeaconTimestampGenesisExport = {
     const message = createBaseBeaconTimestampGenesisExport();
     message.id = object.id !== undefined && object.id !== null ? BigInt(object.id.toString()) : BigInt(0);
     message.t = object.t !== undefined && object.t !== null ? BigInt(object.t.toString()) : BigInt(0);
-    message.h = object.h ?? '';
+    message.h = object.h ?? "";
     return message;
   },
   fromAmino(object: BeaconTimestampGenesisExportAmino): BeaconTimestampGenesisExport {
@@ -267,7 +267,7 @@ export const BeaconTimestampGenesisExport = {
     const obj: any = {};
     obj.id = message.id !== BigInt(0) ? message.id.toString() : undefined;
     obj.t = message.t !== BigInt(0) ? message.t.toString() : undefined;
-    obj.h = message.h === '' ? undefined : message.h;
+    obj.h = message.h === "" ? undefined : message.h;
     return obj;
   },
   fromAminoMsg(object: BeaconTimestampGenesisExportAminoMsg): BeaconTimestampGenesisExport {
@@ -281,7 +281,7 @@ export const BeaconTimestampGenesisExport = {
   },
   toProtoMsg(message: BeaconTimestampGenesisExport): BeaconTimestampGenesisExportProtoMsg {
     return {
-      typeUrl: '/mainchain.beacon.v1.BeaconTimestampGenesisExport',
+      typeUrl: "/mainchain.beacon.v1.BeaconTimestampGenesisExport",
       value: BeaconTimestampGenesisExport.encode(message).finish()
     };
   }
@@ -295,15 +295,15 @@ function createBaseBeaconExport(): BeaconExport {
   };
 }
 export const BeaconExport = {
-  typeUrl: '/mainchain.beacon.v1.BeaconExport',
+  typeUrl: "/mainchain.beacon.v1.BeaconExport",
   is(o: any): o is BeaconExport {
-    return o && (o.$typeUrl === BeaconExport.typeUrl || Beacon.is(o.beacon) && typeof o.inStateLimit === 'bigint' && Array.isArray(o.timestamps) && (!o.timestamps.length || BeaconTimestampGenesisExport.is(o.timestamps[0])));
+    return o && (o.$typeUrl === BeaconExport.typeUrl || Beacon.is(o.beacon) && typeof o.inStateLimit === "bigint" && Array.isArray(o.timestamps) && (!o.timestamps.length || BeaconTimestampGenesisExport.is(o.timestamps[0])));
   },
   isSDK(o: any): o is BeaconExportSDKType {
-    return o && (o.$typeUrl === BeaconExport.typeUrl || Beacon.isSDK(o.beacon) && typeof o.in_state_limit === 'bigint' && Array.isArray(o.timestamps) && (!o.timestamps.length || BeaconTimestampGenesisExport.isSDK(o.timestamps[0])));
+    return o && (o.$typeUrl === BeaconExport.typeUrl || Beacon.isSDK(o.beacon) && typeof o.in_state_limit === "bigint" && Array.isArray(o.timestamps) && (!o.timestamps.length || BeaconTimestampGenesisExport.isSDK(o.timestamps[0])));
   },
   isAmino(o: any): o is BeaconExportAmino {
-    return o && (o.$typeUrl === BeaconExport.typeUrl || Beacon.isAmino(o.beacon) && typeof o.in_state_limit === 'bigint' && Array.isArray(o.timestamps) && (!o.timestamps.length || BeaconTimestampGenesisExport.isAmino(o.timestamps[0])));
+    return o && (o.$typeUrl === BeaconExport.typeUrl || Beacon.isAmino(o.beacon) && typeof o.in_state_limit === "bigint" && Array.isArray(o.timestamps) && (!o.timestamps.length || BeaconTimestampGenesisExport.isAmino(o.timestamps[0])));
   },
   encode(message: BeaconExport, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.beacon !== undefined) {
@@ -324,18 +324,18 @@ export const BeaconExport = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.beacon = Beacon.decode(reader, reader.uint32());
-        break;
-      case 2:
-        message.inStateLimit = reader.uint64();
-        break;
-      case 3:
-        message.timestamps.push(BeaconTimestampGenesisExport.decode(reader, reader.uint32()));
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.beacon = Beacon.decode(reader, reader.uint32());
+          break;
+        case 2:
+          message.inStateLimit = reader.uint64();
+          break;
+        case 3:
+          message.timestamps.push(BeaconTimestampGenesisExport.decode(reader, reader.uint32()));
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -380,7 +380,7 @@ export const BeaconExport = {
   },
   toProtoMsg(message: BeaconExport): BeaconExportProtoMsg {
     return {
-      typeUrl: '/mainchain.beacon.v1.BeaconExport',
+      typeUrl: "/mainchain.beacon.v1.BeaconExport",
       value: BeaconExport.encode(message).finish()
     };
   }

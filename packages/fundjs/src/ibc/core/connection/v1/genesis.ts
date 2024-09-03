@@ -1,7 +1,7 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from '../../../../binary';
-import { GlobalDecoderRegistry } from '../../../../registry';
-import { ConnectionPaths, ConnectionPathsAmino, ConnectionPathsSDKType, IdentifiedConnection, IdentifiedConnectionAmino, IdentifiedConnectionSDKType, Params, ParamsAmino, ParamsSDKType } from './connection';
+import { IdentifiedConnection, IdentifiedConnectionAmino, IdentifiedConnectionSDKType, ConnectionPaths, ConnectionPathsAmino, ConnectionPathsSDKType, Params, ParamsAmino, ParamsSDKType } from "./connection";
+import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { GlobalDecoderRegistry } from "../../../../registry";
 /** GenesisState defines the ibc connection submodule's genesis state. */
 export interface GenesisState {
   connections: IdentifiedConnection[];
@@ -11,7 +11,7 @@ export interface GenesisState {
   params: Params;
 }
 export interface GenesisStateProtoMsg {
-  typeUrl: '/ibc.core.connection.v1.GenesisState';
+  typeUrl: "/ibc.core.connection.v1.GenesisState";
   value: Uint8Array;
 }
 /** GenesisState defines the ibc connection submodule's genesis state. */
@@ -23,7 +23,7 @@ export interface GenesisStateAmino {
   params?: ParamsAmino;
 }
 export interface GenesisStateAminoMsg {
-  type: 'cosmos-sdk/GenesisState';
+  type: "cosmos-sdk/GenesisState";
   value: GenesisStateAmino;
 }
 /** GenesisState defines the ibc connection submodule's genesis state. */
@@ -42,16 +42,16 @@ function createBaseGenesisState(): GenesisState {
   };
 }
 export const GenesisState = {
-  typeUrl: '/ibc.core.connection.v1.GenesisState',
-  aminoType: 'cosmos-sdk/GenesisState',
+  typeUrl: "/ibc.core.connection.v1.GenesisState",
+  aminoType: "cosmos-sdk/GenesisState",
   is(o: any): o is GenesisState {
-    return o && (o.$typeUrl === GenesisState.typeUrl || Array.isArray(o.connections) && (!o.connections.length || IdentifiedConnection.is(o.connections[0])) && Array.isArray(o.clientConnectionPaths) && (!o.clientConnectionPaths.length || ConnectionPaths.is(o.clientConnectionPaths[0])) && typeof o.nextConnectionSequence === 'bigint' && Params.is(o.params));
+    return o && (o.$typeUrl === GenesisState.typeUrl || Array.isArray(o.connections) && (!o.connections.length || IdentifiedConnection.is(o.connections[0])) && Array.isArray(o.clientConnectionPaths) && (!o.clientConnectionPaths.length || ConnectionPaths.is(o.clientConnectionPaths[0])) && typeof o.nextConnectionSequence === "bigint" && Params.is(o.params));
   },
   isSDK(o: any): o is GenesisStateSDKType {
-    return o && (o.$typeUrl === GenesisState.typeUrl || Array.isArray(o.connections) && (!o.connections.length || IdentifiedConnection.isSDK(o.connections[0])) && Array.isArray(o.client_connection_paths) && (!o.client_connection_paths.length || ConnectionPaths.isSDK(o.client_connection_paths[0])) && typeof o.next_connection_sequence === 'bigint' && Params.isSDK(o.params));
+    return o && (o.$typeUrl === GenesisState.typeUrl || Array.isArray(o.connections) && (!o.connections.length || IdentifiedConnection.isSDK(o.connections[0])) && Array.isArray(o.client_connection_paths) && (!o.client_connection_paths.length || ConnectionPaths.isSDK(o.client_connection_paths[0])) && typeof o.next_connection_sequence === "bigint" && Params.isSDK(o.params));
   },
   isAmino(o: any): o is GenesisStateAmino {
-    return o && (o.$typeUrl === GenesisState.typeUrl || Array.isArray(o.connections) && (!o.connections.length || IdentifiedConnection.isAmino(o.connections[0])) && Array.isArray(o.client_connection_paths) && (!o.client_connection_paths.length || ConnectionPaths.isAmino(o.client_connection_paths[0])) && typeof o.next_connection_sequence === 'bigint' && Params.isAmino(o.params));
+    return o && (o.$typeUrl === GenesisState.typeUrl || Array.isArray(o.connections) && (!o.connections.length || IdentifiedConnection.isAmino(o.connections[0])) && Array.isArray(o.client_connection_paths) && (!o.client_connection_paths.length || ConnectionPaths.isAmino(o.client_connection_paths[0])) && typeof o.next_connection_sequence === "bigint" && Params.isAmino(o.params));
   },
   encode(message: GenesisState, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.connections) {
@@ -75,21 +75,21 @@ export const GenesisState = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.connections.push(IdentifiedConnection.decode(reader, reader.uint32()));
-        break;
-      case 2:
-        message.clientConnectionPaths.push(ConnectionPaths.decode(reader, reader.uint32()));
-        break;
-      case 3:
-        message.nextConnectionSequence = reader.uint64();
-        break;
-      case 4:
-        message.params = Params.decode(reader, reader.uint32());
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.connections.push(IdentifiedConnection.decode(reader, reader.uint32()));
+          break;
+        case 2:
+          message.clientConnectionPaths.push(ConnectionPaths.decode(reader, reader.uint32()));
+          break;
+        case 3:
+          message.nextConnectionSequence = reader.uint64();
+          break;
+        case 4:
+          message.params = Params.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
@@ -135,7 +135,7 @@ export const GenesisState = {
   },
   toAminoMsg(message: GenesisState): GenesisStateAminoMsg {
     return {
-      type: 'cosmos-sdk/GenesisState',
+      type: "cosmos-sdk/GenesisState",
       value: GenesisState.toAmino(message)
     };
   },
@@ -147,7 +147,7 @@ export const GenesisState = {
   },
   toProtoMsg(message: GenesisState): GenesisStateProtoMsg {
     return {
-      typeUrl: '/ibc.core.connection.v1.GenesisState',
+      typeUrl: "/ibc.core.connection.v1.GenesisState",
       value: GenesisState.encode(message).finish()
     };
   }

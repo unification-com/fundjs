@@ -1,6 +1,6 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from '../../../../binary';
-import { GlobalDecoderRegistry } from '../../../../registry';
+import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { GlobalDecoderRegistry } from "../../../../registry";
 /**
  * FungibleTokenPacketData defines a struct for the packet payload
  * See FungibleTokenPacketData spec:
@@ -17,7 +17,7 @@ export interface FungibleTokenPacketData {
   receiver: string;
 }
 export interface FungibleTokenPacketDataProtoMsg {
-  typeUrl: '/ibc.applications.transfer.v2.FungibleTokenPacketData';
+  typeUrl: "/ibc.applications.transfer.v2.FungibleTokenPacketData";
   value: Uint8Array;
 }
 /**
@@ -36,7 +36,7 @@ export interface FungibleTokenPacketDataAmino {
   receiver?: string;
 }
 export interface FungibleTokenPacketDataAminoMsg {
-  type: 'cosmos-sdk/FungibleTokenPacketData';
+  type: "cosmos-sdk/FungibleTokenPacketData";
   value: FungibleTokenPacketDataAmino;
 }
 /**
@@ -52,35 +52,35 @@ export interface FungibleTokenPacketDataSDKType {
 }
 function createBaseFungibleTokenPacketData(): FungibleTokenPacketData {
   return {
-    denom: '',
-    amount: '',
-    sender: '',
-    receiver: ''
+    denom: "",
+    amount: "",
+    sender: "",
+    receiver: ""
   };
 }
 export const FungibleTokenPacketData = {
-  typeUrl: '/ibc.applications.transfer.v2.FungibleTokenPacketData',
-  aminoType: 'cosmos-sdk/FungibleTokenPacketData',
+  typeUrl: "/ibc.applications.transfer.v2.FungibleTokenPacketData",
+  aminoType: "cosmos-sdk/FungibleTokenPacketData",
   is(o: any): o is FungibleTokenPacketData {
-    return o && (o.$typeUrl === FungibleTokenPacketData.typeUrl || typeof o.denom === 'string' && typeof o.amount === 'string' && typeof o.sender === 'string' && typeof o.receiver === 'string');
+    return o && (o.$typeUrl === FungibleTokenPacketData.typeUrl || typeof o.denom === "string" && typeof o.amount === "string" && typeof o.sender === "string" && typeof o.receiver === "string");
   },
   isSDK(o: any): o is FungibleTokenPacketDataSDKType {
-    return o && (o.$typeUrl === FungibleTokenPacketData.typeUrl || typeof o.denom === 'string' && typeof o.amount === 'string' && typeof o.sender === 'string' && typeof o.receiver === 'string');
+    return o && (o.$typeUrl === FungibleTokenPacketData.typeUrl || typeof o.denom === "string" && typeof o.amount === "string" && typeof o.sender === "string" && typeof o.receiver === "string");
   },
   isAmino(o: any): o is FungibleTokenPacketDataAmino {
-    return o && (o.$typeUrl === FungibleTokenPacketData.typeUrl || typeof o.denom === 'string' && typeof o.amount === 'string' && typeof o.sender === 'string' && typeof o.receiver === 'string');
+    return o && (o.$typeUrl === FungibleTokenPacketData.typeUrl || typeof o.denom === "string" && typeof o.amount === "string" && typeof o.sender === "string" && typeof o.receiver === "string");
   },
   encode(message: FungibleTokenPacketData, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.denom !== '') {
+    if (message.denom !== "") {
       writer.uint32(10).string(message.denom);
     }
-    if (message.amount !== '') {
+    if (message.amount !== "") {
       writer.uint32(18).string(message.amount);
     }
-    if (message.sender !== '') {
+    if (message.sender !== "") {
       writer.uint32(26).string(message.sender);
     }
-    if (message.receiver !== '') {
+    if (message.receiver !== "") {
       writer.uint32(34).string(message.receiver);
     }
     return writer;
@@ -92,31 +92,31 @@ export const FungibleTokenPacketData = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-      case 1:
-        message.denom = reader.string();
-        break;
-      case 2:
-        message.amount = reader.string();
-        break;
-      case 3:
-        message.sender = reader.string();
-        break;
-      case 4:
-        message.receiver = reader.string();
-        break;
-      default:
-        reader.skipType(tag & 7);
-        break;
+        case 1:
+          message.denom = reader.string();
+          break;
+        case 2:
+          message.amount = reader.string();
+          break;
+        case 3:
+          message.sender = reader.string();
+          break;
+        case 4:
+          message.receiver = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<FungibleTokenPacketData>): FungibleTokenPacketData {
     const message = createBaseFungibleTokenPacketData();
-    message.denom = object.denom ?? '';
-    message.amount = object.amount ?? '';
-    message.sender = object.sender ?? '';
-    message.receiver = object.receiver ?? '';
+    message.denom = object.denom ?? "";
+    message.amount = object.amount ?? "";
+    message.sender = object.sender ?? "";
+    message.receiver = object.receiver ?? "";
     return message;
   },
   fromAmino(object: FungibleTokenPacketDataAmino): FungibleTokenPacketData {
@@ -137,10 +137,10 @@ export const FungibleTokenPacketData = {
   },
   toAmino(message: FungibleTokenPacketData): FungibleTokenPacketDataAmino {
     const obj: any = {};
-    obj.denom = message.denom === '' ? undefined : message.denom;
-    obj.amount = message.amount === '' ? undefined : message.amount;
-    obj.sender = message.sender === '' ? undefined : message.sender;
-    obj.receiver = message.receiver === '' ? undefined : message.receiver;
+    obj.denom = message.denom === "" ? undefined : message.denom;
+    obj.amount = message.amount === "" ? undefined : message.amount;
+    obj.sender = message.sender === "" ? undefined : message.sender;
+    obj.receiver = message.receiver === "" ? undefined : message.receiver;
     return obj;
   },
   fromAminoMsg(object: FungibleTokenPacketDataAminoMsg): FungibleTokenPacketData {
@@ -148,7 +148,7 @@ export const FungibleTokenPacketData = {
   },
   toAminoMsg(message: FungibleTokenPacketData): FungibleTokenPacketDataAminoMsg {
     return {
-      type: 'cosmos-sdk/FungibleTokenPacketData',
+      type: "cosmos-sdk/FungibleTokenPacketData",
       value: FungibleTokenPacketData.toAmino(message)
     };
   },
@@ -160,7 +160,7 @@ export const FungibleTokenPacketData = {
   },
   toProtoMsg(message: FungibleTokenPacketData): FungibleTokenPacketDataProtoMsg {
     return {
-      typeUrl: '/ibc.applications.transfer.v2.FungibleTokenPacketData',
+      typeUrl: "/ibc.applications.transfer.v2.FungibleTokenPacketData",
       value: FungibleTokenPacketData.encode(message).finish()
     };
   }

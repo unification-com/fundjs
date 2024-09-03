@@ -1,8 +1,7 @@
 //@ts-nocheck
-import { LCDClient } from '@cosmology/lcd';
-
-import { setPaginationParams } from '../../../helpers';
-import { QueryAllowanceRequest, QueryAllowanceResponseSDKType, QueryAllowancesByGranterRequest, QueryAllowancesByGranterResponseSDKType,QueryAllowancesRequest, QueryAllowancesResponseSDKType } from './query';
+import { setPaginationParams } from "../../../helpers";
+import { LCDClient } from "@cosmology/lcd";
+import { QueryAllowanceRequest, QueryAllowanceResponseSDKType, QueryAllowancesRequest, QueryAllowancesResponseSDKType, QueryAllowancesByGranterRequest, QueryAllowancesByGranterResponseSDKType } from "./query";
 export class LCDQueryClient {
   req: LCDClient;
   constructor({
@@ -25,7 +24,7 @@ export class LCDQueryClient {
     const options: any = {
       params: {}
     };
-    if (typeof params?.pagination !== 'undefined') {
+    if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
     }
     const endpoint = `cosmos/feegrant/v1beta1/allowances/${params.grantee}`;
@@ -37,7 +36,7 @@ export class LCDQueryClient {
     const options: any = {
       params: {}
     };
-    if (typeof params?.pagination !== 'undefined') {
+    if (typeof params?.pagination !== "undefined") {
       setPaginationParams(options, params.pagination);
     }
     const endpoint = `cosmos/feegrant/v1beta1/issued/${params.granter}`;
