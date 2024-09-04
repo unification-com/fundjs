@@ -33,6 +33,11 @@ export const createRPCQueryClient = async ({
       bank: {
         v1beta1: (await import("../cosmos/bank/v1beta1/query.rpc.Query")).createRpcQueryExtension(client)
       },
+      base: {
+        tendermint: {
+          v1beta1: (await import("../cosmos/base/tendermint/v1beta1/query.rpc.Service")).createRpcQueryExtension(client)
+        }
+      },
       distribution: {
         v1beta1: (await import("../cosmos/distribution/v1beta1/query.rpc.Query")).createRpcQueryExtension(client)
       },
@@ -60,6 +65,19 @@ export const createRPCQueryClient = async ({
       },
       upgrade: {
         v1beta1: (await import("../cosmos/upgrade/v1beta1/query.rpc.Query")).createRpcQueryExtension(client)
+      }
+    },
+    ibc: {
+      core: {
+        channel: {
+          v1: (await import("../ibc/core/channel/v1/query.rpc.Query")).createRpcQueryExtension(client)
+        },
+        client: {
+          v1: (await import("../ibc/core/client/v1/query.rpc.Query")).createRpcQueryExtension(client)
+        },
+        connection: {
+          v1: (await import("../ibc/core/connection/v1/query.rpc.Query")).createRpcQueryExtension(client)
+        }
       }
     }
   };

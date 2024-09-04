@@ -19,8 +19,6 @@ export const mainchainAminoConverters = {
 export const mainchainProtoRegistry: ReadonlyArray<[string, GeneratedType]> = [...mainchainBeaconV1TxRegistry.registry, ...mainchainEnterpriseV1TxRegistry.registry, ...mainchainStreamV1TxRegistry.registry, ...mainchainWrkchainV1TxRegistry.registry];
 export const getSigningMainchainClientOptions = ({
   defaultTypes = defaultRegistryTypes
-}: {
-  defaultTypes?: ReadonlyArray<[string, GeneratedType]>;
 } = {}): {
   registry: Registry;
   aminoTypes: AminoTypes;
