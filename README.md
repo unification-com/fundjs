@@ -45,18 +45,29 @@ npm install @unification-com/fundjs
 ### RPC Clients
 
 ```js
-import { unification } from '@unification-com/fundjs';
+import { mainchain, ibc } from '@unification-com/fundjs';
 
-const { createRPCQueryClient } = unification.ClientFactory; 
-const client = await createRPCQueryClient({ rpcEndpoint: RPC_ENDPOINT });
+const { createRPCQueryClient: createMainchainRPCQueryClient } = mainchain.ClientFactory;
+const { createRPCQueryClient: createIbcRPCQueryClient } = ibc.ClientFactory;
+const mcClient = await createMainchainRPCQueryClient({ rpcEndpoint: RPC_ENDPOINT });
 
 // now you can query the cosmos modules
-const balance = await client.cosmos.bank.v1beta1
-    .allBalances({ address: 'unification1addresshere' });
+const balance = await mcClient.cosmos.bank.v1beta1
+    .allBalances({ address: 'und123abc...' });
 
-// you can also query the unification modules
-const balances = await client.unification.exchange.v1beta1
-    .exchangeBalances()
+// you can also query the unification mainchain modules
+const streams = await mcClient.mainchain.stream.v1.streams()
+
+// ICB has its own client
+const ibcClient = await createIbcRPCQueryClient({ rpcEndpoint: RPC_ENDPOINT });
+
+// also with Cosmos endpoints
+const balance1 = await ibcClient.cosmos.bank.v1beta1
+  .allBalances({ address: 'und123abc...' });
+
+// and IBC endpoints
+const channels = await ibcClient.ibc.core.channel.v1.channels()
+
 ```
 
 ### Composing Messages
@@ -67,10 +78,12 @@ Import the `mainchain` object from `@unification-com/fundjs`.
 import { mainchain } from '@unification-com/fundjs';
 
 const {
-    createSpotLimitOrder,
-    createSpotMarketOrder,
-    deposit
-} = unification.exchange.v1beta1.MessageComposer.withTypeUrl;
+  createStream,
+  claimStream,
+  topUpDeposit,
+  updateFlowRate,
+  cancelStream
+} = unification.stream.v1.MessageComposer.withTypeUrl;
 ```
 
 #### IBC Messages
@@ -124,16 +137,33 @@ Here are the docs on [creating signers](https://docs.cosmology.zone/cosmos-kit) 
 
 ### Initializing the Stargate Client
 
-Use `getSigningUnificationClient` to get your `SigningStargateClient`, with the proto/amino messages full-loaded. No need to manually add amino types, just require and initialize the client:
+Use `getSigningMainchainClient` to get your `SigningStargateClient`, with the proto/amino messages full-loaded. No need to manually add amino types, just require and initialize the client:
 
 ```js
-import { getSigningUnificationClient } from 'fundjs';
+import { getSigningMainchainClient } from '@unification-com/fundjs';
 
-const stargateClient = await getSigningUnificationClient({
+const stargateMcClient = await getSigningMainchainClient({
   rpcEndpoint,
   signer // OfflineSigner
 });
 ```
+
+Cosmos and IBC will require their own signing clients, which contain their respective proto/amino messages
+
+```js
+import { getSigningIbcClient, getSigningCosmosClient } from '@unification-com/fundjs';
+
+const stargateIbcClient = await getSigningIbcClient({
+  rpcEndpoint,
+  signer // OfflineSigner
+});
+
+const stargateCosmosClient = await getSigningCosmosClient({
+  rpcEndpoint,
+  signer // OfflineSigner
+});
+```
+
 ### Creating Signers
 
 To broadcast messages, you can create signers with a variety of options:
@@ -177,7 +207,7 @@ const { send } = cosmos.bank.v1beta1.MessageComposer.withTypeUrl;
 const msg = send({
     amount: [
     {
-        denom: 'coin',
+        denom: 'nund',
         amount: '1000'
     }
     ],
@@ -194,7 +224,9 @@ const fee: StdFee = {
     ],
     gas: '86364'
 };
-const response = await stargateClient.signAndBroadcast(address, [msg], fee);
+
+// we need to use the Cosmos client to correctly encode & sign
+const response = await stargateCosmosClient.signAndBroadcast(address, [msg], fee);
 ```
 
 ## Advanced Usage
@@ -209,29 +241,25 @@ import { AminoTypes, SigningStargateClient } from "@cosmjs/stargate";
 import { 
     cosmosAminoConverters,
     cosmosProtoRegistry,
-    cosmwasmAminoConverters,
-    cosmwasmProtoRegistry,
     ibcProtoRegistry,
     ibcAminoConverters,
-    unificationAminoConverters,
-    unificationProtoRegistry
-} from 'fundjs';
+    mainchainAminoConverters,
+    mainchainProtoRegistry
+} from '@unification-com/fundjs';
 
 const signer: OfflineSigner = /* create your signer (see above)  */
 const rpcEndpint = 'https://rpc.cosmos.directory/unification'; // or another URL
 
 const protoRegistry: ReadonlyArray<[string, GeneratedType]> = [
     ...cosmosProtoRegistry,
-    ...cosmwasmProtoRegistry,
     ...ibcProtoRegistry,
-    ...unificationProtoRegistry
+    ...mainchainProtoRegistry
 ];
 
 const aminoConverters = {
     ...cosmosAminoConverters,
-    ...cosmwasmAminoConverters,
     ...ibcAminoConverters,
-    ...unificationAminoConverters
+    ...mainchainAminoConverters
 };
 
 const registry = new Registry(protoRegistry);
