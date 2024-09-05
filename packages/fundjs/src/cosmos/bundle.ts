@@ -129,6 +129,9 @@ import * as _205 from "./group/v1/tx.rpc.msg";
 import * as _206 from "./slashing/v1beta1/tx.rpc.msg";
 import * as _207 from "./staking/v1beta1/tx.rpc.msg";
 import * as _208 from "./upgrade/v1beta1/tx.rpc.msg";
+import * as _232 from "./lcd";
+import * as _233 from "./rpc.query";
+import * as _234 from "./rpc.tx";
 export namespace cosmos {
   export namespace auth {
     export const v1beta1 = {
@@ -356,4 +359,9 @@ export namespace cosmos {
       ..._208
     };
   }
+  export const ClientFactory = {
+    ..._232,
+    ..._233,
+    ..._234
+  };
 }

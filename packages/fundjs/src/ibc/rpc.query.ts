@@ -9,20 +9,6 @@ export const createRPCQueryClient = async ({
   const tmClient = await connectComet(rpcEndpoint);
   const client = new QueryClient(tmClient);
   return {
-    mainchain: {
-      beacon: {
-        v1: (await import("./beacon/v1/query.rpc.Query")).createRpcQueryExtension(client)
-      },
-      enterprise: {
-        v1: (await import("./enterprise/v1/query.rpc.Query")).createRpcQueryExtension(client)
-      },
-      stream: {
-        v1: (await import("./stream/v1/query.rpc.Query")).createRpcQueryExtension(client)
-      },
-      wrkchain: {
-        v1: (await import("./wrkchain/v1/query.rpc.Query")).createRpcQueryExtension(client)
-      }
-    },
     cosmos: {
       auth: {
         v1beta1: (await import("../cosmos/auth/v1beta1/query.rpc.Query")).createRpcQueryExtension(client)
@@ -68,15 +54,20 @@ export const createRPCQueryClient = async ({
       }
     },
     ibc: {
+      applications: {
+        transfer: {
+          v1: (await import("./applications/transfer/v1/query.rpc.Query")).createRpcQueryExtension(client)
+        }
+      },
       core: {
         channel: {
-          v1: (await import("../ibc/core/channel/v1/query.rpc.Query")).createRpcQueryExtension(client)
+          v1: (await import("./core/channel/v1/query.rpc.Query")).createRpcQueryExtension(client)
         },
         client: {
-          v1: (await import("../ibc/core/client/v1/query.rpc.Query")).createRpcQueryExtension(client)
+          v1: (await import("./core/client/v1/query.rpc.Query")).createRpcQueryExtension(client)
         },
         connection: {
-          v1: (await import("../ibc/core/connection/v1/query.rpc.Query")).createRpcQueryExtension(client)
+          v1: (await import("./core/connection/v1/query.rpc.Query")).createRpcQueryExtension(client)
         }
       }
     }

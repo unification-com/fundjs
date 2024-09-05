@@ -36,9 +36,9 @@ import * as _141 from "./beacon/v1/tx.rpc.msg";
 import * as _142 from "./enterprise/v1/tx.rpc.msg";
 import * as _143 from "./stream/v1/tx.rpc.msg";
 import * as _144 from "./wrkchain/v1/tx.rpc.msg";
-import * as _229 from "./mainchain-lcd-client";
-import * as _230 from "./mainchain-rpc-client.query";
-import * as _231 from "./mainchain-rpc-client.tx";
+import * as _229 from "./lcd";
+import * as _230 from "./rpc.query";
+import * as _231 from "./rpc.tx";
 export namespace mainchain {
   export namespace beacon {
     export const v1 = {
