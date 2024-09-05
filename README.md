@@ -61,31 +61,16 @@ const balances = await client.unification.exchange.v1beta1
 
 ### Composing Messages
 
-Import the `unification` object from `@unification-com/fundjs`. 
+Import the `mainchain` object from `@unification-com/fundjs`. 
 
 ```js
-import { unification } from '@unification-com/fundjs';
+import { mainchain } from '@unification-com/fundjs';
 
 const {
     createSpotLimitOrder,
     createSpotMarketOrder,
     deposit
 } = unification.exchange.v1beta1.MessageComposer.withTypeUrl;
-```
-
-#### CosmWasm Messages
-
-```js
-import { cosmwasm } from "@unification-com/fundjs";
-
-const {
-    clearAdmin,
-    executeContract,
-    instantiateContract,
-    migrateContract,
-    storeCode,
-    updateAdmin
-} = cosmwasm.wasm.v1.MessageComposer.withTypeUrl;
 ```
 
 #### IBC Messages

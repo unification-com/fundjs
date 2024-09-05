@@ -102,25 +102,6 @@ export const createLCDClient = async ({
           requestClient
         })
       }
-    },
-    ibc: {
-      core: {
-        channel: {
-          v1: new (await import("../ibc/core/channel/v1/query.lcd")).LCDQueryClient({
-            requestClient
-          })
-        },
-        client: {
-          v1: new (await import("../ibc/core/client/v1/query.lcd")).LCDQueryClient({
-            requestClient
-          })
-        },
-        connection: {
-          v1: new (await import("../ibc/core/connection/v1/query.lcd")).LCDQueryClient({
-            requestClient
-          })
-        }
-      }
     }
   };
 };

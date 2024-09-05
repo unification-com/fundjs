@@ -83,90 +83,16 @@ telescope({
     },
     aminoEncoding: {
       enabled: true,
-      exceptions: {
-        // BUG in telescope? why no workie?
-        // maybe because it assumes that SDK annotations are the truth!
-        '/cosmos.gov.v1beta1.MsgVote': {
-          aminoType: 'cosmos-sdk/MsgVote'
-        }
-      }
     },
     lcdClients: {
       enabled: true,
       bundle: true,
-      scoped: [
-        {
-          dir: 'mainchain',
-          filename: 'mainchain-lcd-client.ts',
-          packages: [
-            'cosmos.auth.v1beta1',
-            'cosmos.authz.v1beta1',
-            'cosmos.bank.v1beta1',
-            'cosmos.base.tendermint.v1beta1',
-            'cosmos.distribution.v1beta1',
-            'cosmos.evidence.v1beta1',
-            'cosmos.feegrant.v1beta1',
-            'cosmos.gov.v1',
-            'cosmos.gov.v1beta1',
-            'cosmos.group.v1',
-            'cosmos.params.v1beta1',
-            'cosmos.slashing.v1beta1',
-            'cosmos.staking.v1beta1',
-            'cosmos.tx.v1beta1',
-            'cosmos.upgrade.v1beta1',
-            'ibc.core.channel.v1',
-            'ibc.core.client.v1',
-            'ibc.core.connection.v1',
-            'ibc.apps.transfer.v1',
-            'mainchain.beacon.v1',
-            'mainchain.enterprise.v1',
-            'mainchain.stream.v1',
-            'mainchain.wrkchain.v1',
-          ],
-          addToBundle: true,
-          methodName: 'createLCDClient'
-        },
-      ],
     },
     rpcClients: {
       enabled: true,
       bundle: true,
       camelCase: true,
       useConnectComet: true,
-      scoped: [
-        {
-          dir: 'mainchain',
-          filename: 'mainchain-rpc-client.ts',
-          packages: [
-            'cosmos.auth.v1beta1',
-            'cosmos.authz.v1beta1',
-            'cosmos.bank.v1beta1',
-            'cosmos.base.tendermint.v1beta1',
-            'cosmos.distribution.v1beta1',
-            'cosmos.evidence.v1beta1',
-            'cosmos.feegrant.v1beta1',
-            'cosmos.gov.v1',
-            'cosmos.gov.v1beta1',
-            'cosmos.group.v1',
-            'cosmos.params.v1beta1',
-            'cosmos.slashing.v1beta1',
-            'cosmos.staking.v1beta1',
-            'cosmos.tx.v1beta1',
-            'cosmos.upgrade.v1beta1',
-            'ibc.core.channel.v1',
-            'ibc.core.client.v1',
-            'ibc.core.connection.v1',
-            'ibc.apps.transfer.v1',
-            'mainchain.beacon.v1',
-            'mainchain.enterprise.v1',
-            'mainchain.stream.v1',
-            'mainchain.wrkchain.v1',
-          ],
-          addToBundle: true,
-          methodNameQuery: 'createRPCQueryClient',
-          methodNameTx: 'createRPCTxClient'
-        }
-      ]
     }
   }
 })

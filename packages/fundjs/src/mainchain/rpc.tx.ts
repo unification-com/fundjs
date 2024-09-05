@@ -1,6 +1,6 @@
 //@ts-nocheck
 import { Rpc } from "../helpers";
-export const createRPCTxClient = async ({
+export const createRPCMsgClient = async ({
   rpc
 }: {
   rpc: Rpc;
@@ -26,6 +26,9 @@ export const createRPCTxClient = async ({
     bank: {
       v1beta1: new (await import("../cosmos/bank/v1beta1/tx.rpc.msg")).MsgClientImpl(rpc)
     },
+    crisis: {
+      v1beta1: new (await import("../cosmos/crisis/v1beta1/tx.rpc.msg")).MsgClientImpl(rpc)
+    },
     distribution: {
       v1beta1: new (await import("../cosmos/distribution/v1beta1/tx.rpc.msg")).MsgClientImpl(rpc)
     },
@@ -50,19 +53,6 @@ export const createRPCTxClient = async ({
     },
     upgrade: {
       v1beta1: new (await import("../cosmos/upgrade/v1beta1/tx.rpc.msg")).MsgClientImpl(rpc)
-    }
-  },
-  ibc: {
-    core: {
-      channel: {
-        v1: new (await import("../ibc/core/channel/v1/tx.rpc.msg")).MsgClientImpl(rpc)
-      },
-      client: {
-        v1: new (await import("../ibc/core/client/v1/tx.rpc.msg")).MsgClientImpl(rpc)
-      },
-      connection: {
-        v1: new (await import("../ibc/core/connection/v1/tx.rpc.msg")).MsgClientImpl(rpc)
-      }
     }
   }
 });
