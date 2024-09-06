@@ -18,8 +18,6 @@
     "clean": "lerna run clean",
     "build": "lerna run build --stream",
     "lint": "lerna run lint --parallel",
-    "test": "lerna run test --stream --scope @unification-com/fundjs",
-    "codegen": "lerna run codegen --stream --scope @unification-com/fundjs",
     "symlink": "symlink-workspace --logLevel error",
     "postinstall": "yarn symlink"
   },

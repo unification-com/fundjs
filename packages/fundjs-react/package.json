@@ -1,0 +1,55 @@
+{
+  "name": "@unification-com/fundjs-react",
+  "version": "0.0.1",
+  "description": "fundjs with React hooks",
+  "author": "Paul Hodgson <codegnosis@users.noreply.github.com>",
+  "homepage": "https://github.com/unification-com/fundjs/tree/main/packages/fundjs-react#readme",
+  "license": "SEE LICENSE IN LICENSE",
+  "main": "index.js",
+  "module": "esm/index.js",
+  "types": "index.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unification-com/fundjs.git"
+  },
+  "scripts": {
+    "copy": "copyfiles -f ../../LICENSE README.md package.json dist",
+    "clean": "rimraf dist/**",
+    "prepare": "npm run build",
+    "codegen": "ts-node scripts/codegen.ts",
+    "build": "npm run clean; tsc; tsc -p tsconfig.esm.json; npm run copy",
+    "lint": "eslint . --fix",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "devDependencies": {
+    "@chain-registry/client": "1.31.2",
+    "@cosmology/telescope": "^1.0.1",
+    "@protobufs/confio": "^0.0.6",
+    "@protobufs/cosmos": "^0.1.0",
+    "@protobufs/cosmos_proto": "^0.0.10",
+    "@protobufs/gogoproto": "^0.0.10",
+    "@protobufs/google": "^0.0.10",
+    "@protobufs/ibc": "^0.1.0",
+    "@protobufs/stargaze": "^0.1.0",
+    "@protobufs/tendermint": "^0.0.10"
+  },
+  "dependencies": {
+    "@cosmjs/amino": "^0.32.4",
+    "@cosmjs/crypto": "^0.32.4",
+    "@cosmjs/encoding": "0.32.3",
+    "@cosmjs/math": "0.32.3",
+    "@cosmjs/proto-signing": "^0.32.4",
+    "@cosmjs/stargate": "^0.32.4",
+    "@cosmjs/tendermint-rpc": "^0.32.4",
+    "@cosmology/lcd": "^0.13.4",
+    "cosmjs-types": "^0.9.0"
+  },
+  "bugs": {
+    "url": "https://github.com/unification-com/fundjs/issues"
+  }
+}
