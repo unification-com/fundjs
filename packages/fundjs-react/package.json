@@ -1,6 +1,6 @@
 {
   "name": "@unification-com/fundjs-react",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "fundjs with React hooks",
   "author": "Paul Hodgson <codegnosis@users.noreply.github.com>",
   "homepage": "https://github.com/unification-com/fundjs/tree/main/packages/fundjs-react#readme",
