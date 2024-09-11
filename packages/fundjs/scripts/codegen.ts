@@ -1,12 +1,12 @@
-import { TelescopeInput } from '@cosmology/telescope';
 import telescope from '@cosmology/telescope';
 import { join } from 'path';
 import { rimrafSync as rimraf } from 'rimraf';
 
-import { AMINO_MAP } from './aminos';
-
+// ToDo - using a copy of mainchain/protos in mainchain_tmp_protos
+// which have been modified to add the amino.name option to all Msgs
+// Next mainchain release needs these define in the protos
 const protoDirs: string[] = [
-  join(__dirname, '/../mainchain/proto'),
+  // join(__dirname, '/../mainchain/proto'),
   join(__dirname, '/../proto')
 ];
 const outPath: string = join(__dirname, '../src');

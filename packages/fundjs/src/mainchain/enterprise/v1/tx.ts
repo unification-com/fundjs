@@ -23,7 +23,7 @@ export interface MsgUndPurchaseOrderAmino {
   amount?: CoinAmino;
 }
 export interface MsgUndPurchaseOrderAminoMsg {
-  type: "/mainchain.enterprise.v1.MsgUndPurchaseOrder";
+  type: "enterprise/PurchaseUnd";
   value: MsgUndPurchaseOrderAmino;
 }
 /** MsgUndPurchaseOrder represents a message to raise a new purchase order */
@@ -74,7 +74,7 @@ export interface MsgProcessUndPurchaseOrderAmino {
   signer?: string;
 }
 export interface MsgProcessUndPurchaseOrderAminoMsg {
-  type: "/mainchain.enterprise.v1.MsgProcessUndPurchaseOrder";
+  type: "enterprise/ProcessUndPurchaseOrder";
   value: MsgProcessUndPurchaseOrderAmino;
 }
 /** MsgProcessUndPurchaseOrder represents a message to processed a raised purchase order */
@@ -126,7 +126,7 @@ export interface MsgWhitelistAddressAmino {
   whitelist_action: WhitelistAction;
 }
 export interface MsgWhitelistAddressAminoMsg {
-  type: "/mainchain.enterprise.v1.MsgWhitelistAddress";
+  type: "enterprise/WhitelistAddress";
   value: MsgWhitelistAddressAmino;
 }
 /**
@@ -236,6 +236,7 @@ function createBaseMsgUndPurchaseOrder(): MsgUndPurchaseOrder {
 }
 export const MsgUndPurchaseOrder = {
   typeUrl: "/mainchain.enterprise.v1.MsgUndPurchaseOrder",
+  aminoType: "enterprise/PurchaseUnd",
   is(o: any): o is MsgUndPurchaseOrder {
     return o && (o.$typeUrl === MsgUndPurchaseOrder.typeUrl || typeof o.purchaser === "string" && Coin.is(o.amount));
   },
@@ -299,6 +300,12 @@ export const MsgUndPurchaseOrder = {
   fromAminoMsg(object: MsgUndPurchaseOrderAminoMsg): MsgUndPurchaseOrder {
     return MsgUndPurchaseOrder.fromAmino(object.value);
   },
+  toAminoMsg(message: MsgUndPurchaseOrder): MsgUndPurchaseOrderAminoMsg {
+    return {
+      type: "enterprise/PurchaseUnd",
+      value: MsgUndPurchaseOrder.toAmino(message)
+    };
+  },
   fromProtoMsg(message: MsgUndPurchaseOrderProtoMsg): MsgUndPurchaseOrder {
     return MsgUndPurchaseOrder.decode(message.value);
   },
@@ -313,6 +320,7 @@ export const MsgUndPurchaseOrder = {
   }
 };
 GlobalDecoderRegistry.register(MsgUndPurchaseOrder.typeUrl, MsgUndPurchaseOrder);
+GlobalDecoderRegistry.registerAminoProtoMapping(MsgUndPurchaseOrder.aminoType, MsgUndPurchaseOrder.typeUrl);
 function createBaseMsgUndPurchaseOrderResponse(): MsgUndPurchaseOrderResponse {
   return {
     purchaseOrderId: BigInt(0)
@@ -395,6 +403,7 @@ function createBaseMsgProcessUndPurchaseOrder(): MsgProcessUndPurchaseOrder {
 }
 export const MsgProcessUndPurchaseOrder = {
   typeUrl: "/mainchain.enterprise.v1.MsgProcessUndPurchaseOrder",
+  aminoType: "enterprise/ProcessUndPurchaseOrder",
   is(o: any): o is MsgProcessUndPurchaseOrder {
     return o && (o.$typeUrl === MsgProcessUndPurchaseOrder.typeUrl || typeof o.purchaseOrderId === "bigint" && isSet(o.decision) && typeof o.signer === "string");
   },
@@ -469,6 +478,12 @@ export const MsgProcessUndPurchaseOrder = {
   fromAminoMsg(object: MsgProcessUndPurchaseOrderAminoMsg): MsgProcessUndPurchaseOrder {
     return MsgProcessUndPurchaseOrder.fromAmino(object.value);
   },
+  toAminoMsg(message: MsgProcessUndPurchaseOrder): MsgProcessUndPurchaseOrderAminoMsg {
+    return {
+      type: "enterprise/ProcessUndPurchaseOrder",
+      value: MsgProcessUndPurchaseOrder.toAmino(message)
+    };
+  },
   fromProtoMsg(message: MsgProcessUndPurchaseOrderProtoMsg): MsgProcessUndPurchaseOrder {
     return MsgProcessUndPurchaseOrder.decode(message.value);
   },
@@ -483,6 +498,7 @@ export const MsgProcessUndPurchaseOrder = {
   }
 };
 GlobalDecoderRegistry.register(MsgProcessUndPurchaseOrder.typeUrl, MsgProcessUndPurchaseOrder);
+GlobalDecoderRegistry.registerAminoProtoMapping(MsgProcessUndPurchaseOrder.aminoType, MsgProcessUndPurchaseOrder.typeUrl);
 function createBaseMsgProcessUndPurchaseOrderResponse(): MsgProcessUndPurchaseOrderResponse {
   return {};
 }
@@ -552,6 +568,7 @@ function createBaseMsgWhitelistAddress(): MsgWhitelistAddress {
 }
 export const MsgWhitelistAddress = {
   typeUrl: "/mainchain.enterprise.v1.MsgWhitelistAddress",
+  aminoType: "enterprise/WhitelistAddress",
   is(o: any): o is MsgWhitelistAddress {
     return o && (o.$typeUrl === MsgWhitelistAddress.typeUrl || typeof o.address === "string" && typeof o.signer === "string" && isSet(o.whitelistAction));
   },
@@ -626,6 +643,12 @@ export const MsgWhitelistAddress = {
   fromAminoMsg(object: MsgWhitelistAddressAminoMsg): MsgWhitelistAddress {
     return MsgWhitelistAddress.fromAmino(object.value);
   },
+  toAminoMsg(message: MsgWhitelistAddress): MsgWhitelistAddressAminoMsg {
+    return {
+      type: "enterprise/WhitelistAddress",
+      value: MsgWhitelistAddress.toAmino(message)
+    };
+  },
   fromProtoMsg(message: MsgWhitelistAddressProtoMsg): MsgWhitelistAddress {
     return MsgWhitelistAddress.decode(message.value);
   },
@@ -640,6 +663,7 @@ export const MsgWhitelistAddress = {
   }
 };
 GlobalDecoderRegistry.register(MsgWhitelistAddress.typeUrl, MsgWhitelistAddress);
+GlobalDecoderRegistry.registerAminoProtoMapping(MsgWhitelistAddress.aminoType, MsgWhitelistAddress.typeUrl);
 function createBaseMsgWhitelistAddressResponse(): MsgWhitelistAddressResponse {
   return {};
 }

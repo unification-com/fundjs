@@ -9,28 +9,6 @@ export const createLCDClient = async ({
     restEndpoint
   });
   return {
-    mainchain: {
-      beacon: {
-        v1: new (await import("./beacon/v1/query.lcd")).LCDQueryClient({
-          requestClient
-        })
-      },
-      enterprise: {
-        v1: new (await import("./enterprise/v1/query.lcd")).LCDQueryClient({
-          requestClient
-        })
-      },
-      stream: {
-        v1: new (await import("./stream/v1/query.lcd")).LCDQueryClient({
-          requestClient
-        })
-      },
-      wrkchain: {
-        v1: new (await import("./wrkchain/v1/query.lcd")).LCDQueryClient({
-          requestClient
-        })
-      }
-    },
     cosmos: {
       auth: {
         v1beta1: new (await import("../cosmos/auth/v1beta1/query.lcd")).LCDQueryClient({
@@ -99,6 +77,28 @@ export const createLCDClient = async ({
       },
       upgrade: {
         v1beta1: new (await import("../cosmos/upgrade/v1beta1/query.lcd")).LCDQueryClient({
+          requestClient
+        })
+      }
+    },
+    mainchain: {
+      beacon: {
+        v1: new (await import("./beacon/v1/query.lcd")).LCDQueryClient({
+          requestClient
+        })
+      },
+      enterprise: {
+        v1: new (await import("./enterprise/v1/query.lcd")).LCDQueryClient({
+          requestClient
+        })
+      },
+      stream: {
+        v1: new (await import("./stream/v1/query.lcd")).LCDQueryClient({
+          requestClient
+        })
+      },
+      wrkchain: {
+        v1: new (await import("./wrkchain/v1/query.lcd")).LCDQueryClient({
           requestClient
         })
       }

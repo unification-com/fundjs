@@ -25,7 +25,7 @@ export interface MsgRegisterBeaconAmino {
   owner?: string;
 }
 export interface MsgRegisterBeaconAminoMsg {
-  type: "/mainchain.beacon.v1.MsgRegisterBeacon";
+  type: "beacon/RegisterBeacon";
   value: MsgRegisterBeaconAmino;
 }
 /** MsgRegisterBeacon represents a message to register a new beacon */
@@ -83,7 +83,7 @@ export interface MsgRecordBeaconTimestampAmino {
   owner?: string;
 }
 export interface MsgRecordBeaconTimestampAminoMsg {
-  type: "/mainchain.beacon.v1.MsgRecordBeaconTimestamp";
+  type: "beacon/RecordBeaconTimestamp";
   value: MsgRecordBeaconTimestampAmino;
 }
 /** MsgRecordBeaconTimestamp represents a message to record a timestamp for a registered beacon */
@@ -143,7 +143,7 @@ export interface MsgPurchaseBeaconStateStorageAmino {
   owner?: string;
 }
 export interface MsgPurchaseBeaconStateStorageAminoMsg {
-  type: "/mainchain.beacon.v1.MsgPurchaseBeaconStateStorage";
+  type: "beacon/PurchaseBeaconStateStorage";
   value: MsgPurchaseBeaconStateStorageAmino;
 }
 /** MsgPurchaseBeaconStateStorage represents a message to purchase more beacon storage */
@@ -269,6 +269,7 @@ function createBaseMsgRegisterBeacon(): MsgRegisterBeacon {
 }
 export const MsgRegisterBeacon = {
   typeUrl: "/mainchain.beacon.v1.MsgRegisterBeacon",
+  aminoType: "beacon/RegisterBeacon",
   is(o: any): o is MsgRegisterBeacon {
     return o && (o.$typeUrl === MsgRegisterBeacon.typeUrl || typeof o.moniker === "string" && typeof o.name === "string" && typeof o.owner === "string");
   },
@@ -343,6 +344,12 @@ export const MsgRegisterBeacon = {
   fromAminoMsg(object: MsgRegisterBeaconAminoMsg): MsgRegisterBeacon {
     return MsgRegisterBeacon.fromAmino(object.value);
   },
+  toAminoMsg(message: MsgRegisterBeacon): MsgRegisterBeaconAminoMsg {
+    return {
+      type: "beacon/RegisterBeacon",
+      value: MsgRegisterBeacon.toAmino(message)
+    };
+  },
   fromProtoMsg(message: MsgRegisterBeaconProtoMsg): MsgRegisterBeacon {
     return MsgRegisterBeacon.decode(message.value);
   },
@@ -357,6 +364,7 @@ export const MsgRegisterBeacon = {
   }
 };
 GlobalDecoderRegistry.register(MsgRegisterBeacon.typeUrl, MsgRegisterBeacon);
+GlobalDecoderRegistry.registerAminoProtoMapping(MsgRegisterBeacon.aminoType, MsgRegisterBeacon.typeUrl);
 function createBaseMsgRegisterBeaconResponse(): MsgRegisterBeaconResponse {
   return {
     beaconId: BigInt(0)
@@ -440,6 +448,7 @@ function createBaseMsgRecordBeaconTimestamp(): MsgRecordBeaconTimestamp {
 }
 export const MsgRecordBeaconTimestamp = {
   typeUrl: "/mainchain.beacon.v1.MsgRecordBeaconTimestamp",
+  aminoType: "beacon/RecordBeaconTimestamp",
   is(o: any): o is MsgRecordBeaconTimestamp {
     return o && (o.$typeUrl === MsgRecordBeaconTimestamp.typeUrl || typeof o.beaconId === "bigint" && typeof o.hash === "string" && typeof o.submitTime === "bigint" && typeof o.owner === "string");
   },
@@ -525,6 +534,12 @@ export const MsgRecordBeaconTimestamp = {
   fromAminoMsg(object: MsgRecordBeaconTimestampAminoMsg): MsgRecordBeaconTimestamp {
     return MsgRecordBeaconTimestamp.fromAmino(object.value);
   },
+  toAminoMsg(message: MsgRecordBeaconTimestamp): MsgRecordBeaconTimestampAminoMsg {
+    return {
+      type: "beacon/RecordBeaconTimestamp",
+      value: MsgRecordBeaconTimestamp.toAmino(message)
+    };
+  },
   fromProtoMsg(message: MsgRecordBeaconTimestampProtoMsg): MsgRecordBeaconTimestamp {
     return MsgRecordBeaconTimestamp.decode(message.value);
   },
@@ -539,6 +554,7 @@ export const MsgRecordBeaconTimestamp = {
   }
 };
 GlobalDecoderRegistry.register(MsgRecordBeaconTimestamp.typeUrl, MsgRecordBeaconTimestamp);
+GlobalDecoderRegistry.registerAminoProtoMapping(MsgRecordBeaconTimestamp.aminoType, MsgRecordBeaconTimestamp.typeUrl);
 function createBaseMsgRecordBeaconTimestampResponse(): MsgRecordBeaconTimestampResponse {
   return {
     beaconId: BigInt(0),
@@ -633,6 +649,7 @@ function createBaseMsgPurchaseBeaconStateStorage(): MsgPurchaseBeaconStateStorag
 }
 export const MsgPurchaseBeaconStateStorage = {
   typeUrl: "/mainchain.beacon.v1.MsgPurchaseBeaconStateStorage",
+  aminoType: "beacon/PurchaseBeaconStateStorage",
   is(o: any): o is MsgPurchaseBeaconStateStorage {
     return o && (o.$typeUrl === MsgPurchaseBeaconStateStorage.typeUrl || typeof o.beaconId === "bigint" && typeof o.number === "bigint" && typeof o.owner === "string");
   },
@@ -707,6 +724,12 @@ export const MsgPurchaseBeaconStateStorage = {
   fromAminoMsg(object: MsgPurchaseBeaconStateStorageAminoMsg): MsgPurchaseBeaconStateStorage {
     return MsgPurchaseBeaconStateStorage.fromAmino(object.value);
   },
+  toAminoMsg(message: MsgPurchaseBeaconStateStorage): MsgPurchaseBeaconStateStorageAminoMsg {
+    return {
+      type: "beacon/PurchaseBeaconStateStorage",
+      value: MsgPurchaseBeaconStateStorage.toAmino(message)
+    };
+  },
   fromProtoMsg(message: MsgPurchaseBeaconStateStorageProtoMsg): MsgPurchaseBeaconStateStorage {
     return MsgPurchaseBeaconStateStorage.decode(message.value);
   },
@@ -721,6 +744,7 @@ export const MsgPurchaseBeaconStateStorage = {
   }
 };
 GlobalDecoderRegistry.register(MsgPurchaseBeaconStateStorage.typeUrl, MsgPurchaseBeaconStateStorage);
+GlobalDecoderRegistry.registerAminoProtoMapping(MsgPurchaseBeaconStateStorage.aminoType, MsgPurchaseBeaconStateStorage.typeUrl);
 function createBaseMsgPurchaseBeaconStateStorageResponse(): MsgPurchaseBeaconStateStorageResponse {
   return {
     beaconId: BigInt(0),
