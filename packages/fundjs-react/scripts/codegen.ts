@@ -4,7 +4,7 @@ import { join } from 'path';
 import { rimrafSync as rimraf } from 'rimraf';
 
 const protoDirs: string[] = [
-  join(__dirname, '/../../fundjs/mainchain/proto'),
+  // join(__dirname, '/../../fundjs/mainchain/proto'),
   join(__dirname, '/../../fundjs/proto')
 ];
 const outPath: string = join(__dirname, '../src');
