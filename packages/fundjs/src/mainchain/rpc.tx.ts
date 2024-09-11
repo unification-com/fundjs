@@ -5,20 +5,6 @@ export const createRPCMsgClient = async ({
 }: {
   rpc: Rpc;
 }) => ({
-  mainchain: {
-    beacon: {
-      v1: new (await import("./beacon/v1/tx.rpc.msg")).MsgClientImpl(rpc)
-    },
-    enterprise: {
-      v1: new (await import("./enterprise/v1/tx.rpc.msg")).MsgClientImpl(rpc)
-    },
-    stream: {
-      v1: new (await import("./stream/v1/tx.rpc.msg")).MsgClientImpl(rpc)
-    },
-    wrkchain: {
-      v1: new (await import("./wrkchain/v1/tx.rpc.msg")).MsgClientImpl(rpc)
-    }
-  },
   cosmos: {
     authz: {
       v1beta1: new (await import("../cosmos/authz/v1beta1/tx.rpc.msg")).MsgClientImpl(rpc)
@@ -53,6 +39,20 @@ export const createRPCMsgClient = async ({
     },
     upgrade: {
       v1beta1: new (await import("../cosmos/upgrade/v1beta1/tx.rpc.msg")).MsgClientImpl(rpc)
+    }
+  },
+  mainchain: {
+    beacon: {
+      v1: new (await import("./beacon/v1/tx.rpc.msg")).MsgClientImpl(rpc)
+    },
+    enterprise: {
+      v1: new (await import("./enterprise/v1/tx.rpc.msg")).MsgClientImpl(rpc)
+    },
+    stream: {
+      v1: new (await import("./stream/v1/tx.rpc.msg")).MsgClientImpl(rpc)
+    },
+    wrkchain: {
+      v1: new (await import("./wrkchain/v1/tx.rpc.msg")).MsgClientImpl(rpc)
     }
   }
 });

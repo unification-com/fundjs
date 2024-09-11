@@ -33,7 +33,7 @@ export interface MsgRegisterWrkChainAmino {
   owner?: string;
 }
 export interface MsgRegisterWrkChainAminoMsg {
-  type: "/mainchain.wrkchain.v1.MsgRegisterWrkChain";
+  type: "wrkchain/RegisterWrkChain";
   value: MsgRegisterWrkChainAmino;
 }
 /** MsgRegisterWrkChain represents a message to register a new wrkchain */
@@ -109,7 +109,7 @@ export interface MsgRecordWrkChainBlockAmino {
   owner?: string;
 }
 export interface MsgRecordWrkChainBlockAminoMsg {
-  type: "/mainchain.wrkchain.v1.MsgRecordWrkChainBlock";
+  type: "wrkchain/MsgRecordWrkChainBlock";
   value: MsgRecordWrkChainBlockAmino;
 }
 /** MsgRecordWrkChainBlock represents a message to submit a set of block hashes for a registered wrkchain */
@@ -173,7 +173,7 @@ export interface MsgPurchaseWrkChainStateStorageAmino {
   owner?: string;
 }
 export interface MsgPurchaseWrkChainStateStorageAminoMsg {
-  type: "/mainchain.wrkchain.v1.MsgPurchaseWrkChainStateStorage";
+  type: "wrkchain/PurchaseWrkChainStateStorage";
   value: MsgPurchaseWrkChainStateStorageAmino;
 }
 /** MsgPurchaseWrkChainStateStorage represents a message to purchase more wrkchain storage */
@@ -301,6 +301,7 @@ function createBaseMsgRegisterWrkChain(): MsgRegisterWrkChain {
 }
 export const MsgRegisterWrkChain = {
   typeUrl: "/mainchain.wrkchain.v1.MsgRegisterWrkChain",
+  aminoType: "wrkchain/RegisterWrkChain",
   is(o: any): o is MsgRegisterWrkChain {
     return o && (o.$typeUrl === MsgRegisterWrkChain.typeUrl || typeof o.moniker === "string" && typeof o.name === "string" && typeof o.genesisHash === "string" && typeof o.baseType === "string" && typeof o.owner === "string");
   },
@@ -397,6 +398,12 @@ export const MsgRegisterWrkChain = {
   fromAminoMsg(object: MsgRegisterWrkChainAminoMsg): MsgRegisterWrkChain {
     return MsgRegisterWrkChain.fromAmino(object.value);
   },
+  toAminoMsg(message: MsgRegisterWrkChain): MsgRegisterWrkChainAminoMsg {
+    return {
+      type: "wrkchain/RegisterWrkChain",
+      value: MsgRegisterWrkChain.toAmino(message)
+    };
+  },
   fromProtoMsg(message: MsgRegisterWrkChainProtoMsg): MsgRegisterWrkChain {
     return MsgRegisterWrkChain.decode(message.value);
   },
@@ -411,6 +418,7 @@ export const MsgRegisterWrkChain = {
   }
 };
 GlobalDecoderRegistry.register(MsgRegisterWrkChain.typeUrl, MsgRegisterWrkChain);
+GlobalDecoderRegistry.registerAminoProtoMapping(MsgRegisterWrkChain.aminoType, MsgRegisterWrkChain.typeUrl);
 function createBaseMsgRegisterWrkChainResponse(): MsgRegisterWrkChainResponse {
   return {
     wrkchainId: BigInt(0)
@@ -498,6 +506,7 @@ function createBaseMsgRecordWrkChainBlock(): MsgRecordWrkChainBlock {
 }
 export const MsgRecordWrkChainBlock = {
   typeUrl: "/mainchain.wrkchain.v1.MsgRecordWrkChainBlock",
+  aminoType: "wrkchain/MsgRecordWrkChainBlock",
   is(o: any): o is MsgRecordWrkChainBlock {
     return o && (o.$typeUrl === MsgRecordWrkChainBlock.typeUrl || typeof o.wrkchainId === "bigint" && typeof o.height === "bigint" && typeof o.blockHash === "string" && typeof o.parentHash === "string" && typeof o.hash1 === "string" && typeof o.hash2 === "string" && typeof o.hash3 === "string" && typeof o.owner === "string");
   },
@@ -627,6 +636,12 @@ export const MsgRecordWrkChainBlock = {
   fromAminoMsg(object: MsgRecordWrkChainBlockAminoMsg): MsgRecordWrkChainBlock {
     return MsgRecordWrkChainBlock.fromAmino(object.value);
   },
+  toAminoMsg(message: MsgRecordWrkChainBlock): MsgRecordWrkChainBlockAminoMsg {
+    return {
+      type: "wrkchain/MsgRecordWrkChainBlock",
+      value: MsgRecordWrkChainBlock.toAmino(message)
+    };
+  },
   fromProtoMsg(message: MsgRecordWrkChainBlockProtoMsg): MsgRecordWrkChainBlock {
     return MsgRecordWrkChainBlock.decode(message.value);
   },
@@ -641,6 +656,7 @@ export const MsgRecordWrkChainBlock = {
   }
 };
 GlobalDecoderRegistry.register(MsgRecordWrkChainBlock.typeUrl, MsgRecordWrkChainBlock);
+GlobalDecoderRegistry.registerAminoProtoMapping(MsgRecordWrkChainBlock.aminoType, MsgRecordWrkChainBlock.typeUrl);
 function createBaseMsgRecordWrkChainBlockResponse(): MsgRecordWrkChainBlockResponse {
   return {
     wrkchainId: BigInt(0),
@@ -735,6 +751,7 @@ function createBaseMsgPurchaseWrkChainStateStorage(): MsgPurchaseWrkChainStateSt
 }
 export const MsgPurchaseWrkChainStateStorage = {
   typeUrl: "/mainchain.wrkchain.v1.MsgPurchaseWrkChainStateStorage",
+  aminoType: "wrkchain/PurchaseWrkChainStateStorage",
   is(o: any): o is MsgPurchaseWrkChainStateStorage {
     return o && (o.$typeUrl === MsgPurchaseWrkChainStateStorage.typeUrl || typeof o.wrkchainId === "bigint" && typeof o.number === "bigint" && typeof o.owner === "string");
   },
@@ -809,6 +826,12 @@ export const MsgPurchaseWrkChainStateStorage = {
   fromAminoMsg(object: MsgPurchaseWrkChainStateStorageAminoMsg): MsgPurchaseWrkChainStateStorage {
     return MsgPurchaseWrkChainStateStorage.fromAmino(object.value);
   },
+  toAminoMsg(message: MsgPurchaseWrkChainStateStorage): MsgPurchaseWrkChainStateStorageAminoMsg {
+    return {
+      type: "wrkchain/PurchaseWrkChainStateStorage",
+      value: MsgPurchaseWrkChainStateStorage.toAmino(message)
+    };
+  },
   fromProtoMsg(message: MsgPurchaseWrkChainStateStorageProtoMsg): MsgPurchaseWrkChainStateStorage {
     return MsgPurchaseWrkChainStateStorage.decode(message.value);
   },
@@ -823,6 +846,7 @@ export const MsgPurchaseWrkChainStateStorage = {
   }
 };
 GlobalDecoderRegistry.register(MsgPurchaseWrkChainStateStorage.typeUrl, MsgPurchaseWrkChainStateStorage);
+GlobalDecoderRegistry.registerAminoProtoMapping(MsgPurchaseWrkChainStateStorage.aminoType, MsgPurchaseWrkChainStateStorage.typeUrl);
 function createBaseMsgPurchaseWrkChainStateStorageResponse(): MsgPurchaseWrkChainStateStorageResponse {
   return {
     wrkchainId: BigInt(0),

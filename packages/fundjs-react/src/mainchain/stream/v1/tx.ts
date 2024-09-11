@@ -32,7 +32,7 @@ export interface MsgCreateStreamAmino {
   flow_rate?: string;
 }
 export interface MsgCreateStreamAminoMsg {
-  type: "/mainchain.stream.v1.MsgCreateStream";
+  type: "mainchain/x/stream/MsgCreateStream";
   value: MsgCreateStreamAmino;
 }
 /** MsgCreateStream creates a new stream */
@@ -98,7 +98,7 @@ export interface MsgClaimStreamAmino {
   receiver?: string;
 }
 export interface MsgClaimStreamAminoMsg {
-  type: "/mainchain.stream.v1.MsgClaimStream";
+  type: "mainchain/x/stream/MsgClaimStream";
   value: MsgClaimStreamAmino;
 }
 /** MsgClaimStream claims pending payments form a stream using the sender and receiver addresses */
@@ -163,7 +163,7 @@ export interface MsgTopUpDepositAmino {
   deposit?: CoinAmino;
 }
 export interface MsgTopUpDepositAminoMsg {
-  type: "/mainchain.stream.v1.MsgTopUpDeposit";
+  type: "mainchain/x/stream/MsgTopUpDeposit";
   value: MsgTopUpDepositAmino;
 }
 /** MsgTopUpDeposit tops up deposits in an existing stream */
@@ -227,7 +227,7 @@ export interface MsgUpdateFlowRateAmino {
   flow_rate?: string;
 }
 export interface MsgUpdateFlowRateAminoMsg {
-  type: "/mainchain.stream.v1.MsgUpdateFlowRate";
+  type: "mainchain/x/stream/MsgUpdateFlowRate";
   value: MsgUpdateFlowRateAmino;
 }
 /** MsgUpdateFlowRate updates a stream's flow rate */
@@ -277,7 +277,7 @@ export interface MsgCancelStreamAmino {
   sender?: string;
 }
 export interface MsgCancelStreamAminoMsg {
-  type: "/mainchain.stream.v1.MsgCancelStream";
+  type: "mainchain/x/stream/MsgCancelStream";
   value: MsgCancelStreamAmino;
 }
 /** MsgCancelStream */
@@ -385,6 +385,7 @@ function createBaseMsgCreateStream(): MsgCreateStream {
 }
 export const MsgCreateStream = {
   typeUrl: "/mainchain.stream.v1.MsgCreateStream",
+  aminoType: "mainchain/x/stream/MsgCreateStream",
   is(o: any): o is MsgCreateStream {
     return o && (o.$typeUrl === MsgCreateStream.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string" && Coin.is(o.deposit) && typeof o.flowRate === "bigint");
   },
@@ -470,6 +471,12 @@ export const MsgCreateStream = {
   fromAminoMsg(object: MsgCreateStreamAminoMsg): MsgCreateStream {
     return MsgCreateStream.fromAmino(object.value);
   },
+  toAminoMsg(message: MsgCreateStream): MsgCreateStreamAminoMsg {
+    return {
+      type: "mainchain/x/stream/MsgCreateStream",
+      value: MsgCreateStream.toAmino(message)
+    };
+  },
   fromProtoMsg(message: MsgCreateStreamProtoMsg): MsgCreateStream {
     return MsgCreateStream.decode(message.value);
   },
@@ -484,6 +491,7 @@ export const MsgCreateStream = {
   }
 };
 GlobalDecoderRegistry.register(MsgCreateStream.typeUrl, MsgCreateStream);
+GlobalDecoderRegistry.registerAminoProtoMapping(MsgCreateStream.aminoType, MsgCreateStream.typeUrl);
 function createBaseMsgCreateStreamResponse(): MsgCreateStreamResponse {
   return {
     receiver: "",
@@ -601,6 +609,7 @@ function createBaseMsgClaimStream(): MsgClaimStream {
 }
 export const MsgClaimStream = {
   typeUrl: "/mainchain.stream.v1.MsgClaimStream",
+  aminoType: "mainchain/x/stream/MsgClaimStream",
   is(o: any): o is MsgClaimStream {
     return o && (o.$typeUrl === MsgClaimStream.typeUrl || typeof o.sender === "string" && typeof o.receiver === "string");
   },
@@ -664,6 +673,12 @@ export const MsgClaimStream = {
   fromAminoMsg(object: MsgClaimStreamAminoMsg): MsgClaimStream {
     return MsgClaimStream.fromAmino(object.value);
   },
+  toAminoMsg(message: MsgClaimStream): MsgClaimStreamAminoMsg {
+    return {
+      type: "mainchain/x/stream/MsgClaimStream",
+      value: MsgClaimStream.toAmino(message)
+    };
+  },
   fromProtoMsg(message: MsgClaimStreamProtoMsg): MsgClaimStream {
     return MsgClaimStream.decode(message.value);
   },
@@ -678,6 +693,7 @@ export const MsgClaimStream = {
   }
 };
 GlobalDecoderRegistry.register(MsgClaimStream.typeUrl, MsgClaimStream);
+GlobalDecoderRegistry.registerAminoProtoMapping(MsgClaimStream.aminoType, MsgClaimStream.typeUrl);
 function createBaseMsgClaimStreamResponse(): MsgClaimStreamResponse {
   return {
     totalClaimed: Coin.fromPartial({}),
@@ -796,6 +812,7 @@ function createBaseMsgTopUpDeposit(): MsgTopUpDeposit {
 }
 export const MsgTopUpDeposit = {
   typeUrl: "/mainchain.stream.v1.MsgTopUpDeposit",
+  aminoType: "mainchain/x/stream/MsgTopUpDeposit",
   is(o: any): o is MsgTopUpDeposit {
     return o && (o.$typeUrl === MsgTopUpDeposit.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string" && Coin.is(o.deposit));
   },
@@ -870,6 +887,12 @@ export const MsgTopUpDeposit = {
   fromAminoMsg(object: MsgTopUpDepositAminoMsg): MsgTopUpDeposit {
     return MsgTopUpDeposit.fromAmino(object.value);
   },
+  toAminoMsg(message: MsgTopUpDeposit): MsgTopUpDepositAminoMsg {
+    return {
+      type: "mainchain/x/stream/MsgTopUpDeposit",
+      value: MsgTopUpDeposit.toAmino(message)
+    };
+  },
   fromProtoMsg(message: MsgTopUpDepositProtoMsg): MsgTopUpDeposit {
     return MsgTopUpDeposit.decode(message.value);
   },
@@ -884,6 +907,7 @@ export const MsgTopUpDeposit = {
   }
 };
 GlobalDecoderRegistry.register(MsgTopUpDeposit.typeUrl, MsgTopUpDeposit);
+GlobalDecoderRegistry.registerAminoProtoMapping(MsgTopUpDeposit.aminoType, MsgTopUpDeposit.typeUrl);
 function createBaseMsgTopUpDepositResponse(): MsgTopUpDepositResponse {
   return {
     depositAmount: Coin.fromPartial({}),
@@ -990,6 +1014,7 @@ function createBaseMsgUpdateFlowRate(): MsgUpdateFlowRate {
 }
 export const MsgUpdateFlowRate = {
   typeUrl: "/mainchain.stream.v1.MsgUpdateFlowRate",
+  aminoType: "mainchain/x/stream/MsgUpdateFlowRate",
   is(o: any): o is MsgUpdateFlowRate {
     return o && (o.$typeUrl === MsgUpdateFlowRate.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string" && typeof o.flowRate === "bigint");
   },
@@ -1064,6 +1089,12 @@ export const MsgUpdateFlowRate = {
   fromAminoMsg(object: MsgUpdateFlowRateAminoMsg): MsgUpdateFlowRate {
     return MsgUpdateFlowRate.fromAmino(object.value);
   },
+  toAminoMsg(message: MsgUpdateFlowRate): MsgUpdateFlowRateAminoMsg {
+    return {
+      type: "mainchain/x/stream/MsgUpdateFlowRate",
+      value: MsgUpdateFlowRate.toAmino(message)
+    };
+  },
   fromProtoMsg(message: MsgUpdateFlowRateProtoMsg): MsgUpdateFlowRate {
     return MsgUpdateFlowRate.decode(message.value);
   },
@@ -1078,6 +1109,7 @@ export const MsgUpdateFlowRate = {
   }
 };
 GlobalDecoderRegistry.register(MsgUpdateFlowRate.typeUrl, MsgUpdateFlowRate);
+GlobalDecoderRegistry.registerAminoProtoMapping(MsgUpdateFlowRate.aminoType, MsgUpdateFlowRate.typeUrl);
 function createBaseMsgUpdateFlowRateResponse(): MsgUpdateFlowRateResponse {
   return {
     flowRate: BigInt(0)
@@ -1159,6 +1191,7 @@ function createBaseMsgCancelStream(): MsgCancelStream {
 }
 export const MsgCancelStream = {
   typeUrl: "/mainchain.stream.v1.MsgCancelStream",
+  aminoType: "mainchain/x/stream/MsgCancelStream",
   is(o: any): o is MsgCancelStream {
     return o && (o.$typeUrl === MsgCancelStream.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string");
   },
@@ -1222,6 +1255,12 @@ export const MsgCancelStream = {
   fromAminoMsg(object: MsgCancelStreamAminoMsg): MsgCancelStream {
     return MsgCancelStream.fromAmino(object.value);
   },
+  toAminoMsg(message: MsgCancelStream): MsgCancelStreamAminoMsg {
+    return {
+      type: "mainchain/x/stream/MsgCancelStream",
+      value: MsgCancelStream.toAmino(message)
+    };
+  },
   fromProtoMsg(message: MsgCancelStreamProtoMsg): MsgCancelStream {
     return MsgCancelStream.decode(message.value);
   },
@@ -1236,6 +1275,7 @@ export const MsgCancelStream = {
   }
 };
 GlobalDecoderRegistry.register(MsgCancelStream.typeUrl, MsgCancelStream);
+GlobalDecoderRegistry.registerAminoProtoMapping(MsgCancelStream.aminoType, MsgCancelStream.typeUrl);
 function createBaseMsgCancelStreamResponse(): MsgCancelStreamResponse {
   return {};
 }

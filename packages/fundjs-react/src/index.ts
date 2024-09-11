@@ -5,8 +5,6 @@
     * and run the transpile command or npm scripts command that is used to regenerate this bundle.
   */
  
-export * from "./mainchain/bundle";
-export * from "./mainchain/client";
 export * from "./amino/bundle";
 export * from "./ics23/bundle";
 export * from "./cosmos_proto/bundle";
@@ -16,6 +14,8 @@ export * from "./gogoproto/bundle";
 export * from "./google/bundle";
 export * from "./ibc/bundle";
 export * from "./ibc/client";
+export * from "./mainchain/bundle";
+export * from "./mainchain/client";
 export * from "./tendermint/bundle";
 export * from "./hooks";
 export * from "./extern";
