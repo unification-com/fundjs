@@ -2,7 +2,7 @@
 import { MsgRegisterWrkChain, MsgRecordWrkChainBlock, MsgPurchaseWrkChainStateStorage, MsgUpdateParams } from "./tx";
 export const AminoConverter = {
   "/mainchain.wrkchain.v1.MsgRegisterWrkChain": {
-    aminoType: "wrkchain/RegisterWrkChain",
+    aminoType: "wrkchain/MsgRegisterWrkChain",
     toAmino: MsgRegisterWrkChain.toAmino,
     fromAmino: MsgRegisterWrkChain.fromAmino
   },
@@ -12,7 +12,7 @@ export const AminoConverter = {
     fromAmino: MsgRecordWrkChainBlock.fromAmino
   },
   "/mainchain.wrkchain.v1.MsgPurchaseWrkChainStateStorage": {
-    aminoType: "wrkchain/PurchaseWrkChainStateStorage",
+    aminoType: "wrkchain/MsgPurchaseWrkChainStorage",
     toAmino: MsgPurchaseWrkChainStateStorage.toAmino,
     fromAmino: MsgPurchaseWrkChainStateStorage.fromAmino
   },

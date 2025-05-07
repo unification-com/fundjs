@@ -10,24 +10,25 @@ import { GlobalDecoderRegistry } from "../../../registry";
  */
 export interface ValidatorSigningInfo {
   address: string;
-  /** Height at which validator was first a candidate OR was unjailed */
+  /** Height at which validator was first a candidate OR was un-jailed */
   startHeight: bigint;
   /**
-   * Index which is incremented each time the validator was a bonded
-   * in a block and may have signed a precommit or not. This in conjunction with the
-   * `SignedBlocksWindow` param determines the index in the `MissedBlocksBitArray`.
+   * Index which is incremented every time a validator is bonded in a block and
+   * _may_ have signed a pre-commit or not. This in conjunction with the
+   * signed_blocks_window param determines the index in the missed block bitmap.
    */
   indexOffset: bigint;
   /** Timestamp until which the validator is jailed due to liveness downtime. */
   jailedUntil: Date;
   /**
-   * Whether or not a validator has been tombstoned (killed out of validator set). It is set
-   * once the validator commits an equivocation or for any other configured misbehiavor.
+   * Whether or not a validator has been tombstoned (killed out of validator
+   * set). It is set once the validator commits an equivocation or for any other
+   * configured misbehavior.
    */
   tombstoned: boolean;
   /**
-   * A counter kept to avoid unnecessary array reads.
-   * Note that `Sum(MissedBlocksBitArray)` always equals `MissedBlocksCounter`.
+   * A counter of missed (unsigned) blocks. It is used to avoid unnecessary
+   * reads in the missed block bitmap.
    */
   missedBlocksCounter: bigint;
 }
@@ -41,24 +42,25 @@ export interface ValidatorSigningInfoProtoMsg {
  */
 export interface ValidatorSigningInfoAmino {
   address?: string;
-  /** Height at which validator was first a candidate OR was unjailed */
+  /** Height at which validator was first a candidate OR was un-jailed */
   start_height?: string;
   /**
-   * Index which is incremented each time the validator was a bonded
-   * in a block and may have signed a precommit or not. This in conjunction with the
-   * `SignedBlocksWindow` param determines the index in the `MissedBlocksBitArray`.
+   * Index which is incremented every time a validator is bonded in a block and
+   * _may_ have signed a pre-commit or not. This in conjunction with the
+   * signed_blocks_window param determines the index in the missed block bitmap.
    */
   index_offset?: string;
   /** Timestamp until which the validator is jailed due to liveness downtime. */
-  jailed_until?: string;
+  jailed_until: string;
   /**
-   * Whether or not a validator has been tombstoned (killed out of validator set). It is set
-   * once the validator commits an equivocation or for any other configured misbehiavor.
+   * Whether or not a validator has been tombstoned (killed out of validator
+   * set). It is set once the validator commits an equivocation or for any other
+   * configured misbehavior.
    */
   tombstoned?: boolean;
   /**
-   * A counter kept to avoid unnecessary array reads.
-   * Note that `Sum(MissedBlocksBitArray)` always equals `MissedBlocksCounter`.
+   * A counter of missed (unsigned) blocks. It is used to avoid unnecessary
+   * reads in the missed block bitmap.
    */
   missed_blocks_counter?: string;
 }
@@ -93,13 +95,13 @@ export interface ParamsProtoMsg {
 /** Params represents the parameters used for by the slashing module. */
 export interface ParamsAmino {
   signed_blocks_window?: string;
-  min_signed_per_window?: string;
-  downtime_jail_duration?: DurationAmino;
-  slash_fraction_double_sign?: string;
-  slash_fraction_downtime?: string;
+  min_signed_per_window: string;
+  downtime_jail_duration: DurationAmino;
+  slash_fraction_double_sign: string;
+  slash_fraction_downtime: string;
 }
 export interface ParamsAminoMsg {
-  type: "cosmos-sdk/Params";
+  type: "cosmos-sdk/x/slashing/Params";
   value: ParamsAmino;
 }
 /** Params represents the parameters used for by the slashing module. */
@@ -220,11 +222,11 @@ export const ValidatorSigningInfo = {
   toAmino(message: ValidatorSigningInfo): ValidatorSigningInfoAmino {
     const obj: any = {};
     obj.address = message.address === "" ? undefined : message.address;
-    obj.start_height = message.startHeight !== BigInt(0) ? message.startHeight.toString() : undefined;
-    obj.index_offset = message.indexOffset !== BigInt(0) ? message.indexOffset.toString() : undefined;
-    obj.jailed_until = message.jailedUntil ? Timestamp.toAmino(toTimestamp(message.jailedUntil)) : undefined;
+    obj.start_height = message.startHeight !== BigInt(0) ? message.startHeight?.toString() : undefined;
+    obj.index_offset = message.indexOffset !== BigInt(0) ? message.indexOffset?.toString() : undefined;
+    obj.jailed_until = message.jailedUntil ? Timestamp.toAmino(toTimestamp(message.jailedUntil)) : new Date();
     obj.tombstoned = message.tombstoned === false ? undefined : message.tombstoned;
-    obj.missed_blocks_counter = message.missedBlocksCounter !== BigInt(0) ? message.missedBlocksCounter.toString() : undefined;
+    obj.missed_blocks_counter = message.missedBlocksCounter !== BigInt(0) ? message.missedBlocksCounter?.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: ValidatorSigningInfoAminoMsg): ValidatorSigningInfo {
@@ -262,7 +264,7 @@ function createBaseParams(): Params {
 }
 export const Params = {
   typeUrl: "/cosmos.slashing.v1beta1.Params",
-  aminoType: "cosmos-sdk/Params",
+  aminoType: "cosmos-sdk/x/slashing/Params",
   is(o: any): o is Params {
     return o && (o.$typeUrl === Params.typeUrl || typeof o.signedBlocksWindow === "bigint" && (o.minSignedPerWindow instanceof Uint8Array || typeof o.minSignedPerWindow === "string") && Duration.is(o.downtimeJailDuration) && (o.slashFractionDoubleSign instanceof Uint8Array || typeof o.slashFractionDoubleSign === "string") && (o.slashFractionDowntime instanceof Uint8Array || typeof o.slashFractionDowntime === "string"));
   },
@@ -349,11 +351,11 @@ export const Params = {
   },
   toAmino(message: Params): ParamsAmino {
     const obj: any = {};
-    obj.signed_blocks_window = message.signedBlocksWindow !== BigInt(0) ? message.signedBlocksWindow.toString() : undefined;
-    obj.min_signed_per_window = message.minSignedPerWindow ? base64FromBytes(message.minSignedPerWindow) : undefined;
-    obj.downtime_jail_duration = message.downtimeJailDuration ? Duration.toAmino(message.downtimeJailDuration) : undefined;
-    obj.slash_fraction_double_sign = message.slashFractionDoubleSign ? base64FromBytes(message.slashFractionDoubleSign) : undefined;
-    obj.slash_fraction_downtime = message.slashFractionDowntime ? base64FromBytes(message.slashFractionDowntime) : undefined;
+    obj.signed_blocks_window = message.signedBlocksWindow !== BigInt(0) ? message.signedBlocksWindow?.toString() : undefined;
+    obj.min_signed_per_window = message.minSignedPerWindow ? base64FromBytes(message.minSignedPerWindow) : "";
+    obj.downtime_jail_duration = message.downtimeJailDuration ? Duration.toAmino(message.downtimeJailDuration) : Duration.toAmino(Duration.fromPartial({}));
+    obj.slash_fraction_double_sign = message.slashFractionDoubleSign ? base64FromBytes(message.slashFractionDoubleSign) : "";
+    obj.slash_fraction_downtime = message.slashFractionDowntime ? base64FromBytes(message.slashFractionDowntime) : "";
     return obj;
   },
   fromAminoMsg(object: ParamsAminoMsg): Params {
@@ -361,7 +363,7 @@ export const Params = {
   },
   toAminoMsg(message: Params): ParamsAminoMsg {
     return {
-      type: "cosmos-sdk/Params",
+      type: "cosmos-sdk/x/slashing/Params",
       value: Params.toAmino(message)
     };
   },

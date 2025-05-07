@@ -1,0 +1,27 @@
+{
+  "repos": [
+    { "owner": "cosmos",
+      "repo": "cosmos-sdk",
+      "branch": "v0.50.13"
+    },
+    { "owner": "cosmos",
+      "repo": "ibc-go",
+      "branch": "v8.7.0"
+    },
+    { "owner": "unification-com",
+      "repo": "mainchain",
+      "branch": "v1.11.0"
+    }
+  ],
+  "protoDirMapping": {
+    "gogo/protobuf/master": "."
+  },
+  "outDir": "protos",
+  "ssh": true,
+  "tempRepoDir": "git-modules",
+  "targets": [
+    "cosmos/**/**/*.proto",
+    "ibc/**/**/*.proto",
+    "mainchain/**/**/*.proto"
+  ]
+}

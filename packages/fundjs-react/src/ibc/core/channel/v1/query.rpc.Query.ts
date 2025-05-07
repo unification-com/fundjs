@@ -4,7 +4,7 @@ import { BinaryReader } from "../../../../binary";
 import { QueryClient, createProtobufRpcClient, ProtobufRpcClient } from "@cosmjs/stargate";
 import { ReactQueryParams } from "../../../../react-query";
 import { useQuery } from "@tanstack/react-query";
-import { QueryChannelRequest, QueryChannelResponse, QueryChannelsRequest, QueryChannelsResponse, QueryConnectionChannelsRequest, QueryConnectionChannelsResponse, QueryChannelClientStateRequest, QueryChannelClientStateResponse, QueryChannelConsensusStateRequest, QueryChannelConsensusStateResponse, QueryPacketCommitmentRequest, QueryPacketCommitmentResponse, QueryPacketCommitmentsRequest, QueryPacketCommitmentsResponse, QueryPacketReceiptRequest, QueryPacketReceiptResponse, QueryPacketAcknowledgementRequest, QueryPacketAcknowledgementResponse, QueryPacketAcknowledgementsRequest, QueryPacketAcknowledgementsResponse, QueryUnreceivedPacketsRequest, QueryUnreceivedPacketsResponse, QueryUnreceivedAcksRequest, QueryUnreceivedAcksResponse, QueryNextSequenceReceiveRequest, QueryNextSequenceReceiveResponse } from "./query";
+import { QueryChannelRequest, QueryChannelResponse, QueryChannelsRequest, QueryChannelsResponse, QueryConnectionChannelsRequest, QueryConnectionChannelsResponse, QueryChannelClientStateRequest, QueryChannelClientStateResponse, QueryChannelConsensusStateRequest, QueryChannelConsensusStateResponse, QueryPacketCommitmentRequest, QueryPacketCommitmentResponse, QueryPacketCommitmentsRequest, QueryPacketCommitmentsResponse, QueryPacketReceiptRequest, QueryPacketReceiptResponse, QueryPacketAcknowledgementRequest, QueryPacketAcknowledgementResponse, QueryPacketAcknowledgementsRequest, QueryPacketAcknowledgementsResponse, QueryUnreceivedPacketsRequest, QueryUnreceivedPacketsResponse, QueryUnreceivedAcksRequest, QueryUnreceivedAcksResponse, QueryNextSequenceReceiveRequest, QueryNextSequenceReceiveResponse, QueryNextSequenceSendRequest, QueryNextSequenceSendResponse, QueryUpgradeErrorRequest, QueryUpgradeErrorResponse, QueryUpgradeRequest, QueryUpgradeResponse, QueryChannelParamsRequest, QueryChannelParamsResponse } from "./query";
 /** Query provides defines the gRPC querier service */
 export interface Query {
   /** Channel queries an IBC Channel. */
@@ -57,6 +57,14 @@ export interface Query {
   unreceivedAcks(request: QueryUnreceivedAcksRequest): Promise<QueryUnreceivedAcksResponse>;
   /** NextSequenceReceive returns the next receive sequence for a given channel. */
   nextSequenceReceive(request: QueryNextSequenceReceiveRequest): Promise<QueryNextSequenceReceiveResponse>;
+  /** NextSequenceSend returns the next send sequence for a given channel. */
+  nextSequenceSend(request: QueryNextSequenceSendRequest): Promise<QueryNextSequenceSendResponse>;
+  /** UpgradeError returns the error receipt if the upgrade handshake failed. */
+  upgradeError(request: QueryUpgradeErrorRequest): Promise<QueryUpgradeErrorResponse>;
+  /** Upgrade returns the upgrade for a given port and channel id. */
+  upgrade(request: QueryUpgradeRequest): Promise<QueryUpgradeResponse>;
+  /** ChannelParams queries all parameters of the ibc channel submodule. */
+  channelParams(request?: QueryChannelParamsRequest): Promise<QueryChannelParamsResponse>;
 }
 export class QueryClientImpl implements Query {
   private readonly rpc: Rpc;
@@ -75,6 +83,10 @@ export class QueryClientImpl implements Query {
     this.unreceivedPackets = this.unreceivedPackets.bind(this);
     this.unreceivedAcks = this.unreceivedAcks.bind(this);
     this.nextSequenceReceive = this.nextSequenceReceive.bind(this);
+    this.nextSequenceSend = this.nextSequenceSend.bind(this);
+    this.upgradeError = this.upgradeError.bind(this);
+    this.upgrade = this.upgrade.bind(this);
+    this.channelParams = this.channelParams.bind(this);
   }
   channel(request: QueryChannelRequest): Promise<QueryChannelResponse> {
     const data = QueryChannelRequest.encode(request).finish();
@@ -143,6 +155,26 @@ export class QueryClientImpl implements Query {
     const promise = this.rpc.request("ibc.core.channel.v1.Query", "NextSequenceReceive", data);
     return promise.then(data => QueryNextSequenceReceiveResponse.decode(new BinaryReader(data)));
   }
+  nextSequenceSend(request: QueryNextSequenceSendRequest): Promise<QueryNextSequenceSendResponse> {
+    const data = QueryNextSequenceSendRequest.encode(request).finish();
+    const promise = this.rpc.request("ibc.core.channel.v1.Query", "NextSequenceSend", data);
+    return promise.then(data => QueryNextSequenceSendResponse.decode(new BinaryReader(data)));
+  }
+  upgradeError(request: QueryUpgradeErrorRequest): Promise<QueryUpgradeErrorResponse> {
+    const data = QueryUpgradeErrorRequest.encode(request).finish();
+    const promise = this.rpc.request("ibc.core.channel.v1.Query", "UpgradeError", data);
+    return promise.then(data => QueryUpgradeErrorResponse.decode(new BinaryReader(data)));
+  }
+  upgrade(request: QueryUpgradeRequest): Promise<QueryUpgradeResponse> {
+    const data = QueryUpgradeRequest.encode(request).finish();
+    const promise = this.rpc.request("ibc.core.channel.v1.Query", "Upgrade", data);
+    return promise.then(data => QueryUpgradeResponse.decode(new BinaryReader(data)));
+  }
+  channelParams(request: QueryChannelParamsRequest = {}): Promise<QueryChannelParamsResponse> {
+    const data = QueryChannelParamsRequest.encode(request).finish();
+    const promise = this.rpc.request("ibc.core.channel.v1.Query", "ChannelParams", data);
+    return promise.then(data => QueryChannelParamsResponse.decode(new BinaryReader(data)));
+  }
 }
 export const createRpcQueryExtension = (base: QueryClient) => {
   const rpc = createProtobufRpcClient(base);
@@ -186,6 +218,18 @@ export const createRpcQueryExtension = (base: QueryClient) => {
     },
     nextSequenceReceive(request: QueryNextSequenceReceiveRequest): Promise<QueryNextSequenceReceiveResponse> {
       return queryService.nextSequenceReceive(request);
+    },
+    nextSequenceSend(request: QueryNextSequenceSendRequest): Promise<QueryNextSequenceSendResponse> {
+      return queryService.nextSequenceSend(request);
+    },
+    upgradeError(request: QueryUpgradeErrorRequest): Promise<QueryUpgradeErrorResponse> {
+      return queryService.upgradeError(request);
+    },
+    upgrade(request: QueryUpgradeRequest): Promise<QueryUpgradeResponse> {
+      return queryService.upgrade(request);
+    },
+    channelParams(request?: QueryChannelParamsRequest): Promise<QueryChannelParamsResponse> {
+      return queryService.channelParams(request);
     }
   };
 };
@@ -227,6 +271,18 @@ export interface UseUnreceivedAcksQuery<TData> extends ReactQueryParams<QueryUnr
 }
 export interface UseNextSequenceReceiveQuery<TData> extends ReactQueryParams<QueryNextSequenceReceiveResponse, TData> {
   request: QueryNextSequenceReceiveRequest;
+}
+export interface UseNextSequenceSendQuery<TData> extends ReactQueryParams<QueryNextSequenceSendResponse, TData> {
+  request: QueryNextSequenceSendRequest;
+}
+export interface UseUpgradeErrorQuery<TData> extends ReactQueryParams<QueryUpgradeErrorResponse, TData> {
+  request: QueryUpgradeErrorRequest;
+}
+export interface UseUpgradeQuery<TData> extends ReactQueryParams<QueryUpgradeResponse, TData> {
+  request: QueryUpgradeRequest;
+}
+export interface UseChannelParamsQuery<TData> extends ReactQueryParams<QueryChannelParamsResponse, TData> {
+  request?: QueryChannelParamsRequest;
 }
 const _queryClients: WeakMap<ProtobufRpcClient, QueryClientImpl> = new WeakMap();
 const getQueryService = (rpc: ProtobufRpcClient | undefined): QueryClientImpl | undefined => {
@@ -357,6 +413,42 @@ export const createRpcQueryHooks = (rpc: ProtobufRpcClient | undefined) => {
       return queryService.nextSequenceReceive(request);
     }, options);
   };
+  const useNextSequenceSend = <TData = QueryNextSequenceSendResponse,>({
+    request,
+    options
+  }: UseNextSequenceSendQuery<TData>) => {
+    return useQuery<QueryNextSequenceSendResponse, Error, TData>(["nextSequenceSendQuery", request], () => {
+      if (!queryService) throw new Error("Query Service not initialized");
+      return queryService.nextSequenceSend(request);
+    }, options);
+  };
+  const useUpgradeError = <TData = QueryUpgradeErrorResponse,>({
+    request,
+    options
+  }: UseUpgradeErrorQuery<TData>) => {
+    return useQuery<QueryUpgradeErrorResponse, Error, TData>(["upgradeErrorQuery", request], () => {
+      if (!queryService) throw new Error("Query Service not initialized");
+      return queryService.upgradeError(request);
+    }, options);
+  };
+  const useUpgrade = <TData = QueryUpgradeResponse,>({
+    request,
+    options
+  }: UseUpgradeQuery<TData>) => {
+    return useQuery<QueryUpgradeResponse, Error, TData>(["upgradeQuery", request], () => {
+      if (!queryService) throw new Error("Query Service not initialized");
+      return queryService.upgrade(request);
+    }, options);
+  };
+  const useChannelParams = <TData = QueryChannelParamsResponse,>({
+    request,
+    options
+  }: UseChannelParamsQuery<TData>) => {
+    return useQuery<QueryChannelParamsResponse, Error, TData>(["channelParamsQuery", request], () => {
+      if (!queryService) throw new Error("Query Service not initialized");
+      return queryService.channelParams(request);
+    }, options);
+  };
   return {
     /** Channel queries an IBC Channel. */useChannel,
     /** Channels queries all the IBC channels of a chain. */useChannels,
@@ -402,6 +494,10 @@ export const createRpcQueryHooks = (rpc: ProtobufRpcClient | undefined) => {
      * with a channel and sequences.
      */
     useUnreceivedAcks,
-    /** NextSequenceReceive returns the next receive sequence for a given channel. */useNextSequenceReceive
+    /** NextSequenceReceive returns the next receive sequence for a given channel. */useNextSequenceReceive,
+    /** NextSequenceSend returns the next send sequence for a given channel. */useNextSequenceSend,
+    /** UpgradeError returns the error receipt if the upgrade handshake failed. */useUpgradeError,
+    /** Upgrade returns the upgrade for a given port and channel id. */useUpgrade,
+    /** ChannelParams queries all parameters of the ibc channel submodule. */useChannelParams
   };
 };

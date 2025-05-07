@@ -24,7 +24,7 @@ export interface MsgGrantProtoMsg {
 export interface MsgGrantAmino {
   granter?: string;
   grantee?: string;
-  grant?: GrantAmino;
+  grant: GrantAmino;
 }
 export interface MsgGrantAminoMsg {
   type: "cosmos-sdk/MsgGrant";
@@ -38,6 +38,73 @@ export interface MsgGrantSDKType {
   granter: string;
   grantee: string;
   grant: GrantSDKType;
+}
+/** MsgGrantResponse defines the Msg/MsgGrant response type. */
+export interface MsgGrantResponse {}
+export interface MsgGrantResponseProtoMsg {
+  typeUrl: "/cosmos.authz.v1beta1.MsgGrantResponse";
+  value: Uint8Array;
+}
+/** MsgGrantResponse defines the Msg/MsgGrant response type. */
+export interface MsgGrantResponseAmino {}
+export interface MsgGrantResponseAminoMsg {
+  type: "cosmos-sdk/MsgGrantResponse";
+  value: MsgGrantResponseAmino;
+}
+/** MsgGrantResponse defines the Msg/MsgGrant response type. */
+export interface MsgGrantResponseSDKType {}
+/**
+ * MsgExec attempts to execute the provided messages using
+ * authorizations granted to the grantee. Each message should have only
+ * one signer corresponding to the granter of the authorization.
+ */
+export interface MsgExec {
+  grantee: string;
+  /**
+   * Execute Msg.
+   * The x/authz will try to find a grant matching (msg.signers[0], grantee, MsgTypeURL(msg))
+   * triple and validate it.
+   */
+  msgs: (Any)[] | Any[];
+}
+export interface MsgExecProtoMsg {
+  typeUrl: "/cosmos.authz.v1beta1.MsgExec";
+  value: Uint8Array;
+}
+export type MsgExecEncoded = Omit<MsgExec, "msgs"> & {
+  /**
+   * Execute Msg.
+   * The x/authz will try to find a grant matching (msg.signers[0], grantee, MsgTypeURL(msg))
+   * triple and validate it.
+   */
+  msgs: (AnyProtoMsg)[];
+};
+/**
+ * MsgExec attempts to execute the provided messages using
+ * authorizations granted to the grantee. Each message should have only
+ * one signer corresponding to the granter of the authorization.
+ */
+export interface MsgExecAmino {
+  grantee?: string;
+  /**
+   * Execute Msg.
+   * The x/authz will try to find a grant matching (msg.signers[0], grantee, MsgTypeURL(msg))
+   * triple and validate it.
+   */
+  msgs?: AnyAmino[];
+}
+export interface MsgExecAminoMsg {
+  type: "cosmos-sdk/MsgExec";
+  value: MsgExecAmino;
+}
+/**
+ * MsgExec attempts to execute the provided messages using
+ * authorizations granted to the grantee. Each message should have only
+ * one signer corresponding to the granter of the authorization.
+ */
+export interface MsgExecSDKType {
+  grantee: string;
+  msgs: (AnySDKType)[];
 }
 /** MsgExecResponse defines the Msg/MsgExecResponse response type. */
 export interface MsgExecResponse {
@@ -59,73 +126,6 @@ export interface MsgExecResponseAminoMsg {
 export interface MsgExecResponseSDKType {
   results: Uint8Array[];
 }
-/**
- * MsgExec attempts to execute the provided messages using
- * authorizations granted to the grantee. Each message should have only
- * one signer corresponding to the granter of the authorization.
- */
-export interface MsgExec {
-  grantee: string;
-  /**
-   * Authorization Msg requests to execute. Each msg must implement Authorization interface
-   * The x/authz will try to find a grant matching (msg.signers[0], grantee, MsgTypeURL(msg))
-   * triple and validate it.
-   */
-  msgs: (Any)[] | Any[];
-}
-export interface MsgExecProtoMsg {
-  typeUrl: "/cosmos.authz.v1beta1.MsgExec";
-  value: Uint8Array;
-}
-export type MsgExecEncoded = Omit<MsgExec, "msgs"> & {
-  /**
-   * Authorization Msg requests to execute. Each msg must implement Authorization interface
-   * The x/authz will try to find a grant matching (msg.signers[0], grantee, MsgTypeURL(msg))
-   * triple and validate it.
-   */
-  msgs: (AnyProtoMsg)[];
-};
-/**
- * MsgExec attempts to execute the provided messages using
- * authorizations granted to the grantee. Each message should have only
- * one signer corresponding to the granter of the authorization.
- */
-export interface MsgExecAmino {
-  grantee?: string;
-  /**
-   * Authorization Msg requests to execute. Each msg must implement Authorization interface
-   * The x/authz will try to find a grant matching (msg.signers[0], grantee, MsgTypeURL(msg))
-   * triple and validate it.
-   */
-  msgs?: AnyAmino[];
-}
-export interface MsgExecAminoMsg {
-  type: "cosmos-sdk/MsgExec";
-  value: MsgExecAmino;
-}
-/**
- * MsgExec attempts to execute the provided messages using
- * authorizations granted to the grantee. Each message should have only
- * one signer corresponding to the granter of the authorization.
- */
-export interface MsgExecSDKType {
-  grantee: string;
-  msgs: (AnySDKType)[];
-}
-/** MsgGrantResponse defines the Msg/MsgGrant response type. */
-export interface MsgGrantResponse {}
-export interface MsgGrantResponseProtoMsg {
-  typeUrl: "/cosmos.authz.v1beta1.MsgGrantResponse";
-  value: Uint8Array;
-}
-/** MsgGrantResponse defines the Msg/MsgGrant response type. */
-export interface MsgGrantResponseAmino {}
-export interface MsgGrantResponseAminoMsg {
-  type: "cosmos-sdk/MsgGrantResponse";
-  value: MsgGrantResponseAmino;
-}
-/** MsgGrantResponse defines the Msg/MsgGrant response type. */
-export interface MsgGrantResponseSDKType {}
 /**
  * MsgRevoke revokes any authorization with the provided sdk.Msg type on the
  * granter's account with that has been granted to the grantee.
@@ -253,7 +253,7 @@ export const MsgGrant = {
     const obj: any = {};
     obj.granter = message.granter === "" ? undefined : message.granter;
     obj.grantee = message.grantee === "" ? undefined : message.grantee;
-    obj.grant = message.grant ? Grant.toAmino(message.grant) : undefined;
+    obj.grant = message.grant ? Grant.toAmino(message.grant) : Grant.toAmino(Grant.fromPartial({}));
     return obj;
   },
   fromAminoMsg(object: MsgGrantAminoMsg): MsgGrant {
@@ -280,39 +280,31 @@ export const MsgGrant = {
 };
 GlobalDecoderRegistry.register(MsgGrant.typeUrl, MsgGrant);
 GlobalDecoderRegistry.registerAminoProtoMapping(MsgGrant.aminoType, MsgGrant.typeUrl);
-function createBaseMsgExecResponse(): MsgExecResponse {
-  return {
-    results: []
-  };
+function createBaseMsgGrantResponse(): MsgGrantResponse {
+  return {};
 }
-export const MsgExecResponse = {
-  typeUrl: "/cosmos.authz.v1beta1.MsgExecResponse",
-  aminoType: "cosmos-sdk/MsgExecResponse",
-  is(o: any): o is MsgExecResponse {
-    return o && (o.$typeUrl === MsgExecResponse.typeUrl || Array.isArray(o.results) && (!o.results.length || o.results[0] instanceof Uint8Array || typeof o.results[0] === "string"));
+export const MsgGrantResponse = {
+  typeUrl: "/cosmos.authz.v1beta1.MsgGrantResponse",
+  aminoType: "cosmos-sdk/MsgGrantResponse",
+  is(o: any): o is MsgGrantResponse {
+    return o && o.$typeUrl === MsgGrantResponse.typeUrl;
   },
-  isSDK(o: any): o is MsgExecResponseSDKType {
-    return o && (o.$typeUrl === MsgExecResponse.typeUrl || Array.isArray(o.results) && (!o.results.length || o.results[0] instanceof Uint8Array || typeof o.results[0] === "string"));
+  isSDK(o: any): o is MsgGrantResponseSDKType {
+    return o && o.$typeUrl === MsgGrantResponse.typeUrl;
   },
-  isAmino(o: any): o is MsgExecResponseAmino {
-    return o && (o.$typeUrl === MsgExecResponse.typeUrl || Array.isArray(o.results) && (!o.results.length || o.results[0] instanceof Uint8Array || typeof o.results[0] === "string"));
+  isAmino(o: any): o is MsgGrantResponseAmino {
+    return o && o.$typeUrl === MsgGrantResponse.typeUrl;
   },
-  encode(message: MsgExecResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    for (const v of message.results) {
-      writer.uint32(10).bytes(v!);
-    }
+  encode(_: MsgGrantResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgExecResponse {
+  decode(input: BinaryReader | Uint8Array, length?: number): MsgGrantResponse {
     const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseMsgExecResponse();
+    const message = createBaseMsgGrantResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-        case 1:
-          message.results.push(reader.bytes());
-          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -320,49 +312,42 @@ export const MsgExecResponse = {
     }
     return message;
   },
-  fromPartial(object: Partial<MsgExecResponse>): MsgExecResponse {
-    const message = createBaseMsgExecResponse();
-    message.results = object.results?.map(e => e) || [];
+  fromPartial(_: Partial<MsgGrantResponse>): MsgGrantResponse {
+    const message = createBaseMsgGrantResponse();
     return message;
   },
-  fromAmino(object: MsgExecResponseAmino): MsgExecResponse {
-    const message = createBaseMsgExecResponse();
-    message.results = object.results?.map(e => bytesFromBase64(e)) || [];
+  fromAmino(_: MsgGrantResponseAmino): MsgGrantResponse {
+    const message = createBaseMsgGrantResponse();
     return message;
   },
-  toAmino(message: MsgExecResponse): MsgExecResponseAmino {
+  toAmino(_: MsgGrantResponse): MsgGrantResponseAmino {
     const obj: any = {};
-    if (message.results) {
-      obj.results = message.results.map(e => base64FromBytes(e));
-    } else {
-      obj.results = message.results;
-    }
     return obj;
   },
-  fromAminoMsg(object: MsgExecResponseAminoMsg): MsgExecResponse {
-    return MsgExecResponse.fromAmino(object.value);
+  fromAminoMsg(object: MsgGrantResponseAminoMsg): MsgGrantResponse {
+    return MsgGrantResponse.fromAmino(object.value);
   },
-  toAminoMsg(message: MsgExecResponse): MsgExecResponseAminoMsg {
+  toAminoMsg(message: MsgGrantResponse): MsgGrantResponseAminoMsg {
     return {
-      type: "cosmos-sdk/MsgExecResponse",
-      value: MsgExecResponse.toAmino(message)
+      type: "cosmos-sdk/MsgGrantResponse",
+      value: MsgGrantResponse.toAmino(message)
     };
   },
-  fromProtoMsg(message: MsgExecResponseProtoMsg): MsgExecResponse {
-    return MsgExecResponse.decode(message.value);
+  fromProtoMsg(message: MsgGrantResponseProtoMsg): MsgGrantResponse {
+    return MsgGrantResponse.decode(message.value);
   },
-  toProto(message: MsgExecResponse): Uint8Array {
-    return MsgExecResponse.encode(message).finish();
+  toProto(message: MsgGrantResponse): Uint8Array {
+    return MsgGrantResponse.encode(message).finish();
   },
-  toProtoMsg(message: MsgExecResponse): MsgExecResponseProtoMsg {
+  toProtoMsg(message: MsgGrantResponse): MsgGrantResponseProtoMsg {
     return {
-      typeUrl: "/cosmos.authz.v1beta1.MsgExecResponse",
-      value: MsgExecResponse.encode(message).finish()
+      typeUrl: "/cosmos.authz.v1beta1.MsgGrantResponse",
+      value: MsgGrantResponse.encode(message).finish()
     };
   }
 };
-GlobalDecoderRegistry.register(MsgExecResponse.typeUrl, MsgExecResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgExecResponse.aminoType, MsgExecResponse.typeUrl);
+GlobalDecoderRegistry.register(MsgGrantResponse.typeUrl, MsgGrantResponse);
+GlobalDecoderRegistry.registerAminoProtoMapping(MsgGrantResponse.aminoType, MsgGrantResponse.typeUrl);
 function createBaseMsgExec(): MsgExec {
   return {
     grantee: "",
@@ -458,31 +443,39 @@ export const MsgExec = {
 };
 GlobalDecoderRegistry.register(MsgExec.typeUrl, MsgExec);
 GlobalDecoderRegistry.registerAminoProtoMapping(MsgExec.aminoType, MsgExec.typeUrl);
-function createBaseMsgGrantResponse(): MsgGrantResponse {
-  return {};
+function createBaseMsgExecResponse(): MsgExecResponse {
+  return {
+    results: []
+  };
 }
-export const MsgGrantResponse = {
-  typeUrl: "/cosmos.authz.v1beta1.MsgGrantResponse",
-  aminoType: "cosmos-sdk/MsgGrantResponse",
-  is(o: any): o is MsgGrantResponse {
-    return o && o.$typeUrl === MsgGrantResponse.typeUrl;
+export const MsgExecResponse = {
+  typeUrl: "/cosmos.authz.v1beta1.MsgExecResponse",
+  aminoType: "cosmos-sdk/MsgExecResponse",
+  is(o: any): o is MsgExecResponse {
+    return o && (o.$typeUrl === MsgExecResponse.typeUrl || Array.isArray(o.results) && (!o.results.length || o.results[0] instanceof Uint8Array || typeof o.results[0] === "string"));
   },
-  isSDK(o: any): o is MsgGrantResponseSDKType {
-    return o && o.$typeUrl === MsgGrantResponse.typeUrl;
+  isSDK(o: any): o is MsgExecResponseSDKType {
+    return o && (o.$typeUrl === MsgExecResponse.typeUrl || Array.isArray(o.results) && (!o.results.length || o.results[0] instanceof Uint8Array || typeof o.results[0] === "string"));
   },
-  isAmino(o: any): o is MsgGrantResponseAmino {
-    return o && o.$typeUrl === MsgGrantResponse.typeUrl;
+  isAmino(o: any): o is MsgExecResponseAmino {
+    return o && (o.$typeUrl === MsgExecResponse.typeUrl || Array.isArray(o.results) && (!o.results.length || o.results[0] instanceof Uint8Array || typeof o.results[0] === "string"));
   },
-  encode(_: MsgGrantResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: MsgExecResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+    for (const v of message.results) {
+      writer.uint32(10).bytes(v!);
+    }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgGrantResponse {
+  decode(input: BinaryReader | Uint8Array, length?: number): MsgExecResponse {
     const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseMsgGrantResponse();
+    const message = createBaseMsgExecResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
+        case 1:
+          message.results.push(reader.bytes());
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -490,42 +483,49 @@ export const MsgGrantResponse = {
     }
     return message;
   },
-  fromPartial(_: Partial<MsgGrantResponse>): MsgGrantResponse {
-    const message = createBaseMsgGrantResponse();
+  fromPartial(object: Partial<MsgExecResponse>): MsgExecResponse {
+    const message = createBaseMsgExecResponse();
+    message.results = object.results?.map(e => e) || [];
     return message;
   },
-  fromAmino(_: MsgGrantResponseAmino): MsgGrantResponse {
-    const message = createBaseMsgGrantResponse();
+  fromAmino(object: MsgExecResponseAmino): MsgExecResponse {
+    const message = createBaseMsgExecResponse();
+    message.results = object.results?.map(e => bytesFromBase64(e)) || [];
     return message;
   },
-  toAmino(_: MsgGrantResponse): MsgGrantResponseAmino {
+  toAmino(message: MsgExecResponse): MsgExecResponseAmino {
     const obj: any = {};
+    if (message.results) {
+      obj.results = message.results.map(e => base64FromBytes(e));
+    } else {
+      obj.results = message.results;
+    }
     return obj;
   },
-  fromAminoMsg(object: MsgGrantResponseAminoMsg): MsgGrantResponse {
-    return MsgGrantResponse.fromAmino(object.value);
+  fromAminoMsg(object: MsgExecResponseAminoMsg): MsgExecResponse {
+    return MsgExecResponse.fromAmino(object.value);
   },
-  toAminoMsg(message: MsgGrantResponse): MsgGrantResponseAminoMsg {
+  toAminoMsg(message: MsgExecResponse): MsgExecResponseAminoMsg {
     return {
-      type: "cosmos-sdk/MsgGrantResponse",
-      value: MsgGrantResponse.toAmino(message)
+      type: "cosmos-sdk/MsgExecResponse",
+      value: MsgExecResponse.toAmino(message)
     };
   },
-  fromProtoMsg(message: MsgGrantResponseProtoMsg): MsgGrantResponse {
-    return MsgGrantResponse.decode(message.value);
+  fromProtoMsg(message: MsgExecResponseProtoMsg): MsgExecResponse {
+    return MsgExecResponse.decode(message.value);
   },
-  toProto(message: MsgGrantResponse): Uint8Array {
-    return MsgGrantResponse.encode(message).finish();
+  toProto(message: MsgExecResponse): Uint8Array {
+    return MsgExecResponse.encode(message).finish();
   },
-  toProtoMsg(message: MsgGrantResponse): MsgGrantResponseProtoMsg {
+  toProtoMsg(message: MsgExecResponse): MsgExecResponseProtoMsg {
     return {
-      typeUrl: "/cosmos.authz.v1beta1.MsgGrantResponse",
-      value: MsgGrantResponse.encode(message).finish()
+      typeUrl: "/cosmos.authz.v1beta1.MsgExecResponse",
+      value: MsgExecResponse.encode(message).finish()
     };
   }
 };
-GlobalDecoderRegistry.register(MsgGrantResponse.typeUrl, MsgGrantResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgGrantResponse.aminoType, MsgGrantResponse.typeUrl);
+GlobalDecoderRegistry.register(MsgExecResponse.typeUrl, MsgExecResponse);
+GlobalDecoderRegistry.registerAminoProtoMapping(MsgExecResponse.aminoType, MsgExecResponse.typeUrl);
 function createBaseMsgRevoke(): MsgRevoke {
   return {
     granter: "",

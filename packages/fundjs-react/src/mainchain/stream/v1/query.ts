@@ -352,7 +352,7 @@ export interface QueryStreamReceiverSenderCurrentFlowResponseAmino {
   /** configured_flow_rate is the flow rate configured in the stream */
   configured_flow_rate?: string;
   /** current_flow_rate is the actual flow rate. This will be zero if the depositZeroTime has passed, or deposit is zero */
-  current_flow_rate?: string;
+  current_flow_rate: string;
 }
 export interface QueryStreamReceiverSenderCurrentFlowResponseAminoMsg {
   type: "/mainchain.stream.v1.QueryStreamReceiverSenderCurrentFlowResponse";
@@ -729,7 +729,7 @@ export const QueryCalculateFlowRateRequest = {
     const obj: any = {};
     obj.coin = message.coin === "" ? undefined : message.coin;
     obj.period = message.period === 0 ? undefined : message.period;
-    obj.duration = message.duration !== BigInt(0) ? message.duration.toString() : undefined;
+    obj.duration = message.duration !== BigInt(0) ? message.duration?.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: QueryCalculateFlowRateRequestAminoMsg): QueryCalculateFlowRateRequest {
@@ -848,9 +848,9 @@ export const QueryCalculateFlowRateResponse = {
     const obj: any = {};
     obj.coin = message.coin ? Coin.toAmino(message.coin) : undefined;
     obj.period = message.period === 0 ? undefined : message.period;
-    obj.duration = message.duration !== BigInt(0) ? message.duration.toString() : undefined;
-    obj.seconds = message.seconds !== BigInt(0) ? message.seconds.toString() : undefined;
-    obj.flow_rate = message.flowRate !== BigInt(0) ? message.flowRate.toString() : undefined;
+    obj.duration = message.duration !== BigInt(0) ? message.duration?.toString() : undefined;
+    obj.seconds = message.seconds !== BigInt(0) ? message.seconds?.toString() : undefined;
+    obj.flow_rate = message.flowRate !== BigInt(0) ? message.flowRate?.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: QueryCalculateFlowRateResponseAminoMsg): QueryCalculateFlowRateResponse {
@@ -1521,8 +1521,8 @@ export const QueryStreamReceiverSenderCurrentFlowResponse = {
   },
   toAmino(message: QueryStreamReceiverSenderCurrentFlowResponse): QueryStreamReceiverSenderCurrentFlowResponseAmino {
     const obj: any = {};
-    obj.configured_flow_rate = message.configuredFlowRate !== BigInt(0) ? message.configuredFlowRate.toString() : undefined;
-    obj.current_flow_rate = message.currentFlowRate !== BigInt(0) ? message.currentFlowRate.toString() : undefined;
+    obj.configured_flow_rate = message.configuredFlowRate !== BigInt(0) ? message.configuredFlowRate?.toString() : undefined;
+    obj.current_flow_rate = message.currentFlowRate ? message.currentFlowRate?.toString() : "0";
     return obj;
   },
   fromAminoMsg(object: QueryStreamReceiverSenderCurrentFlowResponseAminoMsg): QueryStreamReceiverSenderCurrentFlowResponse {

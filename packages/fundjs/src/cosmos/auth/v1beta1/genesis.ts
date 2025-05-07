@@ -5,7 +5,7 @@ import { BinaryReader, BinaryWriter } from "../../../binary";
 import { GlobalDecoderRegistry } from "../../../registry";
 /** GenesisState defines the auth module's genesis state. */
 export interface GenesisState {
-  /** params defines all the paramaters of the module. */
+  /** params defines all the parameters of the module. */
   params: Params;
   /** accounts are the accounts present at genesis. */
   accounts: Any[];
@@ -16,8 +16,8 @@ export interface GenesisStateProtoMsg {
 }
 /** GenesisState defines the auth module's genesis state. */
 export interface GenesisStateAmino {
-  /** params defines all the paramaters of the module. */
-  params?: ParamsAmino;
+  /** params defines all the parameters of the module. */
+  params: ParamsAmino;
   /** accounts are the accounts present at genesis. */
   accounts?: AnyAmino[];
 }
@@ -93,7 +93,7 @@ export const GenesisState = {
   },
   toAmino(message: GenesisState): GenesisStateAmino {
     const obj: any = {};
-    obj.params = message.params ? Params.toAmino(message.params) : undefined;
+    obj.params = message.params ? Params.toAmino(message.params) : Params.toAmino(Params.fromPartial({}));
     if (message.accounts) {
       obj.accounts = message.accounts.map(e => e ? Any.toAmino(e) : undefined);
     } else {

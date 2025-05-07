@@ -440,7 +440,7 @@ export const QueryBeaconRequest = {
   },
   toAmino(message: QueryBeaconRequest): QueryBeaconRequestAmino {
     const obj: any = {};
-    obj.beacon_id = message.beaconId !== BigInt(0) ? message.beaconId.toString() : undefined;
+    obj.beacon_id = message.beaconId !== BigInt(0) ? message.beaconId?.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: QueryBeaconRequestAminoMsg): QueryBeaconRequest {
@@ -597,8 +597,8 @@ export const QueryBeaconTimestampRequest = {
   },
   toAmino(message: QueryBeaconTimestampRequest): QueryBeaconTimestampRequestAmino {
     const obj: any = {};
-    obj.beacon_id = message.beaconId !== BigInt(0) ? message.beaconId.toString() : undefined;
-    obj.timestamp_id = message.timestampId !== BigInt(0) ? message.timestampId.toString() : undefined;
+    obj.beacon_id = message.beaconId !== BigInt(0) ? message.beaconId?.toString() : undefined;
+    obj.timestamp_id = message.timestampId !== BigInt(0) ? message.timestampId?.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: QueryBeaconTimestampRequestAminoMsg): QueryBeaconTimestampRequest {
@@ -694,7 +694,7 @@ export const QueryBeaconTimestampResponse = {
   toAmino(message: QueryBeaconTimestampResponse): QueryBeaconTimestampResponseAmino {
     const obj: any = {};
     obj.timestamp = message.timestamp ? BeaconTimestamp.toAmino(message.timestamp) : undefined;
-    obj.beacon_id = message.beaconId !== BigInt(0) ? message.beaconId.toString() : undefined;
+    obj.beacon_id = message.beaconId !== BigInt(0) ? message.beaconId?.toString() : undefined;
     obj.owner = message.owner === "" ? undefined : message.owner;
     return obj;
   },
@@ -952,7 +952,7 @@ export const QueryBeaconStorageRequest = {
   },
   toAmino(message: QueryBeaconStorageRequest): QueryBeaconStorageRequestAmino {
     const obj: any = {};
-    obj.beacon_id = message.beaconId !== BigInt(0) ? message.beaconId.toString() : undefined;
+    obj.beacon_id = message.beaconId !== BigInt(0) ? message.beaconId?.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: QueryBeaconStorageRequestAminoMsg): QueryBeaconStorageRequest {
@@ -1080,12 +1080,12 @@ export const QueryBeaconStorageResponse = {
   },
   toAmino(message: QueryBeaconStorageResponse): QueryBeaconStorageResponseAmino {
     const obj: any = {};
-    obj.beacon_id = message.beaconId !== BigInt(0) ? message.beaconId.toString() : undefined;
+    obj.beacon_id = message.beaconId !== BigInt(0) ? message.beaconId?.toString() : undefined;
     obj.owner = message.owner === "" ? undefined : message.owner;
-    obj.current_limit = message.currentLimit !== BigInt(0) ? message.currentLimit.toString() : undefined;
-    obj.current_used = message.currentUsed !== BigInt(0) ? message.currentUsed.toString() : undefined;
-    obj.max = message.max !== BigInt(0) ? message.max.toString() : undefined;
-    obj.max_purchasable = message.maxPurchasable !== BigInt(0) ? message.maxPurchasable.toString() : undefined;
+    obj.current_limit = message.currentLimit !== BigInt(0) ? message.currentLimit?.toString() : undefined;
+    obj.current_used = message.currentUsed !== BigInt(0) ? message.currentUsed?.toString() : undefined;
+    obj.max = message.max !== BigInt(0) ? message.max?.toString() : undefined;
+    obj.max_purchasable = message.maxPurchasable !== BigInt(0) ? message.maxPurchasable?.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: QueryBeaconStorageResponseAminoMsg): QueryBeaconStorageResponse {

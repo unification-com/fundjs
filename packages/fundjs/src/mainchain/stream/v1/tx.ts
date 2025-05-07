@@ -32,7 +32,7 @@ export interface MsgCreateStreamAmino {
   flow_rate?: string;
 }
 export interface MsgCreateStreamAminoMsg {
-  type: "mainchain/x/stream/MsgCreateStream";
+  type: "stream/MsgCreateStream";
   value: MsgCreateStreamAmino;
 }
 /** MsgCreateStream creates a new stream */
@@ -98,7 +98,7 @@ export interface MsgClaimStreamAmino {
   receiver?: string;
 }
 export interface MsgClaimStreamAminoMsg {
-  type: "mainchain/x/stream/MsgClaimStream";
+  type: "stream/MsgClaimStream";
   value: MsgClaimStreamAmino;
 }
 /** MsgClaimStream claims pending payments form a stream using the sender and receiver addresses */
@@ -163,7 +163,7 @@ export interface MsgTopUpDepositAmino {
   deposit?: CoinAmino;
 }
 export interface MsgTopUpDepositAminoMsg {
-  type: "mainchain/x/stream/MsgTopUpDeposit";
+  type: "stream/MsgTopUpDeposit";
   value: MsgTopUpDepositAmino;
 }
 /** MsgTopUpDeposit tops up deposits in an existing stream */
@@ -227,7 +227,7 @@ export interface MsgUpdateFlowRateAmino {
   flow_rate?: string;
 }
 export interface MsgUpdateFlowRateAminoMsg {
-  type: "mainchain/x/stream/MsgUpdateFlowRate";
+  type: "stream/MsgUpdateFlowRate";
   value: MsgUpdateFlowRateAmino;
 }
 /** MsgUpdateFlowRate updates a stream's flow rate */
@@ -277,7 +277,7 @@ export interface MsgCancelStreamAmino {
   sender?: string;
 }
 export interface MsgCancelStreamAminoMsg {
-  type: "mainchain/x/stream/MsgCancelStream";
+  type: "stream/MsgCancelStream";
   value: MsgCancelStreamAmino;
 }
 /** MsgCancelStream */
@@ -385,7 +385,7 @@ function createBaseMsgCreateStream(): MsgCreateStream {
 }
 export const MsgCreateStream = {
   typeUrl: "/mainchain.stream.v1.MsgCreateStream",
-  aminoType: "mainchain/x/stream/MsgCreateStream",
+  aminoType: "stream/MsgCreateStream",
   is(o: any): o is MsgCreateStream {
     return o && (o.$typeUrl === MsgCreateStream.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string" && Coin.is(o.deposit) && typeof o.flowRate === "bigint");
   },
@@ -465,7 +465,7 @@ export const MsgCreateStream = {
     obj.receiver = message.receiver === "" ? undefined : message.receiver;
     obj.sender = message.sender === "" ? undefined : message.sender;
     obj.deposit = message.deposit ? Coin.toAmino(message.deposit) : undefined;
-    obj.flow_rate = message.flowRate !== BigInt(0) ? message.flowRate.toString() : undefined;
+    obj.flow_rate = message.flowRate !== BigInt(0) ? message.flowRate?.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: MsgCreateStreamAminoMsg): MsgCreateStream {
@@ -473,7 +473,7 @@ export const MsgCreateStream = {
   },
   toAminoMsg(message: MsgCreateStream): MsgCreateStreamAminoMsg {
     return {
-      type: "mainchain/x/stream/MsgCreateStream",
+      type: "stream/MsgCreateStream",
       value: MsgCreateStream.toAmino(message)
     };
   },
@@ -581,7 +581,7 @@ export const MsgCreateStreamResponse = {
     obj.receiver = message.receiver === "" ? undefined : message.receiver;
     obj.sender = message.sender === "" ? undefined : message.sender;
     obj.deposit = message.deposit ? Coin.toAmino(message.deposit) : undefined;
-    obj.flow_rate = message.flowRate !== BigInt(0) ? message.flowRate.toString() : undefined;
+    obj.flow_rate = message.flowRate !== BigInt(0) ? message.flowRate?.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: MsgCreateStreamResponseAminoMsg): MsgCreateStreamResponse {
@@ -609,7 +609,7 @@ function createBaseMsgClaimStream(): MsgClaimStream {
 }
 export const MsgClaimStream = {
   typeUrl: "/mainchain.stream.v1.MsgClaimStream",
-  aminoType: "mainchain/x/stream/MsgClaimStream",
+  aminoType: "stream/MsgClaimStream",
   is(o: any): o is MsgClaimStream {
     return o && (o.$typeUrl === MsgClaimStream.typeUrl || typeof o.sender === "string" && typeof o.receiver === "string");
   },
@@ -675,7 +675,7 @@ export const MsgClaimStream = {
   },
   toAminoMsg(message: MsgClaimStream): MsgClaimStreamAminoMsg {
     return {
-      type: "mainchain/x/stream/MsgClaimStream",
+      type: "stream/MsgClaimStream",
       value: MsgClaimStream.toAmino(message)
     };
   },
@@ -812,7 +812,7 @@ function createBaseMsgTopUpDeposit(): MsgTopUpDeposit {
 }
 export const MsgTopUpDeposit = {
   typeUrl: "/mainchain.stream.v1.MsgTopUpDeposit",
-  aminoType: "mainchain/x/stream/MsgTopUpDeposit",
+  aminoType: "stream/MsgTopUpDeposit",
   is(o: any): o is MsgTopUpDeposit {
     return o && (o.$typeUrl === MsgTopUpDeposit.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string" && Coin.is(o.deposit));
   },
@@ -889,7 +889,7 @@ export const MsgTopUpDeposit = {
   },
   toAminoMsg(message: MsgTopUpDeposit): MsgTopUpDepositAminoMsg {
     return {
-      type: "mainchain/x/stream/MsgTopUpDeposit",
+      type: "stream/MsgTopUpDeposit",
       value: MsgTopUpDeposit.toAmino(message)
     };
   },
@@ -1014,7 +1014,7 @@ function createBaseMsgUpdateFlowRate(): MsgUpdateFlowRate {
 }
 export const MsgUpdateFlowRate = {
   typeUrl: "/mainchain.stream.v1.MsgUpdateFlowRate",
-  aminoType: "mainchain/x/stream/MsgUpdateFlowRate",
+  aminoType: "stream/MsgUpdateFlowRate",
   is(o: any): o is MsgUpdateFlowRate {
     return o && (o.$typeUrl === MsgUpdateFlowRate.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string" && typeof o.flowRate === "bigint");
   },
@@ -1083,7 +1083,7 @@ export const MsgUpdateFlowRate = {
     const obj: any = {};
     obj.receiver = message.receiver === "" ? undefined : message.receiver;
     obj.sender = message.sender === "" ? undefined : message.sender;
-    obj.flow_rate = message.flowRate !== BigInt(0) ? message.flowRate.toString() : undefined;
+    obj.flow_rate = message.flowRate !== BigInt(0) ? message.flowRate?.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: MsgUpdateFlowRateAminoMsg): MsgUpdateFlowRate {
@@ -1091,7 +1091,7 @@ export const MsgUpdateFlowRate = {
   },
   toAminoMsg(message: MsgUpdateFlowRate): MsgUpdateFlowRateAminoMsg {
     return {
-      type: "mainchain/x/stream/MsgUpdateFlowRate",
+      type: "stream/MsgUpdateFlowRate",
       value: MsgUpdateFlowRate.toAmino(message)
     };
   },
@@ -1163,7 +1163,7 @@ export const MsgUpdateFlowRateResponse = {
   },
   toAmino(message: MsgUpdateFlowRateResponse): MsgUpdateFlowRateResponseAmino {
     const obj: any = {};
-    obj.flow_rate = message.flowRate !== BigInt(0) ? message.flowRate.toString() : undefined;
+    obj.flow_rate = message.flowRate !== BigInt(0) ? message.flowRate?.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: MsgUpdateFlowRateResponseAminoMsg): MsgUpdateFlowRateResponse {
@@ -1191,7 +1191,7 @@ function createBaseMsgCancelStream(): MsgCancelStream {
 }
 export const MsgCancelStream = {
   typeUrl: "/mainchain.stream.v1.MsgCancelStream",
-  aminoType: "mainchain/x/stream/MsgCancelStream",
+  aminoType: "stream/MsgCancelStream",
   is(o: any): o is MsgCancelStream {
     return o && (o.$typeUrl === MsgCancelStream.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string");
   },
@@ -1257,7 +1257,7 @@ export const MsgCancelStream = {
   },
   toAminoMsg(message: MsgCancelStream): MsgCancelStreamAminoMsg {
     return {
-      type: "mainchain/x/stream/MsgCancelStream",
+      type: "stream/MsgCancelStream",
       value: MsgCancelStream.toAmino(message)
     };
   },

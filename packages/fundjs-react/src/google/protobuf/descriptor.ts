@@ -2,6 +2,158 @@
 import { BinaryReader, BinaryWriter } from "../../binary";
 import { GlobalDecoderRegistry } from "../../registry";
 import { isSet, bytesFromBase64, base64FromBytes } from "../../helpers";
+/** The full set of known editions. */
+export enum Edition {
+  /** EDITION_UNKNOWN - A placeholder for an unknown edition value. */
+  EDITION_UNKNOWN = 0,
+  /**
+   * EDITION_LEGACY - A placeholder edition for specifying default behaviors *before* a feature
+   * was first introduced.  This is effectively an "infinite past".
+   */
+  EDITION_LEGACY = 900,
+  /**
+   * EDITION_PROTO2 - Legacy syntax "editions".  These pre-date editions, but behave much like
+   * distinct editions.  These can't be used to specify the edition of proto
+   * files, but feature definitions must supply proto2/proto3 defaults for
+   * backwards compatibility.
+   */
+  EDITION_PROTO2 = 998,
+  EDITION_PROTO3 = 999,
+  /**
+   * EDITION_2023 - Editions that have been released.  The specific values are arbitrary and
+   * should not be depended on, but they will always be time-ordered for easy
+   * comparison.
+   */
+  EDITION_2023 = 1000,
+  EDITION_2024 = 1001,
+  /**
+   * EDITION_1_TEST_ONLY - Placeholder editions for testing feature resolution.  These should not be
+   * used or relied on outside of tests.
+   */
+  EDITION_1_TEST_ONLY = 1,
+  EDITION_2_TEST_ONLY = 2,
+  EDITION_99997_TEST_ONLY = 99997,
+  EDITION_99998_TEST_ONLY = 99998,
+  EDITION_99999_TEST_ONLY = 99999,
+  /**
+   * EDITION_MAX - Placeholder for specifying unbounded edition support.  This should only
+   * ever be used by plugins that can expect to never require any changes to
+   * support a new edition.
+   */
+  EDITION_MAX = 2147483647,
+  UNRECOGNIZED = -1,
+}
+export const EditionSDKType = Edition;
+export const EditionAmino = Edition;
+export function editionFromJSON(object: any): Edition {
+  switch (object) {
+    case 0:
+    case "EDITION_UNKNOWN":
+      return Edition.EDITION_UNKNOWN;
+    case 900:
+    case "EDITION_LEGACY":
+      return Edition.EDITION_LEGACY;
+    case 998:
+    case "EDITION_PROTO2":
+      return Edition.EDITION_PROTO2;
+    case 999:
+    case "EDITION_PROTO3":
+      return Edition.EDITION_PROTO3;
+    case 1000:
+    case "EDITION_2023":
+      return Edition.EDITION_2023;
+    case 1001:
+    case "EDITION_2024":
+      return Edition.EDITION_2024;
+    case 1:
+    case "EDITION_1_TEST_ONLY":
+      return Edition.EDITION_1_TEST_ONLY;
+    case 2:
+    case "EDITION_2_TEST_ONLY":
+      return Edition.EDITION_2_TEST_ONLY;
+    case 99997:
+    case "EDITION_99997_TEST_ONLY":
+      return Edition.EDITION_99997_TEST_ONLY;
+    case 99998:
+    case "EDITION_99998_TEST_ONLY":
+      return Edition.EDITION_99998_TEST_ONLY;
+    case 99999:
+    case "EDITION_99999_TEST_ONLY":
+      return Edition.EDITION_99999_TEST_ONLY;
+    case 2147483647:
+    case "EDITION_MAX":
+      return Edition.EDITION_MAX;
+    case -1:
+    case "UNRECOGNIZED":
+    default:
+      return Edition.UNRECOGNIZED;
+  }
+}
+export function editionToJSON(object: Edition): string {
+  switch (object) {
+    case Edition.EDITION_UNKNOWN:
+      return "EDITION_UNKNOWN";
+    case Edition.EDITION_LEGACY:
+      return "EDITION_LEGACY";
+    case Edition.EDITION_PROTO2:
+      return "EDITION_PROTO2";
+    case Edition.EDITION_PROTO3:
+      return "EDITION_PROTO3";
+    case Edition.EDITION_2023:
+      return "EDITION_2023";
+    case Edition.EDITION_2024:
+      return "EDITION_2024";
+    case Edition.EDITION_1_TEST_ONLY:
+      return "EDITION_1_TEST_ONLY";
+    case Edition.EDITION_2_TEST_ONLY:
+      return "EDITION_2_TEST_ONLY";
+    case Edition.EDITION_99997_TEST_ONLY:
+      return "EDITION_99997_TEST_ONLY";
+    case Edition.EDITION_99998_TEST_ONLY:
+      return "EDITION_99998_TEST_ONLY";
+    case Edition.EDITION_99999_TEST_ONLY:
+      return "EDITION_99999_TEST_ONLY";
+    case Edition.EDITION_MAX:
+      return "EDITION_MAX";
+    case Edition.UNRECOGNIZED:
+    default:
+      return "UNRECOGNIZED";
+  }
+}
+/** The verification state of the extension range. */
+export enum ExtensionRangeOptions_VerificationState {
+  /** DECLARATION - All the extensions of the range must be declared. */
+  DECLARATION = 0,
+  UNVERIFIED = 1,
+  UNRECOGNIZED = -1,
+}
+export const ExtensionRangeOptions_VerificationStateSDKType = ExtensionRangeOptions_VerificationState;
+export const ExtensionRangeOptions_VerificationStateAmino = ExtensionRangeOptions_VerificationState;
+export function extensionRangeOptions_VerificationStateFromJSON(object: any): ExtensionRangeOptions_VerificationState {
+  switch (object) {
+    case 0:
+    case "DECLARATION":
+      return ExtensionRangeOptions_VerificationState.DECLARATION;
+    case 1:
+    case "UNVERIFIED":
+      return ExtensionRangeOptions_VerificationState.UNVERIFIED;
+    case -1:
+    case "UNRECOGNIZED":
+    default:
+      return ExtensionRangeOptions_VerificationState.UNRECOGNIZED;
+  }
+}
+export function extensionRangeOptions_VerificationStateToJSON(object: ExtensionRangeOptions_VerificationState): string {
+  switch (object) {
+    case ExtensionRangeOptions_VerificationState.DECLARATION:
+      return "DECLARATION";
+    case ExtensionRangeOptions_VerificationState.UNVERIFIED:
+      return "UNVERIFIED";
+    case ExtensionRangeOptions_VerificationState.UNRECOGNIZED:
+    default:
+      return "UNRECOGNIZED";
+  }
+}
 export enum FieldDescriptorProto_Type {
   /**
    * TYPE_DOUBLE - 0 is reserved for errors.
@@ -26,9 +178,10 @@ export enum FieldDescriptorProto_Type {
   TYPE_STRING = 9,
   /**
    * TYPE_GROUP - Tag-delimited aggregate.
-   * Group type is deprecated and not supported in proto3. However, Proto3
+   * Group type is deprecated and not supported after google.protobuf. However, Proto3
    * implementations should still be able to parse the group wire format and
-   * treat group fields as unknown fields.
+   * treat group fields as unknown fields.  In Editions, the group wire format
+   * can be enabled via the `message_encoding` feature.
    */
   TYPE_GROUP = 10,
   /** TYPE_MESSAGE - Length-delimited aggregate. */
@@ -155,8 +308,13 @@ export function fieldDescriptorProto_TypeToJSON(object: FieldDescriptorProto_Typ
 export enum FieldDescriptorProto_Label {
   /** LABEL_OPTIONAL - 0 is reserved for errors */
   LABEL_OPTIONAL = 1,
-  LABEL_REQUIRED = 2,
   LABEL_REPEATED = 3,
+  /**
+   * LABEL_REQUIRED - The required label is only allowed in google.protobuf.  In proto3 and Editions
+   * it's explicitly prohibited.  In Editions, the `field_presence` feature
+   * can be used to get this behavior.
+   */
+  LABEL_REQUIRED = 2,
   UNRECOGNIZED = -1,
 }
 export const FieldDescriptorProto_LabelSDKType = FieldDescriptorProto_Label;
@@ -166,12 +324,12 @@ export function fieldDescriptorProto_LabelFromJSON(object: any): FieldDescriptor
     case 1:
     case "LABEL_OPTIONAL":
       return FieldDescriptorProto_Label.LABEL_OPTIONAL;
-    case 2:
-    case "LABEL_REQUIRED":
-      return FieldDescriptorProto_Label.LABEL_REQUIRED;
     case 3:
     case "LABEL_REPEATED":
       return FieldDescriptorProto_Label.LABEL_REPEATED;
+    case 2:
+    case "LABEL_REQUIRED":
+      return FieldDescriptorProto_Label.LABEL_REQUIRED;
     case -1:
     case "UNRECOGNIZED":
     default:
@@ -182,10 +340,10 @@ export function fieldDescriptorProto_LabelToJSON(object: FieldDescriptorProto_La
   switch (object) {
     case FieldDescriptorProto_Label.LABEL_OPTIONAL:
       return "LABEL_OPTIONAL";
-    case FieldDescriptorProto_Label.LABEL_REQUIRED:
-      return "LABEL_REQUIRED";
     case FieldDescriptorProto_Label.LABEL_REPEATED:
       return "LABEL_REPEATED";
+    case FieldDescriptorProto_Label.LABEL_REQUIRED:
+      return "LABEL_REQUIRED";
     case FieldDescriptorProto_Label.UNRECOGNIZED:
     default:
       return "UNRECOGNIZED";
@@ -236,6 +394,14 @@ export function fileOptions_OptimizeModeToJSON(object: FileOptions_OptimizeMode)
 export enum FieldOptions_CType {
   /** STRING - Default mode. */
   STRING = 0,
+  /**
+   * CORD - The option [ctype=CORD] may be applied to a non-repeated field of type
+   * "bytes". It indicates that in C++, the data should be stored in a Cord
+   * instead of a string.  For very large strings, this may reduce memory
+   * fragmentation. It may also allow better performance when parsing from a
+   * Cord, or when parsing with aliasing enabled, as the parsed Cord may then
+   * alias the original buffer.
+   */
   CORD = 1,
   STRING_PIECE = 2,
   UNRECOGNIZED = -1,
@@ -313,6 +479,130 @@ export function fieldOptions_JSTypeToJSON(object: FieldOptions_JSType): string {
       return "UNRECOGNIZED";
   }
 }
+/** If set to RETENTION_SOURCE, the option will be omitted from the binary. */
+export enum FieldOptions_OptionRetention {
+  RETENTION_UNKNOWN = 0,
+  RETENTION_RUNTIME = 1,
+  RETENTION_SOURCE = 2,
+  UNRECOGNIZED = -1,
+}
+export const FieldOptions_OptionRetentionSDKType = FieldOptions_OptionRetention;
+export const FieldOptions_OptionRetentionAmino = FieldOptions_OptionRetention;
+export function fieldOptions_OptionRetentionFromJSON(object: any): FieldOptions_OptionRetention {
+  switch (object) {
+    case 0:
+    case "RETENTION_UNKNOWN":
+      return FieldOptions_OptionRetention.RETENTION_UNKNOWN;
+    case 1:
+    case "RETENTION_RUNTIME":
+      return FieldOptions_OptionRetention.RETENTION_RUNTIME;
+    case 2:
+    case "RETENTION_SOURCE":
+      return FieldOptions_OptionRetention.RETENTION_SOURCE;
+    case -1:
+    case "UNRECOGNIZED":
+    default:
+      return FieldOptions_OptionRetention.UNRECOGNIZED;
+  }
+}
+export function fieldOptions_OptionRetentionToJSON(object: FieldOptions_OptionRetention): string {
+  switch (object) {
+    case FieldOptions_OptionRetention.RETENTION_UNKNOWN:
+      return "RETENTION_UNKNOWN";
+    case FieldOptions_OptionRetention.RETENTION_RUNTIME:
+      return "RETENTION_RUNTIME";
+    case FieldOptions_OptionRetention.RETENTION_SOURCE:
+      return "RETENTION_SOURCE";
+    case FieldOptions_OptionRetention.UNRECOGNIZED:
+    default:
+      return "UNRECOGNIZED";
+  }
+}
+/**
+ * This indicates the types of entities that the field may apply to when used
+ * as an option. If it is unset, then the field may be freely used as an
+ * option on any kind of entity.
+ */
+export enum FieldOptions_OptionTargetType {
+  TARGET_TYPE_UNKNOWN = 0,
+  TARGET_TYPE_FILE = 1,
+  TARGET_TYPE_EXTENSION_RANGE = 2,
+  TARGET_TYPE_MESSAGE = 3,
+  TARGET_TYPE_FIELD = 4,
+  TARGET_TYPE_ONEOF = 5,
+  TARGET_TYPE_ENUM = 6,
+  TARGET_TYPE_ENUM_ENTRY = 7,
+  TARGET_TYPE_SERVICE = 8,
+  TARGET_TYPE_METHOD = 9,
+  UNRECOGNIZED = -1,
+}
+export const FieldOptions_OptionTargetTypeSDKType = FieldOptions_OptionTargetType;
+export const FieldOptions_OptionTargetTypeAmino = FieldOptions_OptionTargetType;
+export function fieldOptions_OptionTargetTypeFromJSON(object: any): FieldOptions_OptionTargetType {
+  switch (object) {
+    case 0:
+    case "TARGET_TYPE_UNKNOWN":
+      return FieldOptions_OptionTargetType.TARGET_TYPE_UNKNOWN;
+    case 1:
+    case "TARGET_TYPE_FILE":
+      return FieldOptions_OptionTargetType.TARGET_TYPE_FILE;
+    case 2:
+    case "TARGET_TYPE_EXTENSION_RANGE":
+      return FieldOptions_OptionTargetType.TARGET_TYPE_EXTENSION_RANGE;
+    case 3:
+    case "TARGET_TYPE_MESSAGE":
+      return FieldOptions_OptionTargetType.TARGET_TYPE_MESSAGE;
+    case 4:
+    case "TARGET_TYPE_FIELD":
+      return FieldOptions_OptionTargetType.TARGET_TYPE_FIELD;
+    case 5:
+    case "TARGET_TYPE_ONEOF":
+      return FieldOptions_OptionTargetType.TARGET_TYPE_ONEOF;
+    case 6:
+    case "TARGET_TYPE_ENUM":
+      return FieldOptions_OptionTargetType.TARGET_TYPE_ENUM;
+    case 7:
+    case "TARGET_TYPE_ENUM_ENTRY":
+      return FieldOptions_OptionTargetType.TARGET_TYPE_ENUM_ENTRY;
+    case 8:
+    case "TARGET_TYPE_SERVICE":
+      return FieldOptions_OptionTargetType.TARGET_TYPE_SERVICE;
+    case 9:
+    case "TARGET_TYPE_METHOD":
+      return FieldOptions_OptionTargetType.TARGET_TYPE_METHOD;
+    case -1:
+    case "UNRECOGNIZED":
+    default:
+      return FieldOptions_OptionTargetType.UNRECOGNIZED;
+  }
+}
+export function fieldOptions_OptionTargetTypeToJSON(object: FieldOptions_OptionTargetType): string {
+  switch (object) {
+    case FieldOptions_OptionTargetType.TARGET_TYPE_UNKNOWN:
+      return "TARGET_TYPE_UNKNOWN";
+    case FieldOptions_OptionTargetType.TARGET_TYPE_FILE:
+      return "TARGET_TYPE_FILE";
+    case FieldOptions_OptionTargetType.TARGET_TYPE_EXTENSION_RANGE:
+      return "TARGET_TYPE_EXTENSION_RANGE";
+    case FieldOptions_OptionTargetType.TARGET_TYPE_MESSAGE:
+      return "TARGET_TYPE_MESSAGE";
+    case FieldOptions_OptionTargetType.TARGET_TYPE_FIELD:
+      return "TARGET_TYPE_FIELD";
+    case FieldOptions_OptionTargetType.TARGET_TYPE_ONEOF:
+      return "TARGET_TYPE_ONEOF";
+    case FieldOptions_OptionTargetType.TARGET_TYPE_ENUM:
+      return "TARGET_TYPE_ENUM";
+    case FieldOptions_OptionTargetType.TARGET_TYPE_ENUM_ENTRY:
+      return "TARGET_TYPE_ENUM_ENTRY";
+    case FieldOptions_OptionTargetType.TARGET_TYPE_SERVICE:
+      return "TARGET_TYPE_SERVICE";
+    case FieldOptions_OptionTargetType.TARGET_TYPE_METHOD:
+      return "TARGET_TYPE_METHOD";
+    case FieldOptions_OptionTargetType.UNRECOGNIZED:
+    default:
+      return "UNRECOGNIZED";
+  }
+}
 /**
  * Is this method side-effect-free (or safe in HTTP parlance), or idempotent,
  * or neither? HTTP based RPC implementation may choose GET verb for safe
@@ -354,6 +644,426 @@ export function methodOptions_IdempotencyLevelToJSON(object: MethodOptions_Idemp
     case MethodOptions_IdempotencyLevel.IDEMPOTENT:
       return "IDEMPOTENT";
     case MethodOptions_IdempotencyLevel.UNRECOGNIZED:
+    default:
+      return "UNRECOGNIZED";
+  }
+}
+export enum FeatureSet_FieldPresence {
+  FIELD_PRESENCE_UNKNOWN = 0,
+  EXPLICIT = 1,
+  IMPLICIT = 2,
+  LEGACY_REQUIRED = 3,
+  UNRECOGNIZED = -1,
+}
+export const FeatureSet_FieldPresenceSDKType = FeatureSet_FieldPresence;
+export const FeatureSet_FieldPresenceAmino = FeatureSet_FieldPresence;
+export function featureSet_FieldPresenceFromJSON(object: any): FeatureSet_FieldPresence {
+  switch (object) {
+    case 0:
+    case "FIELD_PRESENCE_UNKNOWN":
+      return FeatureSet_FieldPresence.FIELD_PRESENCE_UNKNOWN;
+    case 1:
+    case "EXPLICIT":
+      return FeatureSet_FieldPresence.EXPLICIT;
+    case 2:
+    case "IMPLICIT":
+      return FeatureSet_FieldPresence.IMPLICIT;
+    case 3:
+    case "LEGACY_REQUIRED":
+      return FeatureSet_FieldPresence.LEGACY_REQUIRED;
+    case -1:
+    case "UNRECOGNIZED":
+    default:
+      return FeatureSet_FieldPresence.UNRECOGNIZED;
+  }
+}
+export function featureSet_FieldPresenceToJSON(object: FeatureSet_FieldPresence): string {
+  switch (object) {
+    case FeatureSet_FieldPresence.FIELD_PRESENCE_UNKNOWN:
+      return "FIELD_PRESENCE_UNKNOWN";
+    case FeatureSet_FieldPresence.EXPLICIT:
+      return "EXPLICIT";
+    case FeatureSet_FieldPresence.IMPLICIT:
+      return "IMPLICIT";
+    case FeatureSet_FieldPresence.LEGACY_REQUIRED:
+      return "LEGACY_REQUIRED";
+    case FeatureSet_FieldPresence.UNRECOGNIZED:
+    default:
+      return "UNRECOGNIZED";
+  }
+}
+export enum FeatureSet_EnumType {
+  ENUM_TYPE_UNKNOWN = 0,
+  OPEN = 1,
+  CLOSED = 2,
+  UNRECOGNIZED = -1,
+}
+export const FeatureSet_EnumTypeSDKType = FeatureSet_EnumType;
+export const FeatureSet_EnumTypeAmino = FeatureSet_EnumType;
+export function featureSet_EnumTypeFromJSON(object: any): FeatureSet_EnumType {
+  switch (object) {
+    case 0:
+    case "ENUM_TYPE_UNKNOWN":
+      return FeatureSet_EnumType.ENUM_TYPE_UNKNOWN;
+    case 1:
+    case "OPEN":
+      return FeatureSet_EnumType.OPEN;
+    case 2:
+    case "CLOSED":
+      return FeatureSet_EnumType.CLOSED;
+    case -1:
+    case "UNRECOGNIZED":
+    default:
+      return FeatureSet_EnumType.UNRECOGNIZED;
+  }
+}
+export function featureSet_EnumTypeToJSON(object: FeatureSet_EnumType): string {
+  switch (object) {
+    case FeatureSet_EnumType.ENUM_TYPE_UNKNOWN:
+      return "ENUM_TYPE_UNKNOWN";
+    case FeatureSet_EnumType.OPEN:
+      return "OPEN";
+    case FeatureSet_EnumType.CLOSED:
+      return "CLOSED";
+    case FeatureSet_EnumType.UNRECOGNIZED:
+    default:
+      return "UNRECOGNIZED";
+  }
+}
+export enum FeatureSet_RepeatedFieldEncoding {
+  REPEATED_FIELD_ENCODING_UNKNOWN = 0,
+  PACKED = 1,
+  EXPANDED = 2,
+  UNRECOGNIZED = -1,
+}
+export const FeatureSet_RepeatedFieldEncodingSDKType = FeatureSet_RepeatedFieldEncoding;
+export const FeatureSet_RepeatedFieldEncodingAmino = FeatureSet_RepeatedFieldEncoding;
+export function featureSet_RepeatedFieldEncodingFromJSON(object: any): FeatureSet_RepeatedFieldEncoding {
+  switch (object) {
+    case 0:
+    case "REPEATED_FIELD_ENCODING_UNKNOWN":
+      return FeatureSet_RepeatedFieldEncoding.REPEATED_FIELD_ENCODING_UNKNOWN;
+    case 1:
+    case "PACKED":
+      return FeatureSet_RepeatedFieldEncoding.PACKED;
+    case 2:
+    case "EXPANDED":
+      return FeatureSet_RepeatedFieldEncoding.EXPANDED;
+    case -1:
+    case "UNRECOGNIZED":
+    default:
+      return FeatureSet_RepeatedFieldEncoding.UNRECOGNIZED;
+  }
+}
+export function featureSet_RepeatedFieldEncodingToJSON(object: FeatureSet_RepeatedFieldEncoding): string {
+  switch (object) {
+    case FeatureSet_RepeatedFieldEncoding.REPEATED_FIELD_ENCODING_UNKNOWN:
+      return "REPEATED_FIELD_ENCODING_UNKNOWN";
+    case FeatureSet_RepeatedFieldEncoding.PACKED:
+      return "PACKED";
+    case FeatureSet_RepeatedFieldEncoding.EXPANDED:
+      return "EXPANDED";
+    case FeatureSet_RepeatedFieldEncoding.UNRECOGNIZED:
+    default:
+      return "UNRECOGNIZED";
+  }
+}
+export enum FeatureSet_Utf8Validation {
+  UTF8_VALIDATION_UNKNOWN = 0,
+  VERIFY = 2,
+  NONE = 3,
+  UNRECOGNIZED = -1,
+}
+export const FeatureSet_Utf8ValidationSDKType = FeatureSet_Utf8Validation;
+export const FeatureSet_Utf8ValidationAmino = FeatureSet_Utf8Validation;
+export function featureSet_Utf8ValidationFromJSON(object: any): FeatureSet_Utf8Validation {
+  switch (object) {
+    case 0:
+    case "UTF8_VALIDATION_UNKNOWN":
+      return FeatureSet_Utf8Validation.UTF8_VALIDATION_UNKNOWN;
+    case 2:
+    case "VERIFY":
+      return FeatureSet_Utf8Validation.VERIFY;
+    case 3:
+    case "NONE":
+      return FeatureSet_Utf8Validation.NONE;
+    case -1:
+    case "UNRECOGNIZED":
+    default:
+      return FeatureSet_Utf8Validation.UNRECOGNIZED;
+  }
+}
+export function featureSet_Utf8ValidationToJSON(object: FeatureSet_Utf8Validation): string {
+  switch (object) {
+    case FeatureSet_Utf8Validation.UTF8_VALIDATION_UNKNOWN:
+      return "UTF8_VALIDATION_UNKNOWN";
+    case FeatureSet_Utf8Validation.VERIFY:
+      return "VERIFY";
+    case FeatureSet_Utf8Validation.NONE:
+      return "NONE";
+    case FeatureSet_Utf8Validation.UNRECOGNIZED:
+    default:
+      return "UNRECOGNIZED";
+  }
+}
+export enum FeatureSet_MessageEncoding {
+  MESSAGE_ENCODING_UNKNOWN = 0,
+  LENGTH_PREFIXED = 1,
+  DELIMITED = 2,
+  UNRECOGNIZED = -1,
+}
+export const FeatureSet_MessageEncodingSDKType = FeatureSet_MessageEncoding;
+export const FeatureSet_MessageEncodingAmino = FeatureSet_MessageEncoding;
+export function featureSet_MessageEncodingFromJSON(object: any): FeatureSet_MessageEncoding {
+  switch (object) {
+    case 0:
+    case "MESSAGE_ENCODING_UNKNOWN":
+      return FeatureSet_MessageEncoding.MESSAGE_ENCODING_UNKNOWN;
+    case 1:
+    case "LENGTH_PREFIXED":
+      return FeatureSet_MessageEncoding.LENGTH_PREFIXED;
+    case 2:
+    case "DELIMITED":
+      return FeatureSet_MessageEncoding.DELIMITED;
+    case -1:
+    case "UNRECOGNIZED":
+    default:
+      return FeatureSet_MessageEncoding.UNRECOGNIZED;
+  }
+}
+export function featureSet_MessageEncodingToJSON(object: FeatureSet_MessageEncoding): string {
+  switch (object) {
+    case FeatureSet_MessageEncoding.MESSAGE_ENCODING_UNKNOWN:
+      return "MESSAGE_ENCODING_UNKNOWN";
+    case FeatureSet_MessageEncoding.LENGTH_PREFIXED:
+      return "LENGTH_PREFIXED";
+    case FeatureSet_MessageEncoding.DELIMITED:
+      return "DELIMITED";
+    case FeatureSet_MessageEncoding.UNRECOGNIZED:
+    default:
+      return "UNRECOGNIZED";
+  }
+}
+export enum FeatureSet_JsonFormat {
+  JSON_FORMAT_UNKNOWN = 0,
+  ALLOW = 1,
+  LEGACY_BEST_EFFORT = 2,
+  UNRECOGNIZED = -1,
+}
+export const FeatureSet_JsonFormatSDKType = FeatureSet_JsonFormat;
+export const FeatureSet_JsonFormatAmino = FeatureSet_JsonFormat;
+export function featureSet_JsonFormatFromJSON(object: any): FeatureSet_JsonFormat {
+  switch (object) {
+    case 0:
+    case "JSON_FORMAT_UNKNOWN":
+      return FeatureSet_JsonFormat.JSON_FORMAT_UNKNOWN;
+    case 1:
+    case "ALLOW":
+      return FeatureSet_JsonFormat.ALLOW;
+    case 2:
+    case "LEGACY_BEST_EFFORT":
+      return FeatureSet_JsonFormat.LEGACY_BEST_EFFORT;
+    case -1:
+    case "UNRECOGNIZED":
+    default:
+      return FeatureSet_JsonFormat.UNRECOGNIZED;
+  }
+}
+export function featureSet_JsonFormatToJSON(object: FeatureSet_JsonFormat): string {
+  switch (object) {
+    case FeatureSet_JsonFormat.JSON_FORMAT_UNKNOWN:
+      return "JSON_FORMAT_UNKNOWN";
+    case FeatureSet_JsonFormat.ALLOW:
+      return "ALLOW";
+    case FeatureSet_JsonFormat.LEGACY_BEST_EFFORT:
+      return "LEGACY_BEST_EFFORT";
+    case FeatureSet_JsonFormat.UNRECOGNIZED:
+    default:
+      return "UNRECOGNIZED";
+  }
+}
+export enum FeatureSet_EnforceNamingStyle {
+  ENFORCE_NAMING_STYLE_UNKNOWN = 0,
+  STYLE2024 = 1,
+  STYLE_LEGACY = 2,
+  UNRECOGNIZED = -1,
+}
+export const FeatureSet_EnforceNamingStyleSDKType = FeatureSet_EnforceNamingStyle;
+export const FeatureSet_EnforceNamingStyleAmino = FeatureSet_EnforceNamingStyle;
+export function featureSet_EnforceNamingStyleFromJSON(object: any): FeatureSet_EnforceNamingStyle {
+  switch (object) {
+    case 0:
+    case "ENFORCE_NAMING_STYLE_UNKNOWN":
+      return FeatureSet_EnforceNamingStyle.ENFORCE_NAMING_STYLE_UNKNOWN;
+    case 1:
+    case "STYLE2024":
+      return FeatureSet_EnforceNamingStyle.STYLE2024;
+    case 2:
+    case "STYLE_LEGACY":
+      return FeatureSet_EnforceNamingStyle.STYLE_LEGACY;
+    case -1:
+    case "UNRECOGNIZED":
+    default:
+      return FeatureSet_EnforceNamingStyle.UNRECOGNIZED;
+  }
+}
+export function featureSet_EnforceNamingStyleToJSON(object: FeatureSet_EnforceNamingStyle): string {
+  switch (object) {
+    case FeatureSet_EnforceNamingStyle.ENFORCE_NAMING_STYLE_UNKNOWN:
+      return "ENFORCE_NAMING_STYLE_UNKNOWN";
+    case FeatureSet_EnforceNamingStyle.STYLE2024:
+      return "STYLE2024";
+    case FeatureSet_EnforceNamingStyle.STYLE_LEGACY:
+      return "STYLE_LEGACY";
+    case FeatureSet_EnforceNamingStyle.UNRECOGNIZED:
+    default:
+      return "UNRECOGNIZED";
+  }
+}
+export enum FeatureSet_VisibilityFeature_DefaultSymbolVisibility {
+  DEFAULT_SYMBOL_VISIBILITY_UNKNOWN = 0,
+  /** EXPORT_ALL - Default pre-EDITION_2024, all UNSET visibility are export. */
+  EXPORT_ALL = 1,
+  /** EXPORT_TOP_LEVEL - All top-level symbols default to export, nested default to local. */
+  EXPORT_TOP_LEVEL = 2,
+  /** LOCAL_ALL - All symbols default to local. */
+  LOCAL_ALL = 3,
+  /**
+   * STRICT - All symbols local by default. Nested types cannot be exported.
+   * With special case caveat for message { enum {} reserved 1 to max; }
+   * This is the recommended setting for new protos.
+   */
+  STRICT = 4,
+  UNRECOGNIZED = -1,
+}
+export const FeatureSet_VisibilityFeature_DefaultSymbolVisibilitySDKType = FeatureSet_VisibilityFeature_DefaultSymbolVisibility;
+export const FeatureSet_VisibilityFeature_DefaultSymbolVisibilityAmino = FeatureSet_VisibilityFeature_DefaultSymbolVisibility;
+export function featureSet_VisibilityFeature_DefaultSymbolVisibilityFromJSON(object: any): FeatureSet_VisibilityFeature_DefaultSymbolVisibility {
+  switch (object) {
+    case 0:
+    case "DEFAULT_SYMBOL_VISIBILITY_UNKNOWN":
+      return FeatureSet_VisibilityFeature_DefaultSymbolVisibility.DEFAULT_SYMBOL_VISIBILITY_UNKNOWN;
+    case 1:
+    case "EXPORT_ALL":
+      return FeatureSet_VisibilityFeature_DefaultSymbolVisibility.EXPORT_ALL;
+    case 2:
+    case "EXPORT_TOP_LEVEL":
+      return FeatureSet_VisibilityFeature_DefaultSymbolVisibility.EXPORT_TOP_LEVEL;
+    case 3:
+    case "LOCAL_ALL":
+      return FeatureSet_VisibilityFeature_DefaultSymbolVisibility.LOCAL_ALL;
+    case 4:
+    case "STRICT":
+      return FeatureSet_VisibilityFeature_DefaultSymbolVisibility.STRICT;
+    case -1:
+    case "UNRECOGNIZED":
+    default:
+      return FeatureSet_VisibilityFeature_DefaultSymbolVisibility.UNRECOGNIZED;
+  }
+}
+export function featureSet_VisibilityFeature_DefaultSymbolVisibilityToJSON(object: FeatureSet_VisibilityFeature_DefaultSymbolVisibility): string {
+  switch (object) {
+    case FeatureSet_VisibilityFeature_DefaultSymbolVisibility.DEFAULT_SYMBOL_VISIBILITY_UNKNOWN:
+      return "DEFAULT_SYMBOL_VISIBILITY_UNKNOWN";
+    case FeatureSet_VisibilityFeature_DefaultSymbolVisibility.EXPORT_ALL:
+      return "EXPORT_ALL";
+    case FeatureSet_VisibilityFeature_DefaultSymbolVisibility.EXPORT_TOP_LEVEL:
+      return "EXPORT_TOP_LEVEL";
+    case FeatureSet_VisibilityFeature_DefaultSymbolVisibility.LOCAL_ALL:
+      return "LOCAL_ALL";
+    case FeatureSet_VisibilityFeature_DefaultSymbolVisibility.STRICT:
+      return "STRICT";
+    case FeatureSet_VisibilityFeature_DefaultSymbolVisibility.UNRECOGNIZED:
+    default:
+      return "UNRECOGNIZED";
+  }
+}
+/**
+ * Represents the identified object's effect on the element in the original
+ * .proto file.
+ */
+export enum GeneratedCodeInfo_Annotation_Semantic {
+  /** NONE - There is no effect or the effect is indescribable. */
+  NONE = 0,
+  /** SET - The element is set or otherwise mutated. */
+  SET = 1,
+  /** ALIAS - An alias to the element is returned. */
+  ALIAS = 2,
+  UNRECOGNIZED = -1,
+}
+export const GeneratedCodeInfo_Annotation_SemanticSDKType = GeneratedCodeInfo_Annotation_Semantic;
+export const GeneratedCodeInfo_Annotation_SemanticAmino = GeneratedCodeInfo_Annotation_Semantic;
+export function generatedCodeInfo_Annotation_SemanticFromJSON(object: any): GeneratedCodeInfo_Annotation_Semantic {
+  switch (object) {
+    case 0:
+    case "NONE":
+      return GeneratedCodeInfo_Annotation_Semantic.NONE;
+    case 1:
+    case "SET":
+      return GeneratedCodeInfo_Annotation_Semantic.SET;
+    case 2:
+    case "ALIAS":
+      return GeneratedCodeInfo_Annotation_Semantic.ALIAS;
+    case -1:
+    case "UNRECOGNIZED":
+    default:
+      return GeneratedCodeInfo_Annotation_Semantic.UNRECOGNIZED;
+  }
+}
+export function generatedCodeInfo_Annotation_SemanticToJSON(object: GeneratedCodeInfo_Annotation_Semantic): string {
+  switch (object) {
+    case GeneratedCodeInfo_Annotation_Semantic.NONE:
+      return "NONE";
+    case GeneratedCodeInfo_Annotation_Semantic.SET:
+      return "SET";
+    case GeneratedCodeInfo_Annotation_Semantic.ALIAS:
+      return "ALIAS";
+    case GeneratedCodeInfo_Annotation_Semantic.UNRECOGNIZED:
+    default:
+      return "UNRECOGNIZED";
+  }
+}
+/**
+ * Describes the 'visibility' of a symbol with respect to the proto import
+ * system. Symbols can only be imported when the visibility rules do not prevent
+ * it (ex: local symbols cannot be imported).  Visibility modifiers can only set
+ * on `message` and `enum` as they are the only types available to be referenced
+ * from other files.
+ */
+export enum SymbolVisibility {
+  VISIBILITY_UNSET = 0,
+  VISIBILITY_LOCAL = 1,
+  VISIBILITY_EXPORT = 2,
+  UNRECOGNIZED = -1,
+}
+export const SymbolVisibilitySDKType = SymbolVisibility;
+export const SymbolVisibilityAmino = SymbolVisibility;
+export function symbolVisibilityFromJSON(object: any): SymbolVisibility {
+  switch (object) {
+    case 0:
+    case "VISIBILITY_UNSET":
+      return SymbolVisibility.VISIBILITY_UNSET;
+    case 1:
+    case "VISIBILITY_LOCAL":
+      return SymbolVisibility.VISIBILITY_LOCAL;
+    case 2:
+    case "VISIBILITY_EXPORT":
+      return SymbolVisibility.VISIBILITY_EXPORT;
+    case -1:
+    case "UNRECOGNIZED":
+    default:
+      return SymbolVisibility.UNRECOGNIZED;
+  }
+}
+export function symbolVisibilityToJSON(object: SymbolVisibility): string {
+  switch (object) {
+    case SymbolVisibility.VISIBILITY_UNSET:
+      return "VISIBILITY_UNSET";
+    case SymbolVisibility.VISIBILITY_LOCAL:
+      return "VISIBILITY_LOCAL";
+    case SymbolVisibility.VISIBILITY_EXPORT:
+      return "VISIBILITY_EXPORT";
+    case SymbolVisibility.UNRECOGNIZED:
     default:
       return "UNRECOGNIZED";
   }
@@ -402,6 +1112,11 @@ export interface FileDescriptorProto {
    * For Google-internal migration only. Do not use.
    */
   weakDependency: number[];
+  /**
+   * Names of files imported by this file purely for the purpose of providing
+   * option extensions. These are excluded from the dependency list above.
+   */
+  optionDependency: string[];
   /** All top-level definitions in this file. */
   messageType: DescriptorProto[];
   enumType: EnumDescriptorProto[];
@@ -417,9 +1132,21 @@ export interface FileDescriptorProto {
   sourceCodeInfo?: SourceCodeInfo;
   /**
    * The syntax of the proto file.
-   * The supported values are "proto2" and "proto3".
+   * The supported values are "proto2", "proto3", and "editions".
+   * 
+   * If `edition` is present, this value must be "editions".
+   * WARNING: This field should only be used by protobuf plugins or special
+   * cases like the proto compiler. Other uses are discouraged and
+   * developers should rely on the protoreflect APIs for their client language.
    */
   syntax: string;
+  /**
+   * The edition of the proto file.
+   * WARNING: This field should only be used by protobuf plugins or special
+   * cases like the proto compiler. Other uses are discouraged and
+   * developers should rely on the protoreflect APIs for their client language.
+   */
+  edition: Edition;
 }
 export interface FileDescriptorProtoProtoMsg {
   typeUrl: "/google.protobuf.FileDescriptorProto";
@@ -440,6 +1167,11 @@ export interface FileDescriptorProtoAmino {
    * For Google-internal migration only. Do not use.
    */
   weak_dependency?: number[];
+  /**
+   * Names of files imported by this file purely for the purpose of providing
+   * option extensions. These are excluded from the dependency list above.
+   */
+  option_dependency?: string[];
   /** All top-level definitions in this file. */
   message_type?: DescriptorProtoAmino[];
   enum_type?: EnumDescriptorProtoAmino[];
@@ -455,9 +1187,21 @@ export interface FileDescriptorProtoAmino {
   source_code_info?: SourceCodeInfoAmino;
   /**
    * The syntax of the proto file.
-   * The supported values are "proto2" and "proto3".
+   * The supported values are "proto2", "proto3", and "editions".
+   * 
+   * If `edition` is present, this value must be "editions".
+   * WARNING: This field should only be used by protobuf plugins or special
+   * cases like the proto compiler. Other uses are discouraged and
+   * developers should rely on the protoreflect APIs for their client language.
    */
   syntax?: string;
+  /**
+   * The edition of the proto file.
+   * WARNING: This field should only be used by protobuf plugins or special
+   * cases like the proto compiler. Other uses are discouraged and
+   * developers should rely on the protoreflect APIs for their client language.
+   */
+  edition?: Edition;
 }
 export interface FileDescriptorProtoAminoMsg {
   type: "/google.protobuf.FileDescriptorProto";
@@ -470,6 +1214,7 @@ export interface FileDescriptorProtoSDKType {
   dependency: string[];
   public_dependency: number[];
   weak_dependency: number[];
+  option_dependency: string[];
   message_type: DescriptorProtoSDKType[];
   enum_type: EnumDescriptorProtoSDKType[];
   service: ServiceDescriptorProtoSDKType[];
@@ -477,6 +1222,7 @@ export interface FileDescriptorProtoSDKType {
   options?: FileOptionsSDKType;
   source_code_info?: SourceCodeInfoSDKType;
   syntax: string;
+  edition: Edition;
 }
 /** Describes a message type. */
 export interface DescriptorProto {
@@ -494,6 +1240,8 @@ export interface DescriptorProto {
    * A given name may only be reserved once.
    */
   reservedName: string[];
+  /** Support for `export` and `local` keywords on enums. */
+  visibility: SymbolVisibility;
 }
 export interface DescriptorProtoProtoMsg {
   typeUrl: "/google.protobuf.DescriptorProto";
@@ -515,6 +1263,8 @@ export interface DescriptorProtoAmino {
    * A given name may only be reserved once.
    */
   reserved_name?: string[];
+  /** Support for `export` and `local` keywords on enums. */
+  visibility?: SymbolVisibility;
 }
 export interface DescriptorProtoAminoMsg {
   type: "/google.protobuf.DescriptorProto";
@@ -532,6 +1282,7 @@ export interface DescriptorProtoSDKType {
   options?: MessageOptionsSDKType;
   reserved_range: DescriptorProto_ReservedRangeSDKType[];
   reserved_name: string[];
+  visibility: SymbolVisibility;
 }
 export interface DescriptorProto_ExtensionRange {
   /** Inclusive. */
@@ -602,6 +1353,20 @@ export interface DescriptorProto_ReservedRangeSDKType {
 export interface ExtensionRangeOptions {
   /** The parser stores options it doesn't recognize here. See above. */
   uninterpretedOption: UninterpretedOption[];
+  /**
+   * For external users: DO NOT USE. We are in the process of open sourcing
+   * extension declaration and executing internal cleanups before it can be
+   * used externally.
+   */
+  declaration: ExtensionRangeOptions_Declaration[];
+  /** Any features defined in the specific edition. */
+  features?: FeatureSet;
+  /**
+   * The verification state of the range.
+   * TODO: flip the default to DECLARATION once all empty ranges
+   * are marked as UNVERIFIED.
+   */
+  verification: ExtensionRangeOptions_VerificationState;
 }
 export interface ExtensionRangeOptionsProtoMsg {
   typeUrl: "/google.protobuf.ExtensionRangeOptions";
@@ -610,6 +1375,20 @@ export interface ExtensionRangeOptionsProtoMsg {
 export interface ExtensionRangeOptionsAmino {
   /** The parser stores options it doesn't recognize here. See above. */
   uninterpreted_option?: UninterpretedOptionAmino[];
+  /**
+   * For external users: DO NOT USE. We are in the process of open sourcing
+   * extension declaration and executing internal cleanups before it can be
+   * used externally.
+   */
+  declaration?: ExtensionRangeOptions_DeclarationAmino[];
+  /** Any features defined in the specific edition. */
+  features?: FeatureSetAmino;
+  /**
+   * The verification state of the range.
+   * TODO: flip the default to DECLARATION once all empty ranges
+   * are marked as UNVERIFIED.
+   */
+  verification?: ExtensionRangeOptions_VerificationState;
 }
 export interface ExtensionRangeOptionsAminoMsg {
   type: "/google.protobuf.ExtensionRangeOptions";
@@ -617,6 +1396,76 @@ export interface ExtensionRangeOptionsAminoMsg {
 }
 export interface ExtensionRangeOptionsSDKType {
   uninterpreted_option: UninterpretedOptionSDKType[];
+  declaration: ExtensionRangeOptions_DeclarationSDKType[];
+  features?: FeatureSetSDKType;
+  verification: ExtensionRangeOptions_VerificationState;
+}
+export interface ExtensionRangeOptions_Declaration {
+  /** The extension number declared within the extension range. */
+  number: number;
+  /**
+   * The fully-qualified name of the extension field. There must be a leading
+   * dot in front of the full name.
+   */
+  fullName: string;
+  /**
+   * The fully-qualified type name of the extension field. Unlike
+   * Metadata.type, Declaration.type must have a leading dot for messages
+   * and enums.
+   */
+  type: string;
+  /**
+   * If true, indicates that the number is reserved in the extension range,
+   * and any extension field with the number will fail to compile. Set this
+   * when a declared extension field is deleted.
+   */
+  reserved: boolean;
+  /**
+   * If true, indicates that the extension must be defined as repeated.
+   * Otherwise the extension must be defined as optional.
+   */
+  repeated: boolean;
+}
+export interface ExtensionRangeOptions_DeclarationProtoMsg {
+  typeUrl: "/google.protobuf.Declaration";
+  value: Uint8Array;
+}
+export interface ExtensionRangeOptions_DeclarationAmino {
+  /** The extension number declared within the extension range. */
+  number?: number;
+  /**
+   * The fully-qualified name of the extension field. There must be a leading
+   * dot in front of the full name.
+   */
+  full_name?: string;
+  /**
+   * The fully-qualified type name of the extension field. Unlike
+   * Metadata.type, Declaration.type must have a leading dot for messages
+   * and enums.
+   */
+  type?: string;
+  /**
+   * If true, indicates that the number is reserved in the extension range,
+   * and any extension field with the number will fail to compile. Set this
+   * when a declared extension field is deleted.
+   */
+  reserved?: boolean;
+  /**
+   * If true, indicates that the extension must be defined as repeated.
+   * Otherwise the extension must be defined as optional.
+   */
+  repeated?: boolean;
+}
+export interface ExtensionRangeOptions_DeclarationAminoMsg {
+  type: "/google.protobuf.Declaration";
+  value: ExtensionRangeOptions_DeclarationAmino;
+}
+export interface ExtensionRangeOptions_DeclarationSDKType {
+  number: number;
+  full_name: string;
+  type: string;
+  reserved: boolean;
+  repeated: boolean;
 }
 /** Describes a field within a message. */
 export interface FieldDescriptorProto {
@@ -646,7 +1495,6 @@ export interface FieldDescriptorProto {
    * For booleans, "true" or "false".
    * For strings, contains the default text contents (not escaped in any way).
    * For bytes, contains the C escaped value.  All bytes >= 128 are escaped.
-   * TODO(kenton):  Base-64 encode?
    */
   defaultValue: string;
   /**
@@ -662,6 +1510,30 @@ export interface FieldDescriptorProto {
    */
   jsonName: string;
   options?: FieldOptions;
+  /**
+   * If true, this is a proto3 "optional". When a proto3 field is optional, it
+   * tracks presence regardless of field type.
+   * 
+   * When proto3_optional is true, this field must belong to a oneof to signal
+   * to old proto3 clients that presence is tracked for this field. This oneof
+   * is known as a "synthetic" oneof, and this field must be its sole member
+   * (each proto3 optional field gets its own synthetic oneof). Synthetic oneofs
+   * exist in the descriptor only, and do not generate any API. Synthetic oneofs
+   * must be ordered after all "real" oneofs.
+   * 
+   * For message fields, proto3_optional doesn't create any semantic change,
+   * since non-repeated message fields always track presence. However it still
+   * indicates the semantic detail of whether the user wrote "optional" or not.
+   * This can be useful for round-tripping the .proto file. For consistency we
+   * give message fields a synthetic oneof also, even though it is not required
+   * to track presence. This is especially important because the parser can't
+   * tell if a field is a message or an enum, so it must always create a
+   * synthetic oneof.
+   * 
+   * Proto2 optional fields do not set this flag, because they already indicate
+   * optional with `LABEL_OPTIONAL`.
+   */
+  proto3Optional: boolean;
 }
 export interface FieldDescriptorProtoProtoMsg {
   typeUrl: "/google.protobuf.FieldDescriptorProto";
@@ -695,7 +1567,6 @@ export interface FieldDescriptorProtoAmino {
    * For booleans, "true" or "false".
    * For strings, contains the default text contents (not escaped in any way).
    * For bytes, contains the C escaped value.  All bytes >= 128 are escaped.
-   * TODO(kenton):  Base-64 encode?
    */
   default_value?: string;
   /**
@@ -711,6 +1582,30 @@ export interface FieldDescriptorProtoAmino {
    */
   json_name?: string;
   options?: FieldOptionsAmino;
+  /**
+   * If true, this is a proto3 "optional". When a proto3 field is optional, it
+   * tracks presence regardless of field type.
+   * 
+   * When proto3_optional is true, this field must belong to a oneof to signal
+   * to old proto3 clients that presence is tracked for this field. This oneof
+   * is known as a "synthetic" oneof, and this field must be its sole member
+   * (each proto3 optional field gets its own synthetic oneof). Synthetic oneofs
+   * exist in the descriptor only, and do not generate any API. Synthetic oneofs
+   * must be ordered after all "real" oneofs.
+   * 
+   * For message fields, proto3_optional doesn't create any semantic change,
+   * since non-repeated message fields always track presence. However it still
+   * indicates the semantic detail of whether the user wrote "optional" or not.
+   * This can be useful for round-tripping the .proto file. For consistency we
+   * give message fields a synthetic oneof also, even though it is not required
+   * to track presence. This is especially important because the parser can't
+   * tell if a field is a message or an enum, so it must always create a
+   * synthetic oneof.
+   * 
+   * Proto2 optional fields do not set this flag, because they already indicate
+   * optional with `LABEL_OPTIONAL`.
+   */
+  proto3_optional?: boolean;
 }
 export interface FieldDescriptorProtoAminoMsg {
   type: "/google.protobuf.FieldDescriptorProto";
@@ -728,6 +1623,7 @@ export interface FieldDescriptorProtoSDKType {
   oneof_index: number;
   json_name: string;
   options?: FieldOptionsSDKType;
+  proto3_optional: boolean;
 }
 /** Describes a oneof. */
 export interface OneofDescriptorProto {
@@ -768,6 +1664,8 @@ export interface EnumDescriptorProto {
    * be reserved once.
    */
   reservedName: string[];
+  /** Support for `export` and `local` keywords on enums. */
+  visibility: SymbolVisibility;
 }
 export interface EnumDescriptorProtoProtoMsg {
   typeUrl: "/google.protobuf.EnumDescriptorProto";
@@ -789,6 +1687,8 @@ export interface EnumDescriptorProtoAmino {
    * be reserved once.
    */
   reserved_name?: string[];
+  /** Support for `export` and `local` keywords on enums. */
+  visibility?: SymbolVisibility;
 }
 export interface EnumDescriptorProtoAminoMsg {
   type: "/google.protobuf.EnumDescriptorProto";
@@ -801,6 +1701,7 @@ export interface EnumDescriptorProtoSDKType {
   options?: EnumOptionsSDKType;
   reserved_range: EnumDescriptorProto_EnumReservedRangeSDKType[];
   reserved_name: string[];
+  visibility: SymbolVisibility;
 }
 /**
  * Range of reserved numeric values. Reserved values may not be used by
@@ -958,18 +1859,18 @@ export interface FileOptions {
    */
   javaPackage: string;
   /**
-   * If set, all the classes from the .proto file are wrapped in a single
-   * outer class with the given name.  This applies to both Proto1
-   * (equivalent to the old "--one_java_file" option) and Proto2 (where
-   * a .proto always translates to a single class, but you may want to
-   * explicitly choose the class name).
+   * Controls the name of the wrapper Java class generated for the .proto file.
+   * That class will always contain the .proto file's getDescriptor() method as
+   * well as any top-level extensions defined in the .proto file.
+   * If java_multiple_files is disabled, then all the other classes from the
+   * .proto file will be nested inside the single wrapper outer class.
    */
   javaOuterClassname: string;
   /**
-   * If set true, then the Java code generator will generate a separate .java
+   * If enabled, then the Java code generator will generate a separate .java
    * file for each top-level message, enum, and service defined in the .proto
-   * file.  Thus, these types will *not* be nested inside the outer class
-   * named by java_outer_classname.  However, the outer class will still be
+   * file.  Thus, these types will *not* be nested inside the wrapper class
+   * named by java_outer_classname.  However, the wrapper class will still be
    * generated to contain the file's getDescriptor() method as well as any
    * top-level extensions defined in the file.
    */
@@ -978,12 +1879,16 @@ export interface FileOptions {
   /** @deprecated */
   javaGenerateEqualsAndHash: boolean;
   /**
-   * If set true, then the Java2 code generator will generate code that
-   * throws an exception whenever an attempt is made to assign a non-UTF-8
-   * byte sequence to a string field.
-   * Message reflection will do the same.
-   * However, an extension field still accepts non-UTF-8 byte sequences.
-   * This option has no effect on when used with the lite runtime.
+   * A proto2 file can set this to true to opt in to UTF-8 checking for Java,
+   * which will throw an exception if invalid UTF-8 is parsed from the wire or
+   * assigned to a string field.
+   * 
+   * TODO: clarify exactly what kinds of field types this option
+   * applies to, and update these docs accordingly.
+   * 
+   * Proto3 files already perform these checks. Setting the option explicitly to
+   * false has no effect: it cannot be used to opt proto3 files out of UTF-8
+   * checks.
    */
   javaStringCheckUtf8: boolean;
   optimizeFor: FileOptions_OptimizeMode;
@@ -1010,7 +1915,6 @@ export interface FileOptions {
   ccGenericServices: boolean;
   javaGenericServices: boolean;
   pyGenericServices: boolean;
-  phpGenericServices: boolean;
   /**
    * Is this file deprecated?
    * Depending on the target platform, this can emit Deprecated annotations
@@ -1061,6 +1965,13 @@ export interface FileOptions {
    */
   rubyPackage: string;
   /**
+   * Any features defined in the specific edition.
+   * WARNING: This field should only be used by protobuf plugins or special
+   * cases like the proto compiler. Other uses are discouraged and
+   * developers should rely on the protoreflect APIs for their client language.
+   */
+  features?: FeatureSet;
+  /**
    * The parser stores options it doesn't recognize here.
    * See the documentation for the "Options" section above.
    */
@@ -1079,18 +1990,18 @@ export interface FileOptionsAmino {
    */
   java_package?: string;
   /**
-   * If set, all the classes from the .proto file are wrapped in a single
-   * outer class with the given name.  This applies to both Proto1
-   * (equivalent to the old "--one_java_file" option) and Proto2 (where
-   * a .proto always translates to a single class, but you may want to
-   * explicitly choose the class name).
+   * Controls the name of the wrapper Java class generated for the .proto file.
+   * That class will always contain the .proto file's getDescriptor() method as
+   * well as any top-level extensions defined in the .proto file.
+   * If java_multiple_files is disabled, then all the other classes from the
+   * .proto file will be nested inside the single wrapper outer class.
    */
   java_outer_classname?: string;
   /**
-   * If set true, then the Java code generator will generate a separate .java
+   * If enabled, then the Java code generator will generate a separate .java
    * file for each top-level message, enum, and service defined in the .proto
-   * file.  Thus, these types will *not* be nested inside the outer class
-   * named by java_outer_classname.  However, the outer class will still be
+   * file.  Thus, these types will *not* be nested inside the wrapper class
+   * named by java_outer_classname.  However, the wrapper class will still be
    * generated to contain the file's getDescriptor() method as well as any
    * top-level extensions defined in the file.
    */
@@ -1099,12 +2010,16 @@ export interface FileOptionsAmino {
   /** @deprecated */
   java_generate_equals_and_hash?: boolean;
   /**
-   * If set true, then the Java2 code generator will generate code that
-   * throws an exception whenever an attempt is made to assign a non-UTF-8
-   * byte sequence to a string field.
-   * Message reflection will do the same.
-   * However, an extension field still accepts non-UTF-8 byte sequences.
-   * This option has no effect on when used with the lite runtime.
+   * A proto2 file can set this to true to opt in to UTF-8 checking for Java,
+   * which will throw an exception if invalid UTF-8 is parsed from the wire or
+   * assigned to a string field.
+   * 
+   * TODO: clarify exactly what kinds of field types this option
+   * applies to, and update these docs accordingly.
+   * 
+   * Proto3 files already perform these checks. Setting the option explicitly to
+   * false has no effect: it cannot be used to opt proto3 files out of UTF-8
+   * checks.
    */
   java_string_check_utf8?: boolean;
   optimize_for?: FileOptions_OptimizeMode;
@@ -1131,7 +2046,6 @@ export interface FileOptionsAmino {
   cc_generic_services?: boolean;
   java_generic_services?: boolean;
   py_generic_services?: boolean;
-  php_generic_services?: boolean;
   /**
    * Is this file deprecated?
    * Depending on the target platform, this can emit Deprecated annotations
@@ -1182,6 +2096,13 @@ export interface FileOptionsAmino {
    */
   ruby_package?: string;
   /**
+   * Any features defined in the specific edition.
+   * WARNING: This field should only be used by protobuf plugins or special
+   * cases like the proto compiler. Other uses are discouraged and
+   * developers should rely on the protoreflect APIs for their client language.
+   */
+  features?: FeatureSetAmino;
+  /**
    * The parser stores options it doesn't recognize here.
    * See the documentation for the "Options" section above.
    */
@@ -1203,7 +2124,6 @@ export interface FileOptionsSDKType {
   cc_generic_services: boolean;
   java_generic_services: boolean;
   py_generic_services: boolean;
-  php_generic_services: boolean;
   deprecated: boolean;
   cc_enable_arenas: boolean;
   objc_class_prefix: string;
@@ -1213,6 +2133,7 @@ export interface FileOptionsSDKType {
   php_namespace: string;
   php_metadata_namespace: string;
   ruby_package: string;
+  features?: FeatureSetSDKType;
   uninterpreted_option: UninterpretedOptionSDKType[];
 }
 export interface MessageOptions {
@@ -1274,6 +2195,27 @@ export interface MessageOptions {
    * parser.
    */
   mapEntry: boolean;
+  /**
+   * Enable the legacy handling of JSON field name conflicts.  This lowercases
+   * and strips underscored from the fields before comparison in proto3 only.
+   * The new behavior takes `json_name` into account and applies to proto2 as
+   * well.
+   * 
+   * This should only be used as a temporary measure against broken builds due
+   * to the change in behavior for JSON field name conflicts.
+   * 
+   * TODO This is legacy behavior we plan to remove once downstream
+   * teams have had time to migrate.
+   */
+  /** @deprecated */
+  deprecatedLegacyJsonFieldConflicts: boolean;
+  /**
+   * Any features defined in the specific edition.
+   * WARNING: This field should only be used by protobuf plugins or special
+   * cases like the proto compiler. Other uses are discouraged and
+   * developers should rely on the protoreflect APIs for their client language.
+   */
+  features?: FeatureSet;
   /** The parser stores options it doesn't recognize here. See above. */
   uninterpretedOption: UninterpretedOption[];
 }
@@ -1340,6 +2282,27 @@ export interface MessageOptionsAmino {
    * parser.
    */
   map_entry?: boolean;
+  /**
+   * Enable the legacy handling of JSON field name conflicts.  This lowercases
+   * and strips underscored from the fields before comparison in proto3 only.
+   * The new behavior takes `json_name` into account and applies to proto2 as
+   * well.
+   * 
+   * This should only be used as a temporary measure against broken builds due
+   * to the change in behavior for JSON field name conflicts.
+   * 
+   * TODO This is legacy behavior we plan to remove once downstream
+   * teams have had time to migrate.
+   */
+  /** @deprecated */
+  deprecated_legacy_json_field_conflicts?: boolean;
+  /**
+   * Any features defined in the specific edition.
+   * WARNING: This field should only be used by protobuf plugins or special
+   * cases like the proto compiler. Other uses are discouraged and
+   * developers should rely on the protoreflect APIs for their client language.
+   */
+  features?: FeatureSetAmino;
   /** The parser stores options it doesn't recognize here. See above. */
   uninterpreted_option?: UninterpretedOptionAmino[];
 }
@@ -1352,14 +2315,20 @@ export interface MessageOptionsSDKType {
   no_standard_descriptor_accessor: boolean;
   deprecated: boolean;
   map_entry: boolean;
+  /** @deprecated */
+  deprecated_legacy_json_field_conflicts: boolean;
+  features?: FeatureSetSDKType;
   uninterpreted_option: UninterpretedOptionSDKType[];
 }
 export interface FieldOptions {
   /**
+   * NOTE: ctype is deprecated. Use `features.(pb.cpp).string_type` instead.
    * The ctype option instructs the C++ code generator to use a different
    * representation of the field than it normally would.  See the specific
-   * options below.  This option is not yet implemented in the open source
-   * release -- sorry, we'll try to include it in a future version!
+   * options below.  This option is only implemented to support use of
+   * [ctype=CORD] and [ctype=STRING] (the default) on non-repeated fields of
+   * type "bytes" in the open source release.
+   * TODO: make ctype actually deprecated.
    */
   ctype: FieldOptions_CType;
   /**
@@ -1367,7 +2336,9 @@ export interface FieldOptions {
    * a more efficient representation on the wire. Rather than repeatedly
    * writing the tag and type for each element, the entire array is encoded as
    * a single length-delimited blob. In proto3, only explicit setting it to
-   * false will avoid using packed encoding.
+   * false will avoid using packed encoding.  This option is prohibited in
+   * Editions, but the `repeated_field_encoding` feature can be used to control
+   * the behavior.
    */
   packed: boolean;
   /**
@@ -1402,19 +2373,19 @@ export interface FieldOptions {
    * call from multiple threads concurrently, while non-const methods continue
    * to require exclusive access.
    * 
-   * 
-   * Note that implementations may choose not to check required fields within
-   * a lazy sub-message.  That is, calling IsInitialized() on the outer message
-   * may return true even if the inner message has missing required fields.
-   * This is necessary because otherwise the inner message would have to be
-   * parsed in order to perform the check, defeating the purpose of lazy
-   * parsing.  An implementation which chooses not to check required fields
-   * must be consistent about it.  That is, for any particular sub-message, the
-   * implementation must either *always* check its required fields, or *never*
-   * check its required fields, regardless of whether or not the message has
-   * been parsed.
+   * Note that lazy message fields are still eagerly verified to check
+   * ill-formed wireformat or missing required fields. Calling IsInitialized()
+   * on the outer message would fail if the inner message has missing required
+   * fields. Failed verification would result in parsing failure (except when
+   * uninitialized messages are acceptable).
    */
   lazy: boolean;
+  /**
+   * unverified_lazy does no correctness checks on the byte stream. This should
+   * only be used where lazy with verification is prohibitive for performance
+   * reasons.
+   */
+  unverifiedLazy: boolean;
   /**
    * Is this field deprecated?
    * Depending on the target platform, this can emit Deprecated annotations
@@ -1424,6 +2395,22 @@ export interface FieldOptions {
   deprecated: boolean;
   /** For Google-internal migration only. Do not use. */
   weak: boolean;
+  /**
+   * Indicate that the field value should not be printed out when using debug
+   * formats, e.g. when the field contains sensitive credentials.
+   */
+  debugRedact: boolean;
+  retention: FieldOptions_OptionRetention;
+  targets: FieldOptions_OptionTargetType[];
+  editionDefaults: FieldOptions_EditionDefault[];
+  /**
+   * Any features defined in the specific edition.
+   * WARNING: This field should only be used by protobuf plugins or special
+   * cases like the proto compiler. Other uses are discouraged and
+   * developers should rely on the protoreflect APIs for their client language.
+   */
+  features?: FeatureSet;
+  featureSupport?: FieldOptions_FeatureSupport;
   /** The parser stores options it doesn't recognize here. See above. */
   uninterpretedOption: UninterpretedOption[];
 }
@@ -1433,10 +2420,13 @@ export interface FieldOptionsProtoMsg {
 }
 export interface FieldOptionsAmino {
   /**
+   * NOTE: ctype is deprecated. Use `features.(pb.cpp).string_type` instead.
    * The ctype option instructs the C++ code generator to use a different
    * representation of the field than it normally would.  See the specific
-   * options below.  This option is not yet implemented in the open source
-   * release -- sorry, we'll try to include it in a future version!
+   * options below.  This option is only implemented to support use of
+   * [ctype=CORD] and [ctype=STRING] (the default) on non-repeated fields of
+   * type "bytes" in the open source release.
+   * TODO: make ctype actually deprecated.
    */
   ctype?: FieldOptions_CType;
   /**
@@ -1444,7 +2434,9 @@ export interface FieldOptionsAmino {
    * a more efficient representation on the wire. Rather than repeatedly
    * writing the tag and type for each element, the entire array is encoded as
    * a single length-delimited blob. In proto3, only explicit setting it to
-   * false will avoid using packed encoding.
+   * false will avoid using packed encoding.  This option is prohibited in
+   * Editions, but the `repeated_field_encoding` feature can be used to control
+   * the behavior.
    */
   packed?: boolean;
   /**
@@ -1479,19 +2471,19 @@ export interface FieldOptionsAmino {
    * call from multiple threads concurrently, while non-const methods continue
    * to require exclusive access.
    * 
-   * 
-   * Note that implementations may choose not to check required fields within
-   * a lazy sub-message.  That is, calling IsInitialized() on the outer message
-   * may return true even if the inner message has missing required fields.
-   * This is necessary because otherwise the inner message would have to be
-   * parsed in order to perform the check, defeating the purpose of lazy
-   * parsing.  An implementation which chooses not to check required fields
-   * must be consistent about it.  That is, for any particular sub-message, the
-   * implementation must either *always* check its required fields, or *never*
-   * check its required fields, regardless of whether or not the message has
-   * been parsed.
+   * Note that lazy message fields are still eagerly verified to check
+   * ill-formed wireformat or missing required fields. Calling IsInitialized()
+   * on the outer message would fail if the inner message has missing required
+   * fields. Failed verification would result in parsing failure (except when
+   * uninitialized messages are acceptable).
    */
   lazy?: boolean;
+  /**
+   * unverified_lazy does no correctness checks on the byte stream. This should
+   * only be used where lazy with verification is prohibitive for performance
+   * reasons.
+   */
+  unverified_lazy?: boolean;
   /**
    * Is this field deprecated?
    * Depending on the target platform, this can emit Deprecated annotations
@@ -1501,6 +2493,22 @@ export interface FieldOptionsAmino {
   deprecated?: boolean;
   /** For Google-internal migration only. Do not use. */
   weak?: boolean;
+  /**
+   * Indicate that the field value should not be printed out when using debug
+   * formats, e.g. when the field contains sensitive credentials.
+   */
+  debug_redact?: boolean;
+  retention?: FieldOptions_OptionRetention;
+  targets?: FieldOptions_OptionTargetType[];
+  edition_defaults?: FieldOptions_EditionDefaultAmino[];
+  /**
+   * Any features defined in the specific edition.
+   * WARNING: This field should only be used by protobuf plugins or special
+   * cases like the proto compiler. Other uses are discouraged and
+   * developers should rely on the protoreflect APIs for their client language.
+   */
+  features?: FeatureSetAmino;
+  feature_support?: FieldOptions_FeatureSupportAmino;
   /** The parser stores options it doesn't recognize here. See above. */
   uninterpreted_option?: UninterpretedOptionAmino[];
 }
@@ -1513,11 +2521,112 @@ export interface FieldOptionsSDKType {
   packed: boolean;
   jstype: FieldOptions_JSType;
   lazy: boolean;
+  unverified_lazy: boolean;
   deprecated: boolean;
   weak: boolean;
+  debug_redact: boolean;
+  retention: FieldOptions_OptionRetention;
+  targets: FieldOptions_OptionTargetType[];
+  edition_defaults: FieldOptions_EditionDefaultSDKType[];
+  features?: FeatureSetSDKType;
+  feature_support?: FieldOptions_FeatureSupportSDKType;
   uninterpreted_option: UninterpretedOptionSDKType[];
 }
+export interface FieldOptions_EditionDefault {
+  edition: Edition;
+  /** Textproto value. */
+  value: string;
+}
+export interface FieldOptions_EditionDefaultProtoMsg {
+  typeUrl: "/google.protobuf.EditionDefault";
+  value: Uint8Array;
+}
+export interface FieldOptions_EditionDefaultAmino {
+  edition?: Edition;
+  /** Textproto value. */
+  value?: string;
+}
+export interface FieldOptions_EditionDefaultAminoMsg {
+  type: "/google.protobuf.EditionDefault";
+  value: FieldOptions_EditionDefaultAmino;
+}
+export interface FieldOptions_EditionDefaultSDKType {
+  edition: Edition;
+  value: string;
+}
+/** Information about the support window of a feature. */
+export interface FieldOptions_FeatureSupport {
+  /**
+   * The edition that this feature was first available in.  In editions
+   * earlier than this one, the default assigned to EDITION_LEGACY will be
+   * used, and proto files will not be able to override it.
+   */
+  editionIntroduced: Edition;
+  /**
+   * The edition this feature becomes deprecated in.  Using this after this
+   * edition may trigger warnings.
+   */
+  editionDeprecated: Edition;
+  /**
+   * The deprecation warning text if this feature is used after the edition it
+   * was marked deprecated in.
+   */
+  deprecationWarning: string;
+  /**
+   * The edition this feature is no longer available in.  In editions after
+   * this one, the last default assigned will be used, and proto files will
+   * not be able to override it.
+   */
+  editionRemoved: Edition;
+}
+export interface FieldOptions_FeatureSupportProtoMsg {
+  typeUrl: "/google.protobuf.FeatureSupport";
+  value: Uint8Array;
+}
+/** Information about the support window of a feature. */
+export interface FieldOptions_FeatureSupportAmino {
+  /**
+   * The edition that this feature was first available in.  In editions
+   * earlier than this one, the default assigned to EDITION_LEGACY will be
+   * used, and proto files will not be able to override it.
+   */
+  edition_introduced?: Edition;
+  /**
+   * The edition this feature becomes deprecated in.  Using this after this
+   * edition may trigger warnings.
+   */
+  edition_deprecated?: Edition;
+  /**
+   * The deprecation warning text if this feature is used after the edition it
+   * was marked deprecated in.
+   */
+  deprecation_warning?: string;
+  /**
+   * The edition this feature is no longer available in.  In editions after
+   * this one, the last default assigned will be used, and proto files will
+   * not be able to override it.
+   */
+  edition_removed?: Edition;
+}
+export interface FieldOptions_FeatureSupportAminoMsg {
+  type: "/google.protobuf.FeatureSupport";
+  value: FieldOptions_FeatureSupportAmino;
+}
+/** Information about the support window of a feature. */
+export interface FieldOptions_FeatureSupportSDKType {
+  edition_introduced: Edition;
+  edition_deprecated: Edition;
+  deprecation_warning: string;
+  edition_removed: Edition;
+}
 export interface OneofOptions {
+  /**
+   * Any features defined in the specific edition.
+   * WARNING: This field should only be used by protobuf plugins or special
+   * cases like the proto compiler. Other uses are discouraged and
+   * developers should rely on the protoreflect APIs for their client language.
+   */
+  features?: FeatureSet;
   /** The parser stores options it doesn't recognize here. See above. */
   uninterpretedOption: UninterpretedOption[];
 }
@@ -1526,6 +2635,13 @@ export interface OneofOptionsProtoMsg {
   value: Uint8Array;
 }
 export interface OneofOptionsAmino {
+  /**
+   * Any features defined in the specific edition.
+   * WARNING: This field should only be used by protobuf plugins or special
+   * cases like the proto compiler. Other uses are discouraged and
+   * developers should rely on the protoreflect APIs for their client language.
+   */
+  features?: FeatureSetAmino;
   /** The parser stores options it doesn't recognize here. See above. */
   uninterpreted_option?: UninterpretedOptionAmino[];
 }
@@ -1534,6 +2650,7 @@ export interface OneofOptionsAminoMsg {
   value: OneofOptionsAmino;
 }
 export interface OneofOptionsSDKType {
+  features?: FeatureSetSDKType;
   uninterpreted_option: UninterpretedOptionSDKType[];
 }
 export interface EnumOptions {
@@ -1549,6 +2666,23 @@ export interface EnumOptions {
    * is a formalization for deprecating enums.
    */
   deprecated: boolean;
+  /**
+   * Enable the legacy handling of JSON field name conflicts.  This lowercases
+   * and strips underscored from the fields before comparison in proto3 only.
+   * The new behavior takes `json_name` into account and applies to proto2 as
+   * well.
+   * TODO Remove this legacy behavior once downstream teams have
+   * had time to migrate.
+   */
+  /** @deprecated */
+  deprecatedLegacyJsonFieldConflicts: boolean;
+  /**
+   * Any features defined in the specific edition.
+   * WARNING: This field should only be used by protobuf plugins or special
+   * cases like the proto compiler. Other uses are discouraged and
+   * developers should rely on the protoreflect APIs for their client language.
+   */
+  features?: FeatureSet;
   /** The parser stores options it doesn't recognize here. See above. */
   uninterpretedOption: UninterpretedOption[];
 }
@@ -1569,6 +2703,23 @@ export interface EnumOptionsAmino {
    * is a formalization for deprecating enums.
    */
   deprecated?: boolean;
+  /**
+   * Enable the legacy handling of JSON field name conflicts.  This lowercases
+   * and strips underscored from the fields before comparison in proto3 only.
+   * The new behavior takes `json_name` into account and applies to proto2 as
+   * well.
+   * TODO Remove this legacy behavior once downstream teams have
+   * had time to migrate.
+   */
+  /** @deprecated */
+  deprecated_legacy_json_field_conflicts?: boolean;
+  /**
+   * Any features defined in the specific edition.
+   * WARNING: This field should only be used by protobuf plugins or special
+   * cases like the proto compiler. Other uses are discouraged and
+   * developers should rely on the protoreflect APIs for their client language.
+   */
+  features?: FeatureSetAmino;
   /** The parser stores options it doesn't recognize here. See above. */
   uninterpreted_option?: UninterpretedOptionAmino[];
 }
@@ -1579,6 +2730,9 @@ export interface EnumOptionsAminoMsg {
 export interface EnumOptionsSDKType {
   allow_alias: boolean;
   deprecated: boolean;
+  /** @deprecated */
+  deprecated_legacy_json_field_conflicts: boolean;
+  features?: FeatureSetSDKType;
   uninterpreted_option: UninterpretedOptionSDKType[];
 }
 export interface EnumValueOptions {
@@ -1589,6 +2743,21 @@ export interface EnumValueOptions {
    * this is a formalization for deprecating enum values.
    */
   deprecated: boolean;
+  /**
+   * Any features defined in the specific edition.
+   * WARNING: This field should only be used by protobuf plugins or special
+   * cases like the proto compiler. Other uses are discouraged and
+   * developers should rely on the protoreflect APIs for their client language.
+   */
+  features?: FeatureSet;
+  /**
+   * Indicate that fields annotated with this enum value should not be printed
+   * out when using debug formats, e.g. when the field contains sensitive
+   * credentials.
+   */
+  debugRedact: boolean;
+  /** Information about the support window of a feature value. */
+  featureSupport?: FieldOptions_FeatureSupport;
   /** The parser stores options it doesn't recognize here. See above. */
   uninterpretedOption: UninterpretedOption[];
 }
@@ -1604,6 +2773,21 @@ export interface EnumValueOptionsAmino {
    * this is a formalization for deprecating enum values.
    */
   deprecated?: boolean;
+  /**
+   * Any features defined in the specific edition.
+   * WARNING: This field should only be used by protobuf plugins or special
+   * cases like the proto compiler. Other uses are discouraged and
+   * developers should rely on the protoreflect APIs for their client language.
+   */
+  features?: FeatureSetAmino;
+  /**
+   * Indicate that fields annotated with this enum value should not be printed
+   * out when using debug formats, e.g. when the field contains sensitive
+   * credentials.
+   */
+  debug_redact?: boolean;
+  /** Information about the support window of a feature value. */
+  feature_support?: FieldOptions_FeatureSupportAmino;
   /** The parser stores options it doesn't recognize here. See above. */
   uninterpreted_option?: UninterpretedOptionAmino[];
 }
@@ -1613,9 +2797,19 @@ export interface EnumValueOptionsAminoMsg {
 }
 export interface EnumValueOptionsSDKType {
   deprecated: boolean;
+  features?: FeatureSetSDKType;
+  debug_redact: boolean;
+  feature_support?: FieldOptions_FeatureSupportSDKType;
   uninterpreted_option: UninterpretedOptionSDKType[];
 }
 export interface ServiceOptions {
+  /**
+   * Any features defined in the specific edition.
+   * WARNING: This field should only be used by protobuf plugins or special
+   * cases like the proto compiler. Other uses are discouraged and
+   * developers should rely on the protoreflect APIs for their client language.
+   */
+  features?: FeatureSet;
   /**
    * Is this service deprecated?
    * Depending on the target platform, this can emit Deprecated annotations
@@ -1632,6 +2826,13 @@ export interface ServiceOptionsProtoMsg {
 }
 export interface ServiceOptionsAmino {
   /**
+   * Any features defined in the specific edition.
+   * WARNING: This field should only be used by protobuf plugins or special
+   * cases like the proto compiler. Other uses are discouraged and
+   * developers should rely on the protoreflect APIs for their client language.
+   */
+  features?: FeatureSetAmino;
+  /**
    * Is this service deprecated?
    * Depending on the target platform, this can emit Deprecated annotations
    * for the service, or it will be completely ignored; in the very least,
@@ -1646,6 +2847,7 @@ export interface ServiceOptionsAminoMsg {
   value: ServiceOptionsAmino;
 }
 export interface ServiceOptionsSDKType {
+  features?: FeatureSetSDKType;
   deprecated: boolean;
   uninterpreted_option: UninterpretedOptionSDKType[];
 }
@@ -1658,6 +2860,13 @@ export interface MethodOptions {
    */
   deprecated: boolean;
   idempotencyLevel: MethodOptions_IdempotencyLevel;
+  /**
+   * Any features defined in the specific edition.
+   * WARNING: This field should only be used by protobuf plugins or special
+   * cases like the proto compiler. Other uses are discouraged and
+   * developers should rely on the protoreflect APIs for their client language.
+   */
+  features?: FeatureSet;
   /** The parser stores options it doesn't recognize here. See above. */
   uninterpretedOption: UninterpretedOption[];
 }
@@ -1674,6 +2883,13 @@ export interface MethodOptionsAmino {
    */
   deprecated?: boolean;
   idempotency_level?: MethodOptions_IdempotencyLevel;
+  /**
+   * Any features defined in the specific edition.
+   * WARNING: This field should only be used by protobuf plugins or special
+   * cases like the proto compiler. Other uses are discouraged and
+   * developers should rely on the protoreflect APIs for their client language.
+   */
+  features?: FeatureSetAmino;
   /** The parser stores options it doesn't recognize here. See above. */
   uninterpreted_option?: UninterpretedOptionAmino[];
 }
@@ -1684,6 +2900,7 @@ export interface MethodOptionsAminoMsg {
 export interface MethodOptionsSDKType {
   deprecated: boolean;
   idempotency_level: MethodOptions_IdempotencyLevel;
+  features?: FeatureSetSDKType;
   uninterpreted_option: UninterpretedOptionSDKType[];
 }
 /**
@@ -1757,8 +2974,8 @@ export interface UninterpretedOptionSDKType {
  * The name of the uninterpreted option.  Each string represents a segment in
  * a dot-separated name.  is_extension is true iff a segment represents an
  * extension (denoted with parentheses in options specs in .proto files).
- * E.g.,{ ["foo", false], ["bar.baz", true], ["qux", false] } represents
- * "foo.(bar.baz).qux".
+ * E.g.,{ ["foo", false], ["bar.baz", true], ["moo", false] } represents
+ * "foo.(bar.baz).moo".
  */
 export interface UninterpretedOption_NamePart {
   namePart: string;
@@ -1772,8 +2989,8 @@ export interface UninterpretedOption_NamePartProtoMsg {
  * The name of the uninterpreted option.  Each string represents a segment in
  * a dot-separated name.  is_extension is true iff a segment represents an
  * extension (denoted with parentheses in options specs in .proto files).
- * E.g.,{ ["foo", false], ["bar.baz", true], ["qux", false] } represents
- * "foo.(bar.baz).qux".
+ * E.g.,{ ["foo", false], ["bar.baz", true], ["moo", false] } represents
+ * "foo.(bar.baz).moo".
  */
 export interface UninterpretedOption_NamePartAmino {
   name_part?: string;
@@ -1787,12 +3004,184 @@ export interface UninterpretedOption_NamePartAminoMsg {
  * The name of the uninterpreted option.  Each string represents a segment in
  * a dot-separated name.  is_extension is true iff a segment represents an
  * extension (denoted with parentheses in options specs in .proto files).
- * E.g.,{ ["foo", false], ["bar.baz", true], ["qux", false] } represents
- * "foo.(bar.baz).qux".
+ * E.g.,{ ["foo", false], ["bar.baz", true], ["moo", false] } represents
+ * "foo.(bar.baz).moo".
  */
 export interface UninterpretedOption_NamePartSDKType {
   name_part: string;
   is_extension: boolean;
+}
+/**
+ * TODO Enums in C++ gencode (and potentially other languages) are
+ * not well scoped.  This means that each of the feature enums below can clash
+ * with each other.  The short names we've chosen maximize call-site
+ * readability, but leave us very open to this scenario.  A future feature will
+ * be designed and implemented to handle this, hopefully before we ever hit a
+ * conflict here.
+ */
+export interface FeatureSet {
+  fieldPresence: FeatureSet_FieldPresence;
+  enumType: FeatureSet_EnumType;
+  repeatedFieldEncoding: FeatureSet_RepeatedFieldEncoding;
+  utf8Validation: FeatureSet_Utf8Validation;
+  messageEncoding: FeatureSet_MessageEncoding;
+  jsonFormat: FeatureSet_JsonFormat;
+  enforceNamingStyle: FeatureSet_EnforceNamingStyle;
+}
+export interface FeatureSetProtoMsg {
+  typeUrl: "/google.protobuf.FeatureSet";
+  value: Uint8Array;
+}
+/**
+ * TODO Enums in C++ gencode (and potentially other languages) are
+ * not well scoped.  This means that each of the feature enums below can clash
+ * with each other.  The short names we've chosen maximize call-site
+ * readability, but leave us very open to this scenario.  A future feature will
+ * be designed and implemented to handle this, hopefully before we ever hit a
+ * conflict here.
+ */
+export interface FeatureSetAmino {
+  field_presence?: FeatureSet_FieldPresence;
+  enum_type?: FeatureSet_EnumType;
+  repeated_field_encoding?: FeatureSet_RepeatedFieldEncoding;
+  utf8_validation?: FeatureSet_Utf8Validation;
+  message_encoding?: FeatureSet_MessageEncoding;
+  json_format?: FeatureSet_JsonFormat;
+  enforce_naming_style?: FeatureSet_EnforceNamingStyle;
+}
+export interface FeatureSetAminoMsg {
+  type: "/google.protobuf.FeatureSet";
+  value: FeatureSetAmino;
+}
+/**
+ * TODO Enums in C++ gencode (and potentially other languages) are
+ * not well scoped.  This means that each of the feature enums below can clash
+ * with each other.  The short names we've chosen maximize call-site
+ * readability, but leave us very open to this scenario.  A future feature will
+ * be designed and implemented to handle this, hopefully before we ever hit a
+ * conflict here.
+ */
+export interface FeatureSetSDKType {
+  field_presence: FeatureSet_FieldPresence;
+  enum_type: FeatureSet_EnumType;
+  repeated_field_encoding: FeatureSet_RepeatedFieldEncoding;
+  utf8_validation: FeatureSet_Utf8Validation;
+  message_encoding: FeatureSet_MessageEncoding;
+  json_format: FeatureSet_JsonFormat;
+  enforce_naming_style: FeatureSet_EnforceNamingStyle;
+}
+export interface FeatureSet_VisibilityFeature {}
+export interface FeatureSet_VisibilityFeatureProtoMsg {
+  typeUrl: "/google.protobuf.VisibilityFeature";
+  value: Uint8Array;
+}
+export interface FeatureSet_VisibilityFeatureAmino {}
+export interface FeatureSet_VisibilityFeatureAminoMsg {
+  type: "/google.protobuf.VisibilityFeature";
+  value: FeatureSet_VisibilityFeatureAmino;
+}
+export interface FeatureSet_VisibilityFeatureSDKType {}
+/**
+ * A compiled specification for the defaults of a set of features.  These
+ * messages are generated from FeatureSet extensions and can be used to seed
+ * feature resolution. The resolution with this object becomes a simple search
+ * for the closest matching edition, followed by proto merges.
+ */
+export interface FeatureSetDefaults {
+  defaults: FeatureSetDefaults_FeatureSetEditionDefault[];
+  /**
+   * The minimum supported edition (inclusive) when this was constructed.
+   * Editions before this will not have defaults.
+   */
+  minimumEdition: Edition;
+  /**
+   * The maximum known edition (inclusive) when this was constructed. Editions
+   * after this will not have reliable defaults.
+   */
+  maximumEdition: Edition;
+}
+export interface FeatureSetDefaultsProtoMsg {
+  typeUrl: "/google.protobuf.FeatureSetDefaults";
+  value: Uint8Array;
+}
+/**
+ * A compiled specification for the defaults of a set of features.  These
+ * messages are generated from FeatureSet extensions and can be used to seed
+ * feature resolution. The resolution with this object becomes a simple search
+ * for the closest matching edition, followed by proto merges.
+ */
+export interface FeatureSetDefaultsAmino {
+  defaults?: FeatureSetDefaults_FeatureSetEditionDefaultAmino[];
+  /**
+   * The minimum supported edition (inclusive) when this was constructed.
+   * Editions before this will not have defaults.
+   */
+  minimum_edition?: Edition;
+  /**
+   * The maximum known edition (inclusive) when this was constructed. Editions
+   * after this will not have reliable defaults.
+   */
+  maximum_edition?: Edition;
+}
+export interface FeatureSetDefaultsAminoMsg {
+  type: "/google.protobuf.FeatureSetDefaults";
+  value: FeatureSetDefaultsAmino;
+}
+/**
+ * A compiled specification for the defaults of a set of features.  These
+ * messages are generated from FeatureSet extensions and can be used to seed
+ * feature resolution. The resolution with this object becomes a simple search
+ * for the closest matching edition, followed by proto merges.
+ */
+export interface FeatureSetDefaultsSDKType {
+  defaults: FeatureSetDefaults_FeatureSetEditionDefaultSDKType[];
+  minimum_edition: Edition;
+  maximum_edition: Edition;
+}
+/**
+ * A map from every known edition with a unique set of defaults to its
+ * defaults. Not all editions may be contained here.  For a given edition,
+ * the defaults at the closest matching edition ordered at or before it should
+ * be used.  This field must be in strict ascending order by edition.
+ */
+export interface FeatureSetDefaults_FeatureSetEditionDefault {
+  edition: Edition;
+  /** Defaults of features that can be overridden in this edition. */
+  overridableFeatures?: FeatureSet;
+  /** Defaults of features that can't be overridden in this edition. */
+  fixedFeatures?: FeatureSet;
+}
+export interface FeatureSetDefaults_FeatureSetEditionDefaultProtoMsg {
+  typeUrl: "/google.protobuf.FeatureSetEditionDefault";
+  value: Uint8Array;
+}
+/**
+ * A map from every known edition with a unique set of defaults to its
+ * defaults. Not all editions may be contained here.  For a given edition,
+ * the defaults at the closest matching edition ordered at or before it should
+ * be used.  This field must be in strict ascending order by edition.
+ */
+export interface FeatureSetDefaults_FeatureSetEditionDefaultAmino {
+  edition?: Edition;
+  /** Defaults of features that can be overridden in this edition. */
+  overridable_features?: FeatureSetAmino;
+  /** Defaults of features that can't be overridden in this edition. */
+  fixed_features?: FeatureSetAmino;
+}
+export interface FeatureSetDefaults_FeatureSetEditionDefaultAminoMsg {
+  type: "/google.protobuf.FeatureSetEditionDefault";
+  value: FeatureSetDefaults_FeatureSetEditionDefaultAmino;
+}
+/**
+ * A map from every known edition with a unique set of defaults to its
+ * defaults. Not all editions may be contained here.  For a given edition,
+ * the defaults at the closest matching edition ordered at or before it should
+ * be used.  This field must be in strict ascending order by edition.
+ */
+export interface FeatureSetDefaults_FeatureSetEditionDefaultSDKType {
+  edition: Edition;
+  overridable_features?: FeatureSetSDKType;
+  fixed_features?: FeatureSetSDKType;
 }
 /**
  * Encapsulates information about the original source file from which a
@@ -1919,8 +3308,8 @@ export interface SourceCodeInfo_Location {
    * location.
    * 
    * Each element is a field number or an index.  They form a path from
-   * the root FileDescriptorProto to the place where the definition.  For
-   * example, this path:
+   * the root FileDescriptorProto to the place where the definition appears.
+   * For example, this path:
    *   [ 4, 3, 2, 7, 1 ]
    * refers to:
    *   file.message_type(3)  // 4, 3
@@ -1976,13 +3365,13 @@ export interface SourceCodeInfo_Location {
    *   // Comment attached to baz.
    *   // Another line attached to baz.
    * 
-   *   // Comment attached to qux.
+   *   // Comment attached to moo.
    *   //
-   *   // Another line attached to qux.
-   *   optional double qux = 4;
+   *   // Another line attached to moo.
+   *   optional double moo = 4;
    * 
    *   // Detached comment for corge. This is not leading or trailing comments
-   *   // to qux or corge because there are blank lines separating it from
+   *   // to moo or corge because there are blank lines separating it from
    *   // both.
    * 
    *   // Detached comment for corge paragraph 2.
@@ -2011,8 +3400,8 @@ export interface SourceCodeInfo_LocationAmino {
    * location.
    * 
    * Each element is a field number or an index.  They form a path from
-   * the root FileDescriptorProto to the place where the definition.  For
-   * example, this path:
+   * the root FileDescriptorProto to the place where the definition appears.
+   * For example, this path:
    *   [ 4, 3, 2, 7, 1 ]
    * refers to:
    *   file.message_type(3)  // 4, 3
@@ -2068,13 +3457,13 @@ export interface SourceCodeInfo_LocationAmino {
    *   // Comment attached to baz.
    *   // Another line attached to baz.
    * 
-   *   // Comment attached to qux.
+   *   // Comment attached to moo.
    *   //
-   *   // Another line attached to qux.
-   *   optional double qux = 4;
+   *   // Another line attached to moo.
+   *   optional double moo = 4;
    * 
    *   // Detached comment for corge. This is not leading or trailing comments
-   *   // to qux or corge because there are blank lines separating it from
+   *   // to moo or corge because there are blank lines separating it from
    *   // both.
    * 
    *   // Detached comment for corge paragraph 2.
@@ -2159,10 +3548,11 @@ export interface GeneratedCodeInfo_Annotation {
   begin: number;
   /**
    * Identifies the ending offset in bytes in the generated code that
-   * relates to the identified offset. The end offset should be one past
+   * relates to the identified object. The end offset should be one past
    * the last relevant byte (so the length of the text = end - begin).
    */
   end: number;
+  semantic: GeneratedCodeInfo_Annotation_Semantic;
 }
 export interface GeneratedCodeInfo_AnnotationProtoMsg {
   typeUrl: "/google.protobuf.Annotation";
@@ -2183,10 +3573,11 @@ export interface GeneratedCodeInfo_AnnotationAmino {
   begin?: number;
   /**
    * Identifies the ending offset in bytes in the generated code that
-   * relates to the identified offset. The end offset should be one past
+   * relates to the identified object. The end offset should be one past
    * the last relevant byte (so the length of the text = end - begin).
    */
   end?: number;
+  semantic?: GeneratedCodeInfo_Annotation_Semantic;
 }
 export interface GeneratedCodeInfo_AnnotationAminoMsg {
   type: "/google.protobuf.Annotation";
@@ -2197,6 +3588,7 @@ export interface GeneratedCodeInfo_AnnotationSDKType {
   source_file: string;
   begin: number;
   end: number;
+  semantic: GeneratedCodeInfo_Annotation_Semantic;
 }
 function createBaseFileDescriptorSet(): FileDescriptorSet {
   return {
@@ -2280,25 +3672,27 @@ function createBaseFileDescriptorProto(): FileDescriptorProto {
     dependency: [],
     publicDependency: [],
     weakDependency: [],
+    optionDependency: [],
     messageType: [],
     enumType: [],
     service: [],
     extension: [],
     options: undefined,
     sourceCodeInfo: undefined,
-    syntax: ""
+    syntax: "",
+    edition: 1
   };
 }
 export const FileDescriptorProto = {
   typeUrl: "/google.protobuf.FileDescriptorProto",
   is(o: any): o is FileDescriptorProto {
-    return o && (o.$typeUrl === FileDescriptorProto.typeUrl || typeof o.name === "string" && typeof o.package === "string" && Array.isArray(o.dependency) && (!o.dependency.length || typeof o.dependency[0] === "string") && Array.isArray(o.publicDependency) && (!o.publicDependency.length || typeof o.publicDependency[0] === "number") && Array.isArray(o.weakDependency) && (!o.weakDependency.length || typeof o.weakDependency[0] === "number") && Array.isArray(o.messageType) && (!o.messageType.length || DescriptorProto.is(o.messageType[0])) && Array.isArray(o.enumType) && (!o.enumType.length || EnumDescriptorProto.is(o.enumType[0])) && Array.isArray(o.service) && (!o.service.length || ServiceDescriptorProto.is(o.service[0])) && Array.isArray(o.extension) && (!o.extension.length || FieldDescriptorProto.is(o.extension[0])) && typeof o.syntax === "string");
+    return o && (o.$typeUrl === FileDescriptorProto.typeUrl || typeof o.name === "string" && typeof o.package === "string" && Array.isArray(o.dependency) && (!o.dependency.length || typeof o.dependency[0] === "string") && Array.isArray(o.publicDependency) && (!o.publicDependency.length || typeof o.publicDependency[0] === "number") && Array.isArray(o.weakDependency) && (!o.weakDependency.length || typeof o.weakDependency[0] === "number") && Array.isArray(o.optionDependency) && (!o.optionDependency.length || typeof o.optionDependency[0] === "string") && Array.isArray(o.messageType) && (!o.messageType.length || DescriptorProto.is(o.messageType[0])) && Array.isArray(o.enumType) && (!o.enumType.length || EnumDescriptorProto.is(o.enumType[0])) && Array.isArray(o.service) && (!o.service.length || ServiceDescriptorProto.is(o.service[0])) && Array.isArray(o.extension) && (!o.extension.length || FieldDescriptorProto.is(o.extension[0])) && typeof o.syntax === "string" && isSet(o.edition));
   },
   isSDK(o: any): o is FileDescriptorProtoSDKType {
-    return o && (o.$typeUrl === FileDescriptorProto.typeUrl || typeof o.name === "string" && typeof o.package === "string" && Array.isArray(o.dependency) && (!o.dependency.length || typeof o.dependency[0] === "string") && Array.isArray(o.public_dependency) && (!o.public_dependency.length || typeof o.public_dependency[0] === "number") && Array.isArray(o.weak_dependency) && (!o.weak_dependency.length || typeof o.weak_dependency[0] === "number") && Array.isArray(o.message_type) && (!o.message_type.length || DescriptorProto.isSDK(o.message_type[0])) && Array.isArray(o.enum_type) && (!o.enum_type.length || EnumDescriptorProto.isSDK(o.enum_type[0])) && Array.isArray(o.service) && (!o.service.length || ServiceDescriptorProto.isSDK(o.service[0])) && Array.isArray(o.extension) && (!o.extension.length || FieldDescriptorProto.isSDK(o.extension[0])) && typeof o.syntax === "string");
+    return o && (o.$typeUrl === FileDescriptorProto.typeUrl || typeof o.name === "string" && typeof o.package === "string" && Array.isArray(o.dependency) && (!o.dependency.length || typeof o.dependency[0] === "string") && Array.isArray(o.public_dependency) && (!o.public_dependency.length || typeof o.public_dependency[0] === "number") && Array.isArray(o.weak_dependency) && (!o.weak_dependency.length || typeof o.weak_dependency[0] === "number") && Array.isArray(o.option_dependency) && (!o.option_dependency.length || typeof o.option_dependency[0] === "string") && Array.isArray(o.message_type) && (!o.message_type.length || DescriptorProto.isSDK(o.message_type[0])) && Array.isArray(o.enum_type) && (!o.enum_type.length || EnumDescriptorProto.isSDK(o.enum_type[0])) && Array.isArray(o.service) && (!o.service.length || ServiceDescriptorProto.isSDK(o.service[0])) && Array.isArray(o.extension) && (!o.extension.length || FieldDescriptorProto.isSDK(o.extension[0])) && typeof o.syntax === "string" && isSet(o.edition));
   },
   isAmino(o: any): o is FileDescriptorProtoAmino {
-    return o && (o.$typeUrl === FileDescriptorProto.typeUrl || typeof o.name === "string" && typeof o.package === "string" && Array.isArray(o.dependency) && (!o.dependency.length || typeof o.dependency[0] === "string") && Array.isArray(o.public_dependency) && (!o.public_dependency.length || typeof o.public_dependency[0] === "number") && Array.isArray(o.weak_dependency) && (!o.weak_dependency.length || typeof o.weak_dependency[0] === "number") && Array.isArray(o.message_type) && (!o.message_type.length || DescriptorProto.isAmino(o.message_type[0])) && Array.isArray(o.enum_type) && (!o.enum_type.length || EnumDescriptorProto.isAmino(o.enum_type[0])) && Array.isArray(o.service) && (!o.service.length || ServiceDescriptorProto.isAmino(o.service[0])) && Array.isArray(o.extension) && (!o.extension.length || FieldDescriptorProto.isAmino(o.extension[0])) && typeof o.syntax === "string");
+    return o && (o.$typeUrl === FileDescriptorProto.typeUrl || typeof o.name === "string" && typeof o.package === "string" && Array.isArray(o.dependency) && (!o.dependency.length || typeof o.dependency[0] === "string") && Array.isArray(o.public_dependency) && (!o.public_dependency.length || typeof o.public_dependency[0] === "number") && Array.isArray(o.weak_dependency) && (!o.weak_dependency.length || typeof o.weak_dependency[0] === "number") && Array.isArray(o.option_dependency) && (!o.option_dependency.length || typeof o.option_dependency[0] === "string") && Array.isArray(o.message_type) && (!o.message_type.length || DescriptorProto.isAmino(o.message_type[0])) && Array.isArray(o.enum_type) && (!o.enum_type.length || EnumDescriptorProto.isAmino(o.enum_type[0])) && Array.isArray(o.service) && (!o.service.length || ServiceDescriptorProto.isAmino(o.service[0])) && Array.isArray(o.extension) && (!o.extension.length || FieldDescriptorProto.isAmino(o.extension[0])) && typeof o.syntax === "string" && isSet(o.edition));
   },
   encode(message: FileDescriptorProto, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
@@ -2320,6 +3714,9 @@ export const FileDescriptorProto = {
       writer.int32(v);
     }
     writer.ldelim();
+    for (const v of message.optionDependency) {
+      writer.uint32(122).string(v!);
+    }
     for (const v of message.messageType) {
       DescriptorProto.encode(v!, writer.uint32(34).fork()).ldelim();
     }
@@ -2340,6 +3737,9 @@ export const FileDescriptorProto = {
     }
     if (message.syntax !== "") {
       writer.uint32(98).string(message.syntax);
+    }
+    if (message.edition !== 1) {
+      writer.uint32(112).int32(message.edition);
     }
     return writer;
   },
@@ -2379,6 +3779,9 @@ export const FileDescriptorProto = {
             message.weakDependency.push(reader.int32());
           }
           break;
+        case 15:
+          message.optionDependency.push(reader.string());
+          break;
         case 4:
           message.messageType.push(DescriptorProto.decode(reader, reader.uint32()));
           break;
@@ -2400,6 +3803,9 @@ export const FileDescriptorProto = {
         case 12:
           message.syntax = reader.string();
           break;
+        case 14:
+          message.edition = reader.int32() as any;
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -2414,6 +3820,7 @@ export const FileDescriptorProto = {
     message.dependency = object.dependency?.map(e => e) || [];
     message.publicDependency = object.publicDependency?.map(e => e) || [];
     message.weakDependency = object.weakDependency?.map(e => e) || [];
+    message.optionDependency = object.optionDependency?.map(e => e) || [];
     message.messageType = object.messageType?.map(e => DescriptorProto.fromPartial(e)) || [];
     message.enumType = object.enumType?.map(e => EnumDescriptorProto.fromPartial(e)) || [];
     message.service = object.service?.map(e => ServiceDescriptorProto.fromPartial(e)) || [];
@@ -2421,6 +3828,7 @@ export const FileDescriptorProto = {
     message.options = object.options !== undefined && object.options !== null ? FileOptions.fromPartial(object.options) : undefined;
     message.sourceCodeInfo = object.sourceCodeInfo !== undefined && object.sourceCodeInfo !== null ? SourceCodeInfo.fromPartial(object.sourceCodeInfo) : undefined;
     message.syntax = object.syntax ?? "";
+    message.edition = object.edition ?? 1;
     return message;
   },
   fromAmino(object: FileDescriptorProtoAmino): FileDescriptorProto {
@@ -2434,6 +3842,7 @@ export const FileDescriptorProto = {
     message.dependency = object.dependency?.map(e => e) || [];
     message.publicDependency = object.public_dependency?.map(e => e) || [];
     message.weakDependency = object.weak_dependency?.map(e => e) || [];
+    message.optionDependency = object.option_dependency?.map(e => e) || [];
     message.messageType = object.message_type?.map(e => DescriptorProto.fromAmino(e)) || [];
     message.enumType = object.enum_type?.map(e => EnumDescriptorProto.fromAmino(e)) || [];
     message.service = object.service?.map(e => ServiceDescriptorProto.fromAmino(e)) || [];
@@ -2446,6 +3855,9 @@ export const FileDescriptorProto = {
     }
     if (object.syntax !== undefined && object.syntax !== null) {
       message.syntax = object.syntax;
+    }
+    if (object.edition !== undefined && object.edition !== null) {
+      message.edition = object.edition;
     }
     return message;
   },
@@ -2467,6 +3879,11 @@ export const FileDescriptorProto = {
       obj.weak_dependency = message.weakDependency.map(e => e);
     } else {
       obj.weak_dependency = message.weakDependency;
+    }
+    if (message.optionDependency) {
+      obj.option_dependency = message.optionDependency.map(e => e);
+    } else {
+      obj.option_dependency = message.optionDependency;
     }
     if (message.messageType) {
       obj.message_type = message.messageType.map(e => e ? DescriptorProto.toAmino(e) : undefined);
@@ -2491,6 +3908,7 @@ export const FileDescriptorProto = {
     obj.options = message.options ? FileOptions.toAmino(message.options) : undefined;
     obj.source_code_info = message.sourceCodeInfo ? SourceCodeInfo.toAmino(message.sourceCodeInfo) : undefined;
     obj.syntax = message.syntax === "" ? undefined : message.syntax;
+    obj.edition = message.edition === 1 ? undefined : message.edition;
     return obj;
   },
   fromAminoMsg(object: FileDescriptorProtoAminoMsg): FileDescriptorProto {
@@ -2521,19 +3939,20 @@ function createBaseDescriptorProto(): DescriptorProto {
     oneofDecl: [],
     options: undefined,
     reservedRange: [],
-    reservedName: []
+    reservedName: [],
+    visibility: 1
   };
 }
 export const DescriptorProto = {
   typeUrl: "/google.protobuf.DescriptorProto",
   is(o: any): o is DescriptorProto {
-    return o && (o.$typeUrl === DescriptorProto.typeUrl || typeof o.name === "string" && Array.isArray(o.field) && (!o.field.length || FieldDescriptorProto.is(o.field[0])) && Array.isArray(o.extension) && (!o.extension.length || FieldDescriptorProto.is(o.extension[0])) && Array.isArray(o.nestedType) && (!o.nestedType.length || DescriptorProto.is(o.nestedType[0])) && Array.isArray(o.enumType) && (!o.enumType.length || EnumDescriptorProto.is(o.enumType[0])) && Array.isArray(o.extensionRange) && (!o.extensionRange.length || DescriptorProto_ExtensionRange.is(o.extensionRange[0])) && Array.isArray(o.oneofDecl) && (!o.oneofDecl.length || OneofDescriptorProto.is(o.oneofDecl[0])) && Array.isArray(o.reservedRange) && (!o.reservedRange.length || DescriptorProto_ReservedRange.is(o.reservedRange[0])) && Array.isArray(o.reservedName) && (!o.reservedName.length || typeof o.reservedName[0] === "string"));
+    return o && (o.$typeUrl === DescriptorProto.typeUrl || typeof o.name === "string" && Array.isArray(o.field) && (!o.field.length || FieldDescriptorProto.is(o.field[0])) && Array.isArray(o.extension) && (!o.extension.length || FieldDescriptorProto.is(o.extension[0])) && Array.isArray(o.nestedType) && (!o.nestedType.length || DescriptorProto.is(o.nestedType[0])) && Array.isArray(o.enumType) && (!o.enumType.length || EnumDescriptorProto.is(o.enumType[0])) && Array.isArray(o.extensionRange) && (!o.extensionRange.length || DescriptorProto_ExtensionRange.is(o.extensionRange[0])) && Array.isArray(o.oneofDecl) && (!o.oneofDecl.length || OneofDescriptorProto.is(o.oneofDecl[0])) && Array.isArray(o.reservedRange) && (!o.reservedRange.length || DescriptorProto_ReservedRange.is(o.reservedRange[0])) && Array.isArray(o.reservedName) && (!o.reservedName.length || typeof o.reservedName[0] === "string") && isSet(o.visibility));
   },
   isSDK(o: any): o is DescriptorProtoSDKType {
-    return o && (o.$typeUrl === DescriptorProto.typeUrl || typeof o.name === "string" && Array.isArray(o.field) && (!o.field.length || FieldDescriptorProto.isSDK(o.field[0])) && Array.isArray(o.extension) && (!o.extension.length || FieldDescriptorProto.isSDK(o.extension[0])) && Array.isArray(o.nested_type) && (!o.nested_type.length || DescriptorProto.isSDK(o.nested_type[0])) && Array.isArray(o.enum_type) && (!o.enum_type.length || EnumDescriptorProto.isSDK(o.enum_type[0])) && Array.isArray(o.extension_range) && (!o.extension_range.length || DescriptorProto_ExtensionRange.isSDK(o.extension_range[0])) && Array.isArray(o.oneof_decl) && (!o.oneof_decl.length || OneofDescriptorProto.isSDK(o.oneof_decl[0])) && Array.isArray(o.reserved_range) && (!o.reserved_range.length || DescriptorProto_ReservedRange.isSDK(o.reserved_range[0])) && Array.isArray(o.reserved_name) && (!o.reserved_name.length || typeof o.reserved_name[0] === "string"));
+    return o && (o.$typeUrl === DescriptorProto.typeUrl || typeof o.name === "string" && Array.isArray(o.field) && (!o.field.length || FieldDescriptorProto.isSDK(o.field[0])) && Array.isArray(o.extension) && (!o.extension.length || FieldDescriptorProto.isSDK(o.extension[0])) && Array.isArray(o.nested_type) && (!o.nested_type.length || DescriptorProto.isSDK(o.nested_type[0])) && Array.isArray(o.enum_type) && (!o.enum_type.length || EnumDescriptorProto.isSDK(o.enum_type[0])) && Array.isArray(o.extension_range) && (!o.extension_range.length || DescriptorProto_ExtensionRange.isSDK(o.extension_range[0])) && Array.isArray(o.oneof_decl) && (!o.oneof_decl.length || OneofDescriptorProto.isSDK(o.oneof_decl[0])) && Array.isArray(o.reserved_range) && (!o.reserved_range.length || DescriptorProto_ReservedRange.isSDK(o.reserved_range[0])) && Array.isArray(o.reserved_name) && (!o.reserved_name.length || typeof o.reserved_name[0] === "string") && isSet(o.visibility));
   },
   isAmino(o: any): o is DescriptorProtoAmino {
-    return o && (o.$typeUrl === DescriptorProto.typeUrl || typeof o.name === "string" && Array.isArray(o.field) && (!o.field.length || FieldDescriptorProto.isAmino(o.field[0])) && Array.isArray(o.extension) && (!o.extension.length || FieldDescriptorProto.isAmino(o.extension[0])) && Array.isArray(o.nested_type) && (!o.nested_type.length || DescriptorProto.isAmino(o.nested_type[0])) && Array.isArray(o.enum_type) && (!o.enum_type.length || EnumDescriptorProto.isAmino(o.enum_type[0])) && Array.isArray(o.extension_range) && (!o.extension_range.length || DescriptorProto_ExtensionRange.isAmino(o.extension_range[0])) && Array.isArray(o.oneof_decl) && (!o.oneof_decl.length || OneofDescriptorProto.isAmino(o.oneof_decl[0])) && Array.isArray(o.reserved_range) && (!o.reserved_range.length || DescriptorProto_ReservedRange.isAmino(o.reserved_range[0])) && Array.isArray(o.reserved_name) && (!o.reserved_name.length || typeof o.reserved_name[0] === "string"));
+    return o && (o.$typeUrl === DescriptorProto.typeUrl || typeof o.name === "string" && Array.isArray(o.field) && (!o.field.length || FieldDescriptorProto.isAmino(o.field[0])) && Array.isArray(o.extension) && (!o.extension.length || FieldDescriptorProto.isAmino(o.extension[0])) && Array.isArray(o.nested_type) && (!o.nested_type.length || DescriptorProto.isAmino(o.nested_type[0])) && Array.isArray(o.enum_type) && (!o.enum_type.length || EnumDescriptorProto.isAmino(o.enum_type[0])) && Array.isArray(o.extension_range) && (!o.extension_range.length || DescriptorProto_ExtensionRange.isAmino(o.extension_range[0])) && Array.isArray(o.oneof_decl) && (!o.oneof_decl.length || OneofDescriptorProto.isAmino(o.oneof_decl[0])) && Array.isArray(o.reserved_range) && (!o.reserved_range.length || DescriptorProto_ReservedRange.isAmino(o.reserved_range[0])) && Array.isArray(o.reserved_name) && (!o.reserved_name.length || typeof o.reserved_name[0] === "string") && isSet(o.visibility));
   },
   encode(message: DescriptorProto, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
@@ -2565,6 +3984,9 @@ export const DescriptorProto = {
     }
     for (const v of message.reservedName) {
       writer.uint32(82).string(v!);
+    }
+    if (message.visibility !== 1) {
+      writer.uint32(88).int32(message.visibility);
     }
     return writer;
   },
@@ -2605,6 +4027,9 @@ export const DescriptorProto = {
         case 10:
           message.reservedName.push(reader.string());
           break;
+        case 11:
+          message.visibility = reader.int32() as any;
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -2624,6 +4049,7 @@ export const DescriptorProto = {
     message.options = object.options !== undefined && object.options !== null ? MessageOptions.fromPartial(object.options) : undefined;
     message.reservedRange = object.reservedRange?.map(e => DescriptorProto_ReservedRange.fromPartial(e)) || [];
     message.reservedName = object.reservedName?.map(e => e) || [];
+    message.visibility = object.visibility ?? 1;
     return message;
   },
   fromAmino(object: DescriptorProtoAmino): DescriptorProto {
@@ -2642,6 +4068,9 @@ export const DescriptorProto = {
     }
     message.reservedRange = object.reserved_range?.map(e => DescriptorProto_ReservedRange.fromAmino(e)) || [];
     message.reservedName = object.reserved_name?.map(e => e) || [];
+    if (object.visibility !== undefined && object.visibility !== null) {
+      message.visibility = object.visibility;
+    }
     return message;
   },
   toAmino(message: DescriptorProto): DescriptorProtoAmino {
@@ -2688,6 +4117,7 @@ export const DescriptorProto = {
     } else {
       obj.reserved_name = message.reservedName;
     }
+    obj.visibility = message.visibility === 1 ? undefined : message.visibility;
     return obj;
   },
   fromAminoMsg(object: DescriptorProtoAminoMsg): DescriptorProto {
@@ -2891,23 +4321,35 @@ export const DescriptorProto_ReservedRange = {
 GlobalDecoderRegistry.register(DescriptorProto_ReservedRange.typeUrl, DescriptorProto_ReservedRange);
 function createBaseExtensionRangeOptions(): ExtensionRangeOptions {
   return {
-    uninterpretedOption: []
+    uninterpretedOption: [],
+    declaration: [],
+    features: undefined,
+    verification: 1
   };
 }
 export const ExtensionRangeOptions = {
   typeUrl: "/google.protobuf.ExtensionRangeOptions",
   is(o: any): o is ExtensionRangeOptions {
-    return o && (o.$typeUrl === ExtensionRangeOptions.typeUrl || Array.isArray(o.uninterpretedOption) && (!o.uninterpretedOption.length || UninterpretedOption.is(o.uninterpretedOption[0])));
+    return o && (o.$typeUrl === ExtensionRangeOptions.typeUrl || Array.isArray(o.uninterpretedOption) && (!o.uninterpretedOption.length || UninterpretedOption.is(o.uninterpretedOption[0])) && Array.isArray(o.declaration) && (!o.declaration.length || ExtensionRangeOptions_Declaration.is(o.declaration[0])) && isSet(o.verification));
   },
   isSDK(o: any): o is ExtensionRangeOptionsSDKType {
-    return o && (o.$typeUrl === ExtensionRangeOptions.typeUrl || Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isSDK(o.uninterpreted_option[0])));
+    return o && (o.$typeUrl === ExtensionRangeOptions.typeUrl || Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isSDK(o.uninterpreted_option[0])) && Array.isArray(o.declaration) && (!o.declaration.length || ExtensionRangeOptions_Declaration.isSDK(o.declaration[0])) && isSet(o.verification));
   },
   isAmino(o: any): o is ExtensionRangeOptionsAmino {
-    return o && (o.$typeUrl === ExtensionRangeOptions.typeUrl || Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isAmino(o.uninterpreted_option[0])));
+    return o && (o.$typeUrl === ExtensionRangeOptions.typeUrl || Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isAmino(o.uninterpreted_option[0])) && Array.isArray(o.declaration) && (!o.declaration.length || ExtensionRangeOptions_Declaration.isAmino(o.declaration[0])) && isSet(o.verification));
   },
   encode(message: ExtensionRangeOptions, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     for (const v of message.uninterpretedOption) {
       UninterpretedOption.encode(v!, writer.uint32(7994).fork()).ldelim();
+    }
+    for (const v of message.declaration) {
+      ExtensionRangeOptions_Declaration.encode(v!, writer.uint32(18).fork()).ldelim();
+    }
+    if (message.features !== undefined) {
+      FeatureSet.encode(message.features, writer.uint32(402).fork()).ldelim();
+    }
+    if (message.verification !== 1) {
+      writer.uint32(24).int32(message.verification);
     }
     return writer;
   },
@@ -2921,6 +4363,15 @@ export const ExtensionRangeOptions = {
         case 999:
           message.uninterpretedOption.push(UninterpretedOption.decode(reader, reader.uint32()));
           break;
+        case 2:
+          message.declaration.push(ExtensionRangeOptions_Declaration.decode(reader, reader.uint32()));
+          break;
+        case 50:
+          message.features = FeatureSet.decode(reader, reader.uint32());
+          break;
+        case 3:
+          message.verification = reader.int32() as any;
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -2931,11 +4382,21 @@ export const ExtensionRangeOptions = {
   fromPartial(object: Partial<ExtensionRangeOptions>): ExtensionRangeOptions {
     const message = createBaseExtensionRangeOptions();
     message.uninterpretedOption = object.uninterpretedOption?.map(e => UninterpretedOption.fromPartial(e)) || [];
+    message.declaration = object.declaration?.map(e => ExtensionRangeOptions_Declaration.fromPartial(e)) || [];
+    message.features = object.features !== undefined && object.features !== null ? FeatureSet.fromPartial(object.features) : undefined;
+    message.verification = object.verification ?? 1;
     return message;
   },
   fromAmino(object: ExtensionRangeOptionsAmino): ExtensionRangeOptions {
     const message = createBaseExtensionRangeOptions();
     message.uninterpretedOption = object.uninterpreted_option?.map(e => UninterpretedOption.fromAmino(e)) || [];
+    message.declaration = object.declaration?.map(e => ExtensionRangeOptions_Declaration.fromAmino(e)) || [];
+    if (object.features !== undefined && object.features !== null) {
+      message.features = FeatureSet.fromAmino(object.features);
+    }
+    if (object.verification !== undefined && object.verification !== null) {
+      message.verification = object.verification;
+    }
     return message;
   },
   toAmino(message: ExtensionRangeOptions): ExtensionRangeOptionsAmino {
@@ -2945,6 +4406,13 @@ export const ExtensionRangeOptions = {
     } else {
       obj.uninterpreted_option = message.uninterpretedOption;
     }
+    if (message.declaration) {
+      obj.declaration = message.declaration.map(e => e ? ExtensionRangeOptions_Declaration.toAmino(e) : undefined);
+    } else {
+      obj.declaration = message.declaration;
+    }
+    obj.features = message.features ? FeatureSet.toAmino(message.features) : undefined;
+    obj.verification = message.verification === 1 ? undefined : message.verification;
     return obj;
   },
   fromAminoMsg(object: ExtensionRangeOptionsAminoMsg): ExtensionRangeOptions {
@@ -2964,6 +4432,127 @@ export const ExtensionRangeOptions = {
   }
 };
 GlobalDecoderRegistry.register(ExtensionRangeOptions.typeUrl, ExtensionRangeOptions);
+function createBaseExtensionRangeOptions_Declaration(): ExtensionRangeOptions_Declaration {
+  return {
+    number: 0,
+    fullName: "",
+    type: "",
+    reserved: false,
+    repeated: false
+  };
+}
+export const ExtensionRangeOptions_Declaration = {
+  typeUrl: "/google.protobuf.Declaration",
+  is(o: any): o is ExtensionRangeOptions_Declaration {
+    return o && (o.$typeUrl === ExtensionRangeOptions_Declaration.typeUrl || typeof o.number === "number" && typeof o.fullName === "string" && typeof o.type === "string" && typeof o.reserved === "boolean" && typeof o.repeated === "boolean");
+  },
+  isSDK(o: any): o is ExtensionRangeOptions_DeclarationSDKType {
+    return o && (o.$typeUrl === ExtensionRangeOptions_Declaration.typeUrl || typeof o.number === "number" && typeof o.full_name === "string" && typeof o.type === "string" && typeof o.reserved === "boolean" && typeof o.repeated === "boolean");
+  },
+  isAmino(o: any): o is ExtensionRangeOptions_DeclarationAmino {
+    return o && (o.$typeUrl === ExtensionRangeOptions_Declaration.typeUrl || typeof o.number === "number" && typeof o.full_name === "string" && typeof o.type === "string" && typeof o.reserved === "boolean" && typeof o.repeated === "boolean");
+  },
+  encode(message: ExtensionRangeOptions_Declaration, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+    if (message.number !== 0) {
+      writer.uint32(8).int32(message.number);
+    }
+    if (message.fullName !== "") {
+      writer.uint32(18).string(message.fullName);
+    }
+    if (message.type !== "") {
+      writer.uint32(26).string(message.type);
+    }
+    if (message.reserved === true) {
+      writer.uint32(40).bool(message.reserved);
+    }
+    if (message.repeated === true) {
+      writer.uint32(48).bool(message.repeated);
+    }
+    return writer;
+  },
+  decode(input: BinaryReader | Uint8Array, length?: number): ExtensionRangeOptions_Declaration {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseExtensionRangeOptions_Declaration();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.number = reader.int32();
+          break;
+        case 2:
+          message.fullName = reader.string();
+          break;
+        case 3:
+          message.type = reader.string();
+          break;
+        case 5:
+          message.reserved = reader.bool();
+          break;
+        case 6:
+          message.repeated = reader.bool();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+  fromPartial(object: Partial<ExtensionRangeOptions_Declaration>): ExtensionRangeOptions_Declaration {
+    const message = createBaseExtensionRangeOptions_Declaration();
+    message.number = object.number ?? 0;
+    message.fullName = object.fullName ?? "";
+    message.type = object.type ?? "";
+    message.reserved = object.reserved ?? false;
+    message.repeated = object.repeated ?? false;
+    return message;
+  },
+  fromAmino(object: ExtensionRangeOptions_DeclarationAmino): ExtensionRangeOptions_Declaration {
+    const message = createBaseExtensionRangeOptions_Declaration();
+    if (object.number !== undefined && object.number !== null) {
+      message.number = object.number;
+    }
+    if (object.full_name !== undefined && object.full_name !== null) {
+      message.fullName = object.full_name;
+    }
+    if (object.type !== undefined && object.type !== null) {
+      message.type = object.type;
+    }
+    if (object.reserved !== undefined && object.reserved !== null) {
+      message.reserved = object.reserved;
+    }
+    if (object.repeated !== undefined && object.repeated !== null) {
+      message.repeated = object.repeated;
+    }
+    return message;
+  },
+  toAmino(message: ExtensionRangeOptions_Declaration): ExtensionRangeOptions_DeclarationAmino {
+    const obj: any = {};
+    obj.number = message.number === 0 ? undefined : message.number;
+    obj.full_name = message.fullName === "" ? undefined : message.fullName;
+    obj.type = message.type === "" ? undefined : message.type;
+    obj.reserved = message.reserved === false ? undefined : message.reserved;
+    obj.repeated = message.repeated === false ? undefined : message.repeated;
+    return obj;
+  },
+  fromAminoMsg(object: ExtensionRangeOptions_DeclarationAminoMsg): ExtensionRangeOptions_Declaration {
+    return ExtensionRangeOptions_Declaration.fromAmino(object.value);
+  },
+  fromProtoMsg(message: ExtensionRangeOptions_DeclarationProtoMsg): ExtensionRangeOptions_Declaration {
+    return ExtensionRangeOptions_Declaration.decode(message.value);
+  },
+  toProto(message: ExtensionRangeOptions_Declaration): Uint8Array {
+    return ExtensionRangeOptions_Declaration.encode(message).finish();
+  },
+  toProtoMsg(message: ExtensionRangeOptions_Declaration): ExtensionRangeOptions_DeclarationProtoMsg {
+    return {
+      typeUrl: "/google.protobuf.Declaration",
+      value: ExtensionRangeOptions_Declaration.encode(message).finish()
+    };
+  }
+};
+GlobalDecoderRegistry.register(ExtensionRangeOptions_Declaration.typeUrl, ExtensionRangeOptions_Declaration);
 function createBaseFieldDescriptorProto(): FieldDescriptorProto {
   return {
     name: "",
@@ -2975,19 +4564,20 @@ function createBaseFieldDescriptorProto(): FieldDescriptorProto {
     defaultValue: "",
     oneofIndex: 0,
     jsonName: "",
-    options: undefined
+    options: undefined,
+    proto3Optional: false
   };
 }
 export const FieldDescriptorProto = {
   typeUrl: "/google.protobuf.FieldDescriptorProto",
   is(o: any): o is FieldDescriptorProto {
-    return o && (o.$typeUrl === FieldDescriptorProto.typeUrl || typeof o.name === "string" && typeof o.number === "number" && isSet(o.label) && isSet(o.type) && typeof o.typeName === "string" && typeof o.extendee === "string" && typeof o.defaultValue === "string" && typeof o.oneofIndex === "number" && typeof o.jsonName === "string");
+    return o && (o.$typeUrl === FieldDescriptorProto.typeUrl || typeof o.name === "string" && typeof o.number === "number" && isSet(o.label) && isSet(o.type) && typeof o.typeName === "string" && typeof o.extendee === "string" && typeof o.defaultValue === "string" && typeof o.oneofIndex === "number" && typeof o.jsonName === "string" && typeof o.proto3Optional === "boolean");
   },
   isSDK(o: any): o is FieldDescriptorProtoSDKType {
-    return o && (o.$typeUrl === FieldDescriptorProto.typeUrl || typeof o.name === "string" && typeof o.number === "number" && isSet(o.label) && isSet(o.type) && typeof o.type_name === "string" && typeof o.extendee === "string" && typeof o.default_value === "string" && typeof o.oneof_index === "number" && typeof o.json_name === "string");
+    return o && (o.$typeUrl === FieldDescriptorProto.typeUrl || typeof o.name === "string" && typeof o.number === "number" && isSet(o.label) && isSet(o.type) && typeof o.type_name === "string" && typeof o.extendee === "string" && typeof o.default_value === "string" && typeof o.oneof_index === "number" && typeof o.json_name === "string" && typeof o.proto3_optional === "boolean");
   },
   isAmino(o: any): o is FieldDescriptorProtoAmino {
-    return o && (o.$typeUrl === FieldDescriptorProto.typeUrl || typeof o.name === "string" && typeof o.number === "number" && isSet(o.label) && isSet(o.type) && typeof o.type_name === "string" && typeof o.extendee === "string" && typeof o.default_value === "string" && typeof o.oneof_index === "number" && typeof o.json_name === "string");
+    return o && (o.$typeUrl === FieldDescriptorProto.typeUrl || typeof o.name === "string" && typeof o.number === "number" && isSet(o.label) && isSet(o.type) && typeof o.type_name === "string" && typeof o.extendee === "string" && typeof o.default_value === "string" && typeof o.oneof_index === "number" && typeof o.json_name === "string" && typeof o.proto3_optional === "boolean");
   },
   encode(message: FieldDescriptorProto, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
@@ -3019,6 +4609,9 @@ export const FieldDescriptorProto = {
     }
     if (message.options !== undefined) {
       FieldOptions.encode(message.options, writer.uint32(66).fork()).ldelim();
+    }
+    if (message.proto3Optional === true) {
+      writer.uint32(136).bool(message.proto3Optional);
     }
     return writer;
   },
@@ -3059,6 +4652,9 @@ export const FieldDescriptorProto = {
         case 8:
           message.options = FieldOptions.decode(reader, reader.uint32());
           break;
+        case 17:
+          message.proto3Optional = reader.bool();
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -3078,6 +4674,7 @@ export const FieldDescriptorProto = {
     message.oneofIndex = object.oneofIndex ?? 0;
     message.jsonName = object.jsonName ?? "";
     message.options = object.options !== undefined && object.options !== null ? FieldOptions.fromPartial(object.options) : undefined;
+    message.proto3Optional = object.proto3Optional ?? false;
     return message;
   },
   fromAmino(object: FieldDescriptorProtoAmino): FieldDescriptorProto {
@@ -3112,6 +4709,9 @@ export const FieldDescriptorProto = {
     if (object.options !== undefined && object.options !== null) {
       message.options = FieldOptions.fromAmino(object.options);
     }
+    if (object.proto3_optional !== undefined && object.proto3_optional !== null) {
+      message.proto3Optional = object.proto3_optional;
+    }
     return message;
   },
   toAmino(message: FieldDescriptorProto): FieldDescriptorProtoAmino {
@@ -3126,6 +4726,7 @@ export const FieldDescriptorProto = {
     obj.oneof_index = message.oneofIndex === 0 ? undefined : message.oneofIndex;
     obj.json_name = message.jsonName === "" ? undefined : message.jsonName;
     obj.options = message.options ? FieldOptions.toAmino(message.options) : undefined;
+    obj.proto3_optional = message.proto3Optional === false ? undefined : message.proto3Optional;
     return obj;
   },
   fromAminoMsg(object: FieldDescriptorProtoAminoMsg): FieldDescriptorProto {
@@ -3236,19 +4837,20 @@ function createBaseEnumDescriptorProto(): EnumDescriptorProto {
     value: [],
     options: undefined,
     reservedRange: [],
-    reservedName: []
+    reservedName: [],
+    visibility: 1
   };
 }
 export const EnumDescriptorProto = {
   typeUrl: "/google.protobuf.EnumDescriptorProto",
   is(o: any): o is EnumDescriptorProto {
-    return o && (o.$typeUrl === EnumDescriptorProto.typeUrl || typeof o.name === "string" && Array.isArray(o.value) && (!o.value.length || EnumValueDescriptorProto.is(o.value[0])) && Array.isArray(o.reservedRange) && (!o.reservedRange.length || EnumDescriptorProto_EnumReservedRange.is(o.reservedRange[0])) && Array.isArray(o.reservedName) && (!o.reservedName.length || typeof o.reservedName[0] === "string"));
+    return o && (o.$typeUrl === EnumDescriptorProto.typeUrl || typeof o.name === "string" && Array.isArray(o.value) && (!o.value.length || EnumValueDescriptorProto.is(o.value[0])) && Array.isArray(o.reservedRange) && (!o.reservedRange.length || EnumDescriptorProto_EnumReservedRange.is(o.reservedRange[0])) && Array.isArray(o.reservedName) && (!o.reservedName.length || typeof o.reservedName[0] === "string") && isSet(o.visibility));
   },
   isSDK(o: any): o is EnumDescriptorProtoSDKType {
-    return o && (o.$typeUrl === EnumDescriptorProto.typeUrl || typeof o.name === "string" && Array.isArray(o.value) && (!o.value.length || EnumValueDescriptorProto.isSDK(o.value[0])) && Array.isArray(o.reserved_range) && (!o.reserved_range.length || EnumDescriptorProto_EnumReservedRange.isSDK(o.reserved_range[0])) && Array.isArray(o.reserved_name) && (!o.reserved_name.length || typeof o.reserved_name[0] === "string"));
+    return o && (o.$typeUrl === EnumDescriptorProto.typeUrl || typeof o.name === "string" && Array.isArray(o.value) && (!o.value.length || EnumValueDescriptorProto.isSDK(o.value[0])) && Array.isArray(o.reserved_range) && (!o.reserved_range.length || EnumDescriptorProto_EnumReservedRange.isSDK(o.reserved_range[0])) && Array.isArray(o.reserved_name) && (!o.reserved_name.length || typeof o.reserved_name[0] === "string") && isSet(o.visibility));
   },
   isAmino(o: any): o is EnumDescriptorProtoAmino {
-    return o && (o.$typeUrl === EnumDescriptorProto.typeUrl || typeof o.name === "string" && Array.isArray(o.value) && (!o.value.length || EnumValueDescriptorProto.isAmino(o.value[0])) && Array.isArray(o.reserved_range) && (!o.reserved_range.length || EnumDescriptorProto_EnumReservedRange.isAmino(o.reserved_range[0])) && Array.isArray(o.reserved_name) && (!o.reserved_name.length || typeof o.reserved_name[0] === "string"));
+    return o && (o.$typeUrl === EnumDescriptorProto.typeUrl || typeof o.name === "string" && Array.isArray(o.value) && (!o.value.length || EnumValueDescriptorProto.isAmino(o.value[0])) && Array.isArray(o.reserved_range) && (!o.reserved_range.length || EnumDescriptorProto_EnumReservedRange.isAmino(o.reserved_range[0])) && Array.isArray(o.reserved_name) && (!o.reserved_name.length || typeof o.reserved_name[0] === "string") && isSet(o.visibility));
   },
   encode(message: EnumDescriptorProto, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.name !== "") {
@@ -3265,6 +4867,9 @@ export const EnumDescriptorProto = {
     }
     for (const v of message.reservedName) {
       writer.uint32(42).string(v!);
+    }
+    if (message.visibility !== 1) {
+      writer.uint32(48).int32(message.visibility);
     }
     return writer;
   },
@@ -3290,6 +4895,9 @@ export const EnumDescriptorProto = {
         case 5:
           message.reservedName.push(reader.string());
           break;
+        case 6:
+          message.visibility = reader.int32() as any;
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -3304,6 +4912,7 @@ export const EnumDescriptorProto = {
     message.options = object.options !== undefined && object.options !== null ? EnumOptions.fromPartial(object.options) : undefined;
     message.reservedRange = object.reservedRange?.map(e => EnumDescriptorProto_EnumReservedRange.fromPartial(e)) || [];
     message.reservedName = object.reservedName?.map(e => e) || [];
+    message.visibility = object.visibility ?? 1;
     return message;
   },
   fromAmino(object: EnumDescriptorProtoAmino): EnumDescriptorProto {
@@ -3317,6 +4926,9 @@ export const EnumDescriptorProto = {
     }
     message.reservedRange = object.reserved_range?.map(e => EnumDescriptorProto_EnumReservedRange.fromAmino(e)) || [];
     message.reservedName = object.reserved_name?.map(e => e) || [];
+    if (object.visibility !== undefined && object.visibility !== null) {
+      message.visibility = object.visibility;
+    }
     return message;
   },
   toAmino(message: EnumDescriptorProto): EnumDescriptorProtoAmino {
@@ -3338,6 +4950,7 @@ export const EnumDescriptorProto = {
     } else {
       obj.reserved_name = message.reservedName;
     }
+    obj.visibility = message.visibility === 1 ? undefined : message.visibility;
     return obj;
   },
   fromAminoMsg(object: EnumDescriptorProtoAminoMsg): EnumDescriptorProto {
@@ -3783,7 +5396,6 @@ function createBaseFileOptions(): FileOptions {
     ccGenericServices: false,
     javaGenericServices: false,
     pyGenericServices: false,
-    phpGenericServices: false,
     deprecated: false,
     ccEnableArenas: false,
     objcClassPrefix: "",
@@ -3793,19 +5405,20 @@ function createBaseFileOptions(): FileOptions {
     phpNamespace: "",
     phpMetadataNamespace: "",
     rubyPackage: "",
+    features: undefined,
     uninterpretedOption: []
   };
 }
 export const FileOptions = {
   typeUrl: "/google.protobuf.FileOptions",
   is(o: any): o is FileOptions {
-    return o && (o.$typeUrl === FileOptions.typeUrl || typeof o.javaPackage === "string" && typeof o.javaOuterClassname === "string" && typeof o.javaMultipleFiles === "boolean" && typeof o.javaGenerateEqualsAndHash === "boolean" && typeof o.javaStringCheckUtf8 === "boolean" && isSet(o.optimizeFor) && typeof o.goPackage === "string" && typeof o.ccGenericServices === "boolean" && typeof o.javaGenericServices === "boolean" && typeof o.pyGenericServices === "boolean" && typeof o.phpGenericServices === "boolean" && typeof o.deprecated === "boolean" && typeof o.ccEnableArenas === "boolean" && typeof o.objcClassPrefix === "string" && typeof o.csharpNamespace === "string" && typeof o.swiftPrefix === "string" && typeof o.phpClassPrefix === "string" && typeof o.phpNamespace === "string" && typeof o.phpMetadataNamespace === "string" && typeof o.rubyPackage === "string" && Array.isArray(o.uninterpretedOption) && (!o.uninterpretedOption.length || UninterpretedOption.is(o.uninterpretedOption[0])));
+    return o && (o.$typeUrl === FileOptions.typeUrl || typeof o.javaPackage === "string" && typeof o.javaOuterClassname === "string" && typeof o.javaMultipleFiles === "boolean" && typeof o.javaGenerateEqualsAndHash === "boolean" && typeof o.javaStringCheckUtf8 === "boolean" && isSet(o.optimizeFor) && typeof o.goPackage === "string" && typeof o.ccGenericServices === "boolean" && typeof o.javaGenericServices === "boolean" && typeof o.pyGenericServices === "boolean" && typeof o.deprecated === "boolean" && typeof o.ccEnableArenas === "boolean" && typeof o.objcClassPrefix === "string" && typeof o.csharpNamespace === "string" && typeof o.swiftPrefix === "string" && typeof o.phpClassPrefix === "string" && typeof o.phpNamespace === "string" && typeof o.phpMetadataNamespace === "string" && typeof o.rubyPackage === "string" && Array.isArray(o.uninterpretedOption) && (!o.uninterpretedOption.length || UninterpretedOption.is(o.uninterpretedOption[0])));
   },
   isSDK(o: any): o is FileOptionsSDKType {
-    return o && (o.$typeUrl === FileOptions.typeUrl || typeof o.java_package === "string" && typeof o.java_outer_classname === "string" && typeof o.java_multiple_files === "boolean" && typeof o.java_generate_equals_and_hash === "boolean" && typeof o.java_string_check_utf8 === "boolean" && isSet(o.optimize_for) && typeof o.go_package === "string" && typeof o.cc_generic_services === "boolean" && typeof o.java_generic_services === "boolean" && typeof o.py_generic_services === "boolean" && typeof o.php_generic_services === "boolean" && typeof o.deprecated === "boolean" && typeof o.cc_enable_arenas === "boolean" && typeof o.objc_class_prefix === "string" && typeof o.csharp_namespace === "string" && typeof o.swift_prefix === "string" && typeof o.php_class_prefix === "string" && typeof o.php_namespace === "string" && typeof o.php_metadata_namespace === "string" && typeof o.ruby_package === "string" && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isSDK(o.uninterpreted_option[0])));
+    return o && (o.$typeUrl === FileOptions.typeUrl || typeof o.java_package === "string" && typeof o.java_outer_classname === "string" && typeof o.java_multiple_files === "boolean" && typeof o.java_generate_equals_and_hash === "boolean" && typeof o.java_string_check_utf8 === "boolean" && isSet(o.optimize_for) && typeof o.go_package === "string" && typeof o.cc_generic_services === "boolean" && typeof o.java_generic_services === "boolean" && typeof o.py_generic_services === "boolean" && typeof o.deprecated === "boolean" && typeof o.cc_enable_arenas === "boolean" && typeof o.objc_class_prefix === "string" && typeof o.csharp_namespace === "string" && typeof o.swift_prefix === "string" && typeof o.php_class_prefix === "string" && typeof o.php_namespace === "string" && typeof o.php_metadata_namespace === "string" && typeof o.ruby_package === "string" && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isSDK(o.uninterpreted_option[0])));
   },
   isAmino(o: any): o is FileOptionsAmino {
-    return o && (o.$typeUrl === FileOptions.typeUrl || typeof o.java_package === "string" && typeof o.java_outer_classname === "string" && typeof o.java_multiple_files === "boolean" && typeof o.java_generate_equals_and_hash === "boolean" && typeof o.java_string_check_utf8 === "boolean" && isSet(o.optimize_for) && typeof o.go_package === "string" && typeof o.cc_generic_services === "boolean" && typeof o.java_generic_services === "boolean" && typeof o.py_generic_services === "boolean" && typeof o.php_generic_services === "boolean" && typeof o.deprecated === "boolean" && typeof o.cc_enable_arenas === "boolean" && typeof o.objc_class_prefix === "string" && typeof o.csharp_namespace === "string" && typeof o.swift_prefix === "string" && typeof o.php_class_prefix === "string" && typeof o.php_namespace === "string" && typeof o.php_metadata_namespace === "string" && typeof o.ruby_package === "string" && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isAmino(o.uninterpreted_option[0])));
+    return o && (o.$typeUrl === FileOptions.typeUrl || typeof o.java_package === "string" && typeof o.java_outer_classname === "string" && typeof o.java_multiple_files === "boolean" && typeof o.java_generate_equals_and_hash === "boolean" && typeof o.java_string_check_utf8 === "boolean" && isSet(o.optimize_for) && typeof o.go_package === "string" && typeof o.cc_generic_services === "boolean" && typeof o.java_generic_services === "boolean" && typeof o.py_generic_services === "boolean" && typeof o.deprecated === "boolean" && typeof o.cc_enable_arenas === "boolean" && typeof o.objc_class_prefix === "string" && typeof o.csharp_namespace === "string" && typeof o.swift_prefix === "string" && typeof o.php_class_prefix === "string" && typeof o.php_namespace === "string" && typeof o.php_metadata_namespace === "string" && typeof o.ruby_package === "string" && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isAmino(o.uninterpreted_option[0])));
   },
   encode(message: FileOptions, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.javaPackage !== "") {
@@ -3838,9 +5451,6 @@ export const FileOptions = {
     if (message.pyGenericServices === true) {
       writer.uint32(144).bool(message.pyGenericServices);
     }
-    if (message.phpGenericServices === true) {
-      writer.uint32(336).bool(message.phpGenericServices);
-    }
     if (message.deprecated === true) {
       writer.uint32(184).bool(message.deprecated);
     }
@@ -3867,6 +5477,9 @@ export const FileOptions = {
     }
     if (message.rubyPackage !== "") {
       writer.uint32(362).string(message.rubyPackage);
+    }
+    if (message.features !== undefined) {
+      FeatureSet.encode(message.features, writer.uint32(402).fork()).ldelim();
     }
     for (const v of message.uninterpretedOption) {
       UninterpretedOption.encode(v!, writer.uint32(7994).fork()).ldelim();
@@ -3910,9 +5523,6 @@ export const FileOptions = {
         case 18:
           message.pyGenericServices = reader.bool();
           break;
-        case 42:
-          message.phpGenericServices = reader.bool();
-          break;
         case 23:
           message.deprecated = reader.bool();
           break;
@@ -3940,6 +5550,9 @@ export const FileOptions = {
         case 45:
           message.rubyPackage = reader.string();
           break;
+        case 50:
+          message.features = FeatureSet.decode(reader, reader.uint32());
+          break;
         case 999:
           message.uninterpretedOption.push(UninterpretedOption.decode(reader, reader.uint32()));
           break;
@@ -3962,7 +5575,6 @@ export const FileOptions = {
     message.ccGenericServices = object.ccGenericServices ?? false;
     message.javaGenericServices = object.javaGenericServices ?? false;
     message.pyGenericServices = object.pyGenericServices ?? false;
-    message.phpGenericServices = object.phpGenericServices ?? false;
     message.deprecated = object.deprecated ?? false;
     message.ccEnableArenas = object.ccEnableArenas ?? false;
     message.objcClassPrefix = object.objcClassPrefix ?? "";
@@ -3972,6 +5584,7 @@ export const FileOptions = {
     message.phpNamespace = object.phpNamespace ?? "";
     message.phpMetadataNamespace = object.phpMetadataNamespace ?? "";
     message.rubyPackage = object.rubyPackage ?? "";
+    message.features = object.features !== undefined && object.features !== null ? FeatureSet.fromPartial(object.features) : undefined;
     message.uninterpretedOption = object.uninterpretedOption?.map(e => UninterpretedOption.fromPartial(e)) || [];
     return message;
   },
@@ -4007,9 +5620,6 @@ export const FileOptions = {
     if (object.py_generic_services !== undefined && object.py_generic_services !== null) {
       message.pyGenericServices = object.py_generic_services;
     }
-    if (object.php_generic_services !== undefined && object.php_generic_services !== null) {
-      message.phpGenericServices = object.php_generic_services;
-    }
     if (object.deprecated !== undefined && object.deprecated !== null) {
       message.deprecated = object.deprecated;
     }
@@ -4037,6 +5647,9 @@ export const FileOptions = {
     if (object.ruby_package !== undefined && object.ruby_package !== null) {
       message.rubyPackage = object.ruby_package;
     }
+    if (object.features !== undefined && object.features !== null) {
+      message.features = FeatureSet.fromAmino(object.features);
+    }
     message.uninterpretedOption = object.uninterpreted_option?.map(e => UninterpretedOption.fromAmino(e)) || [];
     return message;
   },
@@ -4052,7 +5665,6 @@ export const FileOptions = {
     obj.cc_generic_services = message.ccGenericServices === false ? undefined : message.ccGenericServices;
     obj.java_generic_services = message.javaGenericServices === false ? undefined : message.javaGenericServices;
     obj.py_generic_services = message.pyGenericServices === false ? undefined : message.pyGenericServices;
-    obj.php_generic_services = message.phpGenericServices === false ? undefined : message.phpGenericServices;
     obj.deprecated = message.deprecated === false ? undefined : message.deprecated;
     obj.cc_enable_arenas = message.ccEnableArenas === false ? undefined : message.ccEnableArenas;
     obj.objc_class_prefix = message.objcClassPrefix === "" ? undefined : message.objcClassPrefix;
@@ -4062,6 +5674,7 @@ export const FileOptions = {
     obj.php_namespace = message.phpNamespace === "" ? undefined : message.phpNamespace;
     obj.php_metadata_namespace = message.phpMetadataNamespace === "" ? undefined : message.phpMetadataNamespace;
     obj.ruby_package = message.rubyPackage === "" ? undefined : message.rubyPackage;
+    obj.features = message.features ? FeatureSet.toAmino(message.features) : undefined;
     if (message.uninterpretedOption) {
       obj.uninterpreted_option = message.uninterpretedOption.map(e => e ? UninterpretedOption.toAmino(e) : undefined);
     } else {
@@ -4092,19 +5705,21 @@ function createBaseMessageOptions(): MessageOptions {
     noStandardDescriptorAccessor: false,
     deprecated: false,
     mapEntry: false,
+    deprecatedLegacyJsonFieldConflicts: false,
+    features: undefined,
     uninterpretedOption: []
   };
 }
 export const MessageOptions = {
   typeUrl: "/google.protobuf.MessageOptions",
   is(o: any): o is MessageOptions {
-    return o && (o.$typeUrl === MessageOptions.typeUrl || typeof o.messageSetWireFormat === "boolean" && typeof o.noStandardDescriptorAccessor === "boolean" && typeof o.deprecated === "boolean" && typeof o.mapEntry === "boolean" && Array.isArray(o.uninterpretedOption) && (!o.uninterpretedOption.length || UninterpretedOption.is(o.uninterpretedOption[0])));
+    return o && (o.$typeUrl === MessageOptions.typeUrl || typeof o.messageSetWireFormat === "boolean" && typeof o.noStandardDescriptorAccessor === "boolean" && typeof o.deprecated === "boolean" && typeof o.mapEntry === "boolean" && typeof o.deprecatedLegacyJsonFieldConflicts === "boolean" && Array.isArray(o.uninterpretedOption) && (!o.uninterpretedOption.length || UninterpretedOption.is(o.uninterpretedOption[0])));
   },
   isSDK(o: any): o is MessageOptionsSDKType {
-    return o && (o.$typeUrl === MessageOptions.typeUrl || typeof o.message_set_wire_format === "boolean" && typeof o.no_standard_descriptor_accessor === "boolean" && typeof o.deprecated === "boolean" && typeof o.map_entry === "boolean" && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isSDK(o.uninterpreted_option[0])));
+    return o && (o.$typeUrl === MessageOptions.typeUrl || typeof o.message_set_wire_format === "boolean" && typeof o.no_standard_descriptor_accessor === "boolean" && typeof o.deprecated === "boolean" && typeof o.map_entry === "boolean" && typeof o.deprecated_legacy_json_field_conflicts === "boolean" && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isSDK(o.uninterpreted_option[0])));
   },
   isAmino(o: any): o is MessageOptionsAmino {
-    return o && (o.$typeUrl === MessageOptions.typeUrl || typeof o.message_set_wire_format === "boolean" && typeof o.no_standard_descriptor_accessor === "boolean" && typeof o.deprecated === "boolean" && typeof o.map_entry === "boolean" && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isAmino(o.uninterpreted_option[0])));
+    return o && (o.$typeUrl === MessageOptions.typeUrl || typeof o.message_set_wire_format === "boolean" && typeof o.no_standard_descriptor_accessor === "boolean" && typeof o.deprecated === "boolean" && typeof o.map_entry === "boolean" && typeof o.deprecated_legacy_json_field_conflicts === "boolean" && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isAmino(o.uninterpreted_option[0])));
   },
   encode(message: MessageOptions, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.messageSetWireFormat === true) {
@@ -4118,6 +5733,12 @@ export const MessageOptions = {
     }
     if (message.mapEntry === true) {
       writer.uint32(56).bool(message.mapEntry);
+    }
+    if (message.deprecatedLegacyJsonFieldConflicts === true) {
+      writer.uint32(88).bool(message.deprecatedLegacyJsonFieldConflicts);
+    }
+    if (message.features !== undefined) {
+      FeatureSet.encode(message.features, writer.uint32(98).fork()).ldelim();
     }
     for (const v of message.uninterpretedOption) {
       UninterpretedOption.encode(v!, writer.uint32(7994).fork()).ldelim();
@@ -4143,6 +5764,12 @@ export const MessageOptions = {
         case 7:
           message.mapEntry = reader.bool();
           break;
+        case 11:
+          message.deprecatedLegacyJsonFieldConflicts = reader.bool();
+          break;
+        case 12:
+          message.features = FeatureSet.decode(reader, reader.uint32());
+          break;
         case 999:
           message.uninterpretedOption.push(UninterpretedOption.decode(reader, reader.uint32()));
           break;
@@ -4159,6 +5786,8 @@ export const MessageOptions = {
     message.noStandardDescriptorAccessor = object.noStandardDescriptorAccessor ?? false;
     message.deprecated = object.deprecated ?? false;
     message.mapEntry = object.mapEntry ?? false;
+    message.deprecatedLegacyJsonFieldConflicts = object.deprecatedLegacyJsonFieldConflicts ?? false;
+    message.features = object.features !== undefined && object.features !== null ? FeatureSet.fromPartial(object.features) : undefined;
     message.uninterpretedOption = object.uninterpretedOption?.map(e => UninterpretedOption.fromPartial(e)) || [];
     return message;
   },
@@ -4176,6 +5805,12 @@ export const MessageOptions = {
     if (object.map_entry !== undefined && object.map_entry !== null) {
       message.mapEntry = object.map_entry;
     }
+    if (object.deprecated_legacy_json_field_conflicts !== undefined && object.deprecated_legacy_json_field_conflicts !== null) {
+      message.deprecatedLegacyJsonFieldConflicts = object.deprecated_legacy_json_field_conflicts;
+    }
+    if (object.features !== undefined && object.features !== null) {
+      message.features = FeatureSet.fromAmino(object.features);
+    }
     message.uninterpretedOption = object.uninterpreted_option?.map(e => UninterpretedOption.fromAmino(e)) || [];
     return message;
   },
@@ -4185,6 +5820,8 @@ export const MessageOptions = {
     obj.no_standard_descriptor_accessor = message.noStandardDescriptorAccessor === false ? undefined : message.noStandardDescriptorAccessor;
     obj.deprecated = message.deprecated === false ? undefined : message.deprecated;
     obj.map_entry = message.mapEntry === false ? undefined : message.mapEntry;
+    obj.deprecated_legacy_json_field_conflicts = message.deprecatedLegacyJsonFieldConflicts === false ? undefined : message.deprecatedLegacyJsonFieldConflicts;
+    obj.features = message.features ? FeatureSet.toAmino(message.features) : undefined;
     if (message.uninterpretedOption) {
       obj.uninterpreted_option = message.uninterpretedOption.map(e => e ? UninterpretedOption.toAmino(e) : undefined);
     } else {
@@ -4215,21 +5852,28 @@ function createBaseFieldOptions(): FieldOptions {
     packed: false,
     jstype: 1,
     lazy: false,
+    unverifiedLazy: false,
     deprecated: false,
     weak: false,
+    debugRedact: false,
+    retention: 1,
+    targets: [],
+    editionDefaults: [],
+    features: undefined,
+    featureSupport: undefined,
     uninterpretedOption: []
   };
 }
 export const FieldOptions = {
   typeUrl: "/google.protobuf.FieldOptions",
   is(o: any): o is FieldOptions {
-    return o && (o.$typeUrl === FieldOptions.typeUrl || isSet(o.ctype) && typeof o.packed === "boolean" && isSet(o.jstype) && typeof o.lazy === "boolean" && typeof o.deprecated === "boolean" && typeof o.weak === "boolean" && Array.isArray(o.uninterpretedOption) && (!o.uninterpretedOption.length || UninterpretedOption.is(o.uninterpretedOption[0])));
+    return o && (o.$typeUrl === FieldOptions.typeUrl || isSet(o.ctype) && typeof o.packed === "boolean" && isSet(o.jstype) && typeof o.lazy === "boolean" && typeof o.unverifiedLazy === "boolean" && typeof o.deprecated === "boolean" && typeof o.weak === "boolean" && typeof o.debugRedact === "boolean" && isSet(o.retention) && Array.isArray(o.targets) && Array.isArray(o.editionDefaults) && (!o.editionDefaults.length || FieldOptions_EditionDefault.is(o.editionDefaults[0])) && Array.isArray(o.uninterpretedOption) && (!o.uninterpretedOption.length || UninterpretedOption.is(o.uninterpretedOption[0])));
   },
   isSDK(o: any): o is FieldOptionsSDKType {
-    return o && (o.$typeUrl === FieldOptions.typeUrl || isSet(o.ctype) && typeof o.packed === "boolean" && isSet(o.jstype) && typeof o.lazy === "boolean" && typeof o.deprecated === "boolean" && typeof o.weak === "boolean" && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isSDK(o.uninterpreted_option[0])));
+    return o && (o.$typeUrl === FieldOptions.typeUrl || isSet(o.ctype) && typeof o.packed === "boolean" && isSet(o.jstype) && typeof o.lazy === "boolean" && typeof o.unverified_lazy === "boolean" && typeof o.deprecated === "boolean" && typeof o.weak === "boolean" && typeof o.debug_redact === "boolean" && isSet(o.retention) && Array.isArray(o.targets) && Array.isArray(o.edition_defaults) && (!o.edition_defaults.length || FieldOptions_EditionDefault.isSDK(o.edition_defaults[0])) && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isSDK(o.uninterpreted_option[0])));
   },
   isAmino(o: any): o is FieldOptionsAmino {
-    return o && (o.$typeUrl === FieldOptions.typeUrl || isSet(o.ctype) && typeof o.packed === "boolean" && isSet(o.jstype) && typeof o.lazy === "boolean" && typeof o.deprecated === "boolean" && typeof o.weak === "boolean" && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isAmino(o.uninterpreted_option[0])));
+    return o && (o.$typeUrl === FieldOptions.typeUrl || isSet(o.ctype) && typeof o.packed === "boolean" && isSet(o.jstype) && typeof o.lazy === "boolean" && typeof o.unverified_lazy === "boolean" && typeof o.deprecated === "boolean" && typeof o.weak === "boolean" && typeof o.debug_redact === "boolean" && isSet(o.retention) && Array.isArray(o.targets) && Array.isArray(o.edition_defaults) && (!o.edition_defaults.length || FieldOptions_EditionDefault.isAmino(o.edition_defaults[0])) && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isAmino(o.uninterpreted_option[0])));
   },
   encode(message: FieldOptions, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.ctype !== 1) {
@@ -4244,11 +5888,34 @@ export const FieldOptions = {
     if (message.lazy === true) {
       writer.uint32(40).bool(message.lazy);
     }
+    if (message.unverifiedLazy === true) {
+      writer.uint32(120).bool(message.unverifiedLazy);
+    }
     if (message.deprecated === true) {
       writer.uint32(24).bool(message.deprecated);
     }
     if (message.weak === true) {
       writer.uint32(80).bool(message.weak);
+    }
+    if (message.debugRedact === true) {
+      writer.uint32(128).bool(message.debugRedact);
+    }
+    if (message.retention !== 1) {
+      writer.uint32(136).int32(message.retention);
+    }
+    writer.uint32(154).fork();
+    for (const v of message.targets) {
+      writer.int32(v);
+    }
+    writer.ldelim();
+    for (const v of message.editionDefaults) {
+      FieldOptions_EditionDefault.encode(v!, writer.uint32(162).fork()).ldelim();
+    }
+    if (message.features !== undefined) {
+      FeatureSet.encode(message.features, writer.uint32(170).fork()).ldelim();
+    }
+    if (message.featureSupport !== undefined) {
+      FieldOptions_FeatureSupport.encode(message.featureSupport, writer.uint32(178).fork()).ldelim();
     }
     for (const v of message.uninterpretedOption) {
       UninterpretedOption.encode(v!, writer.uint32(7994).fork()).ldelim();
@@ -4274,11 +5941,39 @@ export const FieldOptions = {
         case 5:
           message.lazy = reader.bool();
           break;
+        case 15:
+          message.unverifiedLazy = reader.bool();
+          break;
         case 3:
           message.deprecated = reader.bool();
           break;
         case 10:
           message.weak = reader.bool();
+          break;
+        case 16:
+          message.debugRedact = reader.bool();
+          break;
+        case 17:
+          message.retention = reader.int32() as any;
+          break;
+        case 19:
+          if ((tag & 7) === 2) {
+            const end2 = reader.uint32() + reader.pos;
+            while (reader.pos < end2) {
+              message.targets.push(reader.int32() as any);
+            }
+          } else {
+            message.targets.push(reader.int32() as any);
+          }
+          break;
+        case 20:
+          message.editionDefaults.push(FieldOptions_EditionDefault.decode(reader, reader.uint32()));
+          break;
+        case 21:
+          message.features = FeatureSet.decode(reader, reader.uint32());
+          break;
+        case 22:
+          message.featureSupport = FieldOptions_FeatureSupport.decode(reader, reader.uint32());
           break;
         case 999:
           message.uninterpretedOption.push(UninterpretedOption.decode(reader, reader.uint32()));
@@ -4296,8 +5991,15 @@ export const FieldOptions = {
     message.packed = object.packed ?? false;
     message.jstype = object.jstype ?? 1;
     message.lazy = object.lazy ?? false;
+    message.unverifiedLazy = object.unverifiedLazy ?? false;
     message.deprecated = object.deprecated ?? false;
     message.weak = object.weak ?? false;
+    message.debugRedact = object.debugRedact ?? false;
+    message.retention = object.retention ?? 1;
+    message.targets = object.targets?.map(e => e) || [];
+    message.editionDefaults = object.editionDefaults?.map(e => FieldOptions_EditionDefault.fromPartial(e)) || [];
+    message.features = object.features !== undefined && object.features !== null ? FeatureSet.fromPartial(object.features) : undefined;
+    message.featureSupport = object.featureSupport !== undefined && object.featureSupport !== null ? FieldOptions_FeatureSupport.fromPartial(object.featureSupport) : undefined;
     message.uninterpretedOption = object.uninterpretedOption?.map(e => UninterpretedOption.fromPartial(e)) || [];
     return message;
   },
@@ -4315,11 +6017,28 @@ export const FieldOptions = {
     if (object.lazy !== undefined && object.lazy !== null) {
       message.lazy = object.lazy;
     }
+    if (object.unverified_lazy !== undefined && object.unverified_lazy !== null) {
+      message.unverifiedLazy = object.unverified_lazy;
+    }
     if (object.deprecated !== undefined && object.deprecated !== null) {
       message.deprecated = object.deprecated;
     }
     if (object.weak !== undefined && object.weak !== null) {
       message.weak = object.weak;
+    }
+    if (object.debug_redact !== undefined && object.debug_redact !== null) {
+      message.debugRedact = object.debug_redact;
+    }
+    if (object.retention !== undefined && object.retention !== null) {
+      message.retention = object.retention;
+    }
+    message.targets = object.targets?.map(e => e) || [];
+    message.editionDefaults = object.edition_defaults?.map(e => FieldOptions_EditionDefault.fromAmino(e)) || [];
+    if (object.features !== undefined && object.features !== null) {
+      message.features = FeatureSet.fromAmino(object.features);
+    }
+    if (object.feature_support !== undefined && object.feature_support !== null) {
+      message.featureSupport = FieldOptions_FeatureSupport.fromAmino(object.feature_support);
     }
     message.uninterpretedOption = object.uninterpreted_option?.map(e => UninterpretedOption.fromAmino(e)) || [];
     return message;
@@ -4330,8 +6049,23 @@ export const FieldOptions = {
     obj.packed = message.packed === false ? undefined : message.packed;
     obj.jstype = message.jstype === 1 ? undefined : message.jstype;
     obj.lazy = message.lazy === false ? undefined : message.lazy;
+    obj.unverified_lazy = message.unverifiedLazy === false ? undefined : message.unverifiedLazy;
     obj.deprecated = message.deprecated === false ? undefined : message.deprecated;
     obj.weak = message.weak === false ? undefined : message.weak;
+    obj.debug_redact = message.debugRedact === false ? undefined : message.debugRedact;
+    obj.retention = message.retention === 1 ? undefined : message.retention;
+    if (message.targets) {
+      obj.targets = message.targets.map(e => e);
+    } else {
+      obj.targets = message.targets;
+    }
+    if (message.editionDefaults) {
+      obj.edition_defaults = message.editionDefaults.map(e => e ? FieldOptions_EditionDefault.toAmino(e) : undefined);
+    } else {
+      obj.edition_defaults = message.editionDefaults;
+    }
+    obj.features = message.features ? FeatureSet.toAmino(message.features) : undefined;
+    obj.feature_support = message.featureSupport ? FieldOptions_FeatureSupport.toAmino(message.featureSupport) : undefined;
     if (message.uninterpretedOption) {
       obj.uninterpreted_option = message.uninterpretedOption.map(e => e ? UninterpretedOption.toAmino(e) : undefined);
     } else {
@@ -4356,8 +6090,203 @@ export const FieldOptions = {
   }
 };
 GlobalDecoderRegistry.register(FieldOptions.typeUrl, FieldOptions);
+function createBaseFieldOptions_EditionDefault(): FieldOptions_EditionDefault {
+  return {
+    edition: 1,
+    value: ""
+  };
+}
+export const FieldOptions_EditionDefault = {
+  typeUrl: "/google.protobuf.EditionDefault",
+  is(o: any): o is FieldOptions_EditionDefault {
+    return o && (o.$typeUrl === FieldOptions_EditionDefault.typeUrl || isSet(o.edition) && typeof o.value === "string");
+  },
+  isSDK(o: any): o is FieldOptions_EditionDefaultSDKType {
+    return o && (o.$typeUrl === FieldOptions_EditionDefault.typeUrl || isSet(o.edition) && typeof o.value === "string");
+  },
+  isAmino(o: any): o is FieldOptions_EditionDefaultAmino {
+    return o && (o.$typeUrl === FieldOptions_EditionDefault.typeUrl || isSet(o.edition) && typeof o.value === "string");
+  },
+  encode(message: FieldOptions_EditionDefault, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+    if (message.edition !== 1) {
+      writer.uint32(24).int32(message.edition);
+    }
+    if (message.value !== "") {
+      writer.uint32(18).string(message.value);
+    }
+    return writer;
+  },
+  decode(input: BinaryReader | Uint8Array, length?: number): FieldOptions_EditionDefault {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseFieldOptions_EditionDefault();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 3:
+          message.edition = reader.int32() as any;
+          break;
+        case 2:
+          message.value = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+  fromPartial(object: Partial<FieldOptions_EditionDefault>): FieldOptions_EditionDefault {
+    const message = createBaseFieldOptions_EditionDefault();
+    message.edition = object.edition ?? 1;
+    message.value = object.value ?? "";
+    return message;
+  },
+  fromAmino(object: FieldOptions_EditionDefaultAmino): FieldOptions_EditionDefault {
+    const message = createBaseFieldOptions_EditionDefault();
+    if (object.edition !== undefined && object.edition !== null) {
+      message.edition = object.edition;
+    }
+    if (object.value !== undefined && object.value !== null) {
+      message.value = object.value;
+    }
+    return message;
+  },
+  toAmino(message: FieldOptions_EditionDefault): FieldOptions_EditionDefaultAmino {
+    const obj: any = {};
+    obj.edition = message.edition === 1 ? undefined : message.edition;
+    obj.value = message.value === "" ? undefined : message.value;
+    return obj;
+  },
+  fromAminoMsg(object: FieldOptions_EditionDefaultAminoMsg): FieldOptions_EditionDefault {
+    return FieldOptions_EditionDefault.fromAmino(object.value);
+  },
+  fromProtoMsg(message: FieldOptions_EditionDefaultProtoMsg): FieldOptions_EditionDefault {
+    return FieldOptions_EditionDefault.decode(message.value);
+  },
+  toProto(message: FieldOptions_EditionDefault): Uint8Array {
+    return FieldOptions_EditionDefault.encode(message).finish();
+  },
+  toProtoMsg(message: FieldOptions_EditionDefault): FieldOptions_EditionDefaultProtoMsg {
+    return {
+      typeUrl: "/google.protobuf.EditionDefault",
+      value: FieldOptions_EditionDefault.encode(message).finish()
+    };
+  }
+};
+GlobalDecoderRegistry.register(FieldOptions_EditionDefault.typeUrl, FieldOptions_EditionDefault);
+function createBaseFieldOptions_FeatureSupport(): FieldOptions_FeatureSupport {
+  return {
+    editionIntroduced: 1,
+    editionDeprecated: 1,
+    deprecationWarning: "",
+    editionRemoved: 1
+  };
+}
+export const FieldOptions_FeatureSupport = {
+  typeUrl: "/google.protobuf.FeatureSupport",
+  is(o: any): o is FieldOptions_FeatureSupport {
+    return o && (o.$typeUrl === FieldOptions_FeatureSupport.typeUrl || isSet(o.editionIntroduced) && isSet(o.editionDeprecated) && typeof o.deprecationWarning === "string" && isSet(o.editionRemoved));
+  },
+  isSDK(o: any): o is FieldOptions_FeatureSupportSDKType {
+    return o && (o.$typeUrl === FieldOptions_FeatureSupport.typeUrl || isSet(o.edition_introduced) && isSet(o.edition_deprecated) && typeof o.deprecation_warning === "string" && isSet(o.edition_removed));
+  },
+  isAmino(o: any): o is FieldOptions_FeatureSupportAmino {
+    return o && (o.$typeUrl === FieldOptions_FeatureSupport.typeUrl || isSet(o.edition_introduced) && isSet(o.edition_deprecated) && typeof o.deprecation_warning === "string" && isSet(o.edition_removed));
+  },
+  encode(message: FieldOptions_FeatureSupport, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+    if (message.editionIntroduced !== 1) {
+      writer.uint32(8).int32(message.editionIntroduced);
+    }
+    if (message.editionDeprecated !== 1) {
+      writer.uint32(16).int32(message.editionDeprecated);
+    }
+    if (message.deprecationWarning !== "") {
+      writer.uint32(26).string(message.deprecationWarning);
+    }
+    if (message.editionRemoved !== 1) {
+      writer.uint32(32).int32(message.editionRemoved);
+    }
+    return writer;
+  },
+  decode(input: BinaryReader | Uint8Array, length?: number): FieldOptions_FeatureSupport {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseFieldOptions_FeatureSupport();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.editionIntroduced = reader.int32() as any;
+          break;
+        case 2:
+          message.editionDeprecated = reader.int32() as any;
+          break;
+        case 3:
+          message.deprecationWarning = reader.string();
+          break;
+        case 4:
+          message.editionRemoved = reader.int32() as any;
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+  fromPartial(object: Partial<FieldOptions_FeatureSupport>): FieldOptions_FeatureSupport {
+    const message = createBaseFieldOptions_FeatureSupport();
+    message.editionIntroduced = object.editionIntroduced ?? 1;
+    message.editionDeprecated = object.editionDeprecated ?? 1;
+    message.deprecationWarning = object.deprecationWarning ?? "";
+    message.editionRemoved = object.editionRemoved ?? 1;
+    return message;
+  },
+  fromAmino(object: FieldOptions_FeatureSupportAmino): FieldOptions_FeatureSupport {
+    const message = createBaseFieldOptions_FeatureSupport();
+    if (object.edition_introduced !== undefined && object.edition_introduced !== null) {
+      message.editionIntroduced = object.edition_introduced;
+    }
+    if (object.edition_deprecated !== undefined && object.edition_deprecated !== null) {
+      message.editionDeprecated = object.edition_deprecated;
+    }
+    if (object.deprecation_warning !== undefined && object.deprecation_warning !== null) {
+      message.deprecationWarning = object.deprecation_warning;
+    }
+    if (object.edition_removed !== undefined && object.edition_removed !== null) {
+      message.editionRemoved = object.edition_removed;
+    }
+    return message;
+  },
+  toAmino(message: FieldOptions_FeatureSupport): FieldOptions_FeatureSupportAmino {
+    const obj: any = {};
+    obj.edition_introduced = message.editionIntroduced === 1 ? undefined : message.editionIntroduced;
+    obj.edition_deprecated = message.editionDeprecated === 1 ? undefined : message.editionDeprecated;
+    obj.deprecation_warning = message.deprecationWarning === "" ? undefined : message.deprecationWarning;
+    obj.edition_removed = message.editionRemoved === 1 ? undefined : message.editionRemoved;
+    return obj;
+  },
+  fromAminoMsg(object: FieldOptions_FeatureSupportAminoMsg): FieldOptions_FeatureSupport {
+    return FieldOptions_FeatureSupport.fromAmino(object.value);
+  },
+  fromProtoMsg(message: FieldOptions_FeatureSupportProtoMsg): FieldOptions_FeatureSupport {
+    return FieldOptions_FeatureSupport.decode(message.value);
+  },
+  toProto(message: FieldOptions_FeatureSupport): Uint8Array {
+    return FieldOptions_FeatureSupport.encode(message).finish();
+  },
+  toProtoMsg(message: FieldOptions_FeatureSupport): FieldOptions_FeatureSupportProtoMsg {
+    return {
+      typeUrl: "/google.protobuf.FeatureSupport",
+      value: FieldOptions_FeatureSupport.encode(message).finish()
+    };
+  }
+};
+GlobalDecoderRegistry.register(FieldOptions_FeatureSupport.typeUrl, FieldOptions_FeatureSupport);
 function createBaseOneofOptions(): OneofOptions {
   return {
+    features: undefined,
     uninterpretedOption: []
   };
 }
@@ -4373,6 +6302,9 @@ export const OneofOptions = {
     return o && (o.$typeUrl === OneofOptions.typeUrl || Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isAmino(o.uninterpreted_option[0])));
   },
   encode(message: OneofOptions, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+    if (message.features !== undefined) {
+      FeatureSet.encode(message.features, writer.uint32(10).fork()).ldelim();
+    }
     for (const v of message.uninterpretedOption) {
       UninterpretedOption.encode(v!, writer.uint32(7994).fork()).ldelim();
     }
@@ -4385,6 +6317,9 @@ export const OneofOptions = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
+        case 1:
+          message.features = FeatureSet.decode(reader, reader.uint32());
+          break;
         case 999:
           message.uninterpretedOption.push(UninterpretedOption.decode(reader, reader.uint32()));
           break;
@@ -4397,16 +6332,21 @@ export const OneofOptions = {
   },
   fromPartial(object: Partial<OneofOptions>): OneofOptions {
     const message = createBaseOneofOptions();
+    message.features = object.features !== undefined && object.features !== null ? FeatureSet.fromPartial(object.features) : undefined;
     message.uninterpretedOption = object.uninterpretedOption?.map(e => UninterpretedOption.fromPartial(e)) || [];
     return message;
   },
   fromAmino(object: OneofOptionsAmino): OneofOptions {
     const message = createBaseOneofOptions();
+    if (object.features !== undefined && object.features !== null) {
+      message.features = FeatureSet.fromAmino(object.features);
+    }
     message.uninterpretedOption = object.uninterpreted_option?.map(e => UninterpretedOption.fromAmino(e)) || [];
     return message;
   },
   toAmino(message: OneofOptions): OneofOptionsAmino {
     const obj: any = {};
+    obj.features = message.features ? FeatureSet.toAmino(message.features) : undefined;
     if (message.uninterpretedOption) {
       obj.uninterpreted_option = message.uninterpretedOption.map(e => e ? UninterpretedOption.toAmino(e) : undefined);
     } else {
@@ -4435,19 +6375,21 @@ function createBaseEnumOptions(): EnumOptions {
   return {
     allowAlias: false,
     deprecated: false,
+    deprecatedLegacyJsonFieldConflicts: false,
+    features: undefined,
     uninterpretedOption: []
   };
 }
 export const EnumOptions = {
   typeUrl: "/google.protobuf.EnumOptions",
   is(o: any): o is EnumOptions {
-    return o && (o.$typeUrl === EnumOptions.typeUrl || typeof o.allowAlias === "boolean" && typeof o.deprecated === "boolean" && Array.isArray(o.uninterpretedOption) && (!o.uninterpretedOption.length || UninterpretedOption.is(o.uninterpretedOption[0])));
+    return o && (o.$typeUrl === EnumOptions.typeUrl || typeof o.allowAlias === "boolean" && typeof o.deprecated === "boolean" && typeof o.deprecatedLegacyJsonFieldConflicts === "boolean" && Array.isArray(o.uninterpretedOption) && (!o.uninterpretedOption.length || UninterpretedOption.is(o.uninterpretedOption[0])));
   },
   isSDK(o: any): o is EnumOptionsSDKType {
-    return o && (o.$typeUrl === EnumOptions.typeUrl || typeof o.allow_alias === "boolean" && typeof o.deprecated === "boolean" && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isSDK(o.uninterpreted_option[0])));
+    return o && (o.$typeUrl === EnumOptions.typeUrl || typeof o.allow_alias === "boolean" && typeof o.deprecated === "boolean" && typeof o.deprecated_legacy_json_field_conflicts === "boolean" && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isSDK(o.uninterpreted_option[0])));
   },
   isAmino(o: any): o is EnumOptionsAmino {
-    return o && (o.$typeUrl === EnumOptions.typeUrl || typeof o.allow_alias === "boolean" && typeof o.deprecated === "boolean" && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isAmino(o.uninterpreted_option[0])));
+    return o && (o.$typeUrl === EnumOptions.typeUrl || typeof o.allow_alias === "boolean" && typeof o.deprecated === "boolean" && typeof o.deprecated_legacy_json_field_conflicts === "boolean" && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isAmino(o.uninterpreted_option[0])));
   },
   encode(message: EnumOptions, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.allowAlias === true) {
@@ -4455,6 +6397,12 @@ export const EnumOptions = {
     }
     if (message.deprecated === true) {
       writer.uint32(24).bool(message.deprecated);
+    }
+    if (message.deprecatedLegacyJsonFieldConflicts === true) {
+      writer.uint32(48).bool(message.deprecatedLegacyJsonFieldConflicts);
+    }
+    if (message.features !== undefined) {
+      FeatureSet.encode(message.features, writer.uint32(58).fork()).ldelim();
     }
     for (const v of message.uninterpretedOption) {
       UninterpretedOption.encode(v!, writer.uint32(7994).fork()).ldelim();
@@ -4474,6 +6422,12 @@ export const EnumOptions = {
         case 3:
           message.deprecated = reader.bool();
           break;
+        case 6:
+          message.deprecatedLegacyJsonFieldConflicts = reader.bool();
+          break;
+        case 7:
+          message.features = FeatureSet.decode(reader, reader.uint32());
+          break;
         case 999:
           message.uninterpretedOption.push(UninterpretedOption.decode(reader, reader.uint32()));
           break;
@@ -4488,6 +6442,8 @@ export const EnumOptions = {
     const message = createBaseEnumOptions();
     message.allowAlias = object.allowAlias ?? false;
     message.deprecated = object.deprecated ?? false;
+    message.deprecatedLegacyJsonFieldConflicts = object.deprecatedLegacyJsonFieldConflicts ?? false;
+    message.features = object.features !== undefined && object.features !== null ? FeatureSet.fromPartial(object.features) : undefined;
     message.uninterpretedOption = object.uninterpretedOption?.map(e => UninterpretedOption.fromPartial(e)) || [];
     return message;
   },
@@ -4499,6 +6455,12 @@ export const EnumOptions = {
     if (object.deprecated !== undefined && object.deprecated !== null) {
       message.deprecated = object.deprecated;
     }
+    if (object.deprecated_legacy_json_field_conflicts !== undefined && object.deprecated_legacy_json_field_conflicts !== null) {
+      message.deprecatedLegacyJsonFieldConflicts = object.deprecated_legacy_json_field_conflicts;
+    }
+    if (object.features !== undefined && object.features !== null) {
+      message.features = FeatureSet.fromAmino(object.features);
+    }
     message.uninterpretedOption = object.uninterpreted_option?.map(e => UninterpretedOption.fromAmino(e)) || [];
     return message;
   },
@@ -4506,6 +6468,8 @@ export const EnumOptions = {
     const obj: any = {};
     obj.allow_alias = message.allowAlias === false ? undefined : message.allowAlias;
     obj.deprecated = message.deprecated === false ? undefined : message.deprecated;
+    obj.deprecated_legacy_json_field_conflicts = message.deprecatedLegacyJsonFieldConflicts === false ? undefined : message.deprecatedLegacyJsonFieldConflicts;
+    obj.features = message.features ? FeatureSet.toAmino(message.features) : undefined;
     if (message.uninterpretedOption) {
       obj.uninterpreted_option = message.uninterpretedOption.map(e => e ? UninterpretedOption.toAmino(e) : undefined);
     } else {
@@ -4533,23 +6497,35 @@ GlobalDecoderRegistry.register(EnumOptions.typeUrl, EnumOptions);
 function createBaseEnumValueOptions(): EnumValueOptions {
   return {
     deprecated: false,
+    features: undefined,
+    debugRedact: false,
+    featureSupport: undefined,
     uninterpretedOption: []
   };
 }
 export const EnumValueOptions = {
   typeUrl: "/google.protobuf.EnumValueOptions",
   is(o: any): o is EnumValueOptions {
-    return o && (o.$typeUrl === EnumValueOptions.typeUrl || typeof o.deprecated === "boolean" && Array.isArray(o.uninterpretedOption) && (!o.uninterpretedOption.length || UninterpretedOption.is(o.uninterpretedOption[0])));
+    return o && (o.$typeUrl === EnumValueOptions.typeUrl || typeof o.deprecated === "boolean" && typeof o.debugRedact === "boolean" && Array.isArray(o.uninterpretedOption) && (!o.uninterpretedOption.length || UninterpretedOption.is(o.uninterpretedOption[0])));
   },
   isSDK(o: any): o is EnumValueOptionsSDKType {
-    return o && (o.$typeUrl === EnumValueOptions.typeUrl || typeof o.deprecated === "boolean" && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isSDK(o.uninterpreted_option[0])));
+    return o && (o.$typeUrl === EnumValueOptions.typeUrl || typeof o.deprecated === "boolean" && typeof o.debug_redact === "boolean" && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isSDK(o.uninterpreted_option[0])));
   },
   isAmino(o: any): o is EnumValueOptionsAmino {
-    return o && (o.$typeUrl === EnumValueOptions.typeUrl || typeof o.deprecated === "boolean" && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isAmino(o.uninterpreted_option[0])));
+    return o && (o.$typeUrl === EnumValueOptions.typeUrl || typeof o.deprecated === "boolean" && typeof o.debug_redact === "boolean" && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isAmino(o.uninterpreted_option[0])));
   },
   encode(message: EnumValueOptions, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.deprecated === true) {
       writer.uint32(8).bool(message.deprecated);
+    }
+    if (message.features !== undefined) {
+      FeatureSet.encode(message.features, writer.uint32(18).fork()).ldelim();
+    }
+    if (message.debugRedact === true) {
+      writer.uint32(24).bool(message.debugRedact);
+    }
+    if (message.featureSupport !== undefined) {
+      FieldOptions_FeatureSupport.encode(message.featureSupport, writer.uint32(34).fork()).ldelim();
     }
     for (const v of message.uninterpretedOption) {
       UninterpretedOption.encode(v!, writer.uint32(7994).fork()).ldelim();
@@ -4566,6 +6542,15 @@ export const EnumValueOptions = {
         case 1:
           message.deprecated = reader.bool();
           break;
+        case 2:
+          message.features = FeatureSet.decode(reader, reader.uint32());
+          break;
+        case 3:
+          message.debugRedact = reader.bool();
+          break;
+        case 4:
+          message.featureSupport = FieldOptions_FeatureSupport.decode(reader, reader.uint32());
+          break;
         case 999:
           message.uninterpretedOption.push(UninterpretedOption.decode(reader, reader.uint32()));
           break;
@@ -4579,6 +6564,9 @@ export const EnumValueOptions = {
   fromPartial(object: Partial<EnumValueOptions>): EnumValueOptions {
     const message = createBaseEnumValueOptions();
     message.deprecated = object.deprecated ?? false;
+    message.features = object.features !== undefined && object.features !== null ? FeatureSet.fromPartial(object.features) : undefined;
+    message.debugRedact = object.debugRedact ?? false;
+    message.featureSupport = object.featureSupport !== undefined && object.featureSupport !== null ? FieldOptions_FeatureSupport.fromPartial(object.featureSupport) : undefined;
     message.uninterpretedOption = object.uninterpretedOption?.map(e => UninterpretedOption.fromPartial(e)) || [];
     return message;
   },
@@ -4587,12 +6575,24 @@ export const EnumValueOptions = {
     if (object.deprecated !== undefined && object.deprecated !== null) {
       message.deprecated = object.deprecated;
     }
+    if (object.features !== undefined && object.features !== null) {
+      message.features = FeatureSet.fromAmino(object.features);
+    }
+    if (object.debug_redact !== undefined && object.debug_redact !== null) {
+      message.debugRedact = object.debug_redact;
+    }
+    if (object.feature_support !== undefined && object.feature_support !== null) {
+      message.featureSupport = FieldOptions_FeatureSupport.fromAmino(object.feature_support);
+    }
     message.uninterpretedOption = object.uninterpreted_option?.map(e => UninterpretedOption.fromAmino(e)) || [];
     return message;
   },
   toAmino(message: EnumValueOptions): EnumValueOptionsAmino {
     const obj: any = {};
     obj.deprecated = message.deprecated === false ? undefined : message.deprecated;
+    obj.features = message.features ? FeatureSet.toAmino(message.features) : undefined;
+    obj.debug_redact = message.debugRedact === false ? undefined : message.debugRedact;
+    obj.feature_support = message.featureSupport ? FieldOptions_FeatureSupport.toAmino(message.featureSupport) : undefined;
     if (message.uninterpretedOption) {
       obj.uninterpreted_option = message.uninterpretedOption.map(e => e ? UninterpretedOption.toAmino(e) : undefined);
     } else {
@@ -4619,6 +6619,7 @@ export const EnumValueOptions = {
 GlobalDecoderRegistry.register(EnumValueOptions.typeUrl, EnumValueOptions);
 function createBaseServiceOptions(): ServiceOptions {
   return {
+    features: undefined,
     deprecated: false,
     uninterpretedOption: []
   };
@@ -4635,6 +6636,9 @@ export const ServiceOptions = {
     return o && (o.$typeUrl === ServiceOptions.typeUrl || typeof o.deprecated === "boolean" && Array.isArray(o.uninterpreted_option) && (!o.uninterpreted_option.length || UninterpretedOption.isAmino(o.uninterpreted_option[0])));
   },
   encode(message: ServiceOptions, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+    if (message.features !== undefined) {
+      FeatureSet.encode(message.features, writer.uint32(274).fork()).ldelim();
+    }
     if (message.deprecated === true) {
       writer.uint32(264).bool(message.deprecated);
     }
@@ -4650,6 +6654,9 @@ export const ServiceOptions = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
+        case 34:
+          message.features = FeatureSet.decode(reader, reader.uint32());
+          break;
         case 33:
           message.deprecated = reader.bool();
           break;
@@ -4665,12 +6672,16 @@ export const ServiceOptions = {
   },
   fromPartial(object: Partial<ServiceOptions>): ServiceOptions {
     const message = createBaseServiceOptions();
+    message.features = object.features !== undefined && object.features !== null ? FeatureSet.fromPartial(object.features) : undefined;
     message.deprecated = object.deprecated ?? false;
     message.uninterpretedOption = object.uninterpretedOption?.map(e => UninterpretedOption.fromPartial(e)) || [];
     return message;
   },
   fromAmino(object: ServiceOptionsAmino): ServiceOptions {
     const message = createBaseServiceOptions();
+    if (object.features !== undefined && object.features !== null) {
+      message.features = FeatureSet.fromAmino(object.features);
+    }
     if (object.deprecated !== undefined && object.deprecated !== null) {
       message.deprecated = object.deprecated;
     }
@@ -4679,6 +6690,7 @@ export const ServiceOptions = {
   },
   toAmino(message: ServiceOptions): ServiceOptionsAmino {
     const obj: any = {};
+    obj.features = message.features ? FeatureSet.toAmino(message.features) : undefined;
     obj.deprecated = message.deprecated === false ? undefined : message.deprecated;
     if (message.uninterpretedOption) {
       obj.uninterpreted_option = message.uninterpretedOption.map(e => e ? UninterpretedOption.toAmino(e) : undefined);
@@ -4708,6 +6720,7 @@ function createBaseMethodOptions(): MethodOptions {
   return {
     deprecated: false,
     idempotencyLevel: 1,
+    features: undefined,
     uninterpretedOption: []
   };
 }
@@ -4729,6 +6742,9 @@ export const MethodOptions = {
     if (message.idempotencyLevel !== 1) {
       writer.uint32(272).int32(message.idempotencyLevel);
     }
+    if (message.features !== undefined) {
+      FeatureSet.encode(message.features, writer.uint32(282).fork()).ldelim();
+    }
     for (const v of message.uninterpretedOption) {
       UninterpretedOption.encode(v!, writer.uint32(7994).fork()).ldelim();
     }
@@ -4747,6 +6763,9 @@ export const MethodOptions = {
         case 34:
           message.idempotencyLevel = reader.int32() as any;
           break;
+        case 35:
+          message.features = FeatureSet.decode(reader, reader.uint32());
+          break;
         case 999:
           message.uninterpretedOption.push(UninterpretedOption.decode(reader, reader.uint32()));
           break;
@@ -4761,6 +6780,7 @@ export const MethodOptions = {
     const message = createBaseMethodOptions();
     message.deprecated = object.deprecated ?? false;
     message.idempotencyLevel = object.idempotencyLevel ?? 1;
+    message.features = object.features !== undefined && object.features !== null ? FeatureSet.fromPartial(object.features) : undefined;
     message.uninterpretedOption = object.uninterpretedOption?.map(e => UninterpretedOption.fromPartial(e)) || [];
     return message;
   },
@@ -4772,6 +6792,9 @@ export const MethodOptions = {
     if (object.idempotency_level !== undefined && object.idempotency_level !== null) {
       message.idempotencyLevel = object.idempotency_level;
     }
+    if (object.features !== undefined && object.features !== null) {
+      message.features = FeatureSet.fromAmino(object.features);
+    }
     message.uninterpretedOption = object.uninterpreted_option?.map(e => UninterpretedOption.fromAmino(e)) || [];
     return message;
   },
@@ -4779,6 +6802,7 @@ export const MethodOptions = {
     const obj: any = {};
     obj.deprecated = message.deprecated === false ? undefined : message.deprecated;
     obj.idempotency_level = message.idempotencyLevel === 1 ? undefined : message.idempotencyLevel;
+    obj.features = message.features ? FeatureSet.toAmino(message.features) : undefined;
     if (message.uninterpretedOption) {
       obj.uninterpreted_option = message.uninterpretedOption.map(e => e ? UninterpretedOption.toAmino(e) : undefined);
     } else {
@@ -4926,8 +6950,8 @@ export const UninterpretedOption = {
       obj.name = message.name;
     }
     obj.identifier_value = message.identifierValue === "" ? undefined : message.identifierValue;
-    obj.positive_int_value = message.positiveIntValue !== BigInt(0) ? message.positiveIntValue.toString() : undefined;
-    obj.negative_int_value = message.negativeIntValue !== BigInt(0) ? message.negativeIntValue.toString() : undefined;
+    obj.positive_int_value = message.positiveIntValue !== BigInt(0) ? message.positiveIntValue?.toString() : undefined;
+    obj.negative_int_value = message.negativeIntValue !== BigInt(0) ? message.negativeIntValue?.toString() : undefined;
     obj.double_value = message.doubleValue === 0 ? undefined : message.doubleValue;
     obj.string_value = message.stringValue ? base64FromBytes(message.stringValue) : undefined;
     obj.aggregate_value = message.aggregateValue === "" ? undefined : message.aggregateValue;
@@ -5035,6 +7059,407 @@ export const UninterpretedOption_NamePart = {
   }
 };
 GlobalDecoderRegistry.register(UninterpretedOption_NamePart.typeUrl, UninterpretedOption_NamePart);
+function createBaseFeatureSet(): FeatureSet {
+  return {
+    fieldPresence: 1,
+    enumType: 1,
+    repeatedFieldEncoding: 1,
+    utf8Validation: 1,
+    messageEncoding: 1,
+    jsonFormat: 1,
+    enforceNamingStyle: 1
+  };
+}
+export const FeatureSet = {
+  typeUrl: "/google.protobuf.FeatureSet",
+  is(o: any): o is FeatureSet {
+    return o && (o.$typeUrl === FeatureSet.typeUrl || isSet(o.fieldPresence) && isSet(o.enumType) && isSet(o.repeatedFieldEncoding) && isSet(o.utf8Validation) && isSet(o.messageEncoding) && isSet(o.jsonFormat) && isSet(o.enforceNamingStyle));
+  },
+  isSDK(o: any): o is FeatureSetSDKType {
+    return o && (o.$typeUrl === FeatureSet.typeUrl || isSet(o.field_presence) && isSet(o.enum_type) && isSet(o.repeated_field_encoding) && isSet(o.utf8_validation) && isSet(o.message_encoding) && isSet(o.json_format) && isSet(o.enforce_naming_style));
+  },
+  isAmino(o: any): o is FeatureSetAmino {
+    return o && (o.$typeUrl === FeatureSet.typeUrl || isSet(o.field_presence) && isSet(o.enum_type) && isSet(o.repeated_field_encoding) && isSet(o.utf8_validation) && isSet(o.message_encoding) && isSet(o.json_format) && isSet(o.enforce_naming_style));
+  },
+  encode(message: FeatureSet, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+    if (message.fieldPresence !== 1) {
+      writer.uint32(8).int32(message.fieldPresence);
+    }
+    if (message.enumType !== 1) {
+      writer.uint32(16).int32(message.enumType);
+    }
+    if (message.repeatedFieldEncoding !== 1) {
+      writer.uint32(24).int32(message.repeatedFieldEncoding);
+    }
+    if (message.utf8Validation !== 1) {
+      writer.uint32(32).int32(message.utf8Validation);
+    }
+    if (message.messageEncoding !== 1) {
+      writer.uint32(40).int32(message.messageEncoding);
+    }
+    if (message.jsonFormat !== 1) {
+      writer.uint32(48).int32(message.jsonFormat);
+    }
+    if (message.enforceNamingStyle !== 1) {
+      writer.uint32(56).int32(message.enforceNamingStyle);
+    }
+    return writer;
+  },
+  decode(input: BinaryReader | Uint8Array, length?: number): FeatureSet {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseFeatureSet();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.fieldPresence = reader.int32() as any;
+          break;
+        case 2:
+          message.enumType = reader.int32() as any;
+          break;
+        case 3:
+          message.repeatedFieldEncoding = reader.int32() as any;
+          break;
+        case 4:
+          message.utf8Validation = reader.int32() as any;
+          break;
+        case 5:
+          message.messageEncoding = reader.int32() as any;
+          break;
+        case 6:
+          message.jsonFormat = reader.int32() as any;
+          break;
+        case 7:
+          message.enforceNamingStyle = reader.int32() as any;
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+  fromPartial(object: Partial<FeatureSet>): FeatureSet {
+    const message = createBaseFeatureSet();
+    message.fieldPresence = object.fieldPresence ?? 1;
+    message.enumType = object.enumType ?? 1;
+    message.repeatedFieldEncoding = object.repeatedFieldEncoding ?? 1;
+    message.utf8Validation = object.utf8Validation ?? 1;
+    message.messageEncoding = object.messageEncoding ?? 1;
+    message.jsonFormat = object.jsonFormat ?? 1;
+    message.enforceNamingStyle = object.enforceNamingStyle ?? 1;
+    return message;
+  },
+  fromAmino(object: FeatureSetAmino): FeatureSet {
+    const message = createBaseFeatureSet();
+    if (object.field_presence !== undefined && object.field_presence !== null) {
+      message.fieldPresence = object.field_presence;
+    }
+    if (object.enum_type !== undefined && object.enum_type !== null) {
+      message.enumType = object.enum_type;
+    }
+    if (object.repeated_field_encoding !== undefined && object.repeated_field_encoding !== null) {
+      message.repeatedFieldEncoding = object.repeated_field_encoding;
+    }
+    if (object.utf8_validation !== undefined && object.utf8_validation !== null) {
+      message.utf8Validation = object.utf8_validation;
+    }
+    if (object.message_encoding !== undefined && object.message_encoding !== null) {
+      message.messageEncoding = object.message_encoding;
+    }
+    if (object.json_format !== undefined && object.json_format !== null) {
+      message.jsonFormat = object.json_format;
+    }
+    if (object.enforce_naming_style !== undefined && object.enforce_naming_style !== null) {
+      message.enforceNamingStyle = object.enforce_naming_style;
+    }
+    return message;
+  },
+  toAmino(message: FeatureSet): FeatureSetAmino {
+    const obj: any = {};
+    obj.field_presence = message.fieldPresence === 1 ? undefined : message.fieldPresence;
+    obj.enum_type = message.enumType === 1 ? undefined : message.enumType;
+    obj.repeated_field_encoding = message.repeatedFieldEncoding === 1 ? undefined : message.repeatedFieldEncoding;
+    obj.utf8_validation = message.utf8Validation === 1 ? undefined : message.utf8Validation;
+    obj.message_encoding = message.messageEncoding === 1 ? undefined : message.messageEncoding;
+    obj.json_format = message.jsonFormat === 1 ? undefined : message.jsonFormat;
+    obj.enforce_naming_style = message.enforceNamingStyle === 1 ? undefined : message.enforceNamingStyle;
+    return obj;
+  },
+  fromAminoMsg(object: FeatureSetAminoMsg): FeatureSet {
+    return FeatureSet.fromAmino(object.value);
+  },
+  fromProtoMsg(message: FeatureSetProtoMsg): FeatureSet {
+    return FeatureSet.decode(message.value);
+  },
+  toProto(message: FeatureSet): Uint8Array {
+    return FeatureSet.encode(message).finish();
+  },
+  toProtoMsg(message: FeatureSet): FeatureSetProtoMsg {
+    return {
+      typeUrl: "/google.protobuf.FeatureSet",
+      value: FeatureSet.encode(message).finish()
+    };
+  }
+};
+GlobalDecoderRegistry.register(FeatureSet.typeUrl, FeatureSet);
+function createBaseFeatureSet_VisibilityFeature(): FeatureSet_VisibilityFeature {
+  return {};
+}
+export const FeatureSet_VisibilityFeature = {
+  typeUrl: "/google.protobuf.VisibilityFeature",
+  is(o: any): o is FeatureSet_VisibilityFeature {
+    return o && o.$typeUrl === FeatureSet_VisibilityFeature.typeUrl;
+  },
+  isSDK(o: any): o is FeatureSet_VisibilityFeatureSDKType {
+    return o && o.$typeUrl === FeatureSet_VisibilityFeature.typeUrl;
+  },
+  isAmino(o: any): o is FeatureSet_VisibilityFeatureAmino {
+    return o && o.$typeUrl === FeatureSet_VisibilityFeature.typeUrl;
+  },
+  encode(_: FeatureSet_VisibilityFeature, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+    return writer;
+  },
+  decode(input: BinaryReader | Uint8Array, length?: number): FeatureSet_VisibilityFeature {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseFeatureSet_VisibilityFeature();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+  fromPartial(_: Partial<FeatureSet_VisibilityFeature>): FeatureSet_VisibilityFeature {
+    const message = createBaseFeatureSet_VisibilityFeature();
+    return message;
+  },
+  fromAmino(_: FeatureSet_VisibilityFeatureAmino): FeatureSet_VisibilityFeature {
+    const message = createBaseFeatureSet_VisibilityFeature();
+    return message;
+  },
+  toAmino(_: FeatureSet_VisibilityFeature): FeatureSet_VisibilityFeatureAmino {
+    const obj: any = {};
+    return obj;
+  },
+  fromAminoMsg(object: FeatureSet_VisibilityFeatureAminoMsg): FeatureSet_VisibilityFeature {
+    return FeatureSet_VisibilityFeature.fromAmino(object.value);
+  },
+  fromProtoMsg(message: FeatureSet_VisibilityFeatureProtoMsg): FeatureSet_VisibilityFeature {
+    return FeatureSet_VisibilityFeature.decode(message.value);
+  },
+  toProto(message: FeatureSet_VisibilityFeature): Uint8Array {
+    return FeatureSet_VisibilityFeature.encode(message).finish();
+  },
+  toProtoMsg(message: FeatureSet_VisibilityFeature): FeatureSet_VisibilityFeatureProtoMsg {
+    return {
+      typeUrl: "/google.protobuf.VisibilityFeature",
+      value: FeatureSet_VisibilityFeature.encode(message).finish()
+    };
+  }
+};
+GlobalDecoderRegistry.register(FeatureSet_VisibilityFeature.typeUrl, FeatureSet_VisibilityFeature);
+function createBaseFeatureSetDefaults(): FeatureSetDefaults {
+  return {
+    defaults: [],
+    minimumEdition: 1,
+    maximumEdition: 1
+  };
+}
+export const FeatureSetDefaults = {
+  typeUrl: "/google.protobuf.FeatureSetDefaults",
+  is(o: any): o is FeatureSetDefaults {
+    return o && (o.$typeUrl === FeatureSetDefaults.typeUrl || Array.isArray(o.defaults) && (!o.defaults.length || FeatureSetDefaults_FeatureSetEditionDefault.is(o.defaults[0])) && isSet(o.minimumEdition) && isSet(o.maximumEdition));
+  },
+  isSDK(o: any): o is FeatureSetDefaultsSDKType {
+    return o && (o.$typeUrl === FeatureSetDefaults.typeUrl || Array.isArray(o.defaults) && (!o.defaults.length || FeatureSetDefaults_FeatureSetEditionDefault.isSDK(o.defaults[0])) && isSet(o.minimum_edition) && isSet(o.maximum_edition));
+  },
+  isAmino(o: any): o is FeatureSetDefaultsAmino {
+    return o && (o.$typeUrl === FeatureSetDefaults.typeUrl || Array.isArray(o.defaults) && (!o.defaults.length || FeatureSetDefaults_FeatureSetEditionDefault.isAmino(o.defaults[0])) && isSet(o.minimum_edition) && isSet(o.maximum_edition));
+  },
+  encode(message: FeatureSetDefaults, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+    for (const v of message.defaults) {
+      FeatureSetDefaults_FeatureSetEditionDefault.encode(v!, writer.uint32(10).fork()).ldelim();
+    }
+    if (message.minimumEdition !== 1) {
+      writer.uint32(32).int32(message.minimumEdition);
+    }
+    if (message.maximumEdition !== 1) {
+      writer.uint32(40).int32(message.maximumEdition);
+    }
+    return writer;
+  },
+  decode(input: BinaryReader | Uint8Array, length?: number): FeatureSetDefaults {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseFeatureSetDefaults();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.defaults.push(FeatureSetDefaults_FeatureSetEditionDefault.decode(reader, reader.uint32()));
+          break;
+        case 4:
+          message.minimumEdition = reader.int32() as any;
+          break;
+        case 5:
+          message.maximumEdition = reader.int32() as any;
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+  fromPartial(object: Partial<FeatureSetDefaults>): FeatureSetDefaults {
+    const message = createBaseFeatureSetDefaults();
+    message.defaults = object.defaults?.map(e => FeatureSetDefaults_FeatureSetEditionDefault.fromPartial(e)) || [];
+    message.minimumEdition = object.minimumEdition ?? 1;
+    message.maximumEdition = object.maximumEdition ?? 1;
+    return message;
+  },
+  fromAmino(object: FeatureSetDefaultsAmino): FeatureSetDefaults {
+    const message = createBaseFeatureSetDefaults();
+    message.defaults = object.defaults?.map(e => FeatureSetDefaults_FeatureSetEditionDefault.fromAmino(e)) || [];
+    if (object.minimum_edition !== undefined && object.minimum_edition !== null) {
+      message.minimumEdition = object.minimum_edition;
+    }
+    if (object.maximum_edition !== undefined && object.maximum_edition !== null) {
+      message.maximumEdition = object.maximum_edition;
+    }
+    return message;
+  },
+  toAmino(message: FeatureSetDefaults): FeatureSetDefaultsAmino {
+    const obj: any = {};
+    if (message.defaults) {
+      obj.defaults = message.defaults.map(e => e ? FeatureSetDefaults_FeatureSetEditionDefault.toAmino(e) : undefined);
+    } else {
+      obj.defaults = message.defaults;
+    }
+    obj.minimum_edition = message.minimumEdition === 1 ? undefined : message.minimumEdition;
+    obj.maximum_edition = message.maximumEdition === 1 ? undefined : message.maximumEdition;
+    return obj;
+  },
+  fromAminoMsg(object: FeatureSetDefaultsAminoMsg): FeatureSetDefaults {
+    return FeatureSetDefaults.fromAmino(object.value);
+  },
+  fromProtoMsg(message: FeatureSetDefaultsProtoMsg): FeatureSetDefaults {
+    return FeatureSetDefaults.decode(message.value);
+  },
+  toProto(message: FeatureSetDefaults): Uint8Array {
+    return FeatureSetDefaults.encode(message).finish();
+  },
+  toProtoMsg(message: FeatureSetDefaults): FeatureSetDefaultsProtoMsg {
+    return {
+      typeUrl: "/google.protobuf.FeatureSetDefaults",
+      value: FeatureSetDefaults.encode(message).finish()
+    };
+  }
+};
+GlobalDecoderRegistry.register(FeatureSetDefaults.typeUrl, FeatureSetDefaults);
+function createBaseFeatureSetDefaults_FeatureSetEditionDefault(): FeatureSetDefaults_FeatureSetEditionDefault {
+  return {
+    edition: 1,
+    overridableFeatures: undefined,
+    fixedFeatures: undefined
+  };
+}
+export const FeatureSetDefaults_FeatureSetEditionDefault = {
+  typeUrl: "/google.protobuf.FeatureSetEditionDefault",
+  is(o: any): o is FeatureSetDefaults_FeatureSetEditionDefault {
+    return o && (o.$typeUrl === FeatureSetDefaults_FeatureSetEditionDefault.typeUrl || isSet(o.edition));
+  },
+  isSDK(o: any): o is FeatureSetDefaults_FeatureSetEditionDefaultSDKType {
+    return o && (o.$typeUrl === FeatureSetDefaults_FeatureSetEditionDefault.typeUrl || isSet(o.edition));
+  },
+  isAmino(o: any): o is FeatureSetDefaults_FeatureSetEditionDefaultAmino {
+    return o && (o.$typeUrl === FeatureSetDefaults_FeatureSetEditionDefault.typeUrl || isSet(o.edition));
+  },
+  encode(message: FeatureSetDefaults_FeatureSetEditionDefault, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+    if (message.edition !== 1) {
+      writer.uint32(24).int32(message.edition);
+    }
+    if (message.overridableFeatures !== undefined) {
+      FeatureSet.encode(message.overridableFeatures, writer.uint32(34).fork()).ldelim();
+    }
+    if (message.fixedFeatures !== undefined) {
+      FeatureSet.encode(message.fixedFeatures, writer.uint32(42).fork()).ldelim();
+    }
+    return writer;
+  },
+  decode(input: BinaryReader | Uint8Array, length?: number): FeatureSetDefaults_FeatureSetEditionDefault {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseFeatureSetDefaults_FeatureSetEditionDefault();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 3:
+          message.edition = reader.int32() as any;
+          break;
+        case 4:
+          message.overridableFeatures = FeatureSet.decode(reader, reader.uint32());
+          break;
+        case 5:
+          message.fixedFeatures = FeatureSet.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+  fromPartial(object: Partial<FeatureSetDefaults_FeatureSetEditionDefault>): FeatureSetDefaults_FeatureSetEditionDefault {
+    const message = createBaseFeatureSetDefaults_FeatureSetEditionDefault();
+    message.edition = object.edition ?? 1;
+    message.overridableFeatures = object.overridableFeatures !== undefined && object.overridableFeatures !== null ? FeatureSet.fromPartial(object.overridableFeatures) : undefined;
+    message.fixedFeatures = object.fixedFeatures !== undefined && object.fixedFeatures !== null ? FeatureSet.fromPartial(object.fixedFeatures) : undefined;
+    return message;
+  },
+  fromAmino(object: FeatureSetDefaults_FeatureSetEditionDefaultAmino): FeatureSetDefaults_FeatureSetEditionDefault {
+    const message = createBaseFeatureSetDefaults_FeatureSetEditionDefault();
+    if (object.edition !== undefined && object.edition !== null) {
+      message.edition = object.edition;
+    }
+    if (object.overridable_features !== undefined && object.overridable_features !== null) {
+      message.overridableFeatures = FeatureSet.fromAmino(object.overridable_features);
+    }
+    if (object.fixed_features !== undefined && object.fixed_features !== null) {
+      message.fixedFeatures = FeatureSet.fromAmino(object.fixed_features);
+    }
+    return message;
+  },
+  toAmino(message: FeatureSetDefaults_FeatureSetEditionDefault): FeatureSetDefaults_FeatureSetEditionDefaultAmino {
+    const obj: any = {};
+    obj.edition = message.edition === 1 ? undefined : message.edition;
+    obj.overridable_features = message.overridableFeatures ? FeatureSet.toAmino(message.overridableFeatures) : undefined;
+    obj.fixed_features = message.fixedFeatures ? FeatureSet.toAmino(message.fixedFeatures) : undefined;
+    return obj;
+  },
+  fromAminoMsg(object: FeatureSetDefaults_FeatureSetEditionDefaultAminoMsg): FeatureSetDefaults_FeatureSetEditionDefault {
+    return FeatureSetDefaults_FeatureSetEditionDefault.fromAmino(object.value);
+  },
+  fromProtoMsg(message: FeatureSetDefaults_FeatureSetEditionDefaultProtoMsg): FeatureSetDefaults_FeatureSetEditionDefault {
+    return FeatureSetDefaults_FeatureSetEditionDefault.decode(message.value);
+  },
+  toProto(message: FeatureSetDefaults_FeatureSetEditionDefault): Uint8Array {
+    return FeatureSetDefaults_FeatureSetEditionDefault.encode(message).finish();
+  },
+  toProtoMsg(message: FeatureSetDefaults_FeatureSetEditionDefault): FeatureSetDefaults_FeatureSetEditionDefaultProtoMsg {
+    return {
+      typeUrl: "/google.protobuf.FeatureSetEditionDefault",
+      value: FeatureSetDefaults_FeatureSetEditionDefault.encode(message).finish()
+    };
+  }
+};
+GlobalDecoderRegistry.register(FeatureSetDefaults_FeatureSetEditionDefault.typeUrl, FeatureSetDefaults_FeatureSetEditionDefault);
 function createBaseSourceCodeInfo(): SourceCodeInfo {
   return {
     location: []
@@ -5335,19 +7760,20 @@ function createBaseGeneratedCodeInfo_Annotation(): GeneratedCodeInfo_Annotation 
     path: [],
     sourceFile: "",
     begin: 0,
-    end: 0
+    end: 0,
+    semantic: 1
   };
 }
 export const GeneratedCodeInfo_Annotation = {
   typeUrl: "/google.protobuf.Annotation",
   is(o: any): o is GeneratedCodeInfo_Annotation {
-    return o && (o.$typeUrl === GeneratedCodeInfo_Annotation.typeUrl || Array.isArray(o.path) && (!o.path.length || typeof o.path[0] === "number") && typeof o.sourceFile === "string" && typeof o.begin === "number" && typeof o.end === "number");
+    return o && (o.$typeUrl === GeneratedCodeInfo_Annotation.typeUrl || Array.isArray(o.path) && (!o.path.length || typeof o.path[0] === "number") && typeof o.sourceFile === "string" && typeof o.begin === "number" && typeof o.end === "number" && isSet(o.semantic));
   },
   isSDK(o: any): o is GeneratedCodeInfo_AnnotationSDKType {
-    return o && (o.$typeUrl === GeneratedCodeInfo_Annotation.typeUrl || Array.isArray(o.path) && (!o.path.length || typeof o.path[0] === "number") && typeof o.source_file === "string" && typeof o.begin === "number" && typeof o.end === "number");
+    return o && (o.$typeUrl === GeneratedCodeInfo_Annotation.typeUrl || Array.isArray(o.path) && (!o.path.length || typeof o.path[0] === "number") && typeof o.source_file === "string" && typeof o.begin === "number" && typeof o.end === "number" && isSet(o.semantic));
   },
   isAmino(o: any): o is GeneratedCodeInfo_AnnotationAmino {
-    return o && (o.$typeUrl === GeneratedCodeInfo_Annotation.typeUrl || Array.isArray(o.path) && (!o.path.length || typeof o.path[0] === "number") && typeof o.source_file === "string" && typeof o.begin === "number" && typeof o.end === "number");
+    return o && (o.$typeUrl === GeneratedCodeInfo_Annotation.typeUrl || Array.isArray(o.path) && (!o.path.length || typeof o.path[0] === "number") && typeof o.source_file === "string" && typeof o.begin === "number" && typeof o.end === "number" && isSet(o.semantic));
   },
   encode(message: GeneratedCodeInfo_Annotation, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     writer.uint32(10).fork();
@@ -5363,6 +7789,9 @@ export const GeneratedCodeInfo_Annotation = {
     }
     if (message.end !== 0) {
       writer.uint32(32).int32(message.end);
+    }
+    if (message.semantic !== 1) {
+      writer.uint32(40).int32(message.semantic);
     }
     return writer;
   },
@@ -5392,6 +7821,9 @@ export const GeneratedCodeInfo_Annotation = {
         case 4:
           message.end = reader.int32();
           break;
+        case 5:
+          message.semantic = reader.int32() as any;
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -5405,6 +7837,7 @@ export const GeneratedCodeInfo_Annotation = {
     message.sourceFile = object.sourceFile ?? "";
     message.begin = object.begin ?? 0;
     message.end = object.end ?? 0;
+    message.semantic = object.semantic ?? 1;
     return message;
   },
   fromAmino(object: GeneratedCodeInfo_AnnotationAmino): GeneratedCodeInfo_Annotation {
@@ -5419,6 +7852,9 @@ export const GeneratedCodeInfo_Annotation = {
     if (object.end !== undefined && object.end !== null) {
       message.end = object.end;
     }
+    if (object.semantic !== undefined && object.semantic !== null) {
+      message.semantic = object.semantic;
+    }
     return message;
   },
   toAmino(message: GeneratedCodeInfo_Annotation): GeneratedCodeInfo_AnnotationAmino {
@@ -5431,6 +7867,7 @@ export const GeneratedCodeInfo_Annotation = {
     obj.source_file = message.sourceFile === "" ? undefined : message.sourceFile;
     obj.begin = message.begin === 0 ? undefined : message.begin;
     obj.end = message.end === 0 ? undefined : message.end;
+    obj.semantic = message.semantic === 1 ? undefined : message.semantic;
     return obj;
   },
   fromAminoMsg(object: GeneratedCodeInfo_AnnotationAminoMsg): GeneratedCodeInfo_Annotation {

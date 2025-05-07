@@ -28,7 +28,7 @@ export class LCDQueryClient {
   }
   /* WrkChainBlock queries a submitted hash of a wrkchain */
   async wrkChainBlock(params: QueryWrkChainBlockRequest): Promise<QueryWrkChainBlockResponseSDKType> {
-    const endpoint = `mainchain/wrkchain/v1/wrkchain/${params.wrkchainId}/block/${params.height}`;
+    const endpoint = `mainchain/wrkchain/v1/wrkchain/${params.wrkchainId}/block/${params.wcHeight}`;
     return await this.req.get<QueryWrkChainBlockResponseSDKType>(endpoint);
   }
   /* WrkChainsFiltered queries all wrkchain metadata for given search parameters */

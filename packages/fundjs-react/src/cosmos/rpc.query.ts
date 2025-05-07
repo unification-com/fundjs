@@ -20,12 +20,27 @@ export const createRPCQueryClient = async ({
         v1beta1: (await import("./bank/v1beta1/query.rpc.Query")).createRpcQueryExtension(client)
       },
       base: {
+        node: {
+          v1beta1: (await import("./base/node/v1beta1/query.rpc.Service")).createRpcQueryExtension(client)
+        },
         tendermint: {
           v1beta1: (await import("./base/tendermint/v1beta1/query.rpc.Service")).createRpcQueryExtension(client)
         }
       },
+      circuit: {
+        v1: (await import("./circuit/v1/query.rpc.Query")).createRpcQueryExtension(client)
+      },
+      consensus: {
+        v1: (await import("./consensus/v1/query.rpc.Query")).createRpcQueryExtension(client)
+      },
+      counter: {
+        v1: (await import("./counter/v1/query.rpc.Query")).createRpcQueryExtension(client)
+      },
       distribution: {
         v1beta1: (await import("./distribution/v1beta1/query.rpc.Query")).createRpcQueryExtension(client)
+      },
+      epochs: {
+        v1beta1: (await import("./epochs/v1beta1/query.rpc.Query")).createRpcQueryExtension(client)
       },
       evidence: {
         v1beta1: (await import("./evidence/v1beta1/query.rpc.Query")).createRpcQueryExtension(client)
@@ -39,6 +54,14 @@ export const createRPCQueryClient = async ({
       },
       group: {
         v1: (await import("./group/v1/query.rpc.Query")).createRpcQueryExtension(client)
+      },
+      orm: {
+        query: {
+          v1alpha1: (await import("./orm/query/v1alpha1/query.rpc.Query")).createRpcQueryExtension(client)
+        }
+      },
+      protocolpool: {
+        v1: (await import("./protocolpool/v1/query.rpc.Query")).createRpcQueryExtension(client)
       },
       slashing: {
         v1beta1: (await import("./slashing/v1beta1/query.rpc.Query")).createRpcQueryExtension(client)

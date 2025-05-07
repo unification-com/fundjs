@@ -177,7 +177,7 @@ export const GenesisState = {
   toAmino(message: GenesisState): GenesisStateAmino {
     const obj: any = {};
     obj.params = message.params ? Params.toAmino(message.params) : undefined;
-    obj.starting_wrkchain_id = message.startingWrkchainId !== BigInt(0) ? message.startingWrkchainId.toString() : undefined;
+    obj.starting_wrkchain_id = message.startingWrkchainId !== BigInt(0) ? message.startingWrkchainId?.toString() : undefined;
     if (message.registeredWrkchains) {
       obj.registered_wrkchains = message.registeredWrkchains.map(e => e ? WrkChainExport.toAmino(e) : undefined);
     } else {
@@ -321,13 +321,13 @@ export const WrkChainBlockGenesisExport = {
   },
   toAmino(message: WrkChainBlockGenesisExport): WrkChainBlockGenesisExportAmino {
     const obj: any = {};
-    obj.he = message.he !== BigInt(0) ? message.he.toString() : undefined;
+    obj.he = message.he !== BigInt(0) ? message.he?.toString() : undefined;
     obj.bh = message.bh === "" ? undefined : message.bh;
     obj.ph = message.ph === "" ? undefined : message.ph;
     obj.h1 = message.h1 === "" ? undefined : message.h1;
     obj.h2 = message.h2 === "" ? undefined : message.h2;
     obj.h3 = message.h3 === "" ? undefined : message.h3;
-    obj.st = message.st !== BigInt(0) ? message.st.toString() : undefined;
+    obj.st = message.st !== BigInt(0) ? message.st?.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: WrkChainBlockGenesisExportAminoMsg): WrkChainBlockGenesisExport {
@@ -421,7 +421,7 @@ export const WrkChainExport = {
   toAmino(message: WrkChainExport): WrkChainExportAmino {
     const obj: any = {};
     obj.wrkchain = message.wrkchain ? WrkChain.toAmino(message.wrkchain) : undefined;
-    obj.in_state_limit = message.inStateLimit !== BigInt(0) ? message.inStateLimit.toString() : undefined;
+    obj.in_state_limit = message.inStateLimit !== BigInt(0) ? message.inStateLimit?.toString() : undefined;
     if (message.blocks) {
       obj.blocks = message.blocks.map(e => e ? WrkChainBlockGenesisExport.toAmino(e) : undefined);
     } else {

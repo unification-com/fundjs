@@ -4,7 +4,7 @@ import { BinaryReader } from "../../../../binary";
 import { QueryClient, createProtobufRpcClient, ProtobufRpcClient } from "@cosmjs/stargate";
 import { ReactQueryParams } from "../../../../react-query";
 import { useQuery } from "@tanstack/react-query";
-import { GetNodeInfoRequest, GetNodeInfoResponse, GetSyncingRequest, GetSyncingResponse, GetLatestBlockRequest, GetLatestBlockResponse, GetBlockByHeightRequest, GetBlockByHeightResponse, GetLatestValidatorSetRequest, GetLatestValidatorSetResponse, GetValidatorSetByHeightRequest, GetValidatorSetByHeightResponse } from "./query";
+import { GetNodeInfoRequest, GetNodeInfoResponse, GetSyncingRequest, GetSyncingResponse, GetLatestBlockRequest, GetLatestBlockResponse, GetBlockByHeightRequest, GetBlockByHeightResponse, GetLatestValidatorSetRequest, GetLatestValidatorSetResponse, GetValidatorSetByHeightRequest, GetValidatorSetByHeightResponse, ABCIQueryRequest, ABCIQueryResponse } from "./query";
 /** Service defines the gRPC querier service for tendermint queries. */
 export interface Service {
   /** GetNodeInfo queries the current node info. */
@@ -19,6 +19,14 @@ export interface Service {
   getLatestValidatorSet(request?: GetLatestValidatorSetRequest): Promise<GetLatestValidatorSetResponse>;
   /** GetValidatorSetByHeight queries validator-set at a given height. */
   getValidatorSetByHeight(request: GetValidatorSetByHeightRequest): Promise<GetValidatorSetByHeightResponse>;
+  /**
+   * ABCIQuery defines a query handler that supports ABCI queries directly to the
+   * application, bypassing Tendermint completely. The ABCI query must contain
+   * a valid and supported path, including app, custom, p2p, and store.
+   * 
+   * Since: cosmos-sdk 0.46
+   */
+  aBCIQuery(request: ABCIQueryRequest): Promise<ABCIQueryResponse>;
 }
 export class ServiceClientImpl implements Service {
   private readonly rpc: Rpc;
@@ -30,6 +38,7 @@ export class ServiceClientImpl implements Service {
     this.getBlockByHeight = this.getBlockByHeight.bind(this);
     this.getLatestValidatorSet = this.getLatestValidatorSet.bind(this);
     this.getValidatorSetByHeight = this.getValidatorSetByHeight.bind(this);
+    this.aBCIQuery = this.aBCIQuery.bind(this);
   }
   getNodeInfo(request: GetNodeInfoRequest = {}): Promise<GetNodeInfoResponse> {
     const data = GetNodeInfoRequest.encode(request).finish();
@@ -63,6 +72,11 @@ export class ServiceClientImpl implements Service {
     const promise = this.rpc.request("cosmos.base.tendermint.v1beta1.Service", "GetValidatorSetByHeight", data);
     return promise.then(data => GetValidatorSetByHeightResponse.decode(new BinaryReader(data)));
   }
+  aBCIQuery(request: ABCIQueryRequest): Promise<ABCIQueryResponse> {
+    const data = ABCIQueryRequest.encode(request).finish();
+    const promise = this.rpc.request("cosmos.base.tendermint.v1beta1.Service", "ABCIQuery", data);
+    return promise.then(data => ABCIQueryResponse.decode(new BinaryReader(data)));
+  }
 }
 export const createRpcQueryExtension = (base: QueryClient) => {
   const rpc = createProtobufRpcClient(base);
@@ -85,6 +99,9 @@ export const createRpcQueryExtension = (base: QueryClient) => {
     },
     getValidatorSetByHeight(request: GetValidatorSetByHeightRequest): Promise<GetValidatorSetByHeightResponse> {
       return queryService.getValidatorSetByHeight(request);
+    },
+    aBCIQuery(request: ABCIQueryRequest): Promise<ABCIQueryResponse> {
+      return queryService.aBCIQuery(request);
     }
   };
 };
@@ -105,6 +122,9 @@ export interface UseGetLatestValidatorSetQuery<TData> extends ReactQueryParams<G
 }
 export interface UseGetValidatorSetByHeightQuery<TData> extends ReactQueryParams<GetValidatorSetByHeightResponse, TData> {
   request: GetValidatorSetByHeightRequest;
+}
+export interface UseABCIQueryQuery<TData> extends ReactQueryParams<ABCIQueryResponse, TData> {
+  request: ABCIQueryRequest;
 }
 const _queryClients: WeakMap<ProtobufRpcClient, ServiceClientImpl> = new WeakMap();
 const getQueryService = (rpc: ProtobufRpcClient | undefined): ServiceClientImpl | undefined => {
@@ -172,12 +192,29 @@ export const createRpcQueryHooks = (rpc: ProtobufRpcClient | undefined) => {
       return queryService.getValidatorSetByHeight(request);
     }, options);
   };
+  const useABCIQuery = <TData = ABCIQueryResponse,>({
+    request,
+    options
+  }: UseABCIQueryQuery<TData>) => {
+    return useQuery<ABCIQueryResponse, Error, TData>(["aBCIQueryQuery", request], () => {
+      if (!queryService) throw new Error("Query Service not initialized");
+      return queryService.aBCIQuery(request);
+    }, options);
+  };
   return {
     /** GetNodeInfo queries the current node info. */useGetNodeInfo,
     /** GetSyncing queries node syncing. */useGetSyncing,
     /** GetLatestBlock returns the latest block. */useGetLatestBlock,
     /** GetBlockByHeight queries block for given height. */useGetBlockByHeight,
     /** GetLatestValidatorSet queries latest validator-set. */useGetLatestValidatorSet,
-    /** GetValidatorSetByHeight queries validator-set at a given height. */useGetValidatorSetByHeight
+    /** GetValidatorSetByHeight queries validator-set at a given height. */useGetValidatorSetByHeight,
+    /**
+     * ABCIQuery defines a query handler that supports ABCI queries directly to the
+     * application, bypassing Tendermint completely. The ABCI query must contain
+     * a valid and supported path, including app, custom, p2p, and store.
+     * 
+     * Since: cosmos-sdk 0.46
+     */
+    useABCIQuery
   };
 };

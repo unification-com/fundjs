@@ -15,6 +15,8 @@ export interface FungibleTokenPacketData {
   sender: string;
   /** the recipient address on the destination chain */
   receiver: string;
+  /** optional memo */
+  memo: string;
 }
 export interface FungibleTokenPacketDataProtoMsg {
   typeUrl: "/ibc.applications.transfer.v2.FungibleTokenPacketData";
@@ -34,6 +36,8 @@ export interface FungibleTokenPacketDataAmino {
   sender?: string;
   /** the recipient address on the destination chain */
   receiver?: string;
+  /** optional memo */
+  memo?: string;
 }
 export interface FungibleTokenPacketDataAminoMsg {
   type: "cosmos-sdk/FungibleTokenPacketData";
@@ -49,26 +53,28 @@ export interface FungibleTokenPacketDataSDKType {
   amount: string;
   sender: string;
   receiver: string;
+  memo: string;
 }
 function createBaseFungibleTokenPacketData(): FungibleTokenPacketData {
   return {
     denom: "",
     amount: "",
     sender: "",
-    receiver: ""
+    receiver: "",
+    memo: ""
   };
 }
 export const FungibleTokenPacketData = {
   typeUrl: "/ibc.applications.transfer.v2.FungibleTokenPacketData",
   aminoType: "cosmos-sdk/FungibleTokenPacketData",
   is(o: any): o is FungibleTokenPacketData {
-    return o && (o.$typeUrl === FungibleTokenPacketData.typeUrl || typeof o.denom === "string" && typeof o.amount === "string" && typeof o.sender === "string" && typeof o.receiver === "string");
+    return o && (o.$typeUrl === FungibleTokenPacketData.typeUrl || typeof o.denom === "string" && typeof o.amount === "string" && typeof o.sender === "string" && typeof o.receiver === "string" && typeof o.memo === "string");
   },
   isSDK(o: any): o is FungibleTokenPacketDataSDKType {
-    return o && (o.$typeUrl === FungibleTokenPacketData.typeUrl || typeof o.denom === "string" && typeof o.amount === "string" && typeof o.sender === "string" && typeof o.receiver === "string");
+    return o && (o.$typeUrl === FungibleTokenPacketData.typeUrl || typeof o.denom === "string" && typeof o.amount === "string" && typeof o.sender === "string" && typeof o.receiver === "string" && typeof o.memo === "string");
   },
   isAmino(o: any): o is FungibleTokenPacketDataAmino {
-    return o && (o.$typeUrl === FungibleTokenPacketData.typeUrl || typeof o.denom === "string" && typeof o.amount === "string" && typeof o.sender === "string" && typeof o.receiver === "string");
+    return o && (o.$typeUrl === FungibleTokenPacketData.typeUrl || typeof o.denom === "string" && typeof o.amount === "string" && typeof o.sender === "string" && typeof o.receiver === "string" && typeof o.memo === "string");
   },
   encode(message: FungibleTokenPacketData, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.denom !== "") {
@@ -82,6 +88,9 @@ export const FungibleTokenPacketData = {
     }
     if (message.receiver !== "") {
       writer.uint32(34).string(message.receiver);
+    }
+    if (message.memo !== "") {
+      writer.uint32(42).string(message.memo);
     }
     return writer;
   },
@@ -104,6 +113,9 @@ export const FungibleTokenPacketData = {
         case 4:
           message.receiver = reader.string();
           break;
+        case 5:
+          message.memo = reader.string();
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -117,6 +129,7 @@ export const FungibleTokenPacketData = {
     message.amount = object.amount ?? "";
     message.sender = object.sender ?? "";
     message.receiver = object.receiver ?? "";
+    message.memo = object.memo ?? "";
     return message;
   },
   fromAmino(object: FungibleTokenPacketDataAmino): FungibleTokenPacketData {
@@ -133,6 +146,9 @@ export const FungibleTokenPacketData = {
     if (object.receiver !== undefined && object.receiver !== null) {
       message.receiver = object.receiver;
     }
+    if (object.memo !== undefined && object.memo !== null) {
+      message.memo = object.memo;
+    }
     return message;
   },
   toAmino(message: FungibleTokenPacketData): FungibleTokenPacketDataAmino {
@@ -141,6 +157,7 @@ export const FungibleTokenPacketData = {
     obj.amount = message.amount === "" ? undefined : message.amount;
     obj.sender = message.sender === "" ? undefined : message.sender;
     obj.receiver = message.receiver === "" ? undefined : message.receiver;
+    obj.memo = message.memo === "" ? undefined : message.memo;
     return obj;
   },
   fromAminoMsg(object: FungibleTokenPacketDataAminoMsg): FungibleTokenPacketData {

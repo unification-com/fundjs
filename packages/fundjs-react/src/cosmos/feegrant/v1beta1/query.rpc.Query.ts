@@ -7,13 +7,14 @@ import { useQuery } from "@tanstack/react-query";
 import { QueryAllowanceRequest, QueryAllowanceResponse, QueryAllowancesRequest, QueryAllowancesResponse, QueryAllowancesByGranterRequest, QueryAllowancesByGranterResponse } from "./query";
 /** Query defines the gRPC querier service. */
 export interface Query {
-  /** Allowance returns fee granted to the grantee by the granter. */
+  /** Allowance returns granted allwance to the grantee by the granter. */
   allowance(request: QueryAllowanceRequest): Promise<QueryAllowanceResponse>;
-  /** Allowances returns all the grants for address. */
+  /** Allowances returns all the grants for the given grantee address. */
   allowances(request: QueryAllowancesRequest): Promise<QueryAllowancesResponse>;
   /**
    * AllowancesByGranter returns all the grants given by an address
-   * Since v0.46
+   * 
+   * Since: cosmos-sdk 0.46
    */
   allowancesByGranter(request: QueryAllowancesByGranterRequest): Promise<QueryAllowancesByGranterResponse>;
 }
@@ -105,11 +106,12 @@ export const createRpcQueryHooks = (rpc: ProtobufRpcClient | undefined) => {
     }, options);
   };
   return {
-    /** Allowance returns fee granted to the grantee by the granter. */useAllowance,
-    /** Allowances returns all the grants for address. */useAllowances,
+    /** Allowance returns granted allwance to the grantee by the granter. */useAllowance,
+    /** Allowances returns all the grants for the given grantee address. */useAllowances,
     /**
      * AllowancesByGranter returns all the grants given by an address
-     * Since v0.46
+     * 
+     * Since: cosmos-sdk 0.46
      */
     useAllowancesByGranter
   };

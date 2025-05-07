@@ -1,4 +1,5 @@
 **/node_modules/
+**/git-modules/
 **/.DS_Store
 **/dist
 **/yarn-error.log

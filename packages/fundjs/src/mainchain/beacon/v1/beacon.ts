@@ -44,7 +44,7 @@ export interface BeaconAmino {
   owner?: string;
 }
 export interface BeaconAminoMsg {
-  type: "/mainchain.beacon.v1.Beacon";
+  type: "beacon/v1/Beacon";
   value: BeaconAmino;
 }
 /** Beacon holds metadata about a registered beacon */
@@ -77,7 +77,7 @@ export interface BeaconStorageLimitAmino {
   in_state_limit?: string;
 }
 export interface BeaconStorageLimitAminoMsg {
-  type: "/mainchain.beacon.v1.BeaconStorageLimit";
+  type: "beacon/v1/BeaconStorageLimit";
   value: BeaconStorageLimitAmino;
 }
 /** BeaconStorageLimit holds tata about the beacon's current in-state storage limit */
@@ -108,7 +108,7 @@ export interface BeaconTimestampAmino {
   hash?: string;
 }
 export interface BeaconTimestampAminoMsg {
-  type: "/mainchain.beacon.v1.BeaconTimestamp";
+  type: "beacon/v1/BeaconTimestamp";
   value: BeaconTimestampAmino;
 }
 /** BeaconTimestamp holds each hash submitted to a registered beacon */
@@ -152,7 +152,7 @@ export interface ParamsAmino {
   max_storage_limit?: string;
 }
 export interface ParamsAminoMsg {
-  type: "/mainchain.beacon.v1.Params";
+  type: "beacon/v1/Params";
   value: ParamsAmino;
 }
 /** Params defines the parameters for the beacon module. */
@@ -178,6 +178,7 @@ function createBaseBeacon(): Beacon {
 }
 export const Beacon = {
   typeUrl: "/mainchain.beacon.v1.Beacon",
+  aminoType: "beacon/v1/Beacon",
   is(o: any): o is Beacon {
     return o && (o.$typeUrl === Beacon.typeUrl || typeof o.beaconId === "bigint" && typeof o.moniker === "string" && typeof o.name === "string" && typeof o.lastTimestampId === "bigint" && typeof o.firstIdInState === "bigint" && typeof o.numInState === "bigint" && typeof o.regTime === "bigint" && typeof o.owner === "string");
   },
@@ -294,18 +295,24 @@ export const Beacon = {
   },
   toAmino(message: Beacon): BeaconAmino {
     const obj: any = {};
-    obj.beacon_id = message.beaconId !== BigInt(0) ? message.beaconId.toString() : undefined;
+    obj.beacon_id = message.beaconId !== BigInt(0) ? message.beaconId?.toString() : undefined;
     obj.moniker = message.moniker === "" ? undefined : message.moniker;
     obj.name = message.name === "" ? undefined : message.name;
-    obj.last_timestamp_id = message.lastTimestampId !== BigInt(0) ? message.lastTimestampId.toString() : undefined;
-    obj.first_id_in_state = message.firstIdInState !== BigInt(0) ? message.firstIdInState.toString() : undefined;
-    obj.num_in_state = message.numInState !== BigInt(0) ? message.numInState.toString() : undefined;
-    obj.reg_time = message.regTime !== BigInt(0) ? message.regTime.toString() : undefined;
+    obj.last_timestamp_id = message.lastTimestampId !== BigInt(0) ? message.lastTimestampId?.toString() : undefined;
+    obj.first_id_in_state = message.firstIdInState !== BigInt(0) ? message.firstIdInState?.toString() : undefined;
+    obj.num_in_state = message.numInState !== BigInt(0) ? message.numInState?.toString() : undefined;
+    obj.reg_time = message.regTime !== BigInt(0) ? message.regTime?.toString() : undefined;
     obj.owner = message.owner === "" ? undefined : message.owner;
     return obj;
   },
   fromAminoMsg(object: BeaconAminoMsg): Beacon {
     return Beacon.fromAmino(object.value);
+  },
+  toAminoMsg(message: Beacon): BeaconAminoMsg {
+    return {
+      type: "beacon/v1/Beacon",
+      value: Beacon.toAmino(message)
+    };
   },
   fromProtoMsg(message: BeaconProtoMsg): Beacon {
     return Beacon.decode(message.value);
@@ -321,6 +328,7 @@ export const Beacon = {
   }
 };
 GlobalDecoderRegistry.register(Beacon.typeUrl, Beacon);
+GlobalDecoderRegistry.registerAminoProtoMapping(Beacon.aminoType, Beacon.typeUrl);
 function createBaseBeaconStorageLimit(): BeaconStorageLimit {
   return {
     beaconId: BigInt(0),
@@ -329,6 +337,7 @@ function createBaseBeaconStorageLimit(): BeaconStorageLimit {
 }
 export const BeaconStorageLimit = {
   typeUrl: "/mainchain.beacon.v1.BeaconStorageLimit",
+  aminoType: "beacon/v1/BeaconStorageLimit",
   is(o: any): o is BeaconStorageLimit {
     return o && (o.$typeUrl === BeaconStorageLimit.typeUrl || typeof o.beaconId === "bigint" && typeof o.inStateLimit === "bigint");
   },
@@ -385,12 +394,18 @@ export const BeaconStorageLimit = {
   },
   toAmino(message: BeaconStorageLimit): BeaconStorageLimitAmino {
     const obj: any = {};
-    obj.beacon_id = message.beaconId !== BigInt(0) ? message.beaconId.toString() : undefined;
-    obj.in_state_limit = message.inStateLimit !== BigInt(0) ? message.inStateLimit.toString() : undefined;
+    obj.beacon_id = message.beaconId !== BigInt(0) ? message.beaconId?.toString() : undefined;
+    obj.in_state_limit = message.inStateLimit !== BigInt(0) ? message.inStateLimit?.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: BeaconStorageLimitAminoMsg): BeaconStorageLimit {
     return BeaconStorageLimit.fromAmino(object.value);
+  },
+  toAminoMsg(message: BeaconStorageLimit): BeaconStorageLimitAminoMsg {
+    return {
+      type: "beacon/v1/BeaconStorageLimit",
+      value: BeaconStorageLimit.toAmino(message)
+    };
   },
   fromProtoMsg(message: BeaconStorageLimitProtoMsg): BeaconStorageLimit {
     return BeaconStorageLimit.decode(message.value);
@@ -406,6 +421,7 @@ export const BeaconStorageLimit = {
   }
 };
 GlobalDecoderRegistry.register(BeaconStorageLimit.typeUrl, BeaconStorageLimit);
+GlobalDecoderRegistry.registerAminoProtoMapping(BeaconStorageLimit.aminoType, BeaconStorageLimit.typeUrl);
 function createBaseBeaconTimestamp(): BeaconTimestamp {
   return {
     timestampId: BigInt(0),
@@ -415,6 +431,7 @@ function createBaseBeaconTimestamp(): BeaconTimestamp {
 }
 export const BeaconTimestamp = {
   typeUrl: "/mainchain.beacon.v1.BeaconTimestamp",
+  aminoType: "beacon/v1/BeaconTimestamp",
   is(o: any): o is BeaconTimestamp {
     return o && (o.$typeUrl === BeaconTimestamp.typeUrl || typeof o.timestampId === "bigint" && typeof o.submitTime === "bigint" && typeof o.hash === "string");
   },
@@ -481,13 +498,19 @@ export const BeaconTimestamp = {
   },
   toAmino(message: BeaconTimestamp): BeaconTimestampAmino {
     const obj: any = {};
-    obj.timestamp_id = message.timestampId !== BigInt(0) ? message.timestampId.toString() : undefined;
-    obj.submit_time = message.submitTime !== BigInt(0) ? message.submitTime.toString() : undefined;
+    obj.timestamp_id = message.timestampId !== BigInt(0) ? message.timestampId?.toString() : undefined;
+    obj.submit_time = message.submitTime !== BigInt(0) ? message.submitTime?.toString() : undefined;
     obj.hash = message.hash === "" ? undefined : message.hash;
     return obj;
   },
   fromAminoMsg(object: BeaconTimestampAminoMsg): BeaconTimestamp {
     return BeaconTimestamp.fromAmino(object.value);
+  },
+  toAminoMsg(message: BeaconTimestamp): BeaconTimestampAminoMsg {
+    return {
+      type: "beacon/v1/BeaconTimestamp",
+      value: BeaconTimestamp.toAmino(message)
+    };
   },
   fromProtoMsg(message: BeaconTimestampProtoMsg): BeaconTimestamp {
     return BeaconTimestamp.decode(message.value);
@@ -503,6 +526,7 @@ export const BeaconTimestamp = {
   }
 };
 GlobalDecoderRegistry.register(BeaconTimestamp.typeUrl, BeaconTimestamp);
+GlobalDecoderRegistry.registerAminoProtoMapping(BeaconTimestamp.aminoType, BeaconTimestamp.typeUrl);
 function createBaseParams(): Params {
   return {
     feeRegister: BigInt(0),
@@ -515,6 +539,7 @@ function createBaseParams(): Params {
 }
 export const Params = {
   typeUrl: "/mainchain.beacon.v1.Params",
+  aminoType: "beacon/v1/Params",
   is(o: any): o is Params {
     return o && (o.$typeUrl === Params.typeUrl || typeof o.feeRegister === "bigint" && typeof o.feeRecord === "bigint" && typeof o.feePurchaseStorage === "bigint" && typeof o.denom === "string" && typeof o.defaultStorageLimit === "bigint" && typeof o.maxStorageLimit === "bigint");
   },
@@ -611,16 +636,22 @@ export const Params = {
   },
   toAmino(message: Params): ParamsAmino {
     const obj: any = {};
-    obj.fee_register = message.feeRegister !== BigInt(0) ? message.feeRegister.toString() : undefined;
-    obj.fee_record = message.feeRecord !== BigInt(0) ? message.feeRecord.toString() : undefined;
-    obj.fee_purchase_storage = message.feePurchaseStorage !== BigInt(0) ? message.feePurchaseStorage.toString() : undefined;
+    obj.fee_register = message.feeRegister !== BigInt(0) ? message.feeRegister?.toString() : undefined;
+    obj.fee_record = message.feeRecord !== BigInt(0) ? message.feeRecord?.toString() : undefined;
+    obj.fee_purchase_storage = message.feePurchaseStorage !== BigInt(0) ? message.feePurchaseStorage?.toString() : undefined;
     obj.denom = message.denom === "" ? undefined : message.denom;
-    obj.default_storage_limit = message.defaultStorageLimit !== BigInt(0) ? message.defaultStorageLimit.toString() : undefined;
-    obj.max_storage_limit = message.maxStorageLimit !== BigInt(0) ? message.maxStorageLimit.toString() : undefined;
+    obj.default_storage_limit = message.defaultStorageLimit !== BigInt(0) ? message.defaultStorageLimit?.toString() : undefined;
+    obj.max_storage_limit = message.maxStorageLimit !== BigInt(0) ? message.maxStorageLimit?.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: ParamsAminoMsg): Params {
     return Params.fromAmino(object.value);
+  },
+  toAminoMsg(message: Params): ParamsAminoMsg {
+    return {
+      type: "beacon/v1/Params",
+      value: Params.toAmino(message)
+    };
   },
   fromProtoMsg(message: ParamsProtoMsg): Params {
     return Params.decode(message.value);
@@ -636,3 +667,4 @@ export const Params = {
   }
 };
 GlobalDecoderRegistry.register(Params.typeUrl, Params);
+GlobalDecoderRegistry.registerAminoProtoMapping(Params.aminoType, Params.typeUrl);

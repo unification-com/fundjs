@@ -38,7 +38,7 @@ export interface BIP44ParamsAmino {
   address_index?: number;
 }
 export interface BIP44ParamsAminoMsg {
-  type: "cosmos-sdk/BIP44Params";
+  type: "crypto/keys/hd/BIP44Params";
   value: BIP44ParamsAmino;
 }
 /** BIP44Params is used as path field in ledger item in Record. */
@@ -60,7 +60,7 @@ function createBaseBIP44Params(): BIP44Params {
 }
 export const BIP44Params = {
   typeUrl: "/cosmos.crypto.hd.v1.BIP44Params",
-  aminoType: "cosmos-sdk/BIP44Params",
+  aminoType: "crypto/keys/hd/BIP44Params",
   is(o: any): o is BIP44Params {
     return o && (o.$typeUrl === BIP44Params.typeUrl || typeof o.purpose === "number" && typeof o.coinType === "number" && typeof o.account === "number" && typeof o.change === "boolean" && typeof o.addressIndex === "number");
   },
@@ -159,7 +159,7 @@ export const BIP44Params = {
   },
   toAminoMsg(message: BIP44Params): BIP44ParamsAminoMsg {
     return {
-      type: "cosmos-sdk/BIP44Params",
+      type: "crypto/keys/hd/BIP44Params",
       value: BIP44Params.toAmino(message)
     };
   },
