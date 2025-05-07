@@ -2,7 +2,7 @@
 import { Rpc } from "../../../helpers";
 import { BinaryReader } from "../../../binary";
 import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
-import { QueryParamsRequest, QueryParamsResponse, QueryEnterpriseUndPurchaseOrderRequest, QueryEnterpriseUndPurchaseOrderResponse, QueryEnterpriseUndPurchaseOrdersRequest, QueryEnterpriseUndPurchaseOrdersResponse, QueryLockedUndByAddressRequest, QueryLockedUndByAddressResponse, QueryTotalLockedRequest, QueryTotalLockedResponse, QueryTotalUnlockedRequest, QueryTotalUnlockedResponse, QueryEnterpriseSupplyRequest, QueryEnterpriseSupplyResponse, QueryTotalSupplyRequest, QueryTotalSupplyResponse, QuerySupplyOfRequest, QuerySupplyOfResponse, QueryWhitelistRequest, QueryWhitelistResponse, QueryWhitelistedRequest, QueryWhitelistedResponse, QueryEnterpriseAccountRequest, QueryEnterpriseAccountResponse, QueryTotalSpentEFUNDRequest, QueryTotalSpentEFUNDResponse, QuerySpentEFUNDByAddressRequest, QuerySpentEFUNDByAddressResponse } from "./query";
+import { QueryParamsRequest, QueryParamsResponse, QueryEnterpriseUndPurchaseOrderRequest, QueryEnterpriseUndPurchaseOrderResponse, QueryEnterpriseUndPurchaseOrdersRequest, QueryEnterpriseUndPurchaseOrdersResponse, QueryLockedUndByAddressRequest, QueryLockedUndByAddressResponse, QueryTotalLockedRequest, QueryTotalLockedResponse, QueryWhitelistRequest, QueryWhitelistResponse, QueryWhitelistedRequest, QueryWhitelistedResponse, QueryEnterpriseAccountRequest, QueryEnterpriseAccountResponse, QueryTotalSpentEFUNDRequest, QueryTotalSpentEFUNDResponse, QuerySpentEFUNDByAddressRequest, QuerySpentEFUNDByAddressResponse } from "./query";
 /** Query defines the gRPC querier service. */
 export interface Query {
   /** Params queries the parameters of x/enterprise module. */
@@ -15,30 +15,6 @@ export interface Query {
   lockedUndByAddress(request: QueryLockedUndByAddressRequest): Promise<QueryLockedUndByAddressResponse>;
   /** TotalLocked queries the total locked FUND */
   totalLocked(request?: QueryTotalLockedRequest): Promise<QueryTotalLockedResponse>;
-  /** TotalUnlocked queries the total Unlocked FUND */
-  totalUnlocked(request?: QueryTotalUnlockedRequest): Promise<QueryTotalUnlockedResponse>;
-  /** EnterpriseSupply queries the chain's supply, including locked Ent. FUND. Only returns nund data */
-  enterpriseSupply(request?: QueryEnterpriseSupplyRequest): Promise<QueryEnterpriseSupplyResponse>;
-  /**
-   * TotalSupply should be used instead of /cosmos/bank/v1beta1/supply to get true total supply available
-   * for general use, i.e. with locked eFUND removed from total for nund
-   */
-  totalSupply(request?: QueryTotalSupplyRequest): Promise<QueryTotalSupplyResponse>;
-  /**
-   * SupplyOf should be used in place of /cosmos/bank/v1beta1/supply to get true total supply,
-   * with locked eFUND removed from total for nund
-   */
-  supplyOf(request: QuerySupplyOfRequest): Promise<QuerySupplyOfResponse>;
-  /**
-   * TotalSupplyOverwrite should be used instead of /cosmos/bank/v1beta1/supply to get true total supply available
-   * for general use, i.e. with locked eFUND removed from total for nund
-   */
-  totalSupplyOverwrite(request?: QueryTotalSupplyRequest): Promise<QueryTotalSupplyResponse>;
-  /**
-   * SupplyOf should be used in place of /cosmos/bank/v1beta1/supply to get true total supply,
-   * with locked eFUND removed from total for nund
-   */
-  supplyOfOverwrite(request: QuerySupplyOfRequest): Promise<QuerySupplyOfResponse>;
   /** Whitelist queries whitelisted addresses authorised to raise new purchase orders */
   whitelist(request?: QueryWhitelistRequest): Promise<QueryWhitelistResponse>;
   /** Whitelisted queries whether or not the given address is authorised to raise new purchase orders */
@@ -59,12 +35,6 @@ export class QueryClientImpl implements Query {
     this.enterpriseUndPurchaseOrders = this.enterpriseUndPurchaseOrders.bind(this);
     this.lockedUndByAddress = this.lockedUndByAddress.bind(this);
     this.totalLocked = this.totalLocked.bind(this);
-    this.totalUnlocked = this.totalUnlocked.bind(this);
-    this.enterpriseSupply = this.enterpriseSupply.bind(this);
-    this.totalSupply = this.totalSupply.bind(this);
-    this.supplyOf = this.supplyOf.bind(this);
-    this.totalSupplyOverwrite = this.totalSupplyOverwrite.bind(this);
-    this.supplyOfOverwrite = this.supplyOfOverwrite.bind(this);
     this.whitelist = this.whitelist.bind(this);
     this.whitelisted = this.whitelisted.bind(this);
     this.enterpriseAccount = this.enterpriseAccount.bind(this);
@@ -95,40 +65,6 @@ export class QueryClientImpl implements Query {
     const data = QueryTotalLockedRequest.encode(request).finish();
     const promise = this.rpc.request("mainchain.enterprise.v1.Query", "TotalLocked", data);
     return promise.then(data => QueryTotalLockedResponse.decode(new BinaryReader(data)));
-  }
-  totalUnlocked(request: QueryTotalUnlockedRequest = {}): Promise<QueryTotalUnlockedResponse> {
-    const data = QueryTotalUnlockedRequest.encode(request).finish();
-    const promise = this.rpc.request("mainchain.enterprise.v1.Query", "TotalUnlocked", data);
-    return promise.then(data => QueryTotalUnlockedResponse.decode(new BinaryReader(data)));
-  }
-  enterpriseSupply(request: QueryEnterpriseSupplyRequest = {}): Promise<QueryEnterpriseSupplyResponse> {
-    const data = QueryEnterpriseSupplyRequest.encode(request).finish();
-    const promise = this.rpc.request("mainchain.enterprise.v1.Query", "EnterpriseSupply", data);
-    return promise.then(data => QueryEnterpriseSupplyResponse.decode(new BinaryReader(data)));
-  }
-  totalSupply(request: QueryTotalSupplyRequest = {
-    pagination: undefined
-  }): Promise<QueryTotalSupplyResponse> {
-    const data = QueryTotalSupplyRequest.encode(request).finish();
-    const promise = this.rpc.request("mainchain.enterprise.v1.Query", "TotalSupply", data);
-    return promise.then(data => QueryTotalSupplyResponse.decode(new BinaryReader(data)));
-  }
-  supplyOf(request: QuerySupplyOfRequest): Promise<QuerySupplyOfResponse> {
-    const data = QuerySupplyOfRequest.encode(request).finish();
-    const promise = this.rpc.request("mainchain.enterprise.v1.Query", "SupplyOf", data);
-    return promise.then(data => QuerySupplyOfResponse.decode(new BinaryReader(data)));
-  }
-  totalSupplyOverwrite(request: QueryTotalSupplyRequest = {
-    pagination: undefined
-  }): Promise<QueryTotalSupplyResponse> {
-    const data = QueryTotalSupplyRequest.encode(request).finish();
-    const promise = this.rpc.request("mainchain.enterprise.v1.Query", "TotalSupplyOverwrite", data);
-    return promise.then(data => QueryTotalSupplyResponse.decode(new BinaryReader(data)));
-  }
-  supplyOfOverwrite(request: QuerySupplyOfRequest): Promise<QuerySupplyOfResponse> {
-    const data = QuerySupplyOfRequest.encode(request).finish();
-    const promise = this.rpc.request("mainchain.enterprise.v1.Query", "SupplyOfOverwrite", data);
-    return promise.then(data => QuerySupplyOfResponse.decode(new BinaryReader(data)));
   }
   whitelist(request: QueryWhitelistRequest = {}): Promise<QueryWhitelistResponse> {
     const data = QueryWhitelistRequest.encode(request).finish();
@@ -174,24 +110,6 @@ export const createRpcQueryExtension = (base: QueryClient) => {
     },
     totalLocked(request?: QueryTotalLockedRequest): Promise<QueryTotalLockedResponse> {
       return queryService.totalLocked(request);
-    },
-    totalUnlocked(request?: QueryTotalUnlockedRequest): Promise<QueryTotalUnlockedResponse> {
-      return queryService.totalUnlocked(request);
-    },
-    enterpriseSupply(request?: QueryEnterpriseSupplyRequest): Promise<QueryEnterpriseSupplyResponse> {
-      return queryService.enterpriseSupply(request);
-    },
-    totalSupply(request?: QueryTotalSupplyRequest): Promise<QueryTotalSupplyResponse> {
-      return queryService.totalSupply(request);
-    },
-    supplyOf(request: QuerySupplyOfRequest): Promise<QuerySupplyOfResponse> {
-      return queryService.supplyOf(request);
-    },
-    totalSupplyOverwrite(request?: QueryTotalSupplyRequest): Promise<QueryTotalSupplyResponse> {
-      return queryService.totalSupplyOverwrite(request);
-    },
-    supplyOfOverwrite(request: QuerySupplyOfRequest): Promise<QuerySupplyOfResponse> {
-      return queryService.supplyOfOverwrite(request);
     },
     whitelist(request?: QueryWhitelistRequest): Promise<QueryWhitelistResponse> {
       return queryService.whitelist(request);

@@ -8,7 +8,9 @@ import { bytesFromBase64, base64FromBytes } from "../../../helpers";
  * Evidence of misbehavior such as equivocation or counterfactual signing.
  */
 export interface MsgSubmitEvidence {
+  /** submitter is the signer account address of evidence. */
   submitter: string;
+  /** evidence defines the evidence of misbehavior. */
   evidence?: Any | undefined;
 }
 export interface MsgSubmitEvidenceProtoMsg {
@@ -16,14 +18,16 @@ export interface MsgSubmitEvidenceProtoMsg {
   value: Uint8Array;
 }
 export type MsgSubmitEvidenceEncoded = Omit<MsgSubmitEvidence, "evidence"> & {
-  evidence?: AnyProtoMsg | undefined;
+  /** evidence defines the evidence of misbehavior. */evidence?: AnyProtoMsg | undefined;
 };
 /**
  * MsgSubmitEvidence represents a message that supports submitting arbitrary
  * Evidence of misbehavior such as equivocation or counterfactual signing.
  */
 export interface MsgSubmitEvidenceAmino {
+  /** submitter is the signer account address of evidence. */
   submitter?: string;
+  /** evidence defines the evidence of misbehavior. */
   evidence?: AnyAmino;
 }
 export interface MsgSubmitEvidenceAminoMsg {

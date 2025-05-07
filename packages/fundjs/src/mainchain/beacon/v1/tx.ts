@@ -25,7 +25,7 @@ export interface MsgRegisterBeaconAmino {
   owner?: string;
 }
 export interface MsgRegisterBeaconAminoMsg {
-  type: "beacon/RegisterBeacon";
+  type: "beacon/MsgRegisterBeacon";
   value: MsgRegisterBeaconAmino;
 }
 /** MsgRegisterBeacon represents a message to register a new beacon */
@@ -83,7 +83,7 @@ export interface MsgRecordBeaconTimestampAmino {
   owner?: string;
 }
 export interface MsgRecordBeaconTimestampAminoMsg {
-  type: "beacon/RecordBeaconTimestamp";
+  type: "beacon/MsgRecordBeaconTimestamp";
   value: MsgRecordBeaconTimestampAmino;
 }
 /** MsgRecordBeaconTimestamp represents a message to record a timestamp for a registered beacon */
@@ -143,7 +143,7 @@ export interface MsgPurchaseBeaconStateStorageAmino {
   owner?: string;
 }
 export interface MsgPurchaseBeaconStateStorageAminoMsg {
-  type: "beacon/PurchaseBeaconStateStorage";
+  type: "beacon/MsgPurchaseBeaconStateStorage";
   value: MsgPurchaseBeaconStateStorageAmino;
 }
 /** MsgPurchaseBeaconStateStorage represents a message to purchase more beacon storage */
@@ -269,7 +269,7 @@ function createBaseMsgRegisterBeacon(): MsgRegisterBeacon {
 }
 export const MsgRegisterBeacon = {
   typeUrl: "/mainchain.beacon.v1.MsgRegisterBeacon",
-  aminoType: "beacon/RegisterBeacon",
+  aminoType: "beacon/MsgRegisterBeacon",
   is(o: any): o is MsgRegisterBeacon {
     return o && (o.$typeUrl === MsgRegisterBeacon.typeUrl || typeof o.moniker === "string" && typeof o.name === "string" && typeof o.owner === "string");
   },
@@ -346,7 +346,7 @@ export const MsgRegisterBeacon = {
   },
   toAminoMsg(message: MsgRegisterBeacon): MsgRegisterBeaconAminoMsg {
     return {
-      type: "beacon/RegisterBeacon",
+      type: "beacon/MsgRegisterBeacon",
       value: MsgRegisterBeacon.toAmino(message)
     };
   },
@@ -418,7 +418,7 @@ export const MsgRegisterBeaconResponse = {
   },
   toAmino(message: MsgRegisterBeaconResponse): MsgRegisterBeaconResponseAmino {
     const obj: any = {};
-    obj.beacon_id = message.beaconId !== BigInt(0) ? message.beaconId.toString() : undefined;
+    obj.beacon_id = message.beaconId !== BigInt(0) ? message.beaconId?.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: MsgRegisterBeaconResponseAminoMsg): MsgRegisterBeaconResponse {
@@ -448,7 +448,7 @@ function createBaseMsgRecordBeaconTimestamp(): MsgRecordBeaconTimestamp {
 }
 export const MsgRecordBeaconTimestamp = {
   typeUrl: "/mainchain.beacon.v1.MsgRecordBeaconTimestamp",
-  aminoType: "beacon/RecordBeaconTimestamp",
+  aminoType: "beacon/MsgRecordBeaconTimestamp",
   is(o: any): o is MsgRecordBeaconTimestamp {
     return o && (o.$typeUrl === MsgRecordBeaconTimestamp.typeUrl || typeof o.beaconId === "bigint" && typeof o.hash === "string" && typeof o.submitTime === "bigint" && typeof o.owner === "string");
   },
@@ -525,9 +525,9 @@ export const MsgRecordBeaconTimestamp = {
   },
   toAmino(message: MsgRecordBeaconTimestamp): MsgRecordBeaconTimestampAmino {
     const obj: any = {};
-    obj.beacon_id = message.beaconId !== BigInt(0) ? message.beaconId.toString() : undefined;
+    obj.beacon_id = message.beaconId !== BigInt(0) ? message.beaconId?.toString() : undefined;
     obj.hash = message.hash === "" ? undefined : message.hash;
-    obj.submit_time = message.submitTime !== BigInt(0) ? message.submitTime.toString() : undefined;
+    obj.submit_time = message.submitTime !== BigInt(0) ? message.submitTime?.toString() : undefined;
     obj.owner = message.owner === "" ? undefined : message.owner;
     return obj;
   },
@@ -536,7 +536,7 @@ export const MsgRecordBeaconTimestamp = {
   },
   toAminoMsg(message: MsgRecordBeaconTimestamp): MsgRecordBeaconTimestampAminoMsg {
     return {
-      type: "beacon/RecordBeaconTimestamp",
+      type: "beacon/MsgRecordBeaconTimestamp",
       value: MsgRecordBeaconTimestamp.toAmino(message)
     };
   },
@@ -619,8 +619,8 @@ export const MsgRecordBeaconTimestampResponse = {
   },
   toAmino(message: MsgRecordBeaconTimestampResponse): MsgRecordBeaconTimestampResponseAmino {
     const obj: any = {};
-    obj.beacon_id = message.beaconId !== BigInt(0) ? message.beaconId.toString() : undefined;
-    obj.timestamp_id = message.timestampId !== BigInt(0) ? message.timestampId.toString() : undefined;
+    obj.beacon_id = message.beaconId !== BigInt(0) ? message.beaconId?.toString() : undefined;
+    obj.timestamp_id = message.timestampId !== BigInt(0) ? message.timestampId?.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: MsgRecordBeaconTimestampResponseAminoMsg): MsgRecordBeaconTimestampResponse {
@@ -649,7 +649,7 @@ function createBaseMsgPurchaseBeaconStateStorage(): MsgPurchaseBeaconStateStorag
 }
 export const MsgPurchaseBeaconStateStorage = {
   typeUrl: "/mainchain.beacon.v1.MsgPurchaseBeaconStateStorage",
-  aminoType: "beacon/PurchaseBeaconStateStorage",
+  aminoType: "beacon/MsgPurchaseBeaconStateStorage",
   is(o: any): o is MsgPurchaseBeaconStateStorage {
     return o && (o.$typeUrl === MsgPurchaseBeaconStateStorage.typeUrl || typeof o.beaconId === "bigint" && typeof o.number === "bigint" && typeof o.owner === "string");
   },
@@ -716,8 +716,8 @@ export const MsgPurchaseBeaconStateStorage = {
   },
   toAmino(message: MsgPurchaseBeaconStateStorage): MsgPurchaseBeaconStateStorageAmino {
     const obj: any = {};
-    obj.beacon_id = message.beaconId !== BigInt(0) ? message.beaconId.toString() : undefined;
-    obj.number = message.number !== BigInt(0) ? message.number.toString() : undefined;
+    obj.beacon_id = message.beaconId !== BigInt(0) ? message.beaconId?.toString() : undefined;
+    obj.number = message.number !== BigInt(0) ? message.number?.toString() : undefined;
     obj.owner = message.owner === "" ? undefined : message.owner;
     return obj;
   },
@@ -726,7 +726,7 @@ export const MsgPurchaseBeaconStateStorage = {
   },
   toAminoMsg(message: MsgPurchaseBeaconStateStorage): MsgPurchaseBeaconStateStorageAminoMsg {
     return {
-      type: "beacon/PurchaseBeaconStateStorage",
+      type: "beacon/MsgPurchaseBeaconStateStorage",
       value: MsgPurchaseBeaconStateStorage.toAmino(message)
     };
   },
@@ -820,9 +820,9 @@ export const MsgPurchaseBeaconStateStorageResponse = {
   },
   toAmino(message: MsgPurchaseBeaconStateStorageResponse): MsgPurchaseBeaconStateStorageResponseAmino {
     const obj: any = {};
-    obj.beacon_id = message.beaconId !== BigInt(0) ? message.beaconId.toString() : undefined;
-    obj.number_purchased = message.numberPurchased !== BigInt(0) ? message.numberPurchased.toString() : undefined;
-    obj.num_can_purchase = message.numCanPurchase !== BigInt(0) ? message.numCanPurchase.toString() : undefined;
+    obj.beacon_id = message.beaconId !== BigInt(0) ? message.beaconId?.toString() : undefined;
+    obj.number_purchased = message.numberPurchased !== BigInt(0) ? message.numberPurchased?.toString() : undefined;
+    obj.num_can_purchase = message.numCanPurchase !== BigInt(0) ? message.numCanPurchase?.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: MsgPurchaseBeaconStateStorageResponseAminoMsg): MsgPurchaseBeaconStateStorageResponse {

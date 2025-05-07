@@ -23,7 +23,7 @@ export interface MsgUndPurchaseOrderAmino {
   amount?: CoinAmino;
 }
 export interface MsgUndPurchaseOrderAminoMsg {
-  type: "enterprise/PurchaseUnd";
+  type: "enterprise/MsgUndPurchaseOrder";
   value: MsgUndPurchaseOrderAmino;
 }
 /** MsgUndPurchaseOrder represents a message to raise a new purchase order */
@@ -67,14 +67,14 @@ export interface MsgProcessUndPurchaseOrderProtoMsg {
 /** MsgProcessUndPurchaseOrder represents a message to processed a raised purchase order */
 export interface MsgProcessUndPurchaseOrderAmino {
   /** purchase_order_id is the ID of the purchase order being raised */
-  purchase_order_id: string;
+  purchase_order_id?: string;
   /** decision is an enumerated PurchaseOrderStatus representing, for example accepted/rejected */
   decision?: PurchaseOrderStatus;
   /** signer is the address of the authorised decision maker */
   signer?: string;
 }
 export interface MsgProcessUndPurchaseOrderAminoMsg {
-  type: "enterprise/ProcessUndPurchaseOrder";
+  type: "enterprise/MsgProcessUndPurchaseOrder";
   value: MsgProcessUndPurchaseOrderAmino;
 }
 /** MsgProcessUndPurchaseOrder represents a message to processed a raised purchase order */
@@ -106,8 +106,8 @@ export interface MsgWhitelistAddress {
   address: string;
   /** signer is the address of the authorised decision maker */
   signer: string;
-  /** whitelist_action is the action being executed, and is either add or remove. */
-  whitelistAction: WhitelistAction;
+  /** action is the action being executed, and is either add or remove. */
+  action: WhitelistAction;
 }
 export interface MsgWhitelistAddressProtoMsg {
   typeUrl: "/mainchain.enterprise.v1.MsgWhitelistAddress";
@@ -122,11 +122,11 @@ export interface MsgWhitelistAddressAmino {
   address?: string;
   /** signer is the address of the authorised decision maker */
   signer?: string;
-  /** whitelist_action is the action being executed, and is either add or remove. */
-  whitelist_action: WhitelistAction;
+  /** action is the action being executed, and is either add or remove. */
+  action?: WhitelistAction;
 }
 export interface MsgWhitelistAddressAminoMsg {
-  type: "enterprise/WhitelistAddress";
+  type: "enterprise/MsgWhitelistAddress";
   value: MsgWhitelistAddressAmino;
 }
 /**
@@ -136,7 +136,7 @@ export interface MsgWhitelistAddressAminoMsg {
 export interface MsgWhitelistAddressSDKType {
   address: string;
   signer: string;
-  whitelist_action: WhitelistAction;
+  action: WhitelistAction;
 }
 /** MsgWhitelistAddressResponse defines the Msg/WhitelistAddress response type. */
 export interface MsgWhitelistAddressResponse {}
@@ -236,7 +236,7 @@ function createBaseMsgUndPurchaseOrder(): MsgUndPurchaseOrder {
 }
 export const MsgUndPurchaseOrder = {
   typeUrl: "/mainchain.enterprise.v1.MsgUndPurchaseOrder",
-  aminoType: "enterprise/PurchaseUnd",
+  aminoType: "enterprise/MsgUndPurchaseOrder",
   is(o: any): o is MsgUndPurchaseOrder {
     return o && (o.$typeUrl === MsgUndPurchaseOrder.typeUrl || typeof o.purchaser === "string" && Coin.is(o.amount));
   },
@@ -302,7 +302,7 @@ export const MsgUndPurchaseOrder = {
   },
   toAminoMsg(message: MsgUndPurchaseOrder): MsgUndPurchaseOrderAminoMsg {
     return {
-      type: "enterprise/PurchaseUnd",
+      type: "enterprise/MsgUndPurchaseOrder",
       value: MsgUndPurchaseOrder.toAmino(message)
     };
   },
@@ -374,7 +374,7 @@ export const MsgUndPurchaseOrderResponse = {
   },
   toAmino(message: MsgUndPurchaseOrderResponse): MsgUndPurchaseOrderResponseAmino {
     const obj: any = {};
-    obj.purchase_order_id = message.purchaseOrderId !== BigInt(0) ? message.purchaseOrderId.toString() : undefined;
+    obj.purchase_order_id = message.purchaseOrderId !== BigInt(0) ? message.purchaseOrderId?.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: MsgUndPurchaseOrderResponseAminoMsg): MsgUndPurchaseOrderResponse {
@@ -403,7 +403,7 @@ function createBaseMsgProcessUndPurchaseOrder(): MsgProcessUndPurchaseOrder {
 }
 export const MsgProcessUndPurchaseOrder = {
   typeUrl: "/mainchain.enterprise.v1.MsgProcessUndPurchaseOrder",
-  aminoType: "enterprise/ProcessUndPurchaseOrder",
+  aminoType: "enterprise/MsgProcessUndPurchaseOrder",
   is(o: any): o is MsgProcessUndPurchaseOrder {
     return o && (o.$typeUrl === MsgProcessUndPurchaseOrder.typeUrl || typeof o.purchaseOrderId === "bigint" && isSet(o.decision) && typeof o.signer === "string");
   },
@@ -470,7 +470,7 @@ export const MsgProcessUndPurchaseOrder = {
   },
   toAmino(message: MsgProcessUndPurchaseOrder): MsgProcessUndPurchaseOrderAmino {
     const obj: any = {};
-    obj.purchase_order_id = message.purchaseOrderId ? message.purchaseOrderId.toString() : "0";
+    obj.purchase_order_id = message.purchaseOrderId !== BigInt(0) ? message.purchaseOrderId?.toString() : undefined;
     obj.decision = message.decision === 0 ? undefined : message.decision;
     obj.signer = message.signer === "" ? undefined : message.signer;
     return obj;
@@ -480,7 +480,7 @@ export const MsgProcessUndPurchaseOrder = {
   },
   toAminoMsg(message: MsgProcessUndPurchaseOrder): MsgProcessUndPurchaseOrderAminoMsg {
     return {
-      type: "enterprise/ProcessUndPurchaseOrder",
+      type: "enterprise/MsgProcessUndPurchaseOrder",
       value: MsgProcessUndPurchaseOrder.toAmino(message)
     };
   },
@@ -563,20 +563,20 @@ function createBaseMsgWhitelistAddress(): MsgWhitelistAddress {
   return {
     address: "",
     signer: "",
-    whitelistAction: 0
+    action: 0
   };
 }
 export const MsgWhitelistAddress = {
   typeUrl: "/mainchain.enterprise.v1.MsgWhitelistAddress",
-  aminoType: "enterprise/WhitelistAddress",
+  aminoType: "enterprise/MsgWhitelistAddress",
   is(o: any): o is MsgWhitelistAddress {
-    return o && (o.$typeUrl === MsgWhitelistAddress.typeUrl || typeof o.address === "string" && typeof o.signer === "string" && isSet(o.whitelistAction));
+    return o && (o.$typeUrl === MsgWhitelistAddress.typeUrl || typeof o.address === "string" && typeof o.signer === "string" && isSet(o.action));
   },
   isSDK(o: any): o is MsgWhitelistAddressSDKType {
-    return o && (o.$typeUrl === MsgWhitelistAddress.typeUrl || typeof o.address === "string" && typeof o.signer === "string" && isSet(o.whitelist_action));
+    return o && (o.$typeUrl === MsgWhitelistAddress.typeUrl || typeof o.address === "string" && typeof o.signer === "string" && isSet(o.action));
   },
   isAmino(o: any): o is MsgWhitelistAddressAmino {
-    return o && (o.$typeUrl === MsgWhitelistAddress.typeUrl || typeof o.address === "string" && typeof o.signer === "string" && isSet(o.whitelist_action));
+    return o && (o.$typeUrl === MsgWhitelistAddress.typeUrl || typeof o.address === "string" && typeof o.signer === "string" && isSet(o.action));
   },
   encode(message: MsgWhitelistAddress, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.address !== "") {
@@ -585,8 +585,8 @@ export const MsgWhitelistAddress = {
     if (message.signer !== "") {
       writer.uint32(18).string(message.signer);
     }
-    if (message.whitelistAction !== 0) {
-      writer.uint32(24).int32(message.whitelistAction);
+    if (message.action !== 0) {
+      writer.uint32(24).int32(message.action);
     }
     return writer;
   },
@@ -604,7 +604,7 @@ export const MsgWhitelistAddress = {
           message.signer = reader.string();
           break;
         case 3:
-          message.whitelistAction = reader.int32() as any;
+          message.action = reader.int32() as any;
           break;
         default:
           reader.skipType(tag & 7);
@@ -617,7 +617,7 @@ export const MsgWhitelistAddress = {
     const message = createBaseMsgWhitelistAddress();
     message.address = object.address ?? "";
     message.signer = object.signer ?? "";
-    message.whitelistAction = object.whitelistAction ?? 0;
+    message.action = object.action ?? 0;
     return message;
   },
   fromAmino(object: MsgWhitelistAddressAmino): MsgWhitelistAddress {
@@ -628,8 +628,8 @@ export const MsgWhitelistAddress = {
     if (object.signer !== undefined && object.signer !== null) {
       message.signer = object.signer;
     }
-    if (object.whitelist_action !== undefined && object.whitelist_action !== null) {
-      message.whitelistAction = object.whitelist_action;
+    if (object.action !== undefined && object.action !== null) {
+      message.action = object.action;
     }
     return message;
   },
@@ -637,7 +637,7 @@ export const MsgWhitelistAddress = {
     const obj: any = {};
     obj.address = message.address === "" ? undefined : message.address;
     obj.signer = message.signer === "" ? undefined : message.signer;
-    obj.whitelist_action = message.whitelistAction ?? 0;
+    obj.action = message.action === 0 ? undefined : message.action;
     return obj;
   },
   fromAminoMsg(object: MsgWhitelistAddressAminoMsg): MsgWhitelistAddress {
@@ -645,7 +645,7 @@ export const MsgWhitelistAddress = {
   },
   toAminoMsg(message: MsgWhitelistAddress): MsgWhitelistAddressAminoMsg {
     return {
-      type: "enterprise/WhitelistAddress",
+      type: "enterprise/MsgWhitelistAddress",
       value: MsgWhitelistAddress.toAmino(message)
     };
   },

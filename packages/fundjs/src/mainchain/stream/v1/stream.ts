@@ -2,8 +2,8 @@
 import { Coin, CoinAmino, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
 import { Timestamp } from "../../../google/protobuf/timestamp";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { toTimestamp, fromTimestamp } from "../../../helpers";
 import { GlobalDecoderRegistry } from "../../../registry";
+import { toTimestamp, fromTimestamp } from "../../../helpers";
 /** StreamPeriod enumerates the valid periods for calculating flow rates */
 export enum StreamPeriod {
   /** STREAM_PERIOD_UNSPECIFIED - STREAM_PERIOD_UNSPECIFIED defines unspecified */
@@ -112,7 +112,7 @@ export interface StreamAmino {
   cancellable?: boolean;
 }
 export interface StreamAminoMsg {
-  type: "/mainchain.stream.v1.Stream";
+  type: "stream/v1/Stream";
   value: StreamAmino;
 }
 /** Stream holds data about a stream */
@@ -134,6 +134,7 @@ function createBaseStream(): Stream {
 }
 export const Stream = {
   typeUrl: "/mainchain.stream.v1.Stream",
+  aminoType: "stream/v1/Stream",
   is(o: any): o is Stream {
     return o && (o.$typeUrl === Stream.typeUrl || Coin.is(o.deposit) && typeof o.flowRate === "bigint" && Timestamp.is(o.lastOutflowTime) && Timestamp.is(o.depositZeroTime) && typeof o.cancellable === "boolean");
   },
@@ -221,7 +222,7 @@ export const Stream = {
   toAmino(message: Stream): StreamAmino {
     const obj: any = {};
     obj.deposit = message.deposit ? Coin.toAmino(message.deposit) : undefined;
-    obj.flow_rate = message.flowRate !== BigInt(0) ? message.flowRate.toString() : undefined;
+    obj.flow_rate = message.flowRate !== BigInt(0) ? message.flowRate?.toString() : undefined;
     obj.last_outflow_time = message.lastOutflowTime ? Timestamp.toAmino(toTimestamp(message.lastOutflowTime)) : undefined;
     obj.deposit_zero_time = message.depositZeroTime ? Timestamp.toAmino(toTimestamp(message.depositZeroTime)) : undefined;
     obj.cancellable = message.cancellable === false ? undefined : message.cancellable;
@@ -229,6 +230,12 @@ export const Stream = {
   },
   fromAminoMsg(object: StreamAminoMsg): Stream {
     return Stream.fromAmino(object.value);
+  },
+  toAminoMsg(message: Stream): StreamAminoMsg {
+    return {
+      type: "stream/v1/Stream",
+      value: Stream.toAmino(message)
+    };
   },
   fromProtoMsg(message: StreamProtoMsg): Stream {
     return Stream.decode(message.value);
@@ -244,3 +251,4 @@ export const Stream = {
   }
 };
 GlobalDecoderRegistry.register(Stream.typeUrl, Stream);
+GlobalDecoderRegistry.registerAminoProtoMapping(Stream.aminoType, Stream.typeUrl);

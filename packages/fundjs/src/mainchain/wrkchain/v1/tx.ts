@@ -26,14 +26,14 @@ export interface MsgRegisterWrkChainAmino {
   /** name is a long name for a wrkchain */
   name?: string;
   /** genesis_hash is a hash of the genesis block of the wrkchain */
-  genesis_hash: string;
+  genesis_hash?: string;
   /** base_type is the type of wrkchain, e.g. geth, cosmos etc. */
-  base_type: string;
+  base_type?: string;
   /** owner is the address of the owner of the wrkchain */
   owner?: string;
 }
 export interface MsgRegisterWrkChainAminoMsg {
-  type: "wrkchain/RegisterWrkChain";
+  type: "wrkchain/MsgRegisterWrkChain";
   value: MsgRegisterWrkChainAmino;
 }
 /** MsgRegisterWrkChain represents a message to register a new wrkchain */
@@ -96,9 +96,9 @@ export interface MsgRecordWrkChainBlockAmino {
   /** height is the block height/number of the hashes being submitted */
   height?: string;
   /** block_hash is the main block hash */
-  block_hash: string;
+  block_hash?: string;
   /** parent_hash is an optional parent block hash for the given height/block number */
-  parent_hash: string;
+  parent_hash?: string;
   /** hash1 is an optional supplementary hash to be submitted, for example TxHash */
   hash1?: string;
   /** hash2 is an optional supplementary hash to be submitted, for example TxHash */
@@ -173,7 +173,7 @@ export interface MsgPurchaseWrkChainStateStorageAmino {
   owner?: string;
 }
 export interface MsgPurchaseWrkChainStateStorageAminoMsg {
-  type: "wrkchain/PurchaseWrkChainStateStorage";
+  type: "wrkchain/MsgPurchaseWrkChainStorage";
   value: MsgPurchaseWrkChainStateStorageAmino;
 }
 /** MsgPurchaseWrkChainStateStorage represents a message to purchase more wrkchain storage */
@@ -301,7 +301,7 @@ function createBaseMsgRegisterWrkChain(): MsgRegisterWrkChain {
 }
 export const MsgRegisterWrkChain = {
   typeUrl: "/mainchain.wrkchain.v1.MsgRegisterWrkChain",
-  aminoType: "wrkchain/RegisterWrkChain",
+  aminoType: "wrkchain/MsgRegisterWrkChain",
   is(o: any): o is MsgRegisterWrkChain {
     return o && (o.$typeUrl === MsgRegisterWrkChain.typeUrl || typeof o.moniker === "string" && typeof o.name === "string" && typeof o.genesisHash === "string" && typeof o.baseType === "string" && typeof o.owner === "string");
   },
@@ -313,19 +313,19 @@ export const MsgRegisterWrkChain = {
   },
   encode(message: MsgRegisterWrkChain, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.moniker !== "") {
-      writer.uint32(18).string(message.moniker);
+      writer.uint32(10).string(message.moniker);
     }
     if (message.name !== "") {
-      writer.uint32(26).string(message.name);
+      writer.uint32(18).string(message.name);
     }
     if (message.genesisHash !== "") {
-      writer.uint32(34).string(message.genesisHash);
+      writer.uint32(26).string(message.genesisHash);
     }
     if (message.baseType !== "") {
-      writer.uint32(42).string(message.baseType);
+      writer.uint32(34).string(message.baseType);
     }
     if (message.owner !== "") {
-      writer.uint32(50).string(message.owner);
+      writer.uint32(42).string(message.owner);
     }
     return writer;
   },
@@ -336,19 +336,19 @@ export const MsgRegisterWrkChain = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-        case 2:
+        case 1:
           message.moniker = reader.string();
           break;
-        case 3:
+        case 2:
           message.name = reader.string();
           break;
-        case 4:
+        case 3:
           message.genesisHash = reader.string();
           break;
-        case 5:
+        case 4:
           message.baseType = reader.string();
           break;
-        case 6:
+        case 5:
           message.owner = reader.string();
           break;
         default:
@@ -390,8 +390,8 @@ export const MsgRegisterWrkChain = {
     const obj: any = {};
     obj.moniker = message.moniker === "" ? undefined : message.moniker;
     obj.name = message.name === "" ? undefined : message.name;
-    obj.genesis_hash = message.genesisHash ?? "";
-    obj.base_type = message.baseType ?? "";
+    obj.genesis_hash = message.genesisHash === "" ? undefined : message.genesisHash;
+    obj.base_type = message.baseType === "" ? undefined : message.baseType;
     obj.owner = message.owner === "" ? undefined : message.owner;
     return obj;
   },
@@ -400,7 +400,7 @@ export const MsgRegisterWrkChain = {
   },
   toAminoMsg(message: MsgRegisterWrkChain): MsgRegisterWrkChainAminoMsg {
     return {
-      type: "wrkchain/RegisterWrkChain",
+      type: "wrkchain/MsgRegisterWrkChain",
       value: MsgRegisterWrkChain.toAmino(message)
     };
   },
@@ -472,7 +472,7 @@ export const MsgRegisterWrkChainResponse = {
   },
   toAmino(message: MsgRegisterWrkChainResponse): MsgRegisterWrkChainResponseAmino {
     const obj: any = {};
-    obj.wrkchain_id = message.wrkchainId !== BigInt(0) ? message.wrkchainId.toString() : undefined;
+    obj.wrkchain_id = message.wrkchainId !== BigInt(0) ? message.wrkchainId?.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: MsgRegisterWrkChainResponseAminoMsg): MsgRegisterWrkChainResponse {
@@ -623,10 +623,10 @@ export const MsgRecordWrkChainBlock = {
   },
   toAmino(message: MsgRecordWrkChainBlock): MsgRecordWrkChainBlockAmino {
     const obj: any = {};
-    obj.wrkchain_id = message.wrkchainId !== BigInt(0) ? message.wrkchainId.toString() : undefined;
-    obj.height = message.height !== BigInt(0) ? message.height.toString() : undefined;
-    obj.block_hash = message.blockHash ?? "";
-    obj.parent_hash = message.parentHash ?? "";
+    obj.wrkchain_id = message.wrkchainId !== BigInt(0) ? message.wrkchainId?.toString() : undefined;
+    obj.height = message.height !== BigInt(0) ? message.height?.toString() : undefined;
+    obj.block_hash = message.blockHash === "" ? undefined : message.blockHash;
+    obj.parent_hash = message.parentHash === "" ? undefined : message.parentHash;
     obj.hash1 = message.hash1 === "" ? undefined : message.hash1;
     obj.hash2 = message.hash2 === "" ? undefined : message.hash2;
     obj.hash3 = message.hash3 === "" ? undefined : message.hash3;
@@ -721,8 +721,8 @@ export const MsgRecordWrkChainBlockResponse = {
   },
   toAmino(message: MsgRecordWrkChainBlockResponse): MsgRecordWrkChainBlockResponseAmino {
     const obj: any = {};
-    obj.wrkchain_id = message.wrkchainId !== BigInt(0) ? message.wrkchainId.toString() : undefined;
-    obj.height = message.height !== BigInt(0) ? message.height.toString() : undefined;
+    obj.wrkchain_id = message.wrkchainId !== BigInt(0) ? message.wrkchainId?.toString() : undefined;
+    obj.height = message.height !== BigInt(0) ? message.height?.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: MsgRecordWrkChainBlockResponseAminoMsg): MsgRecordWrkChainBlockResponse {
@@ -751,7 +751,7 @@ function createBaseMsgPurchaseWrkChainStateStorage(): MsgPurchaseWrkChainStateSt
 }
 export const MsgPurchaseWrkChainStateStorage = {
   typeUrl: "/mainchain.wrkchain.v1.MsgPurchaseWrkChainStateStorage",
-  aminoType: "wrkchain/PurchaseWrkChainStateStorage",
+  aminoType: "wrkchain/MsgPurchaseWrkChainStorage",
   is(o: any): o is MsgPurchaseWrkChainStateStorage {
     return o && (o.$typeUrl === MsgPurchaseWrkChainStateStorage.typeUrl || typeof o.wrkchainId === "bigint" && typeof o.number === "bigint" && typeof o.owner === "string");
   },
@@ -818,8 +818,8 @@ export const MsgPurchaseWrkChainStateStorage = {
   },
   toAmino(message: MsgPurchaseWrkChainStateStorage): MsgPurchaseWrkChainStateStorageAmino {
     const obj: any = {};
-    obj.wrkchain_id = message.wrkchainId !== BigInt(0) ? message.wrkchainId.toString() : undefined;
-    obj.number = message.number !== BigInt(0) ? message.number.toString() : undefined;
+    obj.wrkchain_id = message.wrkchainId !== BigInt(0) ? message.wrkchainId?.toString() : undefined;
+    obj.number = message.number !== BigInt(0) ? message.number?.toString() : undefined;
     obj.owner = message.owner === "" ? undefined : message.owner;
     return obj;
   },
@@ -828,7 +828,7 @@ export const MsgPurchaseWrkChainStateStorage = {
   },
   toAminoMsg(message: MsgPurchaseWrkChainStateStorage): MsgPurchaseWrkChainStateStorageAminoMsg {
     return {
-      type: "wrkchain/PurchaseWrkChainStateStorage",
+      type: "wrkchain/MsgPurchaseWrkChainStorage",
       value: MsgPurchaseWrkChainStateStorage.toAmino(message)
     };
   },
@@ -922,9 +922,9 @@ export const MsgPurchaseWrkChainStateStorageResponse = {
   },
   toAmino(message: MsgPurchaseWrkChainStateStorageResponse): MsgPurchaseWrkChainStateStorageResponseAmino {
     const obj: any = {};
-    obj.wrkchain_id = message.wrkchainId !== BigInt(0) ? message.wrkchainId.toString() : undefined;
-    obj.number_purchased = message.numberPurchased !== BigInt(0) ? message.numberPurchased.toString() : undefined;
-    obj.num_can_purchase = message.numCanPurchase !== BigInt(0) ? message.numCanPurchase.toString() : undefined;
+    obj.wrkchain_id = message.wrkchainId !== BigInt(0) ? message.wrkchainId?.toString() : undefined;
+    obj.number_purchased = message.numberPurchased !== BigInt(0) ? message.numberPurchased?.toString() : undefined;
+    obj.num_can_purchase = message.numCanPurchase !== BigInt(0) ? message.numCanPurchase?.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: MsgPurchaseWrkChainStateStorageResponseAminoMsg): MsgPurchaseWrkChainStateStorageResponse {

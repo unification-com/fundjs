@@ -130,7 +130,7 @@ export interface PurchaseOrderDecisionAmino {
   decision_time?: string;
 }
 export interface PurchaseOrderDecisionAminoMsg {
-  type: "/mainchain.enterprise.v1.PurchaseOrderDecision";
+  type: "enterprise/v1/PurchaseOrderDecision";
   value: PurchaseOrderDecisionAmino;
 }
 /**
@@ -178,10 +178,10 @@ export interface EnterpriseUndPurchaseOrderAmino {
   /** completion_time is a unix epoch value of the time the order was completed */
   completion_time?: string;
   /** decisions is an array of decisions made by authorised addresses */
-  decisions?: PurchaseOrderDecisionAmino[];
+  decisions: PurchaseOrderDecisionAmino[];
 }
 export interface EnterpriseUndPurchaseOrderAminoMsg {
-  type: "/mainchain.enterprise.v1.EnterpriseUndPurchaseOrder";
+  type: "enterprise/v1/EnterpriseUndPurchaseOrder";
   value: EnterpriseUndPurchaseOrderAmino;
 }
 /** EnterpriseUndPurchaseOrder defines a purchase order raised by a whitelisted address */
@@ -207,7 +207,7 @@ export interface PurchaseOrdersAmino {
   purchase_orders?: EnterpriseUndPurchaseOrderAmino[];
 }
 export interface PurchaseOrdersAminoMsg {
-  type: "/mainchain.enterprise.v1.PurchaseOrders";
+  type: "enterprise/v1/PurchaseOrders";
   value: PurchaseOrdersAmino;
 }
 /** PurchaseOrders defines a list of purchase orders */
@@ -233,7 +233,7 @@ export interface LockedUndAmino {
   amount?: CoinAmino;
 }
 export interface LockedUndAminoMsg {
-  type: "/mainchain.enterprise.v1.LockedUnd";
+  type: "enterprise/v1/LockedUnd";
   value: LockedUndAmino;
 }
 /** LockedUnd defines the amount of locked FUND for an account */
@@ -260,7 +260,7 @@ export interface SpentEFUNDAmino {
   amount?: CoinAmino;
 }
 export interface SpentEFUNDAminoMsg {
-  type: "/mainchain.enterprise.v1.SpentEFUND";
+  type: "enterprise/v1/SpentEFUND";
   value: SpentEFUNDAmino;
 }
 /** SpentEFUND defines the amount of spent eFUND for an account */
@@ -317,7 +317,7 @@ export interface EnterpriseUserAccountAmino {
   spendable?: CoinAmino;
 }
 export interface EnterpriseUserAccountAminoMsg {
-  type: "/mainchain.enterprise.v1.EnterpriseUserAccount";
+  type: "enterprise/v1/EnterpriseUserAccount";
   value: EnterpriseUserAccountAmino;
 }
 /** EnterpriseUserAccount defines data about an enterprise user */
@@ -327,43 +327,6 @@ export interface EnterpriseUserAccountSDKType {
   general_supply: CoinSDKType;
   spent_efund: CoinSDKType;
   spendable: CoinSDKType;
-}
-/** UndSupply defines the current FUND supply, including locked */
-export interface UndSupply {
-  /** denom is the denomination, e.g. nund */
-  denom: string;
-  /** amount is the amount of unlocked FUND in general supply */
-  amount: bigint;
-  /** locked is the amount of locked FUND */
-  locked: bigint;
-  /** amount is the sum of locked and unlocked FUND */
-  total: bigint;
-}
-export interface UndSupplyProtoMsg {
-  typeUrl: "/mainchain.enterprise.v1.UndSupply";
-  value: Uint8Array;
-}
-/** UndSupply defines the current FUND supply, including locked */
-export interface UndSupplyAmino {
-  /** denom is the denomination, e.g. nund */
-  denom?: string;
-  /** amount is the amount of unlocked FUND in general supply */
-  amount?: string;
-  /** locked is the amount of locked FUND */
-  locked?: string;
-  /** amount is the sum of locked and unlocked FUND */
-  total?: string;
-}
-export interface UndSupplyAminoMsg {
-  type: "/mainchain.enterprise.v1.UndSupply";
-  value: UndSupplyAmino;
-}
-/** UndSupply defines the current FUND supply, including locked */
-export interface UndSupplySDKType {
-  denom: string;
-  amount: bigint;
-  locked: bigint;
-  total: bigint;
 }
 /** WhitelistAddresses defines a list of whitelisted addresses authorised to raise enterprise purchase orders */
 export interface WhitelistAddresses {
@@ -378,7 +341,7 @@ export interface WhitelistAddressesAmino {
   addresses?: string[];
 }
 export interface WhitelistAddressesAminoMsg {
-  type: "/mainchain.enterprise.v1.WhitelistAddresses";
+  type: "enterprise/v1/WhitelistAddresses";
   value: WhitelistAddressesAmino;
 }
 /** WhitelistAddresses defines a list of whitelisted addresses authorised to raise enterprise purchase orders */
@@ -412,7 +375,7 @@ export interface ParamsAmino {
   decision_time_limit?: string;
 }
 export interface ParamsAminoMsg {
-  type: "/mainchain.enterprise.v1.Params";
+  type: "enterprise/v1/Params";
   value: ParamsAmino;
 }
 /** Params defines the parameters for the enterprise module. */
@@ -431,6 +394,7 @@ function createBasePurchaseOrderDecision(): PurchaseOrderDecision {
 }
 export const PurchaseOrderDecision = {
   typeUrl: "/mainchain.enterprise.v1.PurchaseOrderDecision",
+  aminoType: "enterprise/v1/PurchaseOrderDecision",
   is(o: any): o is PurchaseOrderDecision {
     return o && (o.$typeUrl === PurchaseOrderDecision.typeUrl || typeof o.signer === "string" && isSet(o.decision) && typeof o.decisionTime === "bigint");
   },
@@ -499,11 +463,17 @@ export const PurchaseOrderDecision = {
     const obj: any = {};
     obj.signer = message.signer === "" ? undefined : message.signer;
     obj.decision = message.decision === 0 ? undefined : message.decision;
-    obj.decision_time = message.decisionTime !== BigInt(0) ? message.decisionTime.toString() : undefined;
+    obj.decision_time = message.decisionTime !== BigInt(0) ? message.decisionTime?.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: PurchaseOrderDecisionAminoMsg): PurchaseOrderDecision {
     return PurchaseOrderDecision.fromAmino(object.value);
+  },
+  toAminoMsg(message: PurchaseOrderDecision): PurchaseOrderDecisionAminoMsg {
+    return {
+      type: "enterprise/v1/PurchaseOrderDecision",
+      value: PurchaseOrderDecision.toAmino(message)
+    };
   },
   fromProtoMsg(message: PurchaseOrderDecisionProtoMsg): PurchaseOrderDecision {
     return PurchaseOrderDecision.decode(message.value);
@@ -519,6 +489,7 @@ export const PurchaseOrderDecision = {
   }
 };
 GlobalDecoderRegistry.register(PurchaseOrderDecision.typeUrl, PurchaseOrderDecision);
+GlobalDecoderRegistry.registerAminoProtoMapping(PurchaseOrderDecision.aminoType, PurchaseOrderDecision.typeUrl);
 function createBaseEnterpriseUndPurchaseOrder(): EnterpriseUndPurchaseOrder {
   return {
     id: BigInt(0),
@@ -532,6 +503,7 @@ function createBaseEnterpriseUndPurchaseOrder(): EnterpriseUndPurchaseOrder {
 }
 export const EnterpriseUndPurchaseOrder = {
   typeUrl: "/mainchain.enterprise.v1.EnterpriseUndPurchaseOrder",
+  aminoType: "enterprise/v1/EnterpriseUndPurchaseOrder",
   is(o: any): o is EnterpriseUndPurchaseOrder {
     return o && (o.$typeUrl === EnterpriseUndPurchaseOrder.typeUrl || typeof o.id === "bigint" && typeof o.purchaser === "string" && Coin.is(o.amount) && isSet(o.status) && typeof o.raiseTime === "bigint" && typeof o.completionTime === "bigint" && Array.isArray(o.decisions) && (!o.decisions.length || PurchaseOrderDecision.is(o.decisions[0])));
   },
@@ -636,12 +608,12 @@ export const EnterpriseUndPurchaseOrder = {
   },
   toAmino(message: EnterpriseUndPurchaseOrder): EnterpriseUndPurchaseOrderAmino {
     const obj: any = {};
-    obj.id = message.id !== BigInt(0) ? message.id.toString() : undefined;
+    obj.id = message.id !== BigInt(0) ? message.id?.toString() : undefined;
     obj.purchaser = message.purchaser === "" ? undefined : message.purchaser;
     obj.amount = message.amount ? Coin.toAmino(message.amount) : undefined;
     obj.status = message.status === 0 ? undefined : message.status;
-    obj.raise_time = message.raiseTime !== BigInt(0) ? message.raiseTime.toString() : undefined;
-    obj.completion_time = message.completionTime !== BigInt(0) ? message.completionTime.toString() : undefined;
+    obj.raise_time = message.raiseTime !== BigInt(0) ? message.raiseTime?.toString() : undefined;
+    obj.completion_time = message.completionTime !== BigInt(0) ? message.completionTime?.toString() : undefined;
     if (message.decisions) {
       obj.decisions = message.decisions.map(e => e ? PurchaseOrderDecision.toAmino(e) : undefined);
     } else {
@@ -651,6 +623,12 @@ export const EnterpriseUndPurchaseOrder = {
   },
   fromAminoMsg(object: EnterpriseUndPurchaseOrderAminoMsg): EnterpriseUndPurchaseOrder {
     return EnterpriseUndPurchaseOrder.fromAmino(object.value);
+  },
+  toAminoMsg(message: EnterpriseUndPurchaseOrder): EnterpriseUndPurchaseOrderAminoMsg {
+    return {
+      type: "enterprise/v1/EnterpriseUndPurchaseOrder",
+      value: EnterpriseUndPurchaseOrder.toAmino(message)
+    };
   },
   fromProtoMsg(message: EnterpriseUndPurchaseOrderProtoMsg): EnterpriseUndPurchaseOrder {
     return EnterpriseUndPurchaseOrder.decode(message.value);
@@ -666,6 +644,7 @@ export const EnterpriseUndPurchaseOrder = {
   }
 };
 GlobalDecoderRegistry.register(EnterpriseUndPurchaseOrder.typeUrl, EnterpriseUndPurchaseOrder);
+GlobalDecoderRegistry.registerAminoProtoMapping(EnterpriseUndPurchaseOrder.aminoType, EnterpriseUndPurchaseOrder.typeUrl);
 function createBasePurchaseOrders(): PurchaseOrders {
   return {
     purchaseOrders: []
@@ -673,6 +652,7 @@ function createBasePurchaseOrders(): PurchaseOrders {
 }
 export const PurchaseOrders = {
   typeUrl: "/mainchain.enterprise.v1.PurchaseOrders",
+  aminoType: "enterprise/v1/PurchaseOrders",
   is(o: any): o is PurchaseOrders {
     return o && (o.$typeUrl === PurchaseOrders.typeUrl || Array.isArray(o.purchaseOrders) && (!o.purchaseOrders.length || EnterpriseUndPurchaseOrder.is(o.purchaseOrders[0])));
   },
@@ -727,6 +707,12 @@ export const PurchaseOrders = {
   fromAminoMsg(object: PurchaseOrdersAminoMsg): PurchaseOrders {
     return PurchaseOrders.fromAmino(object.value);
   },
+  toAminoMsg(message: PurchaseOrders): PurchaseOrdersAminoMsg {
+    return {
+      type: "enterprise/v1/PurchaseOrders",
+      value: PurchaseOrders.toAmino(message)
+    };
+  },
   fromProtoMsg(message: PurchaseOrdersProtoMsg): PurchaseOrders {
     return PurchaseOrders.decode(message.value);
   },
@@ -741,6 +727,7 @@ export const PurchaseOrders = {
   }
 };
 GlobalDecoderRegistry.register(PurchaseOrders.typeUrl, PurchaseOrders);
+GlobalDecoderRegistry.registerAminoProtoMapping(PurchaseOrders.aminoType, PurchaseOrders.typeUrl);
 function createBaseLockedUnd(): LockedUnd {
   return {
     owner: "",
@@ -749,6 +736,7 @@ function createBaseLockedUnd(): LockedUnd {
 }
 export const LockedUnd = {
   typeUrl: "/mainchain.enterprise.v1.LockedUnd",
+  aminoType: "enterprise/v1/LockedUnd",
   is(o: any): o is LockedUnd {
     return o && (o.$typeUrl === LockedUnd.typeUrl || typeof o.owner === "string" && Coin.is(o.amount));
   },
@@ -812,6 +800,12 @@ export const LockedUnd = {
   fromAminoMsg(object: LockedUndAminoMsg): LockedUnd {
     return LockedUnd.fromAmino(object.value);
   },
+  toAminoMsg(message: LockedUnd): LockedUndAminoMsg {
+    return {
+      type: "enterprise/v1/LockedUnd",
+      value: LockedUnd.toAmino(message)
+    };
+  },
   fromProtoMsg(message: LockedUndProtoMsg): LockedUnd {
     return LockedUnd.decode(message.value);
   },
@@ -826,6 +820,7 @@ export const LockedUnd = {
   }
 };
 GlobalDecoderRegistry.register(LockedUnd.typeUrl, LockedUnd);
+GlobalDecoderRegistry.registerAminoProtoMapping(LockedUnd.aminoType, LockedUnd.typeUrl);
 function createBaseSpentEFUND(): SpentEFUND {
   return {
     owner: "",
@@ -834,6 +829,7 @@ function createBaseSpentEFUND(): SpentEFUND {
 }
 export const SpentEFUND = {
   typeUrl: "/mainchain.enterprise.v1.SpentEFUND",
+  aminoType: "enterprise/v1/SpentEFUND",
   is(o: any): o is SpentEFUND {
     return o && (o.$typeUrl === SpentEFUND.typeUrl || typeof o.owner === "string" && Coin.is(o.amount));
   },
@@ -897,6 +893,12 @@ export const SpentEFUND = {
   fromAminoMsg(object: SpentEFUNDAminoMsg): SpentEFUND {
     return SpentEFUND.fromAmino(object.value);
   },
+  toAminoMsg(message: SpentEFUND): SpentEFUNDAminoMsg {
+    return {
+      type: "enterprise/v1/SpentEFUND",
+      value: SpentEFUND.toAmino(message)
+    };
+  },
   fromProtoMsg(message: SpentEFUNDProtoMsg): SpentEFUND {
     return SpentEFUND.decode(message.value);
   },
@@ -911,6 +913,7 @@ export const SpentEFUND = {
   }
 };
 GlobalDecoderRegistry.register(SpentEFUND.typeUrl, SpentEFUND);
+GlobalDecoderRegistry.registerAminoProtoMapping(SpentEFUND.aminoType, SpentEFUND.typeUrl);
 function createBaseEnterpriseUserAccount(): EnterpriseUserAccount {
   return {
     owner: "",
@@ -922,6 +925,7 @@ function createBaseEnterpriseUserAccount(): EnterpriseUserAccount {
 }
 export const EnterpriseUserAccount = {
   typeUrl: "/mainchain.enterprise.v1.EnterpriseUserAccount",
+  aminoType: "enterprise/v1/EnterpriseUserAccount",
   is(o: any): o is EnterpriseUserAccount {
     return o && (o.$typeUrl === EnterpriseUserAccount.typeUrl || typeof o.owner === "string" && Coin.is(o.lockedEfund) && Coin.is(o.generalSupply) && Coin.is(o.spentEfund) && Coin.is(o.spendable));
   },
@@ -1018,6 +1022,12 @@ export const EnterpriseUserAccount = {
   fromAminoMsg(object: EnterpriseUserAccountAminoMsg): EnterpriseUserAccount {
     return EnterpriseUserAccount.fromAmino(object.value);
   },
+  toAminoMsg(message: EnterpriseUserAccount): EnterpriseUserAccountAminoMsg {
+    return {
+      type: "enterprise/v1/EnterpriseUserAccount",
+      value: EnterpriseUserAccount.toAmino(message)
+    };
+  },
   fromProtoMsg(message: EnterpriseUserAccountProtoMsg): EnterpriseUserAccount {
     return EnterpriseUserAccount.decode(message.value);
   },
@@ -1032,115 +1042,7 @@ export const EnterpriseUserAccount = {
   }
 };
 GlobalDecoderRegistry.register(EnterpriseUserAccount.typeUrl, EnterpriseUserAccount);
-function createBaseUndSupply(): UndSupply {
-  return {
-    denom: "",
-    amount: BigInt(0),
-    locked: BigInt(0),
-    total: BigInt(0)
-  };
-}
-export const UndSupply = {
-  typeUrl: "/mainchain.enterprise.v1.UndSupply",
-  is(o: any): o is UndSupply {
-    return o && (o.$typeUrl === UndSupply.typeUrl || typeof o.denom === "string" && typeof o.amount === "bigint" && typeof o.locked === "bigint" && typeof o.total === "bigint");
-  },
-  isSDK(o: any): o is UndSupplySDKType {
-    return o && (o.$typeUrl === UndSupply.typeUrl || typeof o.denom === "string" && typeof o.amount === "bigint" && typeof o.locked === "bigint" && typeof o.total === "bigint");
-  },
-  isAmino(o: any): o is UndSupplyAmino {
-    return o && (o.$typeUrl === UndSupply.typeUrl || typeof o.denom === "string" && typeof o.amount === "bigint" && typeof o.locked === "bigint" && typeof o.total === "bigint");
-  },
-  encode(message: UndSupply, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.denom !== "") {
-      writer.uint32(10).string(message.denom);
-    }
-    if (message.amount !== BigInt(0)) {
-      writer.uint32(16).uint64(message.amount);
-    }
-    if (message.locked !== BigInt(0)) {
-      writer.uint32(24).uint64(message.locked);
-    }
-    if (message.total !== BigInt(0)) {
-      writer.uint32(32).uint64(message.total);
-    }
-    return writer;
-  },
-  decode(input: BinaryReader | Uint8Array, length?: number): UndSupply {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
-    let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseUndSupply();
-    while (reader.pos < end) {
-      const tag = reader.uint32();
-      switch (tag >>> 3) {
-        case 1:
-          message.denom = reader.string();
-          break;
-        case 2:
-          message.amount = reader.uint64();
-          break;
-        case 3:
-          message.locked = reader.uint64();
-          break;
-        case 4:
-          message.total = reader.uint64();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
-      }
-    }
-    return message;
-  },
-  fromPartial(object: Partial<UndSupply>): UndSupply {
-    const message = createBaseUndSupply();
-    message.denom = object.denom ?? "";
-    message.amount = object.amount !== undefined && object.amount !== null ? BigInt(object.amount.toString()) : BigInt(0);
-    message.locked = object.locked !== undefined && object.locked !== null ? BigInt(object.locked.toString()) : BigInt(0);
-    message.total = object.total !== undefined && object.total !== null ? BigInt(object.total.toString()) : BigInt(0);
-    return message;
-  },
-  fromAmino(object: UndSupplyAmino): UndSupply {
-    const message = createBaseUndSupply();
-    if (object.denom !== undefined && object.denom !== null) {
-      message.denom = object.denom;
-    }
-    if (object.amount !== undefined && object.amount !== null) {
-      message.amount = BigInt(object.amount);
-    }
-    if (object.locked !== undefined && object.locked !== null) {
-      message.locked = BigInt(object.locked);
-    }
-    if (object.total !== undefined && object.total !== null) {
-      message.total = BigInt(object.total);
-    }
-    return message;
-  },
-  toAmino(message: UndSupply): UndSupplyAmino {
-    const obj: any = {};
-    obj.denom = message.denom === "" ? undefined : message.denom;
-    obj.amount = message.amount !== BigInt(0) ? message.amount.toString() : undefined;
-    obj.locked = message.locked !== BigInt(0) ? message.locked.toString() : undefined;
-    obj.total = message.total !== BigInt(0) ? message.total.toString() : undefined;
-    return obj;
-  },
-  fromAminoMsg(object: UndSupplyAminoMsg): UndSupply {
-    return UndSupply.fromAmino(object.value);
-  },
-  fromProtoMsg(message: UndSupplyProtoMsg): UndSupply {
-    return UndSupply.decode(message.value);
-  },
-  toProto(message: UndSupply): Uint8Array {
-    return UndSupply.encode(message).finish();
-  },
-  toProtoMsg(message: UndSupply): UndSupplyProtoMsg {
-    return {
-      typeUrl: "/mainchain.enterprise.v1.UndSupply",
-      value: UndSupply.encode(message).finish()
-    };
-  }
-};
-GlobalDecoderRegistry.register(UndSupply.typeUrl, UndSupply);
+GlobalDecoderRegistry.registerAminoProtoMapping(EnterpriseUserAccount.aminoType, EnterpriseUserAccount.typeUrl);
 function createBaseWhitelistAddresses(): WhitelistAddresses {
   return {
     addresses: []
@@ -1148,6 +1050,7 @@ function createBaseWhitelistAddresses(): WhitelistAddresses {
 }
 export const WhitelistAddresses = {
   typeUrl: "/mainchain.enterprise.v1.WhitelistAddresses",
+  aminoType: "enterprise/v1/WhitelistAddresses",
   is(o: any): o is WhitelistAddresses {
     return o && (o.$typeUrl === WhitelistAddresses.typeUrl || Array.isArray(o.addresses) && (!o.addresses.length || typeof o.addresses[0] === "string"));
   },
@@ -1202,6 +1105,12 @@ export const WhitelistAddresses = {
   fromAminoMsg(object: WhitelistAddressesAminoMsg): WhitelistAddresses {
     return WhitelistAddresses.fromAmino(object.value);
   },
+  toAminoMsg(message: WhitelistAddresses): WhitelistAddressesAminoMsg {
+    return {
+      type: "enterprise/v1/WhitelistAddresses",
+      value: WhitelistAddresses.toAmino(message)
+    };
+  },
   fromProtoMsg(message: WhitelistAddressesProtoMsg): WhitelistAddresses {
     return WhitelistAddresses.decode(message.value);
   },
@@ -1216,6 +1125,7 @@ export const WhitelistAddresses = {
   }
 };
 GlobalDecoderRegistry.register(WhitelistAddresses.typeUrl, WhitelistAddresses);
+GlobalDecoderRegistry.registerAminoProtoMapping(WhitelistAddresses.aminoType, WhitelistAddresses.typeUrl);
 function createBaseParams(): Params {
   return {
     entSigners: "",
@@ -1226,6 +1136,7 @@ function createBaseParams(): Params {
 }
 export const Params = {
   typeUrl: "/mainchain.enterprise.v1.Params",
+  aminoType: "enterprise/v1/Params",
   is(o: any): o is Params {
     return o && (o.$typeUrl === Params.typeUrl || typeof o.entSigners === "string" && typeof o.denom === "string" && typeof o.minAccepts === "bigint" && typeof o.decisionTimeLimit === "bigint");
   },
@@ -1304,12 +1215,18 @@ export const Params = {
     const obj: any = {};
     obj.ent_signers = message.entSigners === "" ? undefined : message.entSigners;
     obj.denom = message.denom === "" ? undefined : message.denom;
-    obj.min_accepts = message.minAccepts !== BigInt(0) ? message.minAccepts.toString() : undefined;
-    obj.decision_time_limit = message.decisionTimeLimit !== BigInt(0) ? message.decisionTimeLimit.toString() : undefined;
+    obj.min_accepts = message.minAccepts !== BigInt(0) ? message.minAccepts?.toString() : undefined;
+    obj.decision_time_limit = message.decisionTimeLimit !== BigInt(0) ? message.decisionTimeLimit?.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: ParamsAminoMsg): Params {
     return Params.fromAmino(object.value);
+  },
+  toAminoMsg(message: Params): ParamsAminoMsg {
+    return {
+      type: "enterprise/v1/Params",
+      value: Params.toAmino(message)
+    };
   },
   fromProtoMsg(message: ParamsProtoMsg): Params {
     return Params.decode(message.value);
@@ -1325,3 +1242,4 @@ export const Params = {
   }
 };
 GlobalDecoderRegistry.register(Params.typeUrl, Params);
+GlobalDecoderRegistry.registerAminoProtoMapping(Params.aminoType, Params.typeUrl);

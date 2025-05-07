@@ -2,17 +2,17 @@
 import { MsgUndPurchaseOrder, MsgProcessUndPurchaseOrder, MsgWhitelistAddress, MsgUpdateParams } from "./tx";
 export const AminoConverter = {
   "/mainchain.enterprise.v1.MsgUndPurchaseOrder": {
-    aminoType: "enterprise/PurchaseUnd",
+    aminoType: "enterprise/MsgUndPurchaseOrder",
     toAmino: MsgUndPurchaseOrder.toAmino,
     fromAmino: MsgUndPurchaseOrder.fromAmino
   },
   "/mainchain.enterprise.v1.MsgProcessUndPurchaseOrder": {
-    aminoType: "enterprise/ProcessUndPurchaseOrder",
+    aminoType: "enterprise/MsgProcessUndPurchaseOrder",
     toAmino: MsgProcessUndPurchaseOrder.toAmino,
     fromAmino: MsgProcessUndPurchaseOrder.fromAmino
   },
   "/mainchain.enterprise.v1.MsgWhitelistAddress": {
-    aminoType: "enterprise/WhitelistAddress",
+    aminoType: "enterprise/MsgWhitelistAddress",
     toAmino: MsgWhitelistAddress.toAmino,
     fromAmino: MsgWhitelistAddress.fromAmino
   },

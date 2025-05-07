@@ -83,8 +83,8 @@ export interface QueryWrkChainResponseSDKType {
 export interface QueryWrkChainBlockRequest {
   /** wrkchain_id is the id of the wrkchain to query for */
   wrkchainId: bigint;
-  /** height is the block number of the hash to query for */
-  height: bigint;
+  /** wc_height is the block number of the hash to query for */
+  wcHeight: bigint;
 }
 export interface QueryWrkChainBlockRequestProtoMsg {
   typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainBlockRequest";
@@ -94,8 +94,8 @@ export interface QueryWrkChainBlockRequestProtoMsg {
 export interface QueryWrkChainBlockRequestAmino {
   /** wrkchain_id is the id of the wrkchain to query for */
   wrkchain_id?: string;
-  /** height is the block number of the hash to query for */
-  height?: string;
+  /** wc_height is the block number of the hash to query for */
+  wc_height?: string;
 }
 export interface QueryWrkChainBlockRequestAminoMsg {
   type: "/mainchain.wrkchain.v1.QueryWrkChainBlockRequest";
@@ -104,7 +104,7 @@ export interface QueryWrkChainBlockRequestAminoMsg {
 /** QueryWrkChainBlockRequest is the request type for the Query/WrkChainBlock RPC method */
 export interface QueryWrkChainBlockRequestSDKType {
   wrkchain_id: bigint;
-  height: bigint;
+  wc_height: bigint;
 }
 /** QueryWrkChainBlockResponse is the response type for the Query/WrkChainBlock RPC method */
 export interface QueryWrkChainBlockResponse {
@@ -440,7 +440,7 @@ export const QueryWrkChainRequest = {
   },
   toAmino(message: QueryWrkChainRequest): QueryWrkChainRequestAmino {
     const obj: any = {};
-    obj.wrkchain_id = message.wrkchainId !== BigInt(0) ? message.wrkchainId.toString() : undefined;
+    obj.wrkchain_id = message.wrkchainId !== BigInt(0) ? message.wrkchainId?.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: QueryWrkChainRequestAminoMsg): QueryWrkChainRequest {
@@ -536,26 +536,26 @@ GlobalDecoderRegistry.register(QueryWrkChainResponse.typeUrl, QueryWrkChainRespo
 function createBaseQueryWrkChainBlockRequest(): QueryWrkChainBlockRequest {
   return {
     wrkchainId: BigInt(0),
-    height: BigInt(0)
+    wcHeight: BigInt(0)
   };
 }
 export const QueryWrkChainBlockRequest = {
   typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainBlockRequest",
   is(o: any): o is QueryWrkChainBlockRequest {
-    return o && (o.$typeUrl === QueryWrkChainBlockRequest.typeUrl || typeof o.wrkchainId === "bigint" && typeof o.height === "bigint");
+    return o && (o.$typeUrl === QueryWrkChainBlockRequest.typeUrl || typeof o.wrkchainId === "bigint" && typeof o.wcHeight === "bigint");
   },
   isSDK(o: any): o is QueryWrkChainBlockRequestSDKType {
-    return o && (o.$typeUrl === QueryWrkChainBlockRequest.typeUrl || typeof o.wrkchain_id === "bigint" && typeof o.height === "bigint");
+    return o && (o.$typeUrl === QueryWrkChainBlockRequest.typeUrl || typeof o.wrkchain_id === "bigint" && typeof o.wc_height === "bigint");
   },
   isAmino(o: any): o is QueryWrkChainBlockRequestAmino {
-    return o && (o.$typeUrl === QueryWrkChainBlockRequest.typeUrl || typeof o.wrkchain_id === "bigint" && typeof o.height === "bigint");
+    return o && (o.$typeUrl === QueryWrkChainBlockRequest.typeUrl || typeof o.wrkchain_id === "bigint" && typeof o.wc_height === "bigint");
   },
   encode(message: QueryWrkChainBlockRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.wrkchainId !== BigInt(0)) {
       writer.uint32(8).uint64(message.wrkchainId);
     }
-    if (message.height !== BigInt(0)) {
-      writer.uint32(16).uint64(message.height);
+    if (message.wcHeight !== BigInt(0)) {
+      writer.uint32(16).uint64(message.wcHeight);
     }
     return writer;
   },
@@ -570,7 +570,7 @@ export const QueryWrkChainBlockRequest = {
           message.wrkchainId = reader.uint64();
           break;
         case 2:
-          message.height = reader.uint64();
+          message.wcHeight = reader.uint64();
           break;
         default:
           reader.skipType(tag & 7);
@@ -582,7 +582,7 @@ export const QueryWrkChainBlockRequest = {
   fromPartial(object: Partial<QueryWrkChainBlockRequest>): QueryWrkChainBlockRequest {
     const message = createBaseQueryWrkChainBlockRequest();
     message.wrkchainId = object.wrkchainId !== undefined && object.wrkchainId !== null ? BigInt(object.wrkchainId.toString()) : BigInt(0);
-    message.height = object.height !== undefined && object.height !== null ? BigInt(object.height.toString()) : BigInt(0);
+    message.wcHeight = object.wcHeight !== undefined && object.wcHeight !== null ? BigInt(object.wcHeight.toString()) : BigInt(0);
     return message;
   },
   fromAmino(object: QueryWrkChainBlockRequestAmino): QueryWrkChainBlockRequest {
@@ -590,15 +590,15 @@ export const QueryWrkChainBlockRequest = {
     if (object.wrkchain_id !== undefined && object.wrkchain_id !== null) {
       message.wrkchainId = BigInt(object.wrkchain_id);
     }
-    if (object.height !== undefined && object.height !== null) {
-      message.height = BigInt(object.height);
+    if (object.wc_height !== undefined && object.wc_height !== null) {
+      message.wcHeight = BigInt(object.wc_height);
     }
     return message;
   },
   toAmino(message: QueryWrkChainBlockRequest): QueryWrkChainBlockRequestAmino {
     const obj: any = {};
-    obj.wrkchain_id = message.wrkchainId !== BigInt(0) ? message.wrkchainId.toString() : undefined;
-    obj.height = message.height !== BigInt(0) ? message.height.toString() : undefined;
+    obj.wrkchain_id = message.wrkchainId !== BigInt(0) ? message.wrkchainId?.toString() : undefined;
+    obj.wc_height = message.wcHeight !== BigInt(0) ? message.wcHeight?.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: QueryWrkChainBlockRequestAminoMsg): QueryWrkChainBlockRequest {
@@ -694,7 +694,7 @@ export const QueryWrkChainBlockResponse = {
   toAmino(message: QueryWrkChainBlockResponse): QueryWrkChainBlockResponseAmino {
     const obj: any = {};
     obj.block = message.block ? WrkChainBlock.toAmino(message.block) : undefined;
-    obj.wrkchain_id = message.wrkchainId !== BigInt(0) ? message.wrkchainId.toString() : undefined;
+    obj.wrkchain_id = message.wrkchainId !== BigInt(0) ? message.wrkchainId?.toString() : undefined;
     obj.owner = message.owner === "" ? undefined : message.owner;
     return obj;
   },
@@ -952,7 +952,7 @@ export const QueryWrkChainStorageRequest = {
   },
   toAmino(message: QueryWrkChainStorageRequest): QueryWrkChainStorageRequestAmino {
     const obj: any = {};
-    obj.wrkchain_id = message.wrkchainId !== BigInt(0) ? message.wrkchainId.toString() : undefined;
+    obj.wrkchain_id = message.wrkchainId !== BigInt(0) ? message.wrkchainId?.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: QueryWrkChainStorageRequestAminoMsg): QueryWrkChainStorageRequest {
@@ -1080,12 +1080,12 @@ export const QueryWrkChainStorageResponse = {
   },
   toAmino(message: QueryWrkChainStorageResponse): QueryWrkChainStorageResponseAmino {
     const obj: any = {};
-    obj.wrkchain_id = message.wrkchainId !== BigInt(0) ? message.wrkchainId.toString() : undefined;
+    obj.wrkchain_id = message.wrkchainId !== BigInt(0) ? message.wrkchainId?.toString() : undefined;
     obj.owner = message.owner === "" ? undefined : message.owner;
-    obj.current_limit = message.currentLimit !== BigInt(0) ? message.currentLimit.toString() : undefined;
-    obj.current_used = message.currentUsed !== BigInt(0) ? message.currentUsed.toString() : undefined;
-    obj.max = message.max !== BigInt(0) ? message.max.toString() : undefined;
-    obj.max_purchasable = message.maxPurchasable !== BigInt(0) ? message.maxPurchasable.toString() : undefined;
+    obj.current_limit = message.currentLimit !== BigInt(0) ? message.currentLimit?.toString() : undefined;
+    obj.current_used = message.currentUsed !== BigInt(0) ? message.currentUsed?.toString() : undefined;
+    obj.max = message.max !== BigInt(0) ? message.max?.toString() : undefined;
+    obj.max_purchasable = message.maxPurchasable !== BigInt(0) ? message.maxPurchasable?.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: QueryWrkChainStorageResponseAminoMsg): QueryWrkChainStorageResponse {
