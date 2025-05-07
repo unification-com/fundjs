@@ -2,12 +2,8 @@ import telescope from '@cosmology/telescope';
 import { join } from 'path';
 import { rimrafSync as rimraf } from 'rimraf';
 
-// ToDo - using a copy of mainchain/protos in mainchain_tmp_protos
-// which have been modified to add the amino.name option to all Msgs
-// Next mainchain release needs these define in the protos
 const protoDirs: string[] = [
-  // join(__dirname, '/../mainchain/proto'),
-  join(__dirname, '/../proto')
+  join(__dirname, '/../protos')
 ];
 const outPath: string = join(__dirname, '../src');
 rimraf(outPath);
