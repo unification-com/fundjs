@@ -1,3 +1,4 @@
 [submodule "packages/fundjs/mainchain"]
 	path = packages/fundjs/mainchain
 	url = https://github.com/unification-com/mainchain
+	branch = scanlan
