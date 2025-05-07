@@ -4,7 +4,7 @@ import { BinaryReader, BinaryWriter } from "../../../binary";
 import { GlobalDecoderRegistry } from "../../../registry";
 /** GenesisState defines the beacon module's genesis state. */
 export interface GenesisState {
-  /** params defines all the paramaters of the module. */
+  /** params defines all the parameters of the module. */
   params: Params;
   startingBeaconId: bigint;
   registeredBeacons: BeaconExport[];
@@ -15,7 +15,7 @@ export interface GenesisStateProtoMsg {
 }
 /** GenesisState defines the beacon module's genesis state. */
 export interface GenesisStateAmino {
-  /** params defines all the paramaters of the module. */
+  /** params defines all the parameters of the module. */
   params?: ParamsAmino;
   starting_beacon_id?: string;
   registered_beacons?: BeaconExportAmino[];
@@ -165,7 +165,7 @@ export const GenesisState = {
   toAmino(message: GenesisState): GenesisStateAmino {
     const obj: any = {};
     obj.params = message.params ? Params.toAmino(message.params) : undefined;
-    obj.starting_beacon_id = message.startingBeaconId !== BigInt(0) ? message.startingBeaconId.toString() : undefined;
+    obj.starting_beacon_id = message.startingBeaconId !== BigInt(0) ? message.startingBeaconId?.toString() : undefined;
     if (message.registeredBeacons) {
       obj.registered_beacons = message.registeredBeacons.map(e => e ? BeaconExport.toAmino(e) : undefined);
     } else {
@@ -265,8 +265,8 @@ export const BeaconTimestampGenesisExport = {
   },
   toAmino(message: BeaconTimestampGenesisExport): BeaconTimestampGenesisExportAmino {
     const obj: any = {};
-    obj.id = message.id !== BigInt(0) ? message.id.toString() : undefined;
-    obj.t = message.t !== BigInt(0) ? message.t.toString() : undefined;
+    obj.id = message.id !== BigInt(0) ? message.id?.toString() : undefined;
+    obj.t = message.t !== BigInt(0) ? message.t?.toString() : undefined;
     obj.h = message.h === "" ? undefined : message.h;
     return obj;
   },
@@ -361,7 +361,7 @@ export const BeaconExport = {
   toAmino(message: BeaconExport): BeaconExportAmino {
     const obj: any = {};
     obj.beacon = message.beacon ? Beacon.toAmino(message.beacon) : undefined;
-    obj.in_state_limit = message.inStateLimit !== BigInt(0) ? message.inStateLimit.toString() : undefined;
+    obj.in_state_limit = message.inStateLimit !== BigInt(0) ? message.inStateLimit?.toString() : undefined;
     if (message.timestamps) {
       obj.timestamps = message.timestamps.map(e => e ? BeaconTimestampGenesisExport.toAmino(e) : undefined);
     } else {

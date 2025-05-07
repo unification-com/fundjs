@@ -27,7 +27,7 @@ export interface PubKeyAmino {
   key?: string;
 }
 export interface PubKeyAminoMsg {
-  type: "cosmos-sdk/PubKey";
+  type: "tendermint/PubKeyEd25519";
   value: PubKeyAmino;
 }
 /**
@@ -41,7 +41,7 @@ export interface PubKeySDKType {
   key: Uint8Array;
 }
 /**
- * Deprecated: PrivKey defines a ed25519 private key.
+ * PrivKey defines a ed25519 private key.
  * NOTE: ed25519 keys must not be used in SDK apps except in a tendermint validator context.
  */
 export interface PrivKey {
@@ -52,18 +52,18 @@ export interface PrivKeyProtoMsg {
   value: Uint8Array;
 }
 /**
- * Deprecated: PrivKey defines a ed25519 private key.
+ * PrivKey defines a ed25519 private key.
  * NOTE: ed25519 keys must not be used in SDK apps except in a tendermint validator context.
  */
 export interface PrivKeyAmino {
   key?: string;
 }
 export interface PrivKeyAminoMsg {
-  type: "cosmos-sdk/PrivKey";
+  type: "tendermint/PrivKeyEd25519";
   value: PrivKeyAmino;
 }
 /**
- * Deprecated: PrivKey defines a ed25519 private key.
+ * PrivKey defines a ed25519 private key.
  * NOTE: ed25519 keys must not be used in SDK apps except in a tendermint validator context.
  */
 export interface PrivKeySDKType {
@@ -76,7 +76,7 @@ function createBasePubKey(): PubKey {
 }
 export const PubKey = {
   typeUrl: "/cosmos.crypto.ed25519.PubKey",
-  aminoType: "cosmos-sdk/PubKey",
+  aminoType: "tendermint/PubKeyEd25519",
   is(o: any): o is PubKey {
     return o && (o.$typeUrl === PubKey.typeUrl || o.key instanceof Uint8Array || typeof o.key === "string");
   },
@@ -131,7 +131,7 @@ export const PubKey = {
   },
   toAminoMsg(message: PubKey): PubKeyAminoMsg {
     return {
-      type: "cosmos-sdk/PubKey",
+      type: "tendermint/PubKeyEd25519",
       value: PubKey.toAmino(message)
     };
   },
@@ -157,7 +157,7 @@ function createBasePrivKey(): PrivKey {
 }
 export const PrivKey = {
   typeUrl: "/cosmos.crypto.ed25519.PrivKey",
-  aminoType: "cosmos-sdk/PrivKey",
+  aminoType: "tendermint/PrivKeyEd25519",
   is(o: any): o is PrivKey {
     return o && (o.$typeUrl === PrivKey.typeUrl || o.key instanceof Uint8Array || typeof o.key === "string");
   },
@@ -212,7 +212,7 @@ export const PrivKey = {
   },
   toAminoMsg(message: PrivKey): PrivKeyAminoMsg {
     return {
-      type: "cosmos-sdk/PrivKey",
+      type: "tendermint/PrivKeyEd25519",
       value: PrivKey.toAmino(message)
     };
   },

@@ -26,14 +26,34 @@ export const createLCDClient = async ({
         })
       },
       base: {
+        node: {
+          v1beta1: new (await import("../cosmos/base/node/v1beta1/query.lcd")).LCDQueryClient({
+            requestClient
+          })
+        },
         tendermint: {
           v1beta1: new (await import("../cosmos/base/tendermint/v1beta1/query.lcd")).LCDQueryClient({
             requestClient
           })
         }
       },
+      circuit: {
+        v1: new (await import("../cosmos/circuit/v1/query.lcd")).LCDQueryClient({
+          requestClient
+        })
+      },
+      consensus: {
+        v1: new (await import("../cosmos/consensus/v1/query.lcd")).LCDQueryClient({
+          requestClient
+        })
+      },
       distribution: {
         v1beta1: new (await import("../cosmos/distribution/v1beta1/query.lcd")).LCDQueryClient({
+          requestClient
+        })
+      },
+      epochs: {
+        v1beta1: new (await import("../cosmos/epochs/v1beta1/query.lcd")).LCDQueryClient({
           requestClient
         })
       },
@@ -57,6 +77,11 @@ export const createLCDClient = async ({
       },
       group: {
         v1: new (await import("../cosmos/group/v1/query.lcd")).LCDQueryClient({
+          requestClient
+        })
+      },
+      protocolpool: {
+        v1: new (await import("../cosmos/protocolpool/v1/query.lcd")).LCDQueryClient({
           requestClient
         })
       },

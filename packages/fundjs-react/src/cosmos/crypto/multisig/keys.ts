@@ -25,7 +25,7 @@ export interface LegacyAminoPubKeyAmino {
   public_keys?: AnyAmino[];
 }
 export interface LegacyAminoPubKeyAminoMsg {
-  type: "cosmos-sdk/LegacyAminoPubKey";
+  type: "tendermint/PubKeyMultisigThreshold";
   value: LegacyAminoPubKeyAmino;
 }
 /**
@@ -45,7 +45,7 @@ function createBaseLegacyAminoPubKey(): LegacyAminoPubKey {
 }
 export const LegacyAminoPubKey = {
   typeUrl: "/cosmos.crypto.multisig.LegacyAminoPubKey",
-  aminoType: "cosmos-sdk/LegacyAminoPubKey",
+  aminoType: "tendermint/PubKeyMultisigThreshold",
   is(o: any): o is LegacyAminoPubKey {
     return o && (o.$typeUrl === LegacyAminoPubKey.typeUrl || typeof o.threshold === "number" && Array.isArray(o.publicKeys) && (!o.publicKeys.length || Any.is(o.publicKeys[0])));
   },
@@ -113,7 +113,7 @@ export const LegacyAminoPubKey = {
   },
   toAminoMsg(message: LegacyAminoPubKey): LegacyAminoPubKeyAminoMsg {
     return {
-      type: "cosmos-sdk/LegacyAminoPubKey",
+      type: "tendermint/PubKeyMultisigThreshold",
       value: LegacyAminoPubKey.toAmino(message)
     };
   },

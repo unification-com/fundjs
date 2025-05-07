@@ -169,7 +169,7 @@ export const GenesisState = {
   toAmino(message: GenesisState): GenesisStateAmino {
     const obj: any = {};
     obj.params = message.params ? Params.toAmino(message.params) : undefined;
-    obj.starting_purchase_order_id = message.startingPurchaseOrderId !== BigInt(0) ? message.startingPurchaseOrderId.toString() : undefined;
+    obj.starting_purchase_order_id = message.startingPurchaseOrderId !== BigInt(0) ? message.startingPurchaseOrderId?.toString() : undefined;
     if (message.purchaseOrders) {
       obj.purchase_orders = message.purchaseOrders.map(e => e ? EnterpriseUndPurchaseOrder.toAmino(e) : undefined);
     } else {

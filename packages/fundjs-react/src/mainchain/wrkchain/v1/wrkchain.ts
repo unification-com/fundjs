@@ -11,8 +11,8 @@ export interface WrkChain {
   name: string;
   /** genesis is an optional hash of the wrkchain's genesis block */
   genesis: string;
-  /** type is the wrkchain type, e.g. geth, cosmos etc. */
-  type: string;
+  /** base_type is the wrkchain type, e.g. geth, cosmos etc. */
+  baseType: string;
   /** lastblock is the current highest recorded height for the wrkchain */
   lastblock: bigint;
   /** num_blocks is the current number of block hashes stored in state for the wrkchain */
@@ -38,8 +38,8 @@ export interface WrkChainAmino {
   name?: string;
   /** genesis is an optional hash of the wrkchain's genesis block */
   genesis?: string;
-  /** type is the wrkchain type, e.g. geth, cosmos etc. */
-  type?: string;
+  /** base_type is the wrkchain type, e.g. geth, cosmos etc. */
+  base_type?: string;
   /** lastblock is the current highest recorded height for the wrkchain */
   lastblock?: string;
   /** num_blocks is the current number of block hashes stored in state for the wrkchain */
@@ -52,7 +52,7 @@ export interface WrkChainAmino {
   owner?: string;
 }
 export interface WrkChainAminoMsg {
-  type: "/mainchain.wrkchain.v1.WrkChain";
+  type: "wrkchain/v1/WrkChain";
   value: WrkChainAmino;
 }
 /** WrkChain holds metadata about a registered wrkchain */
@@ -61,7 +61,7 @@ export interface WrkChainSDKType {
   moniker: string;
   name: string;
   genesis: string;
-  type: string;
+  base_type: string;
   lastblock: bigint;
   num_blocks: bigint;
   lowest_height: bigint;
@@ -87,7 +87,7 @@ export interface WrkChainStorageLimitAmino {
   in_state_limit?: string;
 }
 export interface WrkChainStorageLimitAminoMsg {
-  type: "/mainchain.wrkchain.v1.WrkChainStorageLimit";
+  type: "wrkchain/v1/WrkChainStorageLimit";
   value: WrkChainStorageLimitAmino;
 }
 /** WrkChainStorageLimit holds tata about the wrkchain's current in-state storage limit */
@@ -134,7 +134,7 @@ export interface WrkChainBlockAmino {
   sub_time?: string;
 }
 export interface WrkChainBlockAminoMsg {
-  type: "/mainchain.wrkchain.v1.WrkChainBlock";
+  type: "wrkchain/v1/WrkChainBlock";
   value: WrkChainBlockAmino;
 }
 /** WrkChainBlock holds data about a wrkchain's block hash submission */
@@ -182,7 +182,7 @@ export interface ParamsAmino {
   max_storage_limit?: string;
 }
 export interface ParamsAminoMsg {
-  type: "/mainchain.wrkchain.v1.Params";
+  type: "wrkchain/v1/Params";
   value: ParamsAmino;
 }
 /** Params defines the parameters for the wrkchain module. */
@@ -200,7 +200,7 @@ function createBaseWrkChain(): WrkChain {
     moniker: "",
     name: "",
     genesis: "",
-    type: "",
+    baseType: "",
     lastblock: BigInt(0),
     numBlocks: BigInt(0),
     lowestHeight: BigInt(0),
@@ -210,14 +210,15 @@ function createBaseWrkChain(): WrkChain {
 }
 export const WrkChain = {
   typeUrl: "/mainchain.wrkchain.v1.WrkChain",
+  aminoType: "wrkchain/v1/WrkChain",
   is(o: any): o is WrkChain {
-    return o && (o.$typeUrl === WrkChain.typeUrl || typeof o.wrkchainId === "bigint" && typeof o.moniker === "string" && typeof o.name === "string" && typeof o.genesis === "string" && typeof o.type === "string" && typeof o.lastblock === "bigint" && typeof o.numBlocks === "bigint" && typeof o.lowestHeight === "bigint" && typeof o.regTime === "bigint" && typeof o.owner === "string");
+    return o && (o.$typeUrl === WrkChain.typeUrl || typeof o.wrkchainId === "bigint" && typeof o.moniker === "string" && typeof o.name === "string" && typeof o.genesis === "string" && typeof o.baseType === "string" && typeof o.lastblock === "bigint" && typeof o.numBlocks === "bigint" && typeof o.lowestHeight === "bigint" && typeof o.regTime === "bigint" && typeof o.owner === "string");
   },
   isSDK(o: any): o is WrkChainSDKType {
-    return o && (o.$typeUrl === WrkChain.typeUrl || typeof o.wrkchain_id === "bigint" && typeof o.moniker === "string" && typeof o.name === "string" && typeof o.genesis === "string" && typeof o.type === "string" && typeof o.lastblock === "bigint" && typeof o.num_blocks === "bigint" && typeof o.lowest_height === "bigint" && typeof o.reg_time === "bigint" && typeof o.owner === "string");
+    return o && (o.$typeUrl === WrkChain.typeUrl || typeof o.wrkchain_id === "bigint" && typeof o.moniker === "string" && typeof o.name === "string" && typeof o.genesis === "string" && typeof o.base_type === "string" && typeof o.lastblock === "bigint" && typeof o.num_blocks === "bigint" && typeof o.lowest_height === "bigint" && typeof o.reg_time === "bigint" && typeof o.owner === "string");
   },
   isAmino(o: any): o is WrkChainAmino {
-    return o && (o.$typeUrl === WrkChain.typeUrl || typeof o.wrkchain_id === "bigint" && typeof o.moniker === "string" && typeof o.name === "string" && typeof o.genesis === "string" && typeof o.type === "string" && typeof o.lastblock === "bigint" && typeof o.num_blocks === "bigint" && typeof o.lowest_height === "bigint" && typeof o.reg_time === "bigint" && typeof o.owner === "string");
+    return o && (o.$typeUrl === WrkChain.typeUrl || typeof o.wrkchain_id === "bigint" && typeof o.moniker === "string" && typeof o.name === "string" && typeof o.genesis === "string" && typeof o.base_type === "string" && typeof o.lastblock === "bigint" && typeof o.num_blocks === "bigint" && typeof o.lowest_height === "bigint" && typeof o.reg_time === "bigint" && typeof o.owner === "string");
   },
   encode(message: WrkChain, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.wrkchainId !== BigInt(0)) {
@@ -232,8 +233,8 @@ export const WrkChain = {
     if (message.genesis !== "") {
       writer.uint32(34).string(message.genesis);
     }
-    if (message.type !== "") {
-      writer.uint32(42).string(message.type);
+    if (message.baseType !== "") {
+      writer.uint32(42).string(message.baseType);
     }
     if (message.lastblock !== BigInt(0)) {
       writer.uint32(48).uint64(message.lastblock);
@@ -272,7 +273,7 @@ export const WrkChain = {
           message.genesis = reader.string();
           break;
         case 5:
-          message.type = reader.string();
+          message.baseType = reader.string();
           break;
         case 6:
           message.lastblock = reader.uint64();
@@ -302,7 +303,7 @@ export const WrkChain = {
     message.moniker = object.moniker ?? "";
     message.name = object.name ?? "";
     message.genesis = object.genesis ?? "";
-    message.type = object.type ?? "";
+    message.baseType = object.baseType ?? "";
     message.lastblock = object.lastblock !== undefined && object.lastblock !== null ? BigInt(object.lastblock.toString()) : BigInt(0);
     message.numBlocks = object.numBlocks !== undefined && object.numBlocks !== null ? BigInt(object.numBlocks.toString()) : BigInt(0);
     message.lowestHeight = object.lowestHeight !== undefined && object.lowestHeight !== null ? BigInt(object.lowestHeight.toString()) : BigInt(0);
@@ -324,8 +325,8 @@ export const WrkChain = {
     if (object.genesis !== undefined && object.genesis !== null) {
       message.genesis = object.genesis;
     }
-    if (object.type !== undefined && object.type !== null) {
-      message.type = object.type;
+    if (object.base_type !== undefined && object.base_type !== null) {
+      message.baseType = object.base_type;
     }
     if (object.lastblock !== undefined && object.lastblock !== null) {
       message.lastblock = BigInt(object.lastblock);
@@ -346,20 +347,26 @@ export const WrkChain = {
   },
   toAmino(message: WrkChain): WrkChainAmino {
     const obj: any = {};
-    obj.wrkchain_id = message.wrkchainId !== BigInt(0) ? message.wrkchainId.toString() : undefined;
+    obj.wrkchain_id = message.wrkchainId !== BigInt(0) ? message.wrkchainId?.toString() : undefined;
     obj.moniker = message.moniker === "" ? undefined : message.moniker;
     obj.name = message.name === "" ? undefined : message.name;
     obj.genesis = message.genesis === "" ? undefined : message.genesis;
-    obj.type = message.type === "" ? undefined : message.type;
-    obj.lastblock = message.lastblock !== BigInt(0) ? message.lastblock.toString() : undefined;
-    obj.num_blocks = message.numBlocks !== BigInt(0) ? message.numBlocks.toString() : undefined;
-    obj.lowest_height = message.lowestHeight !== BigInt(0) ? message.lowestHeight.toString() : undefined;
-    obj.reg_time = message.regTime !== BigInt(0) ? message.regTime.toString() : undefined;
+    obj.base_type = message.baseType === "" ? undefined : message.baseType;
+    obj.lastblock = message.lastblock !== BigInt(0) ? message.lastblock?.toString() : undefined;
+    obj.num_blocks = message.numBlocks !== BigInt(0) ? message.numBlocks?.toString() : undefined;
+    obj.lowest_height = message.lowestHeight !== BigInt(0) ? message.lowestHeight?.toString() : undefined;
+    obj.reg_time = message.regTime !== BigInt(0) ? message.regTime?.toString() : undefined;
     obj.owner = message.owner === "" ? undefined : message.owner;
     return obj;
   },
   fromAminoMsg(object: WrkChainAminoMsg): WrkChain {
     return WrkChain.fromAmino(object.value);
+  },
+  toAminoMsg(message: WrkChain): WrkChainAminoMsg {
+    return {
+      type: "wrkchain/v1/WrkChain",
+      value: WrkChain.toAmino(message)
+    };
   },
   fromProtoMsg(message: WrkChainProtoMsg): WrkChain {
     return WrkChain.decode(message.value);
@@ -375,6 +382,7 @@ export const WrkChain = {
   }
 };
 GlobalDecoderRegistry.register(WrkChain.typeUrl, WrkChain);
+GlobalDecoderRegistry.registerAminoProtoMapping(WrkChain.aminoType, WrkChain.typeUrl);
 function createBaseWrkChainStorageLimit(): WrkChainStorageLimit {
   return {
     wrkchainId: BigInt(0),
@@ -383,6 +391,7 @@ function createBaseWrkChainStorageLimit(): WrkChainStorageLimit {
 }
 export const WrkChainStorageLimit = {
   typeUrl: "/mainchain.wrkchain.v1.WrkChainStorageLimit",
+  aminoType: "wrkchain/v1/WrkChainStorageLimit",
   is(o: any): o is WrkChainStorageLimit {
     return o && (o.$typeUrl === WrkChainStorageLimit.typeUrl || typeof o.wrkchainId === "bigint" && typeof o.inStateLimit === "bigint");
   },
@@ -439,12 +448,18 @@ export const WrkChainStorageLimit = {
   },
   toAmino(message: WrkChainStorageLimit): WrkChainStorageLimitAmino {
     const obj: any = {};
-    obj.wrkchain_id = message.wrkchainId !== BigInt(0) ? message.wrkchainId.toString() : undefined;
-    obj.in_state_limit = message.inStateLimit !== BigInt(0) ? message.inStateLimit.toString() : undefined;
+    obj.wrkchain_id = message.wrkchainId !== BigInt(0) ? message.wrkchainId?.toString() : undefined;
+    obj.in_state_limit = message.inStateLimit !== BigInt(0) ? message.inStateLimit?.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: WrkChainStorageLimitAminoMsg): WrkChainStorageLimit {
     return WrkChainStorageLimit.fromAmino(object.value);
+  },
+  toAminoMsg(message: WrkChainStorageLimit): WrkChainStorageLimitAminoMsg {
+    return {
+      type: "wrkchain/v1/WrkChainStorageLimit",
+      value: WrkChainStorageLimit.toAmino(message)
+    };
   },
   fromProtoMsg(message: WrkChainStorageLimitProtoMsg): WrkChainStorageLimit {
     return WrkChainStorageLimit.decode(message.value);
@@ -460,6 +475,7 @@ export const WrkChainStorageLimit = {
   }
 };
 GlobalDecoderRegistry.register(WrkChainStorageLimit.typeUrl, WrkChainStorageLimit);
+GlobalDecoderRegistry.registerAminoProtoMapping(WrkChainStorageLimit.aminoType, WrkChainStorageLimit.typeUrl);
 function createBaseWrkChainBlock(): WrkChainBlock {
   return {
     height: BigInt(0),
@@ -473,6 +489,7 @@ function createBaseWrkChainBlock(): WrkChainBlock {
 }
 export const WrkChainBlock = {
   typeUrl: "/mainchain.wrkchain.v1.WrkChainBlock",
+  aminoType: "wrkchain/v1/WrkChainBlock",
   is(o: any): o is WrkChainBlock {
     return o && (o.$typeUrl === WrkChainBlock.typeUrl || typeof o.height === "bigint" && typeof o.blockhash === "string" && typeof o.parenthash === "string" && typeof o.hash1 === "string" && typeof o.hash2 === "string" && typeof o.hash3 === "string" && typeof o.subTime === "bigint");
   },
@@ -579,17 +596,23 @@ export const WrkChainBlock = {
   },
   toAmino(message: WrkChainBlock): WrkChainBlockAmino {
     const obj: any = {};
-    obj.height = message.height !== BigInt(0) ? message.height.toString() : undefined;
+    obj.height = message.height !== BigInt(0) ? message.height?.toString() : undefined;
     obj.blockhash = message.blockhash === "" ? undefined : message.blockhash;
     obj.parenthash = message.parenthash === "" ? undefined : message.parenthash;
     obj.hash1 = message.hash1 === "" ? undefined : message.hash1;
     obj.hash2 = message.hash2 === "" ? undefined : message.hash2;
     obj.hash3 = message.hash3 === "" ? undefined : message.hash3;
-    obj.sub_time = message.subTime !== BigInt(0) ? message.subTime.toString() : undefined;
+    obj.sub_time = message.subTime !== BigInt(0) ? message.subTime?.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: WrkChainBlockAminoMsg): WrkChainBlock {
     return WrkChainBlock.fromAmino(object.value);
+  },
+  toAminoMsg(message: WrkChainBlock): WrkChainBlockAminoMsg {
+    return {
+      type: "wrkchain/v1/WrkChainBlock",
+      value: WrkChainBlock.toAmino(message)
+    };
   },
   fromProtoMsg(message: WrkChainBlockProtoMsg): WrkChainBlock {
     return WrkChainBlock.decode(message.value);
@@ -605,6 +628,7 @@ export const WrkChainBlock = {
   }
 };
 GlobalDecoderRegistry.register(WrkChainBlock.typeUrl, WrkChainBlock);
+GlobalDecoderRegistry.registerAminoProtoMapping(WrkChainBlock.aminoType, WrkChainBlock.typeUrl);
 function createBaseParams(): Params {
   return {
     feeRegister: BigInt(0),
@@ -617,6 +641,7 @@ function createBaseParams(): Params {
 }
 export const Params = {
   typeUrl: "/mainchain.wrkchain.v1.Params",
+  aminoType: "wrkchain/v1/Params",
   is(o: any): o is Params {
     return o && (o.$typeUrl === Params.typeUrl || typeof o.feeRegister === "bigint" && typeof o.feeRecord === "bigint" && typeof o.feePurchaseStorage === "bigint" && typeof o.denom === "string" && typeof o.defaultStorageLimit === "bigint" && typeof o.maxStorageLimit === "bigint");
   },
@@ -713,16 +738,22 @@ export const Params = {
   },
   toAmino(message: Params): ParamsAmino {
     const obj: any = {};
-    obj.fee_register = message.feeRegister !== BigInt(0) ? message.feeRegister.toString() : undefined;
-    obj.fee_record = message.feeRecord !== BigInt(0) ? message.feeRecord.toString() : undefined;
-    obj.fee_purchase_storage = message.feePurchaseStorage !== BigInt(0) ? message.feePurchaseStorage.toString() : undefined;
+    obj.fee_register = message.feeRegister !== BigInt(0) ? message.feeRegister?.toString() : undefined;
+    obj.fee_record = message.feeRecord !== BigInt(0) ? message.feeRecord?.toString() : undefined;
+    obj.fee_purchase_storage = message.feePurchaseStorage !== BigInt(0) ? message.feePurchaseStorage?.toString() : undefined;
     obj.denom = message.denom === "" ? undefined : message.denom;
-    obj.default_storage_limit = message.defaultStorageLimit !== BigInt(0) ? message.defaultStorageLimit.toString() : undefined;
-    obj.max_storage_limit = message.maxStorageLimit !== BigInt(0) ? message.maxStorageLimit.toString() : undefined;
+    obj.default_storage_limit = message.defaultStorageLimit !== BigInt(0) ? message.defaultStorageLimit?.toString() : undefined;
+    obj.max_storage_limit = message.maxStorageLimit !== BigInt(0) ? message.maxStorageLimit?.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: ParamsAminoMsg): Params {
     return Params.fromAmino(object.value);
+  },
+  toAminoMsg(message: Params): ParamsAminoMsg {
+    return {
+      type: "wrkchain/v1/Params",
+      value: Params.toAmino(message)
+    };
   },
   fromProtoMsg(message: ParamsProtoMsg): Params {
     return Params.decode(message.value);
@@ -738,3 +769,4 @@ export const Params = {
   }
 };
 GlobalDecoderRegistry.register(Params.typeUrl, Params);
+GlobalDecoderRegistry.registerAminoProtoMapping(Params.aminoType, Params.typeUrl);

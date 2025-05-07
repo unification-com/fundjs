@@ -4,7 +4,7 @@ import { BinaryReader } from "../../../binary";
 import { QueryClient, createProtobufRpcClient, ProtobufRpcClient } from "@cosmjs/stargate";
 import { ReactQueryParams } from "../../../react-query";
 import { useQuery } from "@tanstack/react-query";
-import { SimulateRequest, SimulateResponse, GetTxRequest, GetTxResponse, BroadcastTxRequest, BroadcastTxResponse, GetTxsEventRequest, GetTxsEventResponse, GetBlockWithTxsRequest, GetBlockWithTxsResponse } from "./service";
+import { SimulateRequest, SimulateResponse, GetTxRequest, GetTxResponse, BroadcastTxRequest, BroadcastTxResponse, GetTxsEventRequest, GetTxsEventResponse, GetBlockWithTxsRequest, GetBlockWithTxsResponse, TxDecodeRequest, TxDecodeResponse, TxEncodeRequest, TxEncodeResponse, TxEncodeAminoRequest, TxEncodeAminoResponse, TxDecodeAminoRequest, TxDecodeAminoResponse } from "./service";
 /** Service defines a gRPC service for interacting with transactions. */
 export interface Service {
   /** Simulate simulates executing a transaction for estimating gas usage. */
@@ -21,6 +21,30 @@ export interface Service {
    * Since: cosmos-sdk 0.45.2
    */
   getBlockWithTxs(request: GetBlockWithTxsRequest): Promise<GetBlockWithTxsResponse>;
+  /**
+   * TxDecode decodes the transaction.
+   * 
+   * Since: cosmos-sdk 0.47
+   */
+  txDecode(request: TxDecodeRequest): Promise<TxDecodeResponse>;
+  /**
+   * TxEncode encodes the transaction.
+   * 
+   * Since: cosmos-sdk 0.47
+   */
+  txEncode(request: TxEncodeRequest): Promise<TxEncodeResponse>;
+  /**
+   * TxEncodeAmino encodes an Amino transaction from JSON to encoded bytes.
+   * 
+   * Since: cosmos-sdk 0.47
+   */
+  txEncodeAmino(request: TxEncodeAminoRequest): Promise<TxEncodeAminoResponse>;
+  /**
+   * TxDecodeAmino decodes an Amino transaction from encoded bytes to JSON.
+   * 
+   * Since: cosmos-sdk 0.47
+   */
+  txDecodeAmino(request: TxDecodeAminoRequest): Promise<TxDecodeAminoResponse>;
 }
 export class ServiceClientImpl implements Service {
   private readonly rpc: Rpc;
@@ -31,6 +55,10 @@ export class ServiceClientImpl implements Service {
     this.broadcastTx = this.broadcastTx.bind(this);
     this.getTxsEvent = this.getTxsEvent.bind(this);
     this.getBlockWithTxs = this.getBlockWithTxs.bind(this);
+    this.txDecode = this.txDecode.bind(this);
+    this.txEncode = this.txEncode.bind(this);
+    this.txEncodeAmino = this.txEncodeAmino.bind(this);
+    this.txDecodeAmino = this.txDecodeAmino.bind(this);
   }
   simulate(request: SimulateRequest): Promise<SimulateResponse> {
     const data = SimulateRequest.encode(request).finish();
@@ -57,6 +85,26 @@ export class ServiceClientImpl implements Service {
     const promise = this.rpc.request("cosmos.tx.v1beta1.Service", "GetBlockWithTxs", data);
     return promise.then(data => GetBlockWithTxsResponse.decode(new BinaryReader(data)));
   }
+  txDecode(request: TxDecodeRequest): Promise<TxDecodeResponse> {
+    const data = TxDecodeRequest.encode(request).finish();
+    const promise = this.rpc.request("cosmos.tx.v1beta1.Service", "TxDecode", data);
+    return promise.then(data => TxDecodeResponse.decode(new BinaryReader(data)));
+  }
+  txEncode(request: TxEncodeRequest): Promise<TxEncodeResponse> {
+    const data = TxEncodeRequest.encode(request).finish();
+    const promise = this.rpc.request("cosmos.tx.v1beta1.Service", "TxEncode", data);
+    return promise.then(data => TxEncodeResponse.decode(new BinaryReader(data)));
+  }
+  txEncodeAmino(request: TxEncodeAminoRequest): Promise<TxEncodeAminoResponse> {
+    const data = TxEncodeAminoRequest.encode(request).finish();
+    const promise = this.rpc.request("cosmos.tx.v1beta1.Service", "TxEncodeAmino", data);
+    return promise.then(data => TxEncodeAminoResponse.decode(new BinaryReader(data)));
+  }
+  txDecodeAmino(request: TxDecodeAminoRequest): Promise<TxDecodeAminoResponse> {
+    const data = TxDecodeAminoRequest.encode(request).finish();
+    const promise = this.rpc.request("cosmos.tx.v1beta1.Service", "TxDecodeAmino", data);
+    return promise.then(data => TxDecodeAminoResponse.decode(new BinaryReader(data)));
+  }
 }
 export const createRpcQueryExtension = (base: QueryClient) => {
   const rpc = createProtobufRpcClient(base);
@@ -76,6 +124,18 @@ export const createRpcQueryExtension = (base: QueryClient) => {
     },
     getBlockWithTxs(request: GetBlockWithTxsRequest): Promise<GetBlockWithTxsResponse> {
       return queryService.getBlockWithTxs(request);
+    },
+    txDecode(request: TxDecodeRequest): Promise<TxDecodeResponse> {
+      return queryService.txDecode(request);
+    },
+    txEncode(request: TxEncodeRequest): Promise<TxEncodeResponse> {
+      return queryService.txEncode(request);
+    },
+    txEncodeAmino(request: TxEncodeAminoRequest): Promise<TxEncodeAminoResponse> {
+      return queryService.txEncodeAmino(request);
+    },
+    txDecodeAmino(request: TxDecodeAminoRequest): Promise<TxDecodeAminoResponse> {
+      return queryService.txDecodeAmino(request);
     }
   };
 };
@@ -93,6 +153,18 @@ export interface UseGetTxsEventQuery<TData> extends ReactQueryParams<GetTxsEvent
 }
 export interface UseGetBlockWithTxsQuery<TData> extends ReactQueryParams<GetBlockWithTxsResponse, TData> {
   request: GetBlockWithTxsRequest;
+}
+export interface UseTxDecodeQuery<TData> extends ReactQueryParams<TxDecodeResponse, TData> {
+  request: TxDecodeRequest;
+}
+export interface UseTxEncodeQuery<TData> extends ReactQueryParams<TxEncodeResponse, TData> {
+  request: TxEncodeRequest;
+}
+export interface UseTxEncodeAminoQuery<TData> extends ReactQueryParams<TxEncodeAminoResponse, TData> {
+  request: TxEncodeAminoRequest;
+}
+export interface UseTxDecodeAminoQuery<TData> extends ReactQueryParams<TxDecodeAminoResponse, TData> {
+  request: TxDecodeAminoRequest;
 }
 const _queryClients: WeakMap<ProtobufRpcClient, ServiceClientImpl> = new WeakMap();
 const getQueryService = (rpc: ProtobufRpcClient | undefined): ServiceClientImpl | undefined => {
@@ -151,6 +223,42 @@ export const createRpcQueryHooks = (rpc: ProtobufRpcClient | undefined) => {
       return queryService.getBlockWithTxs(request);
     }, options);
   };
+  const useTxDecode = <TData = TxDecodeResponse,>({
+    request,
+    options
+  }: UseTxDecodeQuery<TData>) => {
+    return useQuery<TxDecodeResponse, Error, TData>(["txDecodeQuery", request], () => {
+      if (!queryService) throw new Error("Query Service not initialized");
+      return queryService.txDecode(request);
+    }, options);
+  };
+  const useTxEncode = <TData = TxEncodeResponse,>({
+    request,
+    options
+  }: UseTxEncodeQuery<TData>) => {
+    return useQuery<TxEncodeResponse, Error, TData>(["txEncodeQuery", request], () => {
+      if (!queryService) throw new Error("Query Service not initialized");
+      return queryService.txEncode(request);
+    }, options);
+  };
+  const useTxEncodeAmino = <TData = TxEncodeAminoResponse,>({
+    request,
+    options
+  }: UseTxEncodeAminoQuery<TData>) => {
+    return useQuery<TxEncodeAminoResponse, Error, TData>(["txEncodeAminoQuery", request], () => {
+      if (!queryService) throw new Error("Query Service not initialized");
+      return queryService.txEncodeAmino(request);
+    }, options);
+  };
+  const useTxDecodeAmino = <TData = TxDecodeAminoResponse,>({
+    request,
+    options
+  }: UseTxDecodeAminoQuery<TData>) => {
+    return useQuery<TxDecodeAminoResponse, Error, TData>(["txDecodeAminoQuery", request], () => {
+      if (!queryService) throw new Error("Query Service not initialized");
+      return queryService.txDecodeAmino(request);
+    }, options);
+  };
   return {
     /** Simulate simulates executing a transaction for estimating gas usage. */useSimulate,
     /** GetTx fetches a tx by hash. */useGetTx,
@@ -161,6 +269,30 @@ export const createRpcQueryHooks = (rpc: ProtobufRpcClient | undefined) => {
      * 
      * Since: cosmos-sdk 0.45.2
      */
-    useGetBlockWithTxs
+    useGetBlockWithTxs,
+    /**
+     * TxDecode decodes the transaction.
+     * 
+     * Since: cosmos-sdk 0.47
+     */
+    useTxDecode,
+    /**
+     * TxEncode encodes the transaction.
+     * 
+     * Since: cosmos-sdk 0.47
+     */
+    useTxEncode,
+    /**
+     * TxEncodeAmino encodes an Amino transaction from JSON to encoded bytes.
+     * 
+     * Since: cosmos-sdk 0.47
+     */
+    useTxEncodeAmino,
+    /**
+     * TxDecodeAmino decodes an Amino transaction from encoded bytes to JSON.
+     * 
+     * Since: cosmos-sdk 0.47
+     */
+    useTxDecodeAmino
   };
 };

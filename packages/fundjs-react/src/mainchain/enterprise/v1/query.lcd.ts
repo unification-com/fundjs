@@ -1,7 +1,7 @@
 //@ts-nocheck
 import { setPaginationParams } from "../../../helpers";
 import { LCDClient } from "@cosmology/lcd";
-import { QueryParamsRequest, QueryParamsResponseSDKType, QueryEnterpriseUndPurchaseOrderRequest, QueryEnterpriseUndPurchaseOrderResponseSDKType, QueryEnterpriseUndPurchaseOrdersRequest, QueryEnterpriseUndPurchaseOrdersResponseSDKType, QueryLockedUndByAddressRequest, QueryLockedUndByAddressResponseSDKType, QueryTotalLockedRequest, QueryTotalLockedResponseSDKType, QueryTotalUnlockedRequest, QueryTotalUnlockedResponseSDKType, QueryEnterpriseSupplyRequest, QueryEnterpriseSupplyResponseSDKType, QueryTotalSupplyRequest, QueryTotalSupplyResponseSDKType, QuerySupplyOfRequest, QuerySupplyOfResponseSDKType, QueryWhitelistRequest, QueryWhitelistResponseSDKType, QueryWhitelistedRequest, QueryWhitelistedResponseSDKType, QueryEnterpriseAccountRequest, QueryEnterpriseAccountResponseSDKType, QueryTotalSpentEFUNDRequest, QueryTotalSpentEFUNDResponseSDKType, QuerySpentEFUNDByAddressRequest, QuerySpentEFUNDByAddressResponseSDKType } from "./query";
+import { QueryParamsRequest, QueryParamsResponseSDKType, QueryEnterpriseUndPurchaseOrderRequest, QueryEnterpriseUndPurchaseOrderResponseSDKType, QueryEnterpriseUndPurchaseOrdersRequest, QueryEnterpriseUndPurchaseOrdersResponseSDKType, QueryLockedUndByAddressRequest, QueryLockedUndByAddressResponseSDKType, QueryTotalLockedRequest, QueryTotalLockedResponseSDKType, QueryWhitelistRequest, QueryWhitelistResponseSDKType, QueryWhitelistedRequest, QueryWhitelistedResponseSDKType, QueryEnterpriseAccountRequest, QueryEnterpriseAccountResponseSDKType, QueryTotalSpentEFUNDRequest, QueryTotalSpentEFUNDResponseSDKType, QuerySpentEFUNDByAddressRequest, QuerySpentEFUNDByAddressResponseSDKType } from "./query";
 export class LCDQueryClient {
   req: LCDClient;
   constructor({
@@ -15,12 +15,6 @@ export class LCDQueryClient {
     this.enterpriseUndPurchaseOrders = this.enterpriseUndPurchaseOrders.bind(this);
     this.lockedUndByAddress = this.lockedUndByAddress.bind(this);
     this.totalLocked = this.totalLocked.bind(this);
-    this.totalUnlocked = this.totalUnlocked.bind(this);
-    this.enterpriseSupply = this.enterpriseSupply.bind(this);
-    this.totalSupply = this.totalSupply.bind(this);
-    this.supplyOf = this.supplyOf.bind(this);
-    this.totalSupplyOverwrite = this.totalSupplyOverwrite.bind(this);
-    this.supplyOfOverwrite = this.supplyOfOverwrite.bind(this);
     this.whitelist = this.whitelist.bind(this);
     this.whitelisted = this.whitelisted.bind(this);
     this.enterpriseAccount = this.enterpriseAccount.bind(this);
@@ -63,62 +57,6 @@ export class LCDQueryClient {
   async totalLocked(_params: QueryTotalLockedRequest = {}): Promise<QueryTotalLockedResponseSDKType> {
     const endpoint = `mainchain/enterprise/v1/locked`;
     return await this.req.get<QueryTotalLockedResponseSDKType>(endpoint);
-  }
-  /* TotalUnlocked queries the total Unlocked FUND */
-  async totalUnlocked(_params: QueryTotalUnlockedRequest = {}): Promise<QueryTotalUnlockedResponseSDKType> {
-    const endpoint = `mainchain/enterprise/v1/unlocked`;
-    return await this.req.get<QueryTotalUnlockedResponseSDKType>(endpoint);
-  }
-  /* EnterpriseSupply queries the chain's supply, including locked Ent. FUND. Only returns nund data */
-  async enterpriseSupply(_params: QueryEnterpriseSupplyRequest = {}): Promise<QueryEnterpriseSupplyResponseSDKType> {
-    const endpoint = `mainchain/enterprise/v1/ent_supply`;
-    return await this.req.get<QueryEnterpriseSupplyResponseSDKType>(endpoint);
-  }
-  /* TotalSupply should be used instead of /cosmos/bank/v1beta1/supply to get true total supply available
-   for general use, i.e. with locked eFUND removed from total for nund */
-  async totalSupply(params: QueryTotalSupplyRequest = {
-    pagination: undefined
-  }): Promise<QueryTotalSupplyResponseSDKType> {
-    const options: any = {
-      params: {}
-    };
-    if (typeof params?.pagination !== "undefined") {
-      setPaginationParams(options, params.pagination);
-    }
-    const endpoint = `mainchain/enterprise/v1/supply`;
-    return await this.req.get<QueryTotalSupplyResponseSDKType>(endpoint, options);
-  }
-  /* SupplyOf should be used in place of /cosmos/bank/v1beta1/supply to get true total supply,
-   with locked eFUND removed from total for nund */
-  async supplyOf(params: QuerySupplyOfRequest): Promise<QuerySupplyOfResponseSDKType> {
-    const endpoint = `mainchain/enterprise/v1/supply/${params.denom}`;
-    return await this.req.get<QuerySupplyOfResponseSDKType>(endpoint);
-  }
-  /* TotalSupplyOverwrite should be used instead of /cosmos/bank/v1beta1/supply to get true total supply available
-   for general use, i.e. with locked eFUND removed from total for nund */
-  async totalSupplyOverwrite(params: QueryTotalSupplyRequest = {
-    pagination: undefined
-  }): Promise<QueryTotalSupplyResponseSDKType> {
-    const options: any = {
-      params: {}
-    };
-    if (typeof params?.pagination !== "undefined") {
-      setPaginationParams(options, params.pagination);
-    }
-    const endpoint = `cosmos/bank/v1beta1/supply`;
-    return await this.req.get<QueryTotalSupplyResponseSDKType>(endpoint, options);
-  }
-  /* SupplyOf should be used in place of /cosmos/bank/v1beta1/supply to get true total supply,
-   with locked eFUND removed from total for nund */
-  async supplyOfOverwrite(params: QuerySupplyOfRequest): Promise<QuerySupplyOfResponseSDKType> {
-    const options: any = {
-      params: {}
-    };
-    if (typeof params?.denom !== "undefined") {
-      options.params.denom = params.denom;
-    }
-    const endpoint = `cosmos/bank/v1beta1/supply/by_denom`;
-    return await this.req.get<QuerySupplyOfResponseSDKType>(endpoint, options);
   }
   /* Whitelist queries whitelisted addresses authorised to raise new purchase orders */
   async whitelist(_params: QueryWhitelistRequest = {}): Promise<QueryWhitelistResponseSDKType> {

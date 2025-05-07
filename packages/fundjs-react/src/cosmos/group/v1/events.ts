@@ -1,5 +1,5 @@
 //@ts-nocheck
-import { ProposalExecutorResult } from "./types";
+import { ProposalExecutorResult, ProposalStatus, TallyResult, TallyResultAmino, TallyResultSDKType } from "./types";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { GlobalDecoderRegistry } from "../../../registry";
 import { isSet } from "../../../helpers";
@@ -163,6 +163,8 @@ export interface EventExec {
   proposalId: bigint;
   /** result is the proposal execution result. */
   result: ProposalExecutorResult;
+  /** logs contains error logs in case the execution result is FAILURE. */
+  logs: string;
 }
 export interface EventExecProtoMsg {
   typeUrl: "/cosmos.group.v1.EventExec";
@@ -174,6 +176,8 @@ export interface EventExecAmino {
   proposal_id?: string;
   /** result is the proposal execution result. */
   result?: ProposalExecutorResult;
+  /** logs contains error logs in case the execution result is FAILURE. */
+  logs?: string;
 }
 export interface EventExecAminoMsg {
   type: "cosmos-sdk/EventExec";
@@ -183,6 +187,7 @@ export interface EventExecAminoMsg {
 export interface EventExecSDKType {
   proposal_id: bigint;
   result: ProposalExecutorResult;
+  logs: string;
 }
 /** EventLeaveGroup is an event emitted when group member leaves the group. */
 export interface EventLeaveGroup {
@@ -210,6 +215,65 @@ export interface EventLeaveGroupAminoMsg {
 export interface EventLeaveGroupSDKType {
   group_id: bigint;
   address: string;
+}
+/** EventProposalPruned is an event emitted when a proposal is pruned. */
+export interface EventProposalPruned {
+  /** proposal_id is the unique ID of the proposal. */
+  proposalId: bigint;
+  /** status is the proposal status (UNSPECIFIED, SUBMITTED, ACCEPTED, REJECTED, ABORTED, WITHDRAWN). */
+  status: ProposalStatus;
+  /** tally_result is the proposal tally result (when applicable). */
+  tallyResult?: TallyResult;
+}
+export interface EventProposalPrunedProtoMsg {
+  typeUrl: "/cosmos.group.v1.EventProposalPruned";
+  value: Uint8Array;
+}
+/** EventProposalPruned is an event emitted when a proposal is pruned. */
+export interface EventProposalPrunedAmino {
+  /** proposal_id is the unique ID of the proposal. */
+  proposal_id?: string;
+  /** status is the proposal status (UNSPECIFIED, SUBMITTED, ACCEPTED, REJECTED, ABORTED, WITHDRAWN). */
+  status?: ProposalStatus;
+  /** tally_result is the proposal tally result (when applicable). */
+  tally_result?: TallyResultAmino;
+}
+export interface EventProposalPrunedAminoMsg {
+  type: "cosmos-sdk/EventProposalPruned";
+  value: EventProposalPrunedAmino;
+}
+/** EventProposalPruned is an event emitted when a proposal is pruned. */
+export interface EventProposalPrunedSDKType {
+  proposal_id: bigint;
+  status: ProposalStatus;
+  tally_result?: TallyResultSDKType;
+}
+/** EventTallyError is an event emitted when a proposal tally failed with an error. */
+export interface EventTallyError {
+  /** proposal_id is the unique ID of the proposal. */
+  proposalId: bigint;
+  /** error_message is the raw error output */
+  errorMessage: string;
+}
+export interface EventTallyErrorProtoMsg {
+  typeUrl: "/cosmos.group.v1.EventTallyError";
+  value: Uint8Array;
+}
+/** EventTallyError is an event emitted when a proposal tally failed with an error. */
+export interface EventTallyErrorAmino {
+  /** proposal_id is the unique ID of the proposal. */
+  proposal_id?: string;
+  /** error_message is the raw error output */
+  error_message?: string;
+}
+export interface EventTallyErrorAminoMsg {
+  type: "cosmos-sdk/EventTallyError";
+  value: EventTallyErrorAmino;
+}
+/** EventTallyError is an event emitted when a proposal tally failed with an error. */
+export interface EventTallyErrorSDKType {
+  proposal_id: bigint;
+  error_message: string;
 }
 function createBaseEventCreateGroup(): EventCreateGroup {
   return {
@@ -265,7 +329,7 @@ export const EventCreateGroup = {
   },
   toAmino(message: EventCreateGroup): EventCreateGroupAmino {
     const obj: any = {};
-    obj.group_id = message.groupId !== BigInt(0) ? message.groupId.toString() : undefined;
+    obj.group_id = message.groupId !== BigInt(0) ? message.groupId?.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: EventCreateGroupAminoMsg): EventCreateGroup {
@@ -346,7 +410,7 @@ export const EventUpdateGroup = {
   },
   toAmino(message: EventUpdateGroup): EventUpdateGroupAmino {
     const obj: any = {};
-    obj.group_id = message.groupId !== BigInt(0) ? message.groupId.toString() : undefined;
+    obj.group_id = message.groupId !== BigInt(0) ? message.groupId?.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: EventUpdateGroupAminoMsg): EventUpdateGroup {
@@ -589,7 +653,7 @@ export const EventSubmitProposal = {
   },
   toAmino(message: EventSubmitProposal): EventSubmitProposalAmino {
     const obj: any = {};
-    obj.proposal_id = message.proposalId !== BigInt(0) ? message.proposalId.toString() : undefined;
+    obj.proposal_id = message.proposalId !== BigInt(0) ? message.proposalId?.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: EventSubmitProposalAminoMsg): EventSubmitProposal {
@@ -670,7 +734,7 @@ export const EventWithdrawProposal = {
   },
   toAmino(message: EventWithdrawProposal): EventWithdrawProposalAmino {
     const obj: any = {};
-    obj.proposal_id = message.proposalId !== BigInt(0) ? message.proposalId.toString() : undefined;
+    obj.proposal_id = message.proposalId !== BigInt(0) ? message.proposalId?.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: EventWithdrawProposalAminoMsg): EventWithdrawProposal {
@@ -751,7 +815,7 @@ export const EventVote = {
   },
   toAmino(message: EventVote): EventVoteAmino {
     const obj: any = {};
-    obj.proposal_id = message.proposalId !== BigInt(0) ? message.proposalId.toString() : undefined;
+    obj.proposal_id = message.proposalId !== BigInt(0) ? message.proposalId?.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: EventVoteAminoMsg): EventVote {
@@ -781,20 +845,21 @@ GlobalDecoderRegistry.registerAminoProtoMapping(EventVote.aminoType, EventVote.t
 function createBaseEventExec(): EventExec {
   return {
     proposalId: BigInt(0),
-    result: 0
+    result: 0,
+    logs: ""
   };
 }
 export const EventExec = {
   typeUrl: "/cosmos.group.v1.EventExec",
   aminoType: "cosmos-sdk/EventExec",
   is(o: any): o is EventExec {
-    return o && (o.$typeUrl === EventExec.typeUrl || typeof o.proposalId === "bigint" && isSet(o.result));
+    return o && (o.$typeUrl === EventExec.typeUrl || typeof o.proposalId === "bigint" && isSet(o.result) && typeof o.logs === "string");
   },
   isSDK(o: any): o is EventExecSDKType {
-    return o && (o.$typeUrl === EventExec.typeUrl || typeof o.proposal_id === "bigint" && isSet(o.result));
+    return o && (o.$typeUrl === EventExec.typeUrl || typeof o.proposal_id === "bigint" && isSet(o.result) && typeof o.logs === "string");
   },
   isAmino(o: any): o is EventExecAmino {
-    return o && (o.$typeUrl === EventExec.typeUrl || typeof o.proposal_id === "bigint" && isSet(o.result));
+    return o && (o.$typeUrl === EventExec.typeUrl || typeof o.proposal_id === "bigint" && isSet(o.result) && typeof o.logs === "string");
   },
   encode(message: EventExec, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.proposalId !== BigInt(0)) {
@@ -802,6 +867,9 @@ export const EventExec = {
     }
     if (message.result !== 0) {
       writer.uint32(16).int32(message.result);
+    }
+    if (message.logs !== "") {
+      writer.uint32(26).string(message.logs);
     }
     return writer;
   },
@@ -818,6 +886,9 @@ export const EventExec = {
         case 2:
           message.result = reader.int32() as any;
           break;
+        case 3:
+          message.logs = reader.string();
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -829,6 +900,7 @@ export const EventExec = {
     const message = createBaseEventExec();
     message.proposalId = object.proposalId !== undefined && object.proposalId !== null ? BigInt(object.proposalId.toString()) : BigInt(0);
     message.result = object.result ?? 0;
+    message.logs = object.logs ?? "";
     return message;
   },
   fromAmino(object: EventExecAmino): EventExec {
@@ -839,12 +911,16 @@ export const EventExec = {
     if (object.result !== undefined && object.result !== null) {
       message.result = object.result;
     }
+    if (object.logs !== undefined && object.logs !== null) {
+      message.logs = object.logs;
+    }
     return message;
   },
   toAmino(message: EventExec): EventExecAmino {
     const obj: any = {};
-    obj.proposal_id = message.proposalId !== BigInt(0) ? message.proposalId.toString() : undefined;
+    obj.proposal_id = message.proposalId !== BigInt(0) ? message.proposalId?.toString() : undefined;
     obj.result = message.result === 0 ? undefined : message.result;
+    obj.logs = message.logs === "" ? undefined : message.logs;
     return obj;
   },
   fromAminoMsg(object: EventExecAminoMsg): EventExec {
@@ -936,7 +1012,7 @@ export const EventLeaveGroup = {
   },
   toAmino(message: EventLeaveGroup): EventLeaveGroupAmino {
     const obj: any = {};
-    obj.group_id = message.groupId !== BigInt(0) ? message.groupId.toString() : undefined;
+    obj.group_id = message.groupId !== BigInt(0) ? message.groupId?.toString() : undefined;
     obj.address = message.address === "" ? undefined : message.address;
     return obj;
   },
@@ -964,3 +1040,201 @@ export const EventLeaveGroup = {
 };
 GlobalDecoderRegistry.register(EventLeaveGroup.typeUrl, EventLeaveGroup);
 GlobalDecoderRegistry.registerAminoProtoMapping(EventLeaveGroup.aminoType, EventLeaveGroup.typeUrl);
+function createBaseEventProposalPruned(): EventProposalPruned {
+  return {
+    proposalId: BigInt(0),
+    status: 0,
+    tallyResult: undefined
+  };
+}
+export const EventProposalPruned = {
+  typeUrl: "/cosmos.group.v1.EventProposalPruned",
+  aminoType: "cosmos-sdk/EventProposalPruned",
+  is(o: any): o is EventProposalPruned {
+    return o && (o.$typeUrl === EventProposalPruned.typeUrl || typeof o.proposalId === "bigint" && isSet(o.status));
+  },
+  isSDK(o: any): o is EventProposalPrunedSDKType {
+    return o && (o.$typeUrl === EventProposalPruned.typeUrl || typeof o.proposal_id === "bigint" && isSet(o.status));
+  },
+  isAmino(o: any): o is EventProposalPrunedAmino {
+    return o && (o.$typeUrl === EventProposalPruned.typeUrl || typeof o.proposal_id === "bigint" && isSet(o.status));
+  },
+  encode(message: EventProposalPruned, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+    if (message.proposalId !== BigInt(0)) {
+      writer.uint32(8).uint64(message.proposalId);
+    }
+    if (message.status !== 0) {
+      writer.uint32(16).int32(message.status);
+    }
+    if (message.tallyResult !== undefined) {
+      TallyResult.encode(message.tallyResult, writer.uint32(26).fork()).ldelim();
+    }
+    return writer;
+  },
+  decode(input: BinaryReader | Uint8Array, length?: number): EventProposalPruned {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseEventProposalPruned();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.proposalId = reader.uint64();
+          break;
+        case 2:
+          message.status = reader.int32() as any;
+          break;
+        case 3:
+          message.tallyResult = TallyResult.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+  fromPartial(object: Partial<EventProposalPruned>): EventProposalPruned {
+    const message = createBaseEventProposalPruned();
+    message.proposalId = object.proposalId !== undefined && object.proposalId !== null ? BigInt(object.proposalId.toString()) : BigInt(0);
+    message.status = object.status ?? 0;
+    message.tallyResult = object.tallyResult !== undefined && object.tallyResult !== null ? TallyResult.fromPartial(object.tallyResult) : undefined;
+    return message;
+  },
+  fromAmino(object: EventProposalPrunedAmino): EventProposalPruned {
+    const message = createBaseEventProposalPruned();
+    if (object.proposal_id !== undefined && object.proposal_id !== null) {
+      message.proposalId = BigInt(object.proposal_id);
+    }
+    if (object.status !== undefined && object.status !== null) {
+      message.status = object.status;
+    }
+    if (object.tally_result !== undefined && object.tally_result !== null) {
+      message.tallyResult = TallyResult.fromAmino(object.tally_result);
+    }
+    return message;
+  },
+  toAmino(message: EventProposalPruned): EventProposalPrunedAmino {
+    const obj: any = {};
+    obj.proposal_id = message.proposalId !== BigInt(0) ? message.proposalId?.toString() : undefined;
+    obj.status = message.status === 0 ? undefined : message.status;
+    obj.tally_result = message.tallyResult ? TallyResult.toAmino(message.tallyResult) : undefined;
+    return obj;
+  },
+  fromAminoMsg(object: EventProposalPrunedAminoMsg): EventProposalPruned {
+    return EventProposalPruned.fromAmino(object.value);
+  },
+  toAminoMsg(message: EventProposalPruned): EventProposalPrunedAminoMsg {
+    return {
+      type: "cosmos-sdk/EventProposalPruned",
+      value: EventProposalPruned.toAmino(message)
+    };
+  },
+  fromProtoMsg(message: EventProposalPrunedProtoMsg): EventProposalPruned {
+    return EventProposalPruned.decode(message.value);
+  },
+  toProto(message: EventProposalPruned): Uint8Array {
+    return EventProposalPruned.encode(message).finish();
+  },
+  toProtoMsg(message: EventProposalPruned): EventProposalPrunedProtoMsg {
+    return {
+      typeUrl: "/cosmos.group.v1.EventProposalPruned",
+      value: EventProposalPruned.encode(message).finish()
+    };
+  }
+};
+GlobalDecoderRegistry.register(EventProposalPruned.typeUrl, EventProposalPruned);
+GlobalDecoderRegistry.registerAminoProtoMapping(EventProposalPruned.aminoType, EventProposalPruned.typeUrl);
+function createBaseEventTallyError(): EventTallyError {
+  return {
+    proposalId: BigInt(0),
+    errorMessage: ""
+  };
+}
+export const EventTallyError = {
+  typeUrl: "/cosmos.group.v1.EventTallyError",
+  aminoType: "cosmos-sdk/EventTallyError",
+  is(o: any): o is EventTallyError {
+    return o && (o.$typeUrl === EventTallyError.typeUrl || typeof o.proposalId === "bigint" && typeof o.errorMessage === "string");
+  },
+  isSDK(o: any): o is EventTallyErrorSDKType {
+    return o && (o.$typeUrl === EventTallyError.typeUrl || typeof o.proposal_id === "bigint" && typeof o.error_message === "string");
+  },
+  isAmino(o: any): o is EventTallyErrorAmino {
+    return o && (o.$typeUrl === EventTallyError.typeUrl || typeof o.proposal_id === "bigint" && typeof o.error_message === "string");
+  },
+  encode(message: EventTallyError, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+    if (message.proposalId !== BigInt(0)) {
+      writer.uint32(8).uint64(message.proposalId);
+    }
+    if (message.errorMessage !== "") {
+      writer.uint32(18).string(message.errorMessage);
+    }
+    return writer;
+  },
+  decode(input: BinaryReader | Uint8Array, length?: number): EventTallyError {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseEventTallyError();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.proposalId = reader.uint64();
+          break;
+        case 2:
+          message.errorMessage = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+  fromPartial(object: Partial<EventTallyError>): EventTallyError {
+    const message = createBaseEventTallyError();
+    message.proposalId = object.proposalId !== undefined && object.proposalId !== null ? BigInt(object.proposalId.toString()) : BigInt(0);
+    message.errorMessage = object.errorMessage ?? "";
+    return message;
+  },
+  fromAmino(object: EventTallyErrorAmino): EventTallyError {
+    const message = createBaseEventTallyError();
+    if (object.proposal_id !== undefined && object.proposal_id !== null) {
+      message.proposalId = BigInt(object.proposal_id);
+    }
+    if (object.error_message !== undefined && object.error_message !== null) {
+      message.errorMessage = object.error_message;
+    }
+    return message;
+  },
+  toAmino(message: EventTallyError): EventTallyErrorAmino {
+    const obj: any = {};
+    obj.proposal_id = message.proposalId !== BigInt(0) ? message.proposalId?.toString() : undefined;
+    obj.error_message = message.errorMessage === "" ? undefined : message.errorMessage;
+    return obj;
+  },
+  fromAminoMsg(object: EventTallyErrorAminoMsg): EventTallyError {
+    return EventTallyError.fromAmino(object.value);
+  },
+  toAminoMsg(message: EventTallyError): EventTallyErrorAminoMsg {
+    return {
+      type: "cosmos-sdk/EventTallyError",
+      value: EventTallyError.toAmino(message)
+    };
+  },
+  fromProtoMsg(message: EventTallyErrorProtoMsg): EventTallyError {
+    return EventTallyError.decode(message.value);
+  },
+  toProto(message: EventTallyError): Uint8Array {
+    return EventTallyError.encode(message).finish();
+  },
+  toProtoMsg(message: EventTallyError): EventTallyErrorProtoMsg {
+    return {
+      typeUrl: "/cosmos.group.v1.EventTallyError",
+      value: EventTallyError.encode(message).finish()
+    };
+  }
+};
+GlobalDecoderRegistry.register(EventTallyError.typeUrl, EventTallyError);
+GlobalDecoderRegistry.registerAminoProtoMapping(EventTallyError.aminoType, EventTallyError.typeUrl);

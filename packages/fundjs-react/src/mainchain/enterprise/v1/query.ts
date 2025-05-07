@@ -1,6 +1,6 @@
 //@ts-nocheck
 import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination";
-import { PurchaseOrderStatus, Params, ParamsAmino, ParamsSDKType, EnterpriseUndPurchaseOrder, EnterpriseUndPurchaseOrderAmino, EnterpriseUndPurchaseOrderSDKType, UndSupply, UndSupplyAmino, UndSupplySDKType, EnterpriseUserAccount, EnterpriseUserAccountAmino, EnterpriseUserAccountSDKType } from "./enterprise";
+import { PurchaseOrderStatus, Params, ParamsAmino, ParamsSDKType, EnterpriseUndPurchaseOrder, EnterpriseUndPurchaseOrderAmino, EnterpriseUndPurchaseOrderSDKType, EnterpriseUserAccount, EnterpriseUserAccountAmino, EnterpriseUserAccountSDKType } from "./enterprise";
 import { Coin, CoinAmino, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { GlobalDecoderRegistry } from "../../../registry";
@@ -261,40 +261,6 @@ export interface QueryTotalUnlockedResponseAminoMsg {
 /** QueryTotalUnlockedResponse is the response type for the Query/TotalUnlocked RPC method */
 export interface QueryTotalUnlockedResponseSDKType {
   amount: CoinSDKType;
-}
-/** QueryEnterpriseSupplyRequest is the request type for the Query/EnterpriseSupply RPC method */
-export interface QueryEnterpriseSupplyRequest {}
-export interface QueryEnterpriseSupplyRequestProtoMsg {
-  typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseSupplyRequest";
-  value: Uint8Array;
-}
-/** QueryEnterpriseSupplyRequest is the request type for the Query/EnterpriseSupply RPC method */
-export interface QueryEnterpriseSupplyRequestAmino {}
-export interface QueryEnterpriseSupplyRequestAminoMsg {
-  type: "/mainchain.enterprise.v1.QueryEnterpriseSupplyRequest";
-  value: QueryEnterpriseSupplyRequestAmino;
-}
-/** QueryEnterpriseSupplyRequest is the request type for the Query/EnterpriseSupply RPC method */
-export interface QueryEnterpriseSupplyRequestSDKType {}
-/** QueryEnterpriseSupplyResponse is the response type for the Query/EnterpriseSupply RPC method */
-export interface QueryEnterpriseSupplyResponse {
-  supply: UndSupply;
-}
-export interface QueryEnterpriseSupplyResponseProtoMsg {
-  typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseSupplyResponse";
-  value: Uint8Array;
-}
-/** QueryEnterpriseSupplyResponse is the response type for the Query/EnterpriseSupply RPC method */
-export interface QueryEnterpriseSupplyResponseAmino {
-  supply?: UndSupplyAmino;
-}
-export interface QueryEnterpriseSupplyResponseAminoMsg {
-  type: "/mainchain.enterprise.v1.QueryEnterpriseSupplyResponse";
-  value: QueryEnterpriseSupplyResponseAmino;
-}
-/** QueryEnterpriseSupplyResponse is the response type for the Query/EnterpriseSupply RPC method */
-export interface QueryEnterpriseSupplyResponseSDKType {
-  supply: UndSupplySDKType;
 }
 /** QueryTotalSupplyRequest is the request type for the Query/TotalSupply RPC method */
 export interface QueryTotalSupplyRequest {
@@ -766,7 +732,7 @@ export const QueryEnterpriseUndPurchaseOrderRequest = {
   },
   toAmino(message: QueryEnterpriseUndPurchaseOrderRequest): QueryEnterpriseUndPurchaseOrderRequestAmino {
     const obj: any = {};
-    obj.purchase_order_id = message.purchaseOrderId !== BigInt(0) ? message.purchaseOrderId.toString() : undefined;
+    obj.purchase_order_id = message.purchaseOrderId !== BigInt(0) ? message.purchaseOrderId?.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: QueryEnterpriseUndPurchaseOrderRequestAminoMsg): QueryEnterpriseUndPurchaseOrderRequest {
@@ -1455,139 +1421,6 @@ export const QueryTotalUnlockedResponse = {
   }
 };
 GlobalDecoderRegistry.register(QueryTotalUnlockedResponse.typeUrl, QueryTotalUnlockedResponse);
-function createBaseQueryEnterpriseSupplyRequest(): QueryEnterpriseSupplyRequest {
-  return {};
-}
-export const QueryEnterpriseSupplyRequest = {
-  typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseSupplyRequest",
-  is(o: any): o is QueryEnterpriseSupplyRequest {
-    return o && o.$typeUrl === QueryEnterpriseSupplyRequest.typeUrl;
-  },
-  isSDK(o: any): o is QueryEnterpriseSupplyRequestSDKType {
-    return o && o.$typeUrl === QueryEnterpriseSupplyRequest.typeUrl;
-  },
-  isAmino(o: any): o is QueryEnterpriseSupplyRequestAmino {
-    return o && o.$typeUrl === QueryEnterpriseSupplyRequest.typeUrl;
-  },
-  encode(_: QueryEnterpriseSupplyRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    return writer;
-  },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryEnterpriseSupplyRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
-    let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseQueryEnterpriseSupplyRequest();
-    while (reader.pos < end) {
-      const tag = reader.uint32();
-      switch (tag >>> 3) {
-        default:
-          reader.skipType(tag & 7);
-          break;
-      }
-    }
-    return message;
-  },
-  fromPartial(_: Partial<QueryEnterpriseSupplyRequest>): QueryEnterpriseSupplyRequest {
-    const message = createBaseQueryEnterpriseSupplyRequest();
-    return message;
-  },
-  fromAmino(_: QueryEnterpriseSupplyRequestAmino): QueryEnterpriseSupplyRequest {
-    const message = createBaseQueryEnterpriseSupplyRequest();
-    return message;
-  },
-  toAmino(_: QueryEnterpriseSupplyRequest): QueryEnterpriseSupplyRequestAmino {
-    const obj: any = {};
-    return obj;
-  },
-  fromAminoMsg(object: QueryEnterpriseSupplyRequestAminoMsg): QueryEnterpriseSupplyRequest {
-    return QueryEnterpriseSupplyRequest.fromAmino(object.value);
-  },
-  fromProtoMsg(message: QueryEnterpriseSupplyRequestProtoMsg): QueryEnterpriseSupplyRequest {
-    return QueryEnterpriseSupplyRequest.decode(message.value);
-  },
-  toProto(message: QueryEnterpriseSupplyRequest): Uint8Array {
-    return QueryEnterpriseSupplyRequest.encode(message).finish();
-  },
-  toProtoMsg(message: QueryEnterpriseSupplyRequest): QueryEnterpriseSupplyRequestProtoMsg {
-    return {
-      typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseSupplyRequest",
-      value: QueryEnterpriseSupplyRequest.encode(message).finish()
-    };
-  }
-};
-GlobalDecoderRegistry.register(QueryEnterpriseSupplyRequest.typeUrl, QueryEnterpriseSupplyRequest);
-function createBaseQueryEnterpriseSupplyResponse(): QueryEnterpriseSupplyResponse {
-  return {
-    supply: UndSupply.fromPartial({})
-  };
-}
-export const QueryEnterpriseSupplyResponse = {
-  typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseSupplyResponse",
-  is(o: any): o is QueryEnterpriseSupplyResponse {
-    return o && (o.$typeUrl === QueryEnterpriseSupplyResponse.typeUrl || UndSupply.is(o.supply));
-  },
-  isSDK(o: any): o is QueryEnterpriseSupplyResponseSDKType {
-    return o && (o.$typeUrl === QueryEnterpriseSupplyResponse.typeUrl || UndSupply.isSDK(o.supply));
-  },
-  isAmino(o: any): o is QueryEnterpriseSupplyResponseAmino {
-    return o && (o.$typeUrl === QueryEnterpriseSupplyResponse.typeUrl || UndSupply.isAmino(o.supply));
-  },
-  encode(message: QueryEnterpriseSupplyResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.supply !== undefined) {
-      UndSupply.encode(message.supply, writer.uint32(10).fork()).ldelim();
-    }
-    return writer;
-  },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryEnterpriseSupplyResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
-    let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseQueryEnterpriseSupplyResponse();
-    while (reader.pos < end) {
-      const tag = reader.uint32();
-      switch (tag >>> 3) {
-        case 1:
-          message.supply = UndSupply.decode(reader, reader.uint32());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
-      }
-    }
-    return message;
-  },
-  fromPartial(object: Partial<QueryEnterpriseSupplyResponse>): QueryEnterpriseSupplyResponse {
-    const message = createBaseQueryEnterpriseSupplyResponse();
-    message.supply = object.supply !== undefined && object.supply !== null ? UndSupply.fromPartial(object.supply) : undefined;
-    return message;
-  },
-  fromAmino(object: QueryEnterpriseSupplyResponseAmino): QueryEnterpriseSupplyResponse {
-    const message = createBaseQueryEnterpriseSupplyResponse();
-    if (object.supply !== undefined && object.supply !== null) {
-      message.supply = UndSupply.fromAmino(object.supply);
-    }
-    return message;
-  },
-  toAmino(message: QueryEnterpriseSupplyResponse): QueryEnterpriseSupplyResponseAmino {
-    const obj: any = {};
-    obj.supply = message.supply ? UndSupply.toAmino(message.supply) : undefined;
-    return obj;
-  },
-  fromAminoMsg(object: QueryEnterpriseSupplyResponseAminoMsg): QueryEnterpriseSupplyResponse {
-    return QueryEnterpriseSupplyResponse.fromAmino(object.value);
-  },
-  fromProtoMsg(message: QueryEnterpriseSupplyResponseProtoMsg): QueryEnterpriseSupplyResponse {
-    return QueryEnterpriseSupplyResponse.decode(message.value);
-  },
-  toProto(message: QueryEnterpriseSupplyResponse): Uint8Array {
-    return QueryEnterpriseSupplyResponse.encode(message).finish();
-  },
-  toProtoMsg(message: QueryEnterpriseSupplyResponse): QueryEnterpriseSupplyResponseProtoMsg {
-    return {
-      typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseSupplyResponse",
-      value: QueryEnterpriseSupplyResponse.encode(message).finish()
-    };
-  }
-};
-GlobalDecoderRegistry.register(QueryEnterpriseSupplyResponse.typeUrl, QueryEnterpriseSupplyResponse);
 function createBaseQueryTotalSupplyRequest(): QueryTotalSupplyRequest {
   return {
     pagination: undefined

@@ -26,7 +26,11 @@ export interface Query {
    * Since: cosmos-sdk 0.43
    */
   moduleVersions(request: QueryModuleVersionsRequest): Promise<QueryModuleVersionsResponse>;
-  /** Returns the account with authority to conduct upgrades */
+  /**
+   * Returns the account with authority to conduct upgrades
+   * 
+   * Since: cosmos-sdk 0.46
+   */
   authority(request?: QueryAuthorityRequest): Promise<QueryAuthorityResponse>;
 }
 export class QueryClientImpl implements Query {
@@ -176,6 +180,11 @@ export const createRpcQueryHooks = (rpc: ProtobufRpcClient | undefined) => {
      * Since: cosmos-sdk 0.43
      */
     useModuleVersions,
-    /** Returns the account with authority to conduct upgrades */useAuthority
+    /**
+     * Returns the account with authority to conduct upgrades
+     * 
+     * Since: cosmos-sdk 0.46
+     */
+    useAuthority
   };
 };
