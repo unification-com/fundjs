@@ -43,12 +43,17 @@
   "dependencies": {
     "@cosmjs/amino": "^0.38.0",
     "@cosmjs/crypto": "^0.38.0",
-    "@cosmjs/encoding": "^0.38.0",
-    "@cosmjs/math": "^0.38.0",
     "@cosmjs/proto-signing": "^0.38.0",
     "@cosmjs/stargate": "^0.38.0",
     "@cosmjs/tendermint-rpc": "^0.38.0",
+    "@chain-registry/v2": "^1.71.237",
+    "@chain-registry/v2-types": "^0.53.146",
     "@cosmology/lcd": "^0.13.4",
+    "@interchainjs/cosmos": "^1.20.0",
+    "@interchainjs/encoding": "^1.20.0",
+    "@interchainjs/math": "^1.20.0",
+    "@interchainjs/pubkey": "^1.20.0",
+    "@interchainjs/types": "^1.20.0",
     "cosmjs-types": "^0.9.0"
   },
   "keywords": []
