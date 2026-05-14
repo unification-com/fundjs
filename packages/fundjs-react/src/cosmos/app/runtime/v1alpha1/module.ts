@@ -1,9 +1,16 @@
 //@ts-nocheck
 import { BinaryReader, BinaryWriter } from "../../../../binary";
 import { GlobalDecoderRegistry } from "../../../../registry";
-/** Module is the config object for the runtime module. */
+/**
+ * Module is the config object for the runtime module.
+ * @name Module
+ * @package cosmos.app.runtime.v1alpha1
+ * @see proto type: cosmos.app.runtime.v1alpha1.Module
+ */
 export interface Module {
-  /** app_name is the name of the app. */
+  /**
+   * app_name is the name of the app.
+   */
   appName: string;
   /**
    * begin_blockers specifies the module names of begin blockers
@@ -57,9 +64,16 @@ export interface ModuleProtoMsg {
   typeUrl: "/cosmos.app.runtime.v1alpha1.Module";
   value: Uint8Array;
 }
-/** Module is the config object for the runtime module. */
+/**
+ * Module is the config object for the runtime module.
+ * @name ModuleAmino
+ * @package cosmos.app.runtime.v1alpha1
+ * @see proto type: cosmos.app.runtime.v1alpha1.Module
+ */
 export interface ModuleAmino {
-  /** app_name is the name of the app. */
+  /**
+   * app_name is the name of the app.
+   */
   app_name?: string;
   /**
    * begin_blockers specifies the module names of begin blockers
@@ -113,7 +127,12 @@ export interface ModuleAminoMsg {
   type: "cosmos-sdk/Module";
   value: ModuleAmino;
 }
-/** Module is the config object for the runtime module. */
+/**
+ * Module is the config object for the runtime module.
+ * @name ModuleSDKType
+ * @package cosmos.app.runtime.v1alpha1
+ * @see proto type: cosmos.app.runtime.v1alpha1.Module
+ */
 export interface ModuleSDKType {
   app_name: string;
   begin_blockers: string[];
@@ -128,11 +147,18 @@ export interface ModuleSDKType {
 /**
  * StoreKeyConfig may be supplied to override the default module store key, which
  * is the module name.
+ * @name StoreKeyConfig
+ * @package cosmos.app.runtime.v1alpha1
+ * @see proto type: cosmos.app.runtime.v1alpha1.StoreKeyConfig
  */
 export interface StoreKeyConfig {
-  /** name of the module to override the store key of */
+  /**
+   * name of the module to override the store key of
+   */
   moduleName: string;
-  /** the kv store key to use instead of the module name. */
+  /**
+   * the kv store key to use instead of the module name.
+   */
   kvStoreKey: string;
 }
 export interface StoreKeyConfigProtoMsg {
@@ -142,11 +168,18 @@ export interface StoreKeyConfigProtoMsg {
 /**
  * StoreKeyConfig may be supplied to override the default module store key, which
  * is the module name.
+ * @name StoreKeyConfigAmino
+ * @package cosmos.app.runtime.v1alpha1
+ * @see proto type: cosmos.app.runtime.v1alpha1.StoreKeyConfig
  */
 export interface StoreKeyConfigAmino {
-  /** name of the module to override the store key of */
+  /**
+   * name of the module to override the store key of
+   */
   module_name?: string;
-  /** the kv store key to use instead of the module name. */
+  /**
+   * the kv store key to use instead of the module name.
+   */
   kv_store_key?: string;
 }
 export interface StoreKeyConfigAminoMsg {
@@ -156,6 +189,9 @@ export interface StoreKeyConfigAminoMsg {
 /**
  * StoreKeyConfig may be supplied to override the default module store key, which
  * is the module name.
+ * @name StoreKeyConfigSDKType
+ * @package cosmos.app.runtime.v1alpha1
+ * @see proto type: cosmos.app.runtime.v1alpha1.StoreKeyConfig
  */
 export interface StoreKeyConfigSDKType {
   module_name: string;
@@ -174,6 +210,12 @@ function createBaseModule(): Module {
     prepareCheckStaters: []
   };
 }
+/**
+ * Module is the config object for the runtime module.
+ * @name Module
+ * @package cosmos.app.runtime.v1alpha1
+ * @see proto type: cosmos.app.runtime.v1alpha1.Module
+ */
 export const Module = {
   typeUrl: "/cosmos.app.runtime.v1alpha1.Module",
   aminoType: "cosmos-sdk/Module",
@@ -350,16 +392,27 @@ export const Module = {
       typeUrl: "/cosmos.app.runtime.v1alpha1.Module",
       value: Module.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Module.typeUrl)) {
+      return;
+    }
+    StoreKeyConfig.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(Module.typeUrl, Module);
-GlobalDecoderRegistry.registerAminoProtoMapping(Module.aminoType, Module.typeUrl);
 function createBaseStoreKeyConfig(): StoreKeyConfig {
   return {
     moduleName: "",
     kvStoreKey: ""
   };
 }
+/**
+ * StoreKeyConfig may be supplied to override the default module store key, which
+ * is the module name.
+ * @name StoreKeyConfig
+ * @package cosmos.app.runtime.v1alpha1
+ * @see proto type: cosmos.app.runtime.v1alpha1.StoreKeyConfig
+ */
 export const StoreKeyConfig = {
   typeUrl: "/cosmos.app.runtime.v1alpha1.StoreKeyConfig",
   aminoType: "cosmos-sdk/StoreKeyConfig",
@@ -443,7 +496,6 @@ export const StoreKeyConfig = {
       typeUrl: "/cosmos.app.runtime.v1alpha1.StoreKeyConfig",
       value: StoreKeyConfig.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(StoreKeyConfig.typeUrl, StoreKeyConfig);
-GlobalDecoderRegistry.registerAminoProtoMapping(StoreKeyConfig.aminoType, StoreKeyConfig.typeUrl);

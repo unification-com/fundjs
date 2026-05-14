@@ -1,14 +1,20 @@
 //@ts-nocheck
-import { Rpc } from "../../../helpers";
+import { TxRpc } from "../../../types";
 import { BinaryReader } from "../../../binary";
 import { MsgRegisterWrkChain, MsgRegisterWrkChainResponse, MsgRecordWrkChainBlock, MsgRecordWrkChainBlockResponse, MsgPurchaseWrkChainStateStorage, MsgPurchaseWrkChainStateStorageResponse, MsgUpdateParams, MsgUpdateParamsResponse } from "./tx";
 /** Msg defines the wrkchain Msg service. */
 export interface Msg {
   /** RegisterWrkChain defines a method to register a new wrkchain */
   registerWrkChain(request: MsgRegisterWrkChain): Promise<MsgRegisterWrkChainResponse>;
-  /** RecordWrkChainBlock defines a method to record a block hash set for a registered wrkchain */
+  /**
+   * RecordWrkChainBlock defines a method to record a block hash set for a
+   * registered wrkchain
+   */
   recordWrkChainBlock(request: MsgRecordWrkChainBlock): Promise<MsgRecordWrkChainBlockResponse>;
-  /** PurchaseWrkChainStateStorage defines the method to purchase more state storage */
+  /**
+   * PurchaseWrkChainStateStorage defines the method to purchase more state
+   * storage
+   */
   purchaseWrkChainStateStorage(request: MsgPurchaseWrkChainStateStorage): Promise<MsgPurchaseWrkChainStateStorageResponse>;
   /**
    * UpdateParams defines an operation for updating the x/wrkchain module
@@ -18,8 +24,8 @@ export interface Msg {
   updateParams(request: MsgUpdateParams): Promise<MsgUpdateParamsResponse>;
 }
 export class MsgClientImpl implements Msg {
-  private readonly rpc: Rpc;
-  constructor(rpc: Rpc) {
+  private readonly rpc: TxRpc;
+  constructor(rpc: TxRpc) {
     this.rpc = rpc;
     this.registerWrkChain = this.registerWrkChain.bind(this);
     this.recordWrkChainBlock = this.recordWrkChainBlock.bind(this);
@@ -47,3 +53,6 @@ export class MsgClientImpl implements Msg {
     return promise.then(data => MsgUpdateParamsResponse.decode(new BinaryReader(data)));
   }
 }
+export const createClientImpl = (rpc: TxRpc) => {
+  return new MsgClientImpl(rpc);
+};

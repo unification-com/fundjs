@@ -6,9 +6,14 @@ import { GlobalDecoderRegistry } from "../../../registry";
  * MsgUpdateParams is the Msg/UpdateParams request type.
  * 
  * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParams
+ * @package cosmos.auth.v1beta1
+ * @see proto type: cosmos.auth.v1beta1.MsgUpdateParams
  */
 export interface MsgUpdateParams {
-  /** authority is the address that controls the module (defaults to x/gov unless overwritten). */
+  /**
+   * authority is the address that controls the module (defaults to x/gov unless overwritten).
+   */
   authority: string;
   /**
    * params defines the x/auth parameters to update.
@@ -25,9 +30,14 @@ export interface MsgUpdateParamsProtoMsg {
  * MsgUpdateParams is the Msg/UpdateParams request type.
  * 
  * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParamsAmino
+ * @package cosmos.auth.v1beta1
+ * @see proto type: cosmos.auth.v1beta1.MsgUpdateParams
  */
 export interface MsgUpdateParamsAmino {
-  /** authority is the address that controls the module (defaults to x/gov unless overwritten). */
+  /**
+   * authority is the address that controls the module (defaults to x/gov unless overwritten).
+   */
   authority?: string;
   /**
    * params defines the x/auth parameters to update.
@@ -44,6 +54,9 @@ export interface MsgUpdateParamsAminoMsg {
  * MsgUpdateParams is the Msg/UpdateParams request type.
  * 
  * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParamsSDKType
+ * @package cosmos.auth.v1beta1
+ * @see proto type: cosmos.auth.v1beta1.MsgUpdateParams
  */
 export interface MsgUpdateParamsSDKType {
   authority: string;
@@ -54,6 +67,9 @@ export interface MsgUpdateParamsSDKType {
  * MsgUpdateParams message.
  * 
  * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParamsResponse
+ * @package cosmos.auth.v1beta1
+ * @see proto type: cosmos.auth.v1beta1.MsgUpdateParamsResponse
  */
 export interface MsgUpdateParamsResponse {}
 export interface MsgUpdateParamsResponseProtoMsg {
@@ -65,6 +81,9 @@ export interface MsgUpdateParamsResponseProtoMsg {
  * MsgUpdateParams message.
  * 
  * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParamsResponseAmino
+ * @package cosmos.auth.v1beta1
+ * @see proto type: cosmos.auth.v1beta1.MsgUpdateParamsResponse
  */
 export interface MsgUpdateParamsResponseAmino {}
 export interface MsgUpdateParamsResponseAminoMsg {
@@ -76,6 +95,9 @@ export interface MsgUpdateParamsResponseAminoMsg {
  * MsgUpdateParams message.
  * 
  * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParamsResponseSDKType
+ * @package cosmos.auth.v1beta1
+ * @see proto type: cosmos.auth.v1beta1.MsgUpdateParamsResponse
  */
 export interface MsgUpdateParamsResponseSDKType {}
 function createBaseMsgUpdateParams(): MsgUpdateParams {
@@ -84,6 +106,14 @@ function createBaseMsgUpdateParams(): MsgUpdateParams {
     params: Params.fromPartial({})
   };
 }
+/**
+ * MsgUpdateParams is the Msg/UpdateParams request type.
+ * 
+ * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParams
+ * @package cosmos.auth.v1beta1
+ * @see proto type: cosmos.auth.v1beta1.MsgUpdateParams
+ */
 export const MsgUpdateParams = {
   typeUrl: "/cosmos.auth.v1beta1.MsgUpdateParams",
   aminoType: "cosmos-sdk/x/auth/MsgUpdateParams",
@@ -167,13 +197,26 @@ export const MsgUpdateParams = {
       typeUrl: "/cosmos.auth.v1beta1.MsgUpdateParams",
       value: MsgUpdateParams.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgUpdateParams.typeUrl)) {
+      return;
+    }
+    Params.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgUpdateParams.typeUrl, MsgUpdateParams);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgUpdateParams.aminoType, MsgUpdateParams.typeUrl);
 function createBaseMsgUpdateParamsResponse(): MsgUpdateParamsResponse {
   return {};
 }
+/**
+ * MsgUpdateParamsResponse defines the response structure for executing a
+ * MsgUpdateParams message.
+ * 
+ * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParamsResponse
+ * @package cosmos.auth.v1beta1
+ * @see proto type: cosmos.auth.v1beta1.MsgUpdateParamsResponse
+ */
 export const MsgUpdateParamsResponse = {
   typeUrl: "/cosmos.auth.v1beta1.MsgUpdateParamsResponse",
   aminoType: "cosmos-sdk/MsgUpdateParamsResponse",
@@ -235,7 +278,6 @@ export const MsgUpdateParamsResponse = {
       typeUrl: "/cosmos.auth.v1beta1.MsgUpdateParamsResponse",
       value: MsgUpdateParamsResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgUpdateParamsResponse.typeUrl, MsgUpdateParamsResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgUpdateParamsResponse.aminoType, MsgUpdateParamsResponse.typeUrl);

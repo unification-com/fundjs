@@ -1,7 +1,7 @@
 //@ts-nocheck
 import { setPaginationParams } from "../../../helpers";
 import { LCDClient } from "@cosmology/lcd";
-import { QueryParamsRequest, QueryParamsResponseSDKType, QueryCalculateFlowRateRequest, QueryCalculateFlowRateResponseSDKType, QueryStreamsRequest, QueryStreamsResponseSDKType, QueryAllStreamsForReceiverRequest, QueryAllStreamsForReceiverResponseSDKType, QueryStreamByReceiverSenderRequest, QueryStreamByReceiverSenderResponseSDKType, QueryStreamReceiverSenderCurrentFlowRequest, QueryStreamReceiverSenderCurrentFlowResponseSDKType, QueryAllStreamsForSenderRequest, QueryAllStreamsForSenderResponseSDKType } from "./query";
+import { QueryParamsRequest, QueryParamsResponseSDKType, QueryCalculateFlowRateRequest, QueryCalculateFlowRateResponseSDKType, QueryStreamsRequest, QueryStreamsResponseSDKType, QueryAllStreamsForReceiverRequest, QueryAllStreamsForReceiverResponseSDKType, QueryStreamByReceiverSenderRequest, QueryStreamByReceiverSenderResponseSDKType, QueryStreamReceiverSenderCurrentFlowRequest, QueryStreamReceiverSenderCurrentFlowResponseSDKType, QueryAllStreamsForSenderRequest, QueryAllStreamsForSenderResponseSDKType, QueryAllStreamsByPairRequest, QueryAllStreamsByPairResponseSDKType } from "./query";
 export class LCDQueryClient {
   req: LCDClient;
   constructor({
@@ -17,13 +17,15 @@ export class LCDQueryClient {
     this.streamByReceiverSender = this.streamByReceiverSender.bind(this);
     this.streamReceiverSenderCurrentFlow = this.streamReceiverSenderCurrentFlow.bind(this);
     this.allStreamsForSender = this.allStreamsForSender.bind(this);
+    this.allStreamsByPair = this.allStreamsByPair.bind(this);
   }
   /* Parameters queries the parameters of the module. */
   async params(_params: QueryParamsRequest = {}): Promise<QueryParamsResponseSDKType> {
     const endpoint = `mainchain/stream/v1/params`;
     return await this.req.get<QueryParamsResponseSDKType>(endpoint);
   }
-  /* CalculateFlowRate can be used to calculate a flow rate (coins per second) to be used when creating/updating a stream */
+  /* CalculateFlowRate can be used to calculate a flow rate (coins per second)
+   to be used when creating/updating a stream */
   async calculateFlowRate(params: QueryCalculateFlowRateRequest): Promise<QueryCalculateFlowRateResponseSDKType> {
     const options: any = {
       params: {}
@@ -64,14 +66,16 @@ export class LCDQueryClient {
     const endpoint = `mainchain/stream/v1/streams/receiver/${params.receiverAddr}`;
     return await this.req.get<QueryAllStreamsForReceiverResponseSDKType>(endpoint, options);
   }
-  /* StreamByReceiverSender queries a stream for a given receiver and sender pair */
+  /* StreamByReceiverSender queries a stream for a given receiver, sender and
+   denom triple */
   async streamByReceiverSender(params: QueryStreamByReceiverSenderRequest): Promise<QueryStreamByReceiverSenderResponseSDKType> {
-    const endpoint = `mainchain/stream/v1/streams/receiver/${params.receiverAddr}/${params.senderAddr}`;
+    const endpoint = `mainchain/stream/v1/streams/receiver/${params.receiverAddr}/${params.senderAddr}/${params.denom}`;
     return await this.req.get<QueryStreamByReceiverSenderResponseSDKType>(endpoint);
   }
-  /* StreamReceiverSenderCurrentFlow queries a stream by the given receiver/sender pair and returns the current flow data */
+  /* StreamReceiverSenderCurrentFlow queries a stream by the given
+   receiver/sender/denom triple and returns the current flow data */
   async streamReceiverSenderCurrentFlow(params: QueryStreamReceiverSenderCurrentFlowRequest): Promise<QueryStreamReceiverSenderCurrentFlowResponseSDKType> {
-    const endpoint = `mainchain/stream/v1/streams/receiver/${params.receiverAddr}/${params.senderAddr}/current_flow`;
+    const endpoint = `mainchain/stream/v1/streams/receiver/${params.receiverAddr}/${params.senderAddr}/${params.denom}/current_flow`;
     return await this.req.get<QueryStreamReceiverSenderCurrentFlowResponseSDKType>(endpoint);
   }
   /* AllStreamsForSender queries all Streams for a given sender address */
@@ -84,5 +88,17 @@ export class LCDQueryClient {
     }
     const endpoint = `mainchain/stream/v1/streams/sender/${params.senderAddr}`;
     return await this.req.get<QueryAllStreamsForSenderResponseSDKType>(endpoint, options);
+  }
+  /* AllStreamsByPair queries all Streams between a given (sender, receiver)
+   pair across denoms */
+  async allStreamsByPair(params: QueryAllStreamsByPairRequest): Promise<QueryAllStreamsByPairResponseSDKType> {
+    const options: any = {
+      params: {}
+    };
+    if (typeof params?.pagination !== "undefined") {
+      setPaginationParams(options, params.pagination);
+    }
+    const endpoint = `mainchain/stream/v1/streams/pair/${params.receiverAddr}/${params.senderAddr}`;
+    return await this.req.get<QueryAllStreamsByPairResponseSDKType>(endpoint, options);
   }
 }

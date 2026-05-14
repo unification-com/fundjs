@@ -3,78 +3,144 @@ import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageRe
 import { BinaryReader, BinaryWriter } from "../../../../binary";
 import { GlobalDecoderRegistry } from "../../../../registry";
 import { bytesFromBase64, base64FromBytes } from "../../../../helpers";
-/** QueryChecksumsRequest is the request type for the Query/Checksums RPC method. */
+/**
+ * QueryChecksumsRequest is the request type for the Query/Checksums RPC method.
+ * @name QueryChecksumsRequest
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.QueryChecksumsRequest
+ */
 export interface QueryChecksumsRequest {
-  /** pagination defines an optional pagination for the request. */
+  /**
+   * pagination defines an optional pagination for the request.
+   */
   pagination?: PageRequest;
 }
 export interface QueryChecksumsRequestProtoMsg {
   typeUrl: "/ibc.lightclients.wasm.v1.QueryChecksumsRequest";
   value: Uint8Array;
 }
-/** QueryChecksumsRequest is the request type for the Query/Checksums RPC method. */
+/**
+ * QueryChecksumsRequest is the request type for the Query/Checksums RPC method.
+ * @name QueryChecksumsRequestAmino
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.QueryChecksumsRequest
+ */
 export interface QueryChecksumsRequestAmino {
-  /** pagination defines an optional pagination for the request. */
+  /**
+   * pagination defines an optional pagination for the request.
+   */
   pagination?: PageRequestAmino;
 }
 export interface QueryChecksumsRequestAminoMsg {
   type: "cosmos-sdk/QueryChecksumsRequest";
   value: QueryChecksumsRequestAmino;
 }
-/** QueryChecksumsRequest is the request type for the Query/Checksums RPC method. */
+/**
+ * QueryChecksumsRequest is the request type for the Query/Checksums RPC method.
+ * @name QueryChecksumsRequestSDKType
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.QueryChecksumsRequest
+ */
 export interface QueryChecksumsRequestSDKType {
   pagination?: PageRequestSDKType;
 }
-/** QueryChecksumsResponse is the response type for the Query/Checksums RPC method. */
+/**
+ * QueryChecksumsResponse is the response type for the Query/Checksums RPC method.
+ * @name QueryChecksumsResponse
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.QueryChecksumsResponse
+ */
 export interface QueryChecksumsResponse {
-  /** checksums is a list of the hex encoded checksums of all wasm codes stored. */
+  /**
+   * checksums is a list of the hex encoded checksums of all wasm codes stored.
+   */
   checksums: string[];
-  /** pagination defines the pagination in the response. */
+  /**
+   * pagination defines the pagination in the response.
+   */
   pagination?: PageResponse;
 }
 export interface QueryChecksumsResponseProtoMsg {
   typeUrl: "/ibc.lightclients.wasm.v1.QueryChecksumsResponse";
   value: Uint8Array;
 }
-/** QueryChecksumsResponse is the response type for the Query/Checksums RPC method. */
+/**
+ * QueryChecksumsResponse is the response type for the Query/Checksums RPC method.
+ * @name QueryChecksumsResponseAmino
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.QueryChecksumsResponse
+ */
 export interface QueryChecksumsResponseAmino {
-  /** checksums is a list of the hex encoded checksums of all wasm codes stored. */
+  /**
+   * checksums is a list of the hex encoded checksums of all wasm codes stored.
+   */
   checksums?: string[];
-  /** pagination defines the pagination in the response. */
+  /**
+   * pagination defines the pagination in the response.
+   */
   pagination?: PageResponseAmino;
 }
 export interface QueryChecksumsResponseAminoMsg {
   type: "cosmos-sdk/QueryChecksumsResponse";
   value: QueryChecksumsResponseAmino;
 }
-/** QueryChecksumsResponse is the response type for the Query/Checksums RPC method. */
+/**
+ * QueryChecksumsResponse is the response type for the Query/Checksums RPC method.
+ * @name QueryChecksumsResponseSDKType
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.QueryChecksumsResponse
+ */
 export interface QueryChecksumsResponseSDKType {
   checksums: string[];
   pagination?: PageResponseSDKType;
 }
-/** QueryCodeRequest is the request type for the Query/Code RPC method. */
+/**
+ * QueryCodeRequest is the request type for the Query/Code RPC method.
+ * @name QueryCodeRequest
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.QueryCodeRequest
+ */
 export interface QueryCodeRequest {
-  /** checksum is a hex encoded string of the code stored. */
+  /**
+   * checksum is a hex encoded string of the code stored.
+   */
   checksum: string;
 }
 export interface QueryCodeRequestProtoMsg {
   typeUrl: "/ibc.lightclients.wasm.v1.QueryCodeRequest";
   value: Uint8Array;
 }
-/** QueryCodeRequest is the request type for the Query/Code RPC method. */
+/**
+ * QueryCodeRequest is the request type for the Query/Code RPC method.
+ * @name QueryCodeRequestAmino
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.QueryCodeRequest
+ */
 export interface QueryCodeRequestAmino {
-  /** checksum is a hex encoded string of the code stored. */
+  /**
+   * checksum is a hex encoded string of the code stored.
+   */
   checksum?: string;
 }
 export interface QueryCodeRequestAminoMsg {
   type: "cosmos-sdk/QueryCodeRequest";
   value: QueryCodeRequestAmino;
 }
-/** QueryCodeRequest is the request type for the Query/Code RPC method. */
+/**
+ * QueryCodeRequest is the request type for the Query/Code RPC method.
+ * @name QueryCodeRequestSDKType
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.QueryCodeRequest
+ */
 export interface QueryCodeRequestSDKType {
   checksum: string;
 }
-/** QueryCodeResponse is the response type for the Query/Code RPC method. */
+/**
+ * QueryCodeResponse is the response type for the Query/Code RPC method.
+ * @name QueryCodeResponse
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.QueryCodeResponse
+ */
 export interface QueryCodeResponse {
   data: Uint8Array;
 }
@@ -82,7 +148,12 @@ export interface QueryCodeResponseProtoMsg {
   typeUrl: "/ibc.lightclients.wasm.v1.QueryCodeResponse";
   value: Uint8Array;
 }
-/** QueryCodeResponse is the response type for the Query/Code RPC method. */
+/**
+ * QueryCodeResponse is the response type for the Query/Code RPC method.
+ * @name QueryCodeResponseAmino
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.QueryCodeResponse
+ */
 export interface QueryCodeResponseAmino {
   data?: string;
 }
@@ -90,7 +161,12 @@ export interface QueryCodeResponseAminoMsg {
   type: "cosmos-sdk/QueryCodeResponse";
   value: QueryCodeResponseAmino;
 }
-/** QueryCodeResponse is the response type for the Query/Code RPC method. */
+/**
+ * QueryCodeResponse is the response type for the Query/Code RPC method.
+ * @name QueryCodeResponseSDKType
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.QueryCodeResponse
+ */
 export interface QueryCodeResponseSDKType {
   data: Uint8Array;
 }
@@ -99,6 +175,12 @@ function createBaseQueryChecksumsRequest(): QueryChecksumsRequest {
     pagination: undefined
   };
 }
+/**
+ * QueryChecksumsRequest is the request type for the Query/Checksums RPC method.
+ * @name QueryChecksumsRequest
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.QueryChecksumsRequest
+ */
 export const QueryChecksumsRequest = {
   typeUrl: "/ibc.lightclients.wasm.v1.QueryChecksumsRequest",
   aminoType: "cosmos-sdk/QueryChecksumsRequest",
@@ -171,16 +253,26 @@ export const QueryChecksumsRequest = {
       typeUrl: "/ibc.lightclients.wasm.v1.QueryChecksumsRequest",
       value: QueryChecksumsRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryChecksumsRequest.typeUrl)) {
+      return;
+    }
+    PageRequest.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryChecksumsRequest.typeUrl, QueryChecksumsRequest);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryChecksumsRequest.aminoType, QueryChecksumsRequest.typeUrl);
 function createBaseQueryChecksumsResponse(): QueryChecksumsResponse {
   return {
     checksums: [],
     pagination: undefined
   };
 }
+/**
+ * QueryChecksumsResponse is the response type for the Query/Checksums RPC method.
+ * @name QueryChecksumsResponse
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.QueryChecksumsResponse
+ */
 export const QueryChecksumsResponse = {
   typeUrl: "/ibc.lightclients.wasm.v1.QueryChecksumsResponse",
   aminoType: "cosmos-sdk/QueryChecksumsResponse",
@@ -266,15 +358,25 @@ export const QueryChecksumsResponse = {
       typeUrl: "/ibc.lightclients.wasm.v1.QueryChecksumsResponse",
       value: QueryChecksumsResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryChecksumsResponse.typeUrl)) {
+      return;
+    }
+    PageResponse.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryChecksumsResponse.typeUrl, QueryChecksumsResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryChecksumsResponse.aminoType, QueryChecksumsResponse.typeUrl);
 function createBaseQueryCodeRequest(): QueryCodeRequest {
   return {
     checksum: ""
   };
 }
+/**
+ * QueryCodeRequest is the request type for the Query/Code RPC method.
+ * @name QueryCodeRequest
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.QueryCodeRequest
+ */
 export const QueryCodeRequest = {
   typeUrl: "/ibc.lightclients.wasm.v1.QueryCodeRequest",
   aminoType: "cosmos-sdk/QueryCodeRequest",
@@ -347,15 +449,20 @@ export const QueryCodeRequest = {
       typeUrl: "/ibc.lightclients.wasm.v1.QueryCodeRequest",
       value: QueryCodeRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryCodeRequest.typeUrl, QueryCodeRequest);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryCodeRequest.aminoType, QueryCodeRequest.typeUrl);
 function createBaseQueryCodeResponse(): QueryCodeResponse {
   return {
     data: new Uint8Array()
   };
 }
+/**
+ * QueryCodeResponse is the response type for the Query/Code RPC method.
+ * @name QueryCodeResponse
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.QueryCodeResponse
+ */
 export const QueryCodeResponse = {
   typeUrl: "/ibc.lightclients.wasm.v1.QueryCodeResponse",
   aminoType: "cosmos-sdk/QueryCodeResponse",
@@ -428,7 +535,6 @@ export const QueryCodeResponse = {
       typeUrl: "/ibc.lightclients.wasm.v1.QueryCodeResponse",
       value: QueryCodeResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryCodeResponse.typeUrl, QueryCodeResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryCodeResponse.aminoType, QueryCodeResponse.typeUrl);

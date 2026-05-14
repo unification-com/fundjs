@@ -1,7 +1,11 @@
 //@ts-nocheck
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { GlobalDecoderRegistry } from "../../../registry";
-/** EventEpochEnd is an event emitted when an epoch end. */
+/**
+ * EventEpochEnd is an event emitted when an epoch end.
+ * @name EventEpochEnd
+ * @package cosmos.epochs.v1beta1
+ * @see proto type: cosmos.epochs.v1beta1.EventEpochEnd
+ */
 export interface EventEpochEnd {
   epochNumber: bigint;
 }
@@ -9,7 +13,12 @@ export interface EventEpochEndProtoMsg {
   typeUrl: "/cosmos.epochs.v1beta1.EventEpochEnd";
   value: Uint8Array;
 }
-/** EventEpochEnd is an event emitted when an epoch end. */
+/**
+ * EventEpochEnd is an event emitted when an epoch end.
+ * @name EventEpochEndAmino
+ * @package cosmos.epochs.v1beta1
+ * @see proto type: cosmos.epochs.v1beta1.EventEpochEnd
+ */
 export interface EventEpochEndAmino {
   epoch_number?: string;
 }
@@ -17,11 +26,21 @@ export interface EventEpochEndAminoMsg {
   type: "cosmos-sdk/EventEpochEnd";
   value: EventEpochEndAmino;
 }
-/** EventEpochEnd is an event emitted when an epoch end. */
+/**
+ * EventEpochEnd is an event emitted when an epoch end.
+ * @name EventEpochEndSDKType
+ * @package cosmos.epochs.v1beta1
+ * @see proto type: cosmos.epochs.v1beta1.EventEpochEnd
+ */
 export interface EventEpochEndSDKType {
   epoch_number: bigint;
 }
-/** EventEpochStart is an event emitted when an epoch start. */
+/**
+ * EventEpochStart is an event emitted when an epoch start.
+ * @name EventEpochStart
+ * @package cosmos.epochs.v1beta1
+ * @see proto type: cosmos.epochs.v1beta1.EventEpochStart
+ */
 export interface EventEpochStart {
   epochNumber: bigint;
   epochStartTime: bigint;
@@ -30,7 +49,12 @@ export interface EventEpochStartProtoMsg {
   typeUrl: "/cosmos.epochs.v1beta1.EventEpochStart";
   value: Uint8Array;
 }
-/** EventEpochStart is an event emitted when an epoch start. */
+/**
+ * EventEpochStart is an event emitted when an epoch start.
+ * @name EventEpochStartAmino
+ * @package cosmos.epochs.v1beta1
+ * @see proto type: cosmos.epochs.v1beta1.EventEpochStart
+ */
 export interface EventEpochStartAmino {
   epoch_number?: string;
   epoch_start_time?: string;
@@ -39,7 +63,12 @@ export interface EventEpochStartAminoMsg {
   type: "cosmos-sdk/EventEpochStart";
   value: EventEpochStartAmino;
 }
-/** EventEpochStart is an event emitted when an epoch start. */
+/**
+ * EventEpochStart is an event emitted when an epoch start.
+ * @name EventEpochStartSDKType
+ * @package cosmos.epochs.v1beta1
+ * @see proto type: cosmos.epochs.v1beta1.EventEpochStart
+ */
 export interface EventEpochStartSDKType {
   epoch_number: bigint;
   epoch_start_time: bigint;
@@ -49,6 +78,12 @@ function createBaseEventEpochEnd(): EventEpochEnd {
     epochNumber: BigInt(0)
   };
 }
+/**
+ * EventEpochEnd is an event emitted when an epoch end.
+ * @name EventEpochEnd
+ * @package cosmos.epochs.v1beta1
+ * @see proto type: cosmos.epochs.v1beta1.EventEpochEnd
+ */
 export const EventEpochEnd = {
   typeUrl: "/cosmos.epochs.v1beta1.EventEpochEnd",
   aminoType: "cosmos-sdk/EventEpochEnd",
@@ -121,16 +156,21 @@ export const EventEpochEnd = {
       typeUrl: "/cosmos.epochs.v1beta1.EventEpochEnd",
       value: EventEpochEnd.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(EventEpochEnd.typeUrl, EventEpochEnd);
-GlobalDecoderRegistry.registerAminoProtoMapping(EventEpochEnd.aminoType, EventEpochEnd.typeUrl);
 function createBaseEventEpochStart(): EventEpochStart {
   return {
     epochNumber: BigInt(0),
     epochStartTime: BigInt(0)
   };
 }
+/**
+ * EventEpochStart is an event emitted when an epoch start.
+ * @name EventEpochStart
+ * @package cosmos.epochs.v1beta1
+ * @see proto type: cosmos.epochs.v1beta1.EventEpochStart
+ */
 export const EventEpochStart = {
   typeUrl: "/cosmos.epochs.v1beta1.EventEpochStart",
   aminoType: "cosmos-sdk/EventEpochStart",
@@ -214,7 +254,6 @@ export const EventEpochStart = {
       typeUrl: "/cosmos.epochs.v1beta1.EventEpochStart",
       value: EventEpochStart.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(EventEpochStart.typeUrl, EventEpochStart);
-GlobalDecoderRegistry.registerAminoProtoMapping(EventEpochStart.aminoType, EventEpochStart.typeUrl);

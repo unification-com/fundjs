@@ -1,26 +1,46 @@
 //@ts-nocheck
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { Decimal } from "@cosmjs/math";
-import { GlobalDecoderRegistry } from "../../../registry";
-/** Params defines the parameters for the module. */
+import { Decimal } from "@interchainjs/math";
+/**
+ * Params defines the parameters for the module.
+ * @name Params
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.Params
+ */
 export interface Params {
-  /** validator_fee is the chain-wide fee validators will receive from stream payments. A percentage value from 0 to 1 */
+  /**
+   * validator_fee is the chain-wide fee validators will receive from stream
+   * payments. A percentage value from 0 to 1
+   */
   validatorFee: string;
 }
 export interface ParamsProtoMsg {
   typeUrl: "/mainchain.stream.v1.Params";
   value: Uint8Array;
 }
-/** Params defines the parameters for the module. */
+/**
+ * Params defines the parameters for the module.
+ * @name ParamsAmino
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.Params
+ */
 export interface ParamsAmino {
-  /** validator_fee is the chain-wide fee validators will receive from stream payments. A percentage value from 0 to 1 */
+  /**
+   * validator_fee is the chain-wide fee validators will receive from stream
+   * payments. A percentage value from 0 to 1
+   */
   validator_fee: string;
 }
 export interface ParamsAminoMsg {
   type: "stream/v1/Params";
   value: ParamsAmino;
 }
-/** Params defines the parameters for the module. */
+/**
+ * Params defines the parameters for the module.
+ * @name ParamsSDKType
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.Params
+ */
 export interface ParamsSDKType {
   validator_fee: string;
 }
@@ -29,6 +49,12 @@ function createBaseParams(): Params {
     validatorFee: ""
   };
 }
+/**
+ * Params defines the parameters for the module.
+ * @name Params
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.Params
+ */
 export const Params = {
   typeUrl: "/mainchain.stream.v1.Params",
   aminoType: "stream/v1/Params",
@@ -78,7 +104,7 @@ export const Params = {
   },
   toAmino(message: Params): ParamsAmino {
     const obj: any = {};
-    obj.validator_fee = message.validatorFee ?? "";
+    obj.validator_fee = Decimal.fromUserInput(message.validatorFee, 18).atomics ?? "";
     return obj;
   },
   fromAminoMsg(object: ParamsAminoMsg): Params {
@@ -101,7 +127,6 @@ export const Params = {
       typeUrl: "/mainchain.stream.v1.Params",
       value: Params.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(Params.typeUrl, Params);
-GlobalDecoderRegistry.registerAminoProtoMapping(Params.aminoType, Params.typeUrl);

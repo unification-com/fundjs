@@ -2,41 +2,76 @@
 import { Params, ParamsAmino, ParamsSDKType } from "./wrkchain";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { GlobalDecoderRegistry } from "../../../registry";
-/** MsgRegisterWrkChain represents a message to register a new wrkchain */
+/**
+ * MsgRegisterWrkChain represents a message to register a new wrkchain
+ * @name MsgRegisterWrkChain
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.MsgRegisterWrkChain
+ */
 export interface MsgRegisterWrkChain {
-  /** moniker is a short identifier for a wrkchain */
+  /**
+   * moniker is a short identifier for a wrkchain
+   */
   moniker: string;
-  /** name is a long name for a wrkchain */
+  /**
+   * name is a long name for a wrkchain
+   */
   name: string;
-  /** genesis_hash is a hash of the genesis block of the wrkchain */
+  /**
+   * genesis_hash is a hash of the genesis block of the wrkchain
+   */
   genesisHash: string;
-  /** base_type is the type of wrkchain, e.g. geth, cosmos etc. */
+  /**
+   * base_type is the type of wrkchain, e.g. geth, cosmos etc.
+   */
   baseType: string;
-  /** owner is the address of the owner of the wrkchain */
+  /**
+   * owner is the address of the owner of the wrkchain
+   */
   owner: string;
 }
 export interface MsgRegisterWrkChainProtoMsg {
   typeUrl: "/mainchain.wrkchain.v1.MsgRegisterWrkChain";
   value: Uint8Array;
 }
-/** MsgRegisterWrkChain represents a message to register a new wrkchain */
+/**
+ * MsgRegisterWrkChain represents a message to register a new wrkchain
+ * @name MsgRegisterWrkChainAmino
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.MsgRegisterWrkChain
+ */
 export interface MsgRegisterWrkChainAmino {
-  /** moniker is a short identifier for a wrkchain */
+  /**
+   * moniker is a short identifier for a wrkchain
+   */
   moniker?: string;
-  /** name is a long name for a wrkchain */
+  /**
+   * name is a long name for a wrkchain
+   */
   name?: string;
-  /** genesis_hash is a hash of the genesis block of the wrkchain */
+  /**
+   * genesis_hash is a hash of the genesis block of the wrkchain
+   */
   genesis_hash?: string;
-  /** base_type is the type of wrkchain, e.g. geth, cosmos etc. */
+  /**
+   * base_type is the type of wrkchain, e.g. geth, cosmos etc.
+   */
   base_type?: string;
-  /** owner is the address of the owner of the wrkchain */
+  /**
+   * owner is the address of the owner of the wrkchain
+   */
   owner?: string;
 }
 export interface MsgRegisterWrkChainAminoMsg {
   type: "wrkchain/MsgRegisterWrkChain";
   value: MsgRegisterWrkChainAmino;
 }
-/** MsgRegisterWrkChain represents a message to register a new wrkchain */
+/**
+ * MsgRegisterWrkChain represents a message to register a new wrkchain
+ * @name MsgRegisterWrkChainSDKType
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.MsgRegisterWrkChain
+ */
 export interface MsgRegisterWrkChainSDKType {
   moniker: string;
   name: string;
@@ -44,75 +79,146 @@ export interface MsgRegisterWrkChainSDKType {
   base_type: string;
   owner: string;
 }
-/** MsgRegisterWrkChainResponse defines the Msg/RegisterWrkChain response type. */
+/**
+ * MsgRegisterWrkChainResponse defines the Msg/RegisterWrkChain response type.
+ * @name MsgRegisterWrkChainResponse
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.MsgRegisterWrkChainResponse
+ */
 export interface MsgRegisterWrkChainResponse {
-  /** wrkchain_id is the id of the new wrkchain */
+  /**
+   * wrkchain_id is the id of the new wrkchain
+   */
   wrkchainId: bigint;
 }
 export interface MsgRegisterWrkChainResponseProtoMsg {
   typeUrl: "/mainchain.wrkchain.v1.MsgRegisterWrkChainResponse";
   value: Uint8Array;
 }
-/** MsgRegisterWrkChainResponse defines the Msg/RegisterWrkChain response type. */
+/**
+ * MsgRegisterWrkChainResponse defines the Msg/RegisterWrkChain response type.
+ * @name MsgRegisterWrkChainResponseAmino
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.MsgRegisterWrkChainResponse
+ */
 export interface MsgRegisterWrkChainResponseAmino {
-  /** wrkchain_id is the id of the new wrkchain */
+  /**
+   * wrkchain_id is the id of the new wrkchain
+   */
   wrkchain_id?: string;
 }
 export interface MsgRegisterWrkChainResponseAminoMsg {
   type: "/mainchain.wrkchain.v1.MsgRegisterWrkChainResponse";
   value: MsgRegisterWrkChainResponseAmino;
 }
-/** MsgRegisterWrkChainResponse defines the Msg/RegisterWrkChain response type. */
+/**
+ * MsgRegisterWrkChainResponse defines the Msg/RegisterWrkChain response type.
+ * @name MsgRegisterWrkChainResponseSDKType
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.MsgRegisterWrkChainResponse
+ */
 export interface MsgRegisterWrkChainResponseSDKType {
   wrkchain_id: bigint;
 }
-/** MsgRecordWrkChainBlock represents a message to submit a set of block hashes for a registered wrkchain */
+/**
+ * MsgRecordWrkChainBlock represents a message to submit a set of block hashes
+ * for a registered wrkchain
+ * @name MsgRecordWrkChainBlock
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.MsgRecordWrkChainBlock
+ */
 export interface MsgRecordWrkChainBlock {
-  /** wrkchain_id is the id of the wrkchain the hashes are being submitted for */
+  /**
+   * wrkchain_id is the id of the wrkchain the hashes are being submitted for
+   */
   wrkchainId: bigint;
-  /** height is the block height/number of the hashes being submitted */
+  /**
+   * height is the block height/number of the hashes being submitted
+   */
   height: bigint;
-  /** block_hash is the main block hash */
+  /**
+   * block_hash is the main block hash
+   */
   blockHash: string;
-  /** parent_hash is an optional parent block hash for the given height/block number */
+  /**
+   * parent_hash is an optional parent block hash for the given height/block
+   * number
+   */
   parentHash: string;
-  /** hash1 is an optional supplementary hash to be submitted, for example TxHash */
+  /**
+   * hash1 is an optional supplementary hash to be submitted, for example TxHash
+   */
   hash1: string;
-  /** hash2 is an optional supplementary hash to be submitted, for example TxHash */
+  /**
+   * hash2 is an optional supplementary hash to be submitted, for example TxHash
+   */
   hash2: string;
-  /** hash3 is an optional supplementary hash to be submitted, for example TxHash */
+  /**
+   * hash3 is an optional supplementary hash to be submitted, for example TxHash
+   */
   hash3: string;
-  /** owner is the address of the owner of the wrkchain */
+  /**
+   * owner is the address of the owner of the wrkchain
+   */
   owner: string;
 }
 export interface MsgRecordWrkChainBlockProtoMsg {
   typeUrl: "/mainchain.wrkchain.v1.MsgRecordWrkChainBlock";
   value: Uint8Array;
 }
-/** MsgRecordWrkChainBlock represents a message to submit a set of block hashes for a registered wrkchain */
+/**
+ * MsgRecordWrkChainBlock represents a message to submit a set of block hashes
+ * for a registered wrkchain
+ * @name MsgRecordWrkChainBlockAmino
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.MsgRecordWrkChainBlock
+ */
 export interface MsgRecordWrkChainBlockAmino {
-  /** wrkchain_id is the id of the wrkchain the hashes are being submitted for */
+  /**
+   * wrkchain_id is the id of the wrkchain the hashes are being submitted for
+   */
   wrkchain_id?: string;
-  /** height is the block height/number of the hashes being submitted */
+  /**
+   * height is the block height/number of the hashes being submitted
+   */
   height?: string;
-  /** block_hash is the main block hash */
+  /**
+   * block_hash is the main block hash
+   */
   block_hash?: string;
-  /** parent_hash is an optional parent block hash for the given height/block number */
+  /**
+   * parent_hash is an optional parent block hash for the given height/block
+   * number
+   */
   parent_hash?: string;
-  /** hash1 is an optional supplementary hash to be submitted, for example TxHash */
+  /**
+   * hash1 is an optional supplementary hash to be submitted, for example TxHash
+   */
   hash1?: string;
-  /** hash2 is an optional supplementary hash to be submitted, for example TxHash */
+  /**
+   * hash2 is an optional supplementary hash to be submitted, for example TxHash
+   */
   hash2?: string;
-  /** hash3 is an optional supplementary hash to be submitted, for example TxHash */
+  /**
+   * hash3 is an optional supplementary hash to be submitted, for example TxHash
+   */
   hash3?: string;
-  /** owner is the address of the owner of the wrkchain */
+  /**
+   * owner is the address of the owner of the wrkchain
+   */
   owner?: string;
 }
 export interface MsgRecordWrkChainBlockAminoMsg {
   type: "wrkchain/MsgRecordWrkChainBlock";
   value: MsgRecordWrkChainBlockAmino;
 }
-/** MsgRecordWrkChainBlock represents a message to submit a set of block hashes for a registered wrkchain */
+/**
+ * MsgRecordWrkChainBlock represents a message to submit a set of block hashes
+ * for a registered wrkchain
+ * @name MsgRecordWrkChainBlockSDKType
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.MsgRecordWrkChainBlock
+ */
 export interface MsgRecordWrkChainBlockSDKType {
   wrkchain_id: bigint;
   height: bigint;
@@ -123,92 +229,178 @@ export interface MsgRecordWrkChainBlockSDKType {
   hash3: string;
   owner: string;
 }
-/** MsgRecordWrkChainBlockResponse defines the Msg/RecordWrkChainBlock response type. */
+/**
+ * MsgRecordWrkChainBlockResponse defines the Msg/RecordWrkChainBlock response
+ * type.
+ * @name MsgRecordWrkChainBlockResponse
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.MsgRecordWrkChainBlockResponse
+ */
 export interface MsgRecordWrkChainBlockResponse {
-  /** wrkchain_id is the id of the wrkchain */
+  /**
+   * wrkchain_id is the id of the wrkchain
+   */
   wrkchainId: bigint;
-  /** height is the height of the submitted block hashes */
+  /**
+   * height is the height of the submitted block hashes
+   */
   height: bigint;
 }
 export interface MsgRecordWrkChainBlockResponseProtoMsg {
   typeUrl: "/mainchain.wrkchain.v1.MsgRecordWrkChainBlockResponse";
   value: Uint8Array;
 }
-/** MsgRecordWrkChainBlockResponse defines the Msg/RecordWrkChainBlock response type. */
+/**
+ * MsgRecordWrkChainBlockResponse defines the Msg/RecordWrkChainBlock response
+ * type.
+ * @name MsgRecordWrkChainBlockResponseAmino
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.MsgRecordWrkChainBlockResponse
+ */
 export interface MsgRecordWrkChainBlockResponseAmino {
-  /** wrkchain_id is the id of the wrkchain */
+  /**
+   * wrkchain_id is the id of the wrkchain
+   */
   wrkchain_id?: string;
-  /** height is the height of the submitted block hashes */
+  /**
+   * height is the height of the submitted block hashes
+   */
   height?: string;
 }
 export interface MsgRecordWrkChainBlockResponseAminoMsg {
   type: "/mainchain.wrkchain.v1.MsgRecordWrkChainBlockResponse";
   value: MsgRecordWrkChainBlockResponseAmino;
 }
-/** MsgRecordWrkChainBlockResponse defines the Msg/RecordWrkChainBlock response type. */
+/**
+ * MsgRecordWrkChainBlockResponse defines the Msg/RecordWrkChainBlock response
+ * type.
+ * @name MsgRecordWrkChainBlockResponseSDKType
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.MsgRecordWrkChainBlockResponse
+ */
 export interface MsgRecordWrkChainBlockResponseSDKType {
   wrkchain_id: bigint;
   height: bigint;
 }
-/** MsgPurchaseWrkChainStateStorage represents a message to purchase more wrkchain storage */
+/**
+ * MsgPurchaseWrkChainStateStorage represents a message to purchase more
+ * wrkchain storage
+ * @name MsgPurchaseWrkChainStateStorage
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.MsgPurchaseWrkChainStateStorage
+ */
 export interface MsgPurchaseWrkChainStateStorage {
-  /** wrkchain_id is the id of the wrkchain the storage is being purchased for */
+  /**
+   * wrkchain_id is the id of the wrkchain the storage is being purchased for
+   */
   wrkchainId: bigint;
-  /** number is the number of state storage spaces to purchase */
+  /**
+   * number is the number of state storage spaces to purchase
+   */
   number: bigint;
-  /** owner is the address of the owner of the wrkchain */
+  /**
+   * owner is the address of the owner of the wrkchain
+   */
   owner: string;
 }
 export interface MsgPurchaseWrkChainStateStorageProtoMsg {
   typeUrl: "/mainchain.wrkchain.v1.MsgPurchaseWrkChainStateStorage";
   value: Uint8Array;
 }
-/** MsgPurchaseWrkChainStateStorage represents a message to purchase more wrkchain storage */
+/**
+ * MsgPurchaseWrkChainStateStorage represents a message to purchase more
+ * wrkchain storage
+ * @name MsgPurchaseWrkChainStateStorageAmino
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.MsgPurchaseWrkChainStateStorage
+ */
 export interface MsgPurchaseWrkChainStateStorageAmino {
-  /** wrkchain_id is the id of the wrkchain the storage is being purchased for */
+  /**
+   * wrkchain_id is the id of the wrkchain the storage is being purchased for
+   */
   wrkchain_id?: string;
-  /** number is the number of state storage spaces to purchase */
+  /**
+   * number is the number of state storage spaces to purchase
+   */
   number?: string;
-  /** owner is the address of the owner of the wrkchain */
+  /**
+   * owner is the address of the owner of the wrkchain
+   */
   owner?: string;
 }
 export interface MsgPurchaseWrkChainStateStorageAminoMsg {
   type: "wrkchain/MsgPurchaseWrkChainStorage";
   value: MsgPurchaseWrkChainStateStorageAmino;
 }
-/** MsgPurchaseWrkChainStateStorage represents a message to purchase more wrkchain storage */
+/**
+ * MsgPurchaseWrkChainStateStorage represents a message to purchase more
+ * wrkchain storage
+ * @name MsgPurchaseWrkChainStateStorageSDKType
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.MsgPurchaseWrkChainStateStorage
+ */
 export interface MsgPurchaseWrkChainStateStorageSDKType {
   wrkchain_id: bigint;
   number: bigint;
   owner: string;
 }
-/** MsgPurchaseWrkChainStateStorageResponse defines the Msg/PurchaseWrkChainStateStorage response type. */
+/**
+ * MsgPurchaseWrkChainStateStorageResponse defines the
+ * Msg/PurchaseWrkChainStateStorage response type.
+ * @name MsgPurchaseWrkChainStateStorageResponse
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.MsgPurchaseWrkChainStateStorageResponse
+ */
 export interface MsgPurchaseWrkChainStateStorageResponse {
-  /** wrkchain_id is the id of the wrkchain the storage is being purchased for */
+  /**
+   * wrkchain_id is the id of the wrkchain the storage is being purchased for
+   */
   wrkchainId: bigint;
-  /** number_purchased is the number of state storage spaces purchased */
+  /**
+   * number_purchased is the number of state storage spaces purchased
+   */
   numberPurchased: bigint;
-  /** num_can_purchase is the number of remaining slots available for purchase */
+  /**
+   * num_can_purchase is the number of remaining slots available for purchase
+   */
   numCanPurchase: bigint;
 }
 export interface MsgPurchaseWrkChainStateStorageResponseProtoMsg {
   typeUrl: "/mainchain.wrkchain.v1.MsgPurchaseWrkChainStateStorageResponse";
   value: Uint8Array;
 }
-/** MsgPurchaseWrkChainStateStorageResponse defines the Msg/PurchaseWrkChainStateStorage response type. */
+/**
+ * MsgPurchaseWrkChainStateStorageResponse defines the
+ * Msg/PurchaseWrkChainStateStorage response type.
+ * @name MsgPurchaseWrkChainStateStorageResponseAmino
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.MsgPurchaseWrkChainStateStorageResponse
+ */
 export interface MsgPurchaseWrkChainStateStorageResponseAmino {
-  /** wrkchain_id is the id of the wrkchain the storage is being purchased for */
+  /**
+   * wrkchain_id is the id of the wrkchain the storage is being purchased for
+   */
   wrkchain_id?: string;
-  /** number_purchased is the number of state storage spaces purchased */
+  /**
+   * number_purchased is the number of state storage spaces purchased
+   */
   number_purchased?: string;
-  /** num_can_purchase is the number of remaining slots available for purchase */
+  /**
+   * num_can_purchase is the number of remaining slots available for purchase
+   */
   num_can_purchase?: string;
 }
 export interface MsgPurchaseWrkChainStateStorageResponseAminoMsg {
   type: "/mainchain.wrkchain.v1.MsgPurchaseWrkChainStateStorageResponse";
   value: MsgPurchaseWrkChainStateStorageResponseAmino;
 }
-/** MsgPurchaseWrkChainStateStorageResponse defines the Msg/PurchaseWrkChainStateStorage response type. */
+/**
+ * MsgPurchaseWrkChainStateStorageResponse defines the
+ * Msg/PurchaseWrkChainStateStorage response type.
+ * @name MsgPurchaseWrkChainStateStorageResponseSDKType
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.MsgPurchaseWrkChainStateStorageResponse
+ */
 export interface MsgPurchaseWrkChainStateStorageResponseSDKType {
   wrkchain_id: bigint;
   number_purchased: bigint;
@@ -218,9 +410,15 @@ export interface MsgPurchaseWrkChainStateStorageResponseSDKType {
  * MsgUpdateParams is the Msg/UpdateParams request type.
  * 
  * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParams
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.MsgUpdateParams
  */
 export interface MsgUpdateParams {
-  /** authority is the address that controls the module (defaults to x/gov unless overwritten). */
+  /**
+   * authority is the address that controls the module (defaults to x/gov unless
+   * overwritten).
+   */
   authority: string;
   /**
    * params defines the x/wrkchain parameters to update.
@@ -237,9 +435,15 @@ export interface MsgUpdateParamsProtoMsg {
  * MsgUpdateParams is the Msg/UpdateParams request type.
  * 
  * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParamsAmino
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.MsgUpdateParams
  */
 export interface MsgUpdateParamsAmino {
-  /** authority is the address that controls the module (defaults to x/gov unless overwritten). */
+  /**
+   * authority is the address that controls the module (defaults to x/gov unless
+   * overwritten).
+   */
   authority?: string;
   /**
    * params defines the x/wrkchain parameters to update.
@@ -256,6 +460,9 @@ export interface MsgUpdateParamsAminoMsg {
  * MsgUpdateParams is the Msg/UpdateParams request type.
  * 
  * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParamsSDKType
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.MsgUpdateParams
  */
 export interface MsgUpdateParamsSDKType {
   authority: string;
@@ -266,6 +473,9 @@ export interface MsgUpdateParamsSDKType {
  * MsgUpdateParams message.
  * 
  * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParamsResponse
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.MsgUpdateParamsResponse
  */
 export interface MsgUpdateParamsResponse {}
 export interface MsgUpdateParamsResponseProtoMsg {
@@ -277,6 +487,9 @@ export interface MsgUpdateParamsResponseProtoMsg {
  * MsgUpdateParams message.
  * 
  * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParamsResponseAmino
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.MsgUpdateParamsResponse
  */
 export interface MsgUpdateParamsResponseAmino {}
 export interface MsgUpdateParamsResponseAminoMsg {
@@ -288,6 +501,9 @@ export interface MsgUpdateParamsResponseAminoMsg {
  * MsgUpdateParams message.
  * 
  * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParamsResponseSDKType
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.MsgUpdateParamsResponse
  */
 export interface MsgUpdateParamsResponseSDKType {}
 function createBaseMsgRegisterWrkChain(): MsgRegisterWrkChain {
@@ -299,6 +515,12 @@ function createBaseMsgRegisterWrkChain(): MsgRegisterWrkChain {
     owner: ""
   };
 }
+/**
+ * MsgRegisterWrkChain represents a message to register a new wrkchain
+ * @name MsgRegisterWrkChain
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.MsgRegisterWrkChain
+ */
 export const MsgRegisterWrkChain = {
   typeUrl: "/mainchain.wrkchain.v1.MsgRegisterWrkChain",
   aminoType: "wrkchain/MsgRegisterWrkChain",
@@ -415,15 +637,20 @@ export const MsgRegisterWrkChain = {
       typeUrl: "/mainchain.wrkchain.v1.MsgRegisterWrkChain",
       value: MsgRegisterWrkChain.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgRegisterWrkChain.typeUrl, MsgRegisterWrkChain);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgRegisterWrkChain.aminoType, MsgRegisterWrkChain.typeUrl);
 function createBaseMsgRegisterWrkChainResponse(): MsgRegisterWrkChainResponse {
   return {
     wrkchainId: BigInt(0)
   };
 }
+/**
+ * MsgRegisterWrkChainResponse defines the Msg/RegisterWrkChain response type.
+ * @name MsgRegisterWrkChainResponse
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.MsgRegisterWrkChainResponse
+ */
 export const MsgRegisterWrkChainResponse = {
   typeUrl: "/mainchain.wrkchain.v1.MsgRegisterWrkChainResponse",
   is(o: any): o is MsgRegisterWrkChainResponse {
@@ -489,9 +716,9 @@ export const MsgRegisterWrkChainResponse = {
       typeUrl: "/mainchain.wrkchain.v1.MsgRegisterWrkChainResponse",
       value: MsgRegisterWrkChainResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgRegisterWrkChainResponse.typeUrl, MsgRegisterWrkChainResponse);
 function createBaseMsgRecordWrkChainBlock(): MsgRecordWrkChainBlock {
   return {
     wrkchainId: BigInt(0),
@@ -504,6 +731,13 @@ function createBaseMsgRecordWrkChainBlock(): MsgRecordWrkChainBlock {
     owner: ""
   };
 }
+/**
+ * MsgRecordWrkChainBlock represents a message to submit a set of block hashes
+ * for a registered wrkchain
+ * @name MsgRecordWrkChainBlock
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.MsgRecordWrkChainBlock
+ */
 export const MsgRecordWrkChainBlock = {
   typeUrl: "/mainchain.wrkchain.v1.MsgRecordWrkChainBlock",
   aminoType: "wrkchain/MsgRecordWrkChainBlock",
@@ -653,16 +887,22 @@ export const MsgRecordWrkChainBlock = {
       typeUrl: "/mainchain.wrkchain.v1.MsgRecordWrkChainBlock",
       value: MsgRecordWrkChainBlock.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgRecordWrkChainBlock.typeUrl, MsgRecordWrkChainBlock);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgRecordWrkChainBlock.aminoType, MsgRecordWrkChainBlock.typeUrl);
 function createBaseMsgRecordWrkChainBlockResponse(): MsgRecordWrkChainBlockResponse {
   return {
     wrkchainId: BigInt(0),
     height: BigInt(0)
   };
 }
+/**
+ * MsgRecordWrkChainBlockResponse defines the Msg/RecordWrkChainBlock response
+ * type.
+ * @name MsgRecordWrkChainBlockResponse
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.MsgRecordWrkChainBlockResponse
+ */
 export const MsgRecordWrkChainBlockResponse = {
   typeUrl: "/mainchain.wrkchain.v1.MsgRecordWrkChainBlockResponse",
   is(o: any): o is MsgRecordWrkChainBlockResponse {
@@ -739,9 +979,9 @@ export const MsgRecordWrkChainBlockResponse = {
       typeUrl: "/mainchain.wrkchain.v1.MsgRecordWrkChainBlockResponse",
       value: MsgRecordWrkChainBlockResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgRecordWrkChainBlockResponse.typeUrl, MsgRecordWrkChainBlockResponse);
 function createBaseMsgPurchaseWrkChainStateStorage(): MsgPurchaseWrkChainStateStorage {
   return {
     wrkchainId: BigInt(0),
@@ -749,6 +989,13 @@ function createBaseMsgPurchaseWrkChainStateStorage(): MsgPurchaseWrkChainStateSt
     owner: ""
   };
 }
+/**
+ * MsgPurchaseWrkChainStateStorage represents a message to purchase more
+ * wrkchain storage
+ * @name MsgPurchaseWrkChainStateStorage
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.MsgPurchaseWrkChainStateStorage
+ */
 export const MsgPurchaseWrkChainStateStorage = {
   typeUrl: "/mainchain.wrkchain.v1.MsgPurchaseWrkChainStateStorage",
   aminoType: "wrkchain/MsgPurchaseWrkChainStorage",
@@ -843,10 +1090,9 @@ export const MsgPurchaseWrkChainStateStorage = {
       typeUrl: "/mainchain.wrkchain.v1.MsgPurchaseWrkChainStateStorage",
       value: MsgPurchaseWrkChainStateStorage.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgPurchaseWrkChainStateStorage.typeUrl, MsgPurchaseWrkChainStateStorage);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgPurchaseWrkChainStateStorage.aminoType, MsgPurchaseWrkChainStateStorage.typeUrl);
 function createBaseMsgPurchaseWrkChainStateStorageResponse(): MsgPurchaseWrkChainStateStorageResponse {
   return {
     wrkchainId: BigInt(0),
@@ -854,6 +1100,13 @@ function createBaseMsgPurchaseWrkChainStateStorageResponse(): MsgPurchaseWrkChai
     numCanPurchase: BigInt(0)
   };
 }
+/**
+ * MsgPurchaseWrkChainStateStorageResponse defines the
+ * Msg/PurchaseWrkChainStateStorage response type.
+ * @name MsgPurchaseWrkChainStateStorageResponse
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.MsgPurchaseWrkChainStateStorageResponse
+ */
 export const MsgPurchaseWrkChainStateStorageResponse = {
   typeUrl: "/mainchain.wrkchain.v1.MsgPurchaseWrkChainStateStorageResponse",
   is(o: any): o is MsgPurchaseWrkChainStateStorageResponse {
@@ -941,15 +1194,23 @@ export const MsgPurchaseWrkChainStateStorageResponse = {
       typeUrl: "/mainchain.wrkchain.v1.MsgPurchaseWrkChainStateStorageResponse",
       value: MsgPurchaseWrkChainStateStorageResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgPurchaseWrkChainStateStorageResponse.typeUrl, MsgPurchaseWrkChainStateStorageResponse);
 function createBaseMsgUpdateParams(): MsgUpdateParams {
   return {
     authority: "",
     params: Params.fromPartial({})
   };
 }
+/**
+ * MsgUpdateParams is the Msg/UpdateParams request type.
+ * 
+ * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParams
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.MsgUpdateParams
+ */
 export const MsgUpdateParams = {
   typeUrl: "/mainchain.wrkchain.v1.MsgUpdateParams",
   aminoType: "mainchain/x/wrkchain/MsgUpdateParams",
@@ -1033,13 +1294,26 @@ export const MsgUpdateParams = {
       typeUrl: "/mainchain.wrkchain.v1.MsgUpdateParams",
       value: MsgUpdateParams.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgUpdateParams.typeUrl)) {
+      return;
+    }
+    Params.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgUpdateParams.typeUrl, MsgUpdateParams);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgUpdateParams.aminoType, MsgUpdateParams.typeUrl);
 function createBaseMsgUpdateParamsResponse(): MsgUpdateParamsResponse {
   return {};
 }
+/**
+ * MsgUpdateParamsResponse defines the response structure for executing a
+ * MsgUpdateParams message.
+ * 
+ * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParamsResponse
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.MsgUpdateParamsResponse
+ */
 export const MsgUpdateParamsResponse = {
   typeUrl: "/mainchain.wrkchain.v1.MsgUpdateParamsResponse",
   is(o: any): o is MsgUpdateParamsResponse {
@@ -1094,6 +1368,6 @@ export const MsgUpdateParamsResponse = {
       typeUrl: "/mainchain.wrkchain.v1.MsgUpdateParamsResponse",
       value: MsgUpdateParamsResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgUpdateParamsResponse.typeUrl, MsgUpdateParamsResponse);

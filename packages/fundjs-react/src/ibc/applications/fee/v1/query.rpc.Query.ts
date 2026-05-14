@@ -1,5 +1,5 @@
 //@ts-nocheck
-import { Rpc } from "../../../../helpers";
+import { TxRpc } from "../../../../types";
 import { BinaryReader } from "../../../../binary";
 import { QueryClient, createProtobufRpcClient, ProtobufRpcClient } from "@cosmjs/stargate";
 import { ReactQueryParams } from "../../../../react-query";
@@ -29,8 +29,8 @@ export interface Query {
   feeEnabledChannel(request: QueryFeeEnabledChannelRequest): Promise<QueryFeeEnabledChannelResponse>;
 }
 export class QueryClientImpl implements Query {
-  private readonly rpc: Rpc;
-  constructor(rpc: Rpc) {
+  private readonly rpc: TxRpc;
+  constructor(rpc: TxRpc) {
     this.rpc = rpc;
     this.incentivizedPackets = this.incentivizedPackets.bind(this);
     this.incentivizedPacket = this.incentivizedPacket.bind(this);

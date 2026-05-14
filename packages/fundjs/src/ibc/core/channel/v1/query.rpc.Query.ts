@@ -1,5 +1,5 @@
 //@ts-nocheck
-import { Rpc } from "../../../../helpers";
+import { TxRpc } from "../../../../types";
 import { BinaryReader } from "../../../../binary";
 import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
 import { QueryChannelRequest, QueryChannelResponse, QueryChannelsRequest, QueryChannelsResponse, QueryConnectionChannelsRequest, QueryConnectionChannelsResponse, QueryChannelClientStateRequest, QueryChannelClientStateResponse, QueryChannelConsensusStateRequest, QueryChannelConsensusStateResponse, QueryPacketCommitmentRequest, QueryPacketCommitmentResponse, QueryPacketCommitmentsRequest, QueryPacketCommitmentsResponse, QueryPacketReceiptRequest, QueryPacketReceiptResponse, QueryPacketAcknowledgementRequest, QueryPacketAcknowledgementResponse, QueryPacketAcknowledgementsRequest, QueryPacketAcknowledgementsResponse, QueryUnreceivedPacketsRequest, QueryUnreceivedPacketsResponse, QueryUnreceivedAcksRequest, QueryUnreceivedAcksResponse, QueryNextSequenceReceiveRequest, QueryNextSequenceReceiveResponse, QueryNextSequenceSendRequest, QueryNextSequenceSendResponse, QueryUpgradeErrorRequest, QueryUpgradeErrorResponse, QueryUpgradeRequest, QueryUpgradeResponse, QueryChannelParamsRequest, QueryChannelParamsResponse } from "./query";
@@ -65,8 +65,8 @@ export interface Query {
   channelParams(request?: QueryChannelParamsRequest): Promise<QueryChannelParamsResponse>;
 }
 export class QueryClientImpl implements Query {
-  private readonly rpc: Rpc;
-  constructor(rpc: Rpc) {
+  private readonly rpc: TxRpc;
+  constructor(rpc: TxRpc) {
     this.rpc = rpc;
     this.channel = this.channel.bind(this);
     this.channels = this.channels.bind(this);

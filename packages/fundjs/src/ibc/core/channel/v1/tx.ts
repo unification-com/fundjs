@@ -57,6 +57,9 @@ export function responseResultTypeToJSON(object: ResponseResultType): string {
 /**
  * MsgChannelOpenInit defines an sdk.Msg to initialize a channel handshake. It
  * is called by a relayer on Chain A.
+ * @name MsgChannelOpenInit
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelOpenInit
  */
 export interface MsgChannelOpenInit {
   portId: string;
@@ -70,6 +73,9 @@ export interface MsgChannelOpenInitProtoMsg {
 /**
  * MsgChannelOpenInit defines an sdk.Msg to initialize a channel handshake. It
  * is called by a relayer on Chain A.
+ * @name MsgChannelOpenInitAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelOpenInit
  */
 export interface MsgChannelOpenInitAmino {
   port_id?: string;
@@ -83,13 +89,21 @@ export interface MsgChannelOpenInitAminoMsg {
 /**
  * MsgChannelOpenInit defines an sdk.Msg to initialize a channel handshake. It
  * is called by a relayer on Chain A.
+ * @name MsgChannelOpenInitSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelOpenInit
  */
 export interface MsgChannelOpenInitSDKType {
   port_id: string;
   channel: ChannelSDKType;
   signer: string;
 }
-/** MsgChannelOpenInitResponse defines the Msg/ChannelOpenInit response type. */
+/**
+ * MsgChannelOpenInitResponse defines the Msg/ChannelOpenInit response type.
+ * @name MsgChannelOpenInitResponse
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelOpenInitResponse
+ */
 export interface MsgChannelOpenInitResponse {
   channelId: string;
   version: string;
@@ -98,7 +112,12 @@ export interface MsgChannelOpenInitResponseProtoMsg {
   typeUrl: "/ibc.core.channel.v1.MsgChannelOpenInitResponse";
   value: Uint8Array;
 }
-/** MsgChannelOpenInitResponse defines the Msg/ChannelOpenInit response type. */
+/**
+ * MsgChannelOpenInitResponse defines the Msg/ChannelOpenInit response type.
+ * @name MsgChannelOpenInitResponseAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelOpenInitResponse
+ */
 export interface MsgChannelOpenInitResponseAmino {
   channel_id?: string;
   version?: string;
@@ -107,7 +126,12 @@ export interface MsgChannelOpenInitResponseAminoMsg {
   type: "cosmos-sdk/MsgChannelOpenInitResponse";
   value: MsgChannelOpenInitResponseAmino;
 }
-/** MsgChannelOpenInitResponse defines the Msg/ChannelOpenInit response type. */
+/**
+ * MsgChannelOpenInitResponse defines the Msg/ChannelOpenInit response type.
+ * @name MsgChannelOpenInitResponseSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelOpenInitResponse
+ */
 export interface MsgChannelOpenInitResponseSDKType {
   channel_id: string;
   version: string;
@@ -116,13 +140,20 @@ export interface MsgChannelOpenInitResponseSDKType {
  * MsgChannelOpenInit defines a msg sent by a Relayer to try to open a channel
  * on Chain B. The version field within the Channel field has been deprecated. Its
  * value will be ignored by core IBC.
+ * @name MsgChannelOpenTry
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelOpenTry
  */
 export interface MsgChannelOpenTry {
   portId: string;
-  /** Deprecated: this field is unused. Crossing hello's are no longer supported in core IBC. */
-  /** @deprecated */
+  /**
+   * Deprecated: this field is unused. Crossing hello's are no longer supported in core IBC.
+   * @deprecated
+   */
   previousChannelId: string;
-  /** NOTE: the version field within the channel has been deprecated. Its value will be ignored by core IBC. */
+  /**
+   * NOTE: the version field within the channel has been deprecated. Its value will be ignored by core IBC.
+   */
   channel: Channel;
   counterpartyVersion: string;
   proofInit: Uint8Array;
@@ -137,13 +168,20 @@ export interface MsgChannelOpenTryProtoMsg {
  * MsgChannelOpenInit defines a msg sent by a Relayer to try to open a channel
  * on Chain B. The version field within the Channel field has been deprecated. Its
  * value will be ignored by core IBC.
+ * @name MsgChannelOpenTryAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelOpenTry
  */
 export interface MsgChannelOpenTryAmino {
   port_id?: string;
-  /** Deprecated: this field is unused. Crossing hello's are no longer supported in core IBC. */
-  /** @deprecated */
+  /**
+   * Deprecated: this field is unused. Crossing hello's are no longer supported in core IBC.
+   * @deprecated
+   */
   previous_channel_id?: string;
-  /** NOTE: the version field within the channel has been deprecated. Its value will be ignored by core IBC. */
+  /**
+   * NOTE: the version field within the channel has been deprecated. Its value will be ignored by core IBC.
+   */
   channel?: ChannelAmino;
   counterparty_version?: string;
   proof_init?: string;
@@ -158,10 +196,15 @@ export interface MsgChannelOpenTryAminoMsg {
  * MsgChannelOpenInit defines a msg sent by a Relayer to try to open a channel
  * on Chain B. The version field within the Channel field has been deprecated. Its
  * value will be ignored by core IBC.
+ * @name MsgChannelOpenTrySDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelOpenTry
  */
 export interface MsgChannelOpenTrySDKType {
   port_id: string;
-  /** @deprecated */
+  /**
+   * @deprecated
+   */
   previous_channel_id: string;
   channel: ChannelSDKType;
   counterparty_version: string;
@@ -169,7 +212,12 @@ export interface MsgChannelOpenTrySDKType {
   proof_height: HeightSDKType;
   signer: string;
 }
-/** MsgChannelOpenTryResponse defines the Msg/ChannelOpenTry response type. */
+/**
+ * MsgChannelOpenTryResponse defines the Msg/ChannelOpenTry response type.
+ * @name MsgChannelOpenTryResponse
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelOpenTryResponse
+ */
 export interface MsgChannelOpenTryResponse {
   version: string;
   channelId: string;
@@ -178,7 +226,12 @@ export interface MsgChannelOpenTryResponseProtoMsg {
   typeUrl: "/ibc.core.channel.v1.MsgChannelOpenTryResponse";
   value: Uint8Array;
 }
-/** MsgChannelOpenTryResponse defines the Msg/ChannelOpenTry response type. */
+/**
+ * MsgChannelOpenTryResponse defines the Msg/ChannelOpenTry response type.
+ * @name MsgChannelOpenTryResponseAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelOpenTryResponse
+ */
 export interface MsgChannelOpenTryResponseAmino {
   version?: string;
   channel_id?: string;
@@ -187,7 +240,12 @@ export interface MsgChannelOpenTryResponseAminoMsg {
   type: "cosmos-sdk/MsgChannelOpenTryResponse";
   value: MsgChannelOpenTryResponseAmino;
 }
-/** MsgChannelOpenTryResponse defines the Msg/ChannelOpenTry response type. */
+/**
+ * MsgChannelOpenTryResponse defines the Msg/ChannelOpenTry response type.
+ * @name MsgChannelOpenTryResponseSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelOpenTryResponse
+ */
 export interface MsgChannelOpenTryResponseSDKType {
   version: string;
   channel_id: string;
@@ -198,6 +256,9 @@ export interface MsgChannelOpenTryResponseSDKType {
  * WARNING: a channel upgrade MUST NOT initialize an upgrade for this channel
  * in the same block as executing this message otherwise the counterparty will
  * be incapable of opening.
+ * @name MsgChannelOpenAck
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelOpenAck
  */
 export interface MsgChannelOpenAck {
   portId: string;
@@ -218,6 +279,9 @@ export interface MsgChannelOpenAckProtoMsg {
  * WARNING: a channel upgrade MUST NOT initialize an upgrade for this channel
  * in the same block as executing this message otherwise the counterparty will
  * be incapable of opening.
+ * @name MsgChannelOpenAckAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelOpenAck
  */
 export interface MsgChannelOpenAckAmino {
   port_id?: string;
@@ -238,6 +302,9 @@ export interface MsgChannelOpenAckAminoMsg {
  * WARNING: a channel upgrade MUST NOT initialize an upgrade for this channel
  * in the same block as executing this message otherwise the counterparty will
  * be incapable of opening.
+ * @name MsgChannelOpenAckSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelOpenAck
  */
 export interface MsgChannelOpenAckSDKType {
   port_id: string;
@@ -248,23 +315,41 @@ export interface MsgChannelOpenAckSDKType {
   proof_height: HeightSDKType;
   signer: string;
 }
-/** MsgChannelOpenAckResponse defines the Msg/ChannelOpenAck response type. */
+/**
+ * MsgChannelOpenAckResponse defines the Msg/ChannelOpenAck response type.
+ * @name MsgChannelOpenAckResponse
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelOpenAckResponse
+ */
 export interface MsgChannelOpenAckResponse {}
 export interface MsgChannelOpenAckResponseProtoMsg {
   typeUrl: "/ibc.core.channel.v1.MsgChannelOpenAckResponse";
   value: Uint8Array;
 }
-/** MsgChannelOpenAckResponse defines the Msg/ChannelOpenAck response type. */
+/**
+ * MsgChannelOpenAckResponse defines the Msg/ChannelOpenAck response type.
+ * @name MsgChannelOpenAckResponseAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelOpenAckResponse
+ */
 export interface MsgChannelOpenAckResponseAmino {}
 export interface MsgChannelOpenAckResponseAminoMsg {
   type: "cosmos-sdk/MsgChannelOpenAckResponse";
   value: MsgChannelOpenAckResponseAmino;
 }
-/** MsgChannelOpenAckResponse defines the Msg/ChannelOpenAck response type. */
+/**
+ * MsgChannelOpenAckResponse defines the Msg/ChannelOpenAck response type.
+ * @name MsgChannelOpenAckResponseSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelOpenAckResponse
+ */
 export interface MsgChannelOpenAckResponseSDKType {}
 /**
  * MsgChannelOpenConfirm defines a msg sent by a Relayer to Chain B to
  * acknowledge the change of channel state to OPEN on Chain A.
+ * @name MsgChannelOpenConfirm
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelOpenConfirm
  */
 export interface MsgChannelOpenConfirm {
   portId: string;
@@ -280,6 +365,9 @@ export interface MsgChannelOpenConfirmProtoMsg {
 /**
  * MsgChannelOpenConfirm defines a msg sent by a Relayer to Chain B to
  * acknowledge the change of channel state to OPEN on Chain A.
+ * @name MsgChannelOpenConfirmAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelOpenConfirm
  */
 export interface MsgChannelOpenConfirmAmino {
   port_id?: string;
@@ -295,6 +383,9 @@ export interface MsgChannelOpenConfirmAminoMsg {
 /**
  * MsgChannelOpenConfirm defines a msg sent by a Relayer to Chain B to
  * acknowledge the change of channel state to OPEN on Chain A.
+ * @name MsgChannelOpenConfirmSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelOpenConfirm
  */
 export interface MsgChannelOpenConfirmSDKType {
   port_id: string;
@@ -306,6 +397,9 @@ export interface MsgChannelOpenConfirmSDKType {
 /**
  * MsgChannelOpenConfirmResponse defines the Msg/ChannelOpenConfirm response
  * type.
+ * @name MsgChannelOpenConfirmResponse
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelOpenConfirmResponse
  */
 export interface MsgChannelOpenConfirmResponse {}
 export interface MsgChannelOpenConfirmResponseProtoMsg {
@@ -315,6 +409,9 @@ export interface MsgChannelOpenConfirmResponseProtoMsg {
 /**
  * MsgChannelOpenConfirmResponse defines the Msg/ChannelOpenConfirm response
  * type.
+ * @name MsgChannelOpenConfirmResponseAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelOpenConfirmResponse
  */
 export interface MsgChannelOpenConfirmResponseAmino {}
 export interface MsgChannelOpenConfirmResponseAminoMsg {
@@ -324,11 +421,17 @@ export interface MsgChannelOpenConfirmResponseAminoMsg {
 /**
  * MsgChannelOpenConfirmResponse defines the Msg/ChannelOpenConfirm response
  * type.
+ * @name MsgChannelOpenConfirmResponseSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelOpenConfirmResponse
  */
 export interface MsgChannelOpenConfirmResponseSDKType {}
 /**
  * MsgChannelCloseInit defines a msg sent by a Relayer to Chain A
  * to close a channel with Chain B.
+ * @name MsgChannelCloseInit
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelCloseInit
  */
 export interface MsgChannelCloseInit {
   portId: string;
@@ -342,6 +445,9 @@ export interface MsgChannelCloseInitProtoMsg {
 /**
  * MsgChannelCloseInit defines a msg sent by a Relayer to Chain A
  * to close a channel with Chain B.
+ * @name MsgChannelCloseInitAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelCloseInit
  */
 export interface MsgChannelCloseInitAmino {
   port_id?: string;
@@ -355,29 +461,50 @@ export interface MsgChannelCloseInitAminoMsg {
 /**
  * MsgChannelCloseInit defines a msg sent by a Relayer to Chain A
  * to close a channel with Chain B.
+ * @name MsgChannelCloseInitSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelCloseInit
  */
 export interface MsgChannelCloseInitSDKType {
   port_id: string;
   channel_id: string;
   signer: string;
 }
-/** MsgChannelCloseInitResponse defines the Msg/ChannelCloseInit response type. */
+/**
+ * MsgChannelCloseInitResponse defines the Msg/ChannelCloseInit response type.
+ * @name MsgChannelCloseInitResponse
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelCloseInitResponse
+ */
 export interface MsgChannelCloseInitResponse {}
 export interface MsgChannelCloseInitResponseProtoMsg {
   typeUrl: "/ibc.core.channel.v1.MsgChannelCloseInitResponse";
   value: Uint8Array;
 }
-/** MsgChannelCloseInitResponse defines the Msg/ChannelCloseInit response type. */
+/**
+ * MsgChannelCloseInitResponse defines the Msg/ChannelCloseInit response type.
+ * @name MsgChannelCloseInitResponseAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelCloseInitResponse
+ */
 export interface MsgChannelCloseInitResponseAmino {}
 export interface MsgChannelCloseInitResponseAminoMsg {
   type: "cosmos-sdk/MsgChannelCloseInitResponse";
   value: MsgChannelCloseInitResponseAmino;
 }
-/** MsgChannelCloseInitResponse defines the Msg/ChannelCloseInit response type. */
+/**
+ * MsgChannelCloseInitResponse defines the Msg/ChannelCloseInit response type.
+ * @name MsgChannelCloseInitResponseSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelCloseInitResponse
+ */
 export interface MsgChannelCloseInitResponseSDKType {}
 /**
  * MsgChannelCloseConfirm defines a msg sent by a Relayer to Chain B
  * to acknowledge the change of channel state to CLOSED on Chain A.
+ * @name MsgChannelCloseConfirm
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelCloseConfirm
  */
 export interface MsgChannelCloseConfirm {
   portId: string;
@@ -394,6 +521,9 @@ export interface MsgChannelCloseConfirmProtoMsg {
 /**
  * MsgChannelCloseConfirm defines a msg sent by a Relayer to Chain B
  * to acknowledge the change of channel state to CLOSED on Chain A.
+ * @name MsgChannelCloseConfirmAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelCloseConfirm
  */
 export interface MsgChannelCloseConfirmAmino {
   port_id?: string;
@@ -410,6 +540,9 @@ export interface MsgChannelCloseConfirmAminoMsg {
 /**
  * MsgChannelCloseConfirm defines a msg sent by a Relayer to Chain B
  * to acknowledge the change of channel state to CLOSED on Chain A.
+ * @name MsgChannelCloseConfirmSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelCloseConfirm
  */
 export interface MsgChannelCloseConfirmSDKType {
   port_id: string;
@@ -422,6 +555,9 @@ export interface MsgChannelCloseConfirmSDKType {
 /**
  * MsgChannelCloseConfirmResponse defines the Msg/ChannelCloseConfirm response
  * type.
+ * @name MsgChannelCloseConfirmResponse
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelCloseConfirmResponse
  */
 export interface MsgChannelCloseConfirmResponse {}
 export interface MsgChannelCloseConfirmResponseProtoMsg {
@@ -431,6 +567,9 @@ export interface MsgChannelCloseConfirmResponseProtoMsg {
 /**
  * MsgChannelCloseConfirmResponse defines the Msg/ChannelCloseConfirm response
  * type.
+ * @name MsgChannelCloseConfirmResponseAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelCloseConfirmResponse
  */
 export interface MsgChannelCloseConfirmResponseAmino {}
 export interface MsgChannelCloseConfirmResponseAminoMsg {
@@ -440,9 +579,17 @@ export interface MsgChannelCloseConfirmResponseAminoMsg {
 /**
  * MsgChannelCloseConfirmResponse defines the Msg/ChannelCloseConfirm response
  * type.
+ * @name MsgChannelCloseConfirmResponseSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelCloseConfirmResponse
  */
 export interface MsgChannelCloseConfirmResponseSDKType {}
-/** MsgRecvPacket receives incoming IBC packet */
+/**
+ * MsgRecvPacket receives incoming IBC packet
+ * @name MsgRecvPacket
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgRecvPacket
+ */
 export interface MsgRecvPacket {
   packet: Packet;
   proofCommitment: Uint8Array;
@@ -453,7 +600,12 @@ export interface MsgRecvPacketProtoMsg {
   typeUrl: "/ibc.core.channel.v1.MsgRecvPacket";
   value: Uint8Array;
 }
-/** MsgRecvPacket receives incoming IBC packet */
+/**
+ * MsgRecvPacket receives incoming IBC packet
+ * @name MsgRecvPacketAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgRecvPacket
+ */
 export interface MsgRecvPacketAmino {
   packet?: PacketAmino;
   proof_commitment?: string;
@@ -464,14 +616,24 @@ export interface MsgRecvPacketAminoMsg {
   type: "cosmos-sdk/MsgRecvPacket";
   value: MsgRecvPacketAmino;
 }
-/** MsgRecvPacket receives incoming IBC packet */
+/**
+ * MsgRecvPacket receives incoming IBC packet
+ * @name MsgRecvPacketSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgRecvPacket
+ */
 export interface MsgRecvPacketSDKType {
   packet: PacketSDKType;
   proof_commitment: Uint8Array;
   proof_height: HeightSDKType;
   signer: string;
 }
-/** MsgRecvPacketResponse defines the Msg/RecvPacket response type. */
+/**
+ * MsgRecvPacketResponse defines the Msg/RecvPacket response type.
+ * @name MsgRecvPacketResponse
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgRecvPacketResponse
+ */
 export interface MsgRecvPacketResponse {
   result: ResponseResultType;
 }
@@ -479,7 +641,12 @@ export interface MsgRecvPacketResponseProtoMsg {
   typeUrl: "/ibc.core.channel.v1.MsgRecvPacketResponse";
   value: Uint8Array;
 }
-/** MsgRecvPacketResponse defines the Msg/RecvPacket response type. */
+/**
+ * MsgRecvPacketResponse defines the Msg/RecvPacket response type.
+ * @name MsgRecvPacketResponseAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgRecvPacketResponse
+ */
 export interface MsgRecvPacketResponseAmino {
   result?: ResponseResultType;
 }
@@ -487,11 +654,21 @@ export interface MsgRecvPacketResponseAminoMsg {
   type: "cosmos-sdk/MsgRecvPacketResponse";
   value: MsgRecvPacketResponseAmino;
 }
-/** MsgRecvPacketResponse defines the Msg/RecvPacket response type. */
+/**
+ * MsgRecvPacketResponse defines the Msg/RecvPacket response type.
+ * @name MsgRecvPacketResponseSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgRecvPacketResponse
+ */
 export interface MsgRecvPacketResponseSDKType {
   result: ResponseResultType;
 }
-/** MsgTimeout receives timed-out packet */
+/**
+ * MsgTimeout receives timed-out packet
+ * @name MsgTimeout
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgTimeout
+ */
 export interface MsgTimeout {
   packet: Packet;
   proofUnreceived: Uint8Array;
@@ -503,7 +680,12 @@ export interface MsgTimeoutProtoMsg {
   typeUrl: "/ibc.core.channel.v1.MsgTimeout";
   value: Uint8Array;
 }
-/** MsgTimeout receives timed-out packet */
+/**
+ * MsgTimeout receives timed-out packet
+ * @name MsgTimeoutAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgTimeout
+ */
 export interface MsgTimeoutAmino {
   packet?: PacketAmino;
   proof_unreceived?: string;
@@ -515,7 +697,12 @@ export interface MsgTimeoutAminoMsg {
   type: "cosmos-sdk/MsgTimeout";
   value: MsgTimeoutAmino;
 }
-/** MsgTimeout receives timed-out packet */
+/**
+ * MsgTimeout receives timed-out packet
+ * @name MsgTimeoutSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgTimeout
+ */
 export interface MsgTimeoutSDKType {
   packet: PacketSDKType;
   proof_unreceived: Uint8Array;
@@ -523,7 +710,12 @@ export interface MsgTimeoutSDKType {
   next_sequence_recv: bigint;
   signer: string;
 }
-/** MsgTimeoutResponse defines the Msg/Timeout response type. */
+/**
+ * MsgTimeoutResponse defines the Msg/Timeout response type.
+ * @name MsgTimeoutResponse
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgTimeoutResponse
+ */
 export interface MsgTimeoutResponse {
   result: ResponseResultType;
 }
@@ -531,7 +723,12 @@ export interface MsgTimeoutResponseProtoMsg {
   typeUrl: "/ibc.core.channel.v1.MsgTimeoutResponse";
   value: Uint8Array;
 }
-/** MsgTimeoutResponse defines the Msg/Timeout response type. */
+/**
+ * MsgTimeoutResponse defines the Msg/Timeout response type.
+ * @name MsgTimeoutResponseAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgTimeoutResponse
+ */
 export interface MsgTimeoutResponseAmino {
   result?: ResponseResultType;
 }
@@ -539,11 +736,21 @@ export interface MsgTimeoutResponseAminoMsg {
   type: "cosmos-sdk/MsgTimeoutResponse";
   value: MsgTimeoutResponseAmino;
 }
-/** MsgTimeoutResponse defines the Msg/Timeout response type. */
+/**
+ * MsgTimeoutResponse defines the Msg/Timeout response type.
+ * @name MsgTimeoutResponseSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgTimeoutResponse
+ */
 export interface MsgTimeoutResponseSDKType {
   result: ResponseResultType;
 }
-/** MsgTimeoutOnClose timed-out packet upon counterparty channel closure. */
+/**
+ * MsgTimeoutOnClose timed-out packet upon counterparty channel closure.
+ * @name MsgTimeoutOnClose
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgTimeoutOnClose
+ */
 export interface MsgTimeoutOnClose {
   packet: Packet;
   proofUnreceived: Uint8Array;
@@ -557,7 +764,12 @@ export interface MsgTimeoutOnCloseProtoMsg {
   typeUrl: "/ibc.core.channel.v1.MsgTimeoutOnClose";
   value: Uint8Array;
 }
-/** MsgTimeoutOnClose timed-out packet upon counterparty channel closure. */
+/**
+ * MsgTimeoutOnClose timed-out packet upon counterparty channel closure.
+ * @name MsgTimeoutOnCloseAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgTimeoutOnClose
+ */
 export interface MsgTimeoutOnCloseAmino {
   packet?: PacketAmino;
   proof_unreceived?: string;
@@ -571,7 +783,12 @@ export interface MsgTimeoutOnCloseAminoMsg {
   type: "cosmos-sdk/MsgTimeoutOnClose";
   value: MsgTimeoutOnCloseAmino;
 }
-/** MsgTimeoutOnClose timed-out packet upon counterparty channel closure. */
+/**
+ * MsgTimeoutOnClose timed-out packet upon counterparty channel closure.
+ * @name MsgTimeoutOnCloseSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgTimeoutOnClose
+ */
 export interface MsgTimeoutOnCloseSDKType {
   packet: PacketSDKType;
   proof_unreceived: Uint8Array;
@@ -581,7 +798,12 @@ export interface MsgTimeoutOnCloseSDKType {
   signer: string;
   counterparty_upgrade_sequence: bigint;
 }
-/** MsgTimeoutOnCloseResponse defines the Msg/TimeoutOnClose response type. */
+/**
+ * MsgTimeoutOnCloseResponse defines the Msg/TimeoutOnClose response type.
+ * @name MsgTimeoutOnCloseResponse
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgTimeoutOnCloseResponse
+ */
 export interface MsgTimeoutOnCloseResponse {
   result: ResponseResultType;
 }
@@ -589,7 +811,12 @@ export interface MsgTimeoutOnCloseResponseProtoMsg {
   typeUrl: "/ibc.core.channel.v1.MsgTimeoutOnCloseResponse";
   value: Uint8Array;
 }
-/** MsgTimeoutOnCloseResponse defines the Msg/TimeoutOnClose response type. */
+/**
+ * MsgTimeoutOnCloseResponse defines the Msg/TimeoutOnClose response type.
+ * @name MsgTimeoutOnCloseResponseAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgTimeoutOnCloseResponse
+ */
 export interface MsgTimeoutOnCloseResponseAmino {
   result?: ResponseResultType;
 }
@@ -597,11 +824,21 @@ export interface MsgTimeoutOnCloseResponseAminoMsg {
   type: "cosmos-sdk/MsgTimeoutOnCloseResponse";
   value: MsgTimeoutOnCloseResponseAmino;
 }
-/** MsgTimeoutOnCloseResponse defines the Msg/TimeoutOnClose response type. */
+/**
+ * MsgTimeoutOnCloseResponse defines the Msg/TimeoutOnClose response type.
+ * @name MsgTimeoutOnCloseResponseSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgTimeoutOnCloseResponse
+ */
 export interface MsgTimeoutOnCloseResponseSDKType {
   result: ResponseResultType;
 }
-/** MsgAcknowledgement receives incoming IBC acknowledgement */
+/**
+ * MsgAcknowledgement receives incoming IBC acknowledgement
+ * @name MsgAcknowledgement
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgAcknowledgement
+ */
 export interface MsgAcknowledgement {
   packet: Packet;
   acknowledgement: Uint8Array;
@@ -613,7 +850,12 @@ export interface MsgAcknowledgementProtoMsg {
   typeUrl: "/ibc.core.channel.v1.MsgAcknowledgement";
   value: Uint8Array;
 }
-/** MsgAcknowledgement receives incoming IBC acknowledgement */
+/**
+ * MsgAcknowledgement receives incoming IBC acknowledgement
+ * @name MsgAcknowledgementAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgAcknowledgement
+ */
 export interface MsgAcknowledgementAmino {
   packet?: PacketAmino;
   acknowledgement?: string;
@@ -625,7 +867,12 @@ export interface MsgAcknowledgementAminoMsg {
   type: "cosmos-sdk/MsgAcknowledgement";
   value: MsgAcknowledgementAmino;
 }
-/** MsgAcknowledgement receives incoming IBC acknowledgement */
+/**
+ * MsgAcknowledgement receives incoming IBC acknowledgement
+ * @name MsgAcknowledgementSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgAcknowledgement
+ */
 export interface MsgAcknowledgementSDKType {
   packet: PacketSDKType;
   acknowledgement: Uint8Array;
@@ -633,7 +880,12 @@ export interface MsgAcknowledgementSDKType {
   proof_height: HeightSDKType;
   signer: string;
 }
-/** MsgAcknowledgementResponse defines the Msg/Acknowledgement response type. */
+/**
+ * MsgAcknowledgementResponse defines the Msg/Acknowledgement response type.
+ * @name MsgAcknowledgementResponse
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgAcknowledgementResponse
+ */
 export interface MsgAcknowledgementResponse {
   result: ResponseResultType;
 }
@@ -641,7 +893,12 @@ export interface MsgAcknowledgementResponseProtoMsg {
   typeUrl: "/ibc.core.channel.v1.MsgAcknowledgementResponse";
   value: Uint8Array;
 }
-/** MsgAcknowledgementResponse defines the Msg/Acknowledgement response type. */
+/**
+ * MsgAcknowledgementResponse defines the Msg/Acknowledgement response type.
+ * @name MsgAcknowledgementResponseAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgAcknowledgementResponse
+ */
 export interface MsgAcknowledgementResponseAmino {
   result?: ResponseResultType;
 }
@@ -649,7 +906,12 @@ export interface MsgAcknowledgementResponseAminoMsg {
   type: "cosmos-sdk/MsgAcknowledgementResponse";
   value: MsgAcknowledgementResponseAmino;
 }
-/** MsgAcknowledgementResponse defines the Msg/Acknowledgement response type. */
+/**
+ * MsgAcknowledgementResponse defines the Msg/Acknowledgement response type.
+ * @name MsgAcknowledgementResponseSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgAcknowledgementResponse
+ */
 export interface MsgAcknowledgementResponseSDKType {
   result: ResponseResultType;
 }
@@ -657,6 +919,9 @@ export interface MsgAcknowledgementResponseSDKType {
  * MsgChannelUpgradeInit defines the request type for the ChannelUpgradeInit rpc
  * WARNING: Initializing a channel upgrade in the same block as opening the channel
  * may result in the counterparty being incapable of opening.
+ * @name MsgChannelUpgradeInit
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeInit
  */
 export interface MsgChannelUpgradeInit {
   portId: string;
@@ -672,6 +937,9 @@ export interface MsgChannelUpgradeInitProtoMsg {
  * MsgChannelUpgradeInit defines the request type for the ChannelUpgradeInit rpc
  * WARNING: Initializing a channel upgrade in the same block as opening the channel
  * may result in the counterparty being incapable of opening.
+ * @name MsgChannelUpgradeInitAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeInit
  */
 export interface MsgChannelUpgradeInitAmino {
   port_id?: string;
@@ -687,6 +955,9 @@ export interface MsgChannelUpgradeInitAminoMsg {
  * MsgChannelUpgradeInit defines the request type for the ChannelUpgradeInit rpc
  * WARNING: Initializing a channel upgrade in the same block as opening the channel
  * may result in the counterparty being incapable of opening.
+ * @name MsgChannelUpgradeInitSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeInit
  */
 export interface MsgChannelUpgradeInitSDKType {
   port_id: string;
@@ -694,7 +965,12 @@ export interface MsgChannelUpgradeInitSDKType {
   fields: UpgradeFieldsSDKType;
   signer: string;
 }
-/** MsgChannelUpgradeInitResponse defines the MsgChannelUpgradeInit response type */
+/**
+ * MsgChannelUpgradeInitResponse defines the MsgChannelUpgradeInit response type
+ * @name MsgChannelUpgradeInitResponse
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeInitResponse
+ */
 export interface MsgChannelUpgradeInitResponse {
   upgrade: Upgrade;
   upgradeSequence: bigint;
@@ -703,7 +979,12 @@ export interface MsgChannelUpgradeInitResponseProtoMsg {
   typeUrl: "/ibc.core.channel.v1.MsgChannelUpgradeInitResponse";
   value: Uint8Array;
 }
-/** MsgChannelUpgradeInitResponse defines the MsgChannelUpgradeInit response type */
+/**
+ * MsgChannelUpgradeInitResponse defines the MsgChannelUpgradeInit response type
+ * @name MsgChannelUpgradeInitResponseAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeInitResponse
+ */
 export interface MsgChannelUpgradeInitResponseAmino {
   upgrade?: UpgradeAmino;
   upgrade_sequence?: string;
@@ -712,12 +993,22 @@ export interface MsgChannelUpgradeInitResponseAminoMsg {
   type: "cosmos-sdk/MsgChannelUpgradeInitResponse";
   value: MsgChannelUpgradeInitResponseAmino;
 }
-/** MsgChannelUpgradeInitResponse defines the MsgChannelUpgradeInit response type */
+/**
+ * MsgChannelUpgradeInitResponse defines the MsgChannelUpgradeInit response type
+ * @name MsgChannelUpgradeInitResponseSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeInitResponse
+ */
 export interface MsgChannelUpgradeInitResponseSDKType {
   upgrade: UpgradeSDKType;
   upgrade_sequence: bigint;
 }
-/** MsgChannelUpgradeTry defines the request type for the ChannelUpgradeTry rpc */
+/**
+ * MsgChannelUpgradeTry defines the request type for the ChannelUpgradeTry rpc
+ * @name MsgChannelUpgradeTry
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeTry
+ */
 export interface MsgChannelUpgradeTry {
   portId: string;
   channelId: string;
@@ -733,7 +1024,12 @@ export interface MsgChannelUpgradeTryProtoMsg {
   typeUrl: "/ibc.core.channel.v1.MsgChannelUpgradeTry";
   value: Uint8Array;
 }
-/** MsgChannelUpgradeTry defines the request type for the ChannelUpgradeTry rpc */
+/**
+ * MsgChannelUpgradeTry defines the request type for the ChannelUpgradeTry rpc
+ * @name MsgChannelUpgradeTryAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeTry
+ */
 export interface MsgChannelUpgradeTryAmino {
   port_id?: string;
   channel_id?: string;
@@ -749,7 +1045,12 @@ export interface MsgChannelUpgradeTryAminoMsg {
   type: "cosmos-sdk/MsgChannelUpgradeTry";
   value: MsgChannelUpgradeTryAmino;
 }
-/** MsgChannelUpgradeTry defines the request type for the ChannelUpgradeTry rpc */
+/**
+ * MsgChannelUpgradeTry defines the request type for the ChannelUpgradeTry rpc
+ * @name MsgChannelUpgradeTrySDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeTry
+ */
 export interface MsgChannelUpgradeTrySDKType {
   port_id: string;
   channel_id: string;
@@ -761,7 +1062,12 @@ export interface MsgChannelUpgradeTrySDKType {
   proof_height: HeightSDKType;
   signer: string;
 }
-/** MsgChannelUpgradeTryResponse defines the MsgChannelUpgradeTry response type */
+/**
+ * MsgChannelUpgradeTryResponse defines the MsgChannelUpgradeTry response type
+ * @name MsgChannelUpgradeTryResponse
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeTryResponse
+ */
 export interface MsgChannelUpgradeTryResponse {
   upgrade: Upgrade;
   upgradeSequence: bigint;
@@ -771,7 +1077,12 @@ export interface MsgChannelUpgradeTryResponseProtoMsg {
   typeUrl: "/ibc.core.channel.v1.MsgChannelUpgradeTryResponse";
   value: Uint8Array;
 }
-/** MsgChannelUpgradeTryResponse defines the MsgChannelUpgradeTry response type */
+/**
+ * MsgChannelUpgradeTryResponse defines the MsgChannelUpgradeTry response type
+ * @name MsgChannelUpgradeTryResponseAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeTryResponse
+ */
 export interface MsgChannelUpgradeTryResponseAmino {
   upgrade?: UpgradeAmino;
   upgrade_sequence?: string;
@@ -781,13 +1092,23 @@ export interface MsgChannelUpgradeTryResponseAminoMsg {
   type: "cosmos-sdk/MsgChannelUpgradeTryResponse";
   value: MsgChannelUpgradeTryResponseAmino;
 }
-/** MsgChannelUpgradeTryResponse defines the MsgChannelUpgradeTry response type */
+/**
+ * MsgChannelUpgradeTryResponse defines the MsgChannelUpgradeTry response type
+ * @name MsgChannelUpgradeTryResponseSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeTryResponse
+ */
 export interface MsgChannelUpgradeTryResponseSDKType {
   upgrade: UpgradeSDKType;
   upgrade_sequence: bigint;
   result: ResponseResultType;
 }
-/** MsgChannelUpgradeAck defines the request type for the ChannelUpgradeAck rpc */
+/**
+ * MsgChannelUpgradeAck defines the request type for the ChannelUpgradeAck rpc
+ * @name MsgChannelUpgradeAck
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeAck
+ */
 export interface MsgChannelUpgradeAck {
   portId: string;
   channelId: string;
@@ -801,7 +1122,12 @@ export interface MsgChannelUpgradeAckProtoMsg {
   typeUrl: "/ibc.core.channel.v1.MsgChannelUpgradeAck";
   value: Uint8Array;
 }
-/** MsgChannelUpgradeAck defines the request type for the ChannelUpgradeAck rpc */
+/**
+ * MsgChannelUpgradeAck defines the request type for the ChannelUpgradeAck rpc
+ * @name MsgChannelUpgradeAckAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeAck
+ */
 export interface MsgChannelUpgradeAckAmino {
   port_id?: string;
   channel_id?: string;
@@ -815,7 +1141,12 @@ export interface MsgChannelUpgradeAckAminoMsg {
   type: "cosmos-sdk/MsgChannelUpgradeAck";
   value: MsgChannelUpgradeAckAmino;
 }
-/** MsgChannelUpgradeAck defines the request type for the ChannelUpgradeAck rpc */
+/**
+ * MsgChannelUpgradeAck defines the request type for the ChannelUpgradeAck rpc
+ * @name MsgChannelUpgradeAckSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeAck
+ */
 export interface MsgChannelUpgradeAckSDKType {
   port_id: string;
   channel_id: string;
@@ -825,7 +1156,12 @@ export interface MsgChannelUpgradeAckSDKType {
   proof_height: HeightSDKType;
   signer: string;
 }
-/** MsgChannelUpgradeAckResponse defines MsgChannelUpgradeAck response type */
+/**
+ * MsgChannelUpgradeAckResponse defines MsgChannelUpgradeAck response type
+ * @name MsgChannelUpgradeAckResponse
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeAckResponse
+ */
 export interface MsgChannelUpgradeAckResponse {
   result: ResponseResultType;
 }
@@ -833,7 +1169,12 @@ export interface MsgChannelUpgradeAckResponseProtoMsg {
   typeUrl: "/ibc.core.channel.v1.MsgChannelUpgradeAckResponse";
   value: Uint8Array;
 }
-/** MsgChannelUpgradeAckResponse defines MsgChannelUpgradeAck response type */
+/**
+ * MsgChannelUpgradeAckResponse defines MsgChannelUpgradeAck response type
+ * @name MsgChannelUpgradeAckResponseAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeAckResponse
+ */
 export interface MsgChannelUpgradeAckResponseAmino {
   result?: ResponseResultType;
 }
@@ -841,11 +1182,21 @@ export interface MsgChannelUpgradeAckResponseAminoMsg {
   type: "cosmos-sdk/MsgChannelUpgradeAckResponse";
   value: MsgChannelUpgradeAckResponseAmino;
 }
-/** MsgChannelUpgradeAckResponse defines MsgChannelUpgradeAck response type */
+/**
+ * MsgChannelUpgradeAckResponse defines MsgChannelUpgradeAck response type
+ * @name MsgChannelUpgradeAckResponseSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeAckResponse
+ */
 export interface MsgChannelUpgradeAckResponseSDKType {
   result: ResponseResultType;
 }
-/** MsgChannelUpgradeConfirm defines the request type for the ChannelUpgradeConfirm rpc */
+/**
+ * MsgChannelUpgradeConfirm defines the request type for the ChannelUpgradeConfirm rpc
+ * @name MsgChannelUpgradeConfirm
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeConfirm
+ */
 export interface MsgChannelUpgradeConfirm {
   portId: string;
   channelId: string;
@@ -860,7 +1211,12 @@ export interface MsgChannelUpgradeConfirmProtoMsg {
   typeUrl: "/ibc.core.channel.v1.MsgChannelUpgradeConfirm";
   value: Uint8Array;
 }
-/** MsgChannelUpgradeConfirm defines the request type for the ChannelUpgradeConfirm rpc */
+/**
+ * MsgChannelUpgradeConfirm defines the request type for the ChannelUpgradeConfirm rpc
+ * @name MsgChannelUpgradeConfirmAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeConfirm
+ */
 export interface MsgChannelUpgradeConfirmAmino {
   port_id?: string;
   channel_id?: string;
@@ -875,7 +1231,12 @@ export interface MsgChannelUpgradeConfirmAminoMsg {
   type: "cosmos-sdk/MsgChannelUpgradeConfirm";
   value: MsgChannelUpgradeConfirmAmino;
 }
-/** MsgChannelUpgradeConfirm defines the request type for the ChannelUpgradeConfirm rpc */
+/**
+ * MsgChannelUpgradeConfirm defines the request type for the ChannelUpgradeConfirm rpc
+ * @name MsgChannelUpgradeConfirmSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeConfirm
+ */
 export interface MsgChannelUpgradeConfirmSDKType {
   port_id: string;
   channel_id: string;
@@ -886,7 +1247,12 @@ export interface MsgChannelUpgradeConfirmSDKType {
   proof_height: HeightSDKType;
   signer: string;
 }
-/** MsgChannelUpgradeConfirmResponse defines MsgChannelUpgradeConfirm response type */
+/**
+ * MsgChannelUpgradeConfirmResponse defines MsgChannelUpgradeConfirm response type
+ * @name MsgChannelUpgradeConfirmResponse
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeConfirmResponse
+ */
 export interface MsgChannelUpgradeConfirmResponse {
   result: ResponseResultType;
 }
@@ -894,7 +1260,12 @@ export interface MsgChannelUpgradeConfirmResponseProtoMsg {
   typeUrl: "/ibc.core.channel.v1.MsgChannelUpgradeConfirmResponse";
   value: Uint8Array;
 }
-/** MsgChannelUpgradeConfirmResponse defines MsgChannelUpgradeConfirm response type */
+/**
+ * MsgChannelUpgradeConfirmResponse defines MsgChannelUpgradeConfirm response type
+ * @name MsgChannelUpgradeConfirmResponseAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeConfirmResponse
+ */
 export interface MsgChannelUpgradeConfirmResponseAmino {
   result?: ResponseResultType;
 }
@@ -902,11 +1273,21 @@ export interface MsgChannelUpgradeConfirmResponseAminoMsg {
   type: "cosmos-sdk/MsgChannelUpgradeConfirmResponse";
   value: MsgChannelUpgradeConfirmResponseAmino;
 }
-/** MsgChannelUpgradeConfirmResponse defines MsgChannelUpgradeConfirm response type */
+/**
+ * MsgChannelUpgradeConfirmResponse defines MsgChannelUpgradeConfirm response type
+ * @name MsgChannelUpgradeConfirmResponseSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeConfirmResponse
+ */
 export interface MsgChannelUpgradeConfirmResponseSDKType {
   result: ResponseResultType;
 }
-/** MsgChannelUpgradeOpen defines the request type for the ChannelUpgradeOpen rpc */
+/**
+ * MsgChannelUpgradeOpen defines the request type for the ChannelUpgradeOpen rpc
+ * @name MsgChannelUpgradeOpen
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeOpen
+ */
 export interface MsgChannelUpgradeOpen {
   portId: string;
   channelId: string;
@@ -920,7 +1301,12 @@ export interface MsgChannelUpgradeOpenProtoMsg {
   typeUrl: "/ibc.core.channel.v1.MsgChannelUpgradeOpen";
   value: Uint8Array;
 }
-/** MsgChannelUpgradeOpen defines the request type for the ChannelUpgradeOpen rpc */
+/**
+ * MsgChannelUpgradeOpen defines the request type for the ChannelUpgradeOpen rpc
+ * @name MsgChannelUpgradeOpenAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeOpen
+ */
 export interface MsgChannelUpgradeOpenAmino {
   port_id?: string;
   channel_id?: string;
@@ -934,7 +1320,12 @@ export interface MsgChannelUpgradeOpenAminoMsg {
   type: "cosmos-sdk/MsgChannelUpgradeOpen";
   value: MsgChannelUpgradeOpenAmino;
 }
-/** MsgChannelUpgradeOpen defines the request type for the ChannelUpgradeOpen rpc */
+/**
+ * MsgChannelUpgradeOpen defines the request type for the ChannelUpgradeOpen rpc
+ * @name MsgChannelUpgradeOpenSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeOpen
+ */
 export interface MsgChannelUpgradeOpenSDKType {
   port_id: string;
   channel_id: string;
@@ -944,21 +1335,41 @@ export interface MsgChannelUpgradeOpenSDKType {
   proof_height: HeightSDKType;
   signer: string;
 }
-/** MsgChannelUpgradeOpenResponse defines the MsgChannelUpgradeOpen response type */
+/**
+ * MsgChannelUpgradeOpenResponse defines the MsgChannelUpgradeOpen response type
+ * @name MsgChannelUpgradeOpenResponse
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeOpenResponse
+ */
 export interface MsgChannelUpgradeOpenResponse {}
 export interface MsgChannelUpgradeOpenResponseProtoMsg {
   typeUrl: "/ibc.core.channel.v1.MsgChannelUpgradeOpenResponse";
   value: Uint8Array;
 }
-/** MsgChannelUpgradeOpenResponse defines the MsgChannelUpgradeOpen response type */
+/**
+ * MsgChannelUpgradeOpenResponse defines the MsgChannelUpgradeOpen response type
+ * @name MsgChannelUpgradeOpenResponseAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeOpenResponse
+ */
 export interface MsgChannelUpgradeOpenResponseAmino {}
 export interface MsgChannelUpgradeOpenResponseAminoMsg {
   type: "cosmos-sdk/MsgChannelUpgradeOpenResponse";
   value: MsgChannelUpgradeOpenResponseAmino;
 }
-/** MsgChannelUpgradeOpenResponse defines the MsgChannelUpgradeOpen response type */
+/**
+ * MsgChannelUpgradeOpenResponse defines the MsgChannelUpgradeOpen response type
+ * @name MsgChannelUpgradeOpenResponseSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeOpenResponse
+ */
 export interface MsgChannelUpgradeOpenResponseSDKType {}
-/** MsgChannelUpgradeTimeout defines the request type for the ChannelUpgradeTimeout rpc */
+/**
+ * MsgChannelUpgradeTimeout defines the request type for the ChannelUpgradeTimeout rpc
+ * @name MsgChannelUpgradeTimeout
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeTimeout
+ */
 export interface MsgChannelUpgradeTimeout {
   portId: string;
   channelId: string;
@@ -971,7 +1382,12 @@ export interface MsgChannelUpgradeTimeoutProtoMsg {
   typeUrl: "/ibc.core.channel.v1.MsgChannelUpgradeTimeout";
   value: Uint8Array;
 }
-/** MsgChannelUpgradeTimeout defines the request type for the ChannelUpgradeTimeout rpc */
+/**
+ * MsgChannelUpgradeTimeout defines the request type for the ChannelUpgradeTimeout rpc
+ * @name MsgChannelUpgradeTimeoutAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeTimeout
+ */
 export interface MsgChannelUpgradeTimeoutAmino {
   port_id?: string;
   channel_id?: string;
@@ -984,7 +1400,12 @@ export interface MsgChannelUpgradeTimeoutAminoMsg {
   type: "cosmos-sdk/MsgChannelUpgradeTimeout";
   value: MsgChannelUpgradeTimeoutAmino;
 }
-/** MsgChannelUpgradeTimeout defines the request type for the ChannelUpgradeTimeout rpc */
+/**
+ * MsgChannelUpgradeTimeout defines the request type for the ChannelUpgradeTimeout rpc
+ * @name MsgChannelUpgradeTimeoutSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeTimeout
+ */
 export interface MsgChannelUpgradeTimeoutSDKType {
   port_id: string;
   channel_id: string;
@@ -993,21 +1414,41 @@ export interface MsgChannelUpgradeTimeoutSDKType {
   proof_height: HeightSDKType;
   signer: string;
 }
-/** MsgChannelUpgradeTimeoutRepsonse defines the MsgChannelUpgradeTimeout response type */
+/**
+ * MsgChannelUpgradeTimeoutRepsonse defines the MsgChannelUpgradeTimeout response type
+ * @name MsgChannelUpgradeTimeoutResponse
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeTimeoutResponse
+ */
 export interface MsgChannelUpgradeTimeoutResponse {}
 export interface MsgChannelUpgradeTimeoutResponseProtoMsg {
   typeUrl: "/ibc.core.channel.v1.MsgChannelUpgradeTimeoutResponse";
   value: Uint8Array;
 }
-/** MsgChannelUpgradeTimeoutRepsonse defines the MsgChannelUpgradeTimeout response type */
+/**
+ * MsgChannelUpgradeTimeoutRepsonse defines the MsgChannelUpgradeTimeout response type
+ * @name MsgChannelUpgradeTimeoutResponseAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeTimeoutResponse
+ */
 export interface MsgChannelUpgradeTimeoutResponseAmino {}
 export interface MsgChannelUpgradeTimeoutResponseAminoMsg {
   type: "cosmos-sdk/MsgChannelUpgradeTimeoutResponse";
   value: MsgChannelUpgradeTimeoutResponseAmino;
 }
-/** MsgChannelUpgradeTimeoutRepsonse defines the MsgChannelUpgradeTimeout response type */
+/**
+ * MsgChannelUpgradeTimeoutRepsonse defines the MsgChannelUpgradeTimeout response type
+ * @name MsgChannelUpgradeTimeoutResponseSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeTimeoutResponse
+ */
 export interface MsgChannelUpgradeTimeoutResponseSDKType {}
-/** MsgChannelUpgradeCancel defines the request type for the ChannelUpgradeCancel rpc */
+/**
+ * MsgChannelUpgradeCancel defines the request type for the ChannelUpgradeCancel rpc
+ * @name MsgChannelUpgradeCancel
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeCancel
+ */
 export interface MsgChannelUpgradeCancel {
   portId: string;
   channelId: string;
@@ -1020,7 +1461,12 @@ export interface MsgChannelUpgradeCancelProtoMsg {
   typeUrl: "/ibc.core.channel.v1.MsgChannelUpgradeCancel";
   value: Uint8Array;
 }
-/** MsgChannelUpgradeCancel defines the request type for the ChannelUpgradeCancel rpc */
+/**
+ * MsgChannelUpgradeCancel defines the request type for the ChannelUpgradeCancel rpc
+ * @name MsgChannelUpgradeCancelAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeCancel
+ */
 export interface MsgChannelUpgradeCancelAmino {
   port_id?: string;
   channel_id?: string;
@@ -1033,7 +1479,12 @@ export interface MsgChannelUpgradeCancelAminoMsg {
   type: "cosmos-sdk/MsgChannelUpgradeCancel";
   value: MsgChannelUpgradeCancelAmino;
 }
-/** MsgChannelUpgradeCancel defines the request type for the ChannelUpgradeCancel rpc */
+/**
+ * MsgChannelUpgradeCancel defines the request type for the ChannelUpgradeCancel rpc
+ * @name MsgChannelUpgradeCancelSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeCancel
+ */
 export interface MsgChannelUpgradeCancelSDKType {
   port_id: string;
   channel_id: string;
@@ -1042,23 +1493,45 @@ export interface MsgChannelUpgradeCancelSDKType {
   proof_height: HeightSDKType;
   signer: string;
 }
-/** MsgChannelUpgradeCancelResponse defines the MsgChannelUpgradeCancel response type */
+/**
+ * MsgChannelUpgradeCancelResponse defines the MsgChannelUpgradeCancel response type
+ * @name MsgChannelUpgradeCancelResponse
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeCancelResponse
+ */
 export interface MsgChannelUpgradeCancelResponse {}
 export interface MsgChannelUpgradeCancelResponseProtoMsg {
   typeUrl: "/ibc.core.channel.v1.MsgChannelUpgradeCancelResponse";
   value: Uint8Array;
 }
-/** MsgChannelUpgradeCancelResponse defines the MsgChannelUpgradeCancel response type */
+/**
+ * MsgChannelUpgradeCancelResponse defines the MsgChannelUpgradeCancel response type
+ * @name MsgChannelUpgradeCancelResponseAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeCancelResponse
+ */
 export interface MsgChannelUpgradeCancelResponseAmino {}
 export interface MsgChannelUpgradeCancelResponseAminoMsg {
   type: "cosmos-sdk/MsgChannelUpgradeCancelResponse";
   value: MsgChannelUpgradeCancelResponseAmino;
 }
-/** MsgChannelUpgradeCancelResponse defines the MsgChannelUpgradeCancel response type */
+/**
+ * MsgChannelUpgradeCancelResponse defines the MsgChannelUpgradeCancel response type
+ * @name MsgChannelUpgradeCancelResponseSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeCancelResponse
+ */
 export interface MsgChannelUpgradeCancelResponseSDKType {}
-/** MsgUpdateParams is the MsgUpdateParams request type. */
+/**
+ * MsgUpdateParams is the MsgUpdateParams request type.
+ * @name MsgUpdateParams
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgUpdateParams
+ */
 export interface MsgUpdateParams {
-  /** authority is the address that controls the module (defaults to x/gov unless overwritten). */
+  /**
+   * authority is the address that controls the module (defaults to x/gov unless overwritten).
+   */
   authority: string;
   /**
    * params defines the channel parameters to update.
@@ -1071,9 +1544,16 @@ export interface MsgUpdateParamsProtoMsg {
   typeUrl: "/ibc.core.channel.v1.MsgUpdateParams";
   value: Uint8Array;
 }
-/** MsgUpdateParams is the MsgUpdateParams request type. */
+/**
+ * MsgUpdateParams is the MsgUpdateParams request type.
+ * @name MsgUpdateParamsAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgUpdateParams
+ */
 export interface MsgUpdateParamsAmino {
-  /** authority is the address that controls the module (defaults to x/gov unless overwritten). */
+  /**
+   * authority is the address that controls the module (defaults to x/gov unless overwritten).
+   */
   authority?: string;
   /**
    * params defines the channel parameters to update.
@@ -1086,26 +1566,51 @@ export interface MsgUpdateParamsAminoMsg {
   type: "cosmos-sdk/MsgUpdateParams";
   value: MsgUpdateParamsAmino;
 }
-/** MsgUpdateParams is the MsgUpdateParams request type. */
+/**
+ * MsgUpdateParams is the MsgUpdateParams request type.
+ * @name MsgUpdateParamsSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgUpdateParams
+ */
 export interface MsgUpdateParamsSDKType {
   authority: string;
   params: ParamsSDKType;
 }
-/** MsgUpdateParamsResponse defines the MsgUpdateParams response type. */
+/**
+ * MsgUpdateParamsResponse defines the MsgUpdateParams response type.
+ * @name MsgUpdateParamsResponse
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgUpdateParamsResponse
+ */
 export interface MsgUpdateParamsResponse {}
 export interface MsgUpdateParamsResponseProtoMsg {
   typeUrl: "/ibc.core.channel.v1.MsgUpdateParamsResponse";
   value: Uint8Array;
 }
-/** MsgUpdateParamsResponse defines the MsgUpdateParams response type. */
+/**
+ * MsgUpdateParamsResponse defines the MsgUpdateParams response type.
+ * @name MsgUpdateParamsResponseAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgUpdateParamsResponse
+ */
 export interface MsgUpdateParamsResponseAmino {}
 export interface MsgUpdateParamsResponseAminoMsg {
   type: "cosmos-sdk/MsgUpdateParamsResponse";
   value: MsgUpdateParamsResponseAmino;
 }
-/** MsgUpdateParamsResponse defines the MsgUpdateParams response type. */
+/**
+ * MsgUpdateParamsResponse defines the MsgUpdateParams response type.
+ * @name MsgUpdateParamsResponseSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgUpdateParamsResponse
+ */
 export interface MsgUpdateParamsResponseSDKType {}
-/** MsgPruneAcknowledgements defines the request type for the PruneAcknowledgements rpc. */
+/**
+ * MsgPruneAcknowledgements defines the request type for the PruneAcknowledgements rpc.
+ * @name MsgPruneAcknowledgements
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgPruneAcknowledgements
+ */
 export interface MsgPruneAcknowledgements {
   portId: string;
   channelId: string;
@@ -1116,7 +1621,12 @@ export interface MsgPruneAcknowledgementsProtoMsg {
   typeUrl: "/ibc.core.channel.v1.MsgPruneAcknowledgements";
   value: Uint8Array;
 }
-/** MsgPruneAcknowledgements defines the request type for the PruneAcknowledgements rpc. */
+/**
+ * MsgPruneAcknowledgements defines the request type for the PruneAcknowledgements rpc.
+ * @name MsgPruneAcknowledgementsAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgPruneAcknowledgements
+ */
 export interface MsgPruneAcknowledgementsAmino {
   port_id?: string;
   channel_id?: string;
@@ -1127,36 +1637,64 @@ export interface MsgPruneAcknowledgementsAminoMsg {
   type: "cosmos-sdk/MsgPruneAcknowledgements";
   value: MsgPruneAcknowledgementsAmino;
 }
-/** MsgPruneAcknowledgements defines the request type for the PruneAcknowledgements rpc. */
+/**
+ * MsgPruneAcknowledgements defines the request type for the PruneAcknowledgements rpc.
+ * @name MsgPruneAcknowledgementsSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgPruneAcknowledgements
+ */
 export interface MsgPruneAcknowledgementsSDKType {
   port_id: string;
   channel_id: string;
   limit: bigint;
   signer: string;
 }
-/** MsgPruneAcknowledgementsResponse defines the response type for the PruneAcknowledgements rpc. */
+/**
+ * MsgPruneAcknowledgementsResponse defines the response type for the PruneAcknowledgements rpc.
+ * @name MsgPruneAcknowledgementsResponse
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgPruneAcknowledgementsResponse
+ */
 export interface MsgPruneAcknowledgementsResponse {
-  /** Number of sequences pruned (includes both packet acknowledgements and packet receipts where appropriate). */
+  /**
+   * Number of sequences pruned (includes both packet acknowledgements and packet receipts where appropriate).
+   */
   totalPrunedSequences: bigint;
-  /** Number of sequences left after pruning. */
+  /**
+   * Number of sequences left after pruning.
+   */
   totalRemainingSequences: bigint;
 }
 export interface MsgPruneAcknowledgementsResponseProtoMsg {
   typeUrl: "/ibc.core.channel.v1.MsgPruneAcknowledgementsResponse";
   value: Uint8Array;
 }
-/** MsgPruneAcknowledgementsResponse defines the response type for the PruneAcknowledgements rpc. */
+/**
+ * MsgPruneAcknowledgementsResponse defines the response type for the PruneAcknowledgements rpc.
+ * @name MsgPruneAcknowledgementsResponseAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgPruneAcknowledgementsResponse
+ */
 export interface MsgPruneAcknowledgementsResponseAmino {
-  /** Number of sequences pruned (includes both packet acknowledgements and packet receipts where appropriate). */
+  /**
+   * Number of sequences pruned (includes both packet acknowledgements and packet receipts where appropriate).
+   */
   total_pruned_sequences?: string;
-  /** Number of sequences left after pruning. */
+  /**
+   * Number of sequences left after pruning.
+   */
   total_remaining_sequences?: string;
 }
 export interface MsgPruneAcknowledgementsResponseAminoMsg {
   type: "cosmos-sdk/MsgPruneAcknowledgementsResponse";
   value: MsgPruneAcknowledgementsResponseAmino;
 }
-/** MsgPruneAcknowledgementsResponse defines the response type for the PruneAcknowledgements rpc. */
+/**
+ * MsgPruneAcknowledgementsResponse defines the response type for the PruneAcknowledgements rpc.
+ * @name MsgPruneAcknowledgementsResponseSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgPruneAcknowledgementsResponse
+ */
 export interface MsgPruneAcknowledgementsResponseSDKType {
   total_pruned_sequences: bigint;
   total_remaining_sequences: bigint;
@@ -1168,6 +1706,13 @@ function createBaseMsgChannelOpenInit(): MsgChannelOpenInit {
     signer: ""
   };
 }
+/**
+ * MsgChannelOpenInit defines an sdk.Msg to initialize a channel handshake. It
+ * is called by a relayer on Chain A.
+ * @name MsgChannelOpenInit
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelOpenInit
+ */
 export const MsgChannelOpenInit = {
   typeUrl: "/ibc.core.channel.v1.MsgChannelOpenInit",
   aminoType: "cosmos-sdk/MsgChannelOpenInit",
@@ -1262,16 +1807,26 @@ export const MsgChannelOpenInit = {
       typeUrl: "/ibc.core.channel.v1.MsgChannelOpenInit",
       value: MsgChannelOpenInit.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgChannelOpenInit.typeUrl)) {
+      return;
+    }
+    Channel.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgChannelOpenInit.typeUrl, MsgChannelOpenInit);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgChannelOpenInit.aminoType, MsgChannelOpenInit.typeUrl);
 function createBaseMsgChannelOpenInitResponse(): MsgChannelOpenInitResponse {
   return {
     channelId: "",
     version: ""
   };
 }
+/**
+ * MsgChannelOpenInitResponse defines the Msg/ChannelOpenInit response type.
+ * @name MsgChannelOpenInitResponse
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelOpenInitResponse
+ */
 export const MsgChannelOpenInitResponse = {
   typeUrl: "/ibc.core.channel.v1.MsgChannelOpenInitResponse",
   aminoType: "cosmos-sdk/MsgChannelOpenInitResponse",
@@ -1355,10 +1910,9 @@ export const MsgChannelOpenInitResponse = {
       typeUrl: "/ibc.core.channel.v1.MsgChannelOpenInitResponse",
       value: MsgChannelOpenInitResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgChannelOpenInitResponse.typeUrl, MsgChannelOpenInitResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgChannelOpenInitResponse.aminoType, MsgChannelOpenInitResponse.typeUrl);
 function createBaseMsgChannelOpenTry(): MsgChannelOpenTry {
   return {
     portId: "",
@@ -1370,6 +1924,14 @@ function createBaseMsgChannelOpenTry(): MsgChannelOpenTry {
     signer: ""
   };
 }
+/**
+ * MsgChannelOpenInit defines a msg sent by a Relayer to try to open a channel
+ * on Chain B. The version field within the Channel field has been deprecated. Its
+ * value will be ignored by core IBC.
+ * @name MsgChannelOpenTry
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelOpenTry
+ */
 export const MsgChannelOpenTry = {
   typeUrl: "/ibc.core.channel.v1.MsgChannelOpenTry",
   aminoType: "cosmos-sdk/MsgChannelOpenTry",
@@ -1508,16 +2070,27 @@ export const MsgChannelOpenTry = {
       typeUrl: "/ibc.core.channel.v1.MsgChannelOpenTry",
       value: MsgChannelOpenTry.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgChannelOpenTry.typeUrl)) {
+      return;
+    }
+    Channel.registerTypeUrl();
+    Height.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgChannelOpenTry.typeUrl, MsgChannelOpenTry);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgChannelOpenTry.aminoType, MsgChannelOpenTry.typeUrl);
 function createBaseMsgChannelOpenTryResponse(): MsgChannelOpenTryResponse {
   return {
     version: "",
     channelId: ""
   };
 }
+/**
+ * MsgChannelOpenTryResponse defines the Msg/ChannelOpenTry response type.
+ * @name MsgChannelOpenTryResponse
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelOpenTryResponse
+ */
 export const MsgChannelOpenTryResponse = {
   typeUrl: "/ibc.core.channel.v1.MsgChannelOpenTryResponse",
   aminoType: "cosmos-sdk/MsgChannelOpenTryResponse",
@@ -1601,10 +2174,9 @@ export const MsgChannelOpenTryResponse = {
       typeUrl: "/ibc.core.channel.v1.MsgChannelOpenTryResponse",
       value: MsgChannelOpenTryResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgChannelOpenTryResponse.typeUrl, MsgChannelOpenTryResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgChannelOpenTryResponse.aminoType, MsgChannelOpenTryResponse.typeUrl);
 function createBaseMsgChannelOpenAck(): MsgChannelOpenAck {
   return {
     portId: "",
@@ -1616,6 +2188,16 @@ function createBaseMsgChannelOpenAck(): MsgChannelOpenAck {
     signer: ""
   };
 }
+/**
+ * MsgChannelOpenAck defines a msg sent by a Relayer to Chain A to acknowledge
+ * the change of channel state to TRYOPEN on Chain B.
+ * WARNING: a channel upgrade MUST NOT initialize an upgrade for this channel
+ * in the same block as executing this message otherwise the counterparty will
+ * be incapable of opening.
+ * @name MsgChannelOpenAck
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelOpenAck
+ */
 export const MsgChannelOpenAck = {
   typeUrl: "/ibc.core.channel.v1.MsgChannelOpenAck",
   aminoType: "cosmos-sdk/MsgChannelOpenAck",
@@ -1754,13 +2336,23 @@ export const MsgChannelOpenAck = {
       typeUrl: "/ibc.core.channel.v1.MsgChannelOpenAck",
       value: MsgChannelOpenAck.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgChannelOpenAck.typeUrl)) {
+      return;
+    }
+    Height.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgChannelOpenAck.typeUrl, MsgChannelOpenAck);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgChannelOpenAck.aminoType, MsgChannelOpenAck.typeUrl);
 function createBaseMsgChannelOpenAckResponse(): MsgChannelOpenAckResponse {
   return {};
 }
+/**
+ * MsgChannelOpenAckResponse defines the Msg/ChannelOpenAck response type.
+ * @name MsgChannelOpenAckResponse
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelOpenAckResponse
+ */
 export const MsgChannelOpenAckResponse = {
   typeUrl: "/ibc.core.channel.v1.MsgChannelOpenAckResponse",
   aminoType: "cosmos-sdk/MsgChannelOpenAckResponse",
@@ -1822,10 +2414,9 @@ export const MsgChannelOpenAckResponse = {
       typeUrl: "/ibc.core.channel.v1.MsgChannelOpenAckResponse",
       value: MsgChannelOpenAckResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgChannelOpenAckResponse.typeUrl, MsgChannelOpenAckResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgChannelOpenAckResponse.aminoType, MsgChannelOpenAckResponse.typeUrl);
 function createBaseMsgChannelOpenConfirm(): MsgChannelOpenConfirm {
   return {
     portId: "",
@@ -1835,6 +2426,13 @@ function createBaseMsgChannelOpenConfirm(): MsgChannelOpenConfirm {
     signer: ""
   };
 }
+/**
+ * MsgChannelOpenConfirm defines a msg sent by a Relayer to Chain B to
+ * acknowledge the change of channel state to OPEN on Chain A.
+ * @name MsgChannelOpenConfirm
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelOpenConfirm
+ */
 export const MsgChannelOpenConfirm = {
   typeUrl: "/ibc.core.channel.v1.MsgChannelOpenConfirm",
   aminoType: "cosmos-sdk/MsgChannelOpenConfirm",
@@ -1951,13 +2549,24 @@ export const MsgChannelOpenConfirm = {
       typeUrl: "/ibc.core.channel.v1.MsgChannelOpenConfirm",
       value: MsgChannelOpenConfirm.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgChannelOpenConfirm.typeUrl)) {
+      return;
+    }
+    Height.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgChannelOpenConfirm.typeUrl, MsgChannelOpenConfirm);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgChannelOpenConfirm.aminoType, MsgChannelOpenConfirm.typeUrl);
 function createBaseMsgChannelOpenConfirmResponse(): MsgChannelOpenConfirmResponse {
   return {};
 }
+/**
+ * MsgChannelOpenConfirmResponse defines the Msg/ChannelOpenConfirm response
+ * type.
+ * @name MsgChannelOpenConfirmResponse
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelOpenConfirmResponse
+ */
 export const MsgChannelOpenConfirmResponse = {
   typeUrl: "/ibc.core.channel.v1.MsgChannelOpenConfirmResponse",
   aminoType: "cosmos-sdk/MsgChannelOpenConfirmResponse",
@@ -2019,10 +2628,9 @@ export const MsgChannelOpenConfirmResponse = {
       typeUrl: "/ibc.core.channel.v1.MsgChannelOpenConfirmResponse",
       value: MsgChannelOpenConfirmResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgChannelOpenConfirmResponse.typeUrl, MsgChannelOpenConfirmResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgChannelOpenConfirmResponse.aminoType, MsgChannelOpenConfirmResponse.typeUrl);
 function createBaseMsgChannelCloseInit(): MsgChannelCloseInit {
   return {
     portId: "",
@@ -2030,6 +2638,13 @@ function createBaseMsgChannelCloseInit(): MsgChannelCloseInit {
     signer: ""
   };
 }
+/**
+ * MsgChannelCloseInit defines a msg sent by a Relayer to Chain A
+ * to close a channel with Chain B.
+ * @name MsgChannelCloseInit
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelCloseInit
+ */
 export const MsgChannelCloseInit = {
   typeUrl: "/ibc.core.channel.v1.MsgChannelCloseInit",
   aminoType: "cosmos-sdk/MsgChannelCloseInit",
@@ -2124,13 +2739,18 @@ export const MsgChannelCloseInit = {
       typeUrl: "/ibc.core.channel.v1.MsgChannelCloseInit",
       value: MsgChannelCloseInit.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgChannelCloseInit.typeUrl, MsgChannelCloseInit);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgChannelCloseInit.aminoType, MsgChannelCloseInit.typeUrl);
 function createBaseMsgChannelCloseInitResponse(): MsgChannelCloseInitResponse {
   return {};
 }
+/**
+ * MsgChannelCloseInitResponse defines the Msg/ChannelCloseInit response type.
+ * @name MsgChannelCloseInitResponse
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelCloseInitResponse
+ */
 export const MsgChannelCloseInitResponse = {
   typeUrl: "/ibc.core.channel.v1.MsgChannelCloseInitResponse",
   aminoType: "cosmos-sdk/MsgChannelCloseInitResponse",
@@ -2192,10 +2812,9 @@ export const MsgChannelCloseInitResponse = {
       typeUrl: "/ibc.core.channel.v1.MsgChannelCloseInitResponse",
       value: MsgChannelCloseInitResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgChannelCloseInitResponse.typeUrl, MsgChannelCloseInitResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgChannelCloseInitResponse.aminoType, MsgChannelCloseInitResponse.typeUrl);
 function createBaseMsgChannelCloseConfirm(): MsgChannelCloseConfirm {
   return {
     portId: "",
@@ -2206,6 +2825,13 @@ function createBaseMsgChannelCloseConfirm(): MsgChannelCloseConfirm {
     counterpartyUpgradeSequence: BigInt(0)
   };
 }
+/**
+ * MsgChannelCloseConfirm defines a msg sent by a Relayer to Chain B
+ * to acknowledge the change of channel state to CLOSED on Chain A.
+ * @name MsgChannelCloseConfirm
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelCloseConfirm
+ */
 export const MsgChannelCloseConfirm = {
   typeUrl: "/ibc.core.channel.v1.MsgChannelCloseConfirm",
   aminoType: "cosmos-sdk/MsgChannelCloseConfirm",
@@ -2333,13 +2959,24 @@ export const MsgChannelCloseConfirm = {
       typeUrl: "/ibc.core.channel.v1.MsgChannelCloseConfirm",
       value: MsgChannelCloseConfirm.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgChannelCloseConfirm.typeUrl)) {
+      return;
+    }
+    Height.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgChannelCloseConfirm.typeUrl, MsgChannelCloseConfirm);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgChannelCloseConfirm.aminoType, MsgChannelCloseConfirm.typeUrl);
 function createBaseMsgChannelCloseConfirmResponse(): MsgChannelCloseConfirmResponse {
   return {};
 }
+/**
+ * MsgChannelCloseConfirmResponse defines the Msg/ChannelCloseConfirm response
+ * type.
+ * @name MsgChannelCloseConfirmResponse
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelCloseConfirmResponse
+ */
 export const MsgChannelCloseConfirmResponse = {
   typeUrl: "/ibc.core.channel.v1.MsgChannelCloseConfirmResponse",
   aminoType: "cosmos-sdk/MsgChannelCloseConfirmResponse",
@@ -2401,10 +3038,9 @@ export const MsgChannelCloseConfirmResponse = {
       typeUrl: "/ibc.core.channel.v1.MsgChannelCloseConfirmResponse",
       value: MsgChannelCloseConfirmResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgChannelCloseConfirmResponse.typeUrl, MsgChannelCloseConfirmResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgChannelCloseConfirmResponse.aminoType, MsgChannelCloseConfirmResponse.typeUrl);
 function createBaseMsgRecvPacket(): MsgRecvPacket {
   return {
     packet: Packet.fromPartial({}),
@@ -2413,6 +3049,12 @@ function createBaseMsgRecvPacket(): MsgRecvPacket {
     signer: ""
   };
 }
+/**
+ * MsgRecvPacket receives incoming IBC packet
+ * @name MsgRecvPacket
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgRecvPacket
+ */
 export const MsgRecvPacket = {
   typeUrl: "/ibc.core.channel.v1.MsgRecvPacket",
   aminoType: "cosmos-sdk/MsgRecvPacket",
@@ -2518,15 +3160,26 @@ export const MsgRecvPacket = {
       typeUrl: "/ibc.core.channel.v1.MsgRecvPacket",
       value: MsgRecvPacket.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgRecvPacket.typeUrl)) {
+      return;
+    }
+    Packet.registerTypeUrl();
+    Height.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgRecvPacket.typeUrl, MsgRecvPacket);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgRecvPacket.aminoType, MsgRecvPacket.typeUrl);
 function createBaseMsgRecvPacketResponse(): MsgRecvPacketResponse {
   return {
     result: 0
   };
 }
+/**
+ * MsgRecvPacketResponse defines the Msg/RecvPacket response type.
+ * @name MsgRecvPacketResponse
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgRecvPacketResponse
+ */
 export const MsgRecvPacketResponse = {
   typeUrl: "/ibc.core.channel.v1.MsgRecvPacketResponse",
   aminoType: "cosmos-sdk/MsgRecvPacketResponse",
@@ -2599,10 +3252,9 @@ export const MsgRecvPacketResponse = {
       typeUrl: "/ibc.core.channel.v1.MsgRecvPacketResponse",
       value: MsgRecvPacketResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgRecvPacketResponse.typeUrl, MsgRecvPacketResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgRecvPacketResponse.aminoType, MsgRecvPacketResponse.typeUrl);
 function createBaseMsgTimeout(): MsgTimeout {
   return {
     packet: Packet.fromPartial({}),
@@ -2612,6 +3264,12 @@ function createBaseMsgTimeout(): MsgTimeout {
     signer: ""
   };
 }
+/**
+ * MsgTimeout receives timed-out packet
+ * @name MsgTimeout
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgTimeout
+ */
 export const MsgTimeout = {
   typeUrl: "/ibc.core.channel.v1.MsgTimeout",
   aminoType: "cosmos-sdk/MsgTimeout",
@@ -2728,15 +3386,26 @@ export const MsgTimeout = {
       typeUrl: "/ibc.core.channel.v1.MsgTimeout",
       value: MsgTimeout.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgTimeout.typeUrl)) {
+      return;
+    }
+    Packet.registerTypeUrl();
+    Height.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgTimeout.typeUrl, MsgTimeout);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgTimeout.aminoType, MsgTimeout.typeUrl);
 function createBaseMsgTimeoutResponse(): MsgTimeoutResponse {
   return {
     result: 0
   };
 }
+/**
+ * MsgTimeoutResponse defines the Msg/Timeout response type.
+ * @name MsgTimeoutResponse
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgTimeoutResponse
+ */
 export const MsgTimeoutResponse = {
   typeUrl: "/ibc.core.channel.v1.MsgTimeoutResponse",
   aminoType: "cosmos-sdk/MsgTimeoutResponse",
@@ -2809,10 +3478,9 @@ export const MsgTimeoutResponse = {
       typeUrl: "/ibc.core.channel.v1.MsgTimeoutResponse",
       value: MsgTimeoutResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgTimeoutResponse.typeUrl, MsgTimeoutResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgTimeoutResponse.aminoType, MsgTimeoutResponse.typeUrl);
 function createBaseMsgTimeoutOnClose(): MsgTimeoutOnClose {
   return {
     packet: Packet.fromPartial({}),
@@ -2824,6 +3492,12 @@ function createBaseMsgTimeoutOnClose(): MsgTimeoutOnClose {
     counterpartyUpgradeSequence: BigInt(0)
   };
 }
+/**
+ * MsgTimeoutOnClose timed-out packet upon counterparty channel closure.
+ * @name MsgTimeoutOnClose
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgTimeoutOnClose
+ */
 export const MsgTimeoutOnClose = {
   typeUrl: "/ibc.core.channel.v1.MsgTimeoutOnClose",
   aminoType: "cosmos-sdk/MsgTimeoutOnClose",
@@ -2962,15 +3636,26 @@ export const MsgTimeoutOnClose = {
       typeUrl: "/ibc.core.channel.v1.MsgTimeoutOnClose",
       value: MsgTimeoutOnClose.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgTimeoutOnClose.typeUrl)) {
+      return;
+    }
+    Packet.registerTypeUrl();
+    Height.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgTimeoutOnClose.typeUrl, MsgTimeoutOnClose);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgTimeoutOnClose.aminoType, MsgTimeoutOnClose.typeUrl);
 function createBaseMsgTimeoutOnCloseResponse(): MsgTimeoutOnCloseResponse {
   return {
     result: 0
   };
 }
+/**
+ * MsgTimeoutOnCloseResponse defines the Msg/TimeoutOnClose response type.
+ * @name MsgTimeoutOnCloseResponse
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgTimeoutOnCloseResponse
+ */
 export const MsgTimeoutOnCloseResponse = {
   typeUrl: "/ibc.core.channel.v1.MsgTimeoutOnCloseResponse",
   aminoType: "cosmos-sdk/MsgTimeoutOnCloseResponse",
@@ -3043,10 +3728,9 @@ export const MsgTimeoutOnCloseResponse = {
       typeUrl: "/ibc.core.channel.v1.MsgTimeoutOnCloseResponse",
       value: MsgTimeoutOnCloseResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgTimeoutOnCloseResponse.typeUrl, MsgTimeoutOnCloseResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgTimeoutOnCloseResponse.aminoType, MsgTimeoutOnCloseResponse.typeUrl);
 function createBaseMsgAcknowledgement(): MsgAcknowledgement {
   return {
     packet: Packet.fromPartial({}),
@@ -3056,6 +3740,12 @@ function createBaseMsgAcknowledgement(): MsgAcknowledgement {
     signer: ""
   };
 }
+/**
+ * MsgAcknowledgement receives incoming IBC acknowledgement
+ * @name MsgAcknowledgement
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgAcknowledgement
+ */
 export const MsgAcknowledgement = {
   typeUrl: "/ibc.core.channel.v1.MsgAcknowledgement",
   aminoType: "cosmos-sdk/MsgAcknowledgement",
@@ -3172,15 +3862,26 @@ export const MsgAcknowledgement = {
       typeUrl: "/ibc.core.channel.v1.MsgAcknowledgement",
       value: MsgAcknowledgement.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgAcknowledgement.typeUrl)) {
+      return;
+    }
+    Packet.registerTypeUrl();
+    Height.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgAcknowledgement.typeUrl, MsgAcknowledgement);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgAcknowledgement.aminoType, MsgAcknowledgement.typeUrl);
 function createBaseMsgAcknowledgementResponse(): MsgAcknowledgementResponse {
   return {
     result: 0
   };
 }
+/**
+ * MsgAcknowledgementResponse defines the Msg/Acknowledgement response type.
+ * @name MsgAcknowledgementResponse
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgAcknowledgementResponse
+ */
 export const MsgAcknowledgementResponse = {
   typeUrl: "/ibc.core.channel.v1.MsgAcknowledgementResponse",
   aminoType: "cosmos-sdk/MsgAcknowledgementResponse",
@@ -3253,10 +3954,9 @@ export const MsgAcknowledgementResponse = {
       typeUrl: "/ibc.core.channel.v1.MsgAcknowledgementResponse",
       value: MsgAcknowledgementResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgAcknowledgementResponse.typeUrl, MsgAcknowledgementResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgAcknowledgementResponse.aminoType, MsgAcknowledgementResponse.typeUrl);
 function createBaseMsgChannelUpgradeInit(): MsgChannelUpgradeInit {
   return {
     portId: "",
@@ -3265,6 +3965,14 @@ function createBaseMsgChannelUpgradeInit(): MsgChannelUpgradeInit {
     signer: ""
   };
 }
+/**
+ * MsgChannelUpgradeInit defines the request type for the ChannelUpgradeInit rpc
+ * WARNING: Initializing a channel upgrade in the same block as opening the channel
+ * may result in the counterparty being incapable of opening.
+ * @name MsgChannelUpgradeInit
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeInit
+ */
 export const MsgChannelUpgradeInit = {
   typeUrl: "/ibc.core.channel.v1.MsgChannelUpgradeInit",
   aminoType: "cosmos-sdk/MsgChannelUpgradeInit",
@@ -3370,16 +4078,26 @@ export const MsgChannelUpgradeInit = {
       typeUrl: "/ibc.core.channel.v1.MsgChannelUpgradeInit",
       value: MsgChannelUpgradeInit.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgChannelUpgradeInit.typeUrl)) {
+      return;
+    }
+    UpgradeFields.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgChannelUpgradeInit.typeUrl, MsgChannelUpgradeInit);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgChannelUpgradeInit.aminoType, MsgChannelUpgradeInit.typeUrl);
 function createBaseMsgChannelUpgradeInitResponse(): MsgChannelUpgradeInitResponse {
   return {
     upgrade: Upgrade.fromPartial({}),
     upgradeSequence: BigInt(0)
   };
 }
+/**
+ * MsgChannelUpgradeInitResponse defines the MsgChannelUpgradeInit response type
+ * @name MsgChannelUpgradeInitResponse
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeInitResponse
+ */
 export const MsgChannelUpgradeInitResponse = {
   typeUrl: "/ibc.core.channel.v1.MsgChannelUpgradeInitResponse",
   aminoType: "cosmos-sdk/MsgChannelUpgradeInitResponse",
@@ -3463,10 +4181,14 @@ export const MsgChannelUpgradeInitResponse = {
       typeUrl: "/ibc.core.channel.v1.MsgChannelUpgradeInitResponse",
       value: MsgChannelUpgradeInitResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgChannelUpgradeInitResponse.typeUrl)) {
+      return;
+    }
+    Upgrade.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgChannelUpgradeInitResponse.typeUrl, MsgChannelUpgradeInitResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgChannelUpgradeInitResponse.aminoType, MsgChannelUpgradeInitResponse.typeUrl);
 function createBaseMsgChannelUpgradeTry(): MsgChannelUpgradeTry {
   return {
     portId: "",
@@ -3480,6 +4202,12 @@ function createBaseMsgChannelUpgradeTry(): MsgChannelUpgradeTry {
     signer: ""
   };
 }
+/**
+ * MsgChannelUpgradeTry defines the request type for the ChannelUpgradeTry rpc
+ * @name MsgChannelUpgradeTry
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeTry
+ */
 export const MsgChannelUpgradeTry = {
   typeUrl: "/ibc.core.channel.v1.MsgChannelUpgradeTry",
   aminoType: "cosmos-sdk/MsgChannelUpgradeTry",
@@ -3642,10 +4370,15 @@ export const MsgChannelUpgradeTry = {
       typeUrl: "/ibc.core.channel.v1.MsgChannelUpgradeTry",
       value: MsgChannelUpgradeTry.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgChannelUpgradeTry.typeUrl)) {
+      return;
+    }
+    UpgradeFields.registerTypeUrl();
+    Height.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgChannelUpgradeTry.typeUrl, MsgChannelUpgradeTry);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgChannelUpgradeTry.aminoType, MsgChannelUpgradeTry.typeUrl);
 function createBaseMsgChannelUpgradeTryResponse(): MsgChannelUpgradeTryResponse {
   return {
     upgrade: Upgrade.fromPartial({}),
@@ -3653,6 +4386,12 @@ function createBaseMsgChannelUpgradeTryResponse(): MsgChannelUpgradeTryResponse 
     result: 0
   };
 }
+/**
+ * MsgChannelUpgradeTryResponse defines the MsgChannelUpgradeTry response type
+ * @name MsgChannelUpgradeTryResponse
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeTryResponse
+ */
 export const MsgChannelUpgradeTryResponse = {
   typeUrl: "/ibc.core.channel.v1.MsgChannelUpgradeTryResponse",
   aminoType: "cosmos-sdk/MsgChannelUpgradeTryResponse",
@@ -3747,10 +4486,14 @@ export const MsgChannelUpgradeTryResponse = {
       typeUrl: "/ibc.core.channel.v1.MsgChannelUpgradeTryResponse",
       value: MsgChannelUpgradeTryResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgChannelUpgradeTryResponse.typeUrl)) {
+      return;
+    }
+    Upgrade.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgChannelUpgradeTryResponse.typeUrl, MsgChannelUpgradeTryResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgChannelUpgradeTryResponse.aminoType, MsgChannelUpgradeTryResponse.typeUrl);
 function createBaseMsgChannelUpgradeAck(): MsgChannelUpgradeAck {
   return {
     portId: "",
@@ -3762,6 +4505,12 @@ function createBaseMsgChannelUpgradeAck(): MsgChannelUpgradeAck {
     signer: ""
   };
 }
+/**
+ * MsgChannelUpgradeAck defines the request type for the ChannelUpgradeAck rpc
+ * @name MsgChannelUpgradeAck
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeAck
+ */
 export const MsgChannelUpgradeAck = {
   typeUrl: "/ibc.core.channel.v1.MsgChannelUpgradeAck",
   aminoType: "cosmos-sdk/MsgChannelUpgradeAck",
@@ -3900,15 +4649,26 @@ export const MsgChannelUpgradeAck = {
       typeUrl: "/ibc.core.channel.v1.MsgChannelUpgradeAck",
       value: MsgChannelUpgradeAck.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgChannelUpgradeAck.typeUrl)) {
+      return;
+    }
+    Upgrade.registerTypeUrl();
+    Height.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgChannelUpgradeAck.typeUrl, MsgChannelUpgradeAck);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgChannelUpgradeAck.aminoType, MsgChannelUpgradeAck.typeUrl);
 function createBaseMsgChannelUpgradeAckResponse(): MsgChannelUpgradeAckResponse {
   return {
     result: 0
   };
 }
+/**
+ * MsgChannelUpgradeAckResponse defines MsgChannelUpgradeAck response type
+ * @name MsgChannelUpgradeAckResponse
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeAckResponse
+ */
 export const MsgChannelUpgradeAckResponse = {
   typeUrl: "/ibc.core.channel.v1.MsgChannelUpgradeAckResponse",
   aminoType: "cosmos-sdk/MsgChannelUpgradeAckResponse",
@@ -3981,10 +4741,9 @@ export const MsgChannelUpgradeAckResponse = {
       typeUrl: "/ibc.core.channel.v1.MsgChannelUpgradeAckResponse",
       value: MsgChannelUpgradeAckResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgChannelUpgradeAckResponse.typeUrl, MsgChannelUpgradeAckResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgChannelUpgradeAckResponse.aminoType, MsgChannelUpgradeAckResponse.typeUrl);
 function createBaseMsgChannelUpgradeConfirm(): MsgChannelUpgradeConfirm {
   return {
     portId: "",
@@ -3997,6 +4756,12 @@ function createBaseMsgChannelUpgradeConfirm(): MsgChannelUpgradeConfirm {
     signer: ""
   };
 }
+/**
+ * MsgChannelUpgradeConfirm defines the request type for the ChannelUpgradeConfirm rpc
+ * @name MsgChannelUpgradeConfirm
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeConfirm
+ */
 export const MsgChannelUpgradeConfirm = {
   typeUrl: "/ibc.core.channel.v1.MsgChannelUpgradeConfirm",
   aminoType: "cosmos-sdk/MsgChannelUpgradeConfirm",
@@ -4146,15 +4911,26 @@ export const MsgChannelUpgradeConfirm = {
       typeUrl: "/ibc.core.channel.v1.MsgChannelUpgradeConfirm",
       value: MsgChannelUpgradeConfirm.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgChannelUpgradeConfirm.typeUrl)) {
+      return;
+    }
+    Upgrade.registerTypeUrl();
+    Height.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgChannelUpgradeConfirm.typeUrl, MsgChannelUpgradeConfirm);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgChannelUpgradeConfirm.aminoType, MsgChannelUpgradeConfirm.typeUrl);
 function createBaseMsgChannelUpgradeConfirmResponse(): MsgChannelUpgradeConfirmResponse {
   return {
     result: 0
   };
 }
+/**
+ * MsgChannelUpgradeConfirmResponse defines MsgChannelUpgradeConfirm response type
+ * @name MsgChannelUpgradeConfirmResponse
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeConfirmResponse
+ */
 export const MsgChannelUpgradeConfirmResponse = {
   typeUrl: "/ibc.core.channel.v1.MsgChannelUpgradeConfirmResponse",
   aminoType: "cosmos-sdk/MsgChannelUpgradeConfirmResponse",
@@ -4227,10 +5003,9 @@ export const MsgChannelUpgradeConfirmResponse = {
       typeUrl: "/ibc.core.channel.v1.MsgChannelUpgradeConfirmResponse",
       value: MsgChannelUpgradeConfirmResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgChannelUpgradeConfirmResponse.typeUrl, MsgChannelUpgradeConfirmResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgChannelUpgradeConfirmResponse.aminoType, MsgChannelUpgradeConfirmResponse.typeUrl);
 function createBaseMsgChannelUpgradeOpen(): MsgChannelUpgradeOpen {
   return {
     portId: "",
@@ -4242,6 +5017,12 @@ function createBaseMsgChannelUpgradeOpen(): MsgChannelUpgradeOpen {
     signer: ""
   };
 }
+/**
+ * MsgChannelUpgradeOpen defines the request type for the ChannelUpgradeOpen rpc
+ * @name MsgChannelUpgradeOpen
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeOpen
+ */
 export const MsgChannelUpgradeOpen = {
   typeUrl: "/ibc.core.channel.v1.MsgChannelUpgradeOpen",
   aminoType: "cosmos-sdk/MsgChannelUpgradeOpen",
@@ -4380,13 +5161,23 @@ export const MsgChannelUpgradeOpen = {
       typeUrl: "/ibc.core.channel.v1.MsgChannelUpgradeOpen",
       value: MsgChannelUpgradeOpen.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgChannelUpgradeOpen.typeUrl)) {
+      return;
+    }
+    Height.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgChannelUpgradeOpen.typeUrl, MsgChannelUpgradeOpen);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgChannelUpgradeOpen.aminoType, MsgChannelUpgradeOpen.typeUrl);
 function createBaseMsgChannelUpgradeOpenResponse(): MsgChannelUpgradeOpenResponse {
   return {};
 }
+/**
+ * MsgChannelUpgradeOpenResponse defines the MsgChannelUpgradeOpen response type
+ * @name MsgChannelUpgradeOpenResponse
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeOpenResponse
+ */
 export const MsgChannelUpgradeOpenResponse = {
   typeUrl: "/ibc.core.channel.v1.MsgChannelUpgradeOpenResponse",
   aminoType: "cosmos-sdk/MsgChannelUpgradeOpenResponse",
@@ -4448,10 +5239,9 @@ export const MsgChannelUpgradeOpenResponse = {
       typeUrl: "/ibc.core.channel.v1.MsgChannelUpgradeOpenResponse",
       value: MsgChannelUpgradeOpenResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgChannelUpgradeOpenResponse.typeUrl, MsgChannelUpgradeOpenResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgChannelUpgradeOpenResponse.aminoType, MsgChannelUpgradeOpenResponse.typeUrl);
 function createBaseMsgChannelUpgradeTimeout(): MsgChannelUpgradeTimeout {
   return {
     portId: "",
@@ -4462,6 +5252,12 @@ function createBaseMsgChannelUpgradeTimeout(): MsgChannelUpgradeTimeout {
     signer: ""
   };
 }
+/**
+ * MsgChannelUpgradeTimeout defines the request type for the ChannelUpgradeTimeout rpc
+ * @name MsgChannelUpgradeTimeout
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeTimeout
+ */
 export const MsgChannelUpgradeTimeout = {
   typeUrl: "/ibc.core.channel.v1.MsgChannelUpgradeTimeout",
   aminoType: "cosmos-sdk/MsgChannelUpgradeTimeout",
@@ -4589,13 +5385,24 @@ export const MsgChannelUpgradeTimeout = {
       typeUrl: "/ibc.core.channel.v1.MsgChannelUpgradeTimeout",
       value: MsgChannelUpgradeTimeout.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgChannelUpgradeTimeout.typeUrl)) {
+      return;
+    }
+    Channel.registerTypeUrl();
+    Height.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgChannelUpgradeTimeout.typeUrl, MsgChannelUpgradeTimeout);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgChannelUpgradeTimeout.aminoType, MsgChannelUpgradeTimeout.typeUrl);
 function createBaseMsgChannelUpgradeTimeoutResponse(): MsgChannelUpgradeTimeoutResponse {
   return {};
 }
+/**
+ * MsgChannelUpgradeTimeoutRepsonse defines the MsgChannelUpgradeTimeout response type
+ * @name MsgChannelUpgradeTimeoutResponse
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeTimeoutResponse
+ */
 export const MsgChannelUpgradeTimeoutResponse = {
   typeUrl: "/ibc.core.channel.v1.MsgChannelUpgradeTimeoutResponse",
   aminoType: "cosmos-sdk/MsgChannelUpgradeTimeoutResponse",
@@ -4657,10 +5464,9 @@ export const MsgChannelUpgradeTimeoutResponse = {
       typeUrl: "/ibc.core.channel.v1.MsgChannelUpgradeTimeoutResponse",
       value: MsgChannelUpgradeTimeoutResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgChannelUpgradeTimeoutResponse.typeUrl, MsgChannelUpgradeTimeoutResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgChannelUpgradeTimeoutResponse.aminoType, MsgChannelUpgradeTimeoutResponse.typeUrl);
 function createBaseMsgChannelUpgradeCancel(): MsgChannelUpgradeCancel {
   return {
     portId: "",
@@ -4671,6 +5477,12 @@ function createBaseMsgChannelUpgradeCancel(): MsgChannelUpgradeCancel {
     signer: ""
   };
 }
+/**
+ * MsgChannelUpgradeCancel defines the request type for the ChannelUpgradeCancel rpc
+ * @name MsgChannelUpgradeCancel
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeCancel
+ */
 export const MsgChannelUpgradeCancel = {
   typeUrl: "/ibc.core.channel.v1.MsgChannelUpgradeCancel",
   aminoType: "cosmos-sdk/MsgChannelUpgradeCancel",
@@ -4798,13 +5610,24 @@ export const MsgChannelUpgradeCancel = {
       typeUrl: "/ibc.core.channel.v1.MsgChannelUpgradeCancel",
       value: MsgChannelUpgradeCancel.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgChannelUpgradeCancel.typeUrl)) {
+      return;
+    }
+    ErrorReceipt.registerTypeUrl();
+    Height.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgChannelUpgradeCancel.typeUrl, MsgChannelUpgradeCancel);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgChannelUpgradeCancel.aminoType, MsgChannelUpgradeCancel.typeUrl);
 function createBaseMsgChannelUpgradeCancelResponse(): MsgChannelUpgradeCancelResponse {
   return {};
 }
+/**
+ * MsgChannelUpgradeCancelResponse defines the MsgChannelUpgradeCancel response type
+ * @name MsgChannelUpgradeCancelResponse
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgChannelUpgradeCancelResponse
+ */
 export const MsgChannelUpgradeCancelResponse = {
   typeUrl: "/ibc.core.channel.v1.MsgChannelUpgradeCancelResponse",
   aminoType: "cosmos-sdk/MsgChannelUpgradeCancelResponse",
@@ -4866,16 +5689,21 @@ export const MsgChannelUpgradeCancelResponse = {
       typeUrl: "/ibc.core.channel.v1.MsgChannelUpgradeCancelResponse",
       value: MsgChannelUpgradeCancelResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgChannelUpgradeCancelResponse.typeUrl, MsgChannelUpgradeCancelResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgChannelUpgradeCancelResponse.aminoType, MsgChannelUpgradeCancelResponse.typeUrl);
 function createBaseMsgUpdateParams(): MsgUpdateParams {
   return {
     authority: "",
     params: Params.fromPartial({})
   };
 }
+/**
+ * MsgUpdateParams is the MsgUpdateParams request type.
+ * @name MsgUpdateParams
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgUpdateParams
+ */
 export const MsgUpdateParams = {
   typeUrl: "/ibc.core.channel.v1.MsgUpdateParams",
   aminoType: "cosmos-sdk/MsgUpdateParams",
@@ -4959,13 +5787,23 @@ export const MsgUpdateParams = {
       typeUrl: "/ibc.core.channel.v1.MsgUpdateParams",
       value: MsgUpdateParams.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgUpdateParams.typeUrl)) {
+      return;
+    }
+    Params.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgUpdateParams.typeUrl, MsgUpdateParams);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgUpdateParams.aminoType, MsgUpdateParams.typeUrl);
 function createBaseMsgUpdateParamsResponse(): MsgUpdateParamsResponse {
   return {};
 }
+/**
+ * MsgUpdateParamsResponse defines the MsgUpdateParams response type.
+ * @name MsgUpdateParamsResponse
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgUpdateParamsResponse
+ */
 export const MsgUpdateParamsResponse = {
   typeUrl: "/ibc.core.channel.v1.MsgUpdateParamsResponse",
   aminoType: "cosmos-sdk/MsgUpdateParamsResponse",
@@ -5027,10 +5865,9 @@ export const MsgUpdateParamsResponse = {
       typeUrl: "/ibc.core.channel.v1.MsgUpdateParamsResponse",
       value: MsgUpdateParamsResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgUpdateParamsResponse.typeUrl, MsgUpdateParamsResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgUpdateParamsResponse.aminoType, MsgUpdateParamsResponse.typeUrl);
 function createBaseMsgPruneAcknowledgements(): MsgPruneAcknowledgements {
   return {
     portId: "",
@@ -5039,6 +5876,12 @@ function createBaseMsgPruneAcknowledgements(): MsgPruneAcknowledgements {
     signer: ""
   };
 }
+/**
+ * MsgPruneAcknowledgements defines the request type for the PruneAcknowledgements rpc.
+ * @name MsgPruneAcknowledgements
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgPruneAcknowledgements
+ */
 export const MsgPruneAcknowledgements = {
   typeUrl: "/ibc.core.channel.v1.MsgPruneAcknowledgements",
   aminoType: "cosmos-sdk/MsgPruneAcknowledgements",
@@ -5144,16 +5987,21 @@ export const MsgPruneAcknowledgements = {
       typeUrl: "/ibc.core.channel.v1.MsgPruneAcknowledgements",
       value: MsgPruneAcknowledgements.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgPruneAcknowledgements.typeUrl, MsgPruneAcknowledgements);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgPruneAcknowledgements.aminoType, MsgPruneAcknowledgements.typeUrl);
 function createBaseMsgPruneAcknowledgementsResponse(): MsgPruneAcknowledgementsResponse {
   return {
     totalPrunedSequences: BigInt(0),
     totalRemainingSequences: BigInt(0)
   };
 }
+/**
+ * MsgPruneAcknowledgementsResponse defines the response type for the PruneAcknowledgements rpc.
+ * @name MsgPruneAcknowledgementsResponse
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.MsgPruneAcknowledgementsResponse
+ */
 export const MsgPruneAcknowledgementsResponse = {
   typeUrl: "/ibc.core.channel.v1.MsgPruneAcknowledgementsResponse",
   aminoType: "cosmos-sdk/MsgPruneAcknowledgementsResponse",
@@ -5237,7 +6085,6 @@ export const MsgPruneAcknowledgementsResponse = {
       typeUrl: "/ibc.core.channel.v1.MsgPruneAcknowledgementsResponse",
       value: MsgPruneAcknowledgementsResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgPruneAcknowledgementsResponse.typeUrl, MsgPruneAcknowledgementsResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgPruneAcknowledgementsResponse.aminoType, MsgPruneAcknowledgementsResponse.typeUrl);

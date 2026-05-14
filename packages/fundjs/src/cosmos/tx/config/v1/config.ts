@@ -1,7 +1,11 @@
 //@ts-nocheck
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { GlobalDecoderRegistry } from "../../../../registry";
-/** Config is the config object of the x/auth/tx package. */
+/**
+ * Config is the config object of the x/auth/tx package.
+ * @name Config
+ * @package cosmos.tx.config.v1
+ * @see proto type: cosmos.tx.config.v1.Config
+ */
 export interface Config {
   /**
    * skip_ante_handler defines whether the ante handler registration should be skipped in case an app wants to override
@@ -18,7 +22,12 @@ export interface ConfigProtoMsg {
   typeUrl: "/cosmos.tx.config.v1.Config";
   value: Uint8Array;
 }
-/** Config is the config object of the x/auth/tx package. */
+/**
+ * Config is the config object of the x/auth/tx package.
+ * @name ConfigAmino
+ * @package cosmos.tx.config.v1
+ * @see proto type: cosmos.tx.config.v1.Config
+ */
 export interface ConfigAmino {
   /**
    * skip_ante_handler defines whether the ante handler registration should be skipped in case an app wants to override
@@ -35,7 +44,12 @@ export interface ConfigAminoMsg {
   type: "cosmos-sdk/Config";
   value: ConfigAmino;
 }
-/** Config is the config object of the x/auth/tx package. */
+/**
+ * Config is the config object of the x/auth/tx package.
+ * @name ConfigSDKType
+ * @package cosmos.tx.config.v1
+ * @see proto type: cosmos.tx.config.v1.Config
+ */
 export interface ConfigSDKType {
   skip_ante_handler: boolean;
   skip_post_handler: boolean;
@@ -46,6 +60,12 @@ function createBaseConfig(): Config {
     skipPostHandler: false
   };
 }
+/**
+ * Config is the config object of the x/auth/tx package.
+ * @name Config
+ * @package cosmos.tx.config.v1
+ * @see proto type: cosmos.tx.config.v1.Config
+ */
 export const Config = {
   typeUrl: "/cosmos.tx.config.v1.Config",
   aminoType: "cosmos-sdk/Config",
@@ -129,7 +149,6 @@ export const Config = {
       typeUrl: "/cosmos.tx.config.v1.Config",
       value: Config.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(Config.typeUrl, Config);
-GlobalDecoderRegistry.registerAminoProtoMapping(Config.aminoType, Config.typeUrl);

@@ -1,12 +1,7 @@
 //@ts-nocheck
-import { GeneratedType, Registry } from "@cosmjs/proto-signing";
+import { TelescopeGeneratedType } from "../../../../types";
 import { MsgCreateClient, MsgUpdateClient, MsgUpgradeClient, MsgSubmitMisbehaviour, MsgRecoverClient, MsgIBCSoftwareUpgrade, MsgUpdateParams } from "./tx";
-export const registry: ReadonlyArray<[string, GeneratedType]> = [["/ibc.core.client.v1.MsgCreateClient", MsgCreateClient], ["/ibc.core.client.v1.MsgUpdateClient", MsgUpdateClient], ["/ibc.core.client.v1.MsgUpgradeClient", MsgUpgradeClient], ["/ibc.core.client.v1.MsgSubmitMisbehaviour", MsgSubmitMisbehaviour], ["/ibc.core.client.v1.MsgRecoverClient", MsgRecoverClient], ["/ibc.core.client.v1.MsgIBCSoftwareUpgrade", MsgIBCSoftwareUpgrade], ["/ibc.core.client.v1.MsgUpdateParams", MsgUpdateParams]];
-export const load = (protoRegistry: Registry) => {
-  registry.forEach(([typeUrl, mod]) => {
-    protoRegistry.register(typeUrl, mod);
-  });
-};
+export const registry: ReadonlyArray<[string, TelescopeGeneratedType<any, any, any>]> = [["/ibc.core.client.v1.MsgCreateClient", MsgCreateClient], ["/ibc.core.client.v1.MsgUpdateClient", MsgUpdateClient], ["/ibc.core.client.v1.MsgUpgradeClient", MsgUpgradeClient], ["/ibc.core.client.v1.MsgSubmitMisbehaviour", MsgSubmitMisbehaviour], ["/ibc.core.client.v1.MsgRecoverClient", MsgRecoverClient], ["/ibc.core.client.v1.MsgIBCSoftwareUpgrade", MsgIBCSoftwareUpgrade], ["/ibc.core.client.v1.MsgUpdateParams", MsgUpdateParams]];
 export const MessageComposer = {
   encoded: {
     createClient(value: MsgCreateClient) {

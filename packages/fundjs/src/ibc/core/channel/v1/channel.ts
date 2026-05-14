@@ -131,20 +131,31 @@ export function orderToJSON(object: Order): string {
  * Channel defines pipeline for exactly-once packet delivery between specific
  * modules on separate blockchains, which has at least one end capable of
  * sending packets and one end capable of receiving packets.
+ * @name Channel
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.Channel
  */
 export interface Channel {
-  /** current state of the channel end */
+  /**
+   * current state of the channel end
+   */
   state: State;
-  /** whether the channel is ordered or unordered */
+  /**
+   * whether the channel is ordered or unordered
+   */
   ordering: Order;
-  /** counterparty channel end */
+  /**
+   * counterparty channel end
+   */
   counterparty: Counterparty;
   /**
    * list of connection identifiers, in order, along which packets sent on
    * this channel will travel
    */
   connectionHops: string[];
-  /** opaque channel version, which is agreed upon during the handshake */
+  /**
+   * opaque channel version, which is agreed upon during the handshake
+   */
   version: string;
   /**
    * upgrade sequence indicates the latest upgrade attempt performed by this channel
@@ -160,20 +171,31 @@ export interface ChannelProtoMsg {
  * Channel defines pipeline for exactly-once packet delivery between specific
  * modules on separate blockchains, which has at least one end capable of
  * sending packets and one end capable of receiving packets.
+ * @name ChannelAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.Channel
  */
 export interface ChannelAmino {
-  /** current state of the channel end */
+  /**
+   * current state of the channel end
+   */
   state?: State;
-  /** whether the channel is ordered or unordered */
+  /**
+   * whether the channel is ordered or unordered
+   */
   ordering?: Order;
-  /** counterparty channel end */
+  /**
+   * counterparty channel end
+   */
   counterparty?: CounterpartyAmino;
   /**
    * list of connection identifiers, in order, along which packets sent on
    * this channel will travel
    */
   connection_hops?: string[];
-  /** opaque channel version, which is agreed upon during the handshake */
+  /**
+   * opaque channel version, which is agreed upon during the handshake
+   */
   version?: string;
   /**
    * upgrade sequence indicates the latest upgrade attempt performed by this channel
@@ -189,6 +211,9 @@ export interface ChannelAminoMsg {
  * Channel defines pipeline for exactly-once packet delivery between specific
  * modules on separate blockchains, which has at least one end capable of
  * sending packets and one end capable of receiving packets.
+ * @name ChannelSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.Channel
  */
 export interface ChannelSDKType {
   state: State;
@@ -201,24 +226,39 @@ export interface ChannelSDKType {
 /**
  * IdentifiedChannel defines a channel with additional port and channel
  * identifier fields.
+ * @name IdentifiedChannel
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.IdentifiedChannel
  */
 export interface IdentifiedChannel {
-  /** current state of the channel end */
+  /**
+   * current state of the channel end
+   */
   state: State;
-  /** whether the channel is ordered or unordered */
+  /**
+   * whether the channel is ordered or unordered
+   */
   ordering: Order;
-  /** counterparty channel end */
+  /**
+   * counterparty channel end
+   */
   counterparty: Counterparty;
   /**
    * list of connection identifiers, in order, along which packets sent on
    * this channel will travel
    */
   connectionHops: string[];
-  /** opaque channel version, which is agreed upon during the handshake */
+  /**
+   * opaque channel version, which is agreed upon during the handshake
+   */
   version: string;
-  /** port identifier */
+  /**
+   * port identifier
+   */
   portId: string;
-  /** channel identifier */
+  /**
+   * channel identifier
+   */
   channelId: string;
   /**
    * upgrade sequence indicates the latest upgrade attempt performed by this channel
@@ -233,24 +273,39 @@ export interface IdentifiedChannelProtoMsg {
 /**
  * IdentifiedChannel defines a channel with additional port and channel
  * identifier fields.
+ * @name IdentifiedChannelAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.IdentifiedChannel
  */
 export interface IdentifiedChannelAmino {
-  /** current state of the channel end */
+  /**
+   * current state of the channel end
+   */
   state?: State;
-  /** whether the channel is ordered or unordered */
+  /**
+   * whether the channel is ordered or unordered
+   */
   ordering?: Order;
-  /** counterparty channel end */
+  /**
+   * counterparty channel end
+   */
   counterparty?: CounterpartyAmino;
   /**
    * list of connection identifiers, in order, along which packets sent on
    * this channel will travel
    */
   connection_hops?: string[];
-  /** opaque channel version, which is agreed upon during the handshake */
+  /**
+   * opaque channel version, which is agreed upon during the handshake
+   */
   version?: string;
-  /** port identifier */
+  /**
+   * port identifier
+   */
   port_id?: string;
-  /** channel identifier */
+  /**
+   * channel identifier
+   */
   channel_id?: string;
   /**
    * upgrade sequence indicates the latest upgrade attempt performed by this channel
@@ -265,6 +320,9 @@ export interface IdentifiedChannelAminoMsg {
 /**
  * IdentifiedChannel defines a channel with additional port and channel
  * identifier fields.
+ * @name IdentifiedChannelSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.IdentifiedChannel
  */
 export interface IdentifiedChannelSDKType {
   state: State;
@@ -276,34 +334,62 @@ export interface IdentifiedChannelSDKType {
   channel_id: string;
   upgrade_sequence: bigint;
 }
-/** Counterparty defines a channel end counterparty */
+/**
+ * Counterparty defines a channel end counterparty
+ * @name Counterparty
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.Counterparty
+ */
 export interface Counterparty {
-  /** port on the counterparty chain which owns the other end of the channel. */
+  /**
+   * port on the counterparty chain which owns the other end of the channel.
+   */
   portId: string;
-  /** channel end on the counterparty chain */
+  /**
+   * channel end on the counterparty chain
+   */
   channelId: string;
 }
 export interface CounterpartyProtoMsg {
   typeUrl: "/ibc.core.channel.v1.Counterparty";
   value: Uint8Array;
 }
-/** Counterparty defines a channel end counterparty */
+/**
+ * Counterparty defines a channel end counterparty
+ * @name CounterpartyAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.Counterparty
+ */
 export interface CounterpartyAmino {
-  /** port on the counterparty chain which owns the other end of the channel. */
+  /**
+   * port on the counterparty chain which owns the other end of the channel.
+   */
   port_id?: string;
-  /** channel end on the counterparty chain */
+  /**
+   * channel end on the counterparty chain
+   */
   channel_id?: string;
 }
 export interface CounterpartyAminoMsg {
   type: "cosmos-sdk/Counterparty";
   value: CounterpartyAmino;
 }
-/** Counterparty defines a channel end counterparty */
+/**
+ * Counterparty defines a channel end counterparty
+ * @name CounterpartySDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.Counterparty
+ */
 export interface CounterpartySDKType {
   port_id: string;
   channel_id: string;
 }
-/** Packet defines a type that carries data across different chains through IBC */
+/**
+ * Packet defines a type that carries data across different chains through IBC
+ * @name Packet
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.Packet
+ */
 export interface Packet {
   /**
    * number corresponds to the order of sends and receives, where a Packet
@@ -311,26 +397,45 @@ export interface Packet {
    * with a later sequence number.
    */
   sequence: bigint;
-  /** identifies the port on the sending chain. */
+  /**
+   * identifies the port on the sending chain.
+   */
   sourcePort: string;
-  /** identifies the channel end on the sending chain. */
+  /**
+   * identifies the channel end on the sending chain.
+   */
   sourceChannel: string;
-  /** identifies the port on the receiving chain. */
+  /**
+   * identifies the port on the receiving chain.
+   */
   destinationPort: string;
-  /** identifies the channel end on the receiving chain. */
+  /**
+   * identifies the channel end on the receiving chain.
+   */
   destinationChannel: string;
-  /** actual opaque bytes transferred directly to the application module */
+  /**
+   * actual opaque bytes transferred directly to the application module
+   */
   data: Uint8Array;
-  /** block height after which the packet times out */
+  /**
+   * block height after which the packet times out
+   */
   timeoutHeight: Height;
-  /** block timestamp (in nanoseconds) after which the packet times out */
+  /**
+   * block timestamp (in nanoseconds) after which the packet times out
+   */
   timeoutTimestamp: bigint;
 }
 export interface PacketProtoMsg {
   typeUrl: "/ibc.core.channel.v1.Packet";
   value: Uint8Array;
 }
-/** Packet defines a type that carries data across different chains through IBC */
+/**
+ * Packet defines a type that carries data across different chains through IBC
+ * @name PacketAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.Packet
+ */
 export interface PacketAmino {
   /**
    * number corresponds to the order of sends and receives, where a Packet
@@ -338,26 +443,45 @@ export interface PacketAmino {
    * with a later sequence number.
    */
   sequence?: string;
-  /** identifies the port on the sending chain. */
+  /**
+   * identifies the port on the sending chain.
+   */
   source_port?: string;
-  /** identifies the channel end on the sending chain. */
+  /**
+   * identifies the channel end on the sending chain.
+   */
   source_channel?: string;
-  /** identifies the port on the receiving chain. */
+  /**
+   * identifies the port on the receiving chain.
+   */
   destination_port?: string;
-  /** identifies the channel end on the receiving chain. */
+  /**
+   * identifies the channel end on the receiving chain.
+   */
   destination_channel?: string;
-  /** actual opaque bytes transferred directly to the application module */
+  /**
+   * actual opaque bytes transferred directly to the application module
+   */
   data?: string;
-  /** block height after which the packet times out */
+  /**
+   * block height after which the packet times out
+   */
   timeout_height?: HeightAmino;
-  /** block timestamp (in nanoseconds) after which the packet times out */
+  /**
+   * block timestamp (in nanoseconds) after which the packet times out
+   */
   timeout_timestamp?: string;
 }
 export interface PacketAminoMsg {
   type: "cosmos-sdk/Packet";
   value: PacketAmino;
 }
-/** Packet defines a type that carries data across different chains through IBC */
+/**
+ * Packet defines a type that carries data across different chains through IBC
+ * @name PacketSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.Packet
+ */
 export interface PacketSDKType {
   sequence: bigint;
   source_port: string;
@@ -373,15 +497,26 @@ export interface PacketSDKType {
  * packet commitments, acknowledgements, and receipts.
  * Caller is responsible for knowing the context necessary to interpret this
  * state as a commitment, acknowledgement, or a receipt.
+ * @name PacketState
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.PacketState
  */
 export interface PacketState {
-  /** channel port identifier. */
+  /**
+   * channel port identifier.
+   */
   portId: string;
-  /** channel unique identifier. */
+  /**
+   * channel unique identifier.
+   */
   channelId: string;
-  /** packet sequence. */
+  /**
+   * packet sequence.
+   */
   sequence: bigint;
-  /** embedded data that represents packet state. */
+  /**
+   * embedded data that represents packet state.
+   */
   data: Uint8Array;
 }
 export interface PacketStateProtoMsg {
@@ -393,15 +528,26 @@ export interface PacketStateProtoMsg {
  * packet commitments, acknowledgements, and receipts.
  * Caller is responsible for knowing the context necessary to interpret this
  * state as a commitment, acknowledgement, or a receipt.
+ * @name PacketStateAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.PacketState
  */
 export interface PacketStateAmino {
-  /** channel port identifier. */
+  /**
+   * channel port identifier.
+   */
   port_id?: string;
-  /** channel unique identifier. */
+  /**
+   * channel unique identifier.
+   */
   channel_id?: string;
-  /** packet sequence. */
+  /**
+   * packet sequence.
+   */
   sequence?: string;
-  /** embedded data that represents packet state. */
+  /**
+   * embedded data that represents packet state.
+   */
   data?: string;
 }
 export interface PacketStateAminoMsg {
@@ -413,6 +559,9 @@ export interface PacketStateAminoMsg {
  * packet commitments, acknowledgements, and receipts.
  * Caller is responsible for knowing the context necessary to interpret this
  * state as a commitment, acknowledgement, or a receipt.
+ * @name PacketStateSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.PacketState
  */
 export interface PacketStateSDKType {
   port_id: string;
@@ -424,13 +573,22 @@ export interface PacketStateSDKType {
  * PacketId is an identifer for a unique Packet
  * Source chains refer to packets by source port/channel
  * Destination chains refer to packets by destination port/channel
+ * @name PacketId
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.PacketId
  */
 export interface PacketId {
-  /** channel port identifier */
+  /**
+   * channel port identifier
+   */
   portId: string;
-  /** channel unique identifier */
+  /**
+   * channel unique identifier
+   */
   channelId: string;
-  /** packet sequence */
+  /**
+   * packet sequence
+   */
   sequence: bigint;
 }
 export interface PacketIdProtoMsg {
@@ -441,13 +599,22 @@ export interface PacketIdProtoMsg {
  * PacketId is an identifer for a unique Packet
  * Source chains refer to packets by source port/channel
  * Destination chains refer to packets by destination port/channel
+ * @name PacketIdAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.PacketId
  */
 export interface PacketIdAmino {
-  /** channel port identifier */
+  /**
+   * channel port identifier
+   */
   port_id?: string;
-  /** channel unique identifier */
+  /**
+   * channel unique identifier
+   */
   channel_id?: string;
-  /** packet sequence */
+  /**
+   * packet sequence
+   */
   sequence?: string;
 }
 export interface PacketIdAminoMsg {
@@ -458,6 +625,9 @@ export interface PacketIdAminoMsg {
  * PacketId is an identifer for a unique Packet
  * Source chains refer to packets by source port/channel
  * Destination chains refer to packets by destination port/channel
+ * @name PacketIdSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.PacketId
  */
 export interface PacketIdSDKType {
   port_id: string;
@@ -472,6 +642,9 @@ export interface PacketIdSDKType {
  * The first byte of any message with this format will be the non-ASCII values
  * `0xaa` (result) or `0xb2` (error). Implemented as defined by ICS:
  * https://github.com/cosmos/ibc/tree/master/spec/core/ics-004-channel-and-packet-semantics#acknowledgement-envelope
+ * @name Acknowledgement
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.Acknowledgement
  */
 export interface Acknowledgement {
   result?: Uint8Array;
@@ -489,6 +662,9 @@ export interface AcknowledgementProtoMsg {
  * The first byte of any message with this format will be the non-ASCII values
  * `0xaa` (result) or `0xb2` (error). Implemented as defined by ICS:
  * https://github.com/cosmos/ibc/tree/master/spec/core/ics-004-channel-and-packet-semantics#acknowledgement-envelope
+ * @name AcknowledgementAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.Acknowledgement
  */
 export interface AcknowledgementAmino {
   result?: string;
@@ -506,6 +682,9 @@ export interface AcknowledgementAminoMsg {
  * The first byte of any message with this format will be the non-ASCII values
  * `0xaa` (result) or `0xb2` (error). Implemented as defined by ICS:
  * https://github.com/cosmos/ibc/tree/master/spec/core/ics-004-channel-and-packet-semantics#acknowledgement-envelope
+ * @name AcknowledgementSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.Acknowledgement
  */
 export interface AcknowledgementSDKType {
   result?: Uint8Array;
@@ -515,11 +694,18 @@ export interface AcknowledgementSDKType {
  * Timeout defines an execution deadline structure for 04-channel handlers.
  * This includes packet lifecycle handlers as well as the upgrade handshake handlers.
  * A valid Timeout contains either one or both of a timestamp and block height (sequence).
+ * @name Timeout
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.Timeout
  */
 export interface Timeout {
-  /** block height after which the packet or upgrade times out */
+  /**
+   * block height after which the packet or upgrade times out
+   */
   height: Height;
-  /** block timestamp (in nanoseconds) after which the packet or upgrade times out */
+  /**
+   * block timestamp (in nanoseconds) after which the packet or upgrade times out
+   */
   timestamp: bigint;
 }
 export interface TimeoutProtoMsg {
@@ -530,11 +716,18 @@ export interface TimeoutProtoMsg {
  * Timeout defines an execution deadline structure for 04-channel handlers.
  * This includes packet lifecycle handlers as well as the upgrade handshake handlers.
  * A valid Timeout contains either one or both of a timestamp and block height (sequence).
+ * @name TimeoutAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.Timeout
  */
 export interface TimeoutAmino {
-  /** block height after which the packet or upgrade times out */
+  /**
+   * block height after which the packet or upgrade times out
+   */
   height?: HeightAmino;
-  /** block timestamp (in nanoseconds) after which the packet or upgrade times out */
+  /**
+   * block timestamp (in nanoseconds) after which the packet or upgrade times out
+   */
   timestamp?: string;
 }
 export interface TimeoutAminoMsg {
@@ -545,30 +738,52 @@ export interface TimeoutAminoMsg {
  * Timeout defines an execution deadline structure for 04-channel handlers.
  * This includes packet lifecycle handlers as well as the upgrade handshake handlers.
  * A valid Timeout contains either one or both of a timestamp and block height (sequence).
+ * @name TimeoutSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.Timeout
  */
 export interface TimeoutSDKType {
   height: HeightSDKType;
   timestamp: bigint;
 }
-/** Params defines the set of IBC channel parameters. */
+/**
+ * Params defines the set of IBC channel parameters.
+ * @name Params
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.Params
+ */
 export interface Params {
-  /** the relative timeout after which channel upgrades will time out. */
+  /**
+   * the relative timeout after which channel upgrades will time out.
+   */
   upgradeTimeout: Timeout;
 }
 export interface ParamsProtoMsg {
   typeUrl: "/ibc.core.channel.v1.Params";
   value: Uint8Array;
 }
-/** Params defines the set of IBC channel parameters. */
+/**
+ * Params defines the set of IBC channel parameters.
+ * @name ParamsAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.Params
+ */
 export interface ParamsAmino {
-  /** the relative timeout after which channel upgrades will time out. */
+  /**
+   * the relative timeout after which channel upgrades will time out.
+   */
   upgrade_timeout?: TimeoutAmino;
 }
 export interface ParamsAminoMsg {
   type: "cosmos-sdk/Params";
   value: ParamsAmino;
 }
-/** Params defines the set of IBC channel parameters. */
+/**
+ * Params defines the set of IBC channel parameters.
+ * @name ParamsSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.Params
+ */
 export interface ParamsSDKType {
   upgrade_timeout: TimeoutSDKType;
 }
@@ -582,6 +797,14 @@ function createBaseChannel(): Channel {
     upgradeSequence: BigInt(0)
   };
 }
+/**
+ * Channel defines pipeline for exactly-once packet delivery between specific
+ * modules on separate blockchains, which has at least one end capable of
+ * sending packets and one end capable of receiving packets.
+ * @name Channel
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.Channel
+ */
 export const Channel = {
   typeUrl: "/ibc.core.channel.v1.Channel",
   aminoType: "cosmos-sdk/Channel",
@@ -711,10 +934,14 @@ export const Channel = {
       typeUrl: "/ibc.core.channel.v1.Channel",
       value: Channel.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Channel.typeUrl)) {
+      return;
+    }
+    Counterparty.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(Channel.typeUrl, Channel);
-GlobalDecoderRegistry.registerAminoProtoMapping(Channel.aminoType, Channel.typeUrl);
 function createBaseIdentifiedChannel(): IdentifiedChannel {
   return {
     state: 0,
@@ -727,6 +954,13 @@ function createBaseIdentifiedChannel(): IdentifiedChannel {
     upgradeSequence: BigInt(0)
   };
 }
+/**
+ * IdentifiedChannel defines a channel with additional port and channel
+ * identifier fields.
+ * @name IdentifiedChannel
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.IdentifiedChannel
+ */
 export const IdentifiedChannel = {
   typeUrl: "/ibc.core.channel.v1.IdentifiedChannel",
   aminoType: "cosmos-sdk/IdentifiedChannel",
@@ -878,16 +1112,26 @@ export const IdentifiedChannel = {
       typeUrl: "/ibc.core.channel.v1.IdentifiedChannel",
       value: IdentifiedChannel.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(IdentifiedChannel.typeUrl)) {
+      return;
+    }
+    Counterparty.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(IdentifiedChannel.typeUrl, IdentifiedChannel);
-GlobalDecoderRegistry.registerAminoProtoMapping(IdentifiedChannel.aminoType, IdentifiedChannel.typeUrl);
 function createBaseCounterparty(): Counterparty {
   return {
     portId: "",
     channelId: ""
   };
 }
+/**
+ * Counterparty defines a channel end counterparty
+ * @name Counterparty
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.Counterparty
+ */
 export const Counterparty = {
   typeUrl: "/ibc.core.channel.v1.Counterparty",
   aminoType: "cosmos-sdk/Counterparty",
@@ -971,10 +1215,9 @@ export const Counterparty = {
       typeUrl: "/ibc.core.channel.v1.Counterparty",
       value: Counterparty.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(Counterparty.typeUrl, Counterparty);
-GlobalDecoderRegistry.registerAminoProtoMapping(Counterparty.aminoType, Counterparty.typeUrl);
 function createBasePacket(): Packet {
   return {
     sequence: BigInt(0),
@@ -987,6 +1230,12 @@ function createBasePacket(): Packet {
     timeoutTimestamp: BigInt(0)
   };
 }
+/**
+ * Packet defines a type that carries data across different chains through IBC
+ * @name Packet
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.Packet
+ */
 export const Packet = {
   typeUrl: "/ibc.core.channel.v1.Packet",
   aminoType: "cosmos-sdk/Packet",
@@ -1136,10 +1385,14 @@ export const Packet = {
       typeUrl: "/ibc.core.channel.v1.Packet",
       value: Packet.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Packet.typeUrl)) {
+      return;
+    }
+    Height.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(Packet.typeUrl, Packet);
-GlobalDecoderRegistry.registerAminoProtoMapping(Packet.aminoType, Packet.typeUrl);
 function createBasePacketState(): PacketState {
   return {
     portId: "",
@@ -1148,6 +1401,15 @@ function createBasePacketState(): PacketState {
     data: new Uint8Array()
   };
 }
+/**
+ * PacketState defines the generic type necessary to retrieve and store
+ * packet commitments, acknowledgements, and receipts.
+ * Caller is responsible for knowing the context necessary to interpret this
+ * state as a commitment, acknowledgement, or a receipt.
+ * @name PacketState
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.PacketState
+ */
 export const PacketState = {
   typeUrl: "/ibc.core.channel.v1.PacketState",
   aminoType: "cosmos-sdk/PacketState",
@@ -1253,10 +1515,9 @@ export const PacketState = {
       typeUrl: "/ibc.core.channel.v1.PacketState",
       value: PacketState.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(PacketState.typeUrl, PacketState);
-GlobalDecoderRegistry.registerAminoProtoMapping(PacketState.aminoType, PacketState.typeUrl);
 function createBasePacketId(): PacketId {
   return {
     portId: "",
@@ -1264,6 +1525,14 @@ function createBasePacketId(): PacketId {
     sequence: BigInt(0)
   };
 }
+/**
+ * PacketId is an identifer for a unique Packet
+ * Source chains refer to packets by source port/channel
+ * Destination chains refer to packets by destination port/channel
+ * @name PacketId
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.PacketId
+ */
 export const PacketId = {
   typeUrl: "/ibc.core.channel.v1.PacketId",
   aminoType: "cosmos-sdk/PacketId",
@@ -1358,16 +1627,27 @@ export const PacketId = {
       typeUrl: "/ibc.core.channel.v1.PacketId",
       value: PacketId.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(PacketId.typeUrl, PacketId);
-GlobalDecoderRegistry.registerAminoProtoMapping(PacketId.aminoType, PacketId.typeUrl);
 function createBaseAcknowledgement(): Acknowledgement {
   return {
     result: undefined,
     error: undefined
   };
 }
+/**
+ * Acknowledgement is the recommended acknowledgement format to be used by
+ * app-specific protocols.
+ * NOTE: The field numbers 21 and 22 were explicitly chosen to avoid accidental
+ * conflicts with other protobuf message formats used for acknowledgements.
+ * The first byte of any message with this format will be the non-ASCII values
+ * `0xaa` (result) or `0xb2` (error). Implemented as defined by ICS:
+ * https://github.com/cosmos/ibc/tree/master/spec/core/ics-004-channel-and-packet-semantics#acknowledgement-envelope
+ * @name Acknowledgement
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.Acknowledgement
+ */
 export const Acknowledgement = {
   typeUrl: "/ibc.core.channel.v1.Acknowledgement",
   aminoType: "cosmos-sdk/Acknowledgement",
@@ -1451,16 +1731,23 @@ export const Acknowledgement = {
       typeUrl: "/ibc.core.channel.v1.Acknowledgement",
       value: Acknowledgement.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(Acknowledgement.typeUrl, Acknowledgement);
-GlobalDecoderRegistry.registerAminoProtoMapping(Acknowledgement.aminoType, Acknowledgement.typeUrl);
 function createBaseTimeout(): Timeout {
   return {
     height: Height.fromPartial({}),
     timestamp: BigInt(0)
   };
 }
+/**
+ * Timeout defines an execution deadline structure for 04-channel handlers.
+ * This includes packet lifecycle handlers as well as the upgrade handshake handlers.
+ * A valid Timeout contains either one or both of a timestamp and block height (sequence).
+ * @name Timeout
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.Timeout
+ */
 export const Timeout = {
   typeUrl: "/ibc.core.channel.v1.Timeout",
   aminoType: "cosmos-sdk/Timeout",
@@ -1544,15 +1831,25 @@ export const Timeout = {
       typeUrl: "/ibc.core.channel.v1.Timeout",
       value: Timeout.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Timeout.typeUrl)) {
+      return;
+    }
+    Height.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(Timeout.typeUrl, Timeout);
-GlobalDecoderRegistry.registerAminoProtoMapping(Timeout.aminoType, Timeout.typeUrl);
 function createBaseParams(): Params {
   return {
     upgradeTimeout: Timeout.fromPartial({})
   };
 }
+/**
+ * Params defines the set of IBC channel parameters.
+ * @name Params
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.Params
+ */
 export const Params = {
   typeUrl: "/ibc.core.channel.v1.Params",
   aminoType: "cosmos-sdk/Params",
@@ -1625,7 +1922,11 @@ export const Params = {
       typeUrl: "/ibc.core.channel.v1.Params",
       value: Params.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Params.typeUrl)) {
+      return;
+    }
+    Timeout.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(Params.typeUrl, Params);
-GlobalDecoderRegistry.registerAminoProtoMapping(Params.aminoType, Params.typeUrl);

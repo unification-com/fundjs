@@ -283,6 +283,11 @@ export function misbehaviorTypeToJSON(object: MisbehaviorType): string {
       return "UNRECOGNIZED";
   }
 }
+/**
+ * @name Request
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.Request
+ */
 export interface Request {
   echo?: RequestEcho;
   flush?: RequestFlush;
@@ -305,6 +310,11 @@ export interface RequestProtoMsg {
   typeUrl: "/tendermint.abci.Request";
   value: Uint8Array;
 }
+/**
+ * @name RequestAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.Request
+ */
 export interface RequestAmino {
   echo?: RequestEchoAmino;
   flush?: RequestFlushAmino;
@@ -327,6 +337,11 @@ export interface RequestAminoMsg {
   type: "/tendermint.abci.Request";
   value: RequestAmino;
 }
+/**
+ * @name RequestSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.Request
+ */
 export interface RequestSDKType {
   echo?: RequestEchoSDKType;
   flush?: RequestFlushSDKType;
@@ -345,6 +360,11 @@ export interface RequestSDKType {
   verify_vote_extension?: RequestVerifyVoteExtensionSDKType;
   finalize_block?: RequestFinalizeBlockSDKType;
 }
+/**
+ * @name RequestEcho
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestEcho
+ */
 export interface RequestEcho {
   message: string;
 }
@@ -352,6 +372,11 @@ export interface RequestEchoProtoMsg {
   typeUrl: "/tendermint.abci.RequestEcho";
   value: Uint8Array;
 }
+/**
+ * @name RequestEchoAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestEcho
+ */
 export interface RequestEchoAmino {
   message?: string;
 }
@@ -359,20 +384,45 @@ export interface RequestEchoAminoMsg {
   type: "/tendermint.abci.RequestEcho";
   value: RequestEchoAmino;
 }
+/**
+ * @name RequestEchoSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestEcho
+ */
 export interface RequestEchoSDKType {
   message: string;
 }
+/**
+ * @name RequestFlush
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestFlush
+ */
 export interface RequestFlush {}
 export interface RequestFlushProtoMsg {
   typeUrl: "/tendermint.abci.RequestFlush";
   value: Uint8Array;
 }
+/**
+ * @name RequestFlushAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestFlush
+ */
 export interface RequestFlushAmino {}
 export interface RequestFlushAminoMsg {
   type: "/tendermint.abci.RequestFlush";
   value: RequestFlushAmino;
 }
+/**
+ * @name RequestFlushSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestFlush
+ */
 export interface RequestFlushSDKType {}
+/**
+ * @name RequestInfo
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestInfo
+ */
 export interface RequestInfo {
   version: string;
   blockVersion: bigint;
@@ -383,6 +433,11 @@ export interface RequestInfoProtoMsg {
   typeUrl: "/tendermint.abci.RequestInfo";
   value: Uint8Array;
 }
+/**
+ * @name RequestInfoAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestInfo
+ */
 export interface RequestInfoAmino {
   version?: string;
   block_version?: string;
@@ -393,12 +448,22 @@ export interface RequestInfoAminoMsg {
   type: "/tendermint.abci.RequestInfo";
   value: RequestInfoAmino;
 }
+/**
+ * @name RequestInfoSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestInfo
+ */
 export interface RequestInfoSDKType {
   version: string;
   block_version: bigint;
   p2p_version: bigint;
   abci_version: string;
 }
+/**
+ * @name RequestInitChain
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestInitChain
+ */
 export interface RequestInitChain {
   time: Date;
   chainId: string;
@@ -411,6 +476,11 @@ export interface RequestInitChainProtoMsg {
   typeUrl: "/tendermint.abci.RequestInitChain";
   value: Uint8Array;
 }
+/**
+ * @name RequestInitChainAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestInitChain
+ */
 export interface RequestInitChainAmino {
   time?: string;
   chain_id?: string;
@@ -423,6 +493,11 @@ export interface RequestInitChainAminoMsg {
   type: "/tendermint.abci.RequestInitChain";
   value: RequestInitChainAmino;
 }
+/**
+ * @name RequestInitChainSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestInitChain
+ */
 export interface RequestInitChainSDKType {
   time: Date;
   chain_id: string;
@@ -431,6 +506,11 @@ export interface RequestInitChainSDKType {
   app_state_bytes: Uint8Array;
   initial_height: bigint;
 }
+/**
+ * @name RequestQuery
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestQuery
+ */
 export interface RequestQuery {
   data: Uint8Array;
   path: string;
@@ -441,6 +521,11 @@ export interface RequestQueryProtoMsg {
   typeUrl: "/tendermint.abci.RequestQuery";
   value: Uint8Array;
 }
+/**
+ * @name RequestQueryAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestQuery
+ */
 export interface RequestQueryAmino {
   data?: string;
   path?: string;
@@ -451,12 +536,22 @@ export interface RequestQueryAminoMsg {
   type: "/tendermint.abci.RequestQuery";
   value: RequestQueryAmino;
 }
+/**
+ * @name RequestQuerySDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestQuery
+ */
 export interface RequestQuerySDKType {
   data: Uint8Array;
   path: string;
   height: bigint;
   prove: boolean;
 }
+/**
+ * @name RequestCheckTx
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestCheckTx
+ */
 export interface RequestCheckTx {
   tx: Uint8Array;
   type: CheckTxType;
@@ -465,6 +560,11 @@ export interface RequestCheckTxProtoMsg {
   typeUrl: "/tendermint.abci.RequestCheckTx";
   value: Uint8Array;
 }
+/**
+ * @name RequestCheckTxAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestCheckTx
+ */
 export interface RequestCheckTxAmino {
   tx?: string;
   type?: CheckTxType;
@@ -473,63 +573,126 @@ export interface RequestCheckTxAminoMsg {
   type: "/tendermint.abci.RequestCheckTx";
   value: RequestCheckTxAmino;
 }
+/**
+ * @name RequestCheckTxSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestCheckTx
+ */
 export interface RequestCheckTxSDKType {
   tx: Uint8Array;
   type: CheckTxType;
 }
+/**
+ * @name RequestCommit
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestCommit
+ */
 export interface RequestCommit {}
 export interface RequestCommitProtoMsg {
   typeUrl: "/tendermint.abci.RequestCommit";
   value: Uint8Array;
 }
+/**
+ * @name RequestCommitAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestCommit
+ */
 export interface RequestCommitAmino {}
 export interface RequestCommitAminoMsg {
   type: "/tendermint.abci.RequestCommit";
   value: RequestCommitAmino;
 }
+/**
+ * @name RequestCommitSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestCommit
+ */
 export interface RequestCommitSDKType {}
-/** lists available snapshots */
+/**
+ * lists available snapshots
+ * @name RequestListSnapshots
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestListSnapshots
+ */
 export interface RequestListSnapshots {}
 export interface RequestListSnapshotsProtoMsg {
   typeUrl: "/tendermint.abci.RequestListSnapshots";
   value: Uint8Array;
 }
-/** lists available snapshots */
+/**
+ * lists available snapshots
+ * @name RequestListSnapshotsAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestListSnapshots
+ */
 export interface RequestListSnapshotsAmino {}
 export interface RequestListSnapshotsAminoMsg {
   type: "/tendermint.abci.RequestListSnapshots";
   value: RequestListSnapshotsAmino;
 }
-/** lists available snapshots */
+/**
+ * lists available snapshots
+ * @name RequestListSnapshotsSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestListSnapshots
+ */
 export interface RequestListSnapshotsSDKType {}
-/** offers a snapshot to the application */
+/**
+ * offers a snapshot to the application
+ * @name RequestOfferSnapshot
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestOfferSnapshot
+ */
 export interface RequestOfferSnapshot {
-  /** snapshot offered by peers */
+  /**
+   * snapshot offered by peers
+   */
   snapshot?: Snapshot;
-  /** light client-verified app hash for snapshot height */
+  /**
+   * light client-verified app hash for snapshot height
+   */
   appHash: Uint8Array;
 }
 export interface RequestOfferSnapshotProtoMsg {
   typeUrl: "/tendermint.abci.RequestOfferSnapshot";
   value: Uint8Array;
 }
-/** offers a snapshot to the application */
+/**
+ * offers a snapshot to the application
+ * @name RequestOfferSnapshotAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestOfferSnapshot
+ */
 export interface RequestOfferSnapshotAmino {
-  /** snapshot offered by peers */
+  /**
+   * snapshot offered by peers
+   */
   snapshot?: SnapshotAmino;
-  /** light client-verified app hash for snapshot height */
+  /**
+   * light client-verified app hash for snapshot height
+   */
   app_hash?: string;
 }
 export interface RequestOfferSnapshotAminoMsg {
   type: "/tendermint.abci.RequestOfferSnapshot";
   value: RequestOfferSnapshotAmino;
 }
-/** offers a snapshot to the application */
+/**
+ * offers a snapshot to the application
+ * @name RequestOfferSnapshotSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestOfferSnapshot
+ */
 export interface RequestOfferSnapshotSDKType {
   snapshot?: SnapshotSDKType;
   app_hash: Uint8Array;
 }
-/** loads a snapshot chunk */
+/**
+ * loads a snapshot chunk
+ * @name RequestLoadSnapshotChunk
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestLoadSnapshotChunk
+ */
 export interface RequestLoadSnapshotChunk {
   height: bigint;
   format: number;
@@ -539,7 +702,12 @@ export interface RequestLoadSnapshotChunkProtoMsg {
   typeUrl: "/tendermint.abci.RequestLoadSnapshotChunk";
   value: Uint8Array;
 }
-/** loads a snapshot chunk */
+/**
+ * loads a snapshot chunk
+ * @name RequestLoadSnapshotChunkAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestLoadSnapshotChunk
+ */
 export interface RequestLoadSnapshotChunkAmino {
   height?: string;
   format?: number;
@@ -549,13 +717,23 @@ export interface RequestLoadSnapshotChunkAminoMsg {
   type: "/tendermint.abci.RequestLoadSnapshotChunk";
   value: RequestLoadSnapshotChunkAmino;
 }
-/** loads a snapshot chunk */
+/**
+ * loads a snapshot chunk
+ * @name RequestLoadSnapshotChunkSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestLoadSnapshotChunk
+ */
 export interface RequestLoadSnapshotChunkSDKType {
   height: bigint;
   format: number;
   chunk: number;
 }
-/** Applies a snapshot chunk */
+/**
+ * Applies a snapshot chunk
+ * @name RequestApplySnapshotChunk
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestApplySnapshotChunk
+ */
 export interface RequestApplySnapshotChunk {
   index: number;
   chunk: Uint8Array;
@@ -565,7 +743,12 @@ export interface RequestApplySnapshotChunkProtoMsg {
   typeUrl: "/tendermint.abci.RequestApplySnapshotChunk";
   value: Uint8Array;
 }
-/** Applies a snapshot chunk */
+/**
+ * Applies a snapshot chunk
+ * @name RequestApplySnapshotChunkAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestApplySnapshotChunk
+ */
 export interface RequestApplySnapshotChunkAmino {
   index?: number;
   chunk?: string;
@@ -575,14 +758,26 @@ export interface RequestApplySnapshotChunkAminoMsg {
   type: "/tendermint.abci.RequestApplySnapshotChunk";
   value: RequestApplySnapshotChunkAmino;
 }
-/** Applies a snapshot chunk */
+/**
+ * Applies a snapshot chunk
+ * @name RequestApplySnapshotChunkSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestApplySnapshotChunk
+ */
 export interface RequestApplySnapshotChunkSDKType {
   index: number;
   chunk: Uint8Array;
   sender: string;
 }
+/**
+ * @name RequestPrepareProposal
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestPrepareProposal
+ */
 export interface RequestPrepareProposal {
-  /** the modified transactions cannot exceed this size. */
+  /**
+   * the modified transactions cannot exceed this size.
+   */
   maxTxBytes: bigint;
   /**
    * txs is an array of transactions that will be included in a block,
@@ -594,15 +789,24 @@ export interface RequestPrepareProposal {
   height: bigint;
   time: Date;
   nextValidatorsHash: Uint8Array;
-  /** address of the public key of the validator proposing the block. */
+  /**
+   * address of the public key of the validator proposing the block.
+   */
   proposerAddress: Uint8Array;
 }
 export interface RequestPrepareProposalProtoMsg {
   typeUrl: "/tendermint.abci.RequestPrepareProposal";
   value: Uint8Array;
 }
+/**
+ * @name RequestPrepareProposalAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestPrepareProposal
+ */
 export interface RequestPrepareProposalAmino {
-  /** the modified transactions cannot exceed this size. */
+  /**
+   * the modified transactions cannot exceed this size.
+   */
   max_tx_bytes?: string;
   /**
    * txs is an array of transactions that will be included in a block,
@@ -614,13 +818,20 @@ export interface RequestPrepareProposalAmino {
   height?: string;
   time?: string;
   next_validators_hash?: string;
-  /** address of the public key of the validator proposing the block. */
+  /**
+   * address of the public key of the validator proposing the block.
+   */
   proposer_address?: string;
 }
 export interface RequestPrepareProposalAminoMsg {
   type: "/tendermint.abci.RequestPrepareProposal";
   value: RequestPrepareProposalAmino;
 }
+/**
+ * @name RequestPrepareProposalSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestPrepareProposal
+ */
 export interface RequestPrepareProposalSDKType {
   max_tx_bytes: bigint;
   txs: Uint8Array[];
@@ -631,38 +842,61 @@ export interface RequestPrepareProposalSDKType {
   next_validators_hash: Uint8Array;
   proposer_address: Uint8Array;
 }
+/**
+ * @name RequestProcessProposal
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestProcessProposal
+ */
 export interface RequestProcessProposal {
   txs: Uint8Array[];
   proposedLastCommit: CommitInfo;
   misbehavior: Misbehavior[];
-  /** hash is the merkle root hash of the fields of the proposed block. */
+  /**
+   * hash is the merkle root hash of the fields of the proposed block.
+   */
   hash: Uint8Array;
   height: bigint;
   time: Date;
   nextValidatorsHash: Uint8Array;
-  /** address of the public key of the original proposer of the block. */
+  /**
+   * address of the public key of the original proposer of the block.
+   */
   proposerAddress: Uint8Array;
 }
 export interface RequestProcessProposalProtoMsg {
   typeUrl: "/tendermint.abci.RequestProcessProposal";
   value: Uint8Array;
 }
+/**
+ * @name RequestProcessProposalAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestProcessProposal
+ */
 export interface RequestProcessProposalAmino {
   txs?: string[];
   proposed_last_commit?: CommitInfoAmino;
   misbehavior?: MisbehaviorAmino[];
-  /** hash is the merkle root hash of the fields of the proposed block. */
+  /**
+   * hash is the merkle root hash of the fields of the proposed block.
+   */
   hash?: string;
   height?: string;
   time?: string;
   next_validators_hash?: string;
-  /** address of the public key of the original proposer of the block. */
+  /**
+   * address of the public key of the original proposer of the block.
+   */
   proposer_address?: string;
 }
 export interface RequestProcessProposalAminoMsg {
   type: "/tendermint.abci.RequestProcessProposal";
   value: RequestProcessProposalAmino;
 }
+/**
+ * @name RequestProcessProposalSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestProcessProposal
+ */
 export interface RequestProcessProposalSDKType {
   txs: Uint8Array[];
   proposed_last_commit: CommitInfoSDKType;
@@ -673,45 +907,76 @@ export interface RequestProcessProposalSDKType {
   next_validators_hash: Uint8Array;
   proposer_address: Uint8Array;
 }
-/** Extends a vote with application-injected data */
+/**
+ * Extends a vote with application-injected data
+ * @name RequestExtendVote
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestExtendVote
+ */
 export interface RequestExtendVote {
-  /** the hash of the block that this vote may be referring to */
+  /**
+   * the hash of the block that this vote may be referring to
+   */
   hash: Uint8Array;
-  /** the height of the extended vote */
+  /**
+   * the height of the extended vote
+   */
   height: bigint;
-  /** info of the block that this vote may be referring to */
+  /**
+   * info of the block that this vote may be referring to
+   */
   time: Date;
   txs: Uint8Array[];
   proposedLastCommit: CommitInfo;
   misbehavior: Misbehavior[];
   nextValidatorsHash: Uint8Array;
-  /** address of the public key of the original proposer of the block. */
+  /**
+   * address of the public key of the original proposer of the block.
+   */
   proposerAddress: Uint8Array;
 }
 export interface RequestExtendVoteProtoMsg {
   typeUrl: "/tendermint.abci.RequestExtendVote";
   value: Uint8Array;
 }
-/** Extends a vote with application-injected data */
+/**
+ * Extends a vote with application-injected data
+ * @name RequestExtendVoteAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestExtendVote
+ */
 export interface RequestExtendVoteAmino {
-  /** the hash of the block that this vote may be referring to */
+  /**
+   * the hash of the block that this vote may be referring to
+   */
   hash?: string;
-  /** the height of the extended vote */
+  /**
+   * the height of the extended vote
+   */
   height?: string;
-  /** info of the block that this vote may be referring to */
+  /**
+   * info of the block that this vote may be referring to
+   */
   time?: string;
   txs?: string[];
   proposed_last_commit?: CommitInfoAmino;
   misbehavior?: MisbehaviorAmino[];
   next_validators_hash?: string;
-  /** address of the public key of the original proposer of the block. */
+  /**
+   * address of the public key of the original proposer of the block.
+   */
   proposer_address?: string;
 }
 export interface RequestExtendVoteAminoMsg {
   type: "/tendermint.abci.RequestExtendVote";
   value: RequestExtendVoteAmino;
 }
-/** Extends a vote with application-injected data */
+/**
+ * Extends a vote with application-injected data
+ * @name RequestExtendVoteSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestExtendVote
+ */
 export interface RequestExtendVoteSDKType {
   hash: Uint8Array;
   height: bigint;
@@ -722,11 +987,20 @@ export interface RequestExtendVoteSDKType {
   next_validators_hash: Uint8Array;
   proposer_address: Uint8Array;
 }
-/** Verify the vote extension */
+/**
+ * Verify the vote extension
+ * @name RequestVerifyVoteExtension
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestVerifyVoteExtension
+ */
 export interface RequestVerifyVoteExtension {
-  /** the hash of the block that this received vote corresponds to */
+  /**
+   * the hash of the block that this received vote corresponds to
+   */
   hash: Uint8Array;
-  /** the validator that signed the vote extension */
+  /**
+   * the validator that signed the vote extension
+   */
   validatorAddress: Uint8Array;
   height: bigint;
   voteExtension: Uint8Array;
@@ -735,11 +1009,20 @@ export interface RequestVerifyVoteExtensionProtoMsg {
   typeUrl: "/tendermint.abci.RequestVerifyVoteExtension";
   value: Uint8Array;
 }
-/** Verify the vote extension */
+/**
+ * Verify the vote extension
+ * @name RequestVerifyVoteExtensionAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestVerifyVoteExtension
+ */
 export interface RequestVerifyVoteExtensionAmino {
-  /** the hash of the block that this received vote corresponds to */
+  /**
+   * the hash of the block that this received vote corresponds to
+   */
   hash?: string;
-  /** the validator that signed the vote extension */
+  /**
+   * the validator that signed the vote extension
+   */
   validator_address?: string;
   height?: string;
   vote_extension?: string;
@@ -748,45 +1031,73 @@ export interface RequestVerifyVoteExtensionAminoMsg {
   type: "/tendermint.abci.RequestVerifyVoteExtension";
   value: RequestVerifyVoteExtensionAmino;
 }
-/** Verify the vote extension */
+/**
+ * Verify the vote extension
+ * @name RequestVerifyVoteExtensionSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestVerifyVoteExtension
+ */
 export interface RequestVerifyVoteExtensionSDKType {
   hash: Uint8Array;
   validator_address: Uint8Array;
   height: bigint;
   vote_extension: Uint8Array;
 }
+/**
+ * @name RequestFinalizeBlock
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestFinalizeBlock
+ */
 export interface RequestFinalizeBlock {
   txs: Uint8Array[];
   decidedLastCommit: CommitInfo;
   misbehavior: Misbehavior[];
-  /** hash is the merkle root hash of the fields of the decided block. */
+  /**
+   * hash is the merkle root hash of the fields of the decided block.
+   */
   hash: Uint8Array;
   height: bigint;
   time: Date;
   nextValidatorsHash: Uint8Array;
-  /** proposer_address is the address of the public key of the original proposer of the block. */
+  /**
+   * proposer_address is the address of the public key of the original proposer of the block.
+   */
   proposerAddress: Uint8Array;
 }
 export interface RequestFinalizeBlockProtoMsg {
   typeUrl: "/tendermint.abci.RequestFinalizeBlock";
   value: Uint8Array;
 }
+/**
+ * @name RequestFinalizeBlockAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestFinalizeBlock
+ */
 export interface RequestFinalizeBlockAmino {
   txs?: string[];
   decided_last_commit?: CommitInfoAmino;
   misbehavior?: MisbehaviorAmino[];
-  /** hash is the merkle root hash of the fields of the decided block. */
+  /**
+   * hash is the merkle root hash of the fields of the decided block.
+   */
   hash?: string;
   height?: string;
   time?: string;
   next_validators_hash?: string;
-  /** proposer_address is the address of the public key of the original proposer of the block. */
+  /**
+   * proposer_address is the address of the public key of the original proposer of the block.
+   */
   proposer_address?: string;
 }
 export interface RequestFinalizeBlockAminoMsg {
   type: "/tendermint.abci.RequestFinalizeBlock";
   value: RequestFinalizeBlockAmino;
 }
+/**
+ * @name RequestFinalizeBlockSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestFinalizeBlock
+ */
 export interface RequestFinalizeBlockSDKType {
   txs: Uint8Array[];
   decided_last_commit: CommitInfoSDKType;
@@ -797,6 +1108,11 @@ export interface RequestFinalizeBlockSDKType {
   next_validators_hash: Uint8Array;
   proposer_address: Uint8Array;
 }
+/**
+ * @name Response
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.Response
+ */
 export interface Response {
   exception?: ResponseException;
   echo?: ResponseEcho;
@@ -820,6 +1136,11 @@ export interface ResponseProtoMsg {
   typeUrl: "/tendermint.abci.Response";
   value: Uint8Array;
 }
+/**
+ * @name ResponseAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.Response
+ */
 export interface ResponseAmino {
   exception?: ResponseExceptionAmino;
   echo?: ResponseEchoAmino;
@@ -843,6 +1164,11 @@ export interface ResponseAminoMsg {
   type: "/tendermint.abci.Response";
   value: ResponseAmino;
 }
+/**
+ * @name ResponseSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.Response
+ */
 export interface ResponseSDKType {
   exception?: ResponseExceptionSDKType;
   echo?: ResponseEchoSDKType;
@@ -862,7 +1188,12 @@ export interface ResponseSDKType {
   verify_vote_extension?: ResponseVerifyVoteExtensionSDKType;
   finalize_block?: ResponseFinalizeBlockSDKType;
 }
-/** nondeterministic */
+/**
+ * nondeterministic
+ * @name ResponseException
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseException
+ */
 export interface ResponseException {
   error: string;
 }
@@ -870,7 +1201,12 @@ export interface ResponseExceptionProtoMsg {
   typeUrl: "/tendermint.abci.ResponseException";
   value: Uint8Array;
 }
-/** nondeterministic */
+/**
+ * nondeterministic
+ * @name ResponseExceptionAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseException
+ */
 export interface ResponseExceptionAmino {
   error?: string;
 }
@@ -878,10 +1214,20 @@ export interface ResponseExceptionAminoMsg {
   type: "/tendermint.abci.ResponseException";
   value: ResponseExceptionAmino;
 }
-/** nondeterministic */
+/**
+ * nondeterministic
+ * @name ResponseExceptionSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseException
+ */
 export interface ResponseExceptionSDKType {
   error: string;
 }
+/**
+ * @name ResponseEcho
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseEcho
+ */
 export interface ResponseEcho {
   message: string;
 }
@@ -889,6 +1235,11 @@ export interface ResponseEchoProtoMsg {
   typeUrl: "/tendermint.abci.ResponseEcho";
   value: Uint8Array;
 }
+/**
+ * @name ResponseEchoAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseEcho
+ */
 export interface ResponseEchoAmino {
   message?: string;
 }
@@ -896,20 +1247,45 @@ export interface ResponseEchoAminoMsg {
   type: "/tendermint.abci.ResponseEcho";
   value: ResponseEchoAmino;
 }
+/**
+ * @name ResponseEchoSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseEcho
+ */
 export interface ResponseEchoSDKType {
   message: string;
 }
+/**
+ * @name ResponseFlush
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseFlush
+ */
 export interface ResponseFlush {}
 export interface ResponseFlushProtoMsg {
   typeUrl: "/tendermint.abci.ResponseFlush";
   value: Uint8Array;
 }
+/**
+ * @name ResponseFlushAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseFlush
+ */
 export interface ResponseFlushAmino {}
 export interface ResponseFlushAminoMsg {
   type: "/tendermint.abci.ResponseFlush";
   value: ResponseFlushAmino;
 }
+/**
+ * @name ResponseFlushSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseFlush
+ */
 export interface ResponseFlushSDKType {}
+/**
+ * @name ResponseInfo
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseInfo
+ */
 export interface ResponseInfo {
   data: string;
   version: string;
@@ -921,6 +1297,11 @@ export interface ResponseInfoProtoMsg {
   typeUrl: "/tendermint.abci.ResponseInfo";
   value: Uint8Array;
 }
+/**
+ * @name ResponseInfoAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseInfo
+ */
 export interface ResponseInfoAmino {
   data?: string;
   version?: string;
@@ -932,6 +1313,11 @@ export interface ResponseInfoAminoMsg {
   type: "/tendermint.abci.ResponseInfo";
   value: ResponseInfoAmino;
 }
+/**
+ * @name ResponseInfoSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseInfo
+ */
 export interface ResponseInfoSDKType {
   data: string;
   version: string;
@@ -939,6 +1325,11 @@ export interface ResponseInfoSDKType {
   last_block_height: bigint;
   last_block_app_hash: Uint8Array;
 }
+/**
+ * @name ResponseInitChain
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseInitChain
+ */
 export interface ResponseInitChain {
   consensusParams?: ConsensusParams;
   validators: ValidatorUpdate[];
@@ -948,6 +1339,11 @@ export interface ResponseInitChainProtoMsg {
   typeUrl: "/tendermint.abci.ResponseInitChain";
   value: Uint8Array;
 }
+/**
+ * @name ResponseInitChainAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseInitChain
+ */
 export interface ResponseInitChainAmino {
   consensus_params?: ConsensusParamsAmino;
   validators?: ValidatorUpdateAmino[];
@@ -957,16 +1353,30 @@ export interface ResponseInitChainAminoMsg {
   type: "/tendermint.abci.ResponseInitChain";
   value: ResponseInitChainAmino;
 }
+/**
+ * @name ResponseInitChainSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseInitChain
+ */
 export interface ResponseInitChainSDKType {
   consensus_params?: ConsensusParamsSDKType;
   validators: ValidatorUpdateSDKType[];
   app_hash: Uint8Array;
 }
+/**
+ * @name ResponseQuery
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseQuery
+ */
 export interface ResponseQuery {
   code: number;
-  /** bytes data = 2; // use "value" instead. */
+  /**
+   * bytes data = 2; // use "value" instead.
+   */
   log: string;
-  /** nondeterministic */
+  /**
+   * nondeterministic
+   */
   info: string;
   index: bigint;
   key: Uint8Array;
@@ -979,11 +1389,20 @@ export interface ResponseQueryProtoMsg {
   typeUrl: "/tendermint.abci.ResponseQuery";
   value: Uint8Array;
 }
+/**
+ * @name ResponseQueryAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseQuery
+ */
 export interface ResponseQueryAmino {
   code?: number;
-  /** bytes data = 2; // use "value" instead. */
+  /**
+   * bytes data = 2; // use "value" instead.
+   */
   log?: string;
-  /** nondeterministic */
+  /**
+   * nondeterministic
+   */
   info?: string;
   index?: string;
   key?: string;
@@ -996,6 +1415,11 @@ export interface ResponseQueryAminoMsg {
   type: "/tendermint.abci.ResponseQuery";
   value: ResponseQueryAmino;
 }
+/**
+ * @name ResponseQuerySDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseQuery
+ */
 export interface ResponseQuerySDKType {
   code: number;
   log: string;
@@ -1007,12 +1431,21 @@ export interface ResponseQuerySDKType {
   height: bigint;
   codespace: string;
 }
+/**
+ * @name ResponseCheckTx
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseCheckTx
+ */
 export interface ResponseCheckTx {
   code: number;
   data: Uint8Array;
-  /** nondeterministic */
+  /**
+   * nondeterministic
+   */
   log: string;
-  /** nondeterministic */
+  /**
+   * nondeterministic
+   */
   info: string;
   gasWanted: bigint;
   gasUsed: bigint;
@@ -1023,12 +1456,21 @@ export interface ResponseCheckTxProtoMsg {
   typeUrl: "/tendermint.abci.ResponseCheckTx";
   value: Uint8Array;
 }
+/**
+ * @name ResponseCheckTxAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseCheckTx
+ */
 export interface ResponseCheckTxAmino {
   code?: number;
   data?: string;
-  /** nondeterministic */
+  /**
+   * nondeterministic
+   */
   log?: string;
-  /** nondeterministic */
+  /**
+   * nondeterministic
+   */
   info?: string;
   gas_wanted?: string;
   gas_used?: string;
@@ -1039,6 +1481,11 @@ export interface ResponseCheckTxAminoMsg {
   type: "/tendermint.abci.ResponseCheckTx";
   value: ResponseCheckTxAmino;
 }
+/**
+ * @name ResponseCheckTxSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseCheckTx
+ */
 export interface ResponseCheckTxSDKType {
   code: number;
   data: Uint8Array;
@@ -1049,6 +1496,11 @@ export interface ResponseCheckTxSDKType {
   events: EventSDKType[];
   codespace: string;
 }
+/**
+ * @name ResponseCommit
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseCommit
+ */
 export interface ResponseCommit {
   retainHeight: bigint;
 }
@@ -1056,6 +1508,11 @@ export interface ResponseCommitProtoMsg {
   typeUrl: "/tendermint.abci.ResponseCommit";
   value: Uint8Array;
 }
+/**
+ * @name ResponseCommitAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseCommit
+ */
 export interface ResponseCommitAmino {
   retain_height?: string;
 }
@@ -1063,9 +1520,19 @@ export interface ResponseCommitAminoMsg {
   type: "/tendermint.abci.ResponseCommit";
   value: ResponseCommitAmino;
 }
+/**
+ * @name ResponseCommitSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseCommit
+ */
 export interface ResponseCommitSDKType {
   retain_height: bigint;
 }
+/**
+ * @name ResponseListSnapshots
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseListSnapshots
+ */
 export interface ResponseListSnapshots {
   snapshots: Snapshot[];
 }
@@ -1073,6 +1540,11 @@ export interface ResponseListSnapshotsProtoMsg {
   typeUrl: "/tendermint.abci.ResponseListSnapshots";
   value: Uint8Array;
 }
+/**
+ * @name ResponseListSnapshotsAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseListSnapshots
+ */
 export interface ResponseListSnapshotsAmino {
   snapshots?: SnapshotAmino[];
 }
@@ -1080,9 +1552,19 @@ export interface ResponseListSnapshotsAminoMsg {
   type: "/tendermint.abci.ResponseListSnapshots";
   value: ResponseListSnapshotsAmino;
 }
+/**
+ * @name ResponseListSnapshotsSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseListSnapshots
+ */
 export interface ResponseListSnapshotsSDKType {
   snapshots: SnapshotSDKType[];
 }
+/**
+ * @name ResponseOfferSnapshot
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseOfferSnapshot
+ */
 export interface ResponseOfferSnapshot {
   result: ResponseOfferSnapshot_Result;
 }
@@ -1090,6 +1572,11 @@ export interface ResponseOfferSnapshotProtoMsg {
   typeUrl: "/tendermint.abci.ResponseOfferSnapshot";
   value: Uint8Array;
 }
+/**
+ * @name ResponseOfferSnapshotAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseOfferSnapshot
+ */
 export interface ResponseOfferSnapshotAmino {
   result?: ResponseOfferSnapshot_Result;
 }
@@ -1097,9 +1584,19 @@ export interface ResponseOfferSnapshotAminoMsg {
   type: "/tendermint.abci.ResponseOfferSnapshot";
   value: ResponseOfferSnapshotAmino;
 }
+/**
+ * @name ResponseOfferSnapshotSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseOfferSnapshot
+ */
 export interface ResponseOfferSnapshotSDKType {
   result: ResponseOfferSnapshot_Result;
 }
+/**
+ * @name ResponseLoadSnapshotChunk
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseLoadSnapshotChunk
+ */
 export interface ResponseLoadSnapshotChunk {
   chunk: Uint8Array;
 }
@@ -1107,6 +1604,11 @@ export interface ResponseLoadSnapshotChunkProtoMsg {
   typeUrl: "/tendermint.abci.ResponseLoadSnapshotChunk";
   value: Uint8Array;
 }
+/**
+ * @name ResponseLoadSnapshotChunkAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseLoadSnapshotChunk
+ */
 export interface ResponseLoadSnapshotChunkAmino {
   chunk?: string;
 }
@@ -1114,36 +1616,69 @@ export interface ResponseLoadSnapshotChunkAminoMsg {
   type: "/tendermint.abci.ResponseLoadSnapshotChunk";
   value: ResponseLoadSnapshotChunkAmino;
 }
+/**
+ * @name ResponseLoadSnapshotChunkSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseLoadSnapshotChunk
+ */
 export interface ResponseLoadSnapshotChunkSDKType {
   chunk: Uint8Array;
 }
+/**
+ * @name ResponseApplySnapshotChunk
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseApplySnapshotChunk
+ */
 export interface ResponseApplySnapshotChunk {
   result: ResponseApplySnapshotChunk_Result;
-  /** Chunks to refetch and reapply */
+  /**
+   * Chunks to refetch and reapply
+   */
   refetchChunks: number[];
-  /** Chunk senders to reject and ban */
+  /**
+   * Chunk senders to reject and ban
+   */
   rejectSenders: string[];
 }
 export interface ResponseApplySnapshotChunkProtoMsg {
   typeUrl: "/tendermint.abci.ResponseApplySnapshotChunk";
   value: Uint8Array;
 }
+/**
+ * @name ResponseApplySnapshotChunkAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseApplySnapshotChunk
+ */
 export interface ResponseApplySnapshotChunkAmino {
   result?: ResponseApplySnapshotChunk_Result;
-  /** Chunks to refetch and reapply */
+  /**
+   * Chunks to refetch and reapply
+   */
   refetch_chunks?: number[];
-  /** Chunk senders to reject and ban */
+  /**
+   * Chunk senders to reject and ban
+   */
   reject_senders?: string[];
 }
 export interface ResponseApplySnapshotChunkAminoMsg {
   type: "/tendermint.abci.ResponseApplySnapshotChunk";
   value: ResponseApplySnapshotChunkAmino;
 }
+/**
+ * @name ResponseApplySnapshotChunkSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseApplySnapshotChunk
+ */
 export interface ResponseApplySnapshotChunkSDKType {
   result: ResponseApplySnapshotChunk_Result;
   refetch_chunks: number[];
   reject_senders: string[];
 }
+/**
+ * @name ResponsePrepareProposal
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponsePrepareProposal
+ */
 export interface ResponsePrepareProposal {
   txs: Uint8Array[];
 }
@@ -1151,6 +1686,11 @@ export interface ResponsePrepareProposalProtoMsg {
   typeUrl: "/tendermint.abci.ResponsePrepareProposal";
   value: Uint8Array;
 }
+/**
+ * @name ResponsePrepareProposalAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponsePrepareProposal
+ */
 export interface ResponsePrepareProposalAmino {
   txs?: string[];
 }
@@ -1158,9 +1698,19 @@ export interface ResponsePrepareProposalAminoMsg {
   type: "/tendermint.abci.ResponsePrepareProposal";
   value: ResponsePrepareProposalAmino;
 }
+/**
+ * @name ResponsePrepareProposalSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponsePrepareProposal
+ */
 export interface ResponsePrepareProposalSDKType {
   txs: Uint8Array[];
 }
+/**
+ * @name ResponseProcessProposal
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseProcessProposal
+ */
 export interface ResponseProcessProposal {
   status: ResponseProcessProposal_ProposalStatus;
 }
@@ -1168,6 +1718,11 @@ export interface ResponseProcessProposalProtoMsg {
   typeUrl: "/tendermint.abci.ResponseProcessProposal";
   value: Uint8Array;
 }
+/**
+ * @name ResponseProcessProposalAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseProcessProposal
+ */
 export interface ResponseProcessProposalAmino {
   status?: ResponseProcessProposal_ProposalStatus;
 }
@@ -1175,9 +1730,19 @@ export interface ResponseProcessProposalAminoMsg {
   type: "/tendermint.abci.ResponseProcessProposal";
   value: ResponseProcessProposalAmino;
 }
+/**
+ * @name ResponseProcessProposalSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseProcessProposal
+ */
 export interface ResponseProcessProposalSDKType {
   status: ResponseProcessProposal_ProposalStatus;
 }
+/**
+ * @name ResponseExtendVote
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseExtendVote
+ */
 export interface ResponseExtendVote {
   voteExtension: Uint8Array;
 }
@@ -1185,6 +1750,11 @@ export interface ResponseExtendVoteProtoMsg {
   typeUrl: "/tendermint.abci.ResponseExtendVote";
   value: Uint8Array;
 }
+/**
+ * @name ResponseExtendVoteAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseExtendVote
+ */
 export interface ResponseExtendVoteAmino {
   vote_extension?: string;
 }
@@ -1192,9 +1762,19 @@ export interface ResponseExtendVoteAminoMsg {
   type: "/tendermint.abci.ResponseExtendVote";
   value: ResponseExtendVoteAmino;
 }
+/**
+ * @name ResponseExtendVoteSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseExtendVote
+ */
 export interface ResponseExtendVoteSDKType {
   vote_extension: Uint8Array;
 }
+/**
+ * @name ResponseVerifyVoteExtension
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseVerifyVoteExtension
+ */
 export interface ResponseVerifyVoteExtension {
   status: ResponseVerifyVoteExtension_VerifyStatus;
 }
@@ -1202,6 +1782,11 @@ export interface ResponseVerifyVoteExtensionProtoMsg {
   typeUrl: "/tendermint.abci.ResponseVerifyVoteExtension";
   value: Uint8Array;
 }
+/**
+ * @name ResponseVerifyVoteExtensionAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseVerifyVoteExtension
+ */
 export interface ResponseVerifyVoteExtensionAmino {
   status?: ResponseVerifyVoteExtension_VerifyStatus;
 }
@@ -1209,11 +1794,23 @@ export interface ResponseVerifyVoteExtensionAminoMsg {
   type: "/tendermint.abci.ResponseVerifyVoteExtension";
   value: ResponseVerifyVoteExtensionAmino;
 }
+/**
+ * @name ResponseVerifyVoteExtensionSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseVerifyVoteExtension
+ */
 export interface ResponseVerifyVoteExtensionSDKType {
   status: ResponseVerifyVoteExtension_VerifyStatus;
 }
+/**
+ * @name ResponseFinalizeBlock
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseFinalizeBlock
+ */
 export interface ResponseFinalizeBlock {
-  /** set of block events emmitted as part of executing the block */
+  /**
+   * set of block events emmitted as part of executing the block
+   */
   events: Event[];
   /**
    * the result of executing each transaction including the events
@@ -1221,9 +1818,13 @@ export interface ResponseFinalizeBlock {
    * of the transactions delivered in the block itself
    */
   txResults: ExecTxResult[];
-  /** a list of updates to the validator set. These will reflect the validator set at current height + 2. */
+  /**
+   * a list of updates to the validator set. These will reflect the validator set at current height + 2.
+   */
   validatorUpdates: ValidatorUpdate[];
-  /** updates to the consensus params, if any. */
+  /**
+   * updates to the consensus params, if any.
+   */
   consensusParamUpdates?: ConsensusParams;
   /**
    * app_hash is the hash of the applications' state which is used to confirm that execution of the transactions was
@@ -1235,8 +1836,15 @@ export interface ResponseFinalizeBlockProtoMsg {
   typeUrl: "/tendermint.abci.ResponseFinalizeBlock";
   value: Uint8Array;
 }
+/**
+ * @name ResponseFinalizeBlockAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseFinalizeBlock
+ */
 export interface ResponseFinalizeBlockAmino {
-  /** set of block events emmitted as part of executing the block */
+  /**
+   * set of block events emmitted as part of executing the block
+   */
   events?: EventAmino[];
   /**
    * the result of executing each transaction including the events
@@ -1244,9 +1852,13 @@ export interface ResponseFinalizeBlockAmino {
    * of the transactions delivered in the block itself
    */
   tx_results?: ExecTxResultAmino[];
-  /** a list of updates to the validator set. These will reflect the validator set at current height + 2. */
+  /**
+   * a list of updates to the validator set. These will reflect the validator set at current height + 2.
+   */
   validator_updates?: ValidatorUpdateAmino[];
-  /** updates to the consensus params, if any. */
+  /**
+   * updates to the consensus params, if any.
+   */
   consensus_param_updates?: ConsensusParamsAmino;
   /**
    * app_hash is the hash of the applications' state which is used to confirm that execution of the transactions was
@@ -1258,6 +1870,11 @@ export interface ResponseFinalizeBlockAminoMsg {
   type: "/tendermint.abci.ResponseFinalizeBlock";
   value: ResponseFinalizeBlockAmino;
 }
+/**
+ * @name ResponseFinalizeBlockSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseFinalizeBlock
+ */
 export interface ResponseFinalizeBlockSDKType {
   events: EventSDKType[];
   tx_results: ExecTxResultSDKType[];
@@ -1265,6 +1882,11 @@ export interface ResponseFinalizeBlockSDKType {
   consensus_param_updates?: ConsensusParamsSDKType;
   app_hash: Uint8Array;
 }
+/**
+ * @name CommitInfo
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.CommitInfo
+ */
 export interface CommitInfo {
   round: number;
   votes: VoteInfo[];
@@ -1273,6 +1895,11 @@ export interface CommitInfoProtoMsg {
   typeUrl: "/tendermint.abci.CommitInfo";
   value: Uint8Array;
 }
+/**
+ * @name CommitInfoAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.CommitInfo
+ */
 export interface CommitInfoAmino {
   round?: number;
   votes?: VoteInfoAmino[];
@@ -1281,6 +1908,11 @@ export interface CommitInfoAminoMsg {
   type: "/tendermint.abci.CommitInfo";
   value: CommitInfoAmino;
 }
+/**
+ * @name CommitInfoSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.CommitInfo
+ */
 export interface CommitInfoSDKType {
   round: number;
   votes: VoteInfoSDKType[];
@@ -1289,9 +1921,14 @@ export interface CommitInfoSDKType {
  * ExtendedCommitInfo is similar to CommitInfo except that it is only used in
  * the PrepareProposal request such that CometBFT can provide vote extensions
  * to the application.
+ * @name ExtendedCommitInfo
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ExtendedCommitInfo
  */
 export interface ExtendedCommitInfo {
-  /** The round at which the block proposer decided in the previous height. */
+  /**
+   * The round at which the block proposer decided in the previous height.
+   */
   round: number;
   /**
    * List of validators' addresses in the last validator set with their voting
@@ -1307,9 +1944,14 @@ export interface ExtendedCommitInfoProtoMsg {
  * ExtendedCommitInfo is similar to CommitInfo except that it is only used in
  * the PrepareProposal request such that CometBFT can provide vote extensions
  * to the application.
+ * @name ExtendedCommitInfoAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ExtendedCommitInfo
  */
 export interface ExtendedCommitInfoAmino {
-  /** The round at which the block proposer decided in the previous height. */
+  /**
+   * The round at which the block proposer decided in the previous height.
+   */
   round?: number;
   /**
    * List of validators' addresses in the last validator set with their voting
@@ -1325,6 +1967,9 @@ export interface ExtendedCommitInfoAminoMsg {
  * ExtendedCommitInfo is similar to CommitInfo except that it is only used in
  * the PrepareProposal request such that CometBFT can provide vote extensions
  * to the application.
+ * @name ExtendedCommitInfoSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ExtendedCommitInfo
  */
 export interface ExtendedCommitInfoSDKType {
   round: number;
@@ -1334,6 +1979,9 @@ export interface ExtendedCommitInfoSDKType {
  * Event allows application developers to attach additional information to
  * ResponseFinalizeBlock and ResponseCheckTx.
  * Later, transactions may be queried using these events.
+ * @name Event
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.Event
  */
 export interface Event {
   type: string;
@@ -1347,6 +1995,9 @@ export interface EventProtoMsg {
  * Event allows application developers to attach additional information to
  * ResponseFinalizeBlock and ResponseCheckTx.
  * Later, transactions may be queried using these events.
+ * @name EventAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.Event
  */
 export interface EventAmino {
   type?: string;
@@ -1360,34 +2011,56 @@ export interface EventAminoMsg {
  * Event allows application developers to attach additional information to
  * ResponseFinalizeBlock and ResponseCheckTx.
  * Later, transactions may be queried using these events.
+ * @name EventSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.Event
  */
 export interface EventSDKType {
   type: string;
   attributes: EventAttributeSDKType[];
 }
-/** EventAttribute is a single key-value pair, associated with an event. */
+/**
+ * EventAttribute is a single key-value pair, associated with an event.
+ * @name EventAttribute
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.EventAttribute
+ */
 export interface EventAttribute {
   key: string;
   value: string;
-  /** nondeterministic */
+  /**
+   * nondeterministic
+   */
   index: boolean;
 }
 export interface EventAttributeProtoMsg {
   typeUrl: "/tendermint.abci.EventAttribute";
   value: Uint8Array;
 }
-/** EventAttribute is a single key-value pair, associated with an event. */
+/**
+ * EventAttribute is a single key-value pair, associated with an event.
+ * @name EventAttributeAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.EventAttribute
+ */
 export interface EventAttributeAmino {
   key?: string;
   value?: string;
-  /** nondeterministic */
+  /**
+   * nondeterministic
+   */
   index?: boolean;
 }
 export interface EventAttributeAminoMsg {
   type: "/tendermint.abci.EventAttribute";
   value: EventAttributeAmino;
 }
-/** EventAttribute is a single key-value pair, associated with an event. */
+/**
+ * EventAttribute is a single key-value pair, associated with an event.
+ * @name EventAttributeSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.EventAttribute
+ */
 export interface EventAttributeSDKType {
   key: string;
   value: string;
@@ -1397,13 +2070,20 @@ export interface EventAttributeSDKType {
  * ExecTxResult contains results of executing one individual transaction.
  * 
  * * Its structure is equivalent to #ResponseDeliverTx which will be deprecated/deleted
+ * @name ExecTxResult
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ExecTxResult
  */
 export interface ExecTxResult {
   code: number;
   data: Uint8Array;
-  /** nondeterministic */
+  /**
+   * nondeterministic
+   */
   log: string;
-  /** nondeterministic */
+  /**
+   * nondeterministic
+   */
   info: string;
   gasWanted: bigint;
   gasUsed: bigint;
@@ -1418,13 +2098,20 @@ export interface ExecTxResultProtoMsg {
  * ExecTxResult contains results of executing one individual transaction.
  * 
  * * Its structure is equivalent to #ResponseDeliverTx which will be deprecated/deleted
+ * @name ExecTxResultAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ExecTxResult
  */
 export interface ExecTxResultAmino {
   code?: number;
   data?: string;
-  /** nondeterministic */
+  /**
+   * nondeterministic
+   */
   log?: string;
-  /** nondeterministic */
+  /**
+   * nondeterministic
+   */
   info?: string;
   gas_wanted?: string;
   gas_used?: string;
@@ -1439,6 +2126,9 @@ export interface ExecTxResultAminoMsg {
  * ExecTxResult contains results of executing one individual transaction.
  * 
  * * Its structure is equivalent to #ResponseDeliverTx which will be deprecated/deleted
+ * @name ExecTxResultSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ExecTxResult
  */
 export interface ExecTxResultSDKType {
   code: number;
@@ -1454,6 +2144,9 @@ export interface ExecTxResultSDKType {
  * TxResult contains results of executing the transaction.
  * 
  * One usage is indexing transaction results.
+ * @name TxResult
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.TxResult
  */
 export interface TxResult {
   height: bigint;
@@ -1469,6 +2162,9 @@ export interface TxResultProtoMsg {
  * TxResult contains results of executing the transaction.
  * 
  * One usage is indexing transaction results.
+ * @name TxResultAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.TxResult
  */
 export interface TxResultAmino {
   height?: string;
@@ -1484,6 +2180,9 @@ export interface TxResultAminoMsg {
  * TxResult contains results of executing the transaction.
  * 
  * One usage is indexing transaction results.
+ * @name TxResultSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.TxResult
  */
 export interface TxResultSDKType {
   height: bigint;
@@ -1491,30 +2190,58 @@ export interface TxResultSDKType {
   tx: Uint8Array;
   result: ExecTxResultSDKType;
 }
+/**
+ * @name Validator
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.Validator
+ */
 export interface Validator {
-  /** The first 20 bytes of SHA256(public key) */
+  /**
+   * The first 20 bytes of SHA256(public key)
+   */
   address: Uint8Array;
-  /** PubKey pub_key = 2 [(gogoproto.nullable)=false]; */
+  /**
+   * PubKey pub_key = 2 [(gogoproto.nullable)=false];
+   */
   power: bigint;
 }
 export interface ValidatorProtoMsg {
   typeUrl: "/tendermint.abci.Validator";
   value: Uint8Array;
 }
+/**
+ * @name ValidatorAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.Validator
+ */
 export interface ValidatorAmino {
-  /** The first 20 bytes of SHA256(public key) */
+  /**
+   * The first 20 bytes of SHA256(public key)
+   */
   address?: string;
-  /** PubKey pub_key = 2 [(gogoproto.nullable)=false]; */
+  /**
+   * PubKey pub_key = 2 [(gogoproto.nullable)=false];
+   */
   power?: string;
 }
 export interface ValidatorAminoMsg {
   type: "/tendermint.abci.Validator";
   value: ValidatorAmino;
 }
+/**
+ * @name ValidatorSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.Validator
+ */
 export interface ValidatorSDKType {
   address: Uint8Array;
   power: bigint;
 }
+/**
+ * @name ValidatorUpdate
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ValidatorUpdate
+ */
 export interface ValidatorUpdate {
   pubKey: PublicKey;
   power: bigint;
@@ -1523,6 +2250,11 @@ export interface ValidatorUpdateProtoMsg {
   typeUrl: "/tendermint.abci.ValidatorUpdate";
   value: Uint8Array;
 }
+/**
+ * @name ValidatorUpdateAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ValidatorUpdate
+ */
 export interface ValidatorUpdateAmino {
   pub_key?: PublicKeyAmino;
   power?: string;
@@ -1531,10 +2263,20 @@ export interface ValidatorUpdateAminoMsg {
   type: "/tendermint.abci.ValidatorUpdate";
   value: ValidatorUpdateAmino;
 }
+/**
+ * @name ValidatorUpdateSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ValidatorUpdate
+ */
 export interface ValidatorUpdateSDKType {
   pub_key: PublicKeySDKType;
   power: bigint;
 }
+/**
+ * @name VoteInfo
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.VoteInfo
+ */
 export interface VoteInfo {
   validator: Validator;
   blockIdFlag: BlockIDFlag;
@@ -1543,6 +2285,11 @@ export interface VoteInfoProtoMsg {
   typeUrl: "/tendermint.abci.VoteInfo";
   value: Uint8Array;
 }
+/**
+ * @name VoteInfoAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.VoteInfo
+ */
 export interface VoteInfoAmino {
   validator?: ValidatorAmino;
   block_id_flag?: BlockIDFlag;
@@ -1551,51 +2298,98 @@ export interface VoteInfoAminoMsg {
   type: "/tendermint.abci.VoteInfo";
   value: VoteInfoAmino;
 }
+/**
+ * @name VoteInfoSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.VoteInfo
+ */
 export interface VoteInfoSDKType {
   validator: ValidatorSDKType;
   block_id_flag: BlockIDFlag;
 }
+/**
+ * @name ExtendedVoteInfo
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ExtendedVoteInfo
+ */
 export interface ExtendedVoteInfo {
-  /** The validator that sent the vote. */
+  /**
+   * The validator that sent the vote.
+   */
   validator: Validator;
-  /** Non-deterministic extension provided by the sending validator's application. */
+  /**
+   * Non-deterministic extension provided by the sending validator's application.
+   */
   voteExtension: Uint8Array;
-  /** Vote extension signature created by CometBFT */
+  /**
+   * Vote extension signature created by CometBFT
+   */
   extensionSignature: Uint8Array;
-  /** block_id_flag indicates whether the validator voted for a block, nil, or did not vote at all */
+  /**
+   * block_id_flag indicates whether the validator voted for a block, nil, or did not vote at all
+   */
   blockIdFlag: BlockIDFlag;
 }
 export interface ExtendedVoteInfoProtoMsg {
   typeUrl: "/tendermint.abci.ExtendedVoteInfo";
   value: Uint8Array;
 }
+/**
+ * @name ExtendedVoteInfoAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ExtendedVoteInfo
+ */
 export interface ExtendedVoteInfoAmino {
-  /** The validator that sent the vote. */
+  /**
+   * The validator that sent the vote.
+   */
   validator?: ValidatorAmino;
-  /** Non-deterministic extension provided by the sending validator's application. */
+  /**
+   * Non-deterministic extension provided by the sending validator's application.
+   */
   vote_extension?: string;
-  /** Vote extension signature created by CometBFT */
+  /**
+   * Vote extension signature created by CometBFT
+   */
   extension_signature?: string;
-  /** block_id_flag indicates whether the validator voted for a block, nil, or did not vote at all */
+  /**
+   * block_id_flag indicates whether the validator voted for a block, nil, or did not vote at all
+   */
   block_id_flag?: BlockIDFlag;
 }
 export interface ExtendedVoteInfoAminoMsg {
   type: "/tendermint.abci.ExtendedVoteInfo";
   value: ExtendedVoteInfoAmino;
 }
+/**
+ * @name ExtendedVoteInfoSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ExtendedVoteInfo
+ */
 export interface ExtendedVoteInfoSDKType {
   validator: ValidatorSDKType;
   vote_extension: Uint8Array;
   extension_signature: Uint8Array;
   block_id_flag: BlockIDFlag;
 }
+/**
+ * @name Misbehavior
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.Misbehavior
+ */
 export interface Misbehavior {
   type: MisbehaviorType;
-  /** The offending validator */
+  /**
+   * The offending validator
+   */
   validator: Validator;
-  /** The height when the offense occurred */
+  /**
+   * The height when the offense occurred
+   */
   height: bigint;
-  /** The corresponding time where the offense occurred */
+  /**
+   * The corresponding time where the offense occurred
+   */
   time: Date;
   /**
    * Total voting power of the validator set in case the ABCI application does
@@ -1608,13 +2402,24 @@ export interface MisbehaviorProtoMsg {
   typeUrl: "/tendermint.abci.Misbehavior";
   value: Uint8Array;
 }
+/**
+ * @name MisbehaviorAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.Misbehavior
+ */
 export interface MisbehaviorAmino {
   type?: MisbehaviorType;
-  /** The offending validator */
+  /**
+   * The offending validator
+   */
   validator?: ValidatorAmino;
-  /** The height when the offense occurred */
+  /**
+   * The height when the offense occurred
+   */
   height?: string;
-  /** The corresponding time where the offense occurred */
+  /**
+   * The corresponding time where the offense occurred
+   */
   time?: string;
   /**
    * Total voting power of the validator set in case the ABCI application does
@@ -1627,6 +2432,11 @@ export interface MisbehaviorAminoMsg {
   type: "/tendermint.abci.Misbehavior";
   value: MisbehaviorAmino;
 }
+/**
+ * @name MisbehaviorSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.Misbehavior
+ */
 export interface MisbehaviorSDKType {
   type: MisbehaviorType;
   validator: ValidatorSDKType;
@@ -1634,38 +2444,73 @@ export interface MisbehaviorSDKType {
   time: Date;
   total_voting_power: bigint;
 }
+/**
+ * @name Snapshot
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.Snapshot
+ */
 export interface Snapshot {
-  /** The height at which the snapshot was taken */
+  /**
+   * The height at which the snapshot was taken
+   */
   height: bigint;
-  /** The application-specific snapshot format */
+  /**
+   * The application-specific snapshot format
+   */
   format: number;
-  /** Number of chunks in the snapshot */
+  /**
+   * Number of chunks in the snapshot
+   */
   chunks: number;
-  /** Arbitrary snapshot hash, equal only if identical */
+  /**
+   * Arbitrary snapshot hash, equal only if identical
+   */
   hash: Uint8Array;
-  /** Arbitrary application metadata */
+  /**
+   * Arbitrary application metadata
+   */
   metadata: Uint8Array;
 }
 export interface SnapshotProtoMsg {
   typeUrl: "/tendermint.abci.Snapshot";
   value: Uint8Array;
 }
+/**
+ * @name SnapshotAmino
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.Snapshot
+ */
 export interface SnapshotAmino {
-  /** The height at which the snapshot was taken */
+  /**
+   * The height at which the snapshot was taken
+   */
   height?: string;
-  /** The application-specific snapshot format */
+  /**
+   * The application-specific snapshot format
+   */
   format?: number;
-  /** Number of chunks in the snapshot */
+  /**
+   * Number of chunks in the snapshot
+   */
   chunks?: number;
-  /** Arbitrary snapshot hash, equal only if identical */
+  /**
+   * Arbitrary snapshot hash, equal only if identical
+   */
   hash?: string;
-  /** Arbitrary application metadata */
+  /**
+   * Arbitrary application metadata
+   */
   metadata?: string;
 }
 export interface SnapshotAminoMsg {
   type: "/tendermint.abci.Snapshot";
   value: SnapshotAmino;
 }
+/**
+ * @name SnapshotSDKType
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.Snapshot
+ */
 export interface SnapshotSDKType {
   height: bigint;
   format: number;
@@ -1693,6 +2538,11 @@ function createBaseRequest(): Request {
     finalizeBlock: undefined
   };
 }
+/**
+ * @name Request
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.Request
+ */
 export const Request = {
   typeUrl: "/tendermint.abci.Request",
   is(o: any): o is Request {
@@ -1923,14 +2773,39 @@ export const Request = {
       typeUrl: "/tendermint.abci.Request",
       value: Request.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Request.typeUrl)) {
+      return;
+    }
+    RequestEcho.registerTypeUrl();
+    RequestFlush.registerTypeUrl();
+    RequestInfo.registerTypeUrl();
+    RequestInitChain.registerTypeUrl();
+    RequestQuery.registerTypeUrl();
+    RequestCheckTx.registerTypeUrl();
+    RequestCommit.registerTypeUrl();
+    RequestListSnapshots.registerTypeUrl();
+    RequestOfferSnapshot.registerTypeUrl();
+    RequestLoadSnapshotChunk.registerTypeUrl();
+    RequestApplySnapshotChunk.registerTypeUrl();
+    RequestPrepareProposal.registerTypeUrl();
+    RequestProcessProposal.registerTypeUrl();
+    RequestExtendVote.registerTypeUrl();
+    RequestVerifyVoteExtension.registerTypeUrl();
+    RequestFinalizeBlock.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(Request.typeUrl, Request);
 function createBaseRequestEcho(): RequestEcho {
   return {
     message: ""
   };
 }
+/**
+ * @name RequestEcho
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestEcho
+ */
 export const RequestEcho = {
   typeUrl: "/tendermint.abci.RequestEcho",
   is(o: any): o is RequestEcho {
@@ -1996,12 +2871,17 @@ export const RequestEcho = {
       typeUrl: "/tendermint.abci.RequestEcho",
       value: RequestEcho.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(RequestEcho.typeUrl, RequestEcho);
 function createBaseRequestFlush(): RequestFlush {
   return {};
 }
+/**
+ * @name RequestFlush
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestFlush
+ */
 export const RequestFlush = {
   typeUrl: "/tendermint.abci.RequestFlush",
   is(o: any): o is RequestFlush {
@@ -2056,9 +2936,9 @@ export const RequestFlush = {
       typeUrl: "/tendermint.abci.RequestFlush",
       value: RequestFlush.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(RequestFlush.typeUrl, RequestFlush);
 function createBaseRequestInfo(): RequestInfo {
   return {
     version: "",
@@ -2067,6 +2947,11 @@ function createBaseRequestInfo(): RequestInfo {
     abciVersion: ""
   };
 }
+/**
+ * @name RequestInfo
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestInfo
+ */
 export const RequestInfo = {
   typeUrl: "/tendermint.abci.RequestInfo",
   is(o: any): o is RequestInfo {
@@ -2165,9 +3050,9 @@ export const RequestInfo = {
       typeUrl: "/tendermint.abci.RequestInfo",
       value: RequestInfo.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(RequestInfo.typeUrl, RequestInfo);
 function createBaseRequestInitChain(): RequestInitChain {
   return {
     time: new Date(),
@@ -2178,6 +3063,11 @@ function createBaseRequestInitChain(): RequestInitChain {
     initialHeight: BigInt(0)
   };
 }
+/**
+ * @name RequestInitChain
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestInitChain
+ */
 export const RequestInitChain = {
   typeUrl: "/tendermint.abci.RequestInitChain",
   is(o: any): o is RequestInitChain {
@@ -2300,9 +3190,15 @@ export const RequestInitChain = {
       typeUrl: "/tendermint.abci.RequestInitChain",
       value: RequestInitChain.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(RequestInitChain.typeUrl)) {
+      return;
+    }
+    ConsensusParams.registerTypeUrl();
+    ValidatorUpdate.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(RequestInitChain.typeUrl, RequestInitChain);
 function createBaseRequestQuery(): RequestQuery {
   return {
     data: new Uint8Array(),
@@ -2311,6 +3207,11 @@ function createBaseRequestQuery(): RequestQuery {
     prove: false
   };
 }
+/**
+ * @name RequestQuery
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestQuery
+ */
 export const RequestQuery = {
   typeUrl: "/tendermint.abci.RequestQuery",
   is(o: any): o is RequestQuery {
@@ -2409,15 +3310,20 @@ export const RequestQuery = {
       typeUrl: "/tendermint.abci.RequestQuery",
       value: RequestQuery.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(RequestQuery.typeUrl, RequestQuery);
 function createBaseRequestCheckTx(): RequestCheckTx {
   return {
     tx: new Uint8Array(),
     type: 0
   };
 }
+/**
+ * @name RequestCheckTx
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestCheckTx
+ */
 export const RequestCheckTx = {
   typeUrl: "/tendermint.abci.RequestCheckTx",
   is(o: any): o is RequestCheckTx {
@@ -2494,12 +3400,17 @@ export const RequestCheckTx = {
       typeUrl: "/tendermint.abci.RequestCheckTx",
       value: RequestCheckTx.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(RequestCheckTx.typeUrl, RequestCheckTx);
 function createBaseRequestCommit(): RequestCommit {
   return {};
 }
+/**
+ * @name RequestCommit
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestCommit
+ */
 export const RequestCommit = {
   typeUrl: "/tendermint.abci.RequestCommit",
   is(o: any): o is RequestCommit {
@@ -2554,12 +3465,18 @@ export const RequestCommit = {
       typeUrl: "/tendermint.abci.RequestCommit",
       value: RequestCommit.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(RequestCommit.typeUrl, RequestCommit);
 function createBaseRequestListSnapshots(): RequestListSnapshots {
   return {};
 }
+/**
+ * lists available snapshots
+ * @name RequestListSnapshots
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestListSnapshots
+ */
 export const RequestListSnapshots = {
   typeUrl: "/tendermint.abci.RequestListSnapshots",
   is(o: any): o is RequestListSnapshots {
@@ -2614,15 +3531,21 @@ export const RequestListSnapshots = {
       typeUrl: "/tendermint.abci.RequestListSnapshots",
       value: RequestListSnapshots.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(RequestListSnapshots.typeUrl, RequestListSnapshots);
 function createBaseRequestOfferSnapshot(): RequestOfferSnapshot {
   return {
     snapshot: undefined,
     appHash: new Uint8Array()
   };
 }
+/**
+ * offers a snapshot to the application
+ * @name RequestOfferSnapshot
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestOfferSnapshot
+ */
 export const RequestOfferSnapshot = {
   typeUrl: "/tendermint.abci.RequestOfferSnapshot",
   is(o: any): o is RequestOfferSnapshot {
@@ -2699,9 +3622,14 @@ export const RequestOfferSnapshot = {
       typeUrl: "/tendermint.abci.RequestOfferSnapshot",
       value: RequestOfferSnapshot.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(RequestOfferSnapshot.typeUrl)) {
+      return;
+    }
+    Snapshot.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(RequestOfferSnapshot.typeUrl, RequestOfferSnapshot);
 function createBaseRequestLoadSnapshotChunk(): RequestLoadSnapshotChunk {
   return {
     height: BigInt(0),
@@ -2709,6 +3637,12 @@ function createBaseRequestLoadSnapshotChunk(): RequestLoadSnapshotChunk {
     chunk: 0
   };
 }
+/**
+ * loads a snapshot chunk
+ * @name RequestLoadSnapshotChunk
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestLoadSnapshotChunk
+ */
 export const RequestLoadSnapshotChunk = {
   typeUrl: "/tendermint.abci.RequestLoadSnapshotChunk",
   is(o: any): o is RequestLoadSnapshotChunk {
@@ -2796,9 +3730,9 @@ export const RequestLoadSnapshotChunk = {
       typeUrl: "/tendermint.abci.RequestLoadSnapshotChunk",
       value: RequestLoadSnapshotChunk.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(RequestLoadSnapshotChunk.typeUrl, RequestLoadSnapshotChunk);
 function createBaseRequestApplySnapshotChunk(): RequestApplySnapshotChunk {
   return {
     index: 0,
@@ -2806,6 +3740,12 @@ function createBaseRequestApplySnapshotChunk(): RequestApplySnapshotChunk {
     sender: ""
   };
 }
+/**
+ * Applies a snapshot chunk
+ * @name RequestApplySnapshotChunk
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestApplySnapshotChunk
+ */
 export const RequestApplySnapshotChunk = {
   typeUrl: "/tendermint.abci.RequestApplySnapshotChunk",
   is(o: any): o is RequestApplySnapshotChunk {
@@ -2893,9 +3833,9 @@ export const RequestApplySnapshotChunk = {
       typeUrl: "/tendermint.abci.RequestApplySnapshotChunk",
       value: RequestApplySnapshotChunk.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(RequestApplySnapshotChunk.typeUrl, RequestApplySnapshotChunk);
 function createBaseRequestPrepareProposal(): RequestPrepareProposal {
   return {
     maxTxBytes: BigInt(0),
@@ -2908,6 +3848,11 @@ function createBaseRequestPrepareProposal(): RequestPrepareProposal {
     proposerAddress: new Uint8Array()
   };
 }
+/**
+ * @name RequestPrepareProposal
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestPrepareProposal
+ */
 export const RequestPrepareProposal = {
   typeUrl: "/tendermint.abci.RequestPrepareProposal",
   is(o: any): o is RequestPrepareProposal {
@@ -3054,9 +3999,15 @@ export const RequestPrepareProposal = {
       typeUrl: "/tendermint.abci.RequestPrepareProposal",
       value: RequestPrepareProposal.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(RequestPrepareProposal.typeUrl)) {
+      return;
+    }
+    ExtendedCommitInfo.registerTypeUrl();
+    Misbehavior.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(RequestPrepareProposal.typeUrl, RequestPrepareProposal);
 function createBaseRequestProcessProposal(): RequestProcessProposal {
   return {
     txs: [],
@@ -3069,6 +4020,11 @@ function createBaseRequestProcessProposal(): RequestProcessProposal {
     proposerAddress: new Uint8Array()
   };
 }
+/**
+ * @name RequestProcessProposal
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestProcessProposal
+ */
 export const RequestProcessProposal = {
   typeUrl: "/tendermint.abci.RequestProcessProposal",
   is(o: any): o is RequestProcessProposal {
@@ -3215,9 +4171,15 @@ export const RequestProcessProposal = {
       typeUrl: "/tendermint.abci.RequestProcessProposal",
       value: RequestProcessProposal.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(RequestProcessProposal.typeUrl)) {
+      return;
+    }
+    CommitInfo.registerTypeUrl();
+    Misbehavior.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(RequestProcessProposal.typeUrl, RequestProcessProposal);
 function createBaseRequestExtendVote(): RequestExtendVote {
   return {
     hash: new Uint8Array(),
@@ -3230,6 +4192,12 @@ function createBaseRequestExtendVote(): RequestExtendVote {
     proposerAddress: new Uint8Array()
   };
 }
+/**
+ * Extends a vote with application-injected data
+ * @name RequestExtendVote
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestExtendVote
+ */
 export const RequestExtendVote = {
   typeUrl: "/tendermint.abci.RequestExtendVote",
   is(o: any): o is RequestExtendVote {
@@ -3376,9 +4344,15 @@ export const RequestExtendVote = {
       typeUrl: "/tendermint.abci.RequestExtendVote",
       value: RequestExtendVote.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(RequestExtendVote.typeUrl)) {
+      return;
+    }
+    CommitInfo.registerTypeUrl();
+    Misbehavior.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(RequestExtendVote.typeUrl, RequestExtendVote);
 function createBaseRequestVerifyVoteExtension(): RequestVerifyVoteExtension {
   return {
     hash: new Uint8Array(),
@@ -3387,6 +4361,12 @@ function createBaseRequestVerifyVoteExtension(): RequestVerifyVoteExtension {
     voteExtension: new Uint8Array()
   };
 }
+/**
+ * Verify the vote extension
+ * @name RequestVerifyVoteExtension
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestVerifyVoteExtension
+ */
 export const RequestVerifyVoteExtension = {
   typeUrl: "/tendermint.abci.RequestVerifyVoteExtension",
   is(o: any): o is RequestVerifyVoteExtension {
@@ -3485,9 +4465,9 @@ export const RequestVerifyVoteExtension = {
       typeUrl: "/tendermint.abci.RequestVerifyVoteExtension",
       value: RequestVerifyVoteExtension.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(RequestVerifyVoteExtension.typeUrl, RequestVerifyVoteExtension);
 function createBaseRequestFinalizeBlock(): RequestFinalizeBlock {
   return {
     txs: [],
@@ -3500,6 +4480,11 @@ function createBaseRequestFinalizeBlock(): RequestFinalizeBlock {
     proposerAddress: new Uint8Array()
   };
 }
+/**
+ * @name RequestFinalizeBlock
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.RequestFinalizeBlock
+ */
 export const RequestFinalizeBlock = {
   typeUrl: "/tendermint.abci.RequestFinalizeBlock",
   is(o: any): o is RequestFinalizeBlock {
@@ -3646,9 +4631,15 @@ export const RequestFinalizeBlock = {
       typeUrl: "/tendermint.abci.RequestFinalizeBlock",
       value: RequestFinalizeBlock.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(RequestFinalizeBlock.typeUrl)) {
+      return;
+    }
+    CommitInfo.registerTypeUrl();
+    Misbehavior.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(RequestFinalizeBlock.typeUrl, RequestFinalizeBlock);
 function createBaseResponse(): Response {
   return {
     exception: undefined,
@@ -3670,6 +4661,11 @@ function createBaseResponse(): Response {
     finalizeBlock: undefined
   };
 }
+/**
+ * @name Response
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.Response
+ */
 export const Response = {
   typeUrl: "/tendermint.abci.Response",
   is(o: any): o is Response {
@@ -3911,14 +4907,41 @@ export const Response = {
       typeUrl: "/tendermint.abci.Response",
       value: Response.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Response.typeUrl)) {
+      return;
+    }
+    ResponseException.registerTypeUrl();
+    ResponseEcho.registerTypeUrl();
+    ResponseFlush.registerTypeUrl();
+    ResponseInfo.registerTypeUrl();
+    ResponseInitChain.registerTypeUrl();
+    ResponseQuery.registerTypeUrl();
+    ResponseCheckTx.registerTypeUrl();
+    ResponseCommit.registerTypeUrl();
+    ResponseListSnapshots.registerTypeUrl();
+    ResponseOfferSnapshot.registerTypeUrl();
+    ResponseLoadSnapshotChunk.registerTypeUrl();
+    ResponseApplySnapshotChunk.registerTypeUrl();
+    ResponsePrepareProposal.registerTypeUrl();
+    ResponseProcessProposal.registerTypeUrl();
+    ResponseExtendVote.registerTypeUrl();
+    ResponseVerifyVoteExtension.registerTypeUrl();
+    ResponseFinalizeBlock.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(Response.typeUrl, Response);
 function createBaseResponseException(): ResponseException {
   return {
     error: ""
   };
 }
+/**
+ * nondeterministic
+ * @name ResponseException
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseException
+ */
 export const ResponseException = {
   typeUrl: "/tendermint.abci.ResponseException",
   is(o: any): o is ResponseException {
@@ -3984,14 +5007,19 @@ export const ResponseException = {
       typeUrl: "/tendermint.abci.ResponseException",
       value: ResponseException.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(ResponseException.typeUrl, ResponseException);
 function createBaseResponseEcho(): ResponseEcho {
   return {
     message: ""
   };
 }
+/**
+ * @name ResponseEcho
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseEcho
+ */
 export const ResponseEcho = {
   typeUrl: "/tendermint.abci.ResponseEcho",
   is(o: any): o is ResponseEcho {
@@ -4057,12 +5085,17 @@ export const ResponseEcho = {
       typeUrl: "/tendermint.abci.ResponseEcho",
       value: ResponseEcho.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(ResponseEcho.typeUrl, ResponseEcho);
 function createBaseResponseFlush(): ResponseFlush {
   return {};
 }
+/**
+ * @name ResponseFlush
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseFlush
+ */
 export const ResponseFlush = {
   typeUrl: "/tendermint.abci.ResponseFlush",
   is(o: any): o is ResponseFlush {
@@ -4117,9 +5150,9 @@ export const ResponseFlush = {
       typeUrl: "/tendermint.abci.ResponseFlush",
       value: ResponseFlush.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(ResponseFlush.typeUrl, ResponseFlush);
 function createBaseResponseInfo(): ResponseInfo {
   return {
     data: "",
@@ -4129,6 +5162,11 @@ function createBaseResponseInfo(): ResponseInfo {
     lastBlockAppHash: new Uint8Array()
   };
 }
+/**
+ * @name ResponseInfo
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseInfo
+ */
 export const ResponseInfo = {
   typeUrl: "/tendermint.abci.ResponseInfo",
   is(o: any): o is ResponseInfo {
@@ -4238,9 +5276,9 @@ export const ResponseInfo = {
       typeUrl: "/tendermint.abci.ResponseInfo",
       value: ResponseInfo.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(ResponseInfo.typeUrl, ResponseInfo);
 function createBaseResponseInitChain(): ResponseInitChain {
   return {
     consensusParams: undefined,
@@ -4248,6 +5286,11 @@ function createBaseResponseInitChain(): ResponseInitChain {
     appHash: new Uint8Array()
   };
 }
+/**
+ * @name ResponseInitChain
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseInitChain
+ */
 export const ResponseInitChain = {
   typeUrl: "/tendermint.abci.ResponseInitChain",
   is(o: any): o is ResponseInitChain {
@@ -4337,9 +5380,15 @@ export const ResponseInitChain = {
       typeUrl: "/tendermint.abci.ResponseInitChain",
       value: ResponseInitChain.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ResponseInitChain.typeUrl)) {
+      return;
+    }
+    ConsensusParams.registerTypeUrl();
+    ValidatorUpdate.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(ResponseInitChain.typeUrl, ResponseInitChain);
 function createBaseResponseQuery(): ResponseQuery {
   return {
     code: 0,
@@ -4353,6 +5402,11 @@ function createBaseResponseQuery(): ResponseQuery {
     codespace: ""
   };
 }
+/**
+ * @name ResponseQuery
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseQuery
+ */
 export const ResponseQuery = {
   typeUrl: "/tendermint.abci.ResponseQuery",
   is(o: any): o is ResponseQuery {
@@ -4506,9 +5560,14 @@ export const ResponseQuery = {
       typeUrl: "/tendermint.abci.ResponseQuery",
       value: ResponseQuery.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ResponseQuery.typeUrl)) {
+      return;
+    }
+    ProofOps.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(ResponseQuery.typeUrl, ResponseQuery);
 function createBaseResponseCheckTx(): ResponseCheckTx {
   return {
     code: 0,
@@ -4521,6 +5580,11 @@ function createBaseResponseCheckTx(): ResponseCheckTx {
     codespace: ""
   };
 }
+/**
+ * @name ResponseCheckTx
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseCheckTx
+ */
 export const ResponseCheckTx = {
   typeUrl: "/tendermint.abci.ResponseCheckTx",
   is(o: any): o is ResponseCheckTx {
@@ -4665,14 +5729,24 @@ export const ResponseCheckTx = {
       typeUrl: "/tendermint.abci.ResponseCheckTx",
       value: ResponseCheckTx.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ResponseCheckTx.typeUrl)) {
+      return;
+    }
+    Event.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(ResponseCheckTx.typeUrl, ResponseCheckTx);
 function createBaseResponseCommit(): ResponseCommit {
   return {
     retainHeight: BigInt(0)
   };
 }
+/**
+ * @name ResponseCommit
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseCommit
+ */
 export const ResponseCommit = {
   typeUrl: "/tendermint.abci.ResponseCommit",
   is(o: any): o is ResponseCommit {
@@ -4738,14 +5812,19 @@ export const ResponseCommit = {
       typeUrl: "/tendermint.abci.ResponseCommit",
       value: ResponseCommit.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(ResponseCommit.typeUrl, ResponseCommit);
 function createBaseResponseListSnapshots(): ResponseListSnapshots {
   return {
     snapshots: []
   };
 }
+/**
+ * @name ResponseListSnapshots
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseListSnapshots
+ */
 export const ResponseListSnapshots = {
   typeUrl: "/tendermint.abci.ResponseListSnapshots",
   is(o: any): o is ResponseListSnapshots {
@@ -4813,14 +5892,24 @@ export const ResponseListSnapshots = {
       typeUrl: "/tendermint.abci.ResponseListSnapshots",
       value: ResponseListSnapshots.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ResponseListSnapshots.typeUrl)) {
+      return;
+    }
+    Snapshot.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(ResponseListSnapshots.typeUrl, ResponseListSnapshots);
 function createBaseResponseOfferSnapshot(): ResponseOfferSnapshot {
   return {
     result: 0
   };
 }
+/**
+ * @name ResponseOfferSnapshot
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseOfferSnapshot
+ */
 export const ResponseOfferSnapshot = {
   typeUrl: "/tendermint.abci.ResponseOfferSnapshot",
   is(o: any): o is ResponseOfferSnapshot {
@@ -4886,14 +5975,19 @@ export const ResponseOfferSnapshot = {
       typeUrl: "/tendermint.abci.ResponseOfferSnapshot",
       value: ResponseOfferSnapshot.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(ResponseOfferSnapshot.typeUrl, ResponseOfferSnapshot);
 function createBaseResponseLoadSnapshotChunk(): ResponseLoadSnapshotChunk {
   return {
     chunk: new Uint8Array()
   };
 }
+/**
+ * @name ResponseLoadSnapshotChunk
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseLoadSnapshotChunk
+ */
 export const ResponseLoadSnapshotChunk = {
   typeUrl: "/tendermint.abci.ResponseLoadSnapshotChunk",
   is(o: any): o is ResponseLoadSnapshotChunk {
@@ -4959,9 +6053,9 @@ export const ResponseLoadSnapshotChunk = {
       typeUrl: "/tendermint.abci.ResponseLoadSnapshotChunk",
       value: ResponseLoadSnapshotChunk.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(ResponseLoadSnapshotChunk.typeUrl, ResponseLoadSnapshotChunk);
 function createBaseResponseApplySnapshotChunk(): ResponseApplySnapshotChunk {
   return {
     result: 0,
@@ -4969,6 +6063,11 @@ function createBaseResponseApplySnapshotChunk(): ResponseApplySnapshotChunk {
     rejectSenders: []
   };
 }
+/**
+ * @name ResponseApplySnapshotChunk
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseApplySnapshotChunk
+ */
 export const ResponseApplySnapshotChunk = {
   typeUrl: "/tendermint.abci.ResponseApplySnapshotChunk",
   is(o: any): o is ResponseApplySnapshotChunk {
@@ -5069,14 +6168,19 @@ export const ResponseApplySnapshotChunk = {
       typeUrl: "/tendermint.abci.ResponseApplySnapshotChunk",
       value: ResponseApplySnapshotChunk.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(ResponseApplySnapshotChunk.typeUrl, ResponseApplySnapshotChunk);
 function createBaseResponsePrepareProposal(): ResponsePrepareProposal {
   return {
     txs: []
   };
 }
+/**
+ * @name ResponsePrepareProposal
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponsePrepareProposal
+ */
 export const ResponsePrepareProposal = {
   typeUrl: "/tendermint.abci.ResponsePrepareProposal",
   is(o: any): o is ResponsePrepareProposal {
@@ -5144,14 +6248,19 @@ export const ResponsePrepareProposal = {
       typeUrl: "/tendermint.abci.ResponsePrepareProposal",
       value: ResponsePrepareProposal.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(ResponsePrepareProposal.typeUrl, ResponsePrepareProposal);
 function createBaseResponseProcessProposal(): ResponseProcessProposal {
   return {
     status: 0
   };
 }
+/**
+ * @name ResponseProcessProposal
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseProcessProposal
+ */
 export const ResponseProcessProposal = {
   typeUrl: "/tendermint.abci.ResponseProcessProposal",
   is(o: any): o is ResponseProcessProposal {
@@ -5217,14 +6326,19 @@ export const ResponseProcessProposal = {
       typeUrl: "/tendermint.abci.ResponseProcessProposal",
       value: ResponseProcessProposal.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(ResponseProcessProposal.typeUrl, ResponseProcessProposal);
 function createBaseResponseExtendVote(): ResponseExtendVote {
   return {
     voteExtension: new Uint8Array()
   };
 }
+/**
+ * @name ResponseExtendVote
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseExtendVote
+ */
 export const ResponseExtendVote = {
   typeUrl: "/tendermint.abci.ResponseExtendVote",
   is(o: any): o is ResponseExtendVote {
@@ -5290,14 +6404,19 @@ export const ResponseExtendVote = {
       typeUrl: "/tendermint.abci.ResponseExtendVote",
       value: ResponseExtendVote.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(ResponseExtendVote.typeUrl, ResponseExtendVote);
 function createBaseResponseVerifyVoteExtension(): ResponseVerifyVoteExtension {
   return {
     status: 0
   };
 }
+/**
+ * @name ResponseVerifyVoteExtension
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseVerifyVoteExtension
+ */
 export const ResponseVerifyVoteExtension = {
   typeUrl: "/tendermint.abci.ResponseVerifyVoteExtension",
   is(o: any): o is ResponseVerifyVoteExtension {
@@ -5363,9 +6482,9 @@ export const ResponseVerifyVoteExtension = {
       typeUrl: "/tendermint.abci.ResponseVerifyVoteExtension",
       value: ResponseVerifyVoteExtension.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(ResponseVerifyVoteExtension.typeUrl, ResponseVerifyVoteExtension);
 function createBaseResponseFinalizeBlock(): ResponseFinalizeBlock {
   return {
     events: [],
@@ -5375,6 +6494,11 @@ function createBaseResponseFinalizeBlock(): ResponseFinalizeBlock {
     appHash: new Uint8Array()
   };
 }
+/**
+ * @name ResponseFinalizeBlock
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ResponseFinalizeBlock
+ */
 export const ResponseFinalizeBlock = {
   typeUrl: "/tendermint.abci.ResponseFinalizeBlock",
   is(o: any): o is ResponseFinalizeBlock {
@@ -5490,15 +6614,28 @@ export const ResponseFinalizeBlock = {
       typeUrl: "/tendermint.abci.ResponseFinalizeBlock",
       value: ResponseFinalizeBlock.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ResponseFinalizeBlock.typeUrl)) {
+      return;
+    }
+    Event.registerTypeUrl();
+    ExecTxResult.registerTypeUrl();
+    ValidatorUpdate.registerTypeUrl();
+    ConsensusParams.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(ResponseFinalizeBlock.typeUrl, ResponseFinalizeBlock);
 function createBaseCommitInfo(): CommitInfo {
   return {
     round: 0,
     votes: []
   };
 }
+/**
+ * @name CommitInfo
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.CommitInfo
+ */
 export const CommitInfo = {
   typeUrl: "/tendermint.abci.CommitInfo",
   is(o: any): o is CommitInfo {
@@ -5577,15 +6714,28 @@ export const CommitInfo = {
       typeUrl: "/tendermint.abci.CommitInfo",
       value: CommitInfo.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(CommitInfo.typeUrl)) {
+      return;
+    }
+    VoteInfo.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(CommitInfo.typeUrl, CommitInfo);
 function createBaseExtendedCommitInfo(): ExtendedCommitInfo {
   return {
     round: 0,
     votes: []
   };
 }
+/**
+ * ExtendedCommitInfo is similar to CommitInfo except that it is only used in
+ * the PrepareProposal request such that CometBFT can provide vote extensions
+ * to the application.
+ * @name ExtendedCommitInfo
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ExtendedCommitInfo
+ */
 export const ExtendedCommitInfo = {
   typeUrl: "/tendermint.abci.ExtendedCommitInfo",
   is(o: any): o is ExtendedCommitInfo {
@@ -5664,15 +6814,28 @@ export const ExtendedCommitInfo = {
       typeUrl: "/tendermint.abci.ExtendedCommitInfo",
       value: ExtendedCommitInfo.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ExtendedCommitInfo.typeUrl)) {
+      return;
+    }
+    ExtendedVoteInfo.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(ExtendedCommitInfo.typeUrl, ExtendedCommitInfo);
 function createBaseEvent(): Event {
   return {
     type: "",
     attributes: []
   };
 }
+/**
+ * Event allows application developers to attach additional information to
+ * ResponseFinalizeBlock and ResponseCheckTx.
+ * Later, transactions may be queried using these events.
+ * @name Event
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.Event
+ */
 export const Event = {
   typeUrl: "/tendermint.abci.Event",
   is(o: any): o is Event {
@@ -5751,9 +6914,14 @@ export const Event = {
       typeUrl: "/tendermint.abci.Event",
       value: Event.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Event.typeUrl)) {
+      return;
+    }
+    EventAttribute.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(Event.typeUrl, Event);
 function createBaseEventAttribute(): EventAttribute {
   return {
     key: "",
@@ -5761,6 +6929,12 @@ function createBaseEventAttribute(): EventAttribute {
     index: false
   };
 }
+/**
+ * EventAttribute is a single key-value pair, associated with an event.
+ * @name EventAttribute
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.EventAttribute
+ */
 export const EventAttribute = {
   typeUrl: "/tendermint.abci.EventAttribute",
   is(o: any): o is EventAttribute {
@@ -5848,9 +7022,9 @@ export const EventAttribute = {
       typeUrl: "/tendermint.abci.EventAttribute",
       value: EventAttribute.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(EventAttribute.typeUrl, EventAttribute);
 function createBaseExecTxResult(): ExecTxResult {
   return {
     code: 0,
@@ -5863,6 +7037,14 @@ function createBaseExecTxResult(): ExecTxResult {
     codespace: ""
   };
 }
+/**
+ * ExecTxResult contains results of executing one individual transaction.
+ * 
+ * * Its structure is equivalent to #ResponseDeliverTx which will be deprecated/deleted
+ * @name ExecTxResult
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ExecTxResult
+ */
 export const ExecTxResult = {
   typeUrl: "/tendermint.abci.ExecTxResult",
   is(o: any): o is ExecTxResult {
@@ -6007,9 +7189,14 @@ export const ExecTxResult = {
       typeUrl: "/tendermint.abci.ExecTxResult",
       value: ExecTxResult.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ExecTxResult.typeUrl)) {
+      return;
+    }
+    Event.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(ExecTxResult.typeUrl, ExecTxResult);
 function createBaseTxResult(): TxResult {
   return {
     height: BigInt(0),
@@ -6018,6 +7205,14 @@ function createBaseTxResult(): TxResult {
     result: ExecTxResult.fromPartial({})
   };
 }
+/**
+ * TxResult contains results of executing the transaction.
+ * 
+ * One usage is indexing transaction results.
+ * @name TxResult
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.TxResult
+ */
 export const TxResult = {
   typeUrl: "/tendermint.abci.TxResult",
   is(o: any): o is TxResult {
@@ -6116,15 +7311,25 @@ export const TxResult = {
       typeUrl: "/tendermint.abci.TxResult",
       value: TxResult.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(TxResult.typeUrl)) {
+      return;
+    }
+    ExecTxResult.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(TxResult.typeUrl, TxResult);
 function createBaseValidator(): Validator {
   return {
     address: new Uint8Array(),
     power: BigInt(0)
   };
 }
+/**
+ * @name Validator
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.Validator
+ */
 export const Validator = {
   typeUrl: "/tendermint.abci.Validator",
   is(o: any): o is Validator {
@@ -6201,15 +7406,20 @@ export const Validator = {
       typeUrl: "/tendermint.abci.Validator",
       value: Validator.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(Validator.typeUrl, Validator);
 function createBaseValidatorUpdate(): ValidatorUpdate {
   return {
     pubKey: PublicKey.fromPartial({}),
     power: BigInt(0)
   };
 }
+/**
+ * @name ValidatorUpdate
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ValidatorUpdate
+ */
 export const ValidatorUpdate = {
   typeUrl: "/tendermint.abci.ValidatorUpdate",
   is(o: any): o is ValidatorUpdate {
@@ -6286,15 +7496,25 @@ export const ValidatorUpdate = {
       typeUrl: "/tendermint.abci.ValidatorUpdate",
       value: ValidatorUpdate.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ValidatorUpdate.typeUrl)) {
+      return;
+    }
+    PublicKey.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(ValidatorUpdate.typeUrl, ValidatorUpdate);
 function createBaseVoteInfo(): VoteInfo {
   return {
     validator: Validator.fromPartial({}),
     blockIdFlag: 0
   };
 }
+/**
+ * @name VoteInfo
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.VoteInfo
+ */
 export const VoteInfo = {
   typeUrl: "/tendermint.abci.VoteInfo",
   is(o: any): o is VoteInfo {
@@ -6371,9 +7591,14 @@ export const VoteInfo = {
       typeUrl: "/tendermint.abci.VoteInfo",
       value: VoteInfo.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(VoteInfo.typeUrl)) {
+      return;
+    }
+    Validator.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(VoteInfo.typeUrl, VoteInfo);
 function createBaseExtendedVoteInfo(): ExtendedVoteInfo {
   return {
     validator: Validator.fromPartial({}),
@@ -6382,6 +7607,11 @@ function createBaseExtendedVoteInfo(): ExtendedVoteInfo {
     blockIdFlag: 0
   };
 }
+/**
+ * @name ExtendedVoteInfo
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.ExtendedVoteInfo
+ */
 export const ExtendedVoteInfo = {
   typeUrl: "/tendermint.abci.ExtendedVoteInfo",
   is(o: any): o is ExtendedVoteInfo {
@@ -6480,9 +7710,14 @@ export const ExtendedVoteInfo = {
       typeUrl: "/tendermint.abci.ExtendedVoteInfo",
       value: ExtendedVoteInfo.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ExtendedVoteInfo.typeUrl)) {
+      return;
+    }
+    Validator.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(ExtendedVoteInfo.typeUrl, ExtendedVoteInfo);
 function createBaseMisbehavior(): Misbehavior {
   return {
     type: 0,
@@ -6492,6 +7727,11 @@ function createBaseMisbehavior(): Misbehavior {
     totalVotingPower: BigInt(0)
   };
 }
+/**
+ * @name Misbehavior
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.Misbehavior
+ */
 export const Misbehavior = {
   typeUrl: "/tendermint.abci.Misbehavior",
   is(o: any): o is Misbehavior {
@@ -6601,9 +7841,14 @@ export const Misbehavior = {
       typeUrl: "/tendermint.abci.Misbehavior",
       value: Misbehavior.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Misbehavior.typeUrl)) {
+      return;
+    }
+    Validator.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(Misbehavior.typeUrl, Misbehavior);
 function createBaseSnapshot(): Snapshot {
   return {
     height: BigInt(0),
@@ -6613,6 +7858,11 @@ function createBaseSnapshot(): Snapshot {
     metadata: new Uint8Array()
   };
 }
+/**
+ * @name Snapshot
+ * @package tendermint.abci
+ * @see proto type: tendermint.abci.Snapshot
+ */
 export const Snapshot = {
   typeUrl: "/tendermint.abci.Snapshot",
   is(o: any): o is Snapshot {
@@ -6722,6 +7972,6 @@ export const Snapshot = {
       typeUrl: "/tendermint.abci.Snapshot",
       value: Snapshot.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(Snapshot.typeUrl, Snapshot);

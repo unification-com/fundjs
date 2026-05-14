@@ -1,7 +1,12 @@
 //@ts-nocheck
 import { BinaryReader, BinaryWriter } from "../../../../binary";
 import { GlobalDecoderRegistry } from "../../../../registry";
-/** Module is the config object of the benchmark module. */
+/**
+ * Module is the config object of the benchmark module.
+ * @name Module
+ * @package cosmos.benchmark.module.v1
+ * @see proto type: cosmos.benchmark.module.v1.Module
+ */
 export interface Module {
   genesisParams?: GeneratorParams;
 }
@@ -9,7 +14,12 @@ export interface ModuleProtoMsg {
   typeUrl: "/cosmos.benchmark.module.v1.Module";
   value: Uint8Array;
 }
-/** Module is the config object of the benchmark module. */
+/**
+ * Module is the config object of the benchmark module.
+ * @name ModuleAmino
+ * @package cosmos.benchmark.module.v1
+ * @see proto type: cosmos.benchmark.module.v1.Module
+ */
 export interface ModuleAmino {
   genesis_params?: GeneratorParamsAmino;
 }
@@ -17,69 +27,133 @@ export interface ModuleAminoMsg {
   type: "cosmos-sdk/Module";
   value: ModuleAmino;
 }
-/** Module is the config object of the benchmark module. */
+/**
+ * Module is the config object of the benchmark module.
+ * @name ModuleSDKType
+ * @package cosmos.benchmark.module.v1
+ * @see proto type: cosmos.benchmark.module.v1.Module
+ */
 export interface ModuleSDKType {
   genesis_params?: GeneratorParamsSDKType;
 }
-/** GenesisParams defines the genesis parameters for the benchmark module. */
+/**
+ * GenesisParams defines the genesis parameters for the benchmark module.
+ * @name GeneratorParams
+ * @package cosmos.benchmark.module.v1
+ * @see proto type: cosmos.benchmark.module.v1.GeneratorParams
+ */
 export interface GeneratorParams {
-  /** seed is the seed for the random number generator. */
+  /**
+   * seed is the seed for the random number generator.
+   */
   seed: bigint;
-  /** bucket_count is the number of store keys to uniformly distribute genesis_count keys across. */
+  /**
+   * bucket_count is the number of store keys to uniformly distribute genesis_count keys across.
+   */
   bucketCount: bigint;
-  /** key_mean is the mean size (in normal distribution) of keys in each bucket. */
+  /**
+   * key_mean is the mean size (in normal distribution) of keys in each bucket.
+   */
   keyMean: bigint;
-  /** key_std_dev is the standard deviation of key sizes in each bucket. */
+  /**
+   * key_std_dev is the standard deviation of key sizes in each bucket.
+   */
   keyStdDev: bigint;
-  /** value_mean is the mean size (in normal distribution) of values in each bucket. */
+  /**
+   * value_mean is the mean size (in normal distribution) of values in each bucket.
+   */
   valueMean: bigint;
-  /** value_std_dev is the standard deviation of value sizes in each bucket. */
+  /**
+   * value_std_dev is the standard deviation of value sizes in each bucket.
+   */
   valueStdDev: bigint;
-  /** genesis_count is the number of keys to insert in the store, distributed across all buckets. */
+  /**
+   * genesis_count is the number of keys to insert in the store, distributed across all buckets.
+   */
   genesisCount: bigint;
-  /** insert_weight is the weight of insert operations. */
+  /**
+   * insert_weight is the weight of insert operations.
+   */
   insertWeight: number;
-  /** update_weight is the weight of update operations. */
+  /**
+   * update_weight is the weight of update operations.
+   */
   updateWeight: number;
-  /** get_weight is the weight of get operations. */
+  /**
+   * get_weight is the weight of get operations.
+   */
   getWeight: number;
-  /** delete_weight is the weight of delete operations. */
+  /**
+   * delete_weight is the weight of delete operations.
+   */
   deleteWeight: number;
 }
 export interface GeneratorParamsProtoMsg {
   typeUrl: "/cosmos.benchmark.module.v1.GeneratorParams";
   value: Uint8Array;
 }
-/** GenesisParams defines the genesis parameters for the benchmark module. */
+/**
+ * GenesisParams defines the genesis parameters for the benchmark module.
+ * @name GeneratorParamsAmino
+ * @package cosmos.benchmark.module.v1
+ * @see proto type: cosmos.benchmark.module.v1.GeneratorParams
+ */
 export interface GeneratorParamsAmino {
-  /** seed is the seed for the random number generator. */
+  /**
+   * seed is the seed for the random number generator.
+   */
   seed?: string;
-  /** bucket_count is the number of store keys to uniformly distribute genesis_count keys across. */
+  /**
+   * bucket_count is the number of store keys to uniformly distribute genesis_count keys across.
+   */
   bucket_count?: string;
-  /** key_mean is the mean size (in normal distribution) of keys in each bucket. */
+  /**
+   * key_mean is the mean size (in normal distribution) of keys in each bucket.
+   */
   key_mean?: string;
-  /** key_std_dev is the standard deviation of key sizes in each bucket. */
+  /**
+   * key_std_dev is the standard deviation of key sizes in each bucket.
+   */
   key_std_dev?: string;
-  /** value_mean is the mean size (in normal distribution) of values in each bucket. */
+  /**
+   * value_mean is the mean size (in normal distribution) of values in each bucket.
+   */
   value_mean?: string;
-  /** value_std_dev is the standard deviation of value sizes in each bucket. */
+  /**
+   * value_std_dev is the standard deviation of value sizes in each bucket.
+   */
   value_std_dev?: string;
-  /** genesis_count is the number of keys to insert in the store, distributed across all buckets. */
+  /**
+   * genesis_count is the number of keys to insert in the store, distributed across all buckets.
+   */
   genesis_count?: string;
-  /** insert_weight is the weight of insert operations. */
+  /**
+   * insert_weight is the weight of insert operations.
+   */
   insert_weight?: number;
-  /** update_weight is the weight of update operations. */
+  /**
+   * update_weight is the weight of update operations.
+   */
   update_weight?: number;
-  /** get_weight is the weight of get operations. */
+  /**
+   * get_weight is the weight of get operations.
+   */
   get_weight?: number;
-  /** delete_weight is the weight of delete operations. */
+  /**
+   * delete_weight is the weight of delete operations.
+   */
   delete_weight?: number;
 }
 export interface GeneratorParamsAminoMsg {
   type: "cosmos-sdk/GeneratorParams";
   value: GeneratorParamsAmino;
 }
-/** GenesisParams defines the genesis parameters for the benchmark module. */
+/**
+ * GenesisParams defines the genesis parameters for the benchmark module.
+ * @name GeneratorParamsSDKType
+ * @package cosmos.benchmark.module.v1
+ * @see proto type: cosmos.benchmark.module.v1.GeneratorParams
+ */
 export interface GeneratorParamsSDKType {
   seed: bigint;
   bucket_count: bigint;
@@ -98,6 +172,12 @@ function createBaseModule(): Module {
     genesisParams: undefined
   };
 }
+/**
+ * Module is the config object of the benchmark module.
+ * @name Module
+ * @package cosmos.benchmark.module.v1
+ * @see proto type: cosmos.benchmark.module.v1.Module
+ */
 export const Module = {
   typeUrl: "/cosmos.benchmark.module.v1.Module",
   aminoType: "cosmos-sdk/Module",
@@ -170,10 +250,14 @@ export const Module = {
       typeUrl: "/cosmos.benchmark.module.v1.Module",
       value: Module.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Module.typeUrl)) {
+      return;
+    }
+    GeneratorParams.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(Module.typeUrl, Module);
-GlobalDecoderRegistry.registerAminoProtoMapping(Module.aminoType, Module.typeUrl);
 function createBaseGeneratorParams(): GeneratorParams {
   return {
     seed: BigInt(0),
@@ -189,6 +273,12 @@ function createBaseGeneratorParams(): GeneratorParams {
     deleteWeight: 0
   };
 }
+/**
+ * GenesisParams defines the genesis parameters for the benchmark module.
+ * @name GeneratorParams
+ * @package cosmos.benchmark.module.v1
+ * @see proto type: cosmos.benchmark.module.v1.GeneratorParams
+ */
 export const GeneratorParams = {
   typeUrl: "/cosmos.benchmark.module.v1.GeneratorParams",
   aminoType: "cosmos-sdk/GeneratorParams",
@@ -371,7 +461,6 @@ export const GeneratorParams = {
       typeUrl: "/cosmos.benchmark.module.v1.GeneratorParams",
       value: GeneratorParams.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(GeneratorParams.typeUrl, GeneratorParams);
-GlobalDecoderRegistry.registerAminoProtoMapping(GeneratorParams.aminoType, GeneratorParams.typeUrl);

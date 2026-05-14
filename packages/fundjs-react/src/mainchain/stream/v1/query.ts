@@ -6,147 +6,295 @@ import { Coin, CoinAmino, CoinSDKType } from "../../../cosmos/base/v1beta1/coin"
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { GlobalDecoderRegistry } from "../../../registry";
 import { isSet } from "../../../helpers";
-/** StreamResult contains data about a stream */
+/**
+ * StreamResult contains data about a stream
+ * @name StreamResult
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.StreamResult
+ */
 export interface StreamResult {
-  /** receiver is the wallet that will receive stream payments */
+  /**
+   * receiver is the wallet that will receive stream payments
+   */
   receiver: string;
-  /** sender is the wallet making the update */
+  /**
+   * sender is the wallet making the update
+   */
   sender: string;
-  /** stream is the stream data */
+  /**
+   * stream is the stream data
+   */
   stream?: Stream;
+  /**
+   * denom identifies the stream within the (sender, receiver) pair; equal to
+   * stream.deposit.denom
+   */
+  denom: string;
 }
 export interface StreamResultProtoMsg {
   typeUrl: "/mainchain.stream.v1.StreamResult";
   value: Uint8Array;
 }
-/** StreamResult contains data about a stream */
+/**
+ * StreamResult contains data about a stream
+ * @name StreamResultAmino
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.StreamResult
+ */
 export interface StreamResultAmino {
-  /** receiver is the wallet that will receive stream payments */
+  /**
+   * receiver is the wallet that will receive stream payments
+   */
   receiver?: string;
-  /** sender is the wallet making the update */
+  /**
+   * sender is the wallet making the update
+   */
   sender?: string;
-  /** stream is the stream data */
+  /**
+   * stream is the stream data
+   */
   stream?: StreamAmino;
+  /**
+   * denom identifies the stream within the (sender, receiver) pair; equal to
+   * stream.deposit.denom
+   */
+  denom?: string;
 }
 export interface StreamResultAminoMsg {
   type: "/mainchain.stream.v1.StreamResult";
   value: StreamResultAmino;
 }
-/** StreamResult contains data about a stream */
+/**
+ * StreamResult contains data about a stream
+ * @name StreamResultSDKType
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.StreamResult
+ */
 export interface StreamResultSDKType {
   receiver: string;
   sender: string;
   stream?: StreamSDKType;
+  denom: string;
 }
-/** QueryParamsRequest is request type for the Query/Params RPC method. */
+/**
+ * QueryParamsRequest is request type for the Query/Params RPC method.
+ * @name QueryParamsRequest
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryParamsRequest
+ */
 export interface QueryParamsRequest {}
 export interface QueryParamsRequestProtoMsg {
   typeUrl: "/mainchain.stream.v1.QueryParamsRequest";
   value: Uint8Array;
 }
-/** QueryParamsRequest is request type for the Query/Params RPC method. */
+/**
+ * QueryParamsRequest is request type for the Query/Params RPC method.
+ * @name QueryParamsRequestAmino
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryParamsRequest
+ */
 export interface QueryParamsRequestAmino {}
 export interface QueryParamsRequestAminoMsg {
   type: "/mainchain.stream.v1.QueryParamsRequest";
   value: QueryParamsRequestAmino;
 }
-/** QueryParamsRequest is request type for the Query/Params RPC method. */
+/**
+ * QueryParamsRequest is request type for the Query/Params RPC method.
+ * @name QueryParamsRequestSDKType
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryParamsRequest
+ */
 export interface QueryParamsRequestSDKType {}
-/** QueryParamsResponse is response type for the Query/Params RPC method. */
+/**
+ * QueryParamsResponse is response type for the Query/Params RPC method.
+ * @name QueryParamsResponse
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryParamsResponse
+ */
 export interface QueryParamsResponse {
-  /** params holds all the parameters of this module. */
+  /**
+   * params holds all the parameters of this module.
+   */
   params: Params;
 }
 export interface QueryParamsResponseProtoMsg {
   typeUrl: "/mainchain.stream.v1.QueryParamsResponse";
   value: Uint8Array;
 }
-/** QueryParamsResponse is response type for the Query/Params RPC method. */
+/**
+ * QueryParamsResponse is response type for the Query/Params RPC method.
+ * @name QueryParamsResponseAmino
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryParamsResponse
+ */
 export interface QueryParamsResponseAmino {
-  /** params holds all the parameters of this module. */
+  /**
+   * params holds all the parameters of this module.
+   */
   params?: ParamsAmino;
 }
 export interface QueryParamsResponseAminoMsg {
   type: "/mainchain.stream.v1.QueryParamsResponse";
   value: QueryParamsResponseAmino;
 }
-/** QueryParamsResponse is response type for the Query/Params RPC method. */
+/**
+ * QueryParamsResponse is response type for the Query/Params RPC method.
+ * @name QueryParamsResponseSDKType
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryParamsResponse
+ */
 export interface QueryParamsResponseSDKType {
   params: ParamsSDKType;
 }
-/** QueryCalculateFlowRateRequest is the request type for the Query/CalculateFlowRate RPC method */
+/**
+ * QueryCalculateFlowRateRequest is the request type for the
+ * Query/CalculateFlowRate RPC method
+ * @name QueryCalculateFlowRateRequest
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryCalculateFlowRateRequest
+ */
 export interface QueryCalculateFlowRateRequest {
   /**
-   * coin is the coin to be used in the calculation, e.g. 10000000000nund. This is the total amount to be paid over
-   * the specified duration
+   * coin is the coin to be used in the calculation, e.g. 10000000000nund. This
+   * is the total amount to be paid over the specified duration
    */
   coin: string;
-  /** period is the enumerated value of a period to be used in the calculation, e.g. month = 6 */
+  /**
+   * period is the enumerated value of a period to be used in the calculation,
+   * e.g. month = 6
+   */
   period: StreamPeriod;
-  /** duration is the number of periods to be used in the calculation, e.g. 2 = 2 months */
+  /**
+   * duration is the number of periods to be used in the calculation, e.g. 2 = 2
+   * months
+   */
   duration: bigint;
 }
 export interface QueryCalculateFlowRateRequestProtoMsg {
   typeUrl: "/mainchain.stream.v1.QueryCalculateFlowRateRequest";
   value: Uint8Array;
 }
-/** QueryCalculateFlowRateRequest is the request type for the Query/CalculateFlowRate RPC method */
+/**
+ * QueryCalculateFlowRateRequest is the request type for the
+ * Query/CalculateFlowRate RPC method
+ * @name QueryCalculateFlowRateRequestAmino
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryCalculateFlowRateRequest
+ */
 export interface QueryCalculateFlowRateRequestAmino {
   /**
-   * coin is the coin to be used in the calculation, e.g. 10000000000nund. This is the total amount to be paid over
-   * the specified duration
+   * coin is the coin to be used in the calculation, e.g. 10000000000nund. This
+   * is the total amount to be paid over the specified duration
    */
   coin?: string;
-  /** period is the enumerated value of a period to be used in the calculation, e.g. month = 6 */
+  /**
+   * period is the enumerated value of a period to be used in the calculation,
+   * e.g. month = 6
+   */
   period?: StreamPeriod;
-  /** duration is the number of periods to be used in the calculation, e.g. 2 = 2 months */
+  /**
+   * duration is the number of periods to be used in the calculation, e.g. 2 = 2
+   * months
+   */
   duration?: string;
 }
 export interface QueryCalculateFlowRateRequestAminoMsg {
   type: "/mainchain.stream.v1.QueryCalculateFlowRateRequest";
   value: QueryCalculateFlowRateRequestAmino;
 }
-/** QueryCalculateFlowRateRequest is the request type for the Query/CalculateFlowRate RPC method */
+/**
+ * QueryCalculateFlowRateRequest is the request type for the
+ * Query/CalculateFlowRate RPC method
+ * @name QueryCalculateFlowRateRequestSDKType
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryCalculateFlowRateRequest
+ */
 export interface QueryCalculateFlowRateRequestSDKType {
   coin: string;
   period: StreamPeriod;
   duration: bigint;
 }
-/** QueryCalculateFlowRateResponse is the response type for the Query/CalculateFlowRate RPC method */
+/**
+ * QueryCalculateFlowRateResponse is the response type for the
+ * Query/CalculateFlowRate RPC method
+ * @name QueryCalculateFlowRateResponse
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryCalculateFlowRateResponse
+ */
 export interface QueryCalculateFlowRateResponse {
-  /** coin is the coin used in the calculation */
+  /**
+   * coin is the coin used in the calculation
+   */
   coin: Coin;
-  /** period is the enumerated value of a period used in the calculation, e.g. month = 6 */
+  /**
+   * period is the enumerated value of a period used in the calculation, e.g.
+   * month = 6
+   */
   period: StreamPeriod;
-  /** duration is the number of periods used in the calculation, e.g. 2 = 2 months */
+  /**
+   * duration is the number of periods used in the calculation, e.g. 2 = 2
+   * months
+   */
   duration: bigint;
-  /** seconds is the calculated number of seconds for the stream (seconds in period * duration) */
+  /**
+   * seconds is the calculated number of seconds for the stream (seconds in
+   * period * duration)
+   */
   seconds: bigint;
-  /** flow_rate is the calculated rate of coins per second, in the lowest denomination - e.g. nund */
+  /**
+   * flow_rate is the calculated rate of coins per second, in the lowest
+   * denomination - e.g. nund
+   */
   flowRate: bigint;
 }
 export interface QueryCalculateFlowRateResponseProtoMsg {
   typeUrl: "/mainchain.stream.v1.QueryCalculateFlowRateResponse";
   value: Uint8Array;
 }
-/** QueryCalculateFlowRateResponse is the response type for the Query/CalculateFlowRate RPC method */
+/**
+ * QueryCalculateFlowRateResponse is the response type for the
+ * Query/CalculateFlowRate RPC method
+ * @name QueryCalculateFlowRateResponseAmino
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryCalculateFlowRateResponse
+ */
 export interface QueryCalculateFlowRateResponseAmino {
-  /** coin is the coin used in the calculation */
+  /**
+   * coin is the coin used in the calculation
+   */
   coin?: CoinAmino;
-  /** period is the enumerated value of a period used in the calculation, e.g. month = 6 */
+  /**
+   * period is the enumerated value of a period used in the calculation, e.g.
+   * month = 6
+   */
   period?: StreamPeriod;
-  /** duration is the number of periods used in the calculation, e.g. 2 = 2 months */
+  /**
+   * duration is the number of periods used in the calculation, e.g. 2 = 2
+   * months
+   */
   duration?: string;
-  /** seconds is the calculated number of seconds for the stream (seconds in period * duration) */
+  /**
+   * seconds is the calculated number of seconds for the stream (seconds in
+   * period * duration)
+   */
   seconds?: string;
-  /** flow_rate is the calculated rate of coins per second, in the lowest denomination - e.g. nund */
+  /**
+   * flow_rate is the calculated rate of coins per second, in the lowest
+   * denomination - e.g. nund
+   */
   flow_rate?: string;
 }
 export interface QueryCalculateFlowRateResponseAminoMsg {
   type: "/mainchain.stream.v1.QueryCalculateFlowRateResponse";
   value: QueryCalculateFlowRateResponseAmino;
 }
-/** QueryCalculateFlowRateResponse is the response type for the Query/CalculateFlowRate RPC method */
+/**
+ * QueryCalculateFlowRateResponse is the response type for the
+ * Query/CalculateFlowRate RPC method
+ * @name QueryCalculateFlowRateResponseSDKType
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryCalculateFlowRateResponse
+ */
 export interface QueryCalculateFlowRateResponseSDKType {
   coin: CoinSDKType;
   period: StreamPeriod;
@@ -154,7 +302,12 @@ export interface QueryCalculateFlowRateResponseSDKType {
   seconds: bigint;
   flow_rate: bigint;
 }
-/** QueryStreamsRequest is the request type for the Query/Streams RPC method */
+/**
+ * QueryStreamsRequest is the request type for the Query/Streams RPC method
+ * @name QueryStreamsRequest
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryStreamsRequest
+ */
 export interface QueryStreamsRequest {
   pagination?: PageRequest;
 }
@@ -162,7 +315,12 @@ export interface QueryStreamsRequestProtoMsg {
   typeUrl: "/mainchain.stream.v1.QueryStreamsRequest";
   value: Uint8Array;
 }
-/** QueryStreamsRequest is the request type for the Query/Streams RPC method */
+/**
+ * QueryStreamsRequest is the request type for the Query/Streams RPC method
+ * @name QueryStreamsRequestAmino
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryStreamsRequest
+ */
 export interface QueryStreamsRequestAmino {
   pagination?: PageRequestAmino;
 }
@@ -170,254 +328,649 @@ export interface QueryStreamsRequestAminoMsg {
   type: "/mainchain.stream.v1.QueryStreamsRequest";
   value: QueryStreamsRequestAmino;
 }
-/** QueryStreamsRequest is the request type for the Query/Streams RPC method */
+/**
+ * QueryStreamsRequest is the request type for the Query/Streams RPC method
+ * @name QueryStreamsRequestSDKType
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryStreamsRequest
+ */
 export interface QueryStreamsRequestSDKType {
   pagination?: PageRequestSDKType;
 }
-/** QueryStreamsResponse is the response type for the Query/Streams RPC method */
+/**
+ * QueryStreamsResponse is the response type for the Query/Streams RPC method
+ * @name QueryStreamsResponse
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryStreamsResponse
+ */
 export interface QueryStreamsResponse {
-  /** streams is the list of all streams */
+  /**
+   * streams is the list of all streams
+   */
   streams: StreamResult[];
-  /** pagination defines the pagination in the response. */
+  /**
+   * pagination defines the pagination in the response.
+   */
   pagination?: PageResponse;
 }
 export interface QueryStreamsResponseProtoMsg {
   typeUrl: "/mainchain.stream.v1.QueryStreamsResponse";
   value: Uint8Array;
 }
-/** QueryStreamsResponse is the response type for the Query/Streams RPC method */
+/**
+ * QueryStreamsResponse is the response type for the Query/Streams RPC method
+ * @name QueryStreamsResponseAmino
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryStreamsResponse
+ */
 export interface QueryStreamsResponseAmino {
-  /** streams is the list of all streams */
+  /**
+   * streams is the list of all streams
+   */
   streams?: StreamResultAmino[];
-  /** pagination defines the pagination in the response. */
+  /**
+   * pagination defines the pagination in the response.
+   */
   pagination?: PageResponseAmino;
 }
 export interface QueryStreamsResponseAminoMsg {
   type: "/mainchain.stream.v1.QueryStreamsResponse";
   value: QueryStreamsResponseAmino;
 }
-/** QueryStreamsResponse is the response type for the Query/Streams RPC method */
+/**
+ * QueryStreamsResponse is the response type for the Query/Streams RPC method
+ * @name QueryStreamsResponseSDKType
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryStreamsResponse
+ */
 export interface QueryStreamsResponseSDKType {
   streams: StreamResultSDKType[];
   pagination?: PageResponseSDKType;
 }
-/** QueryAllStreamsForReceiverRequest is the request type for the Query/AllStreamsForReceiver RPC method */
+/**
+ * QueryAllStreamsForReceiverRequest is the request type for the
+ * Query/AllStreamsForReceiver RPC method
+ * @name QueryAllStreamsForReceiverRequest
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryAllStreamsForReceiverRequest
+ */
 export interface QueryAllStreamsForReceiverRequest {
-  /** receiver_addr is the receiver wallet address being queried */
+  /**
+   * receiver_addr is the receiver wallet address being queried
+   */
   receiverAddr: string;
-  /** pagination is the pagination parameters for the request */
+  /**
+   * pagination is the pagination parameters for the request
+   */
   pagination?: PageRequest;
 }
 export interface QueryAllStreamsForReceiverRequestProtoMsg {
   typeUrl: "/mainchain.stream.v1.QueryAllStreamsForReceiverRequest";
   value: Uint8Array;
 }
-/** QueryAllStreamsForReceiverRequest is the request type for the Query/AllStreamsForReceiver RPC method */
+/**
+ * QueryAllStreamsForReceiverRequest is the request type for the
+ * Query/AllStreamsForReceiver RPC method
+ * @name QueryAllStreamsForReceiverRequestAmino
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryAllStreamsForReceiverRequest
+ */
 export interface QueryAllStreamsForReceiverRequestAmino {
-  /** receiver_addr is the receiver wallet address being queried */
+  /**
+   * receiver_addr is the receiver wallet address being queried
+   */
   receiver_addr?: string;
-  /** pagination is the pagination parameters for the request */
+  /**
+   * pagination is the pagination parameters for the request
+   */
   pagination?: PageRequestAmino;
 }
 export interface QueryAllStreamsForReceiverRequestAminoMsg {
   type: "/mainchain.stream.v1.QueryAllStreamsForReceiverRequest";
   value: QueryAllStreamsForReceiverRequestAmino;
 }
-/** QueryAllStreamsForReceiverRequest is the request type for the Query/AllStreamsForReceiver RPC method */
+/**
+ * QueryAllStreamsForReceiverRequest is the request type for the
+ * Query/AllStreamsForReceiver RPC method
+ * @name QueryAllStreamsForReceiverRequestSDKType
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryAllStreamsForReceiverRequest
+ */
 export interface QueryAllStreamsForReceiverRequestSDKType {
   receiver_addr: string;
   pagination?: PageRequestSDKType;
 }
-/** QueryAllStreamsForReceiverResponse is the response type for the Query/AllStreamsForReceiver RPC method */
+/**
+ * QueryAllStreamsForReceiverResponse is the response type for the
+ * Query/AllStreamsForReceiver RPC method
+ * @name QueryAllStreamsForReceiverResponse
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryAllStreamsForReceiverResponse
+ */
 export interface QueryAllStreamsForReceiverResponse {
-  /** receiver_addr is the receiver wallet address being queried */
+  /**
+   * receiver_addr is the receiver wallet address being queried
+   */
   receiverAddr: string;
-  /** streams is the list of all streams */
+  /**
+   * streams is the list of all streams
+   */
   streams: StreamResult[];
-  /** pagination defines the pagination in the response. */
+  /**
+   * pagination defines the pagination in the response.
+   */
   pagination?: PageResponse;
 }
 export interface QueryAllStreamsForReceiverResponseProtoMsg {
   typeUrl: "/mainchain.stream.v1.QueryAllStreamsForReceiverResponse";
   value: Uint8Array;
 }
-/** QueryAllStreamsForReceiverResponse is the response type for the Query/AllStreamsForReceiver RPC method */
+/**
+ * QueryAllStreamsForReceiverResponse is the response type for the
+ * Query/AllStreamsForReceiver RPC method
+ * @name QueryAllStreamsForReceiverResponseAmino
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryAllStreamsForReceiverResponse
+ */
 export interface QueryAllStreamsForReceiverResponseAmino {
-  /** receiver_addr is the receiver wallet address being queried */
+  /**
+   * receiver_addr is the receiver wallet address being queried
+   */
   receiver_addr?: string;
-  /** streams is the list of all streams */
+  /**
+   * streams is the list of all streams
+   */
   streams?: StreamResultAmino[];
-  /** pagination defines the pagination in the response. */
+  /**
+   * pagination defines the pagination in the response.
+   */
   pagination?: PageResponseAmino;
 }
 export interface QueryAllStreamsForReceiverResponseAminoMsg {
   type: "/mainchain.stream.v1.QueryAllStreamsForReceiverResponse";
   value: QueryAllStreamsForReceiverResponseAmino;
 }
-/** QueryAllStreamsForReceiverResponse is the response type for the Query/AllStreamsForReceiver RPC method */
+/**
+ * QueryAllStreamsForReceiverResponse is the response type for the
+ * Query/AllStreamsForReceiver RPC method
+ * @name QueryAllStreamsForReceiverResponseSDKType
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryAllStreamsForReceiverResponse
+ */
 export interface QueryAllStreamsForReceiverResponseSDKType {
   receiver_addr: string;
   streams: StreamResultSDKType[];
   pagination?: PageResponseSDKType;
 }
-/** QueryStreamByReceiverSenderRequest is the request type for the Query/StreamByReceiverSender RPC method */
+/**
+ * QueryStreamByReceiverSenderRequest is the request type for the
+ * Query/StreamByReceiverSender RPC method
+ * @name QueryStreamByReceiverSenderRequest
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryStreamByReceiverSenderRequest
+ */
 export interface QueryStreamByReceiverSenderRequest {
-  /** receiver_addr is the receiver wallet address being queried */
+  /**
+   * receiver_addr is the receiver wallet address being queried
+   */
   receiverAddr: string;
-  /** sender_addr is the sender wallet address being queried */
+  /**
+   * sender_addr is the sender wallet address being queried
+   */
   senderAddr: string;
+  /**
+   * denom identifies the stream within the (sender, receiver) pair
+   */
+  denom: string;
 }
 export interface QueryStreamByReceiverSenderRequestProtoMsg {
   typeUrl: "/mainchain.stream.v1.QueryStreamByReceiverSenderRequest";
   value: Uint8Array;
 }
-/** QueryStreamByReceiverSenderRequest is the request type for the Query/StreamByReceiverSender RPC method */
+/**
+ * QueryStreamByReceiverSenderRequest is the request type for the
+ * Query/StreamByReceiverSender RPC method
+ * @name QueryStreamByReceiverSenderRequestAmino
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryStreamByReceiverSenderRequest
+ */
 export interface QueryStreamByReceiverSenderRequestAmino {
-  /** receiver_addr is the receiver wallet address being queried */
+  /**
+   * receiver_addr is the receiver wallet address being queried
+   */
   receiver_addr?: string;
-  /** sender_addr is the sender wallet address being queried */
+  /**
+   * sender_addr is the sender wallet address being queried
+   */
   sender_addr?: string;
+  /**
+   * denom identifies the stream within the (sender, receiver) pair
+   */
+  denom?: string;
 }
 export interface QueryStreamByReceiverSenderRequestAminoMsg {
   type: "/mainchain.stream.v1.QueryStreamByReceiverSenderRequest";
   value: QueryStreamByReceiverSenderRequestAmino;
 }
-/** QueryStreamByReceiverSenderRequest is the request type for the Query/StreamByReceiverSender RPC method */
+/**
+ * QueryStreamByReceiverSenderRequest is the request type for the
+ * Query/StreamByReceiverSender RPC method
+ * @name QueryStreamByReceiverSenderRequestSDKType
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryStreamByReceiverSenderRequest
+ */
 export interface QueryStreamByReceiverSenderRequestSDKType {
   receiver_addr: string;
   sender_addr: string;
+  denom: string;
 }
-/** QueryStreamByReceiverSenderResponse is the response type for the Query/StreamByReceiverSender RPC method */
+/**
+ * QueryStreamByReceiverSenderResponse is the response type for the
+ * Query/StreamByReceiverSender RPC method
+ * @name QueryStreamByReceiverSenderResponse
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryStreamByReceiverSenderResponse
+ */
 export interface QueryStreamByReceiverSenderResponse {
-  /** stream is the StreamResult */
+  /**
+   * stream is the StreamResult
+   */
   stream: StreamResult;
 }
 export interface QueryStreamByReceiverSenderResponseProtoMsg {
   typeUrl: "/mainchain.stream.v1.QueryStreamByReceiverSenderResponse";
   value: Uint8Array;
 }
-/** QueryStreamByReceiverSenderResponse is the response type for the Query/StreamByReceiverSender RPC method */
+/**
+ * QueryStreamByReceiverSenderResponse is the response type for the
+ * Query/StreamByReceiverSender RPC method
+ * @name QueryStreamByReceiverSenderResponseAmino
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryStreamByReceiverSenderResponse
+ */
 export interface QueryStreamByReceiverSenderResponseAmino {
-  /** stream is the StreamResult */
+  /**
+   * stream is the StreamResult
+   */
   stream: StreamResultAmino;
 }
 export interface QueryStreamByReceiverSenderResponseAminoMsg {
   type: "/mainchain.stream.v1.QueryStreamByReceiverSenderResponse";
   value: QueryStreamByReceiverSenderResponseAmino;
 }
-/** QueryStreamByReceiverSenderResponse is the response type for the Query/StreamByReceiverSender RPC method */
+/**
+ * QueryStreamByReceiverSenderResponse is the response type for the
+ * Query/StreamByReceiverSender RPC method
+ * @name QueryStreamByReceiverSenderResponseSDKType
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryStreamByReceiverSenderResponse
+ */
 export interface QueryStreamByReceiverSenderResponseSDKType {
   stream: StreamResultSDKType;
 }
-/** QueryStreamReceiverSenderCurrentFlowRequest is the request type for the Query/StreamReceiverSenderCurrentFlow RPC method */
+/**
+ * QueryStreamReceiverSenderCurrentFlowRequest is the request type for the
+ * Query/StreamReceiverSenderCurrentFlow RPC method
+ * @name QueryStreamReceiverSenderCurrentFlowRequest
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryStreamReceiverSenderCurrentFlowRequest
+ */
 export interface QueryStreamReceiverSenderCurrentFlowRequest {
-  /** receiver_addr is the receiver wallet address being queried */
+  /**
+   * receiver_addr is the receiver wallet address being queried
+   */
   receiverAddr: string;
-  /** sender_addr is the sender wallet address being queried */
+  /**
+   * sender_addr is the sender wallet address being queried
+   */
   senderAddr: string;
+  /**
+   * denom identifies the stream within the (sender, receiver) pair
+   */
+  denom: string;
 }
 export interface QueryStreamReceiverSenderCurrentFlowRequestProtoMsg {
   typeUrl: "/mainchain.stream.v1.QueryStreamReceiverSenderCurrentFlowRequest";
   value: Uint8Array;
 }
-/** QueryStreamReceiverSenderCurrentFlowRequest is the request type for the Query/StreamReceiverSenderCurrentFlow RPC method */
+/**
+ * QueryStreamReceiverSenderCurrentFlowRequest is the request type for the
+ * Query/StreamReceiverSenderCurrentFlow RPC method
+ * @name QueryStreamReceiverSenderCurrentFlowRequestAmino
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryStreamReceiverSenderCurrentFlowRequest
+ */
 export interface QueryStreamReceiverSenderCurrentFlowRequestAmino {
-  /** receiver_addr is the receiver wallet address being queried */
+  /**
+   * receiver_addr is the receiver wallet address being queried
+   */
   receiver_addr?: string;
-  /** sender_addr is the sender wallet address being queried */
+  /**
+   * sender_addr is the sender wallet address being queried
+   */
   sender_addr?: string;
+  /**
+   * denom identifies the stream within the (sender, receiver) pair
+   */
+  denom?: string;
 }
 export interface QueryStreamReceiverSenderCurrentFlowRequestAminoMsg {
   type: "/mainchain.stream.v1.QueryStreamReceiverSenderCurrentFlowRequest";
   value: QueryStreamReceiverSenderCurrentFlowRequestAmino;
 }
-/** QueryStreamReceiverSenderCurrentFlowRequest is the request type for the Query/StreamReceiverSenderCurrentFlow RPC method */
+/**
+ * QueryStreamReceiverSenderCurrentFlowRequest is the request type for the
+ * Query/StreamReceiverSenderCurrentFlow RPC method
+ * @name QueryStreamReceiverSenderCurrentFlowRequestSDKType
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryStreamReceiverSenderCurrentFlowRequest
+ */
 export interface QueryStreamReceiverSenderCurrentFlowRequestSDKType {
   receiver_addr: string;
   sender_addr: string;
+  denom: string;
 }
-/** QueryStreamReceiverSenderCurrentFlowResponse is the response type for the Query/StreamReceiverSenderCurrentFlow RPC method */
+/**
+ * QueryStreamReceiverSenderCurrentFlowResponse is the response type for the
+ * Query/StreamReceiverSenderCurrentFlow RPC method
+ * @name QueryStreamReceiverSenderCurrentFlowResponse
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryStreamReceiverSenderCurrentFlowResponse
+ */
 export interface QueryStreamReceiverSenderCurrentFlowResponse {
-  /** configured_flow_rate is the flow rate configured in the stream */
+  /**
+   * configured_flow_rate is the flow rate configured in the stream
+   */
   configuredFlowRate: bigint;
-  /** current_flow_rate is the actual flow rate. This will be zero if the depositZeroTime has passed, or deposit is zero */
+  /**
+   * current_flow_rate is the actual flow rate. This will be zero if the
+   * depositZeroTime has passed, or deposit is zero
+   */
   currentFlowRate: bigint;
 }
 export interface QueryStreamReceiverSenderCurrentFlowResponseProtoMsg {
   typeUrl: "/mainchain.stream.v1.QueryStreamReceiverSenderCurrentFlowResponse";
   value: Uint8Array;
 }
-/** QueryStreamReceiverSenderCurrentFlowResponse is the response type for the Query/StreamReceiverSenderCurrentFlow RPC method */
+/**
+ * QueryStreamReceiverSenderCurrentFlowResponse is the response type for the
+ * Query/StreamReceiverSenderCurrentFlow RPC method
+ * @name QueryStreamReceiverSenderCurrentFlowResponseAmino
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryStreamReceiverSenderCurrentFlowResponse
+ */
 export interface QueryStreamReceiverSenderCurrentFlowResponseAmino {
-  /** configured_flow_rate is the flow rate configured in the stream */
+  /**
+   * configured_flow_rate is the flow rate configured in the stream
+   */
   configured_flow_rate?: string;
-  /** current_flow_rate is the actual flow rate. This will be zero if the depositZeroTime has passed, or deposit is zero */
+  /**
+   * current_flow_rate is the actual flow rate. This will be zero if the
+   * depositZeroTime has passed, or deposit is zero
+   */
   current_flow_rate: string;
 }
 export interface QueryStreamReceiverSenderCurrentFlowResponseAminoMsg {
   type: "/mainchain.stream.v1.QueryStreamReceiverSenderCurrentFlowResponse";
   value: QueryStreamReceiverSenderCurrentFlowResponseAmino;
 }
-/** QueryStreamReceiverSenderCurrentFlowResponse is the response type for the Query/StreamReceiverSenderCurrentFlow RPC method */
+/**
+ * QueryStreamReceiverSenderCurrentFlowResponse is the response type for the
+ * Query/StreamReceiverSenderCurrentFlow RPC method
+ * @name QueryStreamReceiverSenderCurrentFlowResponseSDKType
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryStreamReceiverSenderCurrentFlowResponse
+ */
 export interface QueryStreamReceiverSenderCurrentFlowResponseSDKType {
   configured_flow_rate: bigint;
   current_flow_rate: bigint;
 }
-/** QueryAllStreamsForSenderRequest is the request type for the Query/AllStreamsForSender RPC method */
+/**
+ * QueryAllStreamsForSenderRequest is the request type for the
+ * Query/AllStreamsForSender RPC method
+ * @name QueryAllStreamsForSenderRequest
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryAllStreamsForSenderRequest
+ */
 export interface QueryAllStreamsForSenderRequest {
-  /** sender_addr is the receiver wallet address being queried */
+  /**
+   * sender_addr is the receiver wallet address being queried
+   */
   senderAddr: string;
-  /** pagination is the pagination parameters for the request */
+  /**
+   * pagination is the pagination parameters for the request
+   */
   pagination?: PageRequest;
 }
 export interface QueryAllStreamsForSenderRequestProtoMsg {
   typeUrl: "/mainchain.stream.v1.QueryAllStreamsForSenderRequest";
   value: Uint8Array;
 }
-/** QueryAllStreamsForSenderRequest is the request type for the Query/AllStreamsForSender RPC method */
+/**
+ * QueryAllStreamsForSenderRequest is the request type for the
+ * Query/AllStreamsForSender RPC method
+ * @name QueryAllStreamsForSenderRequestAmino
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryAllStreamsForSenderRequest
+ */
 export interface QueryAllStreamsForSenderRequestAmino {
-  /** sender_addr is the receiver wallet address being queried */
+  /**
+   * sender_addr is the receiver wallet address being queried
+   */
   sender_addr?: string;
-  /** pagination is the pagination parameters for the request */
+  /**
+   * pagination is the pagination parameters for the request
+   */
   pagination?: PageRequestAmino;
 }
 export interface QueryAllStreamsForSenderRequestAminoMsg {
   type: "/mainchain.stream.v1.QueryAllStreamsForSenderRequest";
   value: QueryAllStreamsForSenderRequestAmino;
 }
-/** QueryAllStreamsForSenderRequest is the request type for the Query/AllStreamsForSender RPC method */
+/**
+ * QueryAllStreamsForSenderRequest is the request type for the
+ * Query/AllStreamsForSender RPC method
+ * @name QueryAllStreamsForSenderRequestSDKType
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryAllStreamsForSenderRequest
+ */
 export interface QueryAllStreamsForSenderRequestSDKType {
   sender_addr: string;
   pagination?: PageRequestSDKType;
 }
-/** QueryAllStreamsForSenderResponse is the response type for the Query/AllStreamsForSender RPC method */
+/**
+ * QueryAllStreamsForSenderResponse is the response type for the
+ * Query/AllStreamsForSender RPC method
+ * @name QueryAllStreamsForSenderResponse
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryAllStreamsForSenderResponse
+ */
 export interface QueryAllStreamsForSenderResponse {
-  /** sender_addr is the receiver wallet address being queried */
+  /**
+   * sender_addr is the receiver wallet address being queried
+   */
   senderAddr: string;
-  /** streams is the list of all streams */
+  /**
+   * streams is the list of all streams
+   */
   streams: StreamResult[];
-  /** pagination defines the pagination in the response. */
+  /**
+   * pagination defines the pagination in the response.
+   */
   pagination?: PageResponse;
 }
 export interface QueryAllStreamsForSenderResponseProtoMsg {
   typeUrl: "/mainchain.stream.v1.QueryAllStreamsForSenderResponse";
   value: Uint8Array;
 }
-/** QueryAllStreamsForSenderResponse is the response type for the Query/AllStreamsForSender RPC method */
+/**
+ * QueryAllStreamsForSenderResponse is the response type for the
+ * Query/AllStreamsForSender RPC method
+ * @name QueryAllStreamsForSenderResponseAmino
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryAllStreamsForSenderResponse
+ */
 export interface QueryAllStreamsForSenderResponseAmino {
-  /** sender_addr is the receiver wallet address being queried */
+  /**
+   * sender_addr is the receiver wallet address being queried
+   */
   sender_addr?: string;
-  /** streams is the list of all streams */
+  /**
+   * streams is the list of all streams
+   */
   streams?: StreamResultAmino[];
-  /** pagination defines the pagination in the response. */
+  /**
+   * pagination defines the pagination in the response.
+   */
   pagination?: PageResponseAmino;
 }
 export interface QueryAllStreamsForSenderResponseAminoMsg {
   type: "/mainchain.stream.v1.QueryAllStreamsForSenderResponse";
   value: QueryAllStreamsForSenderResponseAmino;
 }
-/** QueryAllStreamsForSenderResponse is the response type for the Query/AllStreamsForSender RPC method */
+/**
+ * QueryAllStreamsForSenderResponse is the response type for the
+ * Query/AllStreamsForSender RPC method
+ * @name QueryAllStreamsForSenderResponseSDKType
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryAllStreamsForSenderResponse
+ */
 export interface QueryAllStreamsForSenderResponseSDKType {
+  sender_addr: string;
+  streams: StreamResultSDKType[];
+  pagination?: PageResponseSDKType;
+}
+/**
+ * QueryAllStreamsByPairRequest is the request type for the
+ * Query/AllStreamsByPair RPC method
+ * @name QueryAllStreamsByPairRequest
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryAllStreamsByPairRequest
+ */
+export interface QueryAllStreamsByPairRequest {
+  /**
+   * receiver_addr is the receiver wallet address being queried
+   */
+  receiverAddr: string;
+  /**
+   * sender_addr is the sender wallet address being queried
+   */
+  senderAddr: string;
+  /**
+   * pagination is the pagination parameters for the request
+   */
+  pagination?: PageRequest;
+}
+export interface QueryAllStreamsByPairRequestProtoMsg {
+  typeUrl: "/mainchain.stream.v1.QueryAllStreamsByPairRequest";
+  value: Uint8Array;
+}
+/**
+ * QueryAllStreamsByPairRequest is the request type for the
+ * Query/AllStreamsByPair RPC method
+ * @name QueryAllStreamsByPairRequestAmino
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryAllStreamsByPairRequest
+ */
+export interface QueryAllStreamsByPairRequestAmino {
+  /**
+   * receiver_addr is the receiver wallet address being queried
+   */
+  receiver_addr?: string;
+  /**
+   * sender_addr is the sender wallet address being queried
+   */
+  sender_addr?: string;
+  /**
+   * pagination is the pagination parameters for the request
+   */
+  pagination?: PageRequestAmino;
+}
+export interface QueryAllStreamsByPairRequestAminoMsg {
+  type: "/mainchain.stream.v1.QueryAllStreamsByPairRequest";
+  value: QueryAllStreamsByPairRequestAmino;
+}
+/**
+ * QueryAllStreamsByPairRequest is the request type for the
+ * Query/AllStreamsByPair RPC method
+ * @name QueryAllStreamsByPairRequestSDKType
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryAllStreamsByPairRequest
+ */
+export interface QueryAllStreamsByPairRequestSDKType {
+  receiver_addr: string;
+  sender_addr: string;
+  pagination?: PageRequestSDKType;
+}
+/**
+ * QueryAllStreamsByPairResponse is the response type for the
+ * Query/AllStreamsByPair RPC method
+ * @name QueryAllStreamsByPairResponse
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryAllStreamsByPairResponse
+ */
+export interface QueryAllStreamsByPairResponse {
+  /**
+   * receiver_addr is the receiver wallet address being queried
+   */
+  receiverAddr: string;
+  /**
+   * sender_addr is the sender wallet address being queried
+   */
+  senderAddr: string;
+  /**
+   * streams is the list of streams in the (sender, receiver) pair, one per
+   * denom
+   */
+  streams: StreamResult[];
+  /**
+   * pagination defines the pagination in the response.
+   */
+  pagination?: PageResponse;
+}
+export interface QueryAllStreamsByPairResponseProtoMsg {
+  typeUrl: "/mainchain.stream.v1.QueryAllStreamsByPairResponse";
+  value: Uint8Array;
+}
+/**
+ * QueryAllStreamsByPairResponse is the response type for the
+ * Query/AllStreamsByPair RPC method
+ * @name QueryAllStreamsByPairResponseAmino
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryAllStreamsByPairResponse
+ */
+export interface QueryAllStreamsByPairResponseAmino {
+  /**
+   * receiver_addr is the receiver wallet address being queried
+   */
+  receiver_addr?: string;
+  /**
+   * sender_addr is the sender wallet address being queried
+   */
+  sender_addr?: string;
+  /**
+   * streams is the list of streams in the (sender, receiver) pair, one per
+   * denom
+   */
+  streams?: StreamResultAmino[];
+  /**
+   * pagination defines the pagination in the response.
+   */
+  pagination?: PageResponseAmino;
+}
+export interface QueryAllStreamsByPairResponseAminoMsg {
+  type: "/mainchain.stream.v1.QueryAllStreamsByPairResponse";
+  value: QueryAllStreamsByPairResponseAmino;
+}
+/**
+ * QueryAllStreamsByPairResponse is the response type for the
+ * Query/AllStreamsByPair RPC method
+ * @name QueryAllStreamsByPairResponseSDKType
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryAllStreamsByPairResponse
+ */
+export interface QueryAllStreamsByPairResponseSDKType {
+  receiver_addr: string;
   sender_addr: string;
   streams: StreamResultSDKType[];
   pagination?: PageResponseSDKType;
@@ -426,19 +979,26 @@ function createBaseStreamResult(): StreamResult {
   return {
     receiver: "",
     sender: "",
-    stream: undefined
+    stream: undefined,
+    denom: ""
   };
 }
+/**
+ * StreamResult contains data about a stream
+ * @name StreamResult
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.StreamResult
+ */
 export const StreamResult = {
   typeUrl: "/mainchain.stream.v1.StreamResult",
   is(o: any): o is StreamResult {
-    return o && (o.$typeUrl === StreamResult.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string");
+    return o && (o.$typeUrl === StreamResult.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string" && typeof o.denom === "string");
   },
   isSDK(o: any): o is StreamResultSDKType {
-    return o && (o.$typeUrl === StreamResult.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string");
+    return o && (o.$typeUrl === StreamResult.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string" && typeof o.denom === "string");
   },
   isAmino(o: any): o is StreamResultAmino {
-    return o && (o.$typeUrl === StreamResult.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string");
+    return o && (o.$typeUrl === StreamResult.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string" && typeof o.denom === "string");
   },
   encode(message: StreamResult, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.receiver !== "") {
@@ -449,6 +1009,9 @@ export const StreamResult = {
     }
     if (message.stream !== undefined) {
       Stream.encode(message.stream, writer.uint32(26).fork()).ldelim();
+    }
+    if (message.denom !== "") {
+      writer.uint32(34).string(message.denom);
     }
     return writer;
   },
@@ -468,6 +1031,9 @@ export const StreamResult = {
         case 3:
           message.stream = Stream.decode(reader, reader.uint32());
           break;
+        case 4:
+          message.denom = reader.string();
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -480,6 +1046,7 @@ export const StreamResult = {
     message.receiver = object.receiver ?? "";
     message.sender = object.sender ?? "";
     message.stream = object.stream !== undefined && object.stream !== null ? Stream.fromPartial(object.stream) : undefined;
+    message.denom = object.denom ?? "";
     return message;
   },
   fromAmino(object: StreamResultAmino): StreamResult {
@@ -493,6 +1060,9 @@ export const StreamResult = {
     if (object.stream !== undefined && object.stream !== null) {
       message.stream = Stream.fromAmino(object.stream);
     }
+    if (object.denom !== undefined && object.denom !== null) {
+      message.denom = object.denom;
+    }
     return message;
   },
   toAmino(message: StreamResult): StreamResultAmino {
@@ -500,6 +1070,7 @@ export const StreamResult = {
     obj.receiver = message.receiver === "" ? undefined : message.receiver;
     obj.sender = message.sender === "" ? undefined : message.sender;
     obj.stream = message.stream ? Stream.toAmino(message.stream) : undefined;
+    obj.denom = message.denom === "" ? undefined : message.denom;
     return obj;
   },
   fromAminoMsg(object: StreamResultAminoMsg): StreamResult {
@@ -516,12 +1087,23 @@ export const StreamResult = {
       typeUrl: "/mainchain.stream.v1.StreamResult",
       value: StreamResult.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(StreamResult.typeUrl)) {
+      return;
+    }
+    Stream.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(StreamResult.typeUrl, StreamResult);
 function createBaseQueryParamsRequest(): QueryParamsRequest {
   return {};
 }
+/**
+ * QueryParamsRequest is request type for the Query/Params RPC method.
+ * @name QueryParamsRequest
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryParamsRequest
+ */
 export const QueryParamsRequest = {
   typeUrl: "/mainchain.stream.v1.QueryParamsRequest",
   is(o: any): o is QueryParamsRequest {
@@ -576,14 +1158,20 @@ export const QueryParamsRequest = {
       typeUrl: "/mainchain.stream.v1.QueryParamsRequest",
       value: QueryParamsRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryParamsRequest.typeUrl, QueryParamsRequest);
 function createBaseQueryParamsResponse(): QueryParamsResponse {
   return {
     params: Params.fromPartial({})
   };
 }
+/**
+ * QueryParamsResponse is response type for the Query/Params RPC method.
+ * @name QueryParamsResponse
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryParamsResponse
+ */
 export const QueryParamsResponse = {
   typeUrl: "/mainchain.stream.v1.QueryParamsResponse",
   is(o: any): o is QueryParamsResponse {
@@ -649,9 +1237,14 @@ export const QueryParamsResponse = {
       typeUrl: "/mainchain.stream.v1.QueryParamsResponse",
       value: QueryParamsResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryParamsResponse.typeUrl)) {
+      return;
+    }
+    Params.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryParamsResponse.typeUrl, QueryParamsResponse);
 function createBaseQueryCalculateFlowRateRequest(): QueryCalculateFlowRateRequest {
   return {
     coin: "",
@@ -659,6 +1252,13 @@ function createBaseQueryCalculateFlowRateRequest(): QueryCalculateFlowRateReques
     duration: BigInt(0)
   };
 }
+/**
+ * QueryCalculateFlowRateRequest is the request type for the
+ * Query/CalculateFlowRate RPC method
+ * @name QueryCalculateFlowRateRequest
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryCalculateFlowRateRequest
+ */
 export const QueryCalculateFlowRateRequest = {
   typeUrl: "/mainchain.stream.v1.QueryCalculateFlowRateRequest",
   is(o: any): o is QueryCalculateFlowRateRequest {
@@ -746,9 +1346,9 @@ export const QueryCalculateFlowRateRequest = {
       typeUrl: "/mainchain.stream.v1.QueryCalculateFlowRateRequest",
       value: QueryCalculateFlowRateRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryCalculateFlowRateRequest.typeUrl, QueryCalculateFlowRateRequest);
 function createBaseQueryCalculateFlowRateResponse(): QueryCalculateFlowRateResponse {
   return {
     coin: Coin.fromPartial({}),
@@ -758,6 +1358,13 @@ function createBaseQueryCalculateFlowRateResponse(): QueryCalculateFlowRateRespo
     flowRate: BigInt(0)
   };
 }
+/**
+ * QueryCalculateFlowRateResponse is the response type for the
+ * Query/CalculateFlowRate RPC method
+ * @name QueryCalculateFlowRateResponse
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryCalculateFlowRateResponse
+ */
 export const QueryCalculateFlowRateResponse = {
   typeUrl: "/mainchain.stream.v1.QueryCalculateFlowRateResponse",
   is(o: any): o is QueryCalculateFlowRateResponse {
@@ -867,14 +1474,25 @@ export const QueryCalculateFlowRateResponse = {
       typeUrl: "/mainchain.stream.v1.QueryCalculateFlowRateResponse",
       value: QueryCalculateFlowRateResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryCalculateFlowRateResponse.typeUrl)) {
+      return;
+    }
+    Coin.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryCalculateFlowRateResponse.typeUrl, QueryCalculateFlowRateResponse);
 function createBaseQueryStreamsRequest(): QueryStreamsRequest {
   return {
     pagination: undefined
   };
 }
+/**
+ * QueryStreamsRequest is the request type for the Query/Streams RPC method
+ * @name QueryStreamsRequest
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryStreamsRequest
+ */
 export const QueryStreamsRequest = {
   typeUrl: "/mainchain.stream.v1.QueryStreamsRequest",
   is(o: any): o is QueryStreamsRequest {
@@ -940,15 +1558,26 @@ export const QueryStreamsRequest = {
       typeUrl: "/mainchain.stream.v1.QueryStreamsRequest",
       value: QueryStreamsRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryStreamsRequest.typeUrl)) {
+      return;
+    }
+    PageRequest.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryStreamsRequest.typeUrl, QueryStreamsRequest);
 function createBaseQueryStreamsResponse(): QueryStreamsResponse {
   return {
     streams: [],
     pagination: undefined
   };
 }
+/**
+ * QueryStreamsResponse is the response type for the Query/Streams RPC method
+ * @name QueryStreamsResponse
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryStreamsResponse
+ */
 export const QueryStreamsResponse = {
   typeUrl: "/mainchain.stream.v1.QueryStreamsResponse",
   is(o: any): o is QueryStreamsResponse {
@@ -1027,15 +1656,28 @@ export const QueryStreamsResponse = {
       typeUrl: "/mainchain.stream.v1.QueryStreamsResponse",
       value: QueryStreamsResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryStreamsResponse.typeUrl)) {
+      return;
+    }
+    StreamResult.registerTypeUrl();
+    PageResponse.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryStreamsResponse.typeUrl, QueryStreamsResponse);
 function createBaseQueryAllStreamsForReceiverRequest(): QueryAllStreamsForReceiverRequest {
   return {
     receiverAddr: "",
     pagination: undefined
   };
 }
+/**
+ * QueryAllStreamsForReceiverRequest is the request type for the
+ * Query/AllStreamsForReceiver RPC method
+ * @name QueryAllStreamsForReceiverRequest
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryAllStreamsForReceiverRequest
+ */
 export const QueryAllStreamsForReceiverRequest = {
   typeUrl: "/mainchain.stream.v1.QueryAllStreamsForReceiverRequest",
   is(o: any): o is QueryAllStreamsForReceiverRequest {
@@ -1112,9 +1754,14 @@ export const QueryAllStreamsForReceiverRequest = {
       typeUrl: "/mainchain.stream.v1.QueryAllStreamsForReceiverRequest",
       value: QueryAllStreamsForReceiverRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryAllStreamsForReceiverRequest.typeUrl)) {
+      return;
+    }
+    PageRequest.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryAllStreamsForReceiverRequest.typeUrl, QueryAllStreamsForReceiverRequest);
 function createBaseQueryAllStreamsForReceiverResponse(): QueryAllStreamsForReceiverResponse {
   return {
     receiverAddr: "",
@@ -1122,6 +1769,13 @@ function createBaseQueryAllStreamsForReceiverResponse(): QueryAllStreamsForRecei
     pagination: undefined
   };
 }
+/**
+ * QueryAllStreamsForReceiverResponse is the response type for the
+ * Query/AllStreamsForReceiver RPC method
+ * @name QueryAllStreamsForReceiverResponse
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryAllStreamsForReceiverResponse
+ */
 export const QueryAllStreamsForReceiverResponse = {
   typeUrl: "/mainchain.stream.v1.QueryAllStreamsForReceiverResponse",
   is(o: any): o is QueryAllStreamsForReceiverResponse {
@@ -1211,25 +1865,39 @@ export const QueryAllStreamsForReceiverResponse = {
       typeUrl: "/mainchain.stream.v1.QueryAllStreamsForReceiverResponse",
       value: QueryAllStreamsForReceiverResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryAllStreamsForReceiverResponse.typeUrl)) {
+      return;
+    }
+    StreamResult.registerTypeUrl();
+    PageResponse.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryAllStreamsForReceiverResponse.typeUrl, QueryAllStreamsForReceiverResponse);
 function createBaseQueryStreamByReceiverSenderRequest(): QueryStreamByReceiverSenderRequest {
   return {
     receiverAddr: "",
-    senderAddr: ""
+    senderAddr: "",
+    denom: ""
   };
 }
+/**
+ * QueryStreamByReceiverSenderRequest is the request type for the
+ * Query/StreamByReceiverSender RPC method
+ * @name QueryStreamByReceiverSenderRequest
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryStreamByReceiverSenderRequest
+ */
 export const QueryStreamByReceiverSenderRequest = {
   typeUrl: "/mainchain.stream.v1.QueryStreamByReceiverSenderRequest",
   is(o: any): o is QueryStreamByReceiverSenderRequest {
-    return o && (o.$typeUrl === QueryStreamByReceiverSenderRequest.typeUrl || typeof o.receiverAddr === "string" && typeof o.senderAddr === "string");
+    return o && (o.$typeUrl === QueryStreamByReceiverSenderRequest.typeUrl || typeof o.receiverAddr === "string" && typeof o.senderAddr === "string" && typeof o.denom === "string");
   },
   isSDK(o: any): o is QueryStreamByReceiverSenderRequestSDKType {
-    return o && (o.$typeUrl === QueryStreamByReceiverSenderRequest.typeUrl || typeof o.receiver_addr === "string" && typeof o.sender_addr === "string");
+    return o && (o.$typeUrl === QueryStreamByReceiverSenderRequest.typeUrl || typeof o.receiver_addr === "string" && typeof o.sender_addr === "string" && typeof o.denom === "string");
   },
   isAmino(o: any): o is QueryStreamByReceiverSenderRequestAmino {
-    return o && (o.$typeUrl === QueryStreamByReceiverSenderRequest.typeUrl || typeof o.receiver_addr === "string" && typeof o.sender_addr === "string");
+    return o && (o.$typeUrl === QueryStreamByReceiverSenderRequest.typeUrl || typeof o.receiver_addr === "string" && typeof o.sender_addr === "string" && typeof o.denom === "string");
   },
   encode(message: QueryStreamByReceiverSenderRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.receiverAddr !== "") {
@@ -1237,6 +1905,9 @@ export const QueryStreamByReceiverSenderRequest = {
     }
     if (message.senderAddr !== "") {
       writer.uint32(18).string(message.senderAddr);
+    }
+    if (message.denom !== "") {
+      writer.uint32(26).string(message.denom);
     }
     return writer;
   },
@@ -1253,6 +1924,9 @@ export const QueryStreamByReceiverSenderRequest = {
         case 2:
           message.senderAddr = reader.string();
           break;
+        case 3:
+          message.denom = reader.string();
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -1264,6 +1938,7 @@ export const QueryStreamByReceiverSenderRequest = {
     const message = createBaseQueryStreamByReceiverSenderRequest();
     message.receiverAddr = object.receiverAddr ?? "";
     message.senderAddr = object.senderAddr ?? "";
+    message.denom = object.denom ?? "";
     return message;
   },
   fromAmino(object: QueryStreamByReceiverSenderRequestAmino): QueryStreamByReceiverSenderRequest {
@@ -1274,12 +1949,16 @@ export const QueryStreamByReceiverSenderRequest = {
     if (object.sender_addr !== undefined && object.sender_addr !== null) {
       message.senderAddr = object.sender_addr;
     }
+    if (object.denom !== undefined && object.denom !== null) {
+      message.denom = object.denom;
+    }
     return message;
   },
   toAmino(message: QueryStreamByReceiverSenderRequest): QueryStreamByReceiverSenderRequestAmino {
     const obj: any = {};
     obj.receiver_addr = message.receiverAddr === "" ? undefined : message.receiverAddr;
     obj.sender_addr = message.senderAddr === "" ? undefined : message.senderAddr;
+    obj.denom = message.denom === "" ? undefined : message.denom;
     return obj;
   },
   fromAminoMsg(object: QueryStreamByReceiverSenderRequestAminoMsg): QueryStreamByReceiverSenderRequest {
@@ -1296,14 +1975,21 @@ export const QueryStreamByReceiverSenderRequest = {
       typeUrl: "/mainchain.stream.v1.QueryStreamByReceiverSenderRequest",
       value: QueryStreamByReceiverSenderRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryStreamByReceiverSenderRequest.typeUrl, QueryStreamByReceiverSenderRequest);
 function createBaseQueryStreamByReceiverSenderResponse(): QueryStreamByReceiverSenderResponse {
   return {
     stream: StreamResult.fromPartial({})
   };
 }
+/**
+ * QueryStreamByReceiverSenderResponse is the response type for the
+ * Query/StreamByReceiverSender RPC method
+ * @name QueryStreamByReceiverSenderResponse
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryStreamByReceiverSenderResponse
+ */
 export const QueryStreamByReceiverSenderResponse = {
   typeUrl: "/mainchain.stream.v1.QueryStreamByReceiverSenderResponse",
   is(o: any): o is QueryStreamByReceiverSenderResponse {
@@ -1369,25 +2055,38 @@ export const QueryStreamByReceiverSenderResponse = {
       typeUrl: "/mainchain.stream.v1.QueryStreamByReceiverSenderResponse",
       value: QueryStreamByReceiverSenderResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryStreamByReceiverSenderResponse.typeUrl)) {
+      return;
+    }
+    StreamResult.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryStreamByReceiverSenderResponse.typeUrl, QueryStreamByReceiverSenderResponse);
 function createBaseQueryStreamReceiverSenderCurrentFlowRequest(): QueryStreamReceiverSenderCurrentFlowRequest {
   return {
     receiverAddr: "",
-    senderAddr: ""
+    senderAddr: "",
+    denom: ""
   };
 }
+/**
+ * QueryStreamReceiverSenderCurrentFlowRequest is the request type for the
+ * Query/StreamReceiverSenderCurrentFlow RPC method
+ * @name QueryStreamReceiverSenderCurrentFlowRequest
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryStreamReceiverSenderCurrentFlowRequest
+ */
 export const QueryStreamReceiverSenderCurrentFlowRequest = {
   typeUrl: "/mainchain.stream.v1.QueryStreamReceiverSenderCurrentFlowRequest",
   is(o: any): o is QueryStreamReceiverSenderCurrentFlowRequest {
-    return o && (o.$typeUrl === QueryStreamReceiverSenderCurrentFlowRequest.typeUrl || typeof o.receiverAddr === "string" && typeof o.senderAddr === "string");
+    return o && (o.$typeUrl === QueryStreamReceiverSenderCurrentFlowRequest.typeUrl || typeof o.receiverAddr === "string" && typeof o.senderAddr === "string" && typeof o.denom === "string");
   },
   isSDK(o: any): o is QueryStreamReceiverSenderCurrentFlowRequestSDKType {
-    return o && (o.$typeUrl === QueryStreamReceiverSenderCurrentFlowRequest.typeUrl || typeof o.receiver_addr === "string" && typeof o.sender_addr === "string");
+    return o && (o.$typeUrl === QueryStreamReceiverSenderCurrentFlowRequest.typeUrl || typeof o.receiver_addr === "string" && typeof o.sender_addr === "string" && typeof o.denom === "string");
   },
   isAmino(o: any): o is QueryStreamReceiverSenderCurrentFlowRequestAmino {
-    return o && (o.$typeUrl === QueryStreamReceiverSenderCurrentFlowRequest.typeUrl || typeof o.receiver_addr === "string" && typeof o.sender_addr === "string");
+    return o && (o.$typeUrl === QueryStreamReceiverSenderCurrentFlowRequest.typeUrl || typeof o.receiver_addr === "string" && typeof o.sender_addr === "string" && typeof o.denom === "string");
   },
   encode(message: QueryStreamReceiverSenderCurrentFlowRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.receiverAddr !== "") {
@@ -1395,6 +2094,9 @@ export const QueryStreamReceiverSenderCurrentFlowRequest = {
     }
     if (message.senderAddr !== "") {
       writer.uint32(18).string(message.senderAddr);
+    }
+    if (message.denom !== "") {
+      writer.uint32(26).string(message.denom);
     }
     return writer;
   },
@@ -1411,6 +2113,9 @@ export const QueryStreamReceiverSenderCurrentFlowRequest = {
         case 2:
           message.senderAddr = reader.string();
           break;
+        case 3:
+          message.denom = reader.string();
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -1422,6 +2127,7 @@ export const QueryStreamReceiverSenderCurrentFlowRequest = {
     const message = createBaseQueryStreamReceiverSenderCurrentFlowRequest();
     message.receiverAddr = object.receiverAddr ?? "";
     message.senderAddr = object.senderAddr ?? "";
+    message.denom = object.denom ?? "";
     return message;
   },
   fromAmino(object: QueryStreamReceiverSenderCurrentFlowRequestAmino): QueryStreamReceiverSenderCurrentFlowRequest {
@@ -1432,12 +2138,16 @@ export const QueryStreamReceiverSenderCurrentFlowRequest = {
     if (object.sender_addr !== undefined && object.sender_addr !== null) {
       message.senderAddr = object.sender_addr;
     }
+    if (object.denom !== undefined && object.denom !== null) {
+      message.denom = object.denom;
+    }
     return message;
   },
   toAmino(message: QueryStreamReceiverSenderCurrentFlowRequest): QueryStreamReceiverSenderCurrentFlowRequestAmino {
     const obj: any = {};
     obj.receiver_addr = message.receiverAddr === "" ? undefined : message.receiverAddr;
     obj.sender_addr = message.senderAddr === "" ? undefined : message.senderAddr;
+    obj.denom = message.denom === "" ? undefined : message.denom;
     return obj;
   },
   fromAminoMsg(object: QueryStreamReceiverSenderCurrentFlowRequestAminoMsg): QueryStreamReceiverSenderCurrentFlowRequest {
@@ -1454,15 +2164,22 @@ export const QueryStreamReceiverSenderCurrentFlowRequest = {
       typeUrl: "/mainchain.stream.v1.QueryStreamReceiverSenderCurrentFlowRequest",
       value: QueryStreamReceiverSenderCurrentFlowRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryStreamReceiverSenderCurrentFlowRequest.typeUrl, QueryStreamReceiverSenderCurrentFlowRequest);
 function createBaseQueryStreamReceiverSenderCurrentFlowResponse(): QueryStreamReceiverSenderCurrentFlowResponse {
   return {
     configuredFlowRate: BigInt(0),
     currentFlowRate: BigInt(0)
   };
 }
+/**
+ * QueryStreamReceiverSenderCurrentFlowResponse is the response type for the
+ * Query/StreamReceiverSenderCurrentFlow RPC method
+ * @name QueryStreamReceiverSenderCurrentFlowResponse
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryStreamReceiverSenderCurrentFlowResponse
+ */
 export const QueryStreamReceiverSenderCurrentFlowResponse = {
   typeUrl: "/mainchain.stream.v1.QueryStreamReceiverSenderCurrentFlowResponse",
   is(o: any): o is QueryStreamReceiverSenderCurrentFlowResponse {
@@ -1539,15 +2256,22 @@ export const QueryStreamReceiverSenderCurrentFlowResponse = {
       typeUrl: "/mainchain.stream.v1.QueryStreamReceiverSenderCurrentFlowResponse",
       value: QueryStreamReceiverSenderCurrentFlowResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryStreamReceiverSenderCurrentFlowResponse.typeUrl, QueryStreamReceiverSenderCurrentFlowResponse);
 function createBaseQueryAllStreamsForSenderRequest(): QueryAllStreamsForSenderRequest {
   return {
     senderAddr: "",
     pagination: undefined
   };
 }
+/**
+ * QueryAllStreamsForSenderRequest is the request type for the
+ * Query/AllStreamsForSender RPC method
+ * @name QueryAllStreamsForSenderRequest
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryAllStreamsForSenderRequest
+ */
 export const QueryAllStreamsForSenderRequest = {
   typeUrl: "/mainchain.stream.v1.QueryAllStreamsForSenderRequest",
   is(o: any): o is QueryAllStreamsForSenderRequest {
@@ -1624,9 +2348,14 @@ export const QueryAllStreamsForSenderRequest = {
       typeUrl: "/mainchain.stream.v1.QueryAllStreamsForSenderRequest",
       value: QueryAllStreamsForSenderRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryAllStreamsForSenderRequest.typeUrl)) {
+      return;
+    }
+    PageRequest.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryAllStreamsForSenderRequest.typeUrl, QueryAllStreamsForSenderRequest);
 function createBaseQueryAllStreamsForSenderResponse(): QueryAllStreamsForSenderResponse {
   return {
     senderAddr: "",
@@ -1634,6 +2363,13 @@ function createBaseQueryAllStreamsForSenderResponse(): QueryAllStreamsForSenderR
     pagination: undefined
   };
 }
+/**
+ * QueryAllStreamsForSenderResponse is the response type for the
+ * Query/AllStreamsForSender RPC method
+ * @name QueryAllStreamsForSenderResponse
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryAllStreamsForSenderResponse
+ */
 export const QueryAllStreamsForSenderResponse = {
   typeUrl: "/mainchain.stream.v1.QueryAllStreamsForSenderResponse",
   is(o: any): o is QueryAllStreamsForSenderResponse {
@@ -1723,6 +2459,245 @@ export const QueryAllStreamsForSenderResponse = {
       typeUrl: "/mainchain.stream.v1.QueryAllStreamsForSenderResponse",
       value: QueryAllStreamsForSenderResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryAllStreamsForSenderResponse.typeUrl)) {
+      return;
+    }
+    StreamResult.registerTypeUrl();
+    PageResponse.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryAllStreamsForSenderResponse.typeUrl, QueryAllStreamsForSenderResponse);
+function createBaseQueryAllStreamsByPairRequest(): QueryAllStreamsByPairRequest {
+  return {
+    receiverAddr: "",
+    senderAddr: "",
+    pagination: undefined
+  };
+}
+/**
+ * QueryAllStreamsByPairRequest is the request type for the
+ * Query/AllStreamsByPair RPC method
+ * @name QueryAllStreamsByPairRequest
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryAllStreamsByPairRequest
+ */
+export const QueryAllStreamsByPairRequest = {
+  typeUrl: "/mainchain.stream.v1.QueryAllStreamsByPairRequest",
+  is(o: any): o is QueryAllStreamsByPairRequest {
+    return o && (o.$typeUrl === QueryAllStreamsByPairRequest.typeUrl || typeof o.receiverAddr === "string" && typeof o.senderAddr === "string");
+  },
+  isSDK(o: any): o is QueryAllStreamsByPairRequestSDKType {
+    return o && (o.$typeUrl === QueryAllStreamsByPairRequest.typeUrl || typeof o.receiver_addr === "string" && typeof o.sender_addr === "string");
+  },
+  isAmino(o: any): o is QueryAllStreamsByPairRequestAmino {
+    return o && (o.$typeUrl === QueryAllStreamsByPairRequest.typeUrl || typeof o.receiver_addr === "string" && typeof o.sender_addr === "string");
+  },
+  encode(message: QueryAllStreamsByPairRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+    if (message.receiverAddr !== "") {
+      writer.uint32(10).string(message.receiverAddr);
+    }
+    if (message.senderAddr !== "") {
+      writer.uint32(18).string(message.senderAddr);
+    }
+    if (message.pagination !== undefined) {
+      PageRequest.encode(message.pagination, writer.uint32(26).fork()).ldelim();
+    }
+    return writer;
+  },
+  decode(input: BinaryReader | Uint8Array, length?: number): QueryAllStreamsByPairRequest {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryAllStreamsByPairRequest();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.receiverAddr = reader.string();
+          break;
+        case 2:
+          message.senderAddr = reader.string();
+          break;
+        case 3:
+          message.pagination = PageRequest.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+  fromPartial(object: Partial<QueryAllStreamsByPairRequest>): QueryAllStreamsByPairRequest {
+    const message = createBaseQueryAllStreamsByPairRequest();
+    message.receiverAddr = object.receiverAddr ?? "";
+    message.senderAddr = object.senderAddr ?? "";
+    message.pagination = object.pagination !== undefined && object.pagination !== null ? PageRequest.fromPartial(object.pagination) : undefined;
+    return message;
+  },
+  fromAmino(object: QueryAllStreamsByPairRequestAmino): QueryAllStreamsByPairRequest {
+    const message = createBaseQueryAllStreamsByPairRequest();
+    if (object.receiver_addr !== undefined && object.receiver_addr !== null) {
+      message.receiverAddr = object.receiver_addr;
+    }
+    if (object.sender_addr !== undefined && object.sender_addr !== null) {
+      message.senderAddr = object.sender_addr;
+    }
+    if (object.pagination !== undefined && object.pagination !== null) {
+      message.pagination = PageRequest.fromAmino(object.pagination);
+    }
+    return message;
+  },
+  toAmino(message: QueryAllStreamsByPairRequest): QueryAllStreamsByPairRequestAmino {
+    const obj: any = {};
+    obj.receiver_addr = message.receiverAddr === "" ? undefined : message.receiverAddr;
+    obj.sender_addr = message.senderAddr === "" ? undefined : message.senderAddr;
+    obj.pagination = message.pagination ? PageRequest.toAmino(message.pagination) : undefined;
+    return obj;
+  },
+  fromAminoMsg(object: QueryAllStreamsByPairRequestAminoMsg): QueryAllStreamsByPairRequest {
+    return QueryAllStreamsByPairRequest.fromAmino(object.value);
+  },
+  fromProtoMsg(message: QueryAllStreamsByPairRequestProtoMsg): QueryAllStreamsByPairRequest {
+    return QueryAllStreamsByPairRequest.decode(message.value);
+  },
+  toProto(message: QueryAllStreamsByPairRequest): Uint8Array {
+    return QueryAllStreamsByPairRequest.encode(message).finish();
+  },
+  toProtoMsg(message: QueryAllStreamsByPairRequest): QueryAllStreamsByPairRequestProtoMsg {
+    return {
+      typeUrl: "/mainchain.stream.v1.QueryAllStreamsByPairRequest",
+      value: QueryAllStreamsByPairRequest.encode(message).finish()
+    };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryAllStreamsByPairRequest.typeUrl)) {
+      return;
+    }
+    PageRequest.registerTypeUrl();
+  }
+};
+function createBaseQueryAllStreamsByPairResponse(): QueryAllStreamsByPairResponse {
+  return {
+    receiverAddr: "",
+    senderAddr: "",
+    streams: [],
+    pagination: undefined
+  };
+}
+/**
+ * QueryAllStreamsByPairResponse is the response type for the
+ * Query/AllStreamsByPair RPC method
+ * @name QueryAllStreamsByPairResponse
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.QueryAllStreamsByPairResponse
+ */
+export const QueryAllStreamsByPairResponse = {
+  typeUrl: "/mainchain.stream.v1.QueryAllStreamsByPairResponse",
+  is(o: any): o is QueryAllStreamsByPairResponse {
+    return o && (o.$typeUrl === QueryAllStreamsByPairResponse.typeUrl || typeof o.receiverAddr === "string" && typeof o.senderAddr === "string" && Array.isArray(o.streams) && (!o.streams.length || StreamResult.is(o.streams[0])));
+  },
+  isSDK(o: any): o is QueryAllStreamsByPairResponseSDKType {
+    return o && (o.$typeUrl === QueryAllStreamsByPairResponse.typeUrl || typeof o.receiver_addr === "string" && typeof o.sender_addr === "string" && Array.isArray(o.streams) && (!o.streams.length || StreamResult.isSDK(o.streams[0])));
+  },
+  isAmino(o: any): o is QueryAllStreamsByPairResponseAmino {
+    return o && (o.$typeUrl === QueryAllStreamsByPairResponse.typeUrl || typeof o.receiver_addr === "string" && typeof o.sender_addr === "string" && Array.isArray(o.streams) && (!o.streams.length || StreamResult.isAmino(o.streams[0])));
+  },
+  encode(message: QueryAllStreamsByPairResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+    if (message.receiverAddr !== "") {
+      writer.uint32(10).string(message.receiverAddr);
+    }
+    if (message.senderAddr !== "") {
+      writer.uint32(18).string(message.senderAddr);
+    }
+    for (const v of message.streams) {
+      StreamResult.encode(v!, writer.uint32(26).fork()).ldelim();
+    }
+    if (message.pagination !== undefined) {
+      PageResponse.encode(message.pagination, writer.uint32(34).fork()).ldelim();
+    }
+    return writer;
+  },
+  decode(input: BinaryReader | Uint8Array, length?: number): QueryAllStreamsByPairResponse {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryAllStreamsByPairResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.receiverAddr = reader.string();
+          break;
+        case 2:
+          message.senderAddr = reader.string();
+          break;
+        case 3:
+          message.streams.push(StreamResult.decode(reader, reader.uint32()));
+          break;
+        case 4:
+          message.pagination = PageResponse.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+  fromPartial(object: Partial<QueryAllStreamsByPairResponse>): QueryAllStreamsByPairResponse {
+    const message = createBaseQueryAllStreamsByPairResponse();
+    message.receiverAddr = object.receiverAddr ?? "";
+    message.senderAddr = object.senderAddr ?? "";
+    message.streams = object.streams?.map(e => StreamResult.fromPartial(e)) || [];
+    message.pagination = object.pagination !== undefined && object.pagination !== null ? PageResponse.fromPartial(object.pagination) : undefined;
+    return message;
+  },
+  fromAmino(object: QueryAllStreamsByPairResponseAmino): QueryAllStreamsByPairResponse {
+    const message = createBaseQueryAllStreamsByPairResponse();
+    if (object.receiver_addr !== undefined && object.receiver_addr !== null) {
+      message.receiverAddr = object.receiver_addr;
+    }
+    if (object.sender_addr !== undefined && object.sender_addr !== null) {
+      message.senderAddr = object.sender_addr;
+    }
+    message.streams = object.streams?.map(e => StreamResult.fromAmino(e)) || [];
+    if (object.pagination !== undefined && object.pagination !== null) {
+      message.pagination = PageResponse.fromAmino(object.pagination);
+    }
+    return message;
+  },
+  toAmino(message: QueryAllStreamsByPairResponse): QueryAllStreamsByPairResponseAmino {
+    const obj: any = {};
+    obj.receiver_addr = message.receiverAddr === "" ? undefined : message.receiverAddr;
+    obj.sender_addr = message.senderAddr === "" ? undefined : message.senderAddr;
+    if (message.streams) {
+      obj.streams = message.streams.map(e => e ? StreamResult.toAmino(e) : undefined);
+    } else {
+      obj.streams = message.streams;
+    }
+    obj.pagination = message.pagination ? PageResponse.toAmino(message.pagination) : undefined;
+    return obj;
+  },
+  fromAminoMsg(object: QueryAllStreamsByPairResponseAminoMsg): QueryAllStreamsByPairResponse {
+    return QueryAllStreamsByPairResponse.fromAmino(object.value);
+  },
+  fromProtoMsg(message: QueryAllStreamsByPairResponseProtoMsg): QueryAllStreamsByPairResponse {
+    return QueryAllStreamsByPairResponse.decode(message.value);
+  },
+  toProto(message: QueryAllStreamsByPairResponse): Uint8Array {
+    return QueryAllStreamsByPairResponse.encode(message).finish();
+  },
+  toProtoMsg(message: QueryAllStreamsByPairResponse): QueryAllStreamsByPairResponseProtoMsg {
+    return {
+      typeUrl: "/mainchain.stream.v1.QueryAllStreamsByPairResponse",
+      value: QueryAllStreamsByPairResponse.encode(message).finish()
+    };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryAllStreamsByPairResponse.typeUrl)) {
+      return;
+    }
+    StreamResult.registerTypeUrl();
+    PageResponse.registerTypeUrl();
+  }
+};

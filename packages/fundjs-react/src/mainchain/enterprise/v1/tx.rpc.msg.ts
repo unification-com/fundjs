@@ -1,12 +1,15 @@
 //@ts-nocheck
-import { Rpc } from "../../../helpers";
+import { TxRpc } from "../../../types";
 import { BinaryReader } from "../../../binary";
 import { MsgUndPurchaseOrder, MsgUndPurchaseOrderResponse, MsgProcessUndPurchaseOrder, MsgProcessUndPurchaseOrderResponse, MsgWhitelistAddress, MsgWhitelistAddressResponse, MsgUpdateParams, MsgUpdateParamsResponse } from "./tx";
 /** Msg defines the enterprise Msg service. */
 export interface Msg {
   /** UndPurchaseOrder defines a method to create new purchase order. */
   undPurchaseOrder(request: MsgUndPurchaseOrder): Promise<MsgUndPurchaseOrderResponse>;
-  /** ProcessUndPurchaseOrder defines a method to process a decision on a purchase order. */
+  /**
+   * ProcessUndPurchaseOrder defines a method to process a decision on a
+   * purchase order.
+   */
   processUndPurchaseOrder(request: MsgProcessUndPurchaseOrder): Promise<MsgProcessUndPurchaseOrderResponse>;
   /** WhitelistAddress defines a method to execute a whitelist action. */
   whitelistAddress(request: MsgWhitelistAddress): Promise<MsgWhitelistAddressResponse>;
@@ -18,8 +21,8 @@ export interface Msg {
   updateParams(request: MsgUpdateParams): Promise<MsgUpdateParamsResponse>;
 }
 export class MsgClientImpl implements Msg {
-  private readonly rpc: Rpc;
-  constructor(rpc: Rpc) {
+  private readonly rpc: TxRpc;
+  constructor(rpc: TxRpc) {
     this.rpc = rpc;
     this.undPurchaseOrder = this.undPurchaseOrder.bind(this);
     this.processUndPurchaseOrder = this.processUndPurchaseOrder.bind(this);
@@ -47,3 +50,6 @@ export class MsgClientImpl implements Msg {
     return promise.then(data => MsgUpdateParamsResponse.decode(new BinaryReader(data)));
   }
 }
+export const createClientImpl = (rpc: TxRpc) => {
+  return new MsgClientImpl(rpc);
+};

@@ -2,9 +2,16 @@
 import { ContinuousFund, ContinuousFundAmino, ContinuousFundSDKType, Params, ParamsAmino, ParamsSDKType } from "./types";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { GlobalDecoderRegistry } from "../../../registry";
-/** GenesisState defines the protocolpool module's genesis state. */
+/**
+ * GenesisState defines the protocolpool module's genesis state.
+ * @name GenesisState
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.GenesisState
+ */
 export interface GenesisState {
-  /** ContinuousFunds defines the continuous funds at genesis. */
+  /**
+   * ContinuousFunds defines the continuous funds at genesis.
+   */
   continuousFunds: ContinuousFund[];
   /**
    * Params defines the parameters of this module, currently only contains the
@@ -16,9 +23,16 @@ export interface GenesisStateProtoMsg {
   typeUrl: "/cosmos.protocolpool.v1.GenesisState";
   value: Uint8Array;
 }
-/** GenesisState defines the protocolpool module's genesis state. */
+/**
+ * GenesisState defines the protocolpool module's genesis state.
+ * @name GenesisStateAmino
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.GenesisState
+ */
 export interface GenesisStateAmino {
-  /** ContinuousFunds defines the continuous funds at genesis. */
+  /**
+   * ContinuousFunds defines the continuous funds at genesis.
+   */
   continuous_funds?: ContinuousFundAmino[];
   /**
    * Params defines the parameters of this module, currently only contains the
@@ -30,7 +44,12 @@ export interface GenesisStateAminoMsg {
   type: "cosmos-sdk/GenesisState";
   value: GenesisStateAmino;
 }
-/** GenesisState defines the protocolpool module's genesis state. */
+/**
+ * GenesisState defines the protocolpool module's genesis state.
+ * @name GenesisStateSDKType
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.GenesisState
+ */
 export interface GenesisStateSDKType {
   continuous_funds: ContinuousFundSDKType[];
   params: ParamsSDKType;
@@ -41,6 +60,12 @@ function createBaseGenesisState(): GenesisState {
     params: Params.fromPartial({})
   };
 }
+/**
+ * GenesisState defines the protocolpool module's genesis state.
+ * @name GenesisState
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.GenesisState
+ */
 export const GenesisState = {
   typeUrl: "/cosmos.protocolpool.v1.GenesisState",
   aminoType: "cosmos-sdk/GenesisState",
@@ -126,7 +151,12 @@ export const GenesisState = {
       typeUrl: "/cosmos.protocolpool.v1.GenesisState",
       value: GenesisState.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(GenesisState.typeUrl)) {
+      return;
+    }
+    ContinuousFund.registerTypeUrl();
+    Params.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(GenesisState.typeUrl, GenesisState);
-GlobalDecoderRegistry.registerAminoProtoMapping(GenesisState.aminoType, GenesisState.typeUrl);

@@ -2,9 +2,16 @@
 import { Params, ParamsAmino, ParamsSDKType, Beacon, BeaconAmino, BeaconSDKType } from "./beacon";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { GlobalDecoderRegistry } from "../../../registry";
-/** GenesisState defines the beacon module's genesis state. */
+/**
+ * GenesisState defines the beacon module's genesis state.
+ * @name GenesisState
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.GenesisState
+ */
 export interface GenesisState {
-  /** params defines all the parameters of the module. */
+  /**
+   * params defines all the parameters of the module.
+   */
   params: Params;
   startingBeaconId: bigint;
   registeredBeacons: BeaconExport[];
@@ -13,9 +20,16 @@ export interface GenesisStateProtoMsg {
   typeUrl: "/mainchain.beacon.v1.GenesisState";
   value: Uint8Array;
 }
-/** GenesisState defines the beacon module's genesis state. */
+/**
+ * GenesisState defines the beacon module's genesis state.
+ * @name GenesisStateAmino
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.GenesisState
+ */
 export interface GenesisStateAmino {
-  /** params defines all the parameters of the module. */
+  /**
+   * params defines all the parameters of the module.
+   */
   params?: ParamsAmino;
   starting_beacon_id?: string;
   registered_beacons?: BeaconExportAmino[];
@@ -24,7 +38,12 @@ export interface GenesisStateAminoMsg {
   type: "/mainchain.beacon.v1.GenesisState";
   value: GenesisStateAmino;
 }
-/** GenesisState defines the beacon module's genesis state. */
+/**
+ * GenesisState defines the beacon module's genesis state.
+ * @name GenesisStateSDKType
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.GenesisState
+ */
 export interface GenesisStateSDKType {
   params: ParamsSDKType;
   starting_beacon_id: bigint;
@@ -33,6 +52,9 @@ export interface GenesisStateSDKType {
 /**
  * BeaconTimestampGenesisExport is a trimmed version of BeaconTimestamp
  * for genesis exports to conserve space
+ * @name BeaconTimestampGenesisExport
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.BeaconTimestampGenesisExport
  */
 export interface BeaconTimestampGenesisExport {
   id: bigint;
@@ -46,6 +68,9 @@ export interface BeaconTimestampGenesisExportProtoMsg {
 /**
  * BeaconTimestampGenesisExport is a trimmed version of BeaconTimestamp
  * for genesis exports to conserve space
+ * @name BeaconTimestampGenesisExportAmino
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.BeaconTimestampGenesisExport
  */
 export interface BeaconTimestampGenesisExportAmino {
   id?: string;
@@ -59,13 +84,22 @@ export interface BeaconTimestampGenesisExportAminoMsg {
 /**
  * BeaconTimestampGenesisExport is a trimmed version of BeaconTimestamp
  * for genesis exports to conserve space
+ * @name BeaconTimestampGenesisExportSDKType
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.BeaconTimestampGenesisExport
  */
 export interface BeaconTimestampGenesisExportSDKType {
   id: bigint;
   t: bigint;
   h: string;
 }
-/** BeaconExport holds genesis export data for a beacon, including submitted timestamps */
+/**
+ * BeaconExport holds genesis export data for a beacon, including submitted
+ * timestamps
+ * @name BeaconExport
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.BeaconExport
+ */
 export interface BeaconExport {
   beacon: Beacon;
   inStateLimit: bigint;
@@ -75,7 +109,13 @@ export interface BeaconExportProtoMsg {
   typeUrl: "/mainchain.beacon.v1.BeaconExport";
   value: Uint8Array;
 }
-/** BeaconExport holds genesis export data for a beacon, including submitted timestamps */
+/**
+ * BeaconExport holds genesis export data for a beacon, including submitted
+ * timestamps
+ * @name BeaconExportAmino
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.BeaconExport
+ */
 export interface BeaconExportAmino {
   beacon?: BeaconAmino;
   in_state_limit?: string;
@@ -85,7 +125,13 @@ export interface BeaconExportAminoMsg {
   type: "/mainchain.beacon.v1.BeaconExport";
   value: BeaconExportAmino;
 }
-/** BeaconExport holds genesis export data for a beacon, including submitted timestamps */
+/**
+ * BeaconExport holds genesis export data for a beacon, including submitted
+ * timestamps
+ * @name BeaconExportSDKType
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.BeaconExport
+ */
 export interface BeaconExportSDKType {
   beacon: BeaconSDKType;
   in_state_limit: bigint;
@@ -98,6 +144,12 @@ function createBaseGenesisState(): GenesisState {
     registeredBeacons: []
   };
 }
+/**
+ * GenesisState defines the beacon module's genesis state.
+ * @name GenesisState
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.GenesisState
+ */
 export const GenesisState = {
   typeUrl: "/mainchain.beacon.v1.GenesisState",
   is(o: any): o is GenesisState {
@@ -187,9 +239,15 @@ export const GenesisState = {
       typeUrl: "/mainchain.beacon.v1.GenesisState",
       value: GenesisState.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(GenesisState.typeUrl)) {
+      return;
+    }
+    Params.registerTypeUrl();
+    BeaconExport.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(GenesisState.typeUrl, GenesisState);
 function createBaseBeaconTimestampGenesisExport(): BeaconTimestampGenesisExport {
   return {
     id: BigInt(0),
@@ -197,6 +255,13 @@ function createBaseBeaconTimestampGenesisExport(): BeaconTimestampGenesisExport 
     h: ""
   };
 }
+/**
+ * BeaconTimestampGenesisExport is a trimmed version of BeaconTimestamp
+ * for genesis exports to conserve space
+ * @name BeaconTimestampGenesisExport
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.BeaconTimestampGenesisExport
+ */
 export const BeaconTimestampGenesisExport = {
   typeUrl: "/mainchain.beacon.v1.BeaconTimestampGenesisExport",
   is(o: any): o is BeaconTimestampGenesisExport {
@@ -284,9 +349,9 @@ export const BeaconTimestampGenesisExport = {
       typeUrl: "/mainchain.beacon.v1.BeaconTimestampGenesisExport",
       value: BeaconTimestampGenesisExport.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(BeaconTimestampGenesisExport.typeUrl, BeaconTimestampGenesisExport);
 function createBaseBeaconExport(): BeaconExport {
   return {
     beacon: Beacon.fromPartial({}),
@@ -294,6 +359,13 @@ function createBaseBeaconExport(): BeaconExport {
     timestamps: []
   };
 }
+/**
+ * BeaconExport holds genesis export data for a beacon, including submitted
+ * timestamps
+ * @name BeaconExport
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.BeaconExport
+ */
 export const BeaconExport = {
   typeUrl: "/mainchain.beacon.v1.BeaconExport",
   is(o: any): o is BeaconExport {
@@ -383,6 +455,12 @@ export const BeaconExport = {
       typeUrl: "/mainchain.beacon.v1.BeaconExport",
       value: BeaconExport.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(BeaconExport.typeUrl)) {
+      return;
+    }
+    Beacon.registerTypeUrl();
+    BeaconTimestampGenesisExport.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(BeaconExport.typeUrl, BeaconExport);

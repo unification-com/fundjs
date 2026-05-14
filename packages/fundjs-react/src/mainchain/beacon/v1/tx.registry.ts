@@ -1,12 +1,7 @@
 //@ts-nocheck
-import { GeneratedType, Registry } from "@cosmjs/proto-signing";
+import { TelescopeGeneratedType } from "../../../types";
 import { MsgRegisterBeacon, MsgRecordBeaconTimestamp, MsgPurchaseBeaconStateStorage, MsgUpdateParams } from "./tx";
-export const registry: ReadonlyArray<[string, GeneratedType]> = [["/mainchain.beacon.v1.MsgRegisterBeacon", MsgRegisterBeacon], ["/mainchain.beacon.v1.MsgRecordBeaconTimestamp", MsgRecordBeaconTimestamp], ["/mainchain.beacon.v1.MsgPurchaseBeaconStateStorage", MsgPurchaseBeaconStateStorage], ["/mainchain.beacon.v1.MsgUpdateParams", MsgUpdateParams]];
-export const load = (protoRegistry: Registry) => {
-  registry.forEach(([typeUrl, mod]) => {
-    protoRegistry.register(typeUrl, mod);
-  });
-};
+export const registry: ReadonlyArray<[string, TelescopeGeneratedType<any, any, any>]> = [["/mainchain.beacon.v1.MsgRegisterBeacon", MsgRegisterBeacon], ["/mainchain.beacon.v1.MsgRecordBeaconTimestamp", MsgRecordBeaconTimestamp], ["/mainchain.beacon.v1.MsgPurchaseBeaconStateStorage", MsgPurchaseBeaconStateStorage], ["/mainchain.beacon.v1.MsgUpdateParams", MsgUpdateParams]];
 export const MessageComposer = {
   encoded: {
     registerBeacon(value: MsgRegisterBeacon) {

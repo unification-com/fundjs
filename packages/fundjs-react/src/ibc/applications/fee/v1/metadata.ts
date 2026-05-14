@@ -1,14 +1,20 @@
 //@ts-nocheck
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { GlobalDecoderRegistry } from "../../../../registry";
 /**
  * Metadata defines the ICS29 channel specific metadata encoded into the channel version bytestring
  * See ICS004: https://github.com/cosmos/ibc/tree/master/spec/core/ics-004-channel-and-packet-semantics#Versioning
+ * @name Metadata
+ * @package ibc.applications.fee.v1
+ * @see proto type: ibc.applications.fee.v1.Metadata
  */
 export interface Metadata {
-  /** fee_version defines the ICS29 fee version */
+  /**
+   * fee_version defines the ICS29 fee version
+   */
   feeVersion: string;
-  /** app_version defines the underlying application version, which may or may not be a JSON encoded bytestring */
+  /**
+   * app_version defines the underlying application version, which may or may not be a JSON encoded bytestring
+   */
   appVersion: string;
 }
 export interface MetadataProtoMsg {
@@ -18,11 +24,18 @@ export interface MetadataProtoMsg {
 /**
  * Metadata defines the ICS29 channel specific metadata encoded into the channel version bytestring
  * See ICS004: https://github.com/cosmos/ibc/tree/master/spec/core/ics-004-channel-and-packet-semantics#Versioning
+ * @name MetadataAmino
+ * @package ibc.applications.fee.v1
+ * @see proto type: ibc.applications.fee.v1.Metadata
  */
 export interface MetadataAmino {
-  /** fee_version defines the ICS29 fee version */
+  /**
+   * fee_version defines the ICS29 fee version
+   */
   fee_version?: string;
-  /** app_version defines the underlying application version, which may or may not be a JSON encoded bytestring */
+  /**
+   * app_version defines the underlying application version, which may or may not be a JSON encoded bytestring
+   */
   app_version?: string;
 }
 export interface MetadataAminoMsg {
@@ -32,6 +45,9 @@ export interface MetadataAminoMsg {
 /**
  * Metadata defines the ICS29 channel specific metadata encoded into the channel version bytestring
  * See ICS004: https://github.com/cosmos/ibc/tree/master/spec/core/ics-004-channel-and-packet-semantics#Versioning
+ * @name MetadataSDKType
+ * @package ibc.applications.fee.v1
+ * @see proto type: ibc.applications.fee.v1.Metadata
  */
 export interface MetadataSDKType {
   fee_version: string;
@@ -43,6 +59,13 @@ function createBaseMetadata(): Metadata {
     appVersion: ""
   };
 }
+/**
+ * Metadata defines the ICS29 channel specific metadata encoded into the channel version bytestring
+ * See ICS004: https://github.com/cosmos/ibc/tree/master/spec/core/ics-004-channel-and-packet-semantics#Versioning
+ * @name Metadata
+ * @package ibc.applications.fee.v1
+ * @see proto type: ibc.applications.fee.v1.Metadata
+ */
 export const Metadata = {
   typeUrl: "/ibc.applications.fee.v1.Metadata",
   aminoType: "cosmos-sdk/Metadata",
@@ -126,7 +149,6 @@ export const Metadata = {
       typeUrl: "/ibc.applications.fee.v1.Metadata",
       value: Metadata.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(Metadata.typeUrl, Metadata);
-GlobalDecoderRegistry.registerAminoProtoMapping(Metadata.aminoType, Metadata.typeUrl);

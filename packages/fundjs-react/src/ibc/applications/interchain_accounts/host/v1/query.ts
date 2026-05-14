@@ -2,45 +2,85 @@
 import { Params, ParamsAmino, ParamsSDKType } from "./host";
 import { BinaryReader, BinaryWriter } from "../../../../../binary";
 import { GlobalDecoderRegistry } from "../../../../../registry";
-/** QueryParamsRequest is the request type for the Query/Params RPC method. */
+/**
+ * QueryParamsRequest is the request type for the Query/Params RPC method.
+ * @name QueryParamsRequest
+ * @package ibc.applications.interchain_accounts.host.v1
+ * @see proto type: ibc.applications.interchain_accounts.host.v1.QueryParamsRequest
+ */
 export interface QueryParamsRequest {}
 export interface QueryParamsRequestProtoMsg {
   typeUrl: "/ibc.applications.interchain_accounts.host.v1.QueryParamsRequest";
   value: Uint8Array;
 }
-/** QueryParamsRequest is the request type for the Query/Params RPC method. */
+/**
+ * QueryParamsRequest is the request type for the Query/Params RPC method.
+ * @name QueryParamsRequestAmino
+ * @package ibc.applications.interchain_accounts.host.v1
+ * @see proto type: ibc.applications.interchain_accounts.host.v1.QueryParamsRequest
+ */
 export interface QueryParamsRequestAmino {}
 export interface QueryParamsRequestAminoMsg {
   type: "cosmos-sdk/QueryParamsRequest";
   value: QueryParamsRequestAmino;
 }
-/** QueryParamsRequest is the request type for the Query/Params RPC method. */
+/**
+ * QueryParamsRequest is the request type for the Query/Params RPC method.
+ * @name QueryParamsRequestSDKType
+ * @package ibc.applications.interchain_accounts.host.v1
+ * @see proto type: ibc.applications.interchain_accounts.host.v1.QueryParamsRequest
+ */
 export interface QueryParamsRequestSDKType {}
-/** QueryParamsResponse is the response type for the Query/Params RPC method. */
+/**
+ * QueryParamsResponse is the response type for the Query/Params RPC method.
+ * @name QueryParamsResponse
+ * @package ibc.applications.interchain_accounts.host.v1
+ * @see proto type: ibc.applications.interchain_accounts.host.v1.QueryParamsResponse
+ */
 export interface QueryParamsResponse {
-  /** params defines the parameters of the module. */
+  /**
+   * params defines the parameters of the module.
+   */
   params?: Params;
 }
 export interface QueryParamsResponseProtoMsg {
   typeUrl: "/ibc.applications.interchain_accounts.host.v1.QueryParamsResponse";
   value: Uint8Array;
 }
-/** QueryParamsResponse is the response type for the Query/Params RPC method. */
+/**
+ * QueryParamsResponse is the response type for the Query/Params RPC method.
+ * @name QueryParamsResponseAmino
+ * @package ibc.applications.interchain_accounts.host.v1
+ * @see proto type: ibc.applications.interchain_accounts.host.v1.QueryParamsResponse
+ */
 export interface QueryParamsResponseAmino {
-  /** params defines the parameters of the module. */
+  /**
+   * params defines the parameters of the module.
+   */
   params?: ParamsAmino;
 }
 export interface QueryParamsResponseAminoMsg {
   type: "cosmos-sdk/QueryParamsResponse";
   value: QueryParamsResponseAmino;
 }
-/** QueryParamsResponse is the response type for the Query/Params RPC method. */
+/**
+ * QueryParamsResponse is the response type for the Query/Params RPC method.
+ * @name QueryParamsResponseSDKType
+ * @package ibc.applications.interchain_accounts.host.v1
+ * @see proto type: ibc.applications.interchain_accounts.host.v1.QueryParamsResponse
+ */
 export interface QueryParamsResponseSDKType {
   params?: ParamsSDKType;
 }
 function createBaseQueryParamsRequest(): QueryParamsRequest {
   return {};
 }
+/**
+ * QueryParamsRequest is the request type for the Query/Params RPC method.
+ * @name QueryParamsRequest
+ * @package ibc.applications.interchain_accounts.host.v1
+ * @see proto type: ibc.applications.interchain_accounts.host.v1.QueryParamsRequest
+ */
 export const QueryParamsRequest = {
   typeUrl: "/ibc.applications.interchain_accounts.host.v1.QueryParamsRequest",
   aminoType: "cosmos-sdk/QueryParamsRequest",
@@ -102,15 +142,20 @@ export const QueryParamsRequest = {
       typeUrl: "/ibc.applications.interchain_accounts.host.v1.QueryParamsRequest",
       value: QueryParamsRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryParamsRequest.typeUrl, QueryParamsRequest);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryParamsRequest.aminoType, QueryParamsRequest.typeUrl);
 function createBaseQueryParamsResponse(): QueryParamsResponse {
   return {
     params: undefined
   };
 }
+/**
+ * QueryParamsResponse is the response type for the Query/Params RPC method.
+ * @name QueryParamsResponse
+ * @package ibc.applications.interchain_accounts.host.v1
+ * @see proto type: ibc.applications.interchain_accounts.host.v1.QueryParamsResponse
+ */
 export const QueryParamsResponse = {
   typeUrl: "/ibc.applications.interchain_accounts.host.v1.QueryParamsResponse",
   aminoType: "cosmos-sdk/QueryParamsResponse",
@@ -183,7 +228,11 @@ export const QueryParamsResponse = {
       typeUrl: "/ibc.applications.interchain_accounts.host.v1.QueryParamsResponse",
       value: QueryParamsResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryParamsResponse.typeUrl)) {
+      return;
+    }
+    Params.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryParamsResponse.typeUrl, QueryParamsResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryParamsResponse.aminoType, QueryParamsResponse.typeUrl);

@@ -108,25 +108,44 @@ export function signModeToJSON(object: SignMode): string {
       return "UNRECOGNIZED";
   }
 }
-/** SignatureDescriptors wraps multiple SignatureDescriptor's. */
+/**
+ * SignatureDescriptors wraps multiple SignatureDescriptor's.
+ * @name SignatureDescriptors
+ * @package cosmos.tx.signing.v1beta1
+ * @see proto type: cosmos.tx.signing.v1beta1.SignatureDescriptors
+ */
 export interface SignatureDescriptors {
-  /** signatures are the signature descriptors */
+  /**
+   * signatures are the signature descriptors
+   */
   signatures: SignatureDescriptor[];
 }
 export interface SignatureDescriptorsProtoMsg {
   typeUrl: "/cosmos.tx.signing.v1beta1.SignatureDescriptors";
   value: Uint8Array;
 }
-/** SignatureDescriptors wraps multiple SignatureDescriptor's. */
+/**
+ * SignatureDescriptors wraps multiple SignatureDescriptor's.
+ * @name SignatureDescriptorsAmino
+ * @package cosmos.tx.signing.v1beta1
+ * @see proto type: cosmos.tx.signing.v1beta1.SignatureDescriptors
+ */
 export interface SignatureDescriptorsAmino {
-  /** signatures are the signature descriptors */
+  /**
+   * signatures are the signature descriptors
+   */
   signatures?: SignatureDescriptorAmino[];
 }
 export interface SignatureDescriptorsAminoMsg {
   type: "cosmos-sdk/SignatureDescriptors";
   value: SignatureDescriptorsAmino;
 }
-/** SignatureDescriptors wraps multiple SignatureDescriptor's. */
+/**
+ * SignatureDescriptors wraps multiple SignatureDescriptor's.
+ * @name SignatureDescriptorsSDKType
+ * @package cosmos.tx.signing.v1beta1
+ * @see proto type: cosmos.tx.signing.v1beta1.SignatureDescriptors
+ */
 export interface SignatureDescriptorsSDKType {
   signatures: SignatureDescriptorSDKType[];
 }
@@ -135,9 +154,14 @@ export interface SignatureDescriptorsSDKType {
  * a signature including the public key of the signer, signing modes and the
  * signature itself. It is primarily used for coordinating signatures between
  * clients.
+ * @name SignatureDescriptor
+ * @package cosmos.tx.signing.v1beta1
+ * @see proto type: cosmos.tx.signing.v1beta1.SignatureDescriptor
  */
 export interface SignatureDescriptor {
-  /** public_key is the public key of the signer */
+  /**
+   * public_key is the public key of the signer
+   */
   publicKey?: Any;
   data?: SignatureDescriptor_Data;
   /**
@@ -156,9 +180,14 @@ export interface SignatureDescriptorProtoMsg {
  * a signature including the public key of the signer, signing modes and the
  * signature itself. It is primarily used for coordinating signatures between
  * clients.
+ * @name SignatureDescriptorAmino
+ * @package cosmos.tx.signing.v1beta1
+ * @see proto type: cosmos.tx.signing.v1beta1.SignatureDescriptor
  */
 export interface SignatureDescriptorAmino {
-  /** public_key is the public key of the signer */
+  /**
+   * public_key is the public key of the signer
+   */
   public_key?: AnyAmino;
   data?: SignatureDescriptor_DataAmino;
   /**
@@ -177,89 +206,161 @@ export interface SignatureDescriptorAminoMsg {
  * a signature including the public key of the signer, signing modes and the
  * signature itself. It is primarily used for coordinating signatures between
  * clients.
+ * @name SignatureDescriptorSDKType
+ * @package cosmos.tx.signing.v1beta1
+ * @see proto type: cosmos.tx.signing.v1beta1.SignatureDescriptor
  */
 export interface SignatureDescriptorSDKType {
   public_key?: AnySDKType;
   data?: SignatureDescriptor_DataSDKType;
   sequence: bigint;
 }
-/** Data represents signature data */
+/**
+ * Data represents signature data
+ * @name SignatureDescriptor_Data
+ * @package cosmos.tx.signing.v1beta1
+ * @see proto type: cosmos.tx.signing.v1beta1.Data
+ */
 export interface SignatureDescriptor_Data {
-  /** single represents a single signer */
+  /**
+   * single represents a single signer
+   */
   single?: SignatureDescriptor_Data_Single;
-  /** multi represents a multisig signer */
+  /**
+   * multi represents a multisig signer
+   */
   multi?: SignatureDescriptor_Data_Multi;
 }
 export interface SignatureDescriptor_DataProtoMsg {
   typeUrl: "/cosmos.tx.signing.v1beta1.Data";
   value: Uint8Array;
 }
-/** Data represents signature data */
+/**
+ * Data represents signature data
+ * @name SignatureDescriptor_DataAmino
+ * @package cosmos.tx.signing.v1beta1
+ * @see proto type: cosmos.tx.signing.v1beta1.SignatureDescriptor_Data
+ */
 export interface SignatureDescriptor_DataAmino {
-  /** single represents a single signer */
+  /**
+   * single represents a single signer
+   */
   single?: SignatureDescriptor_Data_SingleAmino;
-  /** multi represents a multisig signer */
+  /**
+   * multi represents a multisig signer
+   */
   multi?: SignatureDescriptor_Data_MultiAmino;
 }
 export interface SignatureDescriptor_DataAminoMsg {
   type: "cosmos-sdk/Data";
   value: SignatureDescriptor_DataAmino;
 }
-/** Data represents signature data */
+/**
+ * Data represents signature data
+ * @name SignatureDescriptor_DataSDKType
+ * @package cosmos.tx.signing.v1beta1
+ * @see proto type: cosmos.tx.signing.v1beta1.Data
+ */
 export interface SignatureDescriptor_DataSDKType {
   single?: SignatureDescriptor_Data_SingleSDKType;
   multi?: SignatureDescriptor_Data_MultiSDKType;
 }
-/** Single is the signature data for a single signer */
+/**
+ * Single is the signature data for a single signer
+ * @name SignatureDescriptor_Data_Single
+ * @package cosmos.tx.signing.v1beta1
+ * @see proto type: cosmos.tx.signing.v1beta1.Single
+ */
 export interface SignatureDescriptor_Data_Single {
-  /** mode is the signing mode of the single signer */
+  /**
+   * mode is the signing mode of the single signer
+   */
   mode: SignMode;
-  /** signature is the raw signature bytes */
+  /**
+   * signature is the raw signature bytes
+   */
   signature: Uint8Array;
 }
 export interface SignatureDescriptor_Data_SingleProtoMsg {
   typeUrl: "/cosmos.tx.signing.v1beta1.Single";
   value: Uint8Array;
 }
-/** Single is the signature data for a single signer */
+/**
+ * Single is the signature data for a single signer
+ * @name SignatureDescriptor_Data_SingleAmino
+ * @package cosmos.tx.signing.v1beta1
+ * @see proto type: cosmos.tx.signing.v1beta1.SignatureDescriptor_Data_Single
+ */
 export interface SignatureDescriptor_Data_SingleAmino {
-  /** mode is the signing mode of the single signer */
+  /**
+   * mode is the signing mode of the single signer
+   */
   mode?: SignMode;
-  /** signature is the raw signature bytes */
+  /**
+   * signature is the raw signature bytes
+   */
   signature?: string;
 }
 export interface SignatureDescriptor_Data_SingleAminoMsg {
   type: "cosmos-sdk/Single";
   value: SignatureDescriptor_Data_SingleAmino;
 }
-/** Single is the signature data for a single signer */
+/**
+ * Single is the signature data for a single signer
+ * @name SignatureDescriptor_Data_SingleSDKType
+ * @package cosmos.tx.signing.v1beta1
+ * @see proto type: cosmos.tx.signing.v1beta1.Single
+ */
 export interface SignatureDescriptor_Data_SingleSDKType {
   mode: SignMode;
   signature: Uint8Array;
 }
-/** Multi is the signature data for a multisig public key */
+/**
+ * Multi is the signature data for a multisig public key
+ * @name SignatureDescriptor_Data_Multi
+ * @package cosmos.tx.signing.v1beta1
+ * @see proto type: cosmos.tx.signing.v1beta1.Multi
+ */
 export interface SignatureDescriptor_Data_Multi {
-  /** bitarray specifies which keys within the multisig are signing */
+  /**
+   * bitarray specifies which keys within the multisig are signing
+   */
   bitarray?: CompactBitArray;
-  /** signatures is the signatures of the multi-signature */
+  /**
+   * signatures is the signatures of the multi-signature
+   */
   signatures: SignatureDescriptor_Data[];
 }
 export interface SignatureDescriptor_Data_MultiProtoMsg {
   typeUrl: "/cosmos.tx.signing.v1beta1.Multi";
   value: Uint8Array;
 }
-/** Multi is the signature data for a multisig public key */
+/**
+ * Multi is the signature data for a multisig public key
+ * @name SignatureDescriptor_Data_MultiAmino
+ * @package cosmos.tx.signing.v1beta1
+ * @see proto type: cosmos.tx.signing.v1beta1.SignatureDescriptor_Data_Multi
+ */
 export interface SignatureDescriptor_Data_MultiAmino {
-  /** bitarray specifies which keys within the multisig are signing */
+  /**
+   * bitarray specifies which keys within the multisig are signing
+   */
   bitarray?: CompactBitArrayAmino;
-  /** signatures is the signatures of the multi-signature */
+  /**
+   * signatures is the signatures of the multi-signature
+   */
   signatures?: SignatureDescriptor_DataAmino[];
 }
 export interface SignatureDescriptor_Data_MultiAminoMsg {
   type: "cosmos-sdk/Multi";
   value: SignatureDescriptor_Data_MultiAmino;
 }
-/** Multi is the signature data for a multisig public key */
+/**
+ * Multi is the signature data for a multisig public key
+ * @name SignatureDescriptor_Data_MultiSDKType
+ * @package cosmos.tx.signing.v1beta1
+ * @see proto type: cosmos.tx.signing.v1beta1.Multi
+ */
 export interface SignatureDescriptor_Data_MultiSDKType {
   bitarray?: CompactBitArraySDKType;
   signatures: SignatureDescriptor_DataSDKType[];
@@ -269,6 +370,12 @@ function createBaseSignatureDescriptors(): SignatureDescriptors {
     signatures: []
   };
 }
+/**
+ * SignatureDescriptors wraps multiple SignatureDescriptor's.
+ * @name SignatureDescriptors
+ * @package cosmos.tx.signing.v1beta1
+ * @see proto type: cosmos.tx.signing.v1beta1.SignatureDescriptors
+ */
 export const SignatureDescriptors = {
   typeUrl: "/cosmos.tx.signing.v1beta1.SignatureDescriptors",
   aminoType: "cosmos-sdk/SignatureDescriptors",
@@ -343,10 +450,14 @@ export const SignatureDescriptors = {
       typeUrl: "/cosmos.tx.signing.v1beta1.SignatureDescriptors",
       value: SignatureDescriptors.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(SignatureDescriptors.typeUrl)) {
+      return;
+    }
+    SignatureDescriptor.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(SignatureDescriptors.typeUrl, SignatureDescriptors);
-GlobalDecoderRegistry.registerAminoProtoMapping(SignatureDescriptors.aminoType, SignatureDescriptors.typeUrl);
 function createBaseSignatureDescriptor(): SignatureDescriptor {
   return {
     publicKey: undefined,
@@ -354,6 +465,15 @@ function createBaseSignatureDescriptor(): SignatureDescriptor {
     sequence: BigInt(0)
   };
 }
+/**
+ * SignatureDescriptor is a convenience type which represents the full data for
+ * a signature including the public key of the signer, signing modes and the
+ * signature itself. It is primarily used for coordinating signatures between
+ * clients.
+ * @name SignatureDescriptor
+ * @package cosmos.tx.signing.v1beta1
+ * @see proto type: cosmos.tx.signing.v1beta1.SignatureDescriptor
+ */
 export const SignatureDescriptor = {
   typeUrl: "/cosmos.tx.signing.v1beta1.SignatureDescriptor",
   aminoType: "cosmos-sdk/SignatureDescriptor",
@@ -448,16 +568,26 @@ export const SignatureDescriptor = {
       typeUrl: "/cosmos.tx.signing.v1beta1.SignatureDescriptor",
       value: SignatureDescriptor.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(SignatureDescriptor.typeUrl)) {
+      return;
+    }
+    SignatureDescriptor_Data.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(SignatureDescriptor.typeUrl, SignatureDescriptor);
-GlobalDecoderRegistry.registerAminoProtoMapping(SignatureDescriptor.aminoType, SignatureDescriptor.typeUrl);
 function createBaseSignatureDescriptor_Data(): SignatureDescriptor_Data {
   return {
     single: undefined,
     multi: undefined
   };
 }
+/**
+ * Data represents signature data
+ * @name SignatureDescriptor_Data
+ * @package cosmos.tx.signing.v1beta1
+ * @see proto type: cosmos.tx.signing.v1beta1.Data
+ */
 export const SignatureDescriptor_Data = {
   typeUrl: "/cosmos.tx.signing.v1beta1.Data",
   aminoType: "cosmos-sdk/Data",
@@ -541,16 +671,27 @@ export const SignatureDescriptor_Data = {
       typeUrl: "/cosmos.tx.signing.v1beta1.Data",
       value: SignatureDescriptor_Data.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(SignatureDescriptor_Data.typeUrl)) {
+      return;
+    }
+    SignatureDescriptor_Data_Single.registerTypeUrl();
+    SignatureDescriptor_Data_Multi.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(SignatureDescriptor_Data.typeUrl, SignatureDescriptor_Data);
-GlobalDecoderRegistry.registerAminoProtoMapping(SignatureDescriptor_Data.aminoType, SignatureDescriptor_Data.typeUrl);
 function createBaseSignatureDescriptor_Data_Single(): SignatureDescriptor_Data_Single {
   return {
     mode: 0,
     signature: new Uint8Array()
   };
 }
+/**
+ * Single is the signature data for a single signer
+ * @name SignatureDescriptor_Data_Single
+ * @package cosmos.tx.signing.v1beta1
+ * @see proto type: cosmos.tx.signing.v1beta1.Single
+ */
 export const SignatureDescriptor_Data_Single = {
   typeUrl: "/cosmos.tx.signing.v1beta1.Single",
   aminoType: "cosmos-sdk/Single",
@@ -634,16 +775,21 @@ export const SignatureDescriptor_Data_Single = {
       typeUrl: "/cosmos.tx.signing.v1beta1.Single",
       value: SignatureDescriptor_Data_Single.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(SignatureDescriptor_Data_Single.typeUrl, SignatureDescriptor_Data_Single);
-GlobalDecoderRegistry.registerAminoProtoMapping(SignatureDescriptor_Data_Single.aminoType, SignatureDescriptor_Data_Single.typeUrl);
 function createBaseSignatureDescriptor_Data_Multi(): SignatureDescriptor_Data_Multi {
   return {
     bitarray: undefined,
     signatures: []
   };
 }
+/**
+ * Multi is the signature data for a multisig public key
+ * @name SignatureDescriptor_Data_Multi
+ * @package cosmos.tx.signing.v1beta1
+ * @see proto type: cosmos.tx.signing.v1beta1.Multi
+ */
 export const SignatureDescriptor_Data_Multi = {
   typeUrl: "/cosmos.tx.signing.v1beta1.Multi",
   aminoType: "cosmos-sdk/Multi",
@@ -729,7 +875,12 @@ export const SignatureDescriptor_Data_Multi = {
       typeUrl: "/cosmos.tx.signing.v1beta1.Multi",
       value: SignatureDescriptor_Data_Multi.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(SignatureDescriptor_Data_Multi.typeUrl)) {
+      return;
+    }
+    CompactBitArray.registerTypeUrl();
+    SignatureDescriptor_Data.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(SignatureDescriptor_Data_Multi.typeUrl, SignatureDescriptor_Data_Multi);
-GlobalDecoderRegistry.registerAminoProtoMapping(SignatureDescriptor_Data_Multi.aminoType, SignatureDescriptor_Data_Multi.typeUrl);

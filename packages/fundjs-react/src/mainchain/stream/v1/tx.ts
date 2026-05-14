@@ -5,307 +5,610 @@ import { Timestamp } from "../../../google/protobuf/timestamp";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { GlobalDecoderRegistry } from "../../../registry";
 import { toTimestamp, fromTimestamp } from "../../../helpers";
-/** MsgCreateStream creates a new stream */
+/**
+ * MsgCreateStream creates a new stream
+ * @name MsgCreateStream
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgCreateStream
+ */
 export interface MsgCreateStream {
-  /** receiver is the wallet that will receive stream payments */
+  /**
+   * receiver is the wallet that will receive stream payments
+   */
   receiver: string;
-  /** sender is the address of the stream creator, sending the stream */
+  /**
+   * sender is the address of the stream creator, sending the stream
+   */
   sender: string;
-  /** deposit is the amount being sent to deposit for the stream */
+  /**
+   * deposit is the amount being sent to deposit for the stream
+   */
   deposit: Coin;
-  /** flow_rate is the rate of nund per second */
+  /**
+   * flow_rate is the rate of nund per second
+   */
   flowRate: bigint;
 }
 export interface MsgCreateStreamProtoMsg {
   typeUrl: "/mainchain.stream.v1.MsgCreateStream";
   value: Uint8Array;
 }
-/** MsgCreateStream creates a new stream */
+/**
+ * MsgCreateStream creates a new stream
+ * @name MsgCreateStreamAmino
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgCreateStream
+ */
 export interface MsgCreateStreamAmino {
-  /** receiver is the wallet that will receive stream payments */
+  /**
+   * receiver is the wallet that will receive stream payments
+   */
   receiver?: string;
-  /** sender is the address of the stream creator, sending the stream */
+  /**
+   * sender is the address of the stream creator, sending the stream
+   */
   sender?: string;
-  /** deposit is the amount being sent to deposit for the stream */
+  /**
+   * deposit is the amount being sent to deposit for the stream
+   */
   deposit?: CoinAmino;
-  /** flow_rate is the rate of nund per second */
+  /**
+   * flow_rate is the rate of nund per second
+   */
   flow_rate?: string;
 }
 export interface MsgCreateStreamAminoMsg {
   type: "stream/MsgCreateStream";
   value: MsgCreateStreamAmino;
 }
-/** MsgCreateStream creates a new stream */
+/**
+ * MsgCreateStream creates a new stream
+ * @name MsgCreateStreamSDKType
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgCreateStream
+ */
 export interface MsgCreateStreamSDKType {
   receiver: string;
   sender: string;
   deposit: CoinSDKType;
   flow_rate: bigint;
 }
-/** MsgCreateStreamResponse is the response for MsgCreateStream */
+/**
+ * MsgCreateStreamResponse is the response for MsgCreateStream
+ * @name MsgCreateStreamResponse
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgCreateStreamResponse
+ */
 export interface MsgCreateStreamResponse {
-  /** receiver is the wallet that will receive stream payments */
+  /**
+   * receiver is the wallet that will receive stream payments
+   */
   receiver: string;
-  /** sender is the address of the stream creator, sending the stream */
+  /**
+   * sender is the address of the stream creator, sending the stream
+   */
   sender: string;
-  /** deposit is the amount being sent to deposit for the stream */
+  /**
+   * deposit is the amount being sent to deposit for the stream
+   */
   deposit: Coin;
-  /** flow_rate is the rate of nund per second */
+  /**
+   * flow_rate is the rate of nund per second
+   */
   flowRate: bigint;
 }
 export interface MsgCreateStreamResponseProtoMsg {
   typeUrl: "/mainchain.stream.v1.MsgCreateStreamResponse";
   value: Uint8Array;
 }
-/** MsgCreateStreamResponse is the response for MsgCreateStream */
+/**
+ * MsgCreateStreamResponse is the response for MsgCreateStream
+ * @name MsgCreateStreamResponseAmino
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgCreateStreamResponse
+ */
 export interface MsgCreateStreamResponseAmino {
-  /** receiver is the wallet that will receive stream payments */
+  /**
+   * receiver is the wallet that will receive stream payments
+   */
   receiver?: string;
-  /** sender is the address of the stream creator, sending the stream */
+  /**
+   * sender is the address of the stream creator, sending the stream
+   */
   sender?: string;
-  /** deposit is the amount being sent to deposit for the stream */
+  /**
+   * deposit is the amount being sent to deposit for the stream
+   */
   deposit?: CoinAmino;
-  /** flow_rate is the rate of nund per second */
+  /**
+   * flow_rate is the rate of nund per second
+   */
   flow_rate?: string;
 }
 export interface MsgCreateStreamResponseAminoMsg {
   type: "/mainchain.stream.v1.MsgCreateStreamResponse";
   value: MsgCreateStreamResponseAmino;
 }
-/** MsgCreateStreamResponse is the response for MsgCreateStream */
+/**
+ * MsgCreateStreamResponse is the response for MsgCreateStream
+ * @name MsgCreateStreamResponseSDKType
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgCreateStreamResponse
+ */
 export interface MsgCreateStreamResponseSDKType {
   receiver: string;
   sender: string;
   deposit: CoinSDKType;
   flow_rate: bigint;
 }
-/** MsgClaimStream claims pending payments form a stream using the sender and receiver addresses */
+/**
+ * MsgClaimStream claims pending payments form a stream using the sender and
+ * receiver addresses
+ * @name MsgClaimStream
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgClaimStream
+ */
 export interface MsgClaimStream {
-  /** sender is sender wallet of the stream being claimed */
+  /**
+   * sender is sender wallet of the stream being claimed
+   */
   sender: string;
-  /** receiver is the wallet making the claim */
+  /**
+   * receiver is the wallet making the claim
+   */
   receiver: string;
+  /**
+   * denom identifies which of the streams between (sender, receiver) to claim
+   * from
+   */
+  denom: string;
 }
 export interface MsgClaimStreamProtoMsg {
   typeUrl: "/mainchain.stream.v1.MsgClaimStream";
   value: Uint8Array;
 }
-/** MsgClaimStream claims pending payments form a stream using the sender and receiver addresses */
+/**
+ * MsgClaimStream claims pending payments form a stream using the sender and
+ * receiver addresses
+ * @name MsgClaimStreamAmino
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgClaimStream
+ */
 export interface MsgClaimStreamAmino {
-  /** sender is sender wallet of the stream being claimed */
+  /**
+   * sender is sender wallet of the stream being claimed
+   */
   sender?: string;
-  /** receiver is the wallet making the claim */
+  /**
+   * receiver is the wallet making the claim
+   */
   receiver?: string;
+  /**
+   * denom identifies which of the streams between (sender, receiver) to claim
+   * from
+   */
+  denom?: string;
 }
 export interface MsgClaimStreamAminoMsg {
   type: "stream/MsgClaimStream";
   value: MsgClaimStreamAmino;
 }
-/** MsgClaimStream claims pending payments form a stream using the sender and receiver addresses */
+/**
+ * MsgClaimStream claims pending payments form a stream using the sender and
+ * receiver addresses
+ * @name MsgClaimStreamSDKType
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgClaimStream
+ */
 export interface MsgClaimStreamSDKType {
   sender: string;
   receiver: string;
+  denom: string;
 }
+/**
+ * MsgClaimStreamResponse is the response from a successful MsgClaimStream,
+ * breaking down the claim into the receiver payment, validator fee, and the
+ * remaining deposit left on the stream.
+ * @name MsgClaimStreamResponse
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgClaimStreamResponse
+ */
 export interface MsgClaimStreamResponse {
-  /** total_claimed is the total value of the claim */
+  /**
+   * total_claimed is the total value of the claim
+   */
   totalClaimed: Coin;
-  /** stream_payment is the amount received by the receiver wallet */
+  /**
+   * stream_payment is the amount received by the receiver wallet
+   */
   streamPayment: Coin;
-  /** validator_fee is the amount sent to validators */
+  /**
+   * validator_fee is the amount sent to validators
+   */
   validatorFee: Coin;
-  /** remaining_deposit is the amount of deposit remaining in the stream */
+  /**
+   * remaining_deposit is the amount of deposit remaining in the stream
+   */
   remainingDeposit: Coin;
 }
 export interface MsgClaimStreamResponseProtoMsg {
   typeUrl: "/mainchain.stream.v1.MsgClaimStreamResponse";
   value: Uint8Array;
 }
+/**
+ * MsgClaimStreamResponse is the response from a successful MsgClaimStream,
+ * breaking down the claim into the receiver payment, validator fee, and the
+ * remaining deposit left on the stream.
+ * @name MsgClaimStreamResponseAmino
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgClaimStreamResponse
+ */
 export interface MsgClaimStreamResponseAmino {
-  /** total_claimed is the total value of the claim */
+  /**
+   * total_claimed is the total value of the claim
+   */
   total_claimed?: CoinAmino;
-  /** stream_payment is the amount received by the receiver wallet */
+  /**
+   * stream_payment is the amount received by the receiver wallet
+   */
   stream_payment?: CoinAmino;
-  /** validator_fee is the amount sent to validators */
+  /**
+   * validator_fee is the amount sent to validators
+   */
   validator_fee?: CoinAmino;
-  /** remaining_deposit is the amount of deposit remaining in the stream */
+  /**
+   * remaining_deposit is the amount of deposit remaining in the stream
+   */
   remaining_deposit?: CoinAmino;
 }
 export interface MsgClaimStreamResponseAminoMsg {
   type: "/mainchain.stream.v1.MsgClaimStreamResponse";
   value: MsgClaimStreamResponseAmino;
 }
+/**
+ * MsgClaimStreamResponse is the response from a successful MsgClaimStream,
+ * breaking down the claim into the receiver payment, validator fee, and the
+ * remaining deposit left on the stream.
+ * @name MsgClaimStreamResponseSDKType
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgClaimStreamResponse
+ */
 export interface MsgClaimStreamResponseSDKType {
   total_claimed: CoinSDKType;
   stream_payment: CoinSDKType;
   validator_fee: CoinSDKType;
   remaining_deposit: CoinSDKType;
 }
-/** MsgTopUpDeposit tops up deposits in an existing stream */
+/**
+ * MsgTopUpDeposit tops up deposits in an existing stream
+ * @name MsgTopUpDeposit
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgTopUpDeposit
+ */
 export interface MsgTopUpDeposit {
-  /** receiver is the wallet that will receive stream payments */
+  /**
+   * receiver is the wallet that will receive stream payments
+   */
   receiver: string;
-  /** sender is the wallet making the deposit */
+  /**
+   * sender is the wallet making the deposit
+   */
   sender: string;
-  /** deposit is the amount being sent to deposit for the stream */
+  /**
+   * deposit is the amount being sent to deposit for the stream
+   */
   deposit: Coin;
 }
 export interface MsgTopUpDepositProtoMsg {
   typeUrl: "/mainchain.stream.v1.MsgTopUpDeposit";
   value: Uint8Array;
 }
-/** MsgTopUpDeposit tops up deposits in an existing stream */
+/**
+ * MsgTopUpDeposit tops up deposits in an existing stream
+ * @name MsgTopUpDepositAmino
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgTopUpDeposit
+ */
 export interface MsgTopUpDepositAmino {
-  /** receiver is the wallet that will receive stream payments */
+  /**
+   * receiver is the wallet that will receive stream payments
+   */
   receiver?: string;
-  /** sender is the wallet making the deposit */
+  /**
+   * sender is the wallet making the deposit
+   */
   sender?: string;
-  /** deposit is the amount being sent to deposit for the stream */
+  /**
+   * deposit is the amount being sent to deposit for the stream
+   */
   deposit?: CoinAmino;
 }
 export interface MsgTopUpDepositAminoMsg {
   type: "stream/MsgTopUpDeposit";
   value: MsgTopUpDepositAmino;
 }
-/** MsgTopUpDeposit tops up deposits in an existing stream */
+/**
+ * MsgTopUpDeposit tops up deposits in an existing stream
+ * @name MsgTopUpDepositSDKType
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgTopUpDeposit
+ */
 export interface MsgTopUpDepositSDKType {
   receiver: string;
   sender: string;
   deposit: CoinSDKType;
 }
-/** MsgTopUpDepositResponse is the response for MsgTopUpDeposit */
+/**
+ * MsgTopUpDepositResponse is the response for MsgTopUpDeposit
+ * @name MsgTopUpDepositResponse
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgTopUpDepositResponse
+ */
 export interface MsgTopUpDepositResponse {
-  /** deposit_amount is the amount deposited */
+  /**
+   * deposit_amount is the amount deposited
+   */
   depositAmount: Coin;
-  /** current_deposit is the total current deposit in the stream */
+  /**
+   * current_deposit is the total current deposit in the stream
+   */
   currentDeposit: Coin;
-  /** deposit_zero_time is the timestamp for when the current deposited amount will run out */
+  /**
+   * deposit_zero_time is the timestamp for when the current deposited amount
+   * will run out
+   */
   depositZeroTime: Date;
 }
 export interface MsgTopUpDepositResponseProtoMsg {
   typeUrl: "/mainchain.stream.v1.MsgTopUpDepositResponse";
   value: Uint8Array;
 }
-/** MsgTopUpDepositResponse is the response for MsgTopUpDeposit */
+/**
+ * MsgTopUpDepositResponse is the response for MsgTopUpDeposit
+ * @name MsgTopUpDepositResponseAmino
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgTopUpDepositResponse
+ */
 export interface MsgTopUpDepositResponseAmino {
-  /** deposit_amount is the amount deposited */
+  /**
+   * deposit_amount is the amount deposited
+   */
   deposit_amount?: CoinAmino;
-  /** current_deposit is the total current deposit in the stream */
+  /**
+   * current_deposit is the total current deposit in the stream
+   */
   current_deposit?: CoinAmino;
-  /** deposit_zero_time is the timestamp for when the current deposited amount will run out */
+  /**
+   * deposit_zero_time is the timestamp for when the current deposited amount
+   * will run out
+   */
   deposit_zero_time?: string;
 }
 export interface MsgTopUpDepositResponseAminoMsg {
   type: "/mainchain.stream.v1.MsgTopUpDepositResponse";
   value: MsgTopUpDepositResponseAmino;
 }
-/** MsgTopUpDepositResponse is the response for MsgTopUpDeposit */
+/**
+ * MsgTopUpDepositResponse is the response for MsgTopUpDeposit
+ * @name MsgTopUpDepositResponseSDKType
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgTopUpDepositResponse
+ */
 export interface MsgTopUpDepositResponseSDKType {
   deposit_amount: CoinSDKType;
   current_deposit: CoinSDKType;
   deposit_zero_time: Date;
 }
-/** MsgUpdateFlowRate updates a stream's flow rate */
+/**
+ * MsgUpdateFlowRate updates a stream's flow rate
+ * @name MsgUpdateFlowRate
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgUpdateFlowRate
+ */
 export interface MsgUpdateFlowRate {
-  /** receiver is the wallet that will receive stream payments */
+  /**
+   * receiver is the wallet that will receive stream payments
+   */
   receiver: string;
-  /** sender is the wallet making the update */
+  /**
+   * sender is the wallet making the update
+   */
   sender: string;
-  /** flow_rate is the rate of nund per second */
+  /**
+   * flow_rate is the rate of nund per second
+   */
   flowRate: bigint;
+  /**
+   * denom identifies which of the streams between (sender, receiver) to update
+   */
+  denom: string;
 }
 export interface MsgUpdateFlowRateProtoMsg {
   typeUrl: "/mainchain.stream.v1.MsgUpdateFlowRate";
   value: Uint8Array;
 }
-/** MsgUpdateFlowRate updates a stream's flow rate */
+/**
+ * MsgUpdateFlowRate updates a stream's flow rate
+ * @name MsgUpdateFlowRateAmino
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgUpdateFlowRate
+ */
 export interface MsgUpdateFlowRateAmino {
-  /** receiver is the wallet that will receive stream payments */
+  /**
+   * receiver is the wallet that will receive stream payments
+   */
   receiver?: string;
-  /** sender is the wallet making the update */
+  /**
+   * sender is the wallet making the update
+   */
   sender?: string;
-  /** flow_rate is the rate of nund per second */
+  /**
+   * flow_rate is the rate of nund per second
+   */
   flow_rate?: string;
+  /**
+   * denom identifies which of the streams between (sender, receiver) to update
+   */
+  denom?: string;
 }
 export interface MsgUpdateFlowRateAminoMsg {
   type: "stream/MsgUpdateFlowRate";
   value: MsgUpdateFlowRateAmino;
 }
-/** MsgUpdateFlowRate updates a stream's flow rate */
+/**
+ * MsgUpdateFlowRate updates a stream's flow rate
+ * @name MsgUpdateFlowRateSDKType
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgUpdateFlowRate
+ */
 export interface MsgUpdateFlowRateSDKType {
   receiver: string;
   sender: string;
   flow_rate: bigint;
+  denom: string;
 }
-/** MsgUpdateFlowRateResponse is the response for MsgUpdateFlowRate */
+/**
+ * MsgUpdateFlowRateResponse is the response for MsgUpdateFlowRate
+ * @name MsgUpdateFlowRateResponse
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgUpdateFlowRateResponse
+ */
 export interface MsgUpdateFlowRateResponse {
-  /** flow_rate is the rate of nund per second */
+  /**
+   * flow_rate is the rate of nund per second
+   */
   flowRate: bigint;
 }
 export interface MsgUpdateFlowRateResponseProtoMsg {
   typeUrl: "/mainchain.stream.v1.MsgUpdateFlowRateResponse";
   value: Uint8Array;
 }
-/** MsgUpdateFlowRateResponse is the response for MsgUpdateFlowRate */
+/**
+ * MsgUpdateFlowRateResponse is the response for MsgUpdateFlowRate
+ * @name MsgUpdateFlowRateResponseAmino
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgUpdateFlowRateResponse
+ */
 export interface MsgUpdateFlowRateResponseAmino {
-  /** flow_rate is the rate of nund per second */
+  /**
+   * flow_rate is the rate of nund per second
+   */
   flow_rate?: string;
 }
 export interface MsgUpdateFlowRateResponseAminoMsg {
   type: "/mainchain.stream.v1.MsgUpdateFlowRateResponse";
   value: MsgUpdateFlowRateResponseAmino;
 }
-/** MsgUpdateFlowRateResponse is the response for MsgUpdateFlowRate */
+/**
+ * MsgUpdateFlowRateResponse is the response for MsgUpdateFlowRate
+ * @name MsgUpdateFlowRateResponseSDKType
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgUpdateFlowRateResponse
+ */
 export interface MsgUpdateFlowRateResponseSDKType {
   flow_rate: bigint;
 }
-/** MsgCancelStream */
+/**
+ * MsgCancelStream
+ * @name MsgCancelStream
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgCancelStream
+ */
 export interface MsgCancelStream {
-  /** receiver is the wallet that will receive stream payments */
+  /**
+   * receiver is the wallet that will receive stream payments
+   */
   receiver: string;
-  /** sender is the wallet cancelling */
+  /**
+   * sender is the wallet cancelling
+   */
   sender: string;
+  /**
+   * denom identifies which of the streams between (sender, receiver) to cancel
+   */
+  denom: string;
 }
 export interface MsgCancelStreamProtoMsg {
   typeUrl: "/mainchain.stream.v1.MsgCancelStream";
   value: Uint8Array;
 }
-/** MsgCancelStream */
+/**
+ * MsgCancelStream
+ * @name MsgCancelStreamAmino
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgCancelStream
+ */
 export interface MsgCancelStreamAmino {
-  /** receiver is the wallet that will receive stream payments */
+  /**
+   * receiver is the wallet that will receive stream payments
+   */
   receiver?: string;
-  /** sender is the wallet cancelling */
+  /**
+   * sender is the wallet cancelling
+   */
   sender?: string;
+  /**
+   * denom identifies which of the streams between (sender, receiver) to cancel
+   */
+  denom?: string;
 }
 export interface MsgCancelStreamAminoMsg {
   type: "stream/MsgCancelStream";
   value: MsgCancelStreamAmino;
 }
-/** MsgCancelStream */
+/**
+ * MsgCancelStream
+ * @name MsgCancelStreamSDKType
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgCancelStream
+ */
 export interface MsgCancelStreamSDKType {
   receiver: string;
   sender: string;
+  denom: string;
 }
-/** MsgCancelStreamResponse */
+/**
+ * MsgCancelStreamResponse
+ * @name MsgCancelStreamResponse
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgCancelStreamResponse
+ */
 export interface MsgCancelStreamResponse {}
 export interface MsgCancelStreamResponseProtoMsg {
   typeUrl: "/mainchain.stream.v1.MsgCancelStreamResponse";
   value: Uint8Array;
 }
-/** MsgCancelStreamResponse */
+/**
+ * MsgCancelStreamResponse
+ * @name MsgCancelStreamResponseAmino
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgCancelStreamResponse
+ */
 export interface MsgCancelStreamResponseAmino {}
 export interface MsgCancelStreamResponseAminoMsg {
   type: "/mainchain.stream.v1.MsgCancelStreamResponse";
   value: MsgCancelStreamResponseAmino;
 }
-/** MsgCancelStreamResponse */
+/**
+ * MsgCancelStreamResponse
+ * @name MsgCancelStreamResponseSDKType
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgCancelStreamResponse
+ */
 export interface MsgCancelStreamResponseSDKType {}
 /**
  * MsgUpdateParams is the Msg/UpdateParams request type.
  * 
  * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParams
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgUpdateParams
  */
 export interface MsgUpdateParams {
-  /** authority is the address that controls the module (defaults to x/gov unless overwritten). */
+  /**
+   * authority is the address that controls the module (defaults to x/gov unless
+   * overwritten).
+   */
   authority: string;
   /**
    * params defines the x/stream parameters to update.
@@ -322,9 +625,15 @@ export interface MsgUpdateParamsProtoMsg {
  * MsgUpdateParams is the Msg/UpdateParams request type.
  * 
  * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParamsAmino
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgUpdateParams
  */
 export interface MsgUpdateParamsAmino {
-  /** authority is the address that controls the module (defaults to x/gov unless overwritten). */
+  /**
+   * authority is the address that controls the module (defaults to x/gov unless
+   * overwritten).
+   */
   authority?: string;
   /**
    * params defines the x/stream parameters to update.
@@ -341,6 +650,9 @@ export interface MsgUpdateParamsAminoMsg {
  * MsgUpdateParams is the Msg/UpdateParams request type.
  * 
  * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParamsSDKType
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgUpdateParams
  */
 export interface MsgUpdateParamsSDKType {
   authority: string;
@@ -351,6 +663,9 @@ export interface MsgUpdateParamsSDKType {
  * MsgUpdateParams message.
  * 
  * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParamsResponse
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgUpdateParamsResponse
  */
 export interface MsgUpdateParamsResponse {}
 export interface MsgUpdateParamsResponseProtoMsg {
@@ -362,6 +677,9 @@ export interface MsgUpdateParamsResponseProtoMsg {
  * MsgUpdateParams message.
  * 
  * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParamsResponseAmino
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgUpdateParamsResponse
  */
 export interface MsgUpdateParamsResponseAmino {}
 export interface MsgUpdateParamsResponseAminoMsg {
@@ -373,6 +691,9 @@ export interface MsgUpdateParamsResponseAminoMsg {
  * MsgUpdateParams message.
  * 
  * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParamsResponseSDKType
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgUpdateParamsResponse
  */
 export interface MsgUpdateParamsResponseSDKType {}
 function createBaseMsgCreateStream(): MsgCreateStream {
@@ -383,6 +704,12 @@ function createBaseMsgCreateStream(): MsgCreateStream {
     flowRate: BigInt(0)
   };
 }
+/**
+ * MsgCreateStream creates a new stream
+ * @name MsgCreateStream
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgCreateStream
+ */
 export const MsgCreateStream = {
   typeUrl: "/mainchain.stream.v1.MsgCreateStream",
   aminoType: "stream/MsgCreateStream",
@@ -488,10 +815,14 @@ export const MsgCreateStream = {
       typeUrl: "/mainchain.stream.v1.MsgCreateStream",
       value: MsgCreateStream.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgCreateStream.typeUrl)) {
+      return;
+    }
+    Coin.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgCreateStream.typeUrl, MsgCreateStream);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgCreateStream.aminoType, MsgCreateStream.typeUrl);
 function createBaseMsgCreateStreamResponse(): MsgCreateStreamResponse {
   return {
     receiver: "",
@@ -500,6 +831,12 @@ function createBaseMsgCreateStreamResponse(): MsgCreateStreamResponse {
     flowRate: BigInt(0)
   };
 }
+/**
+ * MsgCreateStreamResponse is the response for MsgCreateStream
+ * @name MsgCreateStreamResponse
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgCreateStreamResponse
+ */
 export const MsgCreateStreamResponse = {
   typeUrl: "/mainchain.stream.v1.MsgCreateStreamResponse",
   is(o: any): o is MsgCreateStreamResponse {
@@ -598,26 +935,39 @@ export const MsgCreateStreamResponse = {
       typeUrl: "/mainchain.stream.v1.MsgCreateStreamResponse",
       value: MsgCreateStreamResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgCreateStreamResponse.typeUrl)) {
+      return;
+    }
+    Coin.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgCreateStreamResponse.typeUrl, MsgCreateStreamResponse);
 function createBaseMsgClaimStream(): MsgClaimStream {
   return {
     sender: "",
-    receiver: ""
+    receiver: "",
+    denom: ""
   };
 }
+/**
+ * MsgClaimStream claims pending payments form a stream using the sender and
+ * receiver addresses
+ * @name MsgClaimStream
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgClaimStream
+ */
 export const MsgClaimStream = {
   typeUrl: "/mainchain.stream.v1.MsgClaimStream",
   aminoType: "stream/MsgClaimStream",
   is(o: any): o is MsgClaimStream {
-    return o && (o.$typeUrl === MsgClaimStream.typeUrl || typeof o.sender === "string" && typeof o.receiver === "string");
+    return o && (o.$typeUrl === MsgClaimStream.typeUrl || typeof o.sender === "string" && typeof o.receiver === "string" && typeof o.denom === "string");
   },
   isSDK(o: any): o is MsgClaimStreamSDKType {
-    return o && (o.$typeUrl === MsgClaimStream.typeUrl || typeof o.sender === "string" && typeof o.receiver === "string");
+    return o && (o.$typeUrl === MsgClaimStream.typeUrl || typeof o.sender === "string" && typeof o.receiver === "string" && typeof o.denom === "string");
   },
   isAmino(o: any): o is MsgClaimStreamAmino {
-    return o && (o.$typeUrl === MsgClaimStream.typeUrl || typeof o.sender === "string" && typeof o.receiver === "string");
+    return o && (o.$typeUrl === MsgClaimStream.typeUrl || typeof o.sender === "string" && typeof o.receiver === "string" && typeof o.denom === "string");
   },
   encode(message: MsgClaimStream, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.sender !== "") {
@@ -625,6 +975,9 @@ export const MsgClaimStream = {
     }
     if (message.receiver !== "") {
       writer.uint32(18).string(message.receiver);
+    }
+    if (message.denom !== "") {
+      writer.uint32(26).string(message.denom);
     }
     return writer;
   },
@@ -641,6 +994,9 @@ export const MsgClaimStream = {
         case 2:
           message.receiver = reader.string();
           break;
+        case 3:
+          message.denom = reader.string();
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -652,6 +1008,7 @@ export const MsgClaimStream = {
     const message = createBaseMsgClaimStream();
     message.sender = object.sender ?? "";
     message.receiver = object.receiver ?? "";
+    message.denom = object.denom ?? "";
     return message;
   },
   fromAmino(object: MsgClaimStreamAmino): MsgClaimStream {
@@ -662,12 +1019,16 @@ export const MsgClaimStream = {
     if (object.receiver !== undefined && object.receiver !== null) {
       message.receiver = object.receiver;
     }
+    if (object.denom !== undefined && object.denom !== null) {
+      message.denom = object.denom;
+    }
     return message;
   },
   toAmino(message: MsgClaimStream): MsgClaimStreamAmino {
     const obj: any = {};
     obj.sender = message.sender === "" ? undefined : message.sender;
     obj.receiver = message.receiver === "" ? undefined : message.receiver;
+    obj.denom = message.denom === "" ? undefined : message.denom;
     return obj;
   },
   fromAminoMsg(object: MsgClaimStreamAminoMsg): MsgClaimStream {
@@ -690,10 +1051,9 @@ export const MsgClaimStream = {
       typeUrl: "/mainchain.stream.v1.MsgClaimStream",
       value: MsgClaimStream.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgClaimStream.typeUrl, MsgClaimStream);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgClaimStream.aminoType, MsgClaimStream.typeUrl);
 function createBaseMsgClaimStreamResponse(): MsgClaimStreamResponse {
   return {
     totalClaimed: Coin.fromPartial({}),
@@ -702,6 +1062,14 @@ function createBaseMsgClaimStreamResponse(): MsgClaimStreamResponse {
     remainingDeposit: Coin.fromPartial({})
   };
 }
+/**
+ * MsgClaimStreamResponse is the response from a successful MsgClaimStream,
+ * breaking down the claim into the receiver payment, validator fee, and the
+ * remaining deposit left on the stream.
+ * @name MsgClaimStreamResponse
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgClaimStreamResponse
+ */
 export const MsgClaimStreamResponse = {
   typeUrl: "/mainchain.stream.v1.MsgClaimStreamResponse",
   is(o: any): o is MsgClaimStreamResponse {
@@ -800,9 +1168,14 @@ export const MsgClaimStreamResponse = {
       typeUrl: "/mainchain.stream.v1.MsgClaimStreamResponse",
       value: MsgClaimStreamResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgClaimStreamResponse.typeUrl)) {
+      return;
+    }
+    Coin.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgClaimStreamResponse.typeUrl, MsgClaimStreamResponse);
 function createBaseMsgTopUpDeposit(): MsgTopUpDeposit {
   return {
     receiver: "",
@@ -810,6 +1183,12 @@ function createBaseMsgTopUpDeposit(): MsgTopUpDeposit {
     deposit: Coin.fromPartial({})
   };
 }
+/**
+ * MsgTopUpDeposit tops up deposits in an existing stream
+ * @name MsgTopUpDeposit
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgTopUpDeposit
+ */
 export const MsgTopUpDeposit = {
   typeUrl: "/mainchain.stream.v1.MsgTopUpDeposit",
   aminoType: "stream/MsgTopUpDeposit",
@@ -904,10 +1283,14 @@ export const MsgTopUpDeposit = {
       typeUrl: "/mainchain.stream.v1.MsgTopUpDeposit",
       value: MsgTopUpDeposit.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgTopUpDeposit.typeUrl)) {
+      return;
+    }
+    Coin.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgTopUpDeposit.typeUrl, MsgTopUpDeposit);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgTopUpDeposit.aminoType, MsgTopUpDeposit.typeUrl);
 function createBaseMsgTopUpDepositResponse(): MsgTopUpDepositResponse {
   return {
     depositAmount: Coin.fromPartial({}),
@@ -915,6 +1298,12 @@ function createBaseMsgTopUpDepositResponse(): MsgTopUpDepositResponse {
     depositZeroTime: new Date()
   };
 }
+/**
+ * MsgTopUpDepositResponse is the response for MsgTopUpDeposit
+ * @name MsgTopUpDepositResponse
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgTopUpDepositResponse
+ */
 export const MsgTopUpDepositResponse = {
   typeUrl: "/mainchain.stream.v1.MsgTopUpDepositResponse",
   is(o: any): o is MsgTopUpDepositResponse {
@@ -1002,27 +1391,39 @@ export const MsgTopUpDepositResponse = {
       typeUrl: "/mainchain.stream.v1.MsgTopUpDepositResponse",
       value: MsgTopUpDepositResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgTopUpDepositResponse.typeUrl)) {
+      return;
+    }
+    Coin.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgTopUpDepositResponse.typeUrl, MsgTopUpDepositResponse);
 function createBaseMsgUpdateFlowRate(): MsgUpdateFlowRate {
   return {
     receiver: "",
     sender: "",
-    flowRate: BigInt(0)
+    flowRate: BigInt(0),
+    denom: ""
   };
 }
+/**
+ * MsgUpdateFlowRate updates a stream's flow rate
+ * @name MsgUpdateFlowRate
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgUpdateFlowRate
+ */
 export const MsgUpdateFlowRate = {
   typeUrl: "/mainchain.stream.v1.MsgUpdateFlowRate",
   aminoType: "stream/MsgUpdateFlowRate",
   is(o: any): o is MsgUpdateFlowRate {
-    return o && (o.$typeUrl === MsgUpdateFlowRate.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string" && typeof o.flowRate === "bigint");
+    return o && (o.$typeUrl === MsgUpdateFlowRate.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string" && typeof o.flowRate === "bigint" && typeof o.denom === "string");
   },
   isSDK(o: any): o is MsgUpdateFlowRateSDKType {
-    return o && (o.$typeUrl === MsgUpdateFlowRate.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string" && typeof o.flow_rate === "bigint");
+    return o && (o.$typeUrl === MsgUpdateFlowRate.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string" && typeof o.flow_rate === "bigint" && typeof o.denom === "string");
   },
   isAmino(o: any): o is MsgUpdateFlowRateAmino {
-    return o && (o.$typeUrl === MsgUpdateFlowRate.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string" && typeof o.flow_rate === "bigint");
+    return o && (o.$typeUrl === MsgUpdateFlowRate.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string" && typeof o.flow_rate === "bigint" && typeof o.denom === "string");
   },
   encode(message: MsgUpdateFlowRate, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.receiver !== "") {
@@ -1033,6 +1434,9 @@ export const MsgUpdateFlowRate = {
     }
     if (message.flowRate !== BigInt(0)) {
       writer.uint32(24).int64(message.flowRate);
+    }
+    if (message.denom !== "") {
+      writer.uint32(34).string(message.denom);
     }
     return writer;
   },
@@ -1052,6 +1456,9 @@ export const MsgUpdateFlowRate = {
         case 3:
           message.flowRate = reader.int64();
           break;
+        case 4:
+          message.denom = reader.string();
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -1064,6 +1471,7 @@ export const MsgUpdateFlowRate = {
     message.receiver = object.receiver ?? "";
     message.sender = object.sender ?? "";
     message.flowRate = object.flowRate !== undefined && object.flowRate !== null ? BigInt(object.flowRate.toString()) : BigInt(0);
+    message.denom = object.denom ?? "";
     return message;
   },
   fromAmino(object: MsgUpdateFlowRateAmino): MsgUpdateFlowRate {
@@ -1077,6 +1485,9 @@ export const MsgUpdateFlowRate = {
     if (object.flow_rate !== undefined && object.flow_rate !== null) {
       message.flowRate = BigInt(object.flow_rate);
     }
+    if (object.denom !== undefined && object.denom !== null) {
+      message.denom = object.denom;
+    }
     return message;
   },
   toAmino(message: MsgUpdateFlowRate): MsgUpdateFlowRateAmino {
@@ -1084,6 +1495,7 @@ export const MsgUpdateFlowRate = {
     obj.receiver = message.receiver === "" ? undefined : message.receiver;
     obj.sender = message.sender === "" ? undefined : message.sender;
     obj.flow_rate = message.flowRate !== BigInt(0) ? message.flowRate?.toString() : undefined;
+    obj.denom = message.denom === "" ? undefined : message.denom;
     return obj;
   },
   fromAminoMsg(object: MsgUpdateFlowRateAminoMsg): MsgUpdateFlowRate {
@@ -1106,15 +1518,20 @@ export const MsgUpdateFlowRate = {
       typeUrl: "/mainchain.stream.v1.MsgUpdateFlowRate",
       value: MsgUpdateFlowRate.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgUpdateFlowRate.typeUrl, MsgUpdateFlowRate);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgUpdateFlowRate.aminoType, MsgUpdateFlowRate.typeUrl);
 function createBaseMsgUpdateFlowRateResponse(): MsgUpdateFlowRateResponse {
   return {
     flowRate: BigInt(0)
   };
 }
+/**
+ * MsgUpdateFlowRateResponse is the response for MsgUpdateFlowRate
+ * @name MsgUpdateFlowRateResponse
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgUpdateFlowRateResponse
+ */
 export const MsgUpdateFlowRateResponse = {
   typeUrl: "/mainchain.stream.v1.MsgUpdateFlowRateResponse",
   is(o: any): o is MsgUpdateFlowRateResponse {
@@ -1180,26 +1597,33 @@ export const MsgUpdateFlowRateResponse = {
       typeUrl: "/mainchain.stream.v1.MsgUpdateFlowRateResponse",
       value: MsgUpdateFlowRateResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgUpdateFlowRateResponse.typeUrl, MsgUpdateFlowRateResponse);
 function createBaseMsgCancelStream(): MsgCancelStream {
   return {
     receiver: "",
-    sender: ""
+    sender: "",
+    denom: ""
   };
 }
+/**
+ * MsgCancelStream
+ * @name MsgCancelStream
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgCancelStream
+ */
 export const MsgCancelStream = {
   typeUrl: "/mainchain.stream.v1.MsgCancelStream",
   aminoType: "stream/MsgCancelStream",
   is(o: any): o is MsgCancelStream {
-    return o && (o.$typeUrl === MsgCancelStream.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string");
+    return o && (o.$typeUrl === MsgCancelStream.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string" && typeof o.denom === "string");
   },
   isSDK(o: any): o is MsgCancelStreamSDKType {
-    return o && (o.$typeUrl === MsgCancelStream.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string");
+    return o && (o.$typeUrl === MsgCancelStream.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string" && typeof o.denom === "string");
   },
   isAmino(o: any): o is MsgCancelStreamAmino {
-    return o && (o.$typeUrl === MsgCancelStream.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string");
+    return o && (o.$typeUrl === MsgCancelStream.typeUrl || typeof o.receiver === "string" && typeof o.sender === "string" && typeof o.denom === "string");
   },
   encode(message: MsgCancelStream, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.receiver !== "") {
@@ -1207,6 +1631,9 @@ export const MsgCancelStream = {
     }
     if (message.sender !== "") {
       writer.uint32(18).string(message.sender);
+    }
+    if (message.denom !== "") {
+      writer.uint32(26).string(message.denom);
     }
     return writer;
   },
@@ -1223,6 +1650,9 @@ export const MsgCancelStream = {
         case 2:
           message.sender = reader.string();
           break;
+        case 3:
+          message.denom = reader.string();
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -1234,6 +1664,7 @@ export const MsgCancelStream = {
     const message = createBaseMsgCancelStream();
     message.receiver = object.receiver ?? "";
     message.sender = object.sender ?? "";
+    message.denom = object.denom ?? "";
     return message;
   },
   fromAmino(object: MsgCancelStreamAmino): MsgCancelStream {
@@ -1244,12 +1675,16 @@ export const MsgCancelStream = {
     if (object.sender !== undefined && object.sender !== null) {
       message.sender = object.sender;
     }
+    if (object.denom !== undefined && object.denom !== null) {
+      message.denom = object.denom;
+    }
     return message;
   },
   toAmino(message: MsgCancelStream): MsgCancelStreamAmino {
     const obj: any = {};
     obj.receiver = message.receiver === "" ? undefined : message.receiver;
     obj.sender = message.sender === "" ? undefined : message.sender;
+    obj.denom = message.denom === "" ? undefined : message.denom;
     return obj;
   },
   fromAminoMsg(object: MsgCancelStreamAminoMsg): MsgCancelStream {
@@ -1272,13 +1707,18 @@ export const MsgCancelStream = {
       typeUrl: "/mainchain.stream.v1.MsgCancelStream",
       value: MsgCancelStream.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgCancelStream.typeUrl, MsgCancelStream);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgCancelStream.aminoType, MsgCancelStream.typeUrl);
 function createBaseMsgCancelStreamResponse(): MsgCancelStreamResponse {
   return {};
 }
+/**
+ * MsgCancelStreamResponse
+ * @name MsgCancelStreamResponse
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgCancelStreamResponse
+ */
 export const MsgCancelStreamResponse = {
   typeUrl: "/mainchain.stream.v1.MsgCancelStreamResponse",
   is(o: any): o is MsgCancelStreamResponse {
@@ -1333,15 +1773,23 @@ export const MsgCancelStreamResponse = {
       typeUrl: "/mainchain.stream.v1.MsgCancelStreamResponse",
       value: MsgCancelStreamResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgCancelStreamResponse.typeUrl, MsgCancelStreamResponse);
 function createBaseMsgUpdateParams(): MsgUpdateParams {
   return {
     authority: "",
     params: Params.fromPartial({})
   };
 }
+/**
+ * MsgUpdateParams is the Msg/UpdateParams request type.
+ * 
+ * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParams
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgUpdateParams
+ */
 export const MsgUpdateParams = {
   typeUrl: "/mainchain.stream.v1.MsgUpdateParams",
   aminoType: "mainchain/x/stream/MsgUpdateParams",
@@ -1425,13 +1873,26 @@ export const MsgUpdateParams = {
       typeUrl: "/mainchain.stream.v1.MsgUpdateParams",
       value: MsgUpdateParams.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgUpdateParams.typeUrl)) {
+      return;
+    }
+    Params.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgUpdateParams.typeUrl, MsgUpdateParams);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgUpdateParams.aminoType, MsgUpdateParams.typeUrl);
 function createBaseMsgUpdateParamsResponse(): MsgUpdateParamsResponse {
   return {};
 }
+/**
+ * MsgUpdateParamsResponse defines the response structure for executing a
+ * MsgUpdateParams message.
+ * 
+ * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParamsResponse
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.MsgUpdateParamsResponse
+ */
 export const MsgUpdateParamsResponse = {
   typeUrl: "/mainchain.stream.v1.MsgUpdateParamsResponse",
   is(o: any): o is MsgUpdateParamsResponse {
@@ -1486,6 +1947,6 @@ export const MsgUpdateParamsResponse = {
       typeUrl: "/mainchain.stream.v1.MsgUpdateParamsResponse",
       value: MsgUpdateParamsResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgUpdateParamsResponse.typeUrl, MsgUpdateParamsResponse);

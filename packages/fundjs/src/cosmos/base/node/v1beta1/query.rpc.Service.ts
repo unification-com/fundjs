@@ -1,5 +1,5 @@
 //@ts-nocheck
-import { Rpc } from "../../../../helpers";
+import { TxRpc } from "../../../../types";
 import { BinaryReader } from "../../../../binary";
 import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
 import { ConfigRequest, ConfigResponse, StatusRequest, StatusResponse } from "./query";
@@ -11,8 +11,8 @@ export interface Service {
   status(request?: StatusRequest): Promise<StatusResponse>;
 }
 export class ServiceClientImpl implements Service {
-  private readonly rpc: Rpc;
-  constructor(rpc: Rpc) {
+  private readonly rpc: TxRpc;
+  constructor(rpc: TxRpc) {
     this.rpc = rpc;
     this.config = this.config.bind(this);
     this.status = this.status.bind(this);

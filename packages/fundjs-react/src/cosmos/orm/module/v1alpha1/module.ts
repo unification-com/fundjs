@@ -1,10 +1,12 @@
 //@ts-nocheck
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { GlobalDecoderRegistry } from "../../../../registry";
 /**
  * Module defines the ORM module which adds providers to the app container for
  * ORM ModuleDB's and in the future will automatically register query
  * services for modules that use the ORM.
+ * @name Module
+ * @package cosmos.orm.module.v1alpha1
+ * @see proto type: cosmos.orm.module.v1alpha1.Module
  */
 export interface Module {}
 export interface ModuleProtoMsg {
@@ -15,6 +17,9 @@ export interface ModuleProtoMsg {
  * Module defines the ORM module which adds providers to the app container for
  * ORM ModuleDB's and in the future will automatically register query
  * services for modules that use the ORM.
+ * @name ModuleAmino
+ * @package cosmos.orm.module.v1alpha1
+ * @see proto type: cosmos.orm.module.v1alpha1.Module
  */
 export interface ModuleAmino {}
 export interface ModuleAminoMsg {
@@ -25,11 +30,22 @@ export interface ModuleAminoMsg {
  * Module defines the ORM module which adds providers to the app container for
  * ORM ModuleDB's and in the future will automatically register query
  * services for modules that use the ORM.
+ * @name ModuleSDKType
+ * @package cosmos.orm.module.v1alpha1
+ * @see proto type: cosmos.orm.module.v1alpha1.Module
  */
 export interface ModuleSDKType {}
 function createBaseModule(): Module {
   return {};
 }
+/**
+ * Module defines the ORM module which adds providers to the app container for
+ * ORM ModuleDB's and in the future will automatically register query
+ * services for modules that use the ORM.
+ * @name Module
+ * @package cosmos.orm.module.v1alpha1
+ * @see proto type: cosmos.orm.module.v1alpha1.Module
+ */
 export const Module = {
   typeUrl: "/cosmos.orm.module.v1alpha1.Module",
   aminoType: "cosmos-sdk/Module",
@@ -91,7 +107,6 @@ export const Module = {
       typeUrl: "/cosmos.orm.module.v1alpha1.Module",
       value: Module.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(Module.typeUrl, Module);
-GlobalDecoderRegistry.registerAminoProtoMapping(Module.aminoType, Module.typeUrl);

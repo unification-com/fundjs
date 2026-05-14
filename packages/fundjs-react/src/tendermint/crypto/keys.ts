@@ -1,8 +1,12 @@
 //@ts-nocheck
 import { BinaryReader, BinaryWriter } from "../../binary";
 import { bytesFromBase64, base64FromBytes } from "../../helpers";
-import { GlobalDecoderRegistry } from "../../registry";
-/** PublicKey defines the keys available for use with Validators */
+/**
+ * PublicKey defines the keys available for use with Validators
+ * @name PublicKey
+ * @package tendermint.crypto
+ * @see proto type: tendermint.crypto.PublicKey
+ */
 export interface PublicKey {
   ed25519?: Uint8Array;
   secp256k1?: Uint8Array;
@@ -11,7 +15,12 @@ export interface PublicKeyProtoMsg {
   typeUrl: "/tendermint.crypto.PublicKey";
   value: Uint8Array;
 }
-/** PublicKey defines the keys available for use with Validators */
+/**
+ * PublicKey defines the keys available for use with Validators
+ * @name PublicKeyAmino
+ * @package tendermint.crypto
+ * @see proto type: tendermint.crypto.PublicKey
+ */
 export interface PublicKeyAmino {
   ed25519?: string;
   secp256k1?: string;
@@ -20,7 +29,12 @@ export interface PublicKeyAminoMsg {
   type: "/tendermint.crypto.PublicKey";
   value: PublicKeyAmino;
 }
-/** PublicKey defines the keys available for use with Validators */
+/**
+ * PublicKey defines the keys available for use with Validators
+ * @name PublicKeySDKType
+ * @package tendermint.crypto
+ * @see proto type: tendermint.crypto.PublicKey
+ */
 export interface PublicKeySDKType {
   ed25519?: Uint8Array;
   secp256k1?: Uint8Array;
@@ -31,6 +45,12 @@ function createBasePublicKey(): PublicKey {
     secp256k1: undefined
   };
 }
+/**
+ * PublicKey defines the keys available for use with Validators
+ * @name PublicKey
+ * @package tendermint.crypto
+ * @see proto type: tendermint.crypto.PublicKey
+ */
 export const PublicKey = {
   typeUrl: "/tendermint.crypto.PublicKey",
   is(o: any): o is PublicKey {
@@ -107,6 +127,6 @@ export const PublicKey = {
       typeUrl: "/tendermint.crypto.PublicKey",
       value: PublicKey.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(PublicKey.typeUrl, PublicKey);

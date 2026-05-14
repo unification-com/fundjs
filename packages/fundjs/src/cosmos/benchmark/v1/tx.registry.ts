@@ -1,12 +1,7 @@
 //@ts-nocheck
-import { GeneratedType, Registry } from "@cosmjs/proto-signing";
+import { TelescopeGeneratedType } from "../../../types";
 import { MsgLoadTest } from "./tx";
-export const registry: ReadonlyArray<[string, GeneratedType]> = [["/cosmos.benchmark.v1.MsgLoadTest", MsgLoadTest]];
-export const load = (protoRegistry: Registry) => {
-  registry.forEach(([typeUrl, mod]) => {
-    protoRegistry.register(typeUrl, mod);
-  });
-};
+export const registry: ReadonlyArray<[string, TelescopeGeneratedType<any, any, any>]> = [["/cosmos.benchmark.v1.MsgLoadTest", MsgLoadTest]];
 export const MessageComposer = {
   encoded: {
     loadTest(value: MsgLoadTest) {

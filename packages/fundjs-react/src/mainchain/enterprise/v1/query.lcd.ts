@@ -26,7 +26,8 @@ export class LCDQueryClient {
     const endpoint = `mainchain/enterprise/v1/params`;
     return await this.req.get<QueryParamsResponseSDKType>(endpoint);
   }
-  /* EnterpriseUndPurchaseOrder queries purchase order details based on PurchaseOrderId. */
+  /* EnterpriseUndPurchaseOrder queries purchase order details based on
+   PurchaseOrderId. */
   async enterpriseUndPurchaseOrder(params: QueryEnterpriseUndPurchaseOrderRequest): Promise<QueryEnterpriseUndPurchaseOrderResponseSDKType> {
     const endpoint = `mainchain/enterprise/v1/pos/${params.purchaseOrderId}`;
     return await this.req.get<QueryEnterpriseUndPurchaseOrderResponseSDKType>(endpoint);
@@ -58,27 +59,32 @@ export class LCDQueryClient {
     const endpoint = `mainchain/enterprise/v1/locked`;
     return await this.req.get<QueryTotalLockedResponseSDKType>(endpoint);
   }
-  /* Whitelist queries whitelisted addresses authorised to raise new purchase orders */
+  /* Whitelist queries whitelisted addresses authorised to raise new purchase
+   orders */
   async whitelist(_params: QueryWhitelistRequest = {}): Promise<QueryWhitelistResponseSDKType> {
     const endpoint = `mainchain/enterprise/v1/whitelist`;
     return await this.req.get<QueryWhitelistResponseSDKType>(endpoint);
   }
-  /* Whitelisted queries whether or not the given address is authorised to raise new purchase orders */
+  /* Whitelisted queries whether or not the given address is authorised to raise
+   new purchase orders */
   async whitelisted(params: QueryWhitelistedRequest): Promise<QueryWhitelistedResponseSDKType> {
     const endpoint = `mainchain/enterprise/v1/whitelist/${params.address}`;
     return await this.req.get<QueryWhitelistedResponseSDKType>(endpoint);
   }
-  /* EnterpriseAccount queries an account address for their locked FUND and other data */
+  /* EnterpriseAccount queries an account address for their locked FUND and
+   other data */
   async enterpriseAccount(params: QueryEnterpriseAccountRequest): Promise<QueryEnterpriseAccountResponseSDKType> {
     const endpoint = `mainchain/enterprise/v1/account/${params.address}`;
     return await this.req.get<QueryEnterpriseAccountResponseSDKType>(endpoint);
   }
-  /* TotalSpentEFUND queries the total eFUND usage to date - i.e. the amount used to pay fees */
+  /* TotalSpentEFUND queries the total eFUND usage to date - i.e. the amount
+   used to pay fees */
   async totalSpentEFUND(_params: QueryTotalSpentEFUNDRequest = {}): Promise<QueryTotalSpentEFUNDResponseSDKType> {
     const endpoint = `mainchain/enterprise/v1/total_spent`;
     return await this.req.get<QueryTotalSpentEFUNDResponseSDKType>(endpoint);
   }
-  /* SpentEFUNDByAddress queries the total eFUND usage to date for a given address, i.e. the amount used to pay fees */
+  /* SpentEFUNDByAddress queries the total eFUND usage to date for a given
+   address, i.e. the amount used to pay fees */
   async spentEFUNDByAddress(params: QuerySpentEFUNDByAddressRequest): Promise<QuerySpentEFUNDByAddressResponseSDKType> {
     const endpoint = `mainchain/enterprise/v1/spent/${params.address}`;
     return await this.req.get<QuerySpentEFUNDByAddressResponseSDKType>(endpoint);

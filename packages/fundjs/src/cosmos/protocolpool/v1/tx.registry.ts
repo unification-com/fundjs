@@ -1,12 +1,7 @@
 //@ts-nocheck
-import { GeneratedType, Registry } from "@cosmjs/proto-signing";
+import { TelescopeGeneratedType } from "../../../types";
 import { MsgFundCommunityPool, MsgCommunityPoolSpend, MsgCreateContinuousFund, MsgCancelContinuousFund, MsgUpdateParams } from "./tx";
-export const registry: ReadonlyArray<[string, GeneratedType]> = [["/cosmos.protocolpool.v1.MsgFundCommunityPool", MsgFundCommunityPool], ["/cosmos.protocolpool.v1.MsgCommunityPoolSpend", MsgCommunityPoolSpend], ["/cosmos.protocolpool.v1.MsgCreateContinuousFund", MsgCreateContinuousFund], ["/cosmos.protocolpool.v1.MsgCancelContinuousFund", MsgCancelContinuousFund], ["/cosmos.protocolpool.v1.MsgUpdateParams", MsgUpdateParams]];
-export const load = (protoRegistry: Registry) => {
-  registry.forEach(([typeUrl, mod]) => {
-    protoRegistry.register(typeUrl, mod);
-  });
-};
+export const registry: ReadonlyArray<[string, TelescopeGeneratedType<any, any, any>]> = [["/cosmos.protocolpool.v1.MsgFundCommunityPool", MsgFundCommunityPool], ["/cosmos.protocolpool.v1.MsgCommunityPoolSpend", MsgCommunityPoolSpend], ["/cosmos.protocolpool.v1.MsgCreateContinuousFund", MsgCreateContinuousFund], ["/cosmos.protocolpool.v1.MsgCancelContinuousFund", MsgCancelContinuousFund], ["/cosmos.protocolpool.v1.MsgUpdateParams", MsgUpdateParams]];
 export const MessageComposer = {
   encoded: {
     fundCommunityPool(value: MsgFundCommunityPool) {

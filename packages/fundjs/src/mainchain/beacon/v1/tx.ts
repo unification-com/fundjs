@@ -2,183 +2,346 @@
 import { Params, ParamsAmino, ParamsSDKType } from "./beacon";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { GlobalDecoderRegistry } from "../../../registry";
-/** MsgRegisterBeacon represents a message to register a new beacon */
+/**
+ * MsgRegisterBeacon represents a message to register a new beacon
+ * @name MsgRegisterBeacon
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.MsgRegisterBeacon
+ */
 export interface MsgRegisterBeacon {
-  /** moniker is a short identifier for a beacon */
+  /**
+   * moniker is a short identifier for a beacon
+   */
   moniker: string;
-  /** name is a long name for a beacon */
+  /**
+   * name is a long name for a beacon
+   */
   name: string;
-  /** owner is the address of the owner of the beacon */
+  /**
+   * owner is the address of the owner of the beacon
+   */
   owner: string;
 }
 export interface MsgRegisterBeaconProtoMsg {
   typeUrl: "/mainchain.beacon.v1.MsgRegisterBeacon";
   value: Uint8Array;
 }
-/** MsgRegisterBeacon represents a message to register a new beacon */
+/**
+ * MsgRegisterBeacon represents a message to register a new beacon
+ * @name MsgRegisterBeaconAmino
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.MsgRegisterBeacon
+ */
 export interface MsgRegisterBeaconAmino {
-  /** moniker is a short identifier for a beacon */
+  /**
+   * moniker is a short identifier for a beacon
+   */
   moniker?: string;
-  /** name is a long name for a beacon */
+  /**
+   * name is a long name for a beacon
+   */
   name?: string;
-  /** owner is the address of the owner of the beacon */
+  /**
+   * owner is the address of the owner of the beacon
+   */
   owner?: string;
 }
 export interface MsgRegisterBeaconAminoMsg {
   type: "beacon/MsgRegisterBeacon";
   value: MsgRegisterBeaconAmino;
 }
-/** MsgRegisterBeacon represents a message to register a new beacon */
+/**
+ * MsgRegisterBeacon represents a message to register a new beacon
+ * @name MsgRegisterBeaconSDKType
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.MsgRegisterBeacon
+ */
 export interface MsgRegisterBeaconSDKType {
   moniker: string;
   name: string;
   owner: string;
 }
-/** MsgRegisterBeaconResponse defines the Msg/RegisterBeacon response type. */
+/**
+ * MsgRegisterBeaconResponse defines the Msg/RegisterBeacon response type.
+ * @name MsgRegisterBeaconResponse
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.MsgRegisterBeaconResponse
+ */
 export interface MsgRegisterBeaconResponse {
-  /** beacon_id is the id of the new beacon */
+  /**
+   * beacon_id is the id of the new beacon
+   */
   beaconId: bigint;
 }
 export interface MsgRegisterBeaconResponseProtoMsg {
   typeUrl: "/mainchain.beacon.v1.MsgRegisterBeaconResponse";
   value: Uint8Array;
 }
-/** MsgRegisterBeaconResponse defines the Msg/RegisterBeacon response type. */
+/**
+ * MsgRegisterBeaconResponse defines the Msg/RegisterBeacon response type.
+ * @name MsgRegisterBeaconResponseAmino
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.MsgRegisterBeaconResponse
+ */
 export interface MsgRegisterBeaconResponseAmino {
-  /** beacon_id is the id of the new beacon */
+  /**
+   * beacon_id is the id of the new beacon
+   */
   beacon_id?: string;
 }
 export interface MsgRegisterBeaconResponseAminoMsg {
   type: "/mainchain.beacon.v1.MsgRegisterBeaconResponse";
   value: MsgRegisterBeaconResponseAmino;
 }
-/** MsgRegisterBeaconResponse defines the Msg/RegisterBeacon response type. */
+/**
+ * MsgRegisterBeaconResponse defines the Msg/RegisterBeacon response type.
+ * @name MsgRegisterBeaconResponseSDKType
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.MsgRegisterBeaconResponse
+ */
 export interface MsgRegisterBeaconResponseSDKType {
   beacon_id: bigint;
 }
-/** MsgRecordBeaconTimestamp represents a message to record a timestamp for a registered beacon */
+/**
+ * MsgRecordBeaconTimestamp represents a message to record a timestamp for a
+ * registered beacon
+ * @name MsgRecordBeaconTimestamp
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.MsgRecordBeaconTimestamp
+ */
 export interface MsgRecordBeaconTimestamp {
-  /** beacon_id is the id of the beacon the timestamp is being submitted for */
+  /**
+   * beacon_id is the id of the beacon the timestamp is being submitted for
+   */
   beaconId: bigint;
-  /** hash is the hash or data being submitted */
+  /**
+   * hash is the hash or data being submitted
+   */
   hash: string;
-  /** submit_time is a unix epoch value of the submission time */
+  /**
+   * submit_time is a unix epoch value of the submission time
+   */
   submitTime: bigint;
-  /** owner is the address of the owner of the beacon */
+  /**
+   * owner is the address of the owner of the beacon
+   */
   owner: string;
 }
 export interface MsgRecordBeaconTimestampProtoMsg {
   typeUrl: "/mainchain.beacon.v1.MsgRecordBeaconTimestamp";
   value: Uint8Array;
 }
-/** MsgRecordBeaconTimestamp represents a message to record a timestamp for a registered beacon */
+/**
+ * MsgRecordBeaconTimestamp represents a message to record a timestamp for a
+ * registered beacon
+ * @name MsgRecordBeaconTimestampAmino
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.MsgRecordBeaconTimestamp
+ */
 export interface MsgRecordBeaconTimestampAmino {
-  /** beacon_id is the id of the beacon the timestamp is being submitted for */
+  /**
+   * beacon_id is the id of the beacon the timestamp is being submitted for
+   */
   beacon_id?: string;
-  /** hash is the hash or data being submitted */
+  /**
+   * hash is the hash or data being submitted
+   */
   hash?: string;
-  /** submit_time is a unix epoch value of the submission time */
+  /**
+   * submit_time is a unix epoch value of the submission time
+   */
   submit_time?: string;
-  /** owner is the address of the owner of the beacon */
+  /**
+   * owner is the address of the owner of the beacon
+   */
   owner?: string;
 }
 export interface MsgRecordBeaconTimestampAminoMsg {
   type: "beacon/MsgRecordBeaconTimestamp";
   value: MsgRecordBeaconTimestampAmino;
 }
-/** MsgRecordBeaconTimestamp represents a message to record a timestamp for a registered beacon */
+/**
+ * MsgRecordBeaconTimestamp represents a message to record a timestamp for a
+ * registered beacon
+ * @name MsgRecordBeaconTimestampSDKType
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.MsgRecordBeaconTimestamp
+ */
 export interface MsgRecordBeaconTimestampSDKType {
   beacon_id: bigint;
   hash: string;
   submit_time: bigint;
   owner: string;
 }
-/** MsgRecordBeaconTimestampResponse defines the Msg/RecordBeacon response type. */
+/**
+ * MsgRecordBeaconTimestampResponse defines the Msg/RecordBeacon response type.
+ * @name MsgRecordBeaconTimestampResponse
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.MsgRecordBeaconTimestampResponse
+ */
 export interface MsgRecordBeaconTimestampResponse {
-  /** beacon_id is the id of the beacon */
+  /**
+   * beacon_id is the id of the beacon
+   */
   beaconId: bigint;
-  /** timestamp_id is the id of the new timestamp */
+  /**
+   * timestamp_id is the id of the new timestamp
+   */
   timestampId: bigint;
 }
 export interface MsgRecordBeaconTimestampResponseProtoMsg {
   typeUrl: "/mainchain.beacon.v1.MsgRecordBeaconTimestampResponse";
   value: Uint8Array;
 }
-/** MsgRecordBeaconTimestampResponse defines the Msg/RecordBeacon response type. */
+/**
+ * MsgRecordBeaconTimestampResponse defines the Msg/RecordBeacon response type.
+ * @name MsgRecordBeaconTimestampResponseAmino
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.MsgRecordBeaconTimestampResponse
+ */
 export interface MsgRecordBeaconTimestampResponseAmino {
-  /** beacon_id is the id of the beacon */
+  /**
+   * beacon_id is the id of the beacon
+   */
   beacon_id?: string;
-  /** timestamp_id is the id of the new timestamp */
+  /**
+   * timestamp_id is the id of the new timestamp
+   */
   timestamp_id?: string;
 }
 export interface MsgRecordBeaconTimestampResponseAminoMsg {
   type: "/mainchain.beacon.v1.MsgRecordBeaconTimestampResponse";
   value: MsgRecordBeaconTimestampResponseAmino;
 }
-/** MsgRecordBeaconTimestampResponse defines the Msg/RecordBeacon response type. */
+/**
+ * MsgRecordBeaconTimestampResponse defines the Msg/RecordBeacon response type.
+ * @name MsgRecordBeaconTimestampResponseSDKType
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.MsgRecordBeaconTimestampResponse
+ */
 export interface MsgRecordBeaconTimestampResponseSDKType {
   beacon_id: bigint;
   timestamp_id: bigint;
 }
-/** MsgPurchaseBeaconStateStorage represents a message to purchase more beacon storage */
+/**
+ * MsgPurchaseBeaconStateStorage represents a message to purchase more beacon
+ * storage
+ * @name MsgPurchaseBeaconStateStorage
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.MsgPurchaseBeaconStateStorage
+ */
 export interface MsgPurchaseBeaconStateStorage {
-  /** beacon_id is the id of the beacon the storage is being purchased for */
+  /**
+   * beacon_id is the id of the beacon the storage is being purchased for
+   */
   beaconId: bigint;
-  /** number is the number of state storage spaces to purchase */
+  /**
+   * number is the number of state storage spaces to purchase
+   */
   number: bigint;
-  /** owner is the address of the owner of the beacon */
+  /**
+   * owner is the address of the owner of the beacon
+   */
   owner: string;
 }
 export interface MsgPurchaseBeaconStateStorageProtoMsg {
   typeUrl: "/mainchain.beacon.v1.MsgPurchaseBeaconStateStorage";
   value: Uint8Array;
 }
-/** MsgPurchaseBeaconStateStorage represents a message to purchase more beacon storage */
+/**
+ * MsgPurchaseBeaconStateStorage represents a message to purchase more beacon
+ * storage
+ * @name MsgPurchaseBeaconStateStorageAmino
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.MsgPurchaseBeaconStateStorage
+ */
 export interface MsgPurchaseBeaconStateStorageAmino {
-  /** beacon_id is the id of the beacon the storage is being purchased for */
+  /**
+   * beacon_id is the id of the beacon the storage is being purchased for
+   */
   beacon_id?: string;
-  /** number is the number of state storage spaces to purchase */
+  /**
+   * number is the number of state storage spaces to purchase
+   */
   number?: string;
-  /** owner is the address of the owner of the beacon */
+  /**
+   * owner is the address of the owner of the beacon
+   */
   owner?: string;
 }
 export interface MsgPurchaseBeaconStateStorageAminoMsg {
   type: "beacon/MsgPurchaseBeaconStateStorage";
   value: MsgPurchaseBeaconStateStorageAmino;
 }
-/** MsgPurchaseBeaconStateStorage represents a message to purchase more beacon storage */
+/**
+ * MsgPurchaseBeaconStateStorage represents a message to purchase more beacon
+ * storage
+ * @name MsgPurchaseBeaconStateStorageSDKType
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.MsgPurchaseBeaconStateStorage
+ */
 export interface MsgPurchaseBeaconStateStorageSDKType {
   beacon_id: bigint;
   number: bigint;
   owner: string;
 }
-/** MsgPurchaseBeaconStateStorageResponse defines the Msg/PurchaseBeaconStateStorage response type. */
+/**
+ * MsgPurchaseBeaconStateStorageResponse defines the
+ * Msg/PurchaseBeaconStateStorage response type.
+ * @name MsgPurchaseBeaconStateStorageResponse
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.MsgPurchaseBeaconStateStorageResponse
+ */
 export interface MsgPurchaseBeaconStateStorageResponse {
-  /** beacon_id is the id of the beacon the storage is being purchased for */
+  /**
+   * beacon_id is the id of the beacon the storage is being purchased for
+   */
   beaconId: bigint;
-  /** number_purchased is the number of state storage spaces purchased */
+  /**
+   * number_purchased is the number of state storage spaces purchased
+   */
   numberPurchased: bigint;
-  /** num_can_purchase is the number of remaining slots available for purchase */
+  /**
+   * num_can_purchase is the number of remaining slots available for purchase
+   */
   numCanPurchase: bigint;
 }
 export interface MsgPurchaseBeaconStateStorageResponseProtoMsg {
   typeUrl: "/mainchain.beacon.v1.MsgPurchaseBeaconStateStorageResponse";
   value: Uint8Array;
 }
-/** MsgPurchaseBeaconStateStorageResponse defines the Msg/PurchaseBeaconStateStorage response type. */
+/**
+ * MsgPurchaseBeaconStateStorageResponse defines the
+ * Msg/PurchaseBeaconStateStorage response type.
+ * @name MsgPurchaseBeaconStateStorageResponseAmino
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.MsgPurchaseBeaconStateStorageResponse
+ */
 export interface MsgPurchaseBeaconStateStorageResponseAmino {
-  /** beacon_id is the id of the beacon the storage is being purchased for */
+  /**
+   * beacon_id is the id of the beacon the storage is being purchased for
+   */
   beacon_id?: string;
-  /** number_purchased is the number of state storage spaces purchased */
+  /**
+   * number_purchased is the number of state storage spaces purchased
+   */
   number_purchased?: string;
-  /** num_can_purchase is the number of remaining slots available for purchase */
+  /**
+   * num_can_purchase is the number of remaining slots available for purchase
+   */
   num_can_purchase?: string;
 }
 export interface MsgPurchaseBeaconStateStorageResponseAminoMsg {
   type: "/mainchain.beacon.v1.MsgPurchaseBeaconStateStorageResponse";
   value: MsgPurchaseBeaconStateStorageResponseAmino;
 }
-/** MsgPurchaseBeaconStateStorageResponse defines the Msg/PurchaseBeaconStateStorage response type. */
+/**
+ * MsgPurchaseBeaconStateStorageResponse defines the
+ * Msg/PurchaseBeaconStateStorage response type.
+ * @name MsgPurchaseBeaconStateStorageResponseSDKType
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.MsgPurchaseBeaconStateStorageResponse
+ */
 export interface MsgPurchaseBeaconStateStorageResponseSDKType {
   beacon_id: bigint;
   number_purchased: bigint;
@@ -188,9 +351,15 @@ export interface MsgPurchaseBeaconStateStorageResponseSDKType {
  * MsgUpdateParams is the Msg/UpdateParams request type.
  * 
  * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParams
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.MsgUpdateParams
  */
 export interface MsgUpdateParams {
-  /** authority is the address that controls the module (defaults to x/gov unless overwritten). */
+  /**
+   * authority is the address that controls the module (defaults to x/gov unless
+   * overwritten).
+   */
   authority: string;
   /**
    * params defines the x/beacon parameters to update.
@@ -207,9 +376,15 @@ export interface MsgUpdateParamsProtoMsg {
  * MsgUpdateParams is the Msg/UpdateParams request type.
  * 
  * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParamsAmino
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.MsgUpdateParams
  */
 export interface MsgUpdateParamsAmino {
-  /** authority is the address that controls the module (defaults to x/gov unless overwritten). */
+  /**
+   * authority is the address that controls the module (defaults to x/gov unless
+   * overwritten).
+   */
   authority?: string;
   /**
    * params defines the x/beacon parameters to update.
@@ -226,6 +401,9 @@ export interface MsgUpdateParamsAminoMsg {
  * MsgUpdateParams is the Msg/UpdateParams request type.
  * 
  * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParamsSDKType
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.MsgUpdateParams
  */
 export interface MsgUpdateParamsSDKType {
   authority: string;
@@ -236,6 +414,9 @@ export interface MsgUpdateParamsSDKType {
  * MsgUpdateParams message.
  * 
  * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParamsResponse
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.MsgUpdateParamsResponse
  */
 export interface MsgUpdateParamsResponse {}
 export interface MsgUpdateParamsResponseProtoMsg {
@@ -247,6 +428,9 @@ export interface MsgUpdateParamsResponseProtoMsg {
  * MsgUpdateParams message.
  * 
  * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParamsResponseAmino
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.MsgUpdateParamsResponse
  */
 export interface MsgUpdateParamsResponseAmino {}
 export interface MsgUpdateParamsResponseAminoMsg {
@@ -258,6 +442,9 @@ export interface MsgUpdateParamsResponseAminoMsg {
  * MsgUpdateParams message.
  * 
  * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParamsResponseSDKType
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.MsgUpdateParamsResponse
  */
 export interface MsgUpdateParamsResponseSDKType {}
 function createBaseMsgRegisterBeacon(): MsgRegisterBeacon {
@@ -267,6 +454,12 @@ function createBaseMsgRegisterBeacon(): MsgRegisterBeacon {
     owner: ""
   };
 }
+/**
+ * MsgRegisterBeacon represents a message to register a new beacon
+ * @name MsgRegisterBeacon
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.MsgRegisterBeacon
+ */
 export const MsgRegisterBeacon = {
   typeUrl: "/mainchain.beacon.v1.MsgRegisterBeacon",
   aminoType: "beacon/MsgRegisterBeacon",
@@ -361,15 +554,20 @@ export const MsgRegisterBeacon = {
       typeUrl: "/mainchain.beacon.v1.MsgRegisterBeacon",
       value: MsgRegisterBeacon.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgRegisterBeacon.typeUrl, MsgRegisterBeacon);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgRegisterBeacon.aminoType, MsgRegisterBeacon.typeUrl);
 function createBaseMsgRegisterBeaconResponse(): MsgRegisterBeaconResponse {
   return {
     beaconId: BigInt(0)
   };
 }
+/**
+ * MsgRegisterBeaconResponse defines the Msg/RegisterBeacon response type.
+ * @name MsgRegisterBeaconResponse
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.MsgRegisterBeaconResponse
+ */
 export const MsgRegisterBeaconResponse = {
   typeUrl: "/mainchain.beacon.v1.MsgRegisterBeaconResponse",
   is(o: any): o is MsgRegisterBeaconResponse {
@@ -435,9 +633,9 @@ export const MsgRegisterBeaconResponse = {
       typeUrl: "/mainchain.beacon.v1.MsgRegisterBeaconResponse",
       value: MsgRegisterBeaconResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgRegisterBeaconResponse.typeUrl, MsgRegisterBeaconResponse);
 function createBaseMsgRecordBeaconTimestamp(): MsgRecordBeaconTimestamp {
   return {
     beaconId: BigInt(0),
@@ -446,6 +644,13 @@ function createBaseMsgRecordBeaconTimestamp(): MsgRecordBeaconTimestamp {
     owner: ""
   };
 }
+/**
+ * MsgRecordBeaconTimestamp represents a message to record a timestamp for a
+ * registered beacon
+ * @name MsgRecordBeaconTimestamp
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.MsgRecordBeaconTimestamp
+ */
 export const MsgRecordBeaconTimestamp = {
   typeUrl: "/mainchain.beacon.v1.MsgRecordBeaconTimestamp",
   aminoType: "beacon/MsgRecordBeaconTimestamp",
@@ -551,16 +756,21 @@ export const MsgRecordBeaconTimestamp = {
       typeUrl: "/mainchain.beacon.v1.MsgRecordBeaconTimestamp",
       value: MsgRecordBeaconTimestamp.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgRecordBeaconTimestamp.typeUrl, MsgRecordBeaconTimestamp);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgRecordBeaconTimestamp.aminoType, MsgRecordBeaconTimestamp.typeUrl);
 function createBaseMsgRecordBeaconTimestampResponse(): MsgRecordBeaconTimestampResponse {
   return {
     beaconId: BigInt(0),
     timestampId: BigInt(0)
   };
 }
+/**
+ * MsgRecordBeaconTimestampResponse defines the Msg/RecordBeacon response type.
+ * @name MsgRecordBeaconTimestampResponse
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.MsgRecordBeaconTimestampResponse
+ */
 export const MsgRecordBeaconTimestampResponse = {
   typeUrl: "/mainchain.beacon.v1.MsgRecordBeaconTimestampResponse",
   is(o: any): o is MsgRecordBeaconTimestampResponse {
@@ -637,9 +847,9 @@ export const MsgRecordBeaconTimestampResponse = {
       typeUrl: "/mainchain.beacon.v1.MsgRecordBeaconTimestampResponse",
       value: MsgRecordBeaconTimestampResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgRecordBeaconTimestampResponse.typeUrl, MsgRecordBeaconTimestampResponse);
 function createBaseMsgPurchaseBeaconStateStorage(): MsgPurchaseBeaconStateStorage {
   return {
     beaconId: BigInt(0),
@@ -647,6 +857,13 @@ function createBaseMsgPurchaseBeaconStateStorage(): MsgPurchaseBeaconStateStorag
     owner: ""
   };
 }
+/**
+ * MsgPurchaseBeaconStateStorage represents a message to purchase more beacon
+ * storage
+ * @name MsgPurchaseBeaconStateStorage
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.MsgPurchaseBeaconStateStorage
+ */
 export const MsgPurchaseBeaconStateStorage = {
   typeUrl: "/mainchain.beacon.v1.MsgPurchaseBeaconStateStorage",
   aminoType: "beacon/MsgPurchaseBeaconStateStorage",
@@ -741,10 +958,9 @@ export const MsgPurchaseBeaconStateStorage = {
       typeUrl: "/mainchain.beacon.v1.MsgPurchaseBeaconStateStorage",
       value: MsgPurchaseBeaconStateStorage.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgPurchaseBeaconStateStorage.typeUrl, MsgPurchaseBeaconStateStorage);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgPurchaseBeaconStateStorage.aminoType, MsgPurchaseBeaconStateStorage.typeUrl);
 function createBaseMsgPurchaseBeaconStateStorageResponse(): MsgPurchaseBeaconStateStorageResponse {
   return {
     beaconId: BigInt(0),
@@ -752,6 +968,13 @@ function createBaseMsgPurchaseBeaconStateStorageResponse(): MsgPurchaseBeaconSta
     numCanPurchase: BigInt(0)
   };
 }
+/**
+ * MsgPurchaseBeaconStateStorageResponse defines the
+ * Msg/PurchaseBeaconStateStorage response type.
+ * @name MsgPurchaseBeaconStateStorageResponse
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.MsgPurchaseBeaconStateStorageResponse
+ */
 export const MsgPurchaseBeaconStateStorageResponse = {
   typeUrl: "/mainchain.beacon.v1.MsgPurchaseBeaconStateStorageResponse",
   is(o: any): o is MsgPurchaseBeaconStateStorageResponse {
@@ -839,15 +1062,23 @@ export const MsgPurchaseBeaconStateStorageResponse = {
       typeUrl: "/mainchain.beacon.v1.MsgPurchaseBeaconStateStorageResponse",
       value: MsgPurchaseBeaconStateStorageResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgPurchaseBeaconStateStorageResponse.typeUrl, MsgPurchaseBeaconStateStorageResponse);
 function createBaseMsgUpdateParams(): MsgUpdateParams {
   return {
     authority: "",
     params: Params.fromPartial({})
   };
 }
+/**
+ * MsgUpdateParams is the Msg/UpdateParams request type.
+ * 
+ * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParams
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.MsgUpdateParams
+ */
 export const MsgUpdateParams = {
   typeUrl: "/mainchain.beacon.v1.MsgUpdateParams",
   aminoType: "mainchain/x/beacon/MsgUpdateParams",
@@ -931,13 +1162,26 @@ export const MsgUpdateParams = {
       typeUrl: "/mainchain.beacon.v1.MsgUpdateParams",
       value: MsgUpdateParams.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgUpdateParams.typeUrl)) {
+      return;
+    }
+    Params.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgUpdateParams.typeUrl, MsgUpdateParams);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgUpdateParams.aminoType, MsgUpdateParams.typeUrl);
 function createBaseMsgUpdateParamsResponse(): MsgUpdateParamsResponse {
   return {};
 }
+/**
+ * MsgUpdateParamsResponse defines the response structure for executing a
+ * MsgUpdateParams message.
+ * 
+ * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParamsResponse
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.MsgUpdateParamsResponse
+ */
 export const MsgUpdateParamsResponse = {
   typeUrl: "/mainchain.beacon.v1.MsgUpdateParamsResponse",
   is(o: any): o is MsgUpdateParamsResponse {
@@ -992,6 +1236,6 @@ export const MsgUpdateParamsResponse = {
       typeUrl: "/mainchain.beacon.v1.MsgUpdateParamsResponse",
       value: MsgUpdateParamsResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgUpdateParamsResponse.typeUrl, MsgUpdateParamsResponse);

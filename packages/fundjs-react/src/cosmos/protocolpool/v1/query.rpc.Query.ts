@@ -1,5 +1,5 @@
 //@ts-nocheck
-import { Rpc } from "../../../helpers";
+import { TxRpc } from "../../../types";
 import { BinaryReader } from "../../../binary";
 import { QueryClient, createProtobufRpcClient, ProtobufRpcClient } from "@cosmjs/stargate";
 import { ReactQueryParams } from "../../../react-query";
@@ -17,8 +17,8 @@ export interface Query {
   params(request?: QueryParamsRequest): Promise<QueryParamsResponse>;
 }
 export class QueryClientImpl implements Query {
-  private readonly rpc: Rpc;
-  constructor(rpc: Rpc) {
+  private readonly rpc: TxRpc;
+  constructor(rpc: TxRpc) {
     this.rpc = rpc;
     this.communityPool = this.communityPool.bind(this);
     this.continuousFund = this.continuousFund.bind(this);

@@ -2,71 +2,106 @@
 import { GroupInfo, GroupInfoAmino, GroupInfoSDKType, GroupMember, GroupMemberAmino, GroupMemberSDKType, GroupPolicyInfo, GroupPolicyInfoAmino, GroupPolicyInfoSDKType, Proposal, ProposalAmino, ProposalSDKType, Vote, VoteAmino, VoteSDKType } from "./types";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { GlobalDecoderRegistry } from "../../../registry";
-/** GenesisState defines the group module's genesis state. */
+/**
+ * GenesisState defines the group module's genesis state.
+ * @name GenesisState
+ * @package cosmos.group.v1
+ * @see proto type: cosmos.group.v1.GenesisState
+ */
 export interface GenesisState {
   /**
    * group_seq is the group table orm.Sequence,
    * it is used to get the next group ID.
    */
   groupSeq: bigint;
-  /** groups is the list of groups info. */
+  /**
+   * groups is the list of groups info.
+   */
   groups: GroupInfo[];
-  /** group_members is the list of groups members. */
+  /**
+   * group_members is the list of groups members.
+   */
   groupMembers: GroupMember[];
   /**
    * group_policy_seq is the group policy table orm.Sequence,
    * it is used to generate the next group policy account address.
    */
   groupPolicySeq: bigint;
-  /** group_policies is the list of group policies info. */
+  /**
+   * group_policies is the list of group policies info.
+   */
   groupPolicies: GroupPolicyInfo[];
   /**
    * proposal_seq is the proposal table orm.Sequence,
    * it is used to get the next proposal ID.
    */
   proposalSeq: bigint;
-  /** proposals is the list of proposals. */
+  /**
+   * proposals is the list of proposals.
+   */
   proposals: Proposal[];
-  /** votes is the list of votes. */
+  /**
+   * votes is the list of votes.
+   */
   votes: Vote[];
 }
 export interface GenesisStateProtoMsg {
   typeUrl: "/cosmos.group.v1.GenesisState";
   value: Uint8Array;
 }
-/** GenesisState defines the group module's genesis state. */
+/**
+ * GenesisState defines the group module's genesis state.
+ * @name GenesisStateAmino
+ * @package cosmos.group.v1
+ * @see proto type: cosmos.group.v1.GenesisState
+ */
 export interface GenesisStateAmino {
   /**
    * group_seq is the group table orm.Sequence,
    * it is used to get the next group ID.
    */
   group_seq?: string;
-  /** groups is the list of groups info. */
+  /**
+   * groups is the list of groups info.
+   */
   groups?: GroupInfoAmino[];
-  /** group_members is the list of groups members. */
+  /**
+   * group_members is the list of groups members.
+   */
   group_members?: GroupMemberAmino[];
   /**
    * group_policy_seq is the group policy table orm.Sequence,
    * it is used to generate the next group policy account address.
    */
   group_policy_seq?: string;
-  /** group_policies is the list of group policies info. */
+  /**
+   * group_policies is the list of group policies info.
+   */
   group_policies?: GroupPolicyInfoAmino[];
   /**
    * proposal_seq is the proposal table orm.Sequence,
    * it is used to get the next proposal ID.
    */
   proposal_seq?: string;
-  /** proposals is the list of proposals. */
+  /**
+   * proposals is the list of proposals.
+   */
   proposals?: ProposalAmino[];
-  /** votes is the list of votes. */
+  /**
+   * votes is the list of votes.
+   */
   votes?: VoteAmino[];
 }
 export interface GenesisStateAminoMsg {
   type: "cosmos-sdk/GenesisState";
   value: GenesisStateAmino;
 }
-/** GenesisState defines the group module's genesis state. */
+/**
+ * GenesisState defines the group module's genesis state.
+ * @name GenesisStateSDKType
+ * @package cosmos.group.v1
+ * @see proto type: cosmos.group.v1.GenesisState
+ */
 export interface GenesisStateSDKType {
   group_seq: bigint;
   groups: GroupInfoSDKType[];
@@ -89,6 +124,12 @@ function createBaseGenesisState(): GenesisState {
     votes: []
   };
 }
+/**
+ * GenesisState defines the group module's genesis state.
+ * @name GenesisState
+ * @package cosmos.group.v1
+ * @see proto type: cosmos.group.v1.GenesisState
+ */
 export const GenesisState = {
   typeUrl: "/cosmos.group.v1.GenesisState",
   aminoType: "cosmos-sdk/GenesisState",
@@ -248,7 +289,15 @@ export const GenesisState = {
       typeUrl: "/cosmos.group.v1.GenesisState",
       value: GenesisState.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(GenesisState.typeUrl)) {
+      return;
+    }
+    GroupInfo.registerTypeUrl();
+    GroupMember.registerTypeUrl();
+    GroupPolicyInfo.registerTypeUrl();
+    Proposal.registerTypeUrl();
+    Vote.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(GenesisState.typeUrl, GenesisState);
-GlobalDecoderRegistry.registerAminoProtoMapping(GenesisState.aminoType, GenesisState.typeUrl);

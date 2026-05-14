@@ -1,5 +1,5 @@
 //@ts-nocheck
-import { Rpc } from "../../../helpers";
+import { TxRpc } from "../../../types";
 import { BinaryReader } from "../../../binary";
 import { QueryClient, createProtobufRpcClient, ProtobufRpcClient } from "@cosmjs/stargate";
 import { ReactQueryParams } from "../../../react-query";
@@ -9,7 +9,10 @@ import { QueryParamsRequest, QueryParamsResponse, QueryEnterpriseUndPurchaseOrde
 export interface Query {
   /** Params queries the parameters of x/enterprise module. */
   params(request?: QueryParamsRequest): Promise<QueryParamsResponse>;
-  /** EnterpriseUndPurchaseOrder queries purchase order details based on PurchaseOrderId. */
+  /**
+   * EnterpriseUndPurchaseOrder queries purchase order details based on
+   * PurchaseOrderId.
+   */
   enterpriseUndPurchaseOrder(request: QueryEnterpriseUndPurchaseOrderRequest): Promise<QueryEnterpriseUndPurchaseOrderResponse>;
   /** EnterpriseUndPurchaseOrders queries all current purchase orders. */
   enterpriseUndPurchaseOrders(request: QueryEnterpriseUndPurchaseOrdersRequest): Promise<QueryEnterpriseUndPurchaseOrdersResponse>;
@@ -17,20 +20,35 @@ export interface Query {
   lockedUndByAddress(request: QueryLockedUndByAddressRequest): Promise<QueryLockedUndByAddressResponse>;
   /** TotalLocked queries the total locked FUND */
   totalLocked(request?: QueryTotalLockedRequest): Promise<QueryTotalLockedResponse>;
-  /** Whitelist queries whitelisted addresses authorised to raise new purchase orders */
+  /**
+   * Whitelist queries whitelisted addresses authorised to raise new purchase
+   * orders
+   */
   whitelist(request?: QueryWhitelistRequest): Promise<QueryWhitelistResponse>;
-  /** Whitelisted queries whether or not the given address is authorised to raise new purchase orders */
+  /**
+   * Whitelisted queries whether or not the given address is authorised to raise
+   * new purchase orders
+   */
   whitelisted(request: QueryWhitelistedRequest): Promise<QueryWhitelistedResponse>;
-  /** EnterpriseAccount queries an account address for their locked FUND and other data */
+  /**
+   * EnterpriseAccount queries an account address for their locked FUND and
+   * other data
+   */
   enterpriseAccount(request: QueryEnterpriseAccountRequest): Promise<QueryEnterpriseAccountResponse>;
-  /** TotalSpentEFUND queries the total eFUND usage to date - i.e. the amount used to pay fees */
+  /**
+   * TotalSpentEFUND queries the total eFUND usage to date - i.e. the amount
+   * used to pay fees
+   */
   totalSpentEFUND(request?: QueryTotalSpentEFUNDRequest): Promise<QueryTotalSpentEFUNDResponse>;
-  /** SpentEFUNDByAddress queries the total eFUND usage to date for a given address, i.e. the amount used to pay fees */
+  /**
+   * SpentEFUNDByAddress queries the total eFUND usage to date for a given
+   * address, i.e. the amount used to pay fees
+   */
   spentEFUNDByAddress(request: QuerySpentEFUNDByAddressRequest): Promise<QuerySpentEFUNDByAddressResponse>;
 }
 export class QueryClientImpl implements Query {
-  private readonly rpc: Rpc;
-  constructor(rpc: Rpc) {
+  private readonly rpc: TxRpc;
+  constructor(rpc: TxRpc) {
     this.rpc = rpc;
     this.params = this.params.bind(this);
     this.enterpriseUndPurchaseOrder = this.enterpriseUndPurchaseOrder.bind(this);
@@ -264,14 +282,38 @@ export const createRpcQueryHooks = (rpc: ProtobufRpcClient | undefined) => {
   };
   return {
     /** Params queries the parameters of x/enterprise module. */useParams,
-    /** EnterpriseUndPurchaseOrder queries purchase order details based on PurchaseOrderId. */useEnterpriseUndPurchaseOrder,
+    /**
+     * EnterpriseUndPurchaseOrder queries purchase order details based on
+     * PurchaseOrderId.
+     */
+    useEnterpriseUndPurchaseOrder,
     /** EnterpriseUndPurchaseOrders queries all current purchase orders. */useEnterpriseUndPurchaseOrders,
     /** LockedUndByAddress queries an account address for their locked FUND */useLockedUndByAddress,
     /** TotalLocked queries the total locked FUND */useTotalLocked,
-    /** Whitelist queries whitelisted addresses authorised to raise new purchase orders */useWhitelist,
-    /** Whitelisted queries whether or not the given address is authorised to raise new purchase orders */useWhitelisted,
-    /** EnterpriseAccount queries an account address for their locked FUND and other data */useEnterpriseAccount,
-    /** TotalSpentEFUND queries the total eFUND usage to date - i.e. the amount used to pay fees */useTotalSpentEFUND,
-    /** SpentEFUNDByAddress queries the total eFUND usage to date for a given address, i.e. the amount used to pay fees */useSpentEFUNDByAddress
+    /**
+     * Whitelist queries whitelisted addresses authorised to raise new purchase
+     * orders
+     */
+    useWhitelist,
+    /**
+     * Whitelisted queries whether or not the given address is authorised to raise
+     * new purchase orders
+     */
+    useWhitelisted,
+    /**
+     * EnterpriseAccount queries an account address for their locked FUND and
+     * other data
+     */
+    useEnterpriseAccount,
+    /**
+     * TotalSpentEFUND queries the total eFUND usage to date - i.e. the amount
+     * used to pay fees
+     */
+    useTotalSpentEFUND,
+    /**
+     * SpentEFUNDByAddress queries the total eFUND usage to date for a given
+     * address, i.e. the amount used to pay fees
+     */
+    useSpentEFUNDByAddress
   };
 };

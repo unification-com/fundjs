@@ -1,7 +1,11 @@
 //@ts-nocheck
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { GlobalDecoderRegistry } from "../../../registry";
-/** Op is a message describing a benchmark operation. */
+/**
+ * Op is a message describing a benchmark operation.
+ * @name Op
+ * @package cosmos.benchmark.v1
+ * @see proto type: cosmos.benchmark.v1.Op
+ */
 export interface Op {
   seed: bigint;
   actor: string;
@@ -15,7 +19,12 @@ export interface OpProtoMsg {
   typeUrl: "/cosmos.benchmark.v1.Op";
   value: Uint8Array;
 }
-/** Op is a message describing a benchmark operation. */
+/**
+ * Op is a message describing a benchmark operation.
+ * @name OpAmino
+ * @package cosmos.benchmark.v1
+ * @see proto type: cosmos.benchmark.v1.Op
+ */
 export interface OpAmino {
   seed?: string;
   actor?: string;
@@ -29,7 +38,12 @@ export interface OpAminoMsg {
   type: "cosmos-sdk/Op";
   value: OpAmino;
 }
-/** Op is a message describing a benchmark operation. */
+/**
+ * Op is a message describing a benchmark operation.
+ * @name OpSDKType
+ * @package cosmos.benchmark.v1
+ * @see proto type: cosmos.benchmark.v1.Op
+ */
 export interface OpSDKType {
   seed: bigint;
   actor: string;
@@ -50,6 +64,12 @@ function createBaseOp(): Op {
     exists: false
   };
 }
+/**
+ * Op is a message describing a benchmark operation.
+ * @name Op
+ * @package cosmos.benchmark.v1
+ * @see proto type: cosmos.benchmark.v1.Op
+ */
 export const Op = {
   typeUrl: "/cosmos.benchmark.v1.Op",
   aminoType: "cosmos-sdk/Op",
@@ -188,7 +208,6 @@ export const Op = {
       typeUrl: "/cosmos.benchmark.v1.Op",
       value: Op.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(Op.typeUrl, Op);
-GlobalDecoderRegistry.registerAminoProtoMapping(Op.aminoType, Op.typeUrl);

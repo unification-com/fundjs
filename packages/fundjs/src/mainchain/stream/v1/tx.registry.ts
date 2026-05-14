@@ -1,12 +1,7 @@
 //@ts-nocheck
-import { GeneratedType, Registry } from "@cosmjs/proto-signing";
+import { TelescopeGeneratedType } from "../../../types";
 import { MsgCreateStream, MsgClaimStream, MsgTopUpDeposit, MsgUpdateFlowRate, MsgCancelStream, MsgUpdateParams } from "./tx";
-export const registry: ReadonlyArray<[string, GeneratedType]> = [["/mainchain.stream.v1.MsgCreateStream", MsgCreateStream], ["/mainchain.stream.v1.MsgClaimStream", MsgClaimStream], ["/mainchain.stream.v1.MsgTopUpDeposit", MsgTopUpDeposit], ["/mainchain.stream.v1.MsgUpdateFlowRate", MsgUpdateFlowRate], ["/mainchain.stream.v1.MsgCancelStream", MsgCancelStream], ["/mainchain.stream.v1.MsgUpdateParams", MsgUpdateParams]];
-export const load = (protoRegistry: Registry) => {
-  registry.forEach(([typeUrl, mod]) => {
-    protoRegistry.register(typeUrl, mod);
-  });
-};
+export const registry: ReadonlyArray<[string, TelescopeGeneratedType<any, any, any>]> = [["/mainchain.stream.v1.MsgCreateStream", MsgCreateStream], ["/mainchain.stream.v1.MsgClaimStream", MsgClaimStream], ["/mainchain.stream.v1.MsgTopUpDeposit", MsgTopUpDeposit], ["/mainchain.stream.v1.MsgUpdateFlowRate", MsgUpdateFlowRate], ["/mainchain.stream.v1.MsgCancelStream", MsgCancelStream], ["/mainchain.stream.v1.MsgUpdateParams", MsgUpdateParams]];
 export const MessageComposer = {
   encoded: {
     createStream(value: MsgCreateStream) {

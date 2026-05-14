@@ -2,9 +2,16 @@
 import { Params, ParamsAmino, ParamsSDKType, WrkChain, WrkChainAmino, WrkChainSDKType } from "./wrkchain";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { GlobalDecoderRegistry } from "../../../registry";
-/** GenesisState defines the wrkchain module's genesis state. */
+/**
+ * GenesisState defines the wrkchain module's genesis state.
+ * @name GenesisState
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.GenesisState
+ */
 export interface GenesisState {
-  /** params defines all the paramaters of the module. */
+  /**
+   * params defines all the paramaters of the module.
+   */
   params: Params;
   startingWrkchainId: bigint;
   registeredWrkchains: WrkChainExport[];
@@ -13,9 +20,16 @@ export interface GenesisStateProtoMsg {
   typeUrl: "/mainchain.wrkchain.v1.GenesisState";
   value: Uint8Array;
 }
-/** GenesisState defines the wrkchain module's genesis state. */
+/**
+ * GenesisState defines the wrkchain module's genesis state.
+ * @name GenesisStateAmino
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.GenesisState
+ */
 export interface GenesisStateAmino {
-  /** params defines all the paramaters of the module. */
+  /**
+   * params defines all the paramaters of the module.
+   */
   params?: ParamsAmino;
   starting_wrkchain_id?: string;
   registered_wrkchains?: WrkChainExportAmino[];
@@ -24,7 +38,12 @@ export interface GenesisStateAminoMsg {
   type: "/mainchain.wrkchain.v1.GenesisState";
   value: GenesisStateAmino;
 }
-/** GenesisState defines the wrkchain module's genesis state. */
+/**
+ * GenesisState defines the wrkchain module's genesis state.
+ * @name GenesisStateSDKType
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.GenesisState
+ */
 export interface GenesisStateSDKType {
   params: ParamsSDKType;
   starting_wrkchain_id: bigint;
@@ -33,6 +52,9 @@ export interface GenesisStateSDKType {
 /**
  * WrkChainBlockGenesisExport is a trimmed version of WrkChainBlock
  * for genesis exports to conserve space
+ * @name WrkChainBlockGenesisExport
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.WrkChainBlockGenesisExport
  */
 export interface WrkChainBlockGenesisExport {
   he: bigint;
@@ -50,6 +72,9 @@ export interface WrkChainBlockGenesisExportProtoMsg {
 /**
  * WrkChainBlockGenesisExport is a trimmed version of WrkChainBlock
  * for genesis exports to conserve space
+ * @name WrkChainBlockGenesisExportAmino
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.WrkChainBlockGenesisExport
  */
 export interface WrkChainBlockGenesisExportAmino {
   he?: string;
@@ -67,6 +92,9 @@ export interface WrkChainBlockGenesisExportAminoMsg {
 /**
  * WrkChainBlockGenesisExport is a trimmed version of WrkChainBlock
  * for genesis exports to conserve space
+ * @name WrkChainBlockGenesisExportSDKType
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.WrkChainBlockGenesisExport
  */
 export interface WrkChainBlockGenesisExportSDKType {
   he: bigint;
@@ -77,7 +105,12 @@ export interface WrkChainBlockGenesisExportSDKType {
   h3: string;
   st: bigint;
 }
-/** WrkChainExport holds genesis export data for a wrkchain, including hashes */
+/**
+ * WrkChainExport holds genesis export data for a wrkchain, including hashes
+ * @name WrkChainExport
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.WrkChainExport
+ */
 export interface WrkChainExport {
   wrkchain: WrkChain;
   inStateLimit: bigint;
@@ -87,7 +120,12 @@ export interface WrkChainExportProtoMsg {
   typeUrl: "/mainchain.wrkchain.v1.WrkChainExport";
   value: Uint8Array;
 }
-/** WrkChainExport holds genesis export data for a wrkchain, including hashes */
+/**
+ * WrkChainExport holds genesis export data for a wrkchain, including hashes
+ * @name WrkChainExportAmino
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.WrkChainExport
+ */
 export interface WrkChainExportAmino {
   wrkchain?: WrkChainAmino;
   in_state_limit?: string;
@@ -97,7 +135,12 @@ export interface WrkChainExportAminoMsg {
   type: "/mainchain.wrkchain.v1.WrkChainExport";
   value: WrkChainExportAmino;
 }
-/** WrkChainExport holds genesis export data for a wrkchain, including hashes */
+/**
+ * WrkChainExport holds genesis export data for a wrkchain, including hashes
+ * @name WrkChainExportSDKType
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.WrkChainExport
+ */
 export interface WrkChainExportSDKType {
   wrkchain: WrkChainSDKType;
   in_state_limit: bigint;
@@ -110,6 +153,12 @@ function createBaseGenesisState(): GenesisState {
     registeredWrkchains: []
   };
 }
+/**
+ * GenesisState defines the wrkchain module's genesis state.
+ * @name GenesisState
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.GenesisState
+ */
 export const GenesisState = {
   typeUrl: "/mainchain.wrkchain.v1.GenesisState",
   is(o: any): o is GenesisState {
@@ -199,9 +248,15 @@ export const GenesisState = {
       typeUrl: "/mainchain.wrkchain.v1.GenesisState",
       value: GenesisState.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(GenesisState.typeUrl)) {
+      return;
+    }
+    Params.registerTypeUrl();
+    WrkChainExport.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(GenesisState.typeUrl, GenesisState);
 function createBaseWrkChainBlockGenesisExport(): WrkChainBlockGenesisExport {
   return {
     he: BigInt(0),
@@ -213,6 +268,13 @@ function createBaseWrkChainBlockGenesisExport(): WrkChainBlockGenesisExport {
     st: BigInt(0)
   };
 }
+/**
+ * WrkChainBlockGenesisExport is a trimmed version of WrkChainBlock
+ * for genesis exports to conserve space
+ * @name WrkChainBlockGenesisExport
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.WrkChainBlockGenesisExport
+ */
 export const WrkChainBlockGenesisExport = {
   typeUrl: "/mainchain.wrkchain.v1.WrkChainBlockGenesisExport",
   is(o: any): o is WrkChainBlockGenesisExport {
@@ -344,9 +406,9 @@ export const WrkChainBlockGenesisExport = {
       typeUrl: "/mainchain.wrkchain.v1.WrkChainBlockGenesisExport",
       value: WrkChainBlockGenesisExport.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(WrkChainBlockGenesisExport.typeUrl, WrkChainBlockGenesisExport);
 function createBaseWrkChainExport(): WrkChainExport {
   return {
     wrkchain: WrkChain.fromPartial({}),
@@ -354,6 +416,12 @@ function createBaseWrkChainExport(): WrkChainExport {
     blocks: []
   };
 }
+/**
+ * WrkChainExport holds genesis export data for a wrkchain, including hashes
+ * @name WrkChainExport
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.WrkChainExport
+ */
 export const WrkChainExport = {
   typeUrl: "/mainchain.wrkchain.v1.WrkChainExport",
   is(o: any): o is WrkChainExport {
@@ -443,6 +511,12 @@ export const WrkChainExport = {
       typeUrl: "/mainchain.wrkchain.v1.WrkChainExport",
       value: WrkChainExport.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(WrkChainExport.typeUrl)) {
+      return;
+    }
+    WrkChain.registerTypeUrl();
+    WrkChainBlockGenesisExport.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(WrkChainExport.typeUrl, WrkChainExport);

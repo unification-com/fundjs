@@ -1,14 +1,20 @@
 //@ts-nocheck
-import { Rpc } from "../../../helpers";
+import { TxRpc } from "../../../types";
 import { BinaryReader } from "../../../binary";
 import { MsgRegisterBeacon, MsgRegisterBeaconResponse, MsgRecordBeaconTimestamp, MsgRecordBeaconTimestampResponse, MsgPurchaseBeaconStateStorage, MsgPurchaseBeaconStateStorageResponse, MsgUpdateParams, MsgUpdateParamsResponse } from "./tx";
 /** Msg defines the beacon Msg service. */
 export interface Msg {
   /** RegisterBeacon defines a method to register a new beacon */
   registerBeacon(request: MsgRegisterBeacon): Promise<MsgRegisterBeaconResponse>;
-  /** RecordBeaconTimestamp defines a method to record a timestamp for a registered beacon */
+  /**
+   * RecordBeaconTimestamp defines a method to record a timestamp for a
+   * registered beacon
+   */
   recordBeaconTimestamp(request: MsgRecordBeaconTimestamp): Promise<MsgRecordBeaconTimestampResponse>;
-  /** PurchaseBeaconStateStorage defines the method to purchase more state storage */
+  /**
+   * PurchaseBeaconStateStorage defines the method to purchase more state
+   * storage
+   */
   purchaseBeaconStateStorage(request: MsgPurchaseBeaconStateStorage): Promise<MsgPurchaseBeaconStateStorageResponse>;
   /**
    * UpdateParams defines an operation for updating the x/beacon module
@@ -18,8 +24,8 @@ export interface Msg {
   updateParams(request: MsgUpdateParams): Promise<MsgUpdateParamsResponse>;
 }
 export class MsgClientImpl implements Msg {
-  private readonly rpc: Rpc;
-  constructor(rpc: Rpc) {
+  private readonly rpc: TxRpc;
+  constructor(rpc: TxRpc) {
     this.rpc = rpc;
     this.registerBeacon = this.registerBeacon.bind(this);
     this.recordBeaconTimestamp = this.recordBeaconTimestamp.bind(this);
@@ -47,3 +53,6 @@ export class MsgClientImpl implements Msg {
     return promise.then(data => MsgUpdateParamsResponse.decode(new BinaryReader(data)));
   }
 }
+export const createClientImpl = (rpc: TxRpc) => {
+  return new MsgClientImpl(rpc);
+};

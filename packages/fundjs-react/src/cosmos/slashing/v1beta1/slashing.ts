@@ -3,14 +3,18 @@ import { Timestamp } from "../../../google/protobuf/timestamp";
 import { Duration, DurationAmino, DurationSDKType } from "../../../google/protobuf/duration";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { toTimestamp, fromTimestamp, bytesFromBase64, base64FromBytes } from "../../../helpers";
-import { GlobalDecoderRegistry } from "../../../registry";
 /**
  * ValidatorSigningInfo defines a validator's signing info for monitoring their
  * liveness activity.
+ * @name ValidatorSigningInfo
+ * @package cosmos.slashing.v1beta1
+ * @see proto type: cosmos.slashing.v1beta1.ValidatorSigningInfo
  */
 export interface ValidatorSigningInfo {
   address: string;
-  /** Height at which validator was first a candidate OR was un-jailed */
+  /**
+   * Height at which validator was first a candidate OR was un-jailed
+   */
   startHeight: bigint;
   /**
    * Index which is incremented every time a validator is bonded in a block and
@@ -18,7 +22,9 @@ export interface ValidatorSigningInfo {
    * signed_blocks_window param determines the index in the missed block bitmap.
    */
   indexOffset: bigint;
-  /** Timestamp until which the validator is jailed due to liveness downtime. */
+  /**
+   * Timestamp until which the validator is jailed due to liveness downtime.
+   */
   jailedUntil: Date;
   /**
    * Whether or not a validator has been tombstoned (killed out of validator
@@ -39,10 +45,15 @@ export interface ValidatorSigningInfoProtoMsg {
 /**
  * ValidatorSigningInfo defines a validator's signing info for monitoring their
  * liveness activity.
+ * @name ValidatorSigningInfoAmino
+ * @package cosmos.slashing.v1beta1
+ * @see proto type: cosmos.slashing.v1beta1.ValidatorSigningInfo
  */
 export interface ValidatorSigningInfoAmino {
   address?: string;
-  /** Height at which validator was first a candidate OR was un-jailed */
+  /**
+   * Height at which validator was first a candidate OR was un-jailed
+   */
   start_height?: string;
   /**
    * Index which is incremented every time a validator is bonded in a block and
@@ -50,7 +61,9 @@ export interface ValidatorSigningInfoAmino {
    * signed_blocks_window param determines the index in the missed block bitmap.
    */
   index_offset?: string;
-  /** Timestamp until which the validator is jailed due to liveness downtime. */
+  /**
+   * Timestamp until which the validator is jailed due to liveness downtime.
+   */
   jailed_until: string;
   /**
    * Whether or not a validator has been tombstoned (killed out of validator
@@ -71,6 +84,9 @@ export interface ValidatorSigningInfoAminoMsg {
 /**
  * ValidatorSigningInfo defines a validator's signing info for monitoring their
  * liveness activity.
+ * @name ValidatorSigningInfoSDKType
+ * @package cosmos.slashing.v1beta1
+ * @see proto type: cosmos.slashing.v1beta1.ValidatorSigningInfo
  */
 export interface ValidatorSigningInfoSDKType {
   address: string;
@@ -80,7 +96,12 @@ export interface ValidatorSigningInfoSDKType {
   tombstoned: boolean;
   missed_blocks_counter: bigint;
 }
-/** Params represents the parameters used for by the slashing module. */
+/**
+ * Params represents the parameters used for by the slashing module.
+ * @name Params
+ * @package cosmos.slashing.v1beta1
+ * @see proto type: cosmos.slashing.v1beta1.Params
+ */
 export interface Params {
   signedBlocksWindow: bigint;
   minSignedPerWindow: Uint8Array;
@@ -92,7 +113,12 @@ export interface ParamsProtoMsg {
   typeUrl: "/cosmos.slashing.v1beta1.Params";
   value: Uint8Array;
 }
-/** Params represents the parameters used for by the slashing module. */
+/**
+ * Params represents the parameters used for by the slashing module.
+ * @name ParamsAmino
+ * @package cosmos.slashing.v1beta1
+ * @see proto type: cosmos.slashing.v1beta1.Params
+ */
 export interface ParamsAmino {
   signed_blocks_window?: string;
   min_signed_per_window: string;
@@ -104,7 +130,12 @@ export interface ParamsAminoMsg {
   type: "cosmos-sdk/x/slashing/Params";
   value: ParamsAmino;
 }
-/** Params represents the parameters used for by the slashing module. */
+/**
+ * Params represents the parameters used for by the slashing module.
+ * @name ParamsSDKType
+ * @package cosmos.slashing.v1beta1
+ * @see proto type: cosmos.slashing.v1beta1.Params
+ */
 export interface ParamsSDKType {
   signed_blocks_window: bigint;
   min_signed_per_window: Uint8Array;
@@ -122,6 +153,13 @@ function createBaseValidatorSigningInfo(): ValidatorSigningInfo {
     missedBlocksCounter: BigInt(0)
   };
 }
+/**
+ * ValidatorSigningInfo defines a validator's signing info for monitoring their
+ * liveness activity.
+ * @name ValidatorSigningInfo
+ * @package cosmos.slashing.v1beta1
+ * @see proto type: cosmos.slashing.v1beta1.ValidatorSigningInfo
+ */
 export const ValidatorSigningInfo = {
   typeUrl: "/cosmos.slashing.v1beta1.ValidatorSigningInfo",
   aminoType: "cosmos-sdk/ValidatorSigningInfo",
@@ -249,10 +287,9 @@ export const ValidatorSigningInfo = {
       typeUrl: "/cosmos.slashing.v1beta1.ValidatorSigningInfo",
       value: ValidatorSigningInfo.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(ValidatorSigningInfo.typeUrl, ValidatorSigningInfo);
-GlobalDecoderRegistry.registerAminoProtoMapping(ValidatorSigningInfo.aminoType, ValidatorSigningInfo.typeUrl);
 function createBaseParams(): Params {
   return {
     signedBlocksWindow: BigInt(0),
@@ -262,6 +299,12 @@ function createBaseParams(): Params {
     slashFractionDowntime: new Uint8Array()
   };
 }
+/**
+ * Params represents the parameters used for by the slashing module.
+ * @name Params
+ * @package cosmos.slashing.v1beta1
+ * @see proto type: cosmos.slashing.v1beta1.Params
+ */
 export const Params = {
   typeUrl: "/cosmos.slashing.v1beta1.Params",
   aminoType: "cosmos-sdk/x/slashing/Params",
@@ -378,7 +421,6 @@ export const Params = {
       typeUrl: "/cosmos.slashing.v1beta1.Params",
       value: Params.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(Params.typeUrl, Params);
-GlobalDecoderRegistry.registerAminoProtoMapping(Params.aminoType, Params.typeUrl);

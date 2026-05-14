@@ -1,23 +1,42 @@
 //@ts-nocheck
 import { Timestamp } from "../../../../google/protobuf/timestamp";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { GlobalDecoderRegistry } from "../../../../registry";
 import { toTimestamp, fromTimestamp, bytesFromBase64, base64FromBytes } from "../../../../helpers";
-/** ConfigRequest defines the request structure for the Config gRPC query. */
+/**
+ * ConfigRequest defines the request structure for the Config gRPC query.
+ * @name ConfigRequest
+ * @package cosmos.base.node.v1beta1
+ * @see proto type: cosmos.base.node.v1beta1.ConfigRequest
+ */
 export interface ConfigRequest {}
 export interface ConfigRequestProtoMsg {
   typeUrl: "/cosmos.base.node.v1beta1.ConfigRequest";
   value: Uint8Array;
 }
-/** ConfigRequest defines the request structure for the Config gRPC query. */
+/**
+ * ConfigRequest defines the request structure for the Config gRPC query.
+ * @name ConfigRequestAmino
+ * @package cosmos.base.node.v1beta1
+ * @see proto type: cosmos.base.node.v1beta1.ConfigRequest
+ */
 export interface ConfigRequestAmino {}
 export interface ConfigRequestAminoMsg {
   type: "cosmos-sdk/ConfigRequest";
   value: ConfigRequestAmino;
 }
-/** ConfigRequest defines the request structure for the Config gRPC query. */
+/**
+ * ConfigRequest defines the request structure for the Config gRPC query.
+ * @name ConfigRequestSDKType
+ * @package cosmos.base.node.v1beta1
+ * @see proto type: cosmos.base.node.v1beta1.ConfigRequest
+ */
 export interface ConfigRequestSDKType {}
-/** ConfigResponse defines the response structure for the Config gRPC query. */
+/**
+ * ConfigResponse defines the response structure for the Config gRPC query.
+ * @name ConfigResponse
+ * @package cosmos.base.node.v1beta1
+ * @see proto type: cosmos.base.node.v1beta1.ConfigResponse
+ */
 export interface ConfigResponse {
   minimumGasPrice: string;
   pruningKeepRecent: string;
@@ -28,7 +47,12 @@ export interface ConfigResponseProtoMsg {
   typeUrl: "/cosmos.base.node.v1beta1.ConfigResponse";
   value: Uint8Array;
 }
-/** ConfigResponse defines the response structure for the Config gRPC query. */
+/**
+ * ConfigResponse defines the response structure for the Config gRPC query.
+ * @name ConfigResponseAmino
+ * @package cosmos.base.node.v1beta1
+ * @see proto type: cosmos.base.node.v1beta1.ConfigResponse
+ */
 export interface ConfigResponseAmino {
   minimum_gas_price?: string;
   pruning_keep_recent?: string;
@@ -39,62 +63,117 @@ export interface ConfigResponseAminoMsg {
   type: "cosmos-sdk/ConfigResponse";
   value: ConfigResponseAmino;
 }
-/** ConfigResponse defines the response structure for the Config gRPC query. */
+/**
+ * ConfigResponse defines the response structure for the Config gRPC query.
+ * @name ConfigResponseSDKType
+ * @package cosmos.base.node.v1beta1
+ * @see proto type: cosmos.base.node.v1beta1.ConfigResponse
+ */
 export interface ConfigResponseSDKType {
   minimum_gas_price: string;
   pruning_keep_recent: string;
   pruning_interval: string;
   halt_height: bigint;
 }
-/** StateRequest defines the request structure for the status of a node. */
+/**
+ * StateRequest defines the request structure for the status of a node.
+ * @name StatusRequest
+ * @package cosmos.base.node.v1beta1
+ * @see proto type: cosmos.base.node.v1beta1.StatusRequest
+ */
 export interface StatusRequest {}
 export interface StatusRequestProtoMsg {
   typeUrl: "/cosmos.base.node.v1beta1.StatusRequest";
   value: Uint8Array;
 }
-/** StateRequest defines the request structure for the status of a node. */
+/**
+ * StateRequest defines the request structure for the status of a node.
+ * @name StatusRequestAmino
+ * @package cosmos.base.node.v1beta1
+ * @see proto type: cosmos.base.node.v1beta1.StatusRequest
+ */
 export interface StatusRequestAmino {}
 export interface StatusRequestAminoMsg {
   type: "cosmos-sdk/StatusRequest";
   value: StatusRequestAmino;
 }
-/** StateRequest defines the request structure for the status of a node. */
+/**
+ * StateRequest defines the request structure for the status of a node.
+ * @name StatusRequestSDKType
+ * @package cosmos.base.node.v1beta1
+ * @see proto type: cosmos.base.node.v1beta1.StatusRequest
+ */
 export interface StatusRequestSDKType {}
-/** StateResponse defines the response structure for the status of a node. */
+/**
+ * StateResponse defines the response structure for the status of a node.
+ * @name StatusResponse
+ * @package cosmos.base.node.v1beta1
+ * @see proto type: cosmos.base.node.v1beta1.StatusResponse
+ */
 export interface StatusResponse {
-  /** earliest block height available in the store */
+  /**
+   * earliest block height available in the store
+   */
   earliestStoreHeight: bigint;
-  /** current block height */
+  /**
+   * current block height
+   */
   height: bigint;
-  /** block height timestamp */
+  /**
+   * block height timestamp
+   */
   timestamp?: Date;
-  /** app hash of the current block */
+  /**
+   * app hash of the current block
+   */
   appHash: Uint8Array;
-  /** validator hash provided by the consensus header */
+  /**
+   * validator hash provided by the consensus header
+   */
   validatorHash: Uint8Array;
 }
 export interface StatusResponseProtoMsg {
   typeUrl: "/cosmos.base.node.v1beta1.StatusResponse";
   value: Uint8Array;
 }
-/** StateResponse defines the response structure for the status of a node. */
+/**
+ * StateResponse defines the response structure for the status of a node.
+ * @name StatusResponseAmino
+ * @package cosmos.base.node.v1beta1
+ * @see proto type: cosmos.base.node.v1beta1.StatusResponse
+ */
 export interface StatusResponseAmino {
-  /** earliest block height available in the store */
+  /**
+   * earliest block height available in the store
+   */
   earliest_store_height?: string;
-  /** current block height */
+  /**
+   * current block height
+   */
   height?: string;
-  /** block height timestamp */
+  /**
+   * block height timestamp
+   */
   timestamp?: string;
-  /** app hash of the current block */
+  /**
+   * app hash of the current block
+   */
   app_hash?: string;
-  /** validator hash provided by the consensus header */
+  /**
+   * validator hash provided by the consensus header
+   */
   validator_hash?: string;
 }
 export interface StatusResponseAminoMsg {
   type: "cosmos-sdk/StatusResponse";
   value: StatusResponseAmino;
 }
-/** StateResponse defines the response structure for the status of a node. */
+/**
+ * StateResponse defines the response structure for the status of a node.
+ * @name StatusResponseSDKType
+ * @package cosmos.base.node.v1beta1
+ * @see proto type: cosmos.base.node.v1beta1.StatusResponse
+ */
 export interface StatusResponseSDKType {
   earliest_store_height: bigint;
   height: bigint;
@@ -105,6 +184,12 @@ export interface StatusResponseSDKType {
 function createBaseConfigRequest(): ConfigRequest {
   return {};
 }
+/**
+ * ConfigRequest defines the request structure for the Config gRPC query.
+ * @name ConfigRequest
+ * @package cosmos.base.node.v1beta1
+ * @see proto type: cosmos.base.node.v1beta1.ConfigRequest
+ */
 export const ConfigRequest = {
   typeUrl: "/cosmos.base.node.v1beta1.ConfigRequest",
   aminoType: "cosmos-sdk/ConfigRequest",
@@ -166,10 +251,9 @@ export const ConfigRequest = {
       typeUrl: "/cosmos.base.node.v1beta1.ConfigRequest",
       value: ConfigRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(ConfigRequest.typeUrl, ConfigRequest);
-GlobalDecoderRegistry.registerAminoProtoMapping(ConfigRequest.aminoType, ConfigRequest.typeUrl);
 function createBaseConfigResponse(): ConfigResponse {
   return {
     minimumGasPrice: "",
@@ -178,6 +262,12 @@ function createBaseConfigResponse(): ConfigResponse {
     haltHeight: BigInt(0)
   };
 }
+/**
+ * ConfigResponse defines the response structure for the Config gRPC query.
+ * @name ConfigResponse
+ * @package cosmos.base.node.v1beta1
+ * @see proto type: cosmos.base.node.v1beta1.ConfigResponse
+ */
 export const ConfigResponse = {
   typeUrl: "/cosmos.base.node.v1beta1.ConfigResponse",
   aminoType: "cosmos-sdk/ConfigResponse",
@@ -283,13 +373,18 @@ export const ConfigResponse = {
       typeUrl: "/cosmos.base.node.v1beta1.ConfigResponse",
       value: ConfigResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(ConfigResponse.typeUrl, ConfigResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(ConfigResponse.aminoType, ConfigResponse.typeUrl);
 function createBaseStatusRequest(): StatusRequest {
   return {};
 }
+/**
+ * StateRequest defines the request structure for the status of a node.
+ * @name StatusRequest
+ * @package cosmos.base.node.v1beta1
+ * @see proto type: cosmos.base.node.v1beta1.StatusRequest
+ */
 export const StatusRequest = {
   typeUrl: "/cosmos.base.node.v1beta1.StatusRequest",
   aminoType: "cosmos-sdk/StatusRequest",
@@ -351,10 +446,9 @@ export const StatusRequest = {
       typeUrl: "/cosmos.base.node.v1beta1.StatusRequest",
       value: StatusRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(StatusRequest.typeUrl, StatusRequest);
-GlobalDecoderRegistry.registerAminoProtoMapping(StatusRequest.aminoType, StatusRequest.typeUrl);
 function createBaseStatusResponse(): StatusResponse {
   return {
     earliestStoreHeight: BigInt(0),
@@ -364,6 +458,12 @@ function createBaseStatusResponse(): StatusResponse {
     validatorHash: new Uint8Array()
   };
 }
+/**
+ * StateResponse defines the response structure for the status of a node.
+ * @name StatusResponse
+ * @package cosmos.base.node.v1beta1
+ * @see proto type: cosmos.base.node.v1beta1.StatusResponse
+ */
 export const StatusResponse = {
   typeUrl: "/cosmos.base.node.v1beta1.StatusResponse",
   aminoType: "cosmos-sdk/StatusResponse",
@@ -480,7 +580,6 @@ export const StatusResponse = {
       typeUrl: "/cosmos.base.node.v1beta1.StatusResponse",
       value: StatusResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(StatusResponse.typeUrl, StatusResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(StatusResponse.aminoType, StatusResponse.typeUrl);

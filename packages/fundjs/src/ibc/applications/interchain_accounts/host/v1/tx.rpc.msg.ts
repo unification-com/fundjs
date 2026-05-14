@@ -1,5 +1,5 @@
 //@ts-nocheck
-import { Rpc } from "../../../../../helpers";
+import { TxRpc } from "../../../../../types";
 import { BinaryReader } from "../../../../../binary";
 import { MsgUpdateParams, MsgUpdateParamsResponse, MsgModuleQuerySafe, MsgModuleQuerySafeResponse } from "./tx";
 /** Msg defines the 27-interchain-accounts/host Msg service. */
@@ -10,8 +10,8 @@ export interface Msg {
   moduleQuerySafe(request: MsgModuleQuerySafe): Promise<MsgModuleQuerySafeResponse>;
 }
 export class MsgClientImpl implements Msg {
-  private readonly rpc: Rpc;
-  constructor(rpc: Rpc) {
+  private readonly rpc: TxRpc;
+  constructor(rpc: TxRpc) {
     this.rpc = rpc;
     this.updateParams = this.updateParams.bind(this);
     this.moduleQuerySafe = this.moduleQuerySafe.bind(this);
@@ -27,3 +27,6 @@ export class MsgClientImpl implements Msg {
     return promise.then(data => MsgModuleQuerySafeResponse.decode(new BinaryReader(data)));
   }
 }
+export const createClientImpl = (rpc: TxRpc) => {
+  return new MsgClientImpl(rpc);
+};

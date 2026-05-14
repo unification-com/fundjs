@@ -3,21 +3,41 @@ import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageRe
 import { Params, ParamsAmino, ParamsSDKType, WrkChain, WrkChainAmino, WrkChainSDKType, WrkChainBlock, WrkChainBlockAmino, WrkChainBlockSDKType } from "./wrkchain";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { GlobalDecoderRegistry } from "../../../registry";
-/** QueryParamsRequest is the request type for the Query/Params RPC method */
+/**
+ * QueryParamsRequest is the request type for the Query/Params RPC method
+ * @name QueryParamsRequest
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.QueryParamsRequest
+ */
 export interface QueryParamsRequest {}
 export interface QueryParamsRequestProtoMsg {
   typeUrl: "/mainchain.wrkchain.v1.QueryParamsRequest";
   value: Uint8Array;
 }
-/** QueryParamsRequest is the request type for the Query/Params RPC method */
+/**
+ * QueryParamsRequest is the request type for the Query/Params RPC method
+ * @name QueryParamsRequestAmino
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.QueryParamsRequest
+ */
 export interface QueryParamsRequestAmino {}
 export interface QueryParamsRequestAminoMsg {
   type: "/mainchain.wrkchain.v1.QueryParamsRequest";
   value: QueryParamsRequestAmino;
 }
-/** QueryParamsRequest is the request type for the Query/Params RPC method */
+/**
+ * QueryParamsRequest is the request type for the Query/Params RPC method
+ * @name QueryParamsRequestSDKType
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.QueryParamsRequest
+ */
 export interface QueryParamsRequestSDKType {}
-/** QueryParamsResponse is the response type for the Query/Params RPC method */
+/**
+ * QueryParamsResponse is the response type for the Query/Params RPC method
+ * @name QueryParamsResponse
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.QueryParamsResponse
+ */
 export interface QueryParamsResponse {
   params: Params;
 }
@@ -25,7 +45,12 @@ export interface QueryParamsResponseProtoMsg {
   typeUrl: "/mainchain.wrkchain.v1.QueryParamsResponse";
   value: Uint8Array;
 }
-/** QueryParamsResponse is the response type for the Query/Params RPC method */
+/**
+ * QueryParamsResponse is the response type for the Query/Params RPC method
+ * @name QueryParamsResponseAmino
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.QueryParamsResponse
+ */
 export interface QueryParamsResponseAmino {
   params?: ParamsAmino;
 }
@@ -33,33 +58,62 @@ export interface QueryParamsResponseAminoMsg {
   type: "/mainchain.wrkchain.v1.QueryParamsResponse";
   value: QueryParamsResponseAmino;
 }
-/** QueryParamsResponse is the response type for the Query/Params RPC method */
+/**
+ * QueryParamsResponse is the response type for the Query/Params RPC method
+ * @name QueryParamsResponseSDKType
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.QueryParamsResponse
+ */
 export interface QueryParamsResponseSDKType {
   params: ParamsSDKType;
 }
-/** QueryWrkChainRequest is the request type for the Query/WrkChain RPC method */
+/**
+ * QueryWrkChainRequest is the request type for the Query/WrkChain RPC method
+ * @name QueryWrkChainRequest
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.QueryWrkChainRequest
+ */
 export interface QueryWrkChainRequest {
-  /** wrkchain_id is the id of the wrkchain to query for */
+  /**
+   * wrkchain_id is the id of the wrkchain to query for
+   */
   wrkchainId: bigint;
 }
 export interface QueryWrkChainRequestProtoMsg {
   typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainRequest";
   value: Uint8Array;
 }
-/** QueryWrkChainRequest is the request type for the Query/WrkChain RPC method */
+/**
+ * QueryWrkChainRequest is the request type for the Query/WrkChain RPC method
+ * @name QueryWrkChainRequestAmino
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.QueryWrkChainRequest
+ */
 export interface QueryWrkChainRequestAmino {
-  /** wrkchain_id is the id of the wrkchain to query for */
+  /**
+   * wrkchain_id is the id of the wrkchain to query for
+   */
   wrkchain_id?: string;
 }
 export interface QueryWrkChainRequestAminoMsg {
   type: "/mainchain.wrkchain.v1.QueryWrkChainRequest";
   value: QueryWrkChainRequestAmino;
 }
-/** QueryWrkChainRequest is the request type for the Query/WrkChain RPC method */
+/**
+ * QueryWrkChainRequest is the request type for the Query/WrkChain RPC method
+ * @name QueryWrkChainRequestSDKType
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.QueryWrkChainRequest
+ */
 export interface QueryWrkChainRequestSDKType {
   wrkchain_id: bigint;
 }
-/** QueryWrkChainResponse is the response type for the Query/WrkChain RPC method */
+/**
+ * QueryWrkChainResponse is the response type for the Query/WrkChain RPC method
+ * @name QueryWrkChainResponse
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.QueryWrkChainResponse
+ */
 export interface QueryWrkChainResponse {
   wrkchain?: WrkChain;
 }
@@ -67,7 +121,12 @@ export interface QueryWrkChainResponseProtoMsg {
   typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainResponse";
   value: Uint8Array;
 }
-/** QueryWrkChainResponse is the response type for the Query/WrkChain RPC method */
+/**
+ * QueryWrkChainResponse is the response type for the Query/WrkChain RPC method
+ * @name QueryWrkChainResponseAmino
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.QueryWrkChainResponse
+ */
 export interface QueryWrkChainResponseAmino {
   wrkchain?: WrkChainAmino;
 }
@@ -75,38 +134,75 @@ export interface QueryWrkChainResponseAminoMsg {
   type: "/mainchain.wrkchain.v1.QueryWrkChainResponse";
   value: QueryWrkChainResponseAmino;
 }
-/** QueryWrkChainResponse is the response type for the Query/WrkChain RPC method */
+/**
+ * QueryWrkChainResponse is the response type for the Query/WrkChain RPC method
+ * @name QueryWrkChainResponseSDKType
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.QueryWrkChainResponse
+ */
 export interface QueryWrkChainResponseSDKType {
   wrkchain?: WrkChainSDKType;
 }
-/** QueryWrkChainBlockRequest is the request type for the Query/WrkChainBlock RPC method */
+/**
+ * QueryWrkChainBlockRequest is the request type for the Query/WrkChainBlock RPC
+ * method
+ * @name QueryWrkChainBlockRequest
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.QueryWrkChainBlockRequest
+ */
 export interface QueryWrkChainBlockRequest {
-  /** wrkchain_id is the id of the wrkchain to query for */
+  /**
+   * wrkchain_id is the id of the wrkchain to query for
+   */
   wrkchainId: bigint;
-  /** wc_height is the block number of the hash to query for */
+  /**
+   * wc_height is the block number of the hash to query for
+   */
   wcHeight: bigint;
 }
 export interface QueryWrkChainBlockRequestProtoMsg {
   typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainBlockRequest";
   value: Uint8Array;
 }
-/** QueryWrkChainBlockRequest is the request type for the Query/WrkChainBlock RPC method */
+/**
+ * QueryWrkChainBlockRequest is the request type for the Query/WrkChainBlock RPC
+ * method
+ * @name QueryWrkChainBlockRequestAmino
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.QueryWrkChainBlockRequest
+ */
 export interface QueryWrkChainBlockRequestAmino {
-  /** wrkchain_id is the id of the wrkchain to query for */
+  /**
+   * wrkchain_id is the id of the wrkchain to query for
+   */
   wrkchain_id?: string;
-  /** wc_height is the block number of the hash to query for */
+  /**
+   * wc_height is the block number of the hash to query for
+   */
   wc_height?: string;
 }
 export interface QueryWrkChainBlockRequestAminoMsg {
   type: "/mainchain.wrkchain.v1.QueryWrkChainBlockRequest";
   value: QueryWrkChainBlockRequestAmino;
 }
-/** QueryWrkChainBlockRequest is the request type for the Query/WrkChainBlock RPC method */
+/**
+ * QueryWrkChainBlockRequest is the request type for the Query/WrkChainBlock RPC
+ * method
+ * @name QueryWrkChainBlockRequestSDKType
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.QueryWrkChainBlockRequest
+ */
 export interface QueryWrkChainBlockRequestSDKType {
   wrkchain_id: bigint;
   wc_height: bigint;
 }
-/** QueryWrkChainBlockResponse is the response type for the Query/WrkChainBlock RPC method */
+/**
+ * QueryWrkChainBlockResponse is the response type for the Query/WrkChainBlock
+ * RPC method
+ * @name QueryWrkChainBlockResponse
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.QueryWrkChainBlockResponse
+ */
 export interface QueryWrkChainBlockResponse {
   block?: WrkChainBlock;
   wrkchainId: bigint;
@@ -116,7 +212,13 @@ export interface QueryWrkChainBlockResponseProtoMsg {
   typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainBlockResponse";
   value: Uint8Array;
 }
-/** QueryWrkChainBlockResponse is the response type for the Query/WrkChainBlock RPC method */
+/**
+ * QueryWrkChainBlockResponse is the response type for the Query/WrkChainBlock
+ * RPC method
+ * @name QueryWrkChainBlockResponseAmino
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.QueryWrkChainBlockResponse
+ */
 export interface QueryWrkChainBlockResponseAmino {
   block?: WrkChainBlockAmino;
   wrkchain_id?: string;
@@ -126,126 +228,244 @@ export interface QueryWrkChainBlockResponseAminoMsg {
   type: "/mainchain.wrkchain.v1.QueryWrkChainBlockResponse";
   value: QueryWrkChainBlockResponseAmino;
 }
-/** QueryWrkChainBlockResponse is the response type for the Query/WrkChainBlock RPC method */
+/**
+ * QueryWrkChainBlockResponse is the response type for the Query/WrkChainBlock
+ * RPC method
+ * @name QueryWrkChainBlockResponseSDKType
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.QueryWrkChainBlockResponse
+ */
 export interface QueryWrkChainBlockResponseSDKType {
   block?: WrkChainBlockSDKType;
   wrkchain_id: bigint;
   owner: string;
 }
-/** QueryWrkChainsFilteredRequest is the request type for the Query/WrkChainsFiltered RPC method */
+/**
+ * QueryWrkChainsFilteredRequest is the request type for the
+ * Query/WrkChainsFiltered RPC method
+ * @name QueryWrkChainsFilteredRequest
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.QueryWrkChainsFilteredRequest
+ */
 export interface QueryWrkChainsFilteredRequest {
-  /** moniker is the moniker of the wrkchain to search for */
+  /**
+   * moniker is the moniker of the wrkchain to search for
+   */
   moniker: string;
-  /** owner is an address to search for */
+  /**
+   * owner is an address to search for
+   */
   owner: string;
-  /** pagination defines an optional pagination for the request. */
+  /**
+   * pagination defines an optional pagination for the request.
+   */
   pagination?: PageRequest;
 }
 export interface QueryWrkChainsFilteredRequestProtoMsg {
   typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainsFilteredRequest";
   value: Uint8Array;
 }
-/** QueryWrkChainsFilteredRequest is the request type for the Query/WrkChainsFiltered RPC method */
+/**
+ * QueryWrkChainsFilteredRequest is the request type for the
+ * Query/WrkChainsFiltered RPC method
+ * @name QueryWrkChainsFilteredRequestAmino
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.QueryWrkChainsFilteredRequest
+ */
 export interface QueryWrkChainsFilteredRequestAmino {
-  /** moniker is the moniker of the wrkchain to search for */
+  /**
+   * moniker is the moniker of the wrkchain to search for
+   */
   moniker?: string;
-  /** owner is an address to search for */
+  /**
+   * owner is an address to search for
+   */
   owner?: string;
-  /** pagination defines an optional pagination for the request. */
+  /**
+   * pagination defines an optional pagination for the request.
+   */
   pagination?: PageRequestAmino;
 }
 export interface QueryWrkChainsFilteredRequestAminoMsg {
   type: "/mainchain.wrkchain.v1.QueryWrkChainsFilteredRequest";
   value: QueryWrkChainsFilteredRequestAmino;
 }
-/** QueryWrkChainsFilteredRequest is the request type for the Query/WrkChainsFiltered RPC method */
+/**
+ * QueryWrkChainsFilteredRequest is the request type for the
+ * Query/WrkChainsFiltered RPC method
+ * @name QueryWrkChainsFilteredRequestSDKType
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.QueryWrkChainsFilteredRequest
+ */
 export interface QueryWrkChainsFilteredRequestSDKType {
   moniker: string;
   owner: string;
   pagination?: PageRequestSDKType;
 }
-/** QueryWrkChainsFilteredResponse is the response type for the Query/WrkChainsFiltered RPC method */
+/**
+ * QueryWrkChainsFilteredResponse is the response type for the
+ * Query/WrkChainsFiltered RPC method
+ * @name QueryWrkChainsFilteredResponse
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.QueryWrkChainsFilteredResponse
+ */
 export interface QueryWrkChainsFilteredResponse {
   wrkchains: WrkChain[];
-  /** pagination defines the pagination in the response. */
+  /**
+   * pagination defines the pagination in the response.
+   */
   pagination?: PageResponse;
 }
 export interface QueryWrkChainsFilteredResponseProtoMsg {
   typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainsFilteredResponse";
   value: Uint8Array;
 }
-/** QueryWrkChainsFilteredResponse is the response type for the Query/WrkChainsFiltered RPC method */
+/**
+ * QueryWrkChainsFilteredResponse is the response type for the
+ * Query/WrkChainsFiltered RPC method
+ * @name QueryWrkChainsFilteredResponseAmino
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.QueryWrkChainsFilteredResponse
+ */
 export interface QueryWrkChainsFilteredResponseAmino {
   wrkchains?: WrkChainAmino[];
-  /** pagination defines the pagination in the response. */
+  /**
+   * pagination defines the pagination in the response.
+   */
   pagination?: PageResponseAmino;
 }
 export interface QueryWrkChainsFilteredResponseAminoMsg {
   type: "/mainchain.wrkchain.v1.QueryWrkChainsFilteredResponse";
   value: QueryWrkChainsFilteredResponseAmino;
 }
-/** QueryWrkChainsFilteredResponse is the response type for the Query/WrkChainsFiltered RPC method */
+/**
+ * QueryWrkChainsFilteredResponse is the response type for the
+ * Query/WrkChainsFiltered RPC method
+ * @name QueryWrkChainsFilteredResponseSDKType
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.QueryWrkChainsFilteredResponse
+ */
 export interface QueryWrkChainsFilteredResponseSDKType {
   wrkchains: WrkChainSDKType[];
   pagination?: PageResponseSDKType;
 }
-/** QueryWrkChainStorageRequest is the request type for the Query/WrkChainStorage RPC method */
+/**
+ * QueryWrkChainStorageRequest is the request type for the Query/WrkChainStorage
+ * RPC method
+ * @name QueryWrkChainStorageRequest
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.QueryWrkChainStorageRequest
+ */
 export interface QueryWrkChainStorageRequest {
-  /** wrkchain_id is the id of the wrkchain to query for */
+  /**
+   * wrkchain_id is the id of the wrkchain to query for
+   */
   wrkchainId: bigint;
 }
 export interface QueryWrkChainStorageRequestProtoMsg {
   typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainStorageRequest";
   value: Uint8Array;
 }
-/** QueryWrkChainStorageRequest is the request type for the Query/WrkChainStorage RPC method */
+/**
+ * QueryWrkChainStorageRequest is the request type for the Query/WrkChainStorage
+ * RPC method
+ * @name QueryWrkChainStorageRequestAmino
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.QueryWrkChainStorageRequest
+ */
 export interface QueryWrkChainStorageRequestAmino {
-  /** wrkchain_id is the id of the wrkchain to query for */
+  /**
+   * wrkchain_id is the id of the wrkchain to query for
+   */
   wrkchain_id?: string;
 }
 export interface QueryWrkChainStorageRequestAminoMsg {
   type: "/mainchain.wrkchain.v1.QueryWrkChainStorageRequest";
   value: QueryWrkChainStorageRequestAmino;
 }
-/** QueryWrkChainStorageRequest is the request type for the Query/WrkChainStorage RPC method */
+/**
+ * QueryWrkChainStorageRequest is the request type for the Query/WrkChainStorage
+ * RPC method
+ * @name QueryWrkChainStorageRequestSDKType
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.QueryWrkChainStorageRequest
+ */
 export interface QueryWrkChainStorageRequestSDKType {
   wrkchain_id: bigint;
 }
-/** QueryWrkChainStorageResponse is the response type for the Query/WrkChainStorage RPC method */
+/**
+ * QueryWrkChainStorageResponse is the response type for the
+ * Query/WrkChainStorage RPC method
+ * @name QueryWrkChainStorageResponse
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.QueryWrkChainStorageResponse
+ */
 export interface QueryWrkChainStorageResponse {
   wrkchainId: bigint;
   owner: string;
-  /** current_limit is the current in-state storage limit for this wrkchain */
+  /**
+   * current_limit is the current in-state storage limit for this wrkchain
+   */
   currentLimit: bigint;
-  /** current_used is the number of in-state slots currently used */
+  /**
+   * current_used is the number of in-state slots currently used
+   */
   currentUsed: bigint;
-  /** max is the maximum possible slots a wrkchain can have, as defined by the wrkchain module params */
+  /**
+   * max is the maximum possible slots a wrkchain can have, as defined by the
+   * wrkchain module params
+   */
   max: bigint;
-  /** max_purchasable is the maximum number a wrkchain can purchase without exceeding max */
+  /**
+   * max_purchasable is the maximum number a wrkchain can purchase without
+   * exceeding max
+   */
   maxPurchasable: bigint;
 }
 export interface QueryWrkChainStorageResponseProtoMsg {
   typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainStorageResponse";
   value: Uint8Array;
 }
-/** QueryWrkChainStorageResponse is the response type for the Query/WrkChainStorage RPC method */
+/**
+ * QueryWrkChainStorageResponse is the response type for the
+ * Query/WrkChainStorage RPC method
+ * @name QueryWrkChainStorageResponseAmino
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.QueryWrkChainStorageResponse
+ */
 export interface QueryWrkChainStorageResponseAmino {
   wrkchain_id?: string;
   owner?: string;
-  /** current_limit is the current in-state storage limit for this wrkchain */
+  /**
+   * current_limit is the current in-state storage limit for this wrkchain
+   */
   current_limit?: string;
-  /** current_used is the number of in-state slots currently used */
+  /**
+   * current_used is the number of in-state slots currently used
+   */
   current_used?: string;
-  /** max is the maximum possible slots a wrkchain can have, as defined by the wrkchain module params */
+  /**
+   * max is the maximum possible slots a wrkchain can have, as defined by the
+   * wrkchain module params
+   */
   max?: string;
-  /** max_purchasable is the maximum number a wrkchain can purchase without exceeding max */
+  /**
+   * max_purchasable is the maximum number a wrkchain can purchase without
+   * exceeding max
+   */
   max_purchasable?: string;
 }
 export interface QueryWrkChainStorageResponseAminoMsg {
   type: "/mainchain.wrkchain.v1.QueryWrkChainStorageResponse";
   value: QueryWrkChainStorageResponseAmino;
 }
-/** QueryWrkChainStorageResponse is the response type for the Query/WrkChainStorage RPC method */
+/**
+ * QueryWrkChainStorageResponse is the response type for the
+ * Query/WrkChainStorage RPC method
+ * @name QueryWrkChainStorageResponseSDKType
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.QueryWrkChainStorageResponse
+ */
 export interface QueryWrkChainStorageResponseSDKType {
   wrkchain_id: bigint;
   owner: string;
@@ -257,6 +477,12 @@ export interface QueryWrkChainStorageResponseSDKType {
 function createBaseQueryParamsRequest(): QueryParamsRequest {
   return {};
 }
+/**
+ * QueryParamsRequest is the request type for the Query/Params RPC method
+ * @name QueryParamsRequest
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.QueryParamsRequest
+ */
 export const QueryParamsRequest = {
   typeUrl: "/mainchain.wrkchain.v1.QueryParamsRequest",
   is(o: any): o is QueryParamsRequest {
@@ -311,14 +537,20 @@ export const QueryParamsRequest = {
       typeUrl: "/mainchain.wrkchain.v1.QueryParamsRequest",
       value: QueryParamsRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryParamsRequest.typeUrl, QueryParamsRequest);
 function createBaseQueryParamsResponse(): QueryParamsResponse {
   return {
     params: Params.fromPartial({})
   };
 }
+/**
+ * QueryParamsResponse is the response type for the Query/Params RPC method
+ * @name QueryParamsResponse
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.QueryParamsResponse
+ */
 export const QueryParamsResponse = {
   typeUrl: "/mainchain.wrkchain.v1.QueryParamsResponse",
   is(o: any): o is QueryParamsResponse {
@@ -384,14 +616,25 @@ export const QueryParamsResponse = {
       typeUrl: "/mainchain.wrkchain.v1.QueryParamsResponse",
       value: QueryParamsResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryParamsResponse.typeUrl)) {
+      return;
+    }
+    Params.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryParamsResponse.typeUrl, QueryParamsResponse);
 function createBaseQueryWrkChainRequest(): QueryWrkChainRequest {
   return {
     wrkchainId: BigInt(0)
   };
 }
+/**
+ * QueryWrkChainRequest is the request type for the Query/WrkChain RPC method
+ * @name QueryWrkChainRequest
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.QueryWrkChainRequest
+ */
 export const QueryWrkChainRequest = {
   typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainRequest",
   is(o: any): o is QueryWrkChainRequest {
@@ -457,14 +700,20 @@ export const QueryWrkChainRequest = {
       typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainRequest",
       value: QueryWrkChainRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryWrkChainRequest.typeUrl, QueryWrkChainRequest);
 function createBaseQueryWrkChainResponse(): QueryWrkChainResponse {
   return {
     wrkchain: undefined
   };
 }
+/**
+ * QueryWrkChainResponse is the response type for the Query/WrkChain RPC method
+ * @name QueryWrkChainResponse
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.QueryWrkChainResponse
+ */
 export const QueryWrkChainResponse = {
   typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainResponse",
   is(o: any): o is QueryWrkChainResponse {
@@ -530,15 +779,27 @@ export const QueryWrkChainResponse = {
       typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainResponse",
       value: QueryWrkChainResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryWrkChainResponse.typeUrl)) {
+      return;
+    }
+    WrkChain.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryWrkChainResponse.typeUrl, QueryWrkChainResponse);
 function createBaseQueryWrkChainBlockRequest(): QueryWrkChainBlockRequest {
   return {
     wrkchainId: BigInt(0),
     wcHeight: BigInt(0)
   };
 }
+/**
+ * QueryWrkChainBlockRequest is the request type for the Query/WrkChainBlock RPC
+ * method
+ * @name QueryWrkChainBlockRequest
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.QueryWrkChainBlockRequest
+ */
 export const QueryWrkChainBlockRequest = {
   typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainBlockRequest",
   is(o: any): o is QueryWrkChainBlockRequest {
@@ -615,9 +876,9 @@ export const QueryWrkChainBlockRequest = {
       typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainBlockRequest",
       value: QueryWrkChainBlockRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryWrkChainBlockRequest.typeUrl, QueryWrkChainBlockRequest);
 function createBaseQueryWrkChainBlockResponse(): QueryWrkChainBlockResponse {
   return {
     block: undefined,
@@ -625,6 +886,13 @@ function createBaseQueryWrkChainBlockResponse(): QueryWrkChainBlockResponse {
     owner: ""
   };
 }
+/**
+ * QueryWrkChainBlockResponse is the response type for the Query/WrkChainBlock
+ * RPC method
+ * @name QueryWrkChainBlockResponse
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.QueryWrkChainBlockResponse
+ */
 export const QueryWrkChainBlockResponse = {
   typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainBlockResponse",
   is(o: any): o is QueryWrkChainBlockResponse {
@@ -712,9 +980,14 @@ export const QueryWrkChainBlockResponse = {
       typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainBlockResponse",
       value: QueryWrkChainBlockResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryWrkChainBlockResponse.typeUrl)) {
+      return;
+    }
+    WrkChainBlock.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryWrkChainBlockResponse.typeUrl, QueryWrkChainBlockResponse);
 function createBaseQueryWrkChainsFilteredRequest(): QueryWrkChainsFilteredRequest {
   return {
     moniker: "",
@@ -722,6 +995,13 @@ function createBaseQueryWrkChainsFilteredRequest(): QueryWrkChainsFilteredReques
     pagination: undefined
   };
 }
+/**
+ * QueryWrkChainsFilteredRequest is the request type for the
+ * Query/WrkChainsFiltered RPC method
+ * @name QueryWrkChainsFilteredRequest
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.QueryWrkChainsFilteredRequest
+ */
 export const QueryWrkChainsFilteredRequest = {
   typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainsFilteredRequest",
   is(o: any): o is QueryWrkChainsFilteredRequest {
@@ -809,15 +1089,27 @@ export const QueryWrkChainsFilteredRequest = {
       typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainsFilteredRequest",
       value: QueryWrkChainsFilteredRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryWrkChainsFilteredRequest.typeUrl)) {
+      return;
+    }
+    PageRequest.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryWrkChainsFilteredRequest.typeUrl, QueryWrkChainsFilteredRequest);
 function createBaseQueryWrkChainsFilteredResponse(): QueryWrkChainsFilteredResponse {
   return {
     wrkchains: [],
     pagination: undefined
   };
 }
+/**
+ * QueryWrkChainsFilteredResponse is the response type for the
+ * Query/WrkChainsFiltered RPC method
+ * @name QueryWrkChainsFilteredResponse
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.QueryWrkChainsFilteredResponse
+ */
 export const QueryWrkChainsFilteredResponse = {
   typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainsFilteredResponse",
   is(o: any): o is QueryWrkChainsFilteredResponse {
@@ -896,14 +1188,27 @@ export const QueryWrkChainsFilteredResponse = {
       typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainsFilteredResponse",
       value: QueryWrkChainsFilteredResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryWrkChainsFilteredResponse.typeUrl)) {
+      return;
+    }
+    WrkChain.registerTypeUrl();
+    PageResponse.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryWrkChainsFilteredResponse.typeUrl, QueryWrkChainsFilteredResponse);
 function createBaseQueryWrkChainStorageRequest(): QueryWrkChainStorageRequest {
   return {
     wrkchainId: BigInt(0)
   };
 }
+/**
+ * QueryWrkChainStorageRequest is the request type for the Query/WrkChainStorage
+ * RPC method
+ * @name QueryWrkChainStorageRequest
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.QueryWrkChainStorageRequest
+ */
 export const QueryWrkChainStorageRequest = {
   typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainStorageRequest",
   is(o: any): o is QueryWrkChainStorageRequest {
@@ -969,9 +1274,9 @@ export const QueryWrkChainStorageRequest = {
       typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainStorageRequest",
       value: QueryWrkChainStorageRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryWrkChainStorageRequest.typeUrl, QueryWrkChainStorageRequest);
 function createBaseQueryWrkChainStorageResponse(): QueryWrkChainStorageResponse {
   return {
     wrkchainId: BigInt(0),
@@ -982,6 +1287,13 @@ function createBaseQueryWrkChainStorageResponse(): QueryWrkChainStorageResponse 
     maxPurchasable: BigInt(0)
   };
 }
+/**
+ * QueryWrkChainStorageResponse is the response type for the
+ * Query/WrkChainStorage RPC method
+ * @name QueryWrkChainStorageResponse
+ * @package mainchain.wrkchain.v1
+ * @see proto type: mainchain.wrkchain.v1.QueryWrkChainStorageResponse
+ */
 export const QueryWrkChainStorageResponse = {
   typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainStorageResponse",
   is(o: any): o is QueryWrkChainStorageResponse {
@@ -1102,6 +1414,6 @@ export const QueryWrkChainStorageResponse = {
       typeUrl: "/mainchain.wrkchain.v1.QueryWrkChainStorageResponse",
       value: QueryWrkChainStorageResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryWrkChainStorageResponse.typeUrl, QueryWrkChainStorageResponse);

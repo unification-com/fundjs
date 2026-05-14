@@ -81,41 +81,84 @@ export function streamPeriodToJSON(object: StreamPeriod): string {
       return "UNRECOGNIZED";
   }
 }
-/** Stream holds data about a stream */
+/**
+ * Stream holds data about a stream
+ * @name Stream
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.Stream
+ */
 export interface Stream {
-  /** deposit tracks the total amount the user has deposited to cover the stream, including any updates to the stream */
+  /**
+   * deposit tracks the total amount the user has deposited to cover the stream,
+   * including any updates to the stream
+   */
   deposit: Coin;
-  /** flow_rate is the current rate of nund per second */
+  /**
+   * flow_rate is the current rate of nund per second
+   */
   flowRate: bigint;
-  /** last_outflow_time is the timestamp of the last claim. Allows for a start point to calculate the next claim */
+  /**
+   * last_outflow_time is the timestamp of the last claim. Allows for a start
+   * point to calculate the next claim
+   */
   lastOutflowTime: Date;
-  /** deposit_zero_time is the timestamp for when the current deposited amount will run out */
+  /**
+   * deposit_zero_time is the timestamp for when the current deposited amount
+   * will run out
+   */
   depositZeroTime: Date;
-  /** cancellable is whether a stream can be cancelled. Default is true, but will be false for example id eFUND is used */
+  /**
+   * cancellable is whether a stream can be cancelled. Default is true, but will
+   * be false for example id eFUND is used
+   */
   cancellable: boolean;
 }
 export interface StreamProtoMsg {
   typeUrl: "/mainchain.stream.v1.Stream";
   value: Uint8Array;
 }
-/** Stream holds data about a stream */
+/**
+ * Stream holds data about a stream
+ * @name StreamAmino
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.Stream
+ */
 export interface StreamAmino {
-  /** deposit tracks the total amount the user has deposited to cover the stream, including any updates to the stream */
+  /**
+   * deposit tracks the total amount the user has deposited to cover the stream,
+   * including any updates to the stream
+   */
   deposit?: CoinAmino;
-  /** flow_rate is the current rate of nund per second */
+  /**
+   * flow_rate is the current rate of nund per second
+   */
   flow_rate?: string;
-  /** last_outflow_time is the timestamp of the last claim. Allows for a start point to calculate the next claim */
+  /**
+   * last_outflow_time is the timestamp of the last claim. Allows for a start
+   * point to calculate the next claim
+   */
   last_outflow_time?: string;
-  /** deposit_zero_time is the timestamp for when the current deposited amount will run out */
+  /**
+   * deposit_zero_time is the timestamp for when the current deposited amount
+   * will run out
+   */
   deposit_zero_time?: string;
-  /** cancellable is whether a stream can be cancelled. Default is true, but will be false for example id eFUND is used */
+  /**
+   * cancellable is whether a stream can be cancelled. Default is true, but will
+   * be false for example id eFUND is used
+   */
   cancellable?: boolean;
 }
 export interface StreamAminoMsg {
   type: "stream/v1/Stream";
   value: StreamAmino;
 }
-/** Stream holds data about a stream */
+/**
+ * Stream holds data about a stream
+ * @name StreamSDKType
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.Stream
+ */
 export interface StreamSDKType {
   deposit: CoinSDKType;
   flow_rate: bigint;
@@ -132,6 +175,12 @@ function createBaseStream(): Stream {
     cancellable: false
   };
 }
+/**
+ * Stream holds data about a stream
+ * @name Stream
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.Stream
+ */
 export const Stream = {
   typeUrl: "/mainchain.stream.v1.Stream",
   aminoType: "stream/v1/Stream",
@@ -248,7 +297,11 @@ export const Stream = {
       typeUrl: "/mainchain.stream.v1.Stream",
       value: Stream.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Stream.typeUrl)) {
+      return;
+    }
+    Coin.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(Stream.typeUrl, Stream);
-GlobalDecoderRegistry.registerAminoProtoMapping(Stream.aminoType, Stream.typeUrl);

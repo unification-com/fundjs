@@ -9,9 +9,14 @@ import { bytesFromBase64, base64FromBytes } from "../../../../helpers";
 /**
  * QueryClientStateRequest is the request type for the Query/ClientState RPC
  * method
+ * @name QueryClientStateRequest
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryClientStateRequest
  */
 export interface QueryClientStateRequest {
-  /** client state unique identifier */
+  /**
+   * client state unique identifier
+   */
   clientId: string;
 }
 export interface QueryClientStateRequestProtoMsg {
@@ -21,9 +26,14 @@ export interface QueryClientStateRequestProtoMsg {
 /**
  * QueryClientStateRequest is the request type for the Query/ClientState RPC
  * method
+ * @name QueryClientStateRequestAmino
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryClientStateRequest
  */
 export interface QueryClientStateRequestAmino {
-  /** client state unique identifier */
+  /**
+   * client state unique identifier
+   */
   client_id?: string;
 }
 export interface QueryClientStateRequestAminoMsg {
@@ -33,6 +43,9 @@ export interface QueryClientStateRequestAminoMsg {
 /**
  * QueryClientStateRequest is the request type for the Query/ClientState RPC
  * method
+ * @name QueryClientStateRequestSDKType
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryClientStateRequest
  */
 export interface QueryClientStateRequestSDKType {
   client_id: string;
@@ -41,13 +54,22 @@ export interface QueryClientStateRequestSDKType {
  * QueryClientStateResponse is the response type for the Query/ClientState RPC
  * method. Besides the client state, it includes a proof and the height from
  * which the proof was retrieved.
+ * @name QueryClientStateResponse
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryClientStateResponse
  */
 export interface QueryClientStateResponse {
-  /** client state associated with the request identifier */
+  /**
+   * client state associated with the request identifier
+   */
   clientState?: Any;
-  /** merkle proof of existence */
+  /**
+   * merkle proof of existence
+   */
   proof: Uint8Array;
-  /** height at which the proof was retrieved */
+  /**
+   * height at which the proof was retrieved
+   */
   proofHeight: Height;
 }
 export interface QueryClientStateResponseProtoMsg {
@@ -58,13 +80,22 @@ export interface QueryClientStateResponseProtoMsg {
  * QueryClientStateResponse is the response type for the Query/ClientState RPC
  * method. Besides the client state, it includes a proof and the height from
  * which the proof was retrieved.
+ * @name QueryClientStateResponseAmino
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryClientStateResponse
  */
 export interface QueryClientStateResponseAmino {
-  /** client state associated with the request identifier */
+  /**
+   * client state associated with the request identifier
+   */
   client_state?: AnyAmino;
-  /** merkle proof of existence */
+  /**
+   * merkle proof of existence
+   */
   proof?: string;
-  /** height at which the proof was retrieved */
+  /**
+   * height at which the proof was retrieved
+   */
   proof_height?: HeightAmino;
 }
 export interface QueryClientStateResponseAminoMsg {
@@ -75,6 +106,9 @@ export interface QueryClientStateResponseAminoMsg {
  * QueryClientStateResponse is the response type for the Query/ClientState RPC
  * method. Besides the client state, it includes a proof and the height from
  * which the proof was retrieved.
+ * @name QueryClientStateResponseSDKType
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryClientStateResponse
  */
 export interface QueryClientStateResponseSDKType {
   client_state?: AnySDKType;
@@ -84,9 +118,14 @@ export interface QueryClientStateResponseSDKType {
 /**
  * QueryClientStatesRequest is the request type for the Query/ClientStates RPC
  * method
+ * @name QueryClientStatesRequest
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryClientStatesRequest
  */
 export interface QueryClientStatesRequest {
-  /** pagination request */
+  /**
+   * pagination request
+   */
   pagination?: PageRequest;
 }
 export interface QueryClientStatesRequestProtoMsg {
@@ -96,9 +135,14 @@ export interface QueryClientStatesRequestProtoMsg {
 /**
  * QueryClientStatesRequest is the request type for the Query/ClientStates RPC
  * method
+ * @name QueryClientStatesRequestAmino
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryClientStatesRequest
  */
 export interface QueryClientStatesRequestAmino {
-  /** pagination request */
+  /**
+   * pagination request
+   */
   pagination?: PageRequestAmino;
 }
 export interface QueryClientStatesRequestAminoMsg {
@@ -108,6 +152,9 @@ export interface QueryClientStatesRequestAminoMsg {
 /**
  * QueryClientStatesRequest is the request type for the Query/ClientStates RPC
  * method
+ * @name QueryClientStatesRequestSDKType
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryClientStatesRequest
  */
 export interface QueryClientStatesRequestSDKType {
   pagination?: PageRequestSDKType;
@@ -115,11 +162,18 @@ export interface QueryClientStatesRequestSDKType {
 /**
  * QueryClientStatesResponse is the response type for the Query/ClientStates RPC
  * method.
+ * @name QueryClientStatesResponse
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryClientStatesResponse
  */
 export interface QueryClientStatesResponse {
-  /** list of stored ClientStates of the chain. */
+  /**
+   * list of stored ClientStates of the chain.
+   */
   clientStates: IdentifiedClientState[];
-  /** pagination response */
+  /**
+   * pagination response
+   */
   pagination?: PageResponse;
 }
 export interface QueryClientStatesResponseProtoMsg {
@@ -129,11 +183,18 @@ export interface QueryClientStatesResponseProtoMsg {
 /**
  * QueryClientStatesResponse is the response type for the Query/ClientStates RPC
  * method.
+ * @name QueryClientStatesResponseAmino
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryClientStatesResponse
  */
 export interface QueryClientStatesResponseAmino {
-  /** list of stored ClientStates of the chain. */
+  /**
+   * list of stored ClientStates of the chain.
+   */
   client_states?: IdentifiedClientStateAmino[];
-  /** pagination response */
+  /**
+   * pagination response
+   */
   pagination?: PageResponseAmino;
 }
 export interface QueryClientStatesResponseAminoMsg {
@@ -143,6 +204,9 @@ export interface QueryClientStatesResponseAminoMsg {
 /**
  * QueryClientStatesResponse is the response type for the Query/ClientStates RPC
  * method.
+ * @name QueryClientStatesResponseSDKType
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryClientStatesResponse
  */
 export interface QueryClientStatesResponseSDKType {
   client_states: IdentifiedClientStateSDKType[];
@@ -152,13 +216,22 @@ export interface QueryClientStatesResponseSDKType {
  * QueryConsensusStateRequest is the request type for the Query/ConsensusState
  * RPC method. Besides the consensus state, it includes a proof and the height
  * from which the proof was retrieved.
+ * @name QueryConsensusStateRequest
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryConsensusStateRequest
  */
 export interface QueryConsensusStateRequest {
-  /** client identifier */
+  /**
+   * client identifier
+   */
   clientId: string;
-  /** consensus state revision number */
+  /**
+   * consensus state revision number
+   */
   revisionNumber: bigint;
-  /** consensus state revision height */
+  /**
+   * consensus state revision height
+   */
   revisionHeight: bigint;
   /**
    * latest_height overrrides the height field and queries the latest stored
@@ -174,13 +247,22 @@ export interface QueryConsensusStateRequestProtoMsg {
  * QueryConsensusStateRequest is the request type for the Query/ConsensusState
  * RPC method. Besides the consensus state, it includes a proof and the height
  * from which the proof was retrieved.
+ * @name QueryConsensusStateRequestAmino
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryConsensusStateRequest
  */
 export interface QueryConsensusStateRequestAmino {
-  /** client identifier */
+  /**
+   * client identifier
+   */
   client_id?: string;
-  /** consensus state revision number */
+  /**
+   * consensus state revision number
+   */
   revision_number?: string;
-  /** consensus state revision height */
+  /**
+   * consensus state revision height
+   */
   revision_height?: string;
   /**
    * latest_height overrrides the height field and queries the latest stored
@@ -196,6 +278,9 @@ export interface QueryConsensusStateRequestAminoMsg {
  * QueryConsensusStateRequest is the request type for the Query/ConsensusState
  * RPC method. Besides the consensus state, it includes a proof and the height
  * from which the proof was retrieved.
+ * @name QueryConsensusStateRequestSDKType
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryConsensusStateRequest
  */
 export interface QueryConsensusStateRequestSDKType {
   client_id: string;
@@ -206,13 +291,22 @@ export interface QueryConsensusStateRequestSDKType {
 /**
  * QueryConsensusStateResponse is the response type for the Query/ConsensusState
  * RPC method
+ * @name QueryConsensusStateResponse
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryConsensusStateResponse
  */
 export interface QueryConsensusStateResponse {
-  /** consensus state associated with the client identifier at the given height */
+  /**
+   * consensus state associated with the client identifier at the given height
+   */
   consensusState?: Any;
-  /** merkle proof of existence */
+  /**
+   * merkle proof of existence
+   */
   proof: Uint8Array;
-  /** height at which the proof was retrieved */
+  /**
+   * height at which the proof was retrieved
+   */
   proofHeight: Height;
 }
 export interface QueryConsensusStateResponseProtoMsg {
@@ -222,13 +316,22 @@ export interface QueryConsensusStateResponseProtoMsg {
 /**
  * QueryConsensusStateResponse is the response type for the Query/ConsensusState
  * RPC method
+ * @name QueryConsensusStateResponseAmino
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryConsensusStateResponse
  */
 export interface QueryConsensusStateResponseAmino {
-  /** consensus state associated with the client identifier at the given height */
+  /**
+   * consensus state associated with the client identifier at the given height
+   */
   consensus_state?: AnyAmino;
-  /** merkle proof of existence */
+  /**
+   * merkle proof of existence
+   */
   proof?: string;
-  /** height at which the proof was retrieved */
+  /**
+   * height at which the proof was retrieved
+   */
   proof_height?: HeightAmino;
 }
 export interface QueryConsensusStateResponseAminoMsg {
@@ -238,6 +341,9 @@ export interface QueryConsensusStateResponseAminoMsg {
 /**
  * QueryConsensusStateResponse is the response type for the Query/ConsensusState
  * RPC method
+ * @name QueryConsensusStateResponseSDKType
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryConsensusStateResponse
  */
 export interface QueryConsensusStateResponseSDKType {
   consensus_state?: AnySDKType;
@@ -247,11 +353,18 @@ export interface QueryConsensusStateResponseSDKType {
 /**
  * QueryConsensusStatesRequest is the request type for the Query/ConsensusStates
  * RPC method.
+ * @name QueryConsensusStatesRequest
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryConsensusStatesRequest
  */
 export interface QueryConsensusStatesRequest {
-  /** client identifier */
+  /**
+   * client identifier
+   */
   clientId: string;
-  /** pagination request */
+  /**
+   * pagination request
+   */
   pagination?: PageRequest;
 }
 export interface QueryConsensusStatesRequestProtoMsg {
@@ -261,11 +374,18 @@ export interface QueryConsensusStatesRequestProtoMsg {
 /**
  * QueryConsensusStatesRequest is the request type for the Query/ConsensusStates
  * RPC method.
+ * @name QueryConsensusStatesRequestAmino
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryConsensusStatesRequest
  */
 export interface QueryConsensusStatesRequestAmino {
-  /** client identifier */
+  /**
+   * client identifier
+   */
   client_id?: string;
-  /** pagination request */
+  /**
+   * pagination request
+   */
   pagination?: PageRequestAmino;
 }
 export interface QueryConsensusStatesRequestAminoMsg {
@@ -275,6 +395,9 @@ export interface QueryConsensusStatesRequestAminoMsg {
 /**
  * QueryConsensusStatesRequest is the request type for the Query/ConsensusStates
  * RPC method.
+ * @name QueryConsensusStatesRequestSDKType
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryConsensusStatesRequest
  */
 export interface QueryConsensusStatesRequestSDKType {
   client_id: string;
@@ -283,11 +406,18 @@ export interface QueryConsensusStatesRequestSDKType {
 /**
  * QueryConsensusStatesResponse is the response type for the
  * Query/ConsensusStates RPC method
+ * @name QueryConsensusStatesResponse
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryConsensusStatesResponse
  */
 export interface QueryConsensusStatesResponse {
-  /** consensus states associated with the identifier */
+  /**
+   * consensus states associated with the identifier
+   */
   consensusStates: ConsensusStateWithHeight[];
-  /** pagination response */
+  /**
+   * pagination response
+   */
   pagination?: PageResponse;
 }
 export interface QueryConsensusStatesResponseProtoMsg {
@@ -297,11 +427,18 @@ export interface QueryConsensusStatesResponseProtoMsg {
 /**
  * QueryConsensusStatesResponse is the response type for the
  * Query/ConsensusStates RPC method
+ * @name QueryConsensusStatesResponseAmino
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryConsensusStatesResponse
  */
 export interface QueryConsensusStatesResponseAmino {
-  /** consensus states associated with the identifier */
+  /**
+   * consensus states associated with the identifier
+   */
   consensus_states?: ConsensusStateWithHeightAmino[];
-  /** pagination response */
+  /**
+   * pagination response
+   */
   pagination?: PageResponseAmino;
 }
 export interface QueryConsensusStatesResponseAminoMsg {
@@ -311,6 +448,9 @@ export interface QueryConsensusStatesResponseAminoMsg {
 /**
  * QueryConsensusStatesResponse is the response type for the
  * Query/ConsensusStates RPC method
+ * @name QueryConsensusStatesResponseSDKType
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryConsensusStatesResponse
  */
 export interface QueryConsensusStatesResponseSDKType {
   consensus_states: ConsensusStateWithHeightSDKType[];
@@ -319,11 +459,18 @@ export interface QueryConsensusStatesResponseSDKType {
 /**
  * QueryConsensusStateHeightsRequest is the request type for Query/ConsensusStateHeights
  * RPC method.
+ * @name QueryConsensusStateHeightsRequest
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryConsensusStateHeightsRequest
  */
 export interface QueryConsensusStateHeightsRequest {
-  /** client identifier */
+  /**
+   * client identifier
+   */
   clientId: string;
-  /** pagination request */
+  /**
+   * pagination request
+   */
   pagination?: PageRequest;
 }
 export interface QueryConsensusStateHeightsRequestProtoMsg {
@@ -333,11 +480,18 @@ export interface QueryConsensusStateHeightsRequestProtoMsg {
 /**
  * QueryConsensusStateHeightsRequest is the request type for Query/ConsensusStateHeights
  * RPC method.
+ * @name QueryConsensusStateHeightsRequestAmino
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryConsensusStateHeightsRequest
  */
 export interface QueryConsensusStateHeightsRequestAmino {
-  /** client identifier */
+  /**
+   * client identifier
+   */
   client_id?: string;
-  /** pagination request */
+  /**
+   * pagination request
+   */
   pagination?: PageRequestAmino;
 }
 export interface QueryConsensusStateHeightsRequestAminoMsg {
@@ -347,6 +501,9 @@ export interface QueryConsensusStateHeightsRequestAminoMsg {
 /**
  * QueryConsensusStateHeightsRequest is the request type for Query/ConsensusStateHeights
  * RPC method.
+ * @name QueryConsensusStateHeightsRequestSDKType
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryConsensusStateHeightsRequest
  */
 export interface QueryConsensusStateHeightsRequestSDKType {
   client_id: string;
@@ -355,11 +512,18 @@ export interface QueryConsensusStateHeightsRequestSDKType {
 /**
  * QueryConsensusStateHeightsResponse is the response type for the
  * Query/ConsensusStateHeights RPC method
+ * @name QueryConsensusStateHeightsResponse
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryConsensusStateHeightsResponse
  */
 export interface QueryConsensusStateHeightsResponse {
-  /** consensus state heights */
+  /**
+   * consensus state heights
+   */
   consensusStateHeights: Height[];
-  /** pagination response */
+  /**
+   * pagination response
+   */
   pagination?: PageResponse;
 }
 export interface QueryConsensusStateHeightsResponseProtoMsg {
@@ -369,11 +533,18 @@ export interface QueryConsensusStateHeightsResponseProtoMsg {
 /**
  * QueryConsensusStateHeightsResponse is the response type for the
  * Query/ConsensusStateHeights RPC method
+ * @name QueryConsensusStateHeightsResponseAmino
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryConsensusStateHeightsResponse
  */
 export interface QueryConsensusStateHeightsResponseAmino {
-  /** consensus state heights */
+  /**
+   * consensus state heights
+   */
   consensus_state_heights?: HeightAmino[];
-  /** pagination response */
+  /**
+   * pagination response
+   */
   pagination?: PageResponseAmino;
 }
 export interface QueryConsensusStateHeightsResponseAminoMsg {
@@ -383,6 +554,9 @@ export interface QueryConsensusStateHeightsResponseAminoMsg {
 /**
  * QueryConsensusStateHeightsResponse is the response type for the
  * Query/ConsensusStateHeights RPC method
+ * @name QueryConsensusStateHeightsResponseSDKType
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryConsensusStateHeightsResponse
  */
 export interface QueryConsensusStateHeightsResponseSDKType {
   consensus_state_heights: HeightSDKType[];
@@ -391,9 +565,14 @@ export interface QueryConsensusStateHeightsResponseSDKType {
 /**
  * QueryClientStatusRequest is the request type for the Query/ClientStatus RPC
  * method
+ * @name QueryClientStatusRequest
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryClientStatusRequest
  */
 export interface QueryClientStatusRequest {
-  /** client unique identifier */
+  /**
+   * client unique identifier
+   */
   clientId: string;
 }
 export interface QueryClientStatusRequestProtoMsg {
@@ -403,9 +582,14 @@ export interface QueryClientStatusRequestProtoMsg {
 /**
  * QueryClientStatusRequest is the request type for the Query/ClientStatus RPC
  * method
+ * @name QueryClientStatusRequestAmino
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryClientStatusRequest
  */
 export interface QueryClientStatusRequestAmino {
-  /** client unique identifier */
+  /**
+   * client unique identifier
+   */
   client_id?: string;
 }
 export interface QueryClientStatusRequestAminoMsg {
@@ -415,6 +599,9 @@ export interface QueryClientStatusRequestAminoMsg {
 /**
  * QueryClientStatusRequest is the request type for the Query/ClientStatus RPC
  * method
+ * @name QueryClientStatusRequestSDKType
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryClientStatusRequest
  */
 export interface QueryClientStatusRequestSDKType {
   client_id: string;
@@ -422,6 +609,9 @@ export interface QueryClientStatusRequestSDKType {
 /**
  * QueryClientStatusResponse is the response type for the Query/ClientStatus RPC
  * method. It returns the current status of the IBC client.
+ * @name QueryClientStatusResponse
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryClientStatusResponse
  */
 export interface QueryClientStatusResponse {
   status: string;
@@ -433,6 +623,9 @@ export interface QueryClientStatusResponseProtoMsg {
 /**
  * QueryClientStatusResponse is the response type for the Query/ClientStatus RPC
  * method. It returns the current status of the IBC client.
+ * @name QueryClientStatusResponseAmino
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryClientStatusResponse
  */
 export interface QueryClientStatusResponseAmino {
   status?: string;
@@ -444,6 +637,9 @@ export interface QueryClientStatusResponseAminoMsg {
 /**
  * QueryClientStatusResponse is the response type for the Query/ClientStatus RPC
  * method. It returns the current status of the IBC client.
+ * @name QueryClientStatusResponseSDKType
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryClientStatusResponse
  */
 export interface QueryClientStatusResponseSDKType {
   status: string;
@@ -451,6 +647,9 @@ export interface QueryClientStatusResponseSDKType {
 /**
  * QueryClientParamsRequest is the request type for the Query/ClientParams RPC
  * method.
+ * @name QueryClientParamsRequest
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryClientParamsRequest
  */
 export interface QueryClientParamsRequest {}
 export interface QueryClientParamsRequestProtoMsg {
@@ -460,6 +659,9 @@ export interface QueryClientParamsRequestProtoMsg {
 /**
  * QueryClientParamsRequest is the request type for the Query/ClientParams RPC
  * method.
+ * @name QueryClientParamsRequestAmino
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryClientParamsRequest
  */
 export interface QueryClientParamsRequestAmino {}
 export interface QueryClientParamsRequestAminoMsg {
@@ -469,14 +671,22 @@ export interface QueryClientParamsRequestAminoMsg {
 /**
  * QueryClientParamsRequest is the request type for the Query/ClientParams RPC
  * method.
+ * @name QueryClientParamsRequestSDKType
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryClientParamsRequest
  */
 export interface QueryClientParamsRequestSDKType {}
 /**
  * QueryClientParamsResponse is the response type for the Query/ClientParams RPC
  * method.
+ * @name QueryClientParamsResponse
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryClientParamsResponse
  */
 export interface QueryClientParamsResponse {
-  /** params defines the parameters of the module. */
+  /**
+   * params defines the parameters of the module.
+   */
   params?: Params;
 }
 export interface QueryClientParamsResponseProtoMsg {
@@ -486,9 +696,14 @@ export interface QueryClientParamsResponseProtoMsg {
 /**
  * QueryClientParamsResponse is the response type for the Query/ClientParams RPC
  * method.
+ * @name QueryClientParamsResponseAmino
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryClientParamsResponse
  */
 export interface QueryClientParamsResponseAmino {
-  /** params defines the parameters of the module. */
+  /**
+   * params defines the parameters of the module.
+   */
   params?: ParamsAmino;
 }
 export interface QueryClientParamsResponseAminoMsg {
@@ -498,6 +713,9 @@ export interface QueryClientParamsResponseAminoMsg {
 /**
  * QueryClientParamsResponse is the response type for the Query/ClientParams RPC
  * method.
+ * @name QueryClientParamsResponseSDKType
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryClientParamsResponse
  */
 export interface QueryClientParamsResponseSDKType {
   params?: ParamsSDKType;
@@ -505,6 +723,9 @@ export interface QueryClientParamsResponseSDKType {
 /**
  * QueryUpgradedClientStateRequest is the request type for the
  * Query/UpgradedClientState RPC method
+ * @name QueryUpgradedClientStateRequest
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryUpgradedClientStateRequest
  */
 export interface QueryUpgradedClientStateRequest {}
 export interface QueryUpgradedClientStateRequestProtoMsg {
@@ -514,6 +735,9 @@ export interface QueryUpgradedClientStateRequestProtoMsg {
 /**
  * QueryUpgradedClientStateRequest is the request type for the
  * Query/UpgradedClientState RPC method
+ * @name QueryUpgradedClientStateRequestAmino
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryUpgradedClientStateRequest
  */
 export interface QueryUpgradedClientStateRequestAmino {}
 export interface QueryUpgradedClientStateRequestAminoMsg {
@@ -523,14 +747,22 @@ export interface QueryUpgradedClientStateRequestAminoMsg {
 /**
  * QueryUpgradedClientStateRequest is the request type for the
  * Query/UpgradedClientState RPC method
+ * @name QueryUpgradedClientStateRequestSDKType
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryUpgradedClientStateRequest
  */
 export interface QueryUpgradedClientStateRequestSDKType {}
 /**
  * QueryUpgradedClientStateResponse is the response type for the
  * Query/UpgradedClientState RPC method.
+ * @name QueryUpgradedClientStateResponse
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryUpgradedClientStateResponse
  */
 export interface QueryUpgradedClientStateResponse {
-  /** client state associated with the request identifier */
+  /**
+   * client state associated with the request identifier
+   */
   upgradedClientState?: Any;
 }
 export interface QueryUpgradedClientStateResponseProtoMsg {
@@ -540,9 +772,14 @@ export interface QueryUpgradedClientStateResponseProtoMsg {
 /**
  * QueryUpgradedClientStateResponse is the response type for the
  * Query/UpgradedClientState RPC method.
+ * @name QueryUpgradedClientStateResponseAmino
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryUpgradedClientStateResponse
  */
 export interface QueryUpgradedClientStateResponseAmino {
-  /** client state associated with the request identifier */
+  /**
+   * client state associated with the request identifier
+   */
   upgraded_client_state?: AnyAmino;
 }
 export interface QueryUpgradedClientStateResponseAminoMsg {
@@ -552,6 +789,9 @@ export interface QueryUpgradedClientStateResponseAminoMsg {
 /**
  * QueryUpgradedClientStateResponse is the response type for the
  * Query/UpgradedClientState RPC method.
+ * @name QueryUpgradedClientStateResponseSDKType
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryUpgradedClientStateResponse
  */
 export interface QueryUpgradedClientStateResponseSDKType {
   upgraded_client_state?: AnySDKType;
@@ -559,6 +799,9 @@ export interface QueryUpgradedClientStateResponseSDKType {
 /**
  * QueryUpgradedConsensusStateRequest is the request type for the
  * Query/UpgradedConsensusState RPC method
+ * @name QueryUpgradedConsensusStateRequest
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryUpgradedConsensusStateRequest
  */
 export interface QueryUpgradedConsensusStateRequest {}
 export interface QueryUpgradedConsensusStateRequestProtoMsg {
@@ -568,6 +811,9 @@ export interface QueryUpgradedConsensusStateRequestProtoMsg {
 /**
  * QueryUpgradedConsensusStateRequest is the request type for the
  * Query/UpgradedConsensusState RPC method
+ * @name QueryUpgradedConsensusStateRequestAmino
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryUpgradedConsensusStateRequest
  */
 export interface QueryUpgradedConsensusStateRequestAmino {}
 export interface QueryUpgradedConsensusStateRequestAminoMsg {
@@ -577,14 +823,22 @@ export interface QueryUpgradedConsensusStateRequestAminoMsg {
 /**
  * QueryUpgradedConsensusStateRequest is the request type for the
  * Query/UpgradedConsensusState RPC method
+ * @name QueryUpgradedConsensusStateRequestSDKType
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryUpgradedConsensusStateRequest
  */
 export interface QueryUpgradedConsensusStateRequestSDKType {}
 /**
  * QueryUpgradedConsensusStateResponse is the response type for the
  * Query/UpgradedConsensusState RPC method.
+ * @name QueryUpgradedConsensusStateResponse
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryUpgradedConsensusStateResponse
  */
 export interface QueryUpgradedConsensusStateResponse {
-  /** Consensus state associated with the request identifier */
+  /**
+   * Consensus state associated with the request identifier
+   */
   upgradedConsensusState?: Any;
 }
 export interface QueryUpgradedConsensusStateResponseProtoMsg {
@@ -594,9 +848,14 @@ export interface QueryUpgradedConsensusStateResponseProtoMsg {
 /**
  * QueryUpgradedConsensusStateResponse is the response type for the
  * Query/UpgradedConsensusState RPC method.
+ * @name QueryUpgradedConsensusStateResponseAmino
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryUpgradedConsensusStateResponse
  */
 export interface QueryUpgradedConsensusStateResponseAmino {
-  /** Consensus state associated with the request identifier */
+  /**
+   * Consensus state associated with the request identifier
+   */
   upgraded_consensus_state?: AnyAmino;
 }
 export interface QueryUpgradedConsensusStateResponseAminoMsg {
@@ -606,53 +865,99 @@ export interface QueryUpgradedConsensusStateResponseAminoMsg {
 /**
  * QueryUpgradedConsensusStateResponse is the response type for the
  * Query/UpgradedConsensusState RPC method.
+ * @name QueryUpgradedConsensusStateResponseSDKType
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryUpgradedConsensusStateResponse
  */
 export interface QueryUpgradedConsensusStateResponseSDKType {
   upgraded_consensus_state?: AnySDKType;
 }
-/** QueryVerifyMembershipRequest is the request type for the Query/VerifyMembership RPC method */
+/**
+ * QueryVerifyMembershipRequest is the request type for the Query/VerifyMembership RPC method
+ * @name QueryVerifyMembershipRequest
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryVerifyMembershipRequest
+ */
 export interface QueryVerifyMembershipRequest {
-  /** client unique identifier. */
+  /**
+   * client unique identifier.
+   */
   clientId: string;
-  /** the proof to be verified by the client. */
+  /**
+   * the proof to be verified by the client.
+   */
   proof: Uint8Array;
-  /** the height of the commitment root at which the proof is verified. */
+  /**
+   * the height of the commitment root at which the proof is verified.
+   */
   proofHeight: Height;
-  /** the commitment key path. */
+  /**
+   * the commitment key path.
+   */
   merklePath: MerklePath;
-  /** the value which is proven. */
+  /**
+   * the value which is proven.
+   */
   value: Uint8Array;
-  /** optional time delay */
+  /**
+   * optional time delay
+   */
   timeDelay: bigint;
-  /** optional block delay */
+  /**
+   * optional block delay
+   */
   blockDelay: bigint;
 }
 export interface QueryVerifyMembershipRequestProtoMsg {
   typeUrl: "/ibc.core.client.v1.QueryVerifyMembershipRequest";
   value: Uint8Array;
 }
-/** QueryVerifyMembershipRequest is the request type for the Query/VerifyMembership RPC method */
+/**
+ * QueryVerifyMembershipRequest is the request type for the Query/VerifyMembership RPC method
+ * @name QueryVerifyMembershipRequestAmino
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryVerifyMembershipRequest
+ */
 export interface QueryVerifyMembershipRequestAmino {
-  /** client unique identifier. */
+  /**
+   * client unique identifier.
+   */
   client_id?: string;
-  /** the proof to be verified by the client. */
+  /**
+   * the proof to be verified by the client.
+   */
   proof?: string;
-  /** the height of the commitment root at which the proof is verified. */
+  /**
+   * the height of the commitment root at which the proof is verified.
+   */
   proof_height?: HeightAmino;
-  /** the commitment key path. */
+  /**
+   * the commitment key path.
+   */
   merkle_path?: MerklePathAmino;
-  /** the value which is proven. */
+  /**
+   * the value which is proven.
+   */
   value?: string;
-  /** optional time delay */
+  /**
+   * optional time delay
+   */
   time_delay?: string;
-  /** optional block delay */
+  /**
+   * optional block delay
+   */
   block_delay?: string;
 }
 export interface QueryVerifyMembershipRequestAminoMsg {
   type: "cosmos-sdk/QueryVerifyMembershipRequest";
   value: QueryVerifyMembershipRequestAmino;
 }
-/** QueryVerifyMembershipRequest is the request type for the Query/VerifyMembership RPC method */
+/**
+ * QueryVerifyMembershipRequest is the request type for the Query/VerifyMembership RPC method
+ * @name QueryVerifyMembershipRequestSDKType
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryVerifyMembershipRequest
+ */
 export interface QueryVerifyMembershipRequestSDKType {
   client_id: string;
   proof: Uint8Array;
@@ -662,25 +967,44 @@ export interface QueryVerifyMembershipRequestSDKType {
   time_delay: bigint;
   block_delay: bigint;
 }
-/** QueryVerifyMembershipResponse is the response type for the Query/VerifyMembership RPC method */
+/**
+ * QueryVerifyMembershipResponse is the response type for the Query/VerifyMembership RPC method
+ * @name QueryVerifyMembershipResponse
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryVerifyMembershipResponse
+ */
 export interface QueryVerifyMembershipResponse {
-  /** boolean indicating success or failure of proof verification. */
+  /**
+   * boolean indicating success or failure of proof verification.
+   */
   success: boolean;
 }
 export interface QueryVerifyMembershipResponseProtoMsg {
   typeUrl: "/ibc.core.client.v1.QueryVerifyMembershipResponse";
   value: Uint8Array;
 }
-/** QueryVerifyMembershipResponse is the response type for the Query/VerifyMembership RPC method */
+/**
+ * QueryVerifyMembershipResponse is the response type for the Query/VerifyMembership RPC method
+ * @name QueryVerifyMembershipResponseAmino
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryVerifyMembershipResponse
+ */
 export interface QueryVerifyMembershipResponseAmino {
-  /** boolean indicating success or failure of proof verification. */
+  /**
+   * boolean indicating success or failure of proof verification.
+   */
   success?: boolean;
 }
 export interface QueryVerifyMembershipResponseAminoMsg {
   type: "cosmos-sdk/QueryVerifyMembershipResponse";
   value: QueryVerifyMembershipResponseAmino;
 }
-/** QueryVerifyMembershipResponse is the response type for the Query/VerifyMembership RPC method */
+/**
+ * QueryVerifyMembershipResponse is the response type for the Query/VerifyMembership RPC method
+ * @name QueryVerifyMembershipResponseSDKType
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryVerifyMembershipResponse
+ */
 export interface QueryVerifyMembershipResponseSDKType {
   success: boolean;
 }
@@ -689,6 +1013,13 @@ function createBaseQueryClientStateRequest(): QueryClientStateRequest {
     clientId: ""
   };
 }
+/**
+ * QueryClientStateRequest is the request type for the Query/ClientState RPC
+ * method
+ * @name QueryClientStateRequest
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryClientStateRequest
+ */
 export const QueryClientStateRequest = {
   typeUrl: "/ibc.core.client.v1.QueryClientStateRequest",
   aminoType: "cosmos-sdk/QueryClientStateRequest",
@@ -761,10 +1092,9 @@ export const QueryClientStateRequest = {
       typeUrl: "/ibc.core.client.v1.QueryClientStateRequest",
       value: QueryClientStateRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryClientStateRequest.typeUrl, QueryClientStateRequest);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryClientStateRequest.aminoType, QueryClientStateRequest.typeUrl);
 function createBaseQueryClientStateResponse(): QueryClientStateResponse {
   return {
     clientState: undefined,
@@ -772,6 +1102,14 @@ function createBaseQueryClientStateResponse(): QueryClientStateResponse {
     proofHeight: Height.fromPartial({})
   };
 }
+/**
+ * QueryClientStateResponse is the response type for the Query/ClientState RPC
+ * method. Besides the client state, it includes a proof and the height from
+ * which the proof was retrieved.
+ * @name QueryClientStateResponse
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryClientStateResponse
+ */
 export const QueryClientStateResponse = {
   typeUrl: "/ibc.core.client.v1.QueryClientStateResponse",
   aminoType: "cosmos-sdk/QueryClientStateResponse",
@@ -866,15 +1204,26 @@ export const QueryClientStateResponse = {
       typeUrl: "/ibc.core.client.v1.QueryClientStateResponse",
       value: QueryClientStateResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryClientStateResponse.typeUrl)) {
+      return;
+    }
+    Height.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryClientStateResponse.typeUrl, QueryClientStateResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryClientStateResponse.aminoType, QueryClientStateResponse.typeUrl);
 function createBaseQueryClientStatesRequest(): QueryClientStatesRequest {
   return {
     pagination: undefined
   };
 }
+/**
+ * QueryClientStatesRequest is the request type for the Query/ClientStates RPC
+ * method
+ * @name QueryClientStatesRequest
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryClientStatesRequest
+ */
 export const QueryClientStatesRequest = {
   typeUrl: "/ibc.core.client.v1.QueryClientStatesRequest",
   aminoType: "cosmos-sdk/QueryClientStatesRequest",
@@ -947,16 +1296,27 @@ export const QueryClientStatesRequest = {
       typeUrl: "/ibc.core.client.v1.QueryClientStatesRequest",
       value: QueryClientStatesRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryClientStatesRequest.typeUrl)) {
+      return;
+    }
+    PageRequest.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryClientStatesRequest.typeUrl, QueryClientStatesRequest);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryClientStatesRequest.aminoType, QueryClientStatesRequest.typeUrl);
 function createBaseQueryClientStatesResponse(): QueryClientStatesResponse {
   return {
     clientStates: [],
     pagination: undefined
   };
 }
+/**
+ * QueryClientStatesResponse is the response type for the Query/ClientStates RPC
+ * method.
+ * @name QueryClientStatesResponse
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryClientStatesResponse
+ */
 export const QueryClientStatesResponse = {
   typeUrl: "/ibc.core.client.v1.QueryClientStatesResponse",
   aminoType: "cosmos-sdk/QueryClientStatesResponse",
@@ -1042,10 +1402,15 @@ export const QueryClientStatesResponse = {
       typeUrl: "/ibc.core.client.v1.QueryClientStatesResponse",
       value: QueryClientStatesResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryClientStatesResponse.typeUrl)) {
+      return;
+    }
+    IdentifiedClientState.registerTypeUrl();
+    PageResponse.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryClientStatesResponse.typeUrl, QueryClientStatesResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryClientStatesResponse.aminoType, QueryClientStatesResponse.typeUrl);
 function createBaseQueryConsensusStateRequest(): QueryConsensusStateRequest {
   return {
     clientId: "",
@@ -1054,6 +1419,14 @@ function createBaseQueryConsensusStateRequest(): QueryConsensusStateRequest {
     latestHeight: false
   };
 }
+/**
+ * QueryConsensusStateRequest is the request type for the Query/ConsensusState
+ * RPC method. Besides the consensus state, it includes a proof and the height
+ * from which the proof was retrieved.
+ * @name QueryConsensusStateRequest
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryConsensusStateRequest
+ */
 export const QueryConsensusStateRequest = {
   typeUrl: "/ibc.core.client.v1.QueryConsensusStateRequest",
   aminoType: "cosmos-sdk/QueryConsensusStateRequest",
@@ -1159,10 +1532,9 @@ export const QueryConsensusStateRequest = {
       typeUrl: "/ibc.core.client.v1.QueryConsensusStateRequest",
       value: QueryConsensusStateRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryConsensusStateRequest.typeUrl, QueryConsensusStateRequest);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryConsensusStateRequest.aminoType, QueryConsensusStateRequest.typeUrl);
 function createBaseQueryConsensusStateResponse(): QueryConsensusStateResponse {
   return {
     consensusState: undefined,
@@ -1170,6 +1542,13 @@ function createBaseQueryConsensusStateResponse(): QueryConsensusStateResponse {
     proofHeight: Height.fromPartial({})
   };
 }
+/**
+ * QueryConsensusStateResponse is the response type for the Query/ConsensusState
+ * RPC method
+ * @name QueryConsensusStateResponse
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryConsensusStateResponse
+ */
 export const QueryConsensusStateResponse = {
   typeUrl: "/ibc.core.client.v1.QueryConsensusStateResponse",
   aminoType: "cosmos-sdk/QueryConsensusStateResponse",
@@ -1264,16 +1643,27 @@ export const QueryConsensusStateResponse = {
       typeUrl: "/ibc.core.client.v1.QueryConsensusStateResponse",
       value: QueryConsensusStateResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryConsensusStateResponse.typeUrl)) {
+      return;
+    }
+    Height.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryConsensusStateResponse.typeUrl, QueryConsensusStateResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryConsensusStateResponse.aminoType, QueryConsensusStateResponse.typeUrl);
 function createBaseQueryConsensusStatesRequest(): QueryConsensusStatesRequest {
   return {
     clientId: "",
     pagination: undefined
   };
 }
+/**
+ * QueryConsensusStatesRequest is the request type for the Query/ConsensusStates
+ * RPC method.
+ * @name QueryConsensusStatesRequest
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryConsensusStatesRequest
+ */
 export const QueryConsensusStatesRequest = {
   typeUrl: "/ibc.core.client.v1.QueryConsensusStatesRequest",
   aminoType: "cosmos-sdk/QueryConsensusStatesRequest",
@@ -1357,16 +1747,27 @@ export const QueryConsensusStatesRequest = {
       typeUrl: "/ibc.core.client.v1.QueryConsensusStatesRequest",
       value: QueryConsensusStatesRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryConsensusStatesRequest.typeUrl)) {
+      return;
+    }
+    PageRequest.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryConsensusStatesRequest.typeUrl, QueryConsensusStatesRequest);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryConsensusStatesRequest.aminoType, QueryConsensusStatesRequest.typeUrl);
 function createBaseQueryConsensusStatesResponse(): QueryConsensusStatesResponse {
   return {
     consensusStates: [],
     pagination: undefined
   };
 }
+/**
+ * QueryConsensusStatesResponse is the response type for the
+ * Query/ConsensusStates RPC method
+ * @name QueryConsensusStatesResponse
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryConsensusStatesResponse
+ */
 export const QueryConsensusStatesResponse = {
   typeUrl: "/ibc.core.client.v1.QueryConsensusStatesResponse",
   aminoType: "cosmos-sdk/QueryConsensusStatesResponse",
@@ -1452,16 +1853,28 @@ export const QueryConsensusStatesResponse = {
       typeUrl: "/ibc.core.client.v1.QueryConsensusStatesResponse",
       value: QueryConsensusStatesResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryConsensusStatesResponse.typeUrl)) {
+      return;
+    }
+    ConsensusStateWithHeight.registerTypeUrl();
+    PageResponse.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryConsensusStatesResponse.typeUrl, QueryConsensusStatesResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryConsensusStatesResponse.aminoType, QueryConsensusStatesResponse.typeUrl);
 function createBaseQueryConsensusStateHeightsRequest(): QueryConsensusStateHeightsRequest {
   return {
     clientId: "",
     pagination: undefined
   };
 }
+/**
+ * QueryConsensusStateHeightsRequest is the request type for Query/ConsensusStateHeights
+ * RPC method.
+ * @name QueryConsensusStateHeightsRequest
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryConsensusStateHeightsRequest
+ */
 export const QueryConsensusStateHeightsRequest = {
   typeUrl: "/ibc.core.client.v1.QueryConsensusStateHeightsRequest",
   aminoType: "cosmos-sdk/QueryConsensusStateHeightsRequest",
@@ -1545,16 +1958,27 @@ export const QueryConsensusStateHeightsRequest = {
       typeUrl: "/ibc.core.client.v1.QueryConsensusStateHeightsRequest",
       value: QueryConsensusStateHeightsRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryConsensusStateHeightsRequest.typeUrl)) {
+      return;
+    }
+    PageRequest.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryConsensusStateHeightsRequest.typeUrl, QueryConsensusStateHeightsRequest);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryConsensusStateHeightsRequest.aminoType, QueryConsensusStateHeightsRequest.typeUrl);
 function createBaseQueryConsensusStateHeightsResponse(): QueryConsensusStateHeightsResponse {
   return {
     consensusStateHeights: [],
     pagination: undefined
   };
 }
+/**
+ * QueryConsensusStateHeightsResponse is the response type for the
+ * Query/ConsensusStateHeights RPC method
+ * @name QueryConsensusStateHeightsResponse
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryConsensusStateHeightsResponse
+ */
 export const QueryConsensusStateHeightsResponse = {
   typeUrl: "/ibc.core.client.v1.QueryConsensusStateHeightsResponse",
   aminoType: "cosmos-sdk/QueryConsensusStateHeightsResponse",
@@ -1640,15 +2064,27 @@ export const QueryConsensusStateHeightsResponse = {
       typeUrl: "/ibc.core.client.v1.QueryConsensusStateHeightsResponse",
       value: QueryConsensusStateHeightsResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryConsensusStateHeightsResponse.typeUrl)) {
+      return;
+    }
+    Height.registerTypeUrl();
+    PageResponse.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryConsensusStateHeightsResponse.typeUrl, QueryConsensusStateHeightsResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryConsensusStateHeightsResponse.aminoType, QueryConsensusStateHeightsResponse.typeUrl);
 function createBaseQueryClientStatusRequest(): QueryClientStatusRequest {
   return {
     clientId: ""
   };
 }
+/**
+ * QueryClientStatusRequest is the request type for the Query/ClientStatus RPC
+ * method
+ * @name QueryClientStatusRequest
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryClientStatusRequest
+ */
 export const QueryClientStatusRequest = {
   typeUrl: "/ibc.core.client.v1.QueryClientStatusRequest",
   aminoType: "cosmos-sdk/QueryClientStatusRequest",
@@ -1721,15 +2157,21 @@ export const QueryClientStatusRequest = {
       typeUrl: "/ibc.core.client.v1.QueryClientStatusRequest",
       value: QueryClientStatusRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryClientStatusRequest.typeUrl, QueryClientStatusRequest);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryClientStatusRequest.aminoType, QueryClientStatusRequest.typeUrl);
 function createBaseQueryClientStatusResponse(): QueryClientStatusResponse {
   return {
     status: ""
   };
 }
+/**
+ * QueryClientStatusResponse is the response type for the Query/ClientStatus RPC
+ * method. It returns the current status of the IBC client.
+ * @name QueryClientStatusResponse
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryClientStatusResponse
+ */
 export const QueryClientStatusResponse = {
   typeUrl: "/ibc.core.client.v1.QueryClientStatusResponse",
   aminoType: "cosmos-sdk/QueryClientStatusResponse",
@@ -1802,13 +2244,19 @@ export const QueryClientStatusResponse = {
       typeUrl: "/ibc.core.client.v1.QueryClientStatusResponse",
       value: QueryClientStatusResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryClientStatusResponse.typeUrl, QueryClientStatusResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryClientStatusResponse.aminoType, QueryClientStatusResponse.typeUrl);
 function createBaseQueryClientParamsRequest(): QueryClientParamsRequest {
   return {};
 }
+/**
+ * QueryClientParamsRequest is the request type for the Query/ClientParams RPC
+ * method.
+ * @name QueryClientParamsRequest
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryClientParamsRequest
+ */
 export const QueryClientParamsRequest = {
   typeUrl: "/ibc.core.client.v1.QueryClientParamsRequest",
   aminoType: "cosmos-sdk/QueryClientParamsRequest",
@@ -1870,15 +2318,21 @@ export const QueryClientParamsRequest = {
       typeUrl: "/ibc.core.client.v1.QueryClientParamsRequest",
       value: QueryClientParamsRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryClientParamsRequest.typeUrl, QueryClientParamsRequest);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryClientParamsRequest.aminoType, QueryClientParamsRequest.typeUrl);
 function createBaseQueryClientParamsResponse(): QueryClientParamsResponse {
   return {
     params: undefined
   };
 }
+/**
+ * QueryClientParamsResponse is the response type for the Query/ClientParams RPC
+ * method.
+ * @name QueryClientParamsResponse
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryClientParamsResponse
+ */
 export const QueryClientParamsResponse = {
   typeUrl: "/ibc.core.client.v1.QueryClientParamsResponse",
   aminoType: "cosmos-sdk/QueryClientParamsResponse",
@@ -1951,13 +2405,24 @@ export const QueryClientParamsResponse = {
       typeUrl: "/ibc.core.client.v1.QueryClientParamsResponse",
       value: QueryClientParamsResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryClientParamsResponse.typeUrl)) {
+      return;
+    }
+    Params.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryClientParamsResponse.typeUrl, QueryClientParamsResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryClientParamsResponse.aminoType, QueryClientParamsResponse.typeUrl);
 function createBaseQueryUpgradedClientStateRequest(): QueryUpgradedClientStateRequest {
   return {};
 }
+/**
+ * QueryUpgradedClientStateRequest is the request type for the
+ * Query/UpgradedClientState RPC method
+ * @name QueryUpgradedClientStateRequest
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryUpgradedClientStateRequest
+ */
 export const QueryUpgradedClientStateRequest = {
   typeUrl: "/ibc.core.client.v1.QueryUpgradedClientStateRequest",
   aminoType: "cosmos-sdk/QueryUpgradedClientStateRequest",
@@ -2019,15 +2484,21 @@ export const QueryUpgradedClientStateRequest = {
       typeUrl: "/ibc.core.client.v1.QueryUpgradedClientStateRequest",
       value: QueryUpgradedClientStateRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryUpgradedClientStateRequest.typeUrl, QueryUpgradedClientStateRequest);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryUpgradedClientStateRequest.aminoType, QueryUpgradedClientStateRequest.typeUrl);
 function createBaseQueryUpgradedClientStateResponse(): QueryUpgradedClientStateResponse {
   return {
     upgradedClientState: undefined
   };
 }
+/**
+ * QueryUpgradedClientStateResponse is the response type for the
+ * Query/UpgradedClientState RPC method.
+ * @name QueryUpgradedClientStateResponse
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryUpgradedClientStateResponse
+ */
 export const QueryUpgradedClientStateResponse = {
   typeUrl: "/ibc.core.client.v1.QueryUpgradedClientStateResponse",
   aminoType: "cosmos-sdk/QueryUpgradedClientStateResponse",
@@ -2100,13 +2571,19 @@ export const QueryUpgradedClientStateResponse = {
       typeUrl: "/ibc.core.client.v1.QueryUpgradedClientStateResponse",
       value: QueryUpgradedClientStateResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryUpgradedClientStateResponse.typeUrl, QueryUpgradedClientStateResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryUpgradedClientStateResponse.aminoType, QueryUpgradedClientStateResponse.typeUrl);
 function createBaseQueryUpgradedConsensusStateRequest(): QueryUpgradedConsensusStateRequest {
   return {};
 }
+/**
+ * QueryUpgradedConsensusStateRequest is the request type for the
+ * Query/UpgradedConsensusState RPC method
+ * @name QueryUpgradedConsensusStateRequest
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryUpgradedConsensusStateRequest
+ */
 export const QueryUpgradedConsensusStateRequest = {
   typeUrl: "/ibc.core.client.v1.QueryUpgradedConsensusStateRequest",
   aminoType: "cosmos-sdk/QueryUpgradedConsensusStateRequest",
@@ -2168,15 +2645,21 @@ export const QueryUpgradedConsensusStateRequest = {
       typeUrl: "/ibc.core.client.v1.QueryUpgradedConsensusStateRequest",
       value: QueryUpgradedConsensusStateRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryUpgradedConsensusStateRequest.typeUrl, QueryUpgradedConsensusStateRequest);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryUpgradedConsensusStateRequest.aminoType, QueryUpgradedConsensusStateRequest.typeUrl);
 function createBaseQueryUpgradedConsensusStateResponse(): QueryUpgradedConsensusStateResponse {
   return {
     upgradedConsensusState: undefined
   };
 }
+/**
+ * QueryUpgradedConsensusStateResponse is the response type for the
+ * Query/UpgradedConsensusState RPC method.
+ * @name QueryUpgradedConsensusStateResponse
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryUpgradedConsensusStateResponse
+ */
 export const QueryUpgradedConsensusStateResponse = {
   typeUrl: "/ibc.core.client.v1.QueryUpgradedConsensusStateResponse",
   aminoType: "cosmos-sdk/QueryUpgradedConsensusStateResponse",
@@ -2249,10 +2732,9 @@ export const QueryUpgradedConsensusStateResponse = {
       typeUrl: "/ibc.core.client.v1.QueryUpgradedConsensusStateResponse",
       value: QueryUpgradedConsensusStateResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryUpgradedConsensusStateResponse.typeUrl, QueryUpgradedConsensusStateResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryUpgradedConsensusStateResponse.aminoType, QueryUpgradedConsensusStateResponse.typeUrl);
 function createBaseQueryVerifyMembershipRequest(): QueryVerifyMembershipRequest {
   return {
     clientId: "",
@@ -2264,6 +2746,12 @@ function createBaseQueryVerifyMembershipRequest(): QueryVerifyMembershipRequest 
     blockDelay: BigInt(0)
   };
 }
+/**
+ * QueryVerifyMembershipRequest is the request type for the Query/VerifyMembership RPC method
+ * @name QueryVerifyMembershipRequest
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryVerifyMembershipRequest
+ */
 export const QueryVerifyMembershipRequest = {
   typeUrl: "/ibc.core.client.v1.QueryVerifyMembershipRequest",
   aminoType: "cosmos-sdk/QueryVerifyMembershipRequest",
@@ -2402,15 +2890,26 @@ export const QueryVerifyMembershipRequest = {
       typeUrl: "/ibc.core.client.v1.QueryVerifyMembershipRequest",
       value: QueryVerifyMembershipRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryVerifyMembershipRequest.typeUrl)) {
+      return;
+    }
+    Height.registerTypeUrl();
+    MerklePath.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryVerifyMembershipRequest.typeUrl, QueryVerifyMembershipRequest);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryVerifyMembershipRequest.aminoType, QueryVerifyMembershipRequest.typeUrl);
 function createBaseQueryVerifyMembershipResponse(): QueryVerifyMembershipResponse {
   return {
     success: false
   };
 }
+/**
+ * QueryVerifyMembershipResponse is the response type for the Query/VerifyMembership RPC method
+ * @name QueryVerifyMembershipResponse
+ * @package ibc.core.client.v1
+ * @see proto type: ibc.core.client.v1.QueryVerifyMembershipResponse
+ */
 export const QueryVerifyMembershipResponse = {
   typeUrl: "/ibc.core.client.v1.QueryVerifyMembershipResponse",
   aminoType: "cosmos-sdk/QueryVerifyMembershipResponse",
@@ -2483,7 +2982,6 @@ export const QueryVerifyMembershipResponse = {
       typeUrl: "/ibc.core.client.v1.QueryVerifyMembershipResponse",
       value: QueryVerifyMembershipResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryVerifyMembershipResponse.typeUrl, QueryVerifyMembershipResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryVerifyMembershipResponse.aminoType, QueryVerifyMembershipResponse.typeUrl);

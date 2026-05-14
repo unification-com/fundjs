@@ -3,7 +3,12 @@ import { Op, OpAmino, OpSDKType } from "./benchmark";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { bytesFromBase64, base64FromBytes } from "../../../helpers";
 import { GlobalDecoderRegistry } from "../../../registry";
-/** MsgLoadTestOps defines a message containing a sequence of load test operations. */
+/**
+ * MsgLoadTestOps defines a message containing a sequence of load test operations.
+ * @name MsgLoadTest
+ * @package cosmos.benchmark.v1
+ * @see proto type: cosmos.benchmark.v1.MsgLoadTest
+ */
 export interface MsgLoadTest {
   caller: Uint8Array;
   ops: Op[];
@@ -12,7 +17,12 @@ export interface MsgLoadTestProtoMsg {
   typeUrl: "/cosmos.benchmark.v1.MsgLoadTest";
   value: Uint8Array;
 }
-/** MsgLoadTestOps defines a message containing a sequence of load test operations. */
+/**
+ * MsgLoadTestOps defines a message containing a sequence of load test operations.
+ * @name MsgLoadTestAmino
+ * @package cosmos.benchmark.v1
+ * @see proto type: cosmos.benchmark.v1.MsgLoadTest
+ */
 export interface MsgLoadTestAmino {
   caller?: string;
   ops?: OpAmino[];
@@ -21,12 +31,22 @@ export interface MsgLoadTestAminoMsg {
   type: "cosmos-sdk/tools/benchmark/v1/MsgLoadTest";
   value: MsgLoadTestAmino;
 }
-/** MsgLoadTestOps defines a message containing a sequence of load test operations. */
+/**
+ * MsgLoadTestOps defines a message containing a sequence of load test operations.
+ * @name MsgLoadTestSDKType
+ * @package cosmos.benchmark.v1
+ * @see proto type: cosmos.benchmark.v1.MsgLoadTest
+ */
 export interface MsgLoadTestSDKType {
   caller: Uint8Array;
   ops: OpSDKType[];
 }
-/** MsgLoadTestResponse defines a message containing the results of a load test operation. */
+/**
+ * MsgLoadTestResponse defines a message containing the results of a load test operation.
+ * @name MsgLoadTestResponse
+ * @package cosmos.benchmark.v1
+ * @see proto type: cosmos.benchmark.v1.MsgLoadTestResponse
+ */
 export interface MsgLoadTestResponse {
   totalTime: bigint;
   totalErrors: bigint;
@@ -35,7 +55,12 @@ export interface MsgLoadTestResponseProtoMsg {
   typeUrl: "/cosmos.benchmark.v1.MsgLoadTestResponse";
   value: Uint8Array;
 }
-/** MsgLoadTestResponse defines a message containing the results of a load test operation. */
+/**
+ * MsgLoadTestResponse defines a message containing the results of a load test operation.
+ * @name MsgLoadTestResponseAmino
+ * @package cosmos.benchmark.v1
+ * @see proto type: cosmos.benchmark.v1.MsgLoadTestResponse
+ */
 export interface MsgLoadTestResponseAmino {
   total_time?: string;
   total_errors?: string;
@@ -44,7 +69,12 @@ export interface MsgLoadTestResponseAminoMsg {
   type: "cosmos-sdk/MsgLoadTestResponse";
   value: MsgLoadTestResponseAmino;
 }
-/** MsgLoadTestResponse defines a message containing the results of a load test operation. */
+/**
+ * MsgLoadTestResponse defines a message containing the results of a load test operation.
+ * @name MsgLoadTestResponseSDKType
+ * @package cosmos.benchmark.v1
+ * @see proto type: cosmos.benchmark.v1.MsgLoadTestResponse
+ */
 export interface MsgLoadTestResponseSDKType {
   total_time: bigint;
   total_errors: bigint;
@@ -55,6 +85,12 @@ function createBaseMsgLoadTest(): MsgLoadTest {
     ops: []
   };
 }
+/**
+ * MsgLoadTestOps defines a message containing a sequence of load test operations.
+ * @name MsgLoadTest
+ * @package cosmos.benchmark.v1
+ * @see proto type: cosmos.benchmark.v1.MsgLoadTest
+ */
 export const MsgLoadTest = {
   typeUrl: "/cosmos.benchmark.v1.MsgLoadTest",
   aminoType: "cosmos-sdk/tools/benchmark/v1/MsgLoadTest",
@@ -140,16 +176,26 @@ export const MsgLoadTest = {
       typeUrl: "/cosmos.benchmark.v1.MsgLoadTest",
       value: MsgLoadTest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgLoadTest.typeUrl)) {
+      return;
+    }
+    Op.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgLoadTest.typeUrl, MsgLoadTest);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgLoadTest.aminoType, MsgLoadTest.typeUrl);
 function createBaseMsgLoadTestResponse(): MsgLoadTestResponse {
   return {
     totalTime: BigInt(0),
     totalErrors: BigInt(0)
   };
 }
+/**
+ * MsgLoadTestResponse defines a message containing the results of a load test operation.
+ * @name MsgLoadTestResponse
+ * @package cosmos.benchmark.v1
+ * @see proto type: cosmos.benchmark.v1.MsgLoadTestResponse
+ */
 export const MsgLoadTestResponse = {
   typeUrl: "/cosmos.benchmark.v1.MsgLoadTestResponse",
   aminoType: "cosmos-sdk/MsgLoadTestResponse",
@@ -233,7 +279,6 @@ export const MsgLoadTestResponse = {
       typeUrl: "/cosmos.benchmark.v1.MsgLoadTestResponse",
       value: MsgLoadTestResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgLoadTestResponse.typeUrl, MsgLoadTestResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgLoadTestResponse.aminoType, MsgLoadTestResponse.typeUrl);
