@@ -5,7 +5,7 @@ import "amino/amino.proto";
 import "cosmos_proto/cosmos.proto";
 import "gogoproto/gogo.proto";
 
-option go_package = "github.com/unification-com/mainchain/x/stream/types";
+option go_package = "github.com/unification-com/x-stream/x/stream/types";
 
 // Params defines the parameters for the module.
 message Params {

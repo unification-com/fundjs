@@ -6,7 +6,7 @@ import "cosmos_proto/cosmos.proto";
 import "mainchain/stream/v1/params.proto";
 import "mainchain/stream/v1/stream.proto";
 
-option go_package = "github.com/unification-com/mainchain/x/stream/types";
+option go_package = "github.com/unification-com/x-stream/x/stream/types";
 
 // GenesisState defines the stream module's genesis state.
 message GenesisState {

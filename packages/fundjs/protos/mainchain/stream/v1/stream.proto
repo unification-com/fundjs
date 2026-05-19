@@ -6,7 +6,7 @@ import "gogoproto/gogo.proto";
 import "google/protobuf/timestamp.proto";
 import "amino/amino.proto";
 
-option go_package = "github.com/unification-com/mainchain/x/stream/types";
+option go_package = "github.com/unification-com/x-stream/x/stream/types";
 
 // StreamPeriod enumerates the valid periods for calculating flow rates
 enum StreamPeriod {

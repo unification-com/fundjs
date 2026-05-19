@@ -9,7 +9,7 @@ import "google/protobuf/timestamp.proto";
 import "amino/amino.proto";
 import "mainchain/stream/v1/params.proto";
 
-option go_package = "github.com/unification-com/mainchain/x/stream/types";
+option go_package = "github.com/unification-com/x-stream/x/stream/types";
 
 // Msg defines the Msg service.
 service Msg {
@@ -179,7 +179,7 @@ message MsgCancelStreamResponse {}
 // Since: cosmos-sdk 0.47
 message MsgUpdateParams {
   option (cosmos.msg.v1.signer) = "authority";
-  option (amino.name) = "mainchain/x/stream/MsgUpdateParams";
+  option (amino.name) = "stream/MsgUpdateParams";
 
   // authority is the address that controls the module (defaults to x/gov unless
   // overwritten).
