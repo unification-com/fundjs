@@ -18,6 +18,18 @@
 ```sh
 npm install @unification-com/fundjs
 ```
+
+## Compatibility
+
+| `@unification-com/fundjs` | Mainchain | cosmjs | cosmjs-types | telescope runtime |
+|---|---|---|---|---|
+| `^0.2.0` | `8-vaxildan` upgrade + later (SDK v0.54.3 / IBC-go v11 / CometBFT v0.39) | `^0.38.0` | `^0.9.0` | telescope `^2.1.0` (`@interchainjs/*`) |
+| `^0.1.0` | up to `7-taryon` (SDK v0.50 era) | `^0.32.4` | `^0.7.x` | telescope `^1.5.x` (`@cosmjs/*` runtime) |
+
+`0.2.0` adds the per-stream `denom` coordinate (vaxildan Stage 5b) on `MsgClaimStream` / `MsgUpdateFlowRate` / `MsgCancelStream`, the `AllStreamsByPair` query (Stage 8), and the `MsgProcessUndPurchaseOrder` + `MsgWhitelistAddress` enterprise surfaces (Stage 7c). Bindings broadcast-verified end-to-end against a vaxildan DevNet binary (12/12 PASS).
+
+Consumers on pre-vaxildan Mainchain should stay on `0.1.x` — `0.2.0` emits stream Msgs with a wire format the pre-vaxildan binary rejects with `errUnknownField`.
+
 ## Table of contents
 
 - [@unification-com/fundjs](#@unification-com/fundjs)

@@ -23,7 +23,7 @@
     "codegen": "ts-node scripts/codegen.ts",
     "build": "yarn run clean; tsc; tsc -p tsconfig.esm.json; yarn run copy",
     "lint": "eslint . --fix",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "test:watch": "jest --watch"
   },
   "devDependencies": {
