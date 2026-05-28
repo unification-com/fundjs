@@ -5,6 +5,9 @@ import { GlobalDecoderRegistry } from "../../../registry";
 /**
  * QueryEpochInfosRequest defines the gRPC request structure for
  * querying all epoch info.
+ * @name QueryEpochInfosRequest
+ * @package cosmos.epochs.v1beta1
+ * @see proto type: cosmos.epochs.v1beta1.QueryEpochInfosRequest
  */
 export interface QueryEpochInfosRequest {}
 export interface QueryEpochInfosRequestProtoMsg {
@@ -14,6 +17,9 @@ export interface QueryEpochInfosRequestProtoMsg {
 /**
  * QueryEpochInfosRequest defines the gRPC request structure for
  * querying all epoch info.
+ * @name QueryEpochInfosRequestAmino
+ * @package cosmos.epochs.v1beta1
+ * @see proto type: cosmos.epochs.v1beta1.QueryEpochInfosRequest
  */
 export interface QueryEpochInfosRequestAmino {}
 export interface QueryEpochInfosRequestAminoMsg {
@@ -23,11 +29,17 @@ export interface QueryEpochInfosRequestAminoMsg {
 /**
  * QueryEpochInfosRequest defines the gRPC request structure for
  * querying all epoch info.
+ * @name QueryEpochInfosRequestSDKType
+ * @package cosmos.epochs.v1beta1
+ * @see proto type: cosmos.epochs.v1beta1.QueryEpochInfosRequest
  */
 export interface QueryEpochInfosRequestSDKType {}
 /**
  * QueryEpochInfosRequest defines the gRPC response structure for
  * querying all epoch info.
+ * @name QueryEpochInfosResponse
+ * @package cosmos.epochs.v1beta1
+ * @see proto type: cosmos.epochs.v1beta1.QueryEpochInfosResponse
  */
 export interface QueryEpochInfosResponse {
   epochs: EpochInfo[];
@@ -39,6 +51,9 @@ export interface QueryEpochInfosResponseProtoMsg {
 /**
  * QueryEpochInfosRequest defines the gRPC response structure for
  * querying all epoch info.
+ * @name QueryEpochInfosResponseAmino
+ * @package cosmos.epochs.v1beta1
+ * @see proto type: cosmos.epochs.v1beta1.QueryEpochInfosResponse
  */
 export interface QueryEpochInfosResponseAmino {
   epochs?: EpochInfoAmino[];
@@ -50,6 +65,9 @@ export interface QueryEpochInfosResponseAminoMsg {
 /**
  * QueryEpochInfosRequest defines the gRPC response structure for
  * querying all epoch info.
+ * @name QueryEpochInfosResponseSDKType
+ * @package cosmos.epochs.v1beta1
+ * @see proto type: cosmos.epochs.v1beta1.QueryEpochInfosResponse
  */
 export interface QueryEpochInfosResponseSDKType {
   epochs: EpochInfoSDKType[];
@@ -57,6 +75,9 @@ export interface QueryEpochInfosResponseSDKType {
 /**
  * QueryCurrentEpochRequest defines the gRPC request structure for
  * querying an epoch by its identifier.
+ * @name QueryCurrentEpochRequest
+ * @package cosmos.epochs.v1beta1
+ * @see proto type: cosmos.epochs.v1beta1.QueryCurrentEpochRequest
  */
 export interface QueryCurrentEpochRequest {
   identifier: string;
@@ -68,6 +89,9 @@ export interface QueryCurrentEpochRequestProtoMsg {
 /**
  * QueryCurrentEpochRequest defines the gRPC request structure for
  * querying an epoch by its identifier.
+ * @name QueryCurrentEpochRequestAmino
+ * @package cosmos.epochs.v1beta1
+ * @see proto type: cosmos.epochs.v1beta1.QueryCurrentEpochRequest
  */
 export interface QueryCurrentEpochRequestAmino {
   identifier?: string;
@@ -79,6 +103,9 @@ export interface QueryCurrentEpochRequestAminoMsg {
 /**
  * QueryCurrentEpochRequest defines the gRPC request structure for
  * querying an epoch by its identifier.
+ * @name QueryCurrentEpochRequestSDKType
+ * @package cosmos.epochs.v1beta1
+ * @see proto type: cosmos.epochs.v1beta1.QueryCurrentEpochRequest
  */
 export interface QueryCurrentEpochRequestSDKType {
   identifier: string;
@@ -86,6 +113,9 @@ export interface QueryCurrentEpochRequestSDKType {
 /**
  * QueryCurrentEpochResponse defines the gRPC response structure for
  * querying an epoch by its identifier.
+ * @name QueryCurrentEpochResponse
+ * @package cosmos.epochs.v1beta1
+ * @see proto type: cosmos.epochs.v1beta1.QueryCurrentEpochResponse
  */
 export interface QueryCurrentEpochResponse {
   currentEpoch: bigint;
@@ -97,6 +127,9 @@ export interface QueryCurrentEpochResponseProtoMsg {
 /**
  * QueryCurrentEpochResponse defines the gRPC response structure for
  * querying an epoch by its identifier.
+ * @name QueryCurrentEpochResponseAmino
+ * @package cosmos.epochs.v1beta1
+ * @see proto type: cosmos.epochs.v1beta1.QueryCurrentEpochResponse
  */
 export interface QueryCurrentEpochResponseAmino {
   current_epoch?: string;
@@ -108,6 +141,9 @@ export interface QueryCurrentEpochResponseAminoMsg {
 /**
  * QueryCurrentEpochResponse defines the gRPC response structure for
  * querying an epoch by its identifier.
+ * @name QueryCurrentEpochResponseSDKType
+ * @package cosmos.epochs.v1beta1
+ * @see proto type: cosmos.epochs.v1beta1.QueryCurrentEpochResponse
  */
 export interface QueryCurrentEpochResponseSDKType {
   current_epoch: bigint;
@@ -115,6 +151,13 @@ export interface QueryCurrentEpochResponseSDKType {
 function createBaseQueryEpochInfosRequest(): QueryEpochInfosRequest {
   return {};
 }
+/**
+ * QueryEpochInfosRequest defines the gRPC request structure for
+ * querying all epoch info.
+ * @name QueryEpochInfosRequest
+ * @package cosmos.epochs.v1beta1
+ * @see proto type: cosmos.epochs.v1beta1.QueryEpochInfosRequest
+ */
 export const QueryEpochInfosRequest = {
   typeUrl: "/cosmos.epochs.v1beta1.QueryEpochInfosRequest",
   aminoType: "cosmos-sdk/QueryEpochInfosRequest",
@@ -176,15 +219,21 @@ export const QueryEpochInfosRequest = {
       typeUrl: "/cosmos.epochs.v1beta1.QueryEpochInfosRequest",
       value: QueryEpochInfosRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryEpochInfosRequest.typeUrl, QueryEpochInfosRequest);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryEpochInfosRequest.aminoType, QueryEpochInfosRequest.typeUrl);
 function createBaseQueryEpochInfosResponse(): QueryEpochInfosResponse {
   return {
     epochs: []
   };
 }
+/**
+ * QueryEpochInfosRequest defines the gRPC response structure for
+ * querying all epoch info.
+ * @name QueryEpochInfosResponse
+ * @package cosmos.epochs.v1beta1
+ * @see proto type: cosmos.epochs.v1beta1.QueryEpochInfosResponse
+ */
 export const QueryEpochInfosResponse = {
   typeUrl: "/cosmos.epochs.v1beta1.QueryEpochInfosResponse",
   aminoType: "cosmos-sdk/QueryEpochInfosResponse",
@@ -259,15 +308,26 @@ export const QueryEpochInfosResponse = {
       typeUrl: "/cosmos.epochs.v1beta1.QueryEpochInfosResponse",
       value: QueryEpochInfosResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryEpochInfosResponse.typeUrl)) {
+      return;
+    }
+    EpochInfo.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryEpochInfosResponse.typeUrl, QueryEpochInfosResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryEpochInfosResponse.aminoType, QueryEpochInfosResponse.typeUrl);
 function createBaseQueryCurrentEpochRequest(): QueryCurrentEpochRequest {
   return {
     identifier: ""
   };
 }
+/**
+ * QueryCurrentEpochRequest defines the gRPC request structure for
+ * querying an epoch by its identifier.
+ * @name QueryCurrentEpochRequest
+ * @package cosmos.epochs.v1beta1
+ * @see proto type: cosmos.epochs.v1beta1.QueryCurrentEpochRequest
+ */
 export const QueryCurrentEpochRequest = {
   typeUrl: "/cosmos.epochs.v1beta1.QueryCurrentEpochRequest",
   aminoType: "cosmos-sdk/QueryCurrentEpochRequest",
@@ -340,15 +400,21 @@ export const QueryCurrentEpochRequest = {
       typeUrl: "/cosmos.epochs.v1beta1.QueryCurrentEpochRequest",
       value: QueryCurrentEpochRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryCurrentEpochRequest.typeUrl, QueryCurrentEpochRequest);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryCurrentEpochRequest.aminoType, QueryCurrentEpochRequest.typeUrl);
 function createBaseQueryCurrentEpochResponse(): QueryCurrentEpochResponse {
   return {
     currentEpoch: BigInt(0)
   };
 }
+/**
+ * QueryCurrentEpochResponse defines the gRPC response structure for
+ * querying an epoch by its identifier.
+ * @name QueryCurrentEpochResponse
+ * @package cosmos.epochs.v1beta1
+ * @see proto type: cosmos.epochs.v1beta1.QueryCurrentEpochResponse
+ */
 export const QueryCurrentEpochResponse = {
   typeUrl: "/cosmos.epochs.v1beta1.QueryCurrentEpochResponse",
   aminoType: "cosmos-sdk/QueryCurrentEpochResponse",
@@ -421,7 +487,6 @@ export const QueryCurrentEpochResponse = {
       typeUrl: "/cosmos.epochs.v1beta1.QueryCurrentEpochResponse",
       value: QueryCurrentEpochResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryCurrentEpochResponse.typeUrl, QueryCurrentEpochResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryCurrentEpochResponse.aminoType, QueryCurrentEpochResponse.typeUrl);

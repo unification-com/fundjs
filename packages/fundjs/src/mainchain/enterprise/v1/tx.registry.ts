@@ -1,12 +1,7 @@
 //@ts-nocheck
-import { GeneratedType, Registry } from "@cosmjs/proto-signing";
+import { TelescopeGeneratedType } from "../../../types";
 import { MsgUndPurchaseOrder, MsgProcessUndPurchaseOrder, MsgWhitelistAddress, MsgUpdateParams } from "./tx";
-export const registry: ReadonlyArray<[string, GeneratedType]> = [["/mainchain.enterprise.v1.MsgUndPurchaseOrder", MsgUndPurchaseOrder], ["/mainchain.enterprise.v1.MsgProcessUndPurchaseOrder", MsgProcessUndPurchaseOrder], ["/mainchain.enterprise.v1.MsgWhitelistAddress", MsgWhitelistAddress], ["/mainchain.enterprise.v1.MsgUpdateParams", MsgUpdateParams]];
-export const load = (protoRegistry: Registry) => {
-  registry.forEach(([typeUrl, mod]) => {
-    protoRegistry.register(typeUrl, mod);
-  });
-};
+export const registry: ReadonlyArray<[string, TelescopeGeneratedType<any, any, any>]> = [["/mainchain.enterprise.v1.MsgUndPurchaseOrder", MsgUndPurchaseOrder], ["/mainchain.enterprise.v1.MsgProcessUndPurchaseOrder", MsgProcessUndPurchaseOrder], ["/mainchain.enterprise.v1.MsgWhitelistAddress", MsgWhitelistAddress], ["/mainchain.enterprise.v1.MsgUpdateParams", MsgUpdateParams]];
 export const MessageComposer = {
   encoded: {
     undPurchaseOrder(value: MsgUndPurchaseOrder) {

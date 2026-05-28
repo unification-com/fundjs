@@ -104,13 +104,22 @@ export function whitelistActionToJSON(object: WhitelistAction): string {
 /**
  * PurchaseOrderDecision defines a decision made for a given purchase order, ie,
  * whether to accept or reject
+ * @name PurchaseOrderDecision
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.PurchaseOrderDecision
  */
 export interface PurchaseOrderDecision {
-  /** signer is an authorised address for making decisions */
+  /**
+   * signer is an authorised address for making decisions
+   */
   signer: string;
-  /** decision is the decision made, i.e. accept/reject */
+  /**
+   * decision is the decision made, i.e. accept/reject
+   */
   decision: PurchaseOrderStatus;
-  /** decision_time is a unix epoch value of the decision submission time */
+  /**
+   * decision_time is a unix epoch value of the decision submission time
+   */
   decisionTime: bigint;
 }
 export interface PurchaseOrderDecisionProtoMsg {
@@ -120,13 +129,22 @@ export interface PurchaseOrderDecisionProtoMsg {
 /**
  * PurchaseOrderDecision defines a decision made for a given purchase order, ie,
  * whether to accept or reject
+ * @name PurchaseOrderDecisionAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.PurchaseOrderDecision
  */
 export interface PurchaseOrderDecisionAmino {
-  /** signer is an authorised address for making decisions */
+  /**
+   * signer is an authorised address for making decisions
+   */
   signer?: string;
-  /** decision is the decision made, i.e. accept/reject */
+  /**
+   * decision is the decision made, i.e. accept/reject
+   */
   decision?: PurchaseOrderStatus;
-  /** decision_time is a unix epoch value of the decision submission time */
+  /**
+   * decision_time is a unix epoch value of the decision submission time
+   */
   decision_time?: string;
 }
 export interface PurchaseOrderDecisionAminoMsg {
@@ -136,55 +154,104 @@ export interface PurchaseOrderDecisionAminoMsg {
 /**
  * PurchaseOrderDecision defines a decision made for a given purchase order, ie,
  * whether to accept or reject
+ * @name PurchaseOrderDecisionSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.PurchaseOrderDecision
  */
 export interface PurchaseOrderDecisionSDKType {
   signer: string;
   decision: PurchaseOrderStatus;
   decision_time: bigint;
 }
-/** EnterpriseUndPurchaseOrder defines a purchase order raised by a whitelisted address */
+/**
+ * EnterpriseUndPurchaseOrder defines a purchase order raised by a whitelisted
+ * address
+ * @name EnterpriseUndPurchaseOrder
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.EnterpriseUndPurchaseOrder
+ */
 export interface EnterpriseUndPurchaseOrder {
-  /** id is the purchase order ID */
+  /**
+   * id is the purchase order ID
+   */
   id: bigint;
-  /** purchaser is the address of the user who raised the order */
+  /**
+   * purchaser is the address of the user who raised the order
+   */
   purchaser: string;
-  /** amount is the amount being raised for */
+  /**
+   * amount is the amount being raised for
+   */
   amount: Coin;
-  /** status is the current PurchaseOrderStatus */
+  /**
+   * status is the current PurchaseOrderStatus
+   */
   status: PurchaseOrderStatus;
-  /** raise_time is a unix epoch value of the order submission time */
+  /**
+   * raise_time is a unix epoch value of the order submission time
+   */
   raiseTime: bigint;
-  /** completion_time is a unix epoch value of the time the order was completed */
+  /**
+   * completion_time is a unix epoch value of the time the order was completed
+   */
   completionTime: bigint;
-  /** decisions is an array of decisions made by authorised addresses */
+  /**
+   * decisions is an array of decisions made by authorised addresses
+   */
   decisions: PurchaseOrderDecision[];
 }
 export interface EnterpriseUndPurchaseOrderProtoMsg {
   typeUrl: "/mainchain.enterprise.v1.EnterpriseUndPurchaseOrder";
   value: Uint8Array;
 }
-/** EnterpriseUndPurchaseOrder defines a purchase order raised by a whitelisted address */
+/**
+ * EnterpriseUndPurchaseOrder defines a purchase order raised by a whitelisted
+ * address
+ * @name EnterpriseUndPurchaseOrderAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.EnterpriseUndPurchaseOrder
+ */
 export interface EnterpriseUndPurchaseOrderAmino {
-  /** id is the purchase order ID */
+  /**
+   * id is the purchase order ID
+   */
   id?: string;
-  /** purchaser is the address of the user who raised the order */
+  /**
+   * purchaser is the address of the user who raised the order
+   */
   purchaser?: string;
-  /** amount is the amount being raised for */
+  /**
+   * amount is the amount being raised for
+   */
   amount?: CoinAmino;
-  /** status is the current PurchaseOrderStatus */
+  /**
+   * status is the current PurchaseOrderStatus
+   */
   status?: PurchaseOrderStatus;
-  /** raise_time is a unix epoch value of the order submission time */
+  /**
+   * raise_time is a unix epoch value of the order submission time
+   */
   raise_time?: string;
-  /** completion_time is a unix epoch value of the time the order was completed */
+  /**
+   * completion_time is a unix epoch value of the time the order was completed
+   */
   completion_time?: string;
-  /** decisions is an array of decisions made by authorised addresses */
+  /**
+   * decisions is an array of decisions made by authorised addresses
+   */
   decisions: PurchaseOrderDecisionAmino[];
 }
 export interface EnterpriseUndPurchaseOrderAminoMsg {
   type: "enterprise/v1/EnterpriseUndPurchaseOrder";
   value: EnterpriseUndPurchaseOrderAmino;
 }
-/** EnterpriseUndPurchaseOrder defines a purchase order raised by a whitelisted address */
+/**
+ * EnterpriseUndPurchaseOrder defines a purchase order raised by a whitelisted
+ * address
+ * @name EnterpriseUndPurchaseOrderSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.EnterpriseUndPurchaseOrder
+ */
 export interface EnterpriseUndPurchaseOrderSDKType {
   id: bigint;
   purchaser: string;
@@ -194,7 +261,12 @@ export interface EnterpriseUndPurchaseOrderSDKType {
   completion_time: bigint;
   decisions: PurchaseOrderDecisionSDKType[];
 }
-/** PurchaseOrders defines a list of purchase orders */
+/**
+ * PurchaseOrders defines a list of purchase orders
+ * @name PurchaseOrders
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.PurchaseOrders
+ */
 export interface PurchaseOrders {
   purchaseOrders: EnterpriseUndPurchaseOrder[];
 }
@@ -202,7 +274,12 @@ export interface PurchaseOrdersProtoMsg {
   typeUrl: "/mainchain.enterprise.v1.PurchaseOrders";
   value: Uint8Array;
 }
-/** PurchaseOrders defines a list of purchase orders */
+/**
+ * PurchaseOrders defines a list of purchase orders
+ * @name PurchaseOrdersAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.PurchaseOrders
+ */
 export interface PurchaseOrdersAmino {
   purchase_orders?: EnterpriseUndPurchaseOrderAmino[];
 }
@@ -210,83 +287,149 @@ export interface PurchaseOrdersAminoMsg {
   type: "enterprise/v1/PurchaseOrders";
   value: PurchaseOrdersAmino;
 }
-/** PurchaseOrders defines a list of purchase orders */
+/**
+ * PurchaseOrders defines a list of purchase orders
+ * @name PurchaseOrdersSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.PurchaseOrders
+ */
 export interface PurchaseOrdersSDKType {
   purchase_orders: EnterpriseUndPurchaseOrderSDKType[];
 }
-/** LockedUnd defines the amount of locked FUND for an account */
+/**
+ * LockedUnd defines the amount of locked FUND for an account
+ * @name LockedUnd
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.LockedUnd
+ */
 export interface LockedUnd {
-  /** owner is the address of the locked FUND owner */
+  /**
+   * owner is the address of the locked FUND owner
+   */
   owner: string;
-  /** amount is the amount currently locked and available to pay for beacon/wrkchain fees */
+  /**
+   * amount is the amount currently locked and available to pay for
+   * beacon/wrkchain fees
+   */
   amount: Coin;
 }
 export interface LockedUndProtoMsg {
   typeUrl: "/mainchain.enterprise.v1.LockedUnd";
   value: Uint8Array;
 }
-/** LockedUnd defines the amount of locked FUND for an account */
+/**
+ * LockedUnd defines the amount of locked FUND for an account
+ * @name LockedUndAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.LockedUnd
+ */
 export interface LockedUndAmino {
-  /** owner is the address of the locked FUND owner */
+  /**
+   * owner is the address of the locked FUND owner
+   */
   owner?: string;
-  /** amount is the amount currently locked and available to pay for beacon/wrkchain fees */
+  /**
+   * amount is the amount currently locked and available to pay for
+   * beacon/wrkchain fees
+   */
   amount?: CoinAmino;
 }
 export interface LockedUndAminoMsg {
   type: "enterprise/v1/LockedUnd";
   value: LockedUndAmino;
 }
-/** LockedUnd defines the amount of locked FUND for an account */
+/**
+ * LockedUnd defines the amount of locked FUND for an account
+ * @name LockedUndSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.LockedUnd
+ */
 export interface LockedUndSDKType {
   owner: string;
   amount: CoinSDKType;
 }
-/** SpentEFUND defines the amount of spent eFUND for an account */
+/**
+ * SpentEFUND defines the amount of spent eFUND for an account
+ * @name SpentEFUND
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.SpentEFUND
+ */
 export interface SpentEFUND {
-  /** owner is the address of the eFUND owner */
+  /**
+   * owner is the address of the eFUND owner
+   */
   owner: string;
-  /** amount is the amount currently locked and available to pay for beacon/wrkchain fees */
+  /**
+   * amount is the amount currently locked and available to pay for
+   * beacon/wrkchain fees
+   */
   amount: Coin;
 }
 export interface SpentEFUNDProtoMsg {
   typeUrl: "/mainchain.enterprise.v1.SpentEFUND";
   value: Uint8Array;
 }
-/** SpentEFUND defines the amount of spent eFUND for an account */
+/**
+ * SpentEFUND defines the amount of spent eFUND for an account
+ * @name SpentEFUNDAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.SpentEFUND
+ */
 export interface SpentEFUNDAmino {
-  /** owner is the address of the eFUND owner */
+  /**
+   * owner is the address of the eFUND owner
+   */
   owner?: string;
-  /** amount is the amount currently locked and available to pay for beacon/wrkchain fees */
+  /**
+   * amount is the amount currently locked and available to pay for
+   * beacon/wrkchain fees
+   */
   amount?: CoinAmino;
 }
 export interface SpentEFUNDAminoMsg {
   type: "enterprise/v1/SpentEFUND";
   value: SpentEFUNDAmino;
 }
-/** SpentEFUND defines the amount of spent eFUND for an account */
+/**
+ * SpentEFUND defines the amount of spent eFUND for an account
+ * @name SpentEFUNDSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.SpentEFUND
+ */
 export interface SpentEFUNDSDKType {
   owner: string;
   amount: CoinSDKType;
 }
-/** EnterpriseUserAccount defines data about an enterprise user */
+/**
+ * EnterpriseUserAccount defines data about an enterprise user
+ * @name EnterpriseUserAccount
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.EnterpriseUserAccount
+ */
 export interface EnterpriseUserAccount {
-  /** owner is the address of the account */
+  /**
+   * owner is the address of the account
+   */
   owner: string;
   /**
-   * locked_efund is the amount of eFUND the account currently has locked and only available to pay for
-   * beacon/wrkchain fees
+   * locked_efund is the amount of eFUND the account currently has locked and
+   * only available to pay for beacon/wrkchain fees
    */
   lockedEfund: Coin;
   /**
-   * general_supply is the amount currently held in the bank module's supply - i.e. standard FUND in general supply
-   * usable for anything (transfers, staking, standard tx fees etc.)
+   * general_supply is the amount currently held in the bank module's supply -
+   * i.e. standard FUND in general supply usable for anything (transfers,
+   * staking, standard tx fees etc.)
    */
   generalSupply: Coin;
-  /** spent_efund is a running tally of how much eFUND the account has used so far to pay for beacon/wrkchain fees */
+  /**
+   * spent_efund is a running tally of how much eFUND the account has used so
+   * far to pay for beacon/wrkchain fees
+   */
   spentEfund: Coin;
   /**
-   * spendable is the sum of locked eFUND and general bank module FUND - i.e. how much can be used to pay
-   * BEACON/Wrkchain fees all together
+   * spendable is the sum of locked eFUND and general bank module FUND - i.e.
+   * how much can be used to pay BEACON/Wrkchain fees all together
    */
   spendable: Coin;
 }
@@ -294,25 +437,36 @@ export interface EnterpriseUserAccountProtoMsg {
   typeUrl: "/mainchain.enterprise.v1.EnterpriseUserAccount";
   value: Uint8Array;
 }
-/** EnterpriseUserAccount defines data about an enterprise user */
+/**
+ * EnterpriseUserAccount defines data about an enterprise user
+ * @name EnterpriseUserAccountAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.EnterpriseUserAccount
+ */
 export interface EnterpriseUserAccountAmino {
-  /** owner is the address of the account */
+  /**
+   * owner is the address of the account
+   */
   owner?: string;
   /**
-   * locked_efund is the amount of eFUND the account currently has locked and only available to pay for
-   * beacon/wrkchain fees
+   * locked_efund is the amount of eFUND the account currently has locked and
+   * only available to pay for beacon/wrkchain fees
    */
   locked_efund?: CoinAmino;
   /**
-   * general_supply is the amount currently held in the bank module's supply - i.e. standard FUND in general supply
-   * usable for anything (transfers, staking, standard tx fees etc.)
+   * general_supply is the amount currently held in the bank module's supply -
+   * i.e. standard FUND in general supply usable for anything (transfers,
+   * staking, standard tx fees etc.)
    */
   general_supply?: CoinAmino;
-  /** spent_efund is a running tally of how much eFUND the account has used so far to pay for beacon/wrkchain fees */
+  /**
+   * spent_efund is a running tally of how much eFUND the account has used so
+   * far to pay for beacon/wrkchain fees
+   */
   spent_efund?: CoinAmino;
   /**
-   * spendable is the sum of locked eFUND and general bank module FUND - i.e. how much can be used to pay
-   * BEACON/Wrkchain fees all together
+   * spendable is the sum of locked eFUND and general bank module FUND - i.e.
+   * how much can be used to pay BEACON/Wrkchain fees all together
    */
   spendable?: CoinAmino;
 }
@@ -320,7 +474,12 @@ export interface EnterpriseUserAccountAminoMsg {
   type: "enterprise/v1/EnterpriseUserAccount";
   value: EnterpriseUserAccountAmino;
 }
-/** EnterpriseUserAccount defines data about an enterprise user */
+/**
+ * EnterpriseUserAccount defines data about an enterprise user
+ * @name EnterpriseUserAccountSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.EnterpriseUserAccount
+ */
 export interface EnterpriseUserAccountSDKType {
   owner: string;
   locked_efund: CoinSDKType;
@@ -328,7 +487,13 @@ export interface EnterpriseUserAccountSDKType {
   spent_efund: CoinSDKType;
   spendable: CoinSDKType;
 }
-/** WhitelistAddresses defines a list of whitelisted addresses authorised to raise enterprise purchase orders */
+/**
+ * WhitelistAddresses defines a list of whitelisted addresses authorised to
+ * raise enterprise purchase orders
+ * @name WhitelistAddresses
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.WhitelistAddresses
+ */
 export interface WhitelistAddresses {
   addresses: string[];
 }
@@ -336,7 +501,13 @@ export interface WhitelistAddressesProtoMsg {
   typeUrl: "/mainchain.enterprise.v1.WhitelistAddresses";
   value: Uint8Array;
 }
-/** WhitelistAddresses defines a list of whitelisted addresses authorised to raise enterprise purchase orders */
+/**
+ * WhitelistAddresses defines a list of whitelisted addresses authorised to
+ * raise enterprise purchase orders
+ * @name WhitelistAddressesAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.WhitelistAddresses
+ */
 export interface WhitelistAddressesAmino {
   addresses?: string[];
 }
@@ -344,41 +515,84 @@ export interface WhitelistAddressesAminoMsg {
   type: "enterprise/v1/WhitelistAddresses";
   value: WhitelistAddressesAmino;
 }
-/** WhitelistAddresses defines a list of whitelisted addresses authorised to raise enterprise purchase orders */
+/**
+ * WhitelistAddresses defines a list of whitelisted addresses authorised to
+ * raise enterprise purchase orders
+ * @name WhitelistAddressesSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.WhitelistAddresses
+ */
 export interface WhitelistAddressesSDKType {
   addresses: string[];
 }
-/** Params defines the parameters for the enterprise module. */
+/**
+ * Params defines the parameters for the enterprise module.
+ * @name Params
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.Params
+ */
 export interface Params {
-  /** ent_signers is a list of addresses authorised to make decisions on raised purchase orders */
+  /**
+   * ent_signers is a list of addresses authorised to make decisions on raised
+   * purchase orders
+   */
   entSigners: string;
-  /** denom is the denomination of eFUND, e.g. nund */
+  /**
+   * denom is the denomination of eFUND, e.g. nund
+   */
   denom: string;
-  /** min_accepts is the minumum number of ent_signers required to accept a PO before it is processed and efUND minted */
+  /**
+   * min_accepts is the minumum number of ent_signers required to accept a PO
+   * before it is processed and efUND minted
+   */
   minAccepts: bigint;
-  /** decision_time_limit is the time limit within which all decisions must be made for a raised purchase order. */
+  /**
+   * decision_time_limit is the time limit within which all decisions must be
+   * made for a raised purchase order.
+   */
   decisionTimeLimit: bigint;
 }
 export interface ParamsProtoMsg {
   typeUrl: "/mainchain.enterprise.v1.Params";
   value: Uint8Array;
 }
-/** Params defines the parameters for the enterprise module. */
+/**
+ * Params defines the parameters for the enterprise module.
+ * @name ParamsAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.Params
+ */
 export interface ParamsAmino {
-  /** ent_signers is a list of addresses authorised to make decisions on raised purchase orders */
+  /**
+   * ent_signers is a list of addresses authorised to make decisions on raised
+   * purchase orders
+   */
   ent_signers?: string;
-  /** denom is the denomination of eFUND, e.g. nund */
+  /**
+   * denom is the denomination of eFUND, e.g. nund
+   */
   denom?: string;
-  /** min_accepts is the minumum number of ent_signers required to accept a PO before it is processed and efUND minted */
+  /**
+   * min_accepts is the minumum number of ent_signers required to accept a PO
+   * before it is processed and efUND minted
+   */
   min_accepts?: string;
-  /** decision_time_limit is the time limit within which all decisions must be made for a raised purchase order. */
+  /**
+   * decision_time_limit is the time limit within which all decisions must be
+   * made for a raised purchase order.
+   */
   decision_time_limit?: string;
 }
 export interface ParamsAminoMsg {
   type: "enterprise/v1/Params";
   value: ParamsAmino;
 }
-/** Params defines the parameters for the enterprise module. */
+/**
+ * Params defines the parameters for the enterprise module.
+ * @name ParamsSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.Params
+ */
 export interface ParamsSDKType {
   ent_signers: string;
   denom: string;
@@ -392,6 +606,13 @@ function createBasePurchaseOrderDecision(): PurchaseOrderDecision {
     decisionTime: BigInt(0)
   };
 }
+/**
+ * PurchaseOrderDecision defines a decision made for a given purchase order, ie,
+ * whether to accept or reject
+ * @name PurchaseOrderDecision
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.PurchaseOrderDecision
+ */
 export const PurchaseOrderDecision = {
   typeUrl: "/mainchain.enterprise.v1.PurchaseOrderDecision",
   aminoType: "enterprise/v1/PurchaseOrderDecision",
@@ -486,10 +707,9 @@ export const PurchaseOrderDecision = {
       typeUrl: "/mainchain.enterprise.v1.PurchaseOrderDecision",
       value: PurchaseOrderDecision.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(PurchaseOrderDecision.typeUrl, PurchaseOrderDecision);
-GlobalDecoderRegistry.registerAminoProtoMapping(PurchaseOrderDecision.aminoType, PurchaseOrderDecision.typeUrl);
 function createBaseEnterpriseUndPurchaseOrder(): EnterpriseUndPurchaseOrder {
   return {
     id: BigInt(0),
@@ -501,6 +721,13 @@ function createBaseEnterpriseUndPurchaseOrder(): EnterpriseUndPurchaseOrder {
     decisions: []
   };
 }
+/**
+ * EnterpriseUndPurchaseOrder defines a purchase order raised by a whitelisted
+ * address
+ * @name EnterpriseUndPurchaseOrder
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.EnterpriseUndPurchaseOrder
+ */
 export const EnterpriseUndPurchaseOrder = {
   typeUrl: "/mainchain.enterprise.v1.EnterpriseUndPurchaseOrder",
   aminoType: "enterprise/v1/EnterpriseUndPurchaseOrder",
@@ -641,15 +868,26 @@ export const EnterpriseUndPurchaseOrder = {
       typeUrl: "/mainchain.enterprise.v1.EnterpriseUndPurchaseOrder",
       value: EnterpriseUndPurchaseOrder.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(EnterpriseUndPurchaseOrder.typeUrl)) {
+      return;
+    }
+    Coin.registerTypeUrl();
+    PurchaseOrderDecision.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(EnterpriseUndPurchaseOrder.typeUrl, EnterpriseUndPurchaseOrder);
-GlobalDecoderRegistry.registerAminoProtoMapping(EnterpriseUndPurchaseOrder.aminoType, EnterpriseUndPurchaseOrder.typeUrl);
 function createBasePurchaseOrders(): PurchaseOrders {
   return {
     purchaseOrders: []
   };
 }
+/**
+ * PurchaseOrders defines a list of purchase orders
+ * @name PurchaseOrders
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.PurchaseOrders
+ */
 export const PurchaseOrders = {
   typeUrl: "/mainchain.enterprise.v1.PurchaseOrders",
   aminoType: "enterprise/v1/PurchaseOrders",
@@ -724,16 +962,26 @@ export const PurchaseOrders = {
       typeUrl: "/mainchain.enterprise.v1.PurchaseOrders",
       value: PurchaseOrders.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(PurchaseOrders.typeUrl)) {
+      return;
+    }
+    EnterpriseUndPurchaseOrder.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(PurchaseOrders.typeUrl, PurchaseOrders);
-GlobalDecoderRegistry.registerAminoProtoMapping(PurchaseOrders.aminoType, PurchaseOrders.typeUrl);
 function createBaseLockedUnd(): LockedUnd {
   return {
     owner: "",
     amount: Coin.fromPartial({})
   };
 }
+/**
+ * LockedUnd defines the amount of locked FUND for an account
+ * @name LockedUnd
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.LockedUnd
+ */
 export const LockedUnd = {
   typeUrl: "/mainchain.enterprise.v1.LockedUnd",
   aminoType: "enterprise/v1/LockedUnd",
@@ -817,16 +1065,26 @@ export const LockedUnd = {
       typeUrl: "/mainchain.enterprise.v1.LockedUnd",
       value: LockedUnd.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(LockedUnd.typeUrl)) {
+      return;
+    }
+    Coin.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(LockedUnd.typeUrl, LockedUnd);
-GlobalDecoderRegistry.registerAminoProtoMapping(LockedUnd.aminoType, LockedUnd.typeUrl);
 function createBaseSpentEFUND(): SpentEFUND {
   return {
     owner: "",
     amount: Coin.fromPartial({})
   };
 }
+/**
+ * SpentEFUND defines the amount of spent eFUND for an account
+ * @name SpentEFUND
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.SpentEFUND
+ */
 export const SpentEFUND = {
   typeUrl: "/mainchain.enterprise.v1.SpentEFUND",
   aminoType: "enterprise/v1/SpentEFUND",
@@ -910,10 +1168,14 @@ export const SpentEFUND = {
       typeUrl: "/mainchain.enterprise.v1.SpentEFUND",
       value: SpentEFUND.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(SpentEFUND.typeUrl)) {
+      return;
+    }
+    Coin.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(SpentEFUND.typeUrl, SpentEFUND);
-GlobalDecoderRegistry.registerAminoProtoMapping(SpentEFUND.aminoType, SpentEFUND.typeUrl);
 function createBaseEnterpriseUserAccount(): EnterpriseUserAccount {
   return {
     owner: "",
@@ -923,6 +1185,12 @@ function createBaseEnterpriseUserAccount(): EnterpriseUserAccount {
     spendable: Coin.fromPartial({})
   };
 }
+/**
+ * EnterpriseUserAccount defines data about an enterprise user
+ * @name EnterpriseUserAccount
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.EnterpriseUserAccount
+ */
 export const EnterpriseUserAccount = {
   typeUrl: "/mainchain.enterprise.v1.EnterpriseUserAccount",
   aminoType: "enterprise/v1/EnterpriseUserAccount",
@@ -1039,15 +1307,26 @@ export const EnterpriseUserAccount = {
       typeUrl: "/mainchain.enterprise.v1.EnterpriseUserAccount",
       value: EnterpriseUserAccount.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(EnterpriseUserAccount.typeUrl)) {
+      return;
+    }
+    Coin.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(EnterpriseUserAccount.typeUrl, EnterpriseUserAccount);
-GlobalDecoderRegistry.registerAminoProtoMapping(EnterpriseUserAccount.aminoType, EnterpriseUserAccount.typeUrl);
 function createBaseWhitelistAddresses(): WhitelistAddresses {
   return {
     addresses: []
   };
 }
+/**
+ * WhitelistAddresses defines a list of whitelisted addresses authorised to
+ * raise enterprise purchase orders
+ * @name WhitelistAddresses
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.WhitelistAddresses
+ */
 export const WhitelistAddresses = {
   typeUrl: "/mainchain.enterprise.v1.WhitelistAddresses",
   aminoType: "enterprise/v1/WhitelistAddresses",
@@ -1122,10 +1401,9 @@ export const WhitelistAddresses = {
       typeUrl: "/mainchain.enterprise.v1.WhitelistAddresses",
       value: WhitelistAddresses.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(WhitelistAddresses.typeUrl, WhitelistAddresses);
-GlobalDecoderRegistry.registerAminoProtoMapping(WhitelistAddresses.aminoType, WhitelistAddresses.typeUrl);
 function createBaseParams(): Params {
   return {
     entSigners: "",
@@ -1134,6 +1412,12 @@ function createBaseParams(): Params {
     decisionTimeLimit: BigInt(0)
   };
 }
+/**
+ * Params defines the parameters for the enterprise module.
+ * @name Params
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.Params
+ */
 export const Params = {
   typeUrl: "/mainchain.enterprise.v1.Params",
   aminoType: "enterprise/v1/Params",
@@ -1239,7 +1523,6 @@ export const Params = {
       typeUrl: "/mainchain.enterprise.v1.Params",
       value: Params.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(Params.typeUrl, Params);
-GlobalDecoderRegistry.registerAminoProtoMapping(Params.aminoType, Params.typeUrl);

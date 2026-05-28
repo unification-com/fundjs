@@ -3,7 +3,12 @@ import { Params, ParamsAmino, ParamsSDKType } from "./params";
 import { Stream, StreamAmino, StreamSDKType } from "./stream";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { GlobalDecoderRegistry } from "../../../registry";
-/** GenesisState defines the stream module's genesis state. */
+/**
+ * GenesisState defines the stream module's genesis state.
+ * @name GenesisState
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.GenesisState
+ */
 export interface GenesisState {
   params: Params;
   streams: StreamExport[];
@@ -12,7 +17,12 @@ export interface GenesisStateProtoMsg {
   typeUrl: "/mainchain.stream.v1.GenesisState";
   value: Uint8Array;
 }
-/** GenesisState defines the stream module's genesis state. */
+/**
+ * GenesisState defines the stream module's genesis state.
+ * @name GenesisStateAmino
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.GenesisState
+ */
 export interface GenesisStateAmino {
   params?: ParamsAmino;
   streams?: StreamExportAmino[];
@@ -21,38 +31,70 @@ export interface GenesisStateAminoMsg {
   type: "/mainchain.stream.v1.GenesisState";
   value: GenesisStateAmino;
 }
-/** GenesisState defines the stream module's genesis state. */
+/**
+ * GenesisState defines the stream module's genesis state.
+ * @name GenesisStateSDKType
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.GenesisState
+ */
 export interface GenesisStateSDKType {
   params: ParamsSDKType;
   streams: StreamExportSDKType[];
 }
-/** StreamExport holds genesis export data for a stream */
+/**
+ * StreamExport holds genesis export data for a stream
+ * @name StreamExport
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.StreamExport
+ */
 export interface StreamExport {
-  /** receiver is the wallet that will receive stream payments */
+  /**
+   * receiver is the wallet that will receive stream payments
+   */
   receiver: string;
-  /** sender is the wallet making the update */
+  /**
+   * sender is the wallet making the update
+   */
   sender: string;
-  /** stream is the stream data */
+  /**
+   * stream is the stream data
+   */
   stream: Stream;
 }
 export interface StreamExportProtoMsg {
   typeUrl: "/mainchain.stream.v1.StreamExport";
   value: Uint8Array;
 }
-/** StreamExport holds genesis export data for a stream */
+/**
+ * StreamExport holds genesis export data for a stream
+ * @name StreamExportAmino
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.StreamExport
+ */
 export interface StreamExportAmino {
-  /** receiver is the wallet that will receive stream payments */
+  /**
+   * receiver is the wallet that will receive stream payments
+   */
   receiver?: string;
-  /** sender is the wallet making the update */
+  /**
+   * sender is the wallet making the update
+   */
   sender?: string;
-  /** stream is the stream data */
+  /**
+   * stream is the stream data
+   */
   stream?: StreamAmino;
 }
 export interface StreamExportAminoMsg {
   type: "/mainchain.stream.v1.StreamExport";
   value: StreamExportAmino;
 }
-/** StreamExport holds genesis export data for a stream */
+/**
+ * StreamExport holds genesis export data for a stream
+ * @name StreamExportSDKType
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.StreamExport
+ */
 export interface StreamExportSDKType {
   receiver: string;
   sender: string;
@@ -64,6 +106,12 @@ function createBaseGenesisState(): GenesisState {
     streams: []
   };
 }
+/**
+ * GenesisState defines the stream module's genesis state.
+ * @name GenesisState
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.GenesisState
+ */
 export const GenesisState = {
   typeUrl: "/mainchain.stream.v1.GenesisState",
   is(o: any): o is GenesisState {
@@ -142,9 +190,15 @@ export const GenesisState = {
       typeUrl: "/mainchain.stream.v1.GenesisState",
       value: GenesisState.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(GenesisState.typeUrl)) {
+      return;
+    }
+    Params.registerTypeUrl();
+    StreamExport.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(GenesisState.typeUrl, GenesisState);
 function createBaseStreamExport(): StreamExport {
   return {
     receiver: "",
@@ -152,6 +206,12 @@ function createBaseStreamExport(): StreamExport {
     stream: Stream.fromPartial({})
   };
 }
+/**
+ * StreamExport holds genesis export data for a stream
+ * @name StreamExport
+ * @package mainchain.stream.v1
+ * @see proto type: mainchain.stream.v1.StreamExport
+ */
 export const StreamExport = {
   typeUrl: "/mainchain.stream.v1.StreamExport",
   is(o: any): o is StreamExport {
@@ -239,6 +299,11 @@ export const StreamExport = {
       typeUrl: "/mainchain.stream.v1.StreamExport",
       value: StreamExport.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(StreamExport.typeUrl)) {
+      return;
+    }
+    Stream.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(StreamExport.typeUrl, StreamExport);

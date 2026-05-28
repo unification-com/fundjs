@@ -1,42 +1,73 @@
 //@ts-nocheck
 import { Timestamp } from "../../../google/protobuf/timestamp";
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { Decimal } from "@cosmjs/math";
+import { Decimal } from "@interchainjs/math";
 import { toTimestamp, fromTimestamp } from "../../../helpers";
-import { GlobalDecoderRegistry } from "../../../registry";
-/** ContinuousFund defines the fields of continuous fund proposal. */
+/**
+ * ContinuousFund defines the fields of continuous fund proposal.
+ * @name ContinuousFund
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.ContinuousFund
+ */
 export interface ContinuousFund {
-  /** Recipient is the address string of the account receiving funds. */
+  /**
+   * Recipient is the address string of the account receiving funds.
+   */
   recipient: string;
-  /** Percentage is the percentage of funds to be allocated from Community pool. */
+  /**
+   * Percentage is the percentage of funds to be allocated from Community pool.
+   */
   percentage: string;
-  /** Optional, if expiry is set, removes the state object when expired. */
+  /**
+   * Optional, if expiry is set, removes the state object when expired.
+   */
   expiry?: Date;
 }
 export interface ContinuousFundProtoMsg {
   typeUrl: "/cosmos.protocolpool.v1.ContinuousFund";
   value: Uint8Array;
 }
-/** ContinuousFund defines the fields of continuous fund proposal. */
+/**
+ * ContinuousFund defines the fields of continuous fund proposal.
+ * @name ContinuousFundAmino
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.ContinuousFund
+ */
 export interface ContinuousFundAmino {
-  /** Recipient is the address string of the account receiving funds. */
+  /**
+   * Recipient is the address string of the account receiving funds.
+   */
   recipient?: string;
-  /** Percentage is the percentage of funds to be allocated from Community pool. */
+  /**
+   * Percentage is the percentage of funds to be allocated from Community pool.
+   */
   percentage?: string;
-  /** Optional, if expiry is set, removes the state object when expired. */
+  /**
+   * Optional, if expiry is set, removes the state object when expired.
+   */
   expiry?: string;
 }
 export interface ContinuousFundAminoMsg {
   type: "cosmos-sdk/ContinuousFund";
   value: ContinuousFundAmino;
 }
-/** ContinuousFund defines the fields of continuous fund proposal. */
+/**
+ * ContinuousFund defines the fields of continuous fund proposal.
+ * @name ContinuousFundSDKType
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.ContinuousFund
+ */
 export interface ContinuousFundSDKType {
   recipient: string;
   percentage: string;
   expiry?: Date;
 }
-/** Params defines the parameters for the protocolpool module. */
+/**
+ * Params defines the parameters for the protocolpool module.
+ * @name Params
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.Params
+ */
 export interface Params {
   /**
    * EnabledDistributionDenoms lists the denoms that are allowed to be distributed.
@@ -53,7 +84,12 @@ export interface ParamsProtoMsg {
   typeUrl: "/cosmos.protocolpool.v1.Params";
   value: Uint8Array;
 }
-/** Params defines the parameters for the protocolpool module. */
+/**
+ * Params defines the parameters for the protocolpool module.
+ * @name ParamsAmino
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.Params
+ */
 export interface ParamsAmino {
   /**
    * EnabledDistributionDenoms lists the denoms that are allowed to be distributed.
@@ -70,7 +106,12 @@ export interface ParamsAminoMsg {
   type: "cosmos-sdk/Params";
   value: ParamsAmino;
 }
-/** Params defines the parameters for the protocolpool module. */
+/**
+ * Params defines the parameters for the protocolpool module.
+ * @name ParamsSDKType
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.Params
+ */
 export interface ParamsSDKType {
   enabled_distribution_denoms: string[];
   distribution_frequency: bigint;
@@ -82,6 +123,12 @@ function createBaseContinuousFund(): ContinuousFund {
     expiry: undefined
   };
 }
+/**
+ * ContinuousFund defines the fields of continuous fund proposal.
+ * @name ContinuousFund
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.ContinuousFund
+ */
 export const ContinuousFund = {
   typeUrl: "/cosmos.protocolpool.v1.ContinuousFund",
   aminoType: "cosmos-sdk/ContinuousFund",
@@ -152,7 +199,7 @@ export const ContinuousFund = {
   toAmino(message: ContinuousFund): ContinuousFundAmino {
     const obj: any = {};
     obj.recipient = message.recipient === "" ? undefined : message.recipient;
-    obj.percentage = message.percentage === "" ? undefined : message.percentage;
+    obj.percentage = message.percentage === "" ? undefined : Decimal.fromUserInput(message.percentage, 18).atomics;
     obj.expiry = message.expiry ? Timestamp.toAmino(toTimestamp(message.expiry)) : undefined;
     return obj;
   },
@@ -176,16 +223,21 @@ export const ContinuousFund = {
       typeUrl: "/cosmos.protocolpool.v1.ContinuousFund",
       value: ContinuousFund.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(ContinuousFund.typeUrl, ContinuousFund);
-GlobalDecoderRegistry.registerAminoProtoMapping(ContinuousFund.aminoType, ContinuousFund.typeUrl);
 function createBaseParams(): Params {
   return {
     enabledDistributionDenoms: [],
     distributionFrequency: BigInt(0)
   };
 }
+/**
+ * Params defines the parameters for the protocolpool module.
+ * @name Params
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.Params
+ */
 export const Params = {
   typeUrl: "/cosmos.protocolpool.v1.Params",
   aminoType: "cosmos-sdk/Params",
@@ -271,7 +323,6 @@ export const Params = {
       typeUrl: "/cosmos.protocolpool.v1.Params",
       value: Params.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(Params.typeUrl, Params);
-GlobalDecoderRegistry.registerAminoProtoMapping(Params.aminoType, Params.typeUrl);

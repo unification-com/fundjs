@@ -3,9 +3,16 @@ import { Params, ParamsAmino, ParamsSDKType, EnterpriseUndPurchaseOrder, Enterpr
 import { Coin, CoinAmino, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { GlobalDecoderRegistry } from "../../../registry";
-/** GenesisState defines the enterprise module's genesis state. */
+/**
+ * GenesisState defines the enterprise module's genesis state.
+ * @name GenesisState
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.GenesisState
+ */
 export interface GenesisState {
-  /** params defines all the paramaters of the module. */
+  /**
+   * params defines all the paramaters of the module.
+   */
   params: Params;
   startingPurchaseOrderId: bigint;
   purchaseOrders: EnterpriseUndPurchaseOrder[];
@@ -19,9 +26,16 @@ export interface GenesisStateProtoMsg {
   typeUrl: "/mainchain.enterprise.v1.GenesisState";
   value: Uint8Array;
 }
-/** GenesisState defines the enterprise module's genesis state. */
+/**
+ * GenesisState defines the enterprise module's genesis state.
+ * @name GenesisStateAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.GenesisState
+ */
 export interface GenesisStateAmino {
-  /** params defines all the paramaters of the module. */
+  /**
+   * params defines all the paramaters of the module.
+   */
   params?: ParamsAmino;
   starting_purchase_order_id?: string;
   purchase_orders?: EnterpriseUndPurchaseOrderAmino[];
@@ -35,7 +49,12 @@ export interface GenesisStateAminoMsg {
   type: "/mainchain.enterprise.v1.GenesisState";
   value: GenesisStateAmino;
 }
-/** GenesisState defines the enterprise module's genesis state. */
+/**
+ * GenesisState defines the enterprise module's genesis state.
+ * @name GenesisStateSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.GenesisState
+ */
 export interface GenesisStateSDKType {
   params: ParamsSDKType;
   starting_purchase_order_id: bigint;
@@ -58,6 +77,12 @@ function createBaseGenesisState(): GenesisState {
     totalSpent: Coin.fromPartial({})
   };
 }
+/**
+ * GenesisState defines the enterprise module's genesis state.
+ * @name GenesisState
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.GenesisState
+ */
 export const GenesisState = {
   typeUrl: "/mainchain.enterprise.v1.GenesisState",
   is(o: any): o is GenesisState {
@@ -208,6 +233,15 @@ export const GenesisState = {
       typeUrl: "/mainchain.enterprise.v1.GenesisState",
       value: GenesisState.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(GenesisState.typeUrl)) {
+      return;
+    }
+    Params.registerTypeUrl();
+    EnterpriseUndPurchaseOrder.registerTypeUrl();
+    LockedUnd.registerTypeUrl();
+    Coin.registerTypeUrl();
+    SpentEFUND.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(GenesisState.typeUrl, GenesisState);

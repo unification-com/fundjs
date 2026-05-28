@@ -1,147 +1,272 @@
 //@ts-nocheck
 import { BinaryReader, BinaryWriter } from "../../../../binary";
 import { bytesFromBase64, base64FromBytes } from "../../../../helpers";
-import { GlobalDecoderRegistry } from "../../../../registry";
-/** MsgStoreCode defines the request type for the StoreCode rpc. */
+/**
+ * MsgStoreCode defines the request type for the StoreCode rpc.
+ * @name MsgStoreCode
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.MsgStoreCode
+ */
 export interface MsgStoreCode {
-  /** signer address */
+  /**
+   * signer address
+   */
   signer: string;
-  /** wasm byte code of light client contract. It can be raw or gzip compressed */
+  /**
+   * wasm byte code of light client contract. It can be raw or gzip compressed
+   */
   wasmByteCode: Uint8Array;
 }
 export interface MsgStoreCodeProtoMsg {
   typeUrl: "/ibc.lightclients.wasm.v1.MsgStoreCode";
   value: Uint8Array;
 }
-/** MsgStoreCode defines the request type for the StoreCode rpc. */
+/**
+ * MsgStoreCode defines the request type for the StoreCode rpc.
+ * @name MsgStoreCodeAmino
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.MsgStoreCode
+ */
 export interface MsgStoreCodeAmino {
-  /** signer address */
+  /**
+   * signer address
+   */
   signer?: string;
-  /** wasm byte code of light client contract. It can be raw or gzip compressed */
+  /**
+   * wasm byte code of light client contract. It can be raw or gzip compressed
+   */
   wasm_byte_code?: string;
 }
 export interface MsgStoreCodeAminoMsg {
   type: "cosmos-sdk/MsgStoreCode";
   value: MsgStoreCodeAmino;
 }
-/** MsgStoreCode defines the request type for the StoreCode rpc. */
+/**
+ * MsgStoreCode defines the request type for the StoreCode rpc.
+ * @name MsgStoreCodeSDKType
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.MsgStoreCode
+ */
 export interface MsgStoreCodeSDKType {
   signer: string;
   wasm_byte_code: Uint8Array;
 }
-/** MsgStoreCodeResponse defines the response type for the StoreCode rpc */
+/**
+ * MsgStoreCodeResponse defines the response type for the StoreCode rpc
+ * @name MsgStoreCodeResponse
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.MsgStoreCodeResponse
+ */
 export interface MsgStoreCodeResponse {
-  /** checksum is the sha256 hash of the stored code */
+  /**
+   * checksum is the sha256 hash of the stored code
+   */
   checksum: Uint8Array;
 }
 export interface MsgStoreCodeResponseProtoMsg {
   typeUrl: "/ibc.lightclients.wasm.v1.MsgStoreCodeResponse";
   value: Uint8Array;
 }
-/** MsgStoreCodeResponse defines the response type for the StoreCode rpc */
+/**
+ * MsgStoreCodeResponse defines the response type for the StoreCode rpc
+ * @name MsgStoreCodeResponseAmino
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.MsgStoreCodeResponse
+ */
 export interface MsgStoreCodeResponseAmino {
-  /** checksum is the sha256 hash of the stored code */
+  /**
+   * checksum is the sha256 hash of the stored code
+   */
   checksum?: string;
 }
 export interface MsgStoreCodeResponseAminoMsg {
   type: "cosmos-sdk/MsgStoreCodeResponse";
   value: MsgStoreCodeResponseAmino;
 }
-/** MsgStoreCodeResponse defines the response type for the StoreCode rpc */
+/**
+ * MsgStoreCodeResponse defines the response type for the StoreCode rpc
+ * @name MsgStoreCodeResponseSDKType
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.MsgStoreCodeResponse
+ */
 export interface MsgStoreCodeResponseSDKType {
   checksum: Uint8Array;
 }
-/** MsgRemoveChecksum defines the request type for the MsgRemoveChecksum rpc. */
+/**
+ * MsgRemoveChecksum defines the request type for the MsgRemoveChecksum rpc.
+ * @name MsgRemoveChecksum
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.MsgRemoveChecksum
+ */
 export interface MsgRemoveChecksum {
-  /** signer address */
+  /**
+   * signer address
+   */
   signer: string;
-  /** checksum is the sha256 hash to be removed from the store */
+  /**
+   * checksum is the sha256 hash to be removed from the store
+   */
   checksum: Uint8Array;
 }
 export interface MsgRemoveChecksumProtoMsg {
   typeUrl: "/ibc.lightclients.wasm.v1.MsgRemoveChecksum";
   value: Uint8Array;
 }
-/** MsgRemoveChecksum defines the request type for the MsgRemoveChecksum rpc. */
+/**
+ * MsgRemoveChecksum defines the request type for the MsgRemoveChecksum rpc.
+ * @name MsgRemoveChecksumAmino
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.MsgRemoveChecksum
+ */
 export interface MsgRemoveChecksumAmino {
-  /** signer address */
+  /**
+   * signer address
+   */
   signer?: string;
-  /** checksum is the sha256 hash to be removed from the store */
+  /**
+   * checksum is the sha256 hash to be removed from the store
+   */
   checksum?: string;
 }
 export interface MsgRemoveChecksumAminoMsg {
   type: "cosmos-sdk/MsgRemoveChecksum";
   value: MsgRemoveChecksumAmino;
 }
-/** MsgRemoveChecksum defines the request type for the MsgRemoveChecksum rpc. */
+/**
+ * MsgRemoveChecksum defines the request type for the MsgRemoveChecksum rpc.
+ * @name MsgRemoveChecksumSDKType
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.MsgRemoveChecksum
+ */
 export interface MsgRemoveChecksumSDKType {
   signer: string;
   checksum: Uint8Array;
 }
-/** MsgStoreChecksumResponse defines the response type for the StoreCode rpc */
+/**
+ * MsgStoreChecksumResponse defines the response type for the StoreCode rpc
+ * @name MsgRemoveChecksumResponse
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.MsgRemoveChecksumResponse
+ */
 export interface MsgRemoveChecksumResponse {}
 export interface MsgRemoveChecksumResponseProtoMsg {
   typeUrl: "/ibc.lightclients.wasm.v1.MsgRemoveChecksumResponse";
   value: Uint8Array;
 }
-/** MsgStoreChecksumResponse defines the response type for the StoreCode rpc */
+/**
+ * MsgStoreChecksumResponse defines the response type for the StoreCode rpc
+ * @name MsgRemoveChecksumResponseAmino
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.MsgRemoveChecksumResponse
+ */
 export interface MsgRemoveChecksumResponseAmino {}
 export interface MsgRemoveChecksumResponseAminoMsg {
   type: "cosmos-sdk/MsgRemoveChecksumResponse";
   value: MsgRemoveChecksumResponseAmino;
 }
-/** MsgStoreChecksumResponse defines the response type for the StoreCode rpc */
+/**
+ * MsgStoreChecksumResponse defines the response type for the StoreCode rpc
+ * @name MsgRemoveChecksumResponseSDKType
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.MsgRemoveChecksumResponse
+ */
 export interface MsgRemoveChecksumResponseSDKType {}
-/** MsgMigrateContract defines the request type for the MigrateContract rpc. */
+/**
+ * MsgMigrateContract defines the request type for the MigrateContract rpc.
+ * @name MsgMigrateContract
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.MsgMigrateContract
+ */
 export interface MsgMigrateContract {
-  /** signer address */
+  /**
+   * signer address
+   */
   signer: string;
-  /** the client id of the contract */
+  /**
+   * the client id of the contract
+   */
   clientId: string;
-  /** checksum is the sha256 hash of the new wasm byte code for the contract */
+  /**
+   * checksum is the sha256 hash of the new wasm byte code for the contract
+   */
   checksum: Uint8Array;
-  /** the json encoded message to be passed to the contract on migration */
+  /**
+   * the json encoded message to be passed to the contract on migration
+   */
   msg: Uint8Array;
 }
 export interface MsgMigrateContractProtoMsg {
   typeUrl: "/ibc.lightclients.wasm.v1.MsgMigrateContract";
   value: Uint8Array;
 }
-/** MsgMigrateContract defines the request type for the MigrateContract rpc. */
+/**
+ * MsgMigrateContract defines the request type for the MigrateContract rpc.
+ * @name MsgMigrateContractAmino
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.MsgMigrateContract
+ */
 export interface MsgMigrateContractAmino {
-  /** signer address */
+  /**
+   * signer address
+   */
   signer?: string;
-  /** the client id of the contract */
+  /**
+   * the client id of the contract
+   */
   client_id?: string;
-  /** checksum is the sha256 hash of the new wasm byte code for the contract */
+  /**
+   * checksum is the sha256 hash of the new wasm byte code for the contract
+   */
   checksum?: string;
-  /** the json encoded message to be passed to the contract on migration */
+  /**
+   * the json encoded message to be passed to the contract on migration
+   */
   msg?: string;
 }
 export interface MsgMigrateContractAminoMsg {
   type: "cosmos-sdk/MsgMigrateContract";
   value: MsgMigrateContractAmino;
 }
-/** MsgMigrateContract defines the request type for the MigrateContract rpc. */
+/**
+ * MsgMigrateContract defines the request type for the MigrateContract rpc.
+ * @name MsgMigrateContractSDKType
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.MsgMigrateContract
+ */
 export interface MsgMigrateContractSDKType {
   signer: string;
   client_id: string;
   checksum: Uint8Array;
   msg: Uint8Array;
 }
-/** MsgMigrateContractResponse defines the response type for the MigrateContract rpc */
+/**
+ * MsgMigrateContractResponse defines the response type for the MigrateContract rpc
+ * @name MsgMigrateContractResponse
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.MsgMigrateContractResponse
+ */
 export interface MsgMigrateContractResponse {}
 export interface MsgMigrateContractResponseProtoMsg {
   typeUrl: "/ibc.lightclients.wasm.v1.MsgMigrateContractResponse";
   value: Uint8Array;
 }
-/** MsgMigrateContractResponse defines the response type for the MigrateContract rpc */
+/**
+ * MsgMigrateContractResponse defines the response type for the MigrateContract rpc
+ * @name MsgMigrateContractResponseAmino
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.MsgMigrateContractResponse
+ */
 export interface MsgMigrateContractResponseAmino {}
 export interface MsgMigrateContractResponseAminoMsg {
   type: "cosmos-sdk/MsgMigrateContractResponse";
   value: MsgMigrateContractResponseAmino;
 }
-/** MsgMigrateContractResponse defines the response type for the MigrateContract rpc */
+/**
+ * MsgMigrateContractResponse defines the response type for the MigrateContract rpc
+ * @name MsgMigrateContractResponseSDKType
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.MsgMigrateContractResponse
+ */
 export interface MsgMigrateContractResponseSDKType {}
 function createBaseMsgStoreCode(): MsgStoreCode {
   return {
@@ -149,6 +274,12 @@ function createBaseMsgStoreCode(): MsgStoreCode {
     wasmByteCode: new Uint8Array()
   };
 }
+/**
+ * MsgStoreCode defines the request type for the StoreCode rpc.
+ * @name MsgStoreCode
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.MsgStoreCode
+ */
 export const MsgStoreCode = {
   typeUrl: "/ibc.lightclients.wasm.v1.MsgStoreCode",
   aminoType: "cosmos-sdk/MsgStoreCode",
@@ -232,15 +363,20 @@ export const MsgStoreCode = {
       typeUrl: "/ibc.lightclients.wasm.v1.MsgStoreCode",
       value: MsgStoreCode.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgStoreCode.typeUrl, MsgStoreCode);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgStoreCode.aminoType, MsgStoreCode.typeUrl);
 function createBaseMsgStoreCodeResponse(): MsgStoreCodeResponse {
   return {
     checksum: new Uint8Array()
   };
 }
+/**
+ * MsgStoreCodeResponse defines the response type for the StoreCode rpc
+ * @name MsgStoreCodeResponse
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.MsgStoreCodeResponse
+ */
 export const MsgStoreCodeResponse = {
   typeUrl: "/ibc.lightclients.wasm.v1.MsgStoreCodeResponse",
   aminoType: "cosmos-sdk/MsgStoreCodeResponse",
@@ -313,16 +449,21 @@ export const MsgStoreCodeResponse = {
       typeUrl: "/ibc.lightclients.wasm.v1.MsgStoreCodeResponse",
       value: MsgStoreCodeResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgStoreCodeResponse.typeUrl, MsgStoreCodeResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgStoreCodeResponse.aminoType, MsgStoreCodeResponse.typeUrl);
 function createBaseMsgRemoveChecksum(): MsgRemoveChecksum {
   return {
     signer: "",
     checksum: new Uint8Array()
   };
 }
+/**
+ * MsgRemoveChecksum defines the request type for the MsgRemoveChecksum rpc.
+ * @name MsgRemoveChecksum
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.MsgRemoveChecksum
+ */
 export const MsgRemoveChecksum = {
   typeUrl: "/ibc.lightclients.wasm.v1.MsgRemoveChecksum",
   aminoType: "cosmos-sdk/MsgRemoveChecksum",
@@ -406,13 +547,18 @@ export const MsgRemoveChecksum = {
       typeUrl: "/ibc.lightclients.wasm.v1.MsgRemoveChecksum",
       value: MsgRemoveChecksum.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgRemoveChecksum.typeUrl, MsgRemoveChecksum);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgRemoveChecksum.aminoType, MsgRemoveChecksum.typeUrl);
 function createBaseMsgRemoveChecksumResponse(): MsgRemoveChecksumResponse {
   return {};
 }
+/**
+ * MsgStoreChecksumResponse defines the response type for the StoreCode rpc
+ * @name MsgRemoveChecksumResponse
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.MsgRemoveChecksumResponse
+ */
 export const MsgRemoveChecksumResponse = {
   typeUrl: "/ibc.lightclients.wasm.v1.MsgRemoveChecksumResponse",
   aminoType: "cosmos-sdk/MsgRemoveChecksumResponse",
@@ -474,10 +620,9 @@ export const MsgRemoveChecksumResponse = {
       typeUrl: "/ibc.lightclients.wasm.v1.MsgRemoveChecksumResponse",
       value: MsgRemoveChecksumResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgRemoveChecksumResponse.typeUrl, MsgRemoveChecksumResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgRemoveChecksumResponse.aminoType, MsgRemoveChecksumResponse.typeUrl);
 function createBaseMsgMigrateContract(): MsgMigrateContract {
   return {
     signer: "",
@@ -486,6 +631,12 @@ function createBaseMsgMigrateContract(): MsgMigrateContract {
     msg: new Uint8Array()
   };
 }
+/**
+ * MsgMigrateContract defines the request type for the MigrateContract rpc.
+ * @name MsgMigrateContract
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.MsgMigrateContract
+ */
 export const MsgMigrateContract = {
   typeUrl: "/ibc.lightclients.wasm.v1.MsgMigrateContract",
   aminoType: "cosmos-sdk/MsgMigrateContract",
@@ -591,13 +742,18 @@ export const MsgMigrateContract = {
       typeUrl: "/ibc.lightclients.wasm.v1.MsgMigrateContract",
       value: MsgMigrateContract.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgMigrateContract.typeUrl, MsgMigrateContract);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgMigrateContract.aminoType, MsgMigrateContract.typeUrl);
 function createBaseMsgMigrateContractResponse(): MsgMigrateContractResponse {
   return {};
 }
+/**
+ * MsgMigrateContractResponse defines the response type for the MigrateContract rpc
+ * @name MsgMigrateContractResponse
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.MsgMigrateContractResponse
+ */
 export const MsgMigrateContractResponse = {
   typeUrl: "/ibc.lightclients.wasm.v1.MsgMigrateContractResponse",
   aminoType: "cosmos-sdk/MsgMigrateContractResponse",
@@ -659,7 +815,6 @@ export const MsgMigrateContractResponse = {
       typeUrl: "/ibc.lightclients.wasm.v1.MsgMigrateContractResponse",
       value: MsgMigrateContractResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgMigrateContractResponse.typeUrl, MsgMigrateContractResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgMigrateContractResponse.aminoType, MsgMigrateContractResponse.typeUrl);

@@ -4,11 +4,14 @@ import { Timestamp } from "../../../google/protobuf/timestamp";
 import { Params, ParamsAmino, ParamsSDKType } from "./types";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { GlobalDecoderRegistry } from "../../../registry";
-import { Decimal } from "@cosmjs/math";
+import { Decimal } from "@interchainjs/math";
 import { toTimestamp, fromTimestamp } from "../../../helpers";
 /**
  * MsgFundCommunityPool allows an account to directly
  * fund the community pool.
+ * @name MsgFundCommunityPool
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.MsgFundCommunityPool
  */
 export interface MsgFundCommunityPool {
   depositor: string;
@@ -21,6 +24,9 @@ export interface MsgFundCommunityPoolProtoMsg {
 /**
  * MsgFundCommunityPool allows an account to directly
  * fund the community pool.
+ * @name MsgFundCommunityPoolAmino
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.MsgFundCommunityPool
  */
 export interface MsgFundCommunityPoolAmino {
   depositor?: string;
@@ -33,32 +39,55 @@ export interface MsgFundCommunityPoolAminoMsg {
 /**
  * MsgFundCommunityPool allows an account to directly
  * fund the community pool.
+ * @name MsgFundCommunityPoolSDKType
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.MsgFundCommunityPool
  */
 export interface MsgFundCommunityPoolSDKType {
   depositor: string;
   amount: CoinSDKType[];
 }
-/** MsgFundCommunityPoolResponse defines the Msg/FundCommunityPool response type. */
+/**
+ * MsgFundCommunityPoolResponse defines the Msg/FundCommunityPool response type.
+ * @name MsgFundCommunityPoolResponse
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.MsgFundCommunityPoolResponse
+ */
 export interface MsgFundCommunityPoolResponse {}
 export interface MsgFundCommunityPoolResponseProtoMsg {
   typeUrl: "/cosmos.protocolpool.v1.MsgFundCommunityPoolResponse";
   value: Uint8Array;
 }
-/** MsgFundCommunityPoolResponse defines the Msg/FundCommunityPool response type. */
+/**
+ * MsgFundCommunityPoolResponse defines the Msg/FundCommunityPool response type.
+ * @name MsgFundCommunityPoolResponseAmino
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.MsgFundCommunityPoolResponse
+ */
 export interface MsgFundCommunityPoolResponseAmino {}
 export interface MsgFundCommunityPoolResponseAminoMsg {
   type: "cosmos-sdk/MsgFundCommunityPoolResponse";
   value: MsgFundCommunityPoolResponseAmino;
 }
-/** MsgFundCommunityPoolResponse defines the Msg/FundCommunityPool response type. */
+/**
+ * MsgFundCommunityPoolResponse defines the Msg/FundCommunityPool response type.
+ * @name MsgFundCommunityPoolResponseSDKType
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.MsgFundCommunityPoolResponse
+ */
 export interface MsgFundCommunityPoolResponseSDKType {}
 /**
  * MsgCommunityPoolSpend defines a message for sending tokens from the community
  * pool to another account. This message is typically executed via a governance
  * proposal with the governance module being the executing authority.
+ * @name MsgCommunityPoolSpend
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.MsgCommunityPoolSpend
  */
 export interface MsgCommunityPoolSpend {
-  /** Authority is the address that controls the module (defaults to x/gov unless overwritten). */
+  /**
+   * Authority is the address that controls the module (defaults to x/gov unless overwritten).
+   */
   authority: string;
   recipient: string;
   amount: Coin[];
@@ -71,9 +100,14 @@ export interface MsgCommunityPoolSpendProtoMsg {
  * MsgCommunityPoolSpend defines a message for sending tokens from the community
  * pool to another account. This message is typically executed via a governance
  * proposal with the governance module being the executing authority.
+ * @name MsgCommunityPoolSpendAmino
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.MsgCommunityPoolSpend
  */
 export interface MsgCommunityPoolSpendAmino {
-  /** Authority is the address that controls the module (defaults to x/gov unless overwritten). */
+  /**
+   * Authority is the address that controls the module (defaults to x/gov unless overwritten).
+   */
   authority?: string;
   recipient?: string;
   amount?: CoinAmino[];
@@ -86,6 +120,9 @@ export interface MsgCommunityPoolSpendAminoMsg {
  * MsgCommunityPoolSpend defines a message for sending tokens from the community
  * pool to another account. This message is typically executed via a governance
  * proposal with the governance module being the executing authority.
+ * @name MsgCommunityPoolSpendSDKType
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.MsgCommunityPoolSpend
  */
 export interface MsgCommunityPoolSpendSDKType {
   authority: string;
@@ -95,6 +132,9 @@ export interface MsgCommunityPoolSpendSDKType {
 /**
  * MsgCommunityPoolSpendResponse defines the response to executing a
  * MsgCommunityPoolSpend message.
+ * @name MsgCommunityPoolSpendResponse
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.MsgCommunityPoolSpendResponse
  */
 export interface MsgCommunityPoolSpendResponse {}
 export interface MsgCommunityPoolSpendResponseProtoMsg {
@@ -104,6 +144,9 @@ export interface MsgCommunityPoolSpendResponseProtoMsg {
 /**
  * MsgCommunityPoolSpendResponse defines the response to executing a
  * MsgCommunityPoolSpend message.
+ * @name MsgCommunityPoolSpendResponseAmino
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.MsgCommunityPoolSpendResponse
  */
 export interface MsgCommunityPoolSpendResponseAmino {}
 export interface MsgCommunityPoolSpendResponseAminoMsg {
@@ -113,39 +156,73 @@ export interface MsgCommunityPoolSpendResponseAminoMsg {
 /**
  * MsgCommunityPoolSpendResponse defines the response to executing a
  * MsgCommunityPoolSpend message.
+ * @name MsgCommunityPoolSpendResponseSDKType
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.MsgCommunityPoolSpendResponse
  */
 export interface MsgCommunityPoolSpendResponseSDKType {}
-/** MsgCreateContinuousFund defines a message for adding continuous funds. */
+/**
+ * MsgCreateContinuousFund defines a message for adding continuous funds.
+ * @name MsgCreateContinuousFund
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.MsgCreateContinuousFund
+ */
 export interface MsgCreateContinuousFund {
-  /** Authority is the address that controls the module (defaults to x/gov unless overwritten). */
+  /**
+   * Authority is the address that controls the module (defaults to x/gov unless overwritten).
+   */
   authority: string;
-  /** Recipient address of the account receiving funds. */
+  /**
+   * Recipient address of the account receiving funds.
+   */
   recipient: string;
-  /** Percentage is the percentage of funds to be allocated from Community pool. */
+  /**
+   * Percentage is the percentage of funds to be allocated from Community pool.
+   */
   percentage: string;
-  /** Optional, if expiry is set, removes the state object when expired. */
+  /**
+   * Optional, if expiry is set, removes the state object when expired.
+   */
   expiry?: Date;
 }
 export interface MsgCreateContinuousFundProtoMsg {
   typeUrl: "/cosmos.protocolpool.v1.MsgCreateContinuousFund";
   value: Uint8Array;
 }
-/** MsgCreateContinuousFund defines a message for adding continuous funds. */
+/**
+ * MsgCreateContinuousFund defines a message for adding continuous funds.
+ * @name MsgCreateContinuousFundAmino
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.MsgCreateContinuousFund
+ */
 export interface MsgCreateContinuousFundAmino {
-  /** Authority is the address that controls the module (defaults to x/gov unless overwritten). */
+  /**
+   * Authority is the address that controls the module (defaults to x/gov unless overwritten).
+   */
   authority?: string;
-  /** Recipient address of the account receiving funds. */
+  /**
+   * Recipient address of the account receiving funds.
+   */
   recipient?: string;
-  /** Percentage is the percentage of funds to be allocated from Community pool. */
+  /**
+   * Percentage is the percentage of funds to be allocated from Community pool.
+   */
   percentage?: string;
-  /** Optional, if expiry is set, removes the state object when expired. */
+  /**
+   * Optional, if expiry is set, removes the state object when expired.
+   */
   expiry?: string;
 }
 export interface MsgCreateContinuousFundAminoMsg {
   type: "cosmos-sdk/MsgCreateContinuousFund";
   value: MsgCreateContinuousFundAmino;
 }
-/** MsgCreateContinuousFund defines a message for adding continuous funds. */
+/**
+ * MsgCreateContinuousFund defines a message for adding continuous funds.
+ * @name MsgCreateContinuousFundSDKType
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.MsgCreateContinuousFund
+ */
 export interface MsgCreateContinuousFundSDKType {
   authority: string;
   recipient: string;
@@ -155,6 +232,9 @@ export interface MsgCreateContinuousFundSDKType {
 /**
  * MsgCreateContinuousFundResponse defines the response to executing a
  * MsgCreateContinuousFund message.
+ * @name MsgCreateContinuousFundResponse
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.MsgCreateContinuousFundResponse
  */
 export interface MsgCreateContinuousFundResponse {}
 export interface MsgCreateContinuousFundResponseProtoMsg {
@@ -164,6 +244,9 @@ export interface MsgCreateContinuousFundResponseProtoMsg {
 /**
  * MsgCreateContinuousFundResponse defines the response to executing a
  * MsgCreateContinuousFund message.
+ * @name MsgCreateContinuousFundResponseAmino
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.MsgCreateContinuousFundResponse
  */
 export interface MsgCreateContinuousFundResponseAmino {}
 export interface MsgCreateContinuousFundResponseAminoMsg {
@@ -173,31 +256,57 @@ export interface MsgCreateContinuousFundResponseAminoMsg {
 /**
  * MsgCreateContinuousFundResponse defines the response to executing a
  * MsgCreateContinuousFund message.
+ * @name MsgCreateContinuousFundResponseSDKType
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.MsgCreateContinuousFundResponse
  */
 export interface MsgCreateContinuousFundResponseSDKType {}
-/** MsgCancelContinuousFund defines a message to cancel continuous funds for a specific recipient. */
+/**
+ * MsgCancelContinuousFund defines a message to cancel continuous funds for a specific recipient.
+ * @name MsgCancelContinuousFund
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.MsgCancelContinuousFund
+ */
 export interface MsgCancelContinuousFund {
-  /** Authority is the account address of authority. */
+  /**
+   * Authority is the account address of authority.
+   */
   authority: string;
-  /** Recipient is the account address string of the recipient whose funds are to be cancelled. */
+  /**
+   * Recipient is the account address string of the recipient whose funds are to be cancelled.
+   */
   recipient: string;
 }
 export interface MsgCancelContinuousFundProtoMsg {
   typeUrl: "/cosmos.protocolpool.v1.MsgCancelContinuousFund";
   value: Uint8Array;
 }
-/** MsgCancelContinuousFund defines a message to cancel continuous funds for a specific recipient. */
+/**
+ * MsgCancelContinuousFund defines a message to cancel continuous funds for a specific recipient.
+ * @name MsgCancelContinuousFundAmino
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.MsgCancelContinuousFund
+ */
 export interface MsgCancelContinuousFundAmino {
-  /** Authority is the account address of authority. */
+  /**
+   * Authority is the account address of authority.
+   */
   authority?: string;
-  /** Recipient is the account address string of the recipient whose funds are to be cancelled. */
+  /**
+   * Recipient is the account address string of the recipient whose funds are to be cancelled.
+   */
   recipient?: string;
 }
 export interface MsgCancelContinuousFundAminoMsg {
   type: "cosmos-sdk/MsgCancelContinuousFund";
   value: MsgCancelContinuousFundAmino;
 }
-/** MsgCancelContinuousFund defines a message to cancel continuous funds for a specific recipient. */
+/**
+ * MsgCancelContinuousFund defines a message to cancel continuous funds for a specific recipient.
+ * @name MsgCancelContinuousFundSDKType
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.MsgCancelContinuousFund
+ */
 export interface MsgCancelContinuousFundSDKType {
   authority: string;
   recipient: string;
@@ -205,13 +314,22 @@ export interface MsgCancelContinuousFundSDKType {
 /**
  * MsgCancelContinuousFundResponse defines the response to executing a
  * MsgCancelContinuousFund message.
+ * @name MsgCancelContinuousFundResponse
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.MsgCancelContinuousFundResponse
  */
 export interface MsgCancelContinuousFundResponse {
-  /** CanceledTime is the canceled time. */
+  /**
+   * CanceledTime is the canceled time.
+   */
   canceledTime: Date;
-  /** CanceledHeight defines the canceled block height. */
+  /**
+   * CanceledHeight defines the canceled block height.
+   */
   canceledHeight: bigint;
-  /** Recipient is the account address string of the recipient whose funds are cancelled. */
+  /**
+   * Recipient is the account address string of the recipient whose funds are cancelled.
+   */
   recipient: string;
 }
 export interface MsgCancelContinuousFundResponseProtoMsg {
@@ -221,13 +339,22 @@ export interface MsgCancelContinuousFundResponseProtoMsg {
 /**
  * MsgCancelContinuousFundResponse defines the response to executing a
  * MsgCancelContinuousFund message.
+ * @name MsgCancelContinuousFundResponseAmino
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.MsgCancelContinuousFundResponse
  */
 export interface MsgCancelContinuousFundResponseAmino {
-  /** CanceledTime is the canceled time. */
+  /**
+   * CanceledTime is the canceled time.
+   */
   canceled_time?: string;
-  /** CanceledHeight defines the canceled block height. */
+  /**
+   * CanceledHeight defines the canceled block height.
+   */
   canceled_height?: string;
-  /** Recipient is the account address string of the recipient whose funds are cancelled. */
+  /**
+   * Recipient is the account address string of the recipient whose funds are cancelled.
+   */
   recipient?: string;
 }
 export interface MsgCancelContinuousFundResponseAminoMsg {
@@ -237,15 +364,25 @@ export interface MsgCancelContinuousFundResponseAminoMsg {
 /**
  * MsgCancelContinuousFundResponse defines the response to executing a
  * MsgCancelContinuousFund message.
+ * @name MsgCancelContinuousFundResponseSDKType
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.MsgCancelContinuousFundResponse
  */
 export interface MsgCancelContinuousFundResponseSDKType {
   canceled_time: Date;
   canceled_height: bigint;
   recipient: string;
 }
-/** MsgUpdateParams is the Msg/UpdateParams request type. */
+/**
+ * MsgUpdateParams is the Msg/UpdateParams request type.
+ * @name MsgUpdateParams
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.MsgUpdateParams
+ */
 export interface MsgUpdateParams {
-  /** authority is the address that controls the module (defaults to x/gov unless overwritten). */
+  /**
+   * authority is the address that controls the module (defaults to x/gov unless overwritten).
+   */
   authority: string;
   /**
    * params defines the x/protocolpool parameters to update.
@@ -258,9 +395,16 @@ export interface MsgUpdateParamsProtoMsg {
   typeUrl: "/cosmos.protocolpool.v1.MsgUpdateParams";
   value: Uint8Array;
 }
-/** MsgUpdateParams is the Msg/UpdateParams request type. */
+/**
+ * MsgUpdateParams is the Msg/UpdateParams request type.
+ * @name MsgUpdateParamsAmino
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.MsgUpdateParams
+ */
 export interface MsgUpdateParamsAmino {
-  /** authority is the address that controls the module (defaults to x/gov unless overwritten). */
+  /**
+   * authority is the address that controls the module (defaults to x/gov unless overwritten).
+   */
   authority?: string;
   /**
    * params defines the x/protocolpool parameters to update.
@@ -273,7 +417,12 @@ export interface MsgUpdateParamsAminoMsg {
   type: "cosmos-sdk/MsgUpdateParams";
   value: MsgUpdateParamsAmino;
 }
-/** MsgUpdateParams is the Msg/UpdateParams request type. */
+/**
+ * MsgUpdateParams is the Msg/UpdateParams request type.
+ * @name MsgUpdateParamsSDKType
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.MsgUpdateParams
+ */
 export interface MsgUpdateParamsSDKType {
   authority: string;
   params: ParamsSDKType;
@@ -281,6 +430,9 @@ export interface MsgUpdateParamsSDKType {
 /**
  * MsgUpdateParamsResponse defines the response structure for executing a
  * MsgUpdateParams message.
+ * @name MsgUpdateParamsResponse
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.MsgUpdateParamsResponse
  */
 export interface MsgUpdateParamsResponse {}
 export interface MsgUpdateParamsResponseProtoMsg {
@@ -290,6 +442,9 @@ export interface MsgUpdateParamsResponseProtoMsg {
 /**
  * MsgUpdateParamsResponse defines the response structure for executing a
  * MsgUpdateParams message.
+ * @name MsgUpdateParamsResponseAmino
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.MsgUpdateParamsResponse
  */
 export interface MsgUpdateParamsResponseAmino {}
 export interface MsgUpdateParamsResponseAminoMsg {
@@ -299,6 +454,9 @@ export interface MsgUpdateParamsResponseAminoMsg {
 /**
  * MsgUpdateParamsResponse defines the response structure for executing a
  * MsgUpdateParams message.
+ * @name MsgUpdateParamsResponseSDKType
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.MsgUpdateParamsResponse
  */
 export interface MsgUpdateParamsResponseSDKType {}
 function createBaseMsgFundCommunityPool(): MsgFundCommunityPool {
@@ -307,6 +465,13 @@ function createBaseMsgFundCommunityPool(): MsgFundCommunityPool {
     amount: []
   };
 }
+/**
+ * MsgFundCommunityPool allows an account to directly
+ * fund the community pool.
+ * @name MsgFundCommunityPool
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.MsgFundCommunityPool
+ */
 export const MsgFundCommunityPool = {
   typeUrl: "/cosmos.protocolpool.v1.MsgFundCommunityPool",
   aminoType: "cosmos-sdk/MsgFundCommunityPool",
@@ -392,13 +557,23 @@ export const MsgFundCommunityPool = {
       typeUrl: "/cosmos.protocolpool.v1.MsgFundCommunityPool",
       value: MsgFundCommunityPool.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgFundCommunityPool.typeUrl)) {
+      return;
+    }
+    Coin.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgFundCommunityPool.typeUrl, MsgFundCommunityPool);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgFundCommunityPool.aminoType, MsgFundCommunityPool.typeUrl);
 function createBaseMsgFundCommunityPoolResponse(): MsgFundCommunityPoolResponse {
   return {};
 }
+/**
+ * MsgFundCommunityPoolResponse defines the Msg/FundCommunityPool response type.
+ * @name MsgFundCommunityPoolResponse
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.MsgFundCommunityPoolResponse
+ */
 export const MsgFundCommunityPoolResponse = {
   typeUrl: "/cosmos.protocolpool.v1.MsgFundCommunityPoolResponse",
   aminoType: "cosmos-sdk/MsgFundCommunityPoolResponse",
@@ -460,10 +635,9 @@ export const MsgFundCommunityPoolResponse = {
       typeUrl: "/cosmos.protocolpool.v1.MsgFundCommunityPoolResponse",
       value: MsgFundCommunityPoolResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgFundCommunityPoolResponse.typeUrl, MsgFundCommunityPoolResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgFundCommunityPoolResponse.aminoType, MsgFundCommunityPoolResponse.typeUrl);
 function createBaseMsgCommunityPoolSpend(): MsgCommunityPoolSpend {
   return {
     authority: "",
@@ -471,6 +645,14 @@ function createBaseMsgCommunityPoolSpend(): MsgCommunityPoolSpend {
     amount: []
   };
 }
+/**
+ * MsgCommunityPoolSpend defines a message for sending tokens from the community
+ * pool to another account. This message is typically executed via a governance
+ * proposal with the governance module being the executing authority.
+ * @name MsgCommunityPoolSpend
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.MsgCommunityPoolSpend
+ */
 export const MsgCommunityPoolSpend = {
   typeUrl: "/cosmos.protocolpool.v1.MsgCommunityPoolSpend",
   aminoType: "cosmos-sdk/MsgCommunityPoolSpend",
@@ -567,13 +749,24 @@ export const MsgCommunityPoolSpend = {
       typeUrl: "/cosmos.protocolpool.v1.MsgCommunityPoolSpend",
       value: MsgCommunityPoolSpend.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgCommunityPoolSpend.typeUrl)) {
+      return;
+    }
+    Coin.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgCommunityPoolSpend.typeUrl, MsgCommunityPoolSpend);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgCommunityPoolSpend.aminoType, MsgCommunityPoolSpend.typeUrl);
 function createBaseMsgCommunityPoolSpendResponse(): MsgCommunityPoolSpendResponse {
   return {};
 }
+/**
+ * MsgCommunityPoolSpendResponse defines the response to executing a
+ * MsgCommunityPoolSpend message.
+ * @name MsgCommunityPoolSpendResponse
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.MsgCommunityPoolSpendResponse
+ */
 export const MsgCommunityPoolSpendResponse = {
   typeUrl: "/cosmos.protocolpool.v1.MsgCommunityPoolSpendResponse",
   aminoType: "cosmos-sdk/MsgCommunityPoolSpendResponse",
@@ -635,10 +828,9 @@ export const MsgCommunityPoolSpendResponse = {
       typeUrl: "/cosmos.protocolpool.v1.MsgCommunityPoolSpendResponse",
       value: MsgCommunityPoolSpendResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgCommunityPoolSpendResponse.typeUrl, MsgCommunityPoolSpendResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgCommunityPoolSpendResponse.aminoType, MsgCommunityPoolSpendResponse.typeUrl);
 function createBaseMsgCreateContinuousFund(): MsgCreateContinuousFund {
   return {
     authority: "",
@@ -647,6 +839,12 @@ function createBaseMsgCreateContinuousFund(): MsgCreateContinuousFund {
     expiry: undefined
   };
 }
+/**
+ * MsgCreateContinuousFund defines a message for adding continuous funds.
+ * @name MsgCreateContinuousFund
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.MsgCreateContinuousFund
+ */
 export const MsgCreateContinuousFund = {
   typeUrl: "/cosmos.protocolpool.v1.MsgCreateContinuousFund",
   aminoType: "cosmos-sdk/MsgCreateContinuousFund",
@@ -728,7 +926,7 @@ export const MsgCreateContinuousFund = {
     const obj: any = {};
     obj.authority = message.authority === "" ? undefined : message.authority;
     obj.recipient = message.recipient === "" ? undefined : message.recipient;
-    obj.percentage = message.percentage === "" ? undefined : message.percentage;
+    obj.percentage = message.percentage === "" ? undefined : Decimal.fromUserInput(message.percentage, 18).atomics;
     obj.expiry = message.expiry ? Timestamp.toAmino(toTimestamp(message.expiry)) : undefined;
     return obj;
   },
@@ -752,13 +950,19 @@ export const MsgCreateContinuousFund = {
       typeUrl: "/cosmos.protocolpool.v1.MsgCreateContinuousFund",
       value: MsgCreateContinuousFund.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgCreateContinuousFund.typeUrl, MsgCreateContinuousFund);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgCreateContinuousFund.aminoType, MsgCreateContinuousFund.typeUrl);
 function createBaseMsgCreateContinuousFundResponse(): MsgCreateContinuousFundResponse {
   return {};
 }
+/**
+ * MsgCreateContinuousFundResponse defines the response to executing a
+ * MsgCreateContinuousFund message.
+ * @name MsgCreateContinuousFundResponse
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.MsgCreateContinuousFundResponse
+ */
 export const MsgCreateContinuousFundResponse = {
   typeUrl: "/cosmos.protocolpool.v1.MsgCreateContinuousFundResponse",
   aminoType: "cosmos-sdk/MsgCreateContinuousFundResponse",
@@ -820,16 +1024,21 @@ export const MsgCreateContinuousFundResponse = {
       typeUrl: "/cosmos.protocolpool.v1.MsgCreateContinuousFundResponse",
       value: MsgCreateContinuousFundResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgCreateContinuousFundResponse.typeUrl, MsgCreateContinuousFundResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgCreateContinuousFundResponse.aminoType, MsgCreateContinuousFundResponse.typeUrl);
 function createBaseMsgCancelContinuousFund(): MsgCancelContinuousFund {
   return {
     authority: "",
     recipient: ""
   };
 }
+/**
+ * MsgCancelContinuousFund defines a message to cancel continuous funds for a specific recipient.
+ * @name MsgCancelContinuousFund
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.MsgCancelContinuousFund
+ */
 export const MsgCancelContinuousFund = {
   typeUrl: "/cosmos.protocolpool.v1.MsgCancelContinuousFund",
   aminoType: "cosmos-sdk/MsgCancelContinuousFund",
@@ -913,10 +1122,9 @@ export const MsgCancelContinuousFund = {
       typeUrl: "/cosmos.protocolpool.v1.MsgCancelContinuousFund",
       value: MsgCancelContinuousFund.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgCancelContinuousFund.typeUrl, MsgCancelContinuousFund);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgCancelContinuousFund.aminoType, MsgCancelContinuousFund.typeUrl);
 function createBaseMsgCancelContinuousFundResponse(): MsgCancelContinuousFundResponse {
   return {
     canceledTime: new Date(),
@@ -924,6 +1132,13 @@ function createBaseMsgCancelContinuousFundResponse(): MsgCancelContinuousFundRes
     recipient: ""
   };
 }
+/**
+ * MsgCancelContinuousFundResponse defines the response to executing a
+ * MsgCancelContinuousFund message.
+ * @name MsgCancelContinuousFundResponse
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.MsgCancelContinuousFundResponse
+ */
 export const MsgCancelContinuousFundResponse = {
   typeUrl: "/cosmos.protocolpool.v1.MsgCancelContinuousFundResponse",
   aminoType: "cosmos-sdk/MsgCancelContinuousFundResponse",
@@ -1018,16 +1233,21 @@ export const MsgCancelContinuousFundResponse = {
       typeUrl: "/cosmos.protocolpool.v1.MsgCancelContinuousFundResponse",
       value: MsgCancelContinuousFundResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgCancelContinuousFundResponse.typeUrl, MsgCancelContinuousFundResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgCancelContinuousFundResponse.aminoType, MsgCancelContinuousFundResponse.typeUrl);
 function createBaseMsgUpdateParams(): MsgUpdateParams {
   return {
     authority: "",
     params: Params.fromPartial({})
   };
 }
+/**
+ * MsgUpdateParams is the Msg/UpdateParams request type.
+ * @name MsgUpdateParams
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.MsgUpdateParams
+ */
 export const MsgUpdateParams = {
   typeUrl: "/cosmos.protocolpool.v1.MsgUpdateParams",
   aminoType: "cosmos-sdk/MsgUpdateParams",
@@ -1111,13 +1331,24 @@ export const MsgUpdateParams = {
       typeUrl: "/cosmos.protocolpool.v1.MsgUpdateParams",
       value: MsgUpdateParams.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgUpdateParams.typeUrl)) {
+      return;
+    }
+    Params.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgUpdateParams.typeUrl, MsgUpdateParams);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgUpdateParams.aminoType, MsgUpdateParams.typeUrl);
 function createBaseMsgUpdateParamsResponse(): MsgUpdateParamsResponse {
   return {};
 }
+/**
+ * MsgUpdateParamsResponse defines the response structure for executing a
+ * MsgUpdateParams message.
+ * @name MsgUpdateParamsResponse
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.MsgUpdateParamsResponse
+ */
 export const MsgUpdateParamsResponse = {
   typeUrl: "/cosmos.protocolpool.v1.MsgUpdateParamsResponse",
   aminoType: "cosmos-sdk/MsgUpdateParamsResponse",
@@ -1179,7 +1410,6 @@ export const MsgUpdateParamsResponse = {
       typeUrl: "/cosmos.protocolpool.v1.MsgUpdateParamsResponse",
       value: MsgUpdateParamsResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgUpdateParamsResponse.typeUrl, MsgUpdateParamsResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgUpdateParamsResponse.aminoType, MsgUpdateParamsResponse.typeUrl);

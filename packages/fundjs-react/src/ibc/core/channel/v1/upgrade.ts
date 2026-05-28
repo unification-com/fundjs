@@ -9,6 +9,9 @@ import { isSet } from "../../../../helpers";
  * end, the timeout for this upgrade attempt and the next packet sequence
  * which allows the counterparty to efficiently know the highest sequence it has received.
  * The next sequence send is used for pruning and upgrading from unordered to ordered channels.
+ * @name Upgrade
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.Upgrade
  */
 export interface Upgrade {
   fields: UpgradeFields;
@@ -25,6 +28,9 @@ export interface UpgradeProtoMsg {
  * end, the timeout for this upgrade attempt and the next packet sequence
  * which allows the counterparty to efficiently know the highest sequence it has received.
  * The next sequence send is used for pruning and upgrading from unordered to ordered channels.
+ * @name UpgradeAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.Upgrade
  */
 export interface UpgradeAmino {
   fields?: UpgradeFieldsAmino;
@@ -41,6 +47,9 @@ export interface UpgradeAminoMsg {
  * end, the timeout for this upgrade attempt and the next packet sequence
  * which allows the counterparty to efficiently know the highest sequence it has received.
  * The next sequence send is used for pruning and upgrading from unordered to ordered channels.
+ * @name UpgradeSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.Upgrade
  */
 export interface UpgradeSDKType {
   fields: UpgradeFieldsSDKType;
@@ -50,6 +59,9 @@ export interface UpgradeSDKType {
 /**
  * UpgradeFields are the fields in a channel end which may be changed
  * during a channel upgrade.
+ * @name UpgradeFields
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.UpgradeFields
  */
 export interface UpgradeFields {
   ordering: Order;
@@ -63,6 +75,9 @@ export interface UpgradeFieldsProtoMsg {
 /**
  * UpgradeFields are the fields in a channel end which may be changed
  * during a channel upgrade.
+ * @name UpgradeFieldsAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.UpgradeFields
  */
 export interface UpgradeFieldsAmino {
   ordering?: Order;
@@ -76,6 +91,9 @@ export interface UpgradeFieldsAminoMsg {
 /**
  * UpgradeFields are the fields in a channel end which may be changed
  * during a channel upgrade.
+ * @name UpgradeFieldsSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.UpgradeFields
  */
 export interface UpgradeFieldsSDKType {
   ordering: Order;
@@ -86,11 +104,18 @@ export interface UpgradeFieldsSDKType {
  * ErrorReceipt defines a type which encapsulates the upgrade sequence and error associated with the
  * upgrade handshake failure. When a channel upgrade handshake is aborted both chains are expected to increment to the
  * next sequence.
+ * @name ErrorReceipt
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.ErrorReceipt
  */
 export interface ErrorReceipt {
-  /** the channel upgrade sequence */
+  /**
+   * the channel upgrade sequence
+   */
   sequence: bigint;
-  /** the error message detailing the cause of failure */
+  /**
+   * the error message detailing the cause of failure
+   */
   message: string;
 }
 export interface ErrorReceiptProtoMsg {
@@ -101,11 +126,18 @@ export interface ErrorReceiptProtoMsg {
  * ErrorReceipt defines a type which encapsulates the upgrade sequence and error associated with the
  * upgrade handshake failure. When a channel upgrade handshake is aborted both chains are expected to increment to the
  * next sequence.
+ * @name ErrorReceiptAmino
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.ErrorReceipt
  */
 export interface ErrorReceiptAmino {
-  /** the channel upgrade sequence */
+  /**
+   * the channel upgrade sequence
+   */
   sequence?: string;
-  /** the error message detailing the cause of failure */
+  /**
+   * the error message detailing the cause of failure
+   */
   message?: string;
 }
 export interface ErrorReceiptAminoMsg {
@@ -116,6 +148,9 @@ export interface ErrorReceiptAminoMsg {
  * ErrorReceipt defines a type which encapsulates the upgrade sequence and error associated with the
  * upgrade handshake failure. When a channel upgrade handshake is aborted both chains are expected to increment to the
  * next sequence.
+ * @name ErrorReceiptSDKType
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.ErrorReceipt
  */
 export interface ErrorReceiptSDKType {
   sequence: bigint;
@@ -128,6 +163,16 @@ function createBaseUpgrade(): Upgrade {
     nextSequenceSend: BigInt(0)
   };
 }
+/**
+ * Upgrade is a verifiable type which contains the relevant information
+ * for an attempted upgrade. It provides the proposed changes to the channel
+ * end, the timeout for this upgrade attempt and the next packet sequence
+ * which allows the counterparty to efficiently know the highest sequence it has received.
+ * The next sequence send is used for pruning and upgrading from unordered to ordered channels.
+ * @name Upgrade
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.Upgrade
+ */
 export const Upgrade = {
   typeUrl: "/ibc.core.channel.v1.Upgrade",
   aminoType: "cosmos-sdk/Upgrade",
@@ -222,10 +267,15 @@ export const Upgrade = {
       typeUrl: "/ibc.core.channel.v1.Upgrade",
       value: Upgrade.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(Upgrade.typeUrl)) {
+      return;
+    }
+    UpgradeFields.registerTypeUrl();
+    Timeout.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(Upgrade.typeUrl, Upgrade);
-GlobalDecoderRegistry.registerAminoProtoMapping(Upgrade.aminoType, Upgrade.typeUrl);
 function createBaseUpgradeFields(): UpgradeFields {
   return {
     ordering: 0,
@@ -233,6 +283,13 @@ function createBaseUpgradeFields(): UpgradeFields {
     version: ""
   };
 }
+/**
+ * UpgradeFields are the fields in a channel end which may be changed
+ * during a channel upgrade.
+ * @name UpgradeFields
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.UpgradeFields
+ */
 export const UpgradeFields = {
   typeUrl: "/ibc.core.channel.v1.UpgradeFields",
   aminoType: "cosmos-sdk/UpgradeFields",
@@ -329,16 +386,23 @@ export const UpgradeFields = {
       typeUrl: "/ibc.core.channel.v1.UpgradeFields",
       value: UpgradeFields.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(UpgradeFields.typeUrl, UpgradeFields);
-GlobalDecoderRegistry.registerAminoProtoMapping(UpgradeFields.aminoType, UpgradeFields.typeUrl);
 function createBaseErrorReceipt(): ErrorReceipt {
   return {
     sequence: BigInt(0),
     message: ""
   };
 }
+/**
+ * ErrorReceipt defines a type which encapsulates the upgrade sequence and error associated with the
+ * upgrade handshake failure. When a channel upgrade handshake is aborted both chains are expected to increment to the
+ * next sequence.
+ * @name ErrorReceipt
+ * @package ibc.core.channel.v1
+ * @see proto type: ibc.core.channel.v1.ErrorReceipt
+ */
 export const ErrorReceipt = {
   typeUrl: "/ibc.core.channel.v1.ErrorReceipt",
   aminoType: "cosmos-sdk/ErrorReceipt",
@@ -422,7 +486,6 @@ export const ErrorReceipt = {
       typeUrl: "/ibc.core.channel.v1.ErrorReceipt",
       value: ErrorReceipt.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(ErrorReceipt.typeUrl, ErrorReceipt);
-GlobalDecoderRegistry.registerAminoProtoMapping(ErrorReceipt.aminoType, ErrorReceipt.typeUrl);

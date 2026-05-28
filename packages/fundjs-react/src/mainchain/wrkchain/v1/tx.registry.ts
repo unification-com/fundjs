@@ -1,12 +1,7 @@
 //@ts-nocheck
-import { GeneratedType, Registry } from "@cosmjs/proto-signing";
+import { TelescopeGeneratedType } from "../../../types";
 import { MsgRegisterWrkChain, MsgRecordWrkChainBlock, MsgPurchaseWrkChainStateStorage, MsgUpdateParams } from "./tx";
-export const registry: ReadonlyArray<[string, GeneratedType]> = [["/mainchain.wrkchain.v1.MsgRegisterWrkChain", MsgRegisterWrkChain], ["/mainchain.wrkchain.v1.MsgRecordWrkChainBlock", MsgRecordWrkChainBlock], ["/mainchain.wrkchain.v1.MsgPurchaseWrkChainStateStorage", MsgPurchaseWrkChainStateStorage], ["/mainchain.wrkchain.v1.MsgUpdateParams", MsgUpdateParams]];
-export const load = (protoRegistry: Registry) => {
-  registry.forEach(([typeUrl, mod]) => {
-    protoRegistry.register(typeUrl, mod);
-  });
-};
+export const registry: ReadonlyArray<[string, TelescopeGeneratedType<any, any, any>]> = [["/mainchain.wrkchain.v1.MsgRegisterWrkChain", MsgRegisterWrkChain], ["/mainchain.wrkchain.v1.MsgRecordWrkChainBlock", MsgRecordWrkChainBlock], ["/mainchain.wrkchain.v1.MsgPurchaseWrkChainStateStorage", MsgPurchaseWrkChainStateStorage], ["/mainchain.wrkchain.v1.MsgUpdateParams", MsgUpdateParams]];
 export const MessageComposer = {
   encoded: {
     registerWrkChain(value: MsgRegisterWrkChain) {

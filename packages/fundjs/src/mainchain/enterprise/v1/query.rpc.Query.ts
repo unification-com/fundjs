@@ -1,5 +1,5 @@
 //@ts-nocheck
-import { Rpc } from "../../../helpers";
+import { TxRpc } from "../../../types";
 import { BinaryReader } from "../../../binary";
 import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
 import { QueryParamsRequest, QueryParamsResponse, QueryEnterpriseUndPurchaseOrderRequest, QueryEnterpriseUndPurchaseOrderResponse, QueryEnterpriseUndPurchaseOrdersRequest, QueryEnterpriseUndPurchaseOrdersResponse, QueryLockedUndByAddressRequest, QueryLockedUndByAddressResponse, QueryTotalLockedRequest, QueryTotalLockedResponse, QueryWhitelistRequest, QueryWhitelistResponse, QueryWhitelistedRequest, QueryWhitelistedResponse, QueryEnterpriseAccountRequest, QueryEnterpriseAccountResponse, QueryTotalSpentEFUNDRequest, QueryTotalSpentEFUNDResponse, QuerySpentEFUNDByAddressRequest, QuerySpentEFUNDByAddressResponse } from "./query";
@@ -7,7 +7,10 @@ import { QueryParamsRequest, QueryParamsResponse, QueryEnterpriseUndPurchaseOrde
 export interface Query {
   /** Params queries the parameters of x/enterprise module. */
   params(request?: QueryParamsRequest): Promise<QueryParamsResponse>;
-  /** EnterpriseUndPurchaseOrder queries purchase order details based on PurchaseOrderId. */
+  /**
+   * EnterpriseUndPurchaseOrder queries purchase order details based on
+   * PurchaseOrderId.
+   */
   enterpriseUndPurchaseOrder(request: QueryEnterpriseUndPurchaseOrderRequest): Promise<QueryEnterpriseUndPurchaseOrderResponse>;
   /** EnterpriseUndPurchaseOrders queries all current purchase orders. */
   enterpriseUndPurchaseOrders(request: QueryEnterpriseUndPurchaseOrdersRequest): Promise<QueryEnterpriseUndPurchaseOrdersResponse>;
@@ -15,20 +18,35 @@ export interface Query {
   lockedUndByAddress(request: QueryLockedUndByAddressRequest): Promise<QueryLockedUndByAddressResponse>;
   /** TotalLocked queries the total locked FUND */
   totalLocked(request?: QueryTotalLockedRequest): Promise<QueryTotalLockedResponse>;
-  /** Whitelist queries whitelisted addresses authorised to raise new purchase orders */
+  /**
+   * Whitelist queries whitelisted addresses authorised to raise new purchase
+   * orders
+   */
   whitelist(request?: QueryWhitelistRequest): Promise<QueryWhitelistResponse>;
-  /** Whitelisted queries whether or not the given address is authorised to raise new purchase orders */
+  /**
+   * Whitelisted queries whether or not the given address is authorised to raise
+   * new purchase orders
+   */
   whitelisted(request: QueryWhitelistedRequest): Promise<QueryWhitelistedResponse>;
-  /** EnterpriseAccount queries an account address for their locked FUND and other data */
+  /**
+   * EnterpriseAccount queries an account address for their locked FUND and
+   * other data
+   */
   enterpriseAccount(request: QueryEnterpriseAccountRequest): Promise<QueryEnterpriseAccountResponse>;
-  /** TotalSpentEFUND queries the total eFUND usage to date - i.e. the amount used to pay fees */
+  /**
+   * TotalSpentEFUND queries the total eFUND usage to date - i.e. the amount
+   * used to pay fees
+   */
   totalSpentEFUND(request?: QueryTotalSpentEFUNDRequest): Promise<QueryTotalSpentEFUNDResponse>;
-  /** SpentEFUNDByAddress queries the total eFUND usage to date for a given address, i.e. the amount used to pay fees */
+  /**
+   * SpentEFUNDByAddress queries the total eFUND usage to date for a given
+   * address, i.e. the amount used to pay fees
+   */
   spentEFUNDByAddress(request: QuerySpentEFUNDByAddressRequest): Promise<QuerySpentEFUNDByAddressResponse>;
 }
 export class QueryClientImpl implements Query {
-  private readonly rpc: Rpc;
-  constructor(rpc: Rpc) {
+  private readonly rpc: TxRpc;
+  constructor(rpc: TxRpc) {
     this.rpc = rpc;
     this.params = this.params.bind(this);
     this.enterpriseUndPurchaseOrder = this.enterpriseUndPurchaseOrder.bind(this);

@@ -6,6 +6,9 @@ import { GlobalDecoderRegistry } from "../../../registry";
 /**
  * QueryCommunityPoolRequest is the request type for the Query/CommunityPool RPC
  * method.
+ * @name QueryCommunityPoolRequest
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.QueryCommunityPoolRequest
  */
 export interface QueryCommunityPoolRequest {}
 export interface QueryCommunityPoolRequestProtoMsg {
@@ -15,6 +18,9 @@ export interface QueryCommunityPoolRequestProtoMsg {
 /**
  * QueryCommunityPoolRequest is the request type for the Query/CommunityPool RPC
  * method.
+ * @name QueryCommunityPoolRequestAmino
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.QueryCommunityPoolRequest
  */
 export interface QueryCommunityPoolRequestAmino {}
 export interface QueryCommunityPoolRequestAminoMsg {
@@ -24,14 +30,22 @@ export interface QueryCommunityPoolRequestAminoMsg {
 /**
  * QueryCommunityPoolRequest is the request type for the Query/CommunityPool RPC
  * method.
+ * @name QueryCommunityPoolRequestSDKType
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.QueryCommunityPoolRequest
  */
 export interface QueryCommunityPoolRequestSDKType {}
 /**
  * QueryCommunityPoolResponse is the response type for the Query/CommunityPool
  * RPC method.
+ * @name QueryCommunityPoolResponse
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.QueryCommunityPoolResponse
  */
 export interface QueryCommunityPoolResponse {
-  /** pool defines community pool's coins. */
+  /**
+   * pool defines community pool's coins.
+   */
   pool: Coin[];
 }
 export interface QueryCommunityPoolResponseProtoMsg {
@@ -41,9 +55,14 @@ export interface QueryCommunityPoolResponseProtoMsg {
 /**
  * QueryCommunityPoolResponse is the response type for the Query/CommunityPool
  * RPC method.
+ * @name QueryCommunityPoolResponseAmino
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.QueryCommunityPoolResponse
  */
 export interface QueryCommunityPoolResponseAmino {
-  /** pool defines community pool's coins. */
+  /**
+   * pool defines community pool's coins.
+   */
   pool?: CoinAmino[];
 }
 export interface QueryCommunityPoolResponseAminoMsg {
@@ -53,6 +72,9 @@ export interface QueryCommunityPoolResponseAminoMsg {
 /**
  * QueryCommunityPoolResponse is the response type for the Query/CommunityPool
  * RPC method.
+ * @name QueryCommunityPoolResponseSDKType
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.QueryCommunityPoolResponse
  */
 export interface QueryCommunityPoolResponseSDKType {
   pool: CoinSDKType[];
@@ -60,9 +82,14 @@ export interface QueryCommunityPoolResponseSDKType {
 /**
  * QueryContinuousFundRequest is the request type for the Query/ContinuousFund
  * RPC method.
+ * @name QueryContinuousFundRequest
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.QueryContinuousFundRequest
  */
 export interface QueryContinuousFundRequest {
-  /** recipient is the recipient address to query unclaimed budget amount for. */
+  /**
+   * recipient is the recipient address to query unclaimed budget amount for.
+   */
   recipient: string;
 }
 export interface QueryContinuousFundRequestProtoMsg {
@@ -72,9 +99,14 @@ export interface QueryContinuousFundRequestProtoMsg {
 /**
  * QueryContinuousFundRequest is the request type for the Query/ContinuousFund
  * RPC method.
+ * @name QueryContinuousFundRequestAmino
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.QueryContinuousFundRequest
  */
 export interface QueryContinuousFundRequestAmino {
-  /** recipient is the recipient address to query unclaimed budget amount for. */
+  /**
+   * recipient is the recipient address to query unclaimed budget amount for.
+   */
   recipient?: string;
 }
 export interface QueryContinuousFundRequestAminoMsg {
@@ -84,6 +116,9 @@ export interface QueryContinuousFundRequestAminoMsg {
 /**
  * QueryContinuousFundRequest is the request type for the Query/ContinuousFund
  * RPC method.
+ * @name QueryContinuousFundRequestSDKType
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.QueryContinuousFundRequest
  */
 export interface QueryContinuousFundRequestSDKType {
   recipient: string;
@@ -91,9 +126,14 @@ export interface QueryContinuousFundRequestSDKType {
 /**
  * QueryUnclaimedBudgetResponse is the response type for the Query/ContinuousFund
  * RPC method.
+ * @name QueryContinuousFundResponse
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.QueryContinuousFundResponse
  */
 export interface QueryContinuousFundResponse {
-  /** ContinuousFunds is the given continuous fund returned in the query. */
+  /**
+   * ContinuousFunds is the given continuous fund returned in the query.
+   */
   continuousFund: ContinuousFund;
 }
 export interface QueryContinuousFundResponseProtoMsg {
@@ -103,9 +143,14 @@ export interface QueryContinuousFundResponseProtoMsg {
 /**
  * QueryUnclaimedBudgetResponse is the response type for the Query/ContinuousFund
  * RPC method.
+ * @name QueryContinuousFundResponseAmino
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.QueryContinuousFundResponse
  */
 export interface QueryContinuousFundResponseAmino {
-  /** ContinuousFunds is the given continuous fund returned in the query. */
+  /**
+   * ContinuousFunds is the given continuous fund returned in the query.
+   */
   continuous_fund?: ContinuousFundAmino;
 }
 export interface QueryContinuousFundResponseAminoMsg {
@@ -115,6 +160,9 @@ export interface QueryContinuousFundResponseAminoMsg {
 /**
  * QueryUnclaimedBudgetResponse is the response type for the Query/ContinuousFund
  * RPC method.
+ * @name QueryContinuousFundResponseSDKType
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.QueryContinuousFundResponse
  */
 export interface QueryContinuousFundResponseSDKType {
   continuous_fund: ContinuousFundSDKType;
@@ -122,6 +170,9 @@ export interface QueryContinuousFundResponseSDKType {
 /**
  * QueryContinuousFundRequest is the request type for the Query/ContinuousFunds
  * RPC method.
+ * @name QueryContinuousFundsRequest
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.QueryContinuousFundsRequest
  */
 export interface QueryContinuousFundsRequest {}
 export interface QueryContinuousFundsRequestProtoMsg {
@@ -131,6 +182,9 @@ export interface QueryContinuousFundsRequestProtoMsg {
 /**
  * QueryContinuousFundRequest is the request type for the Query/ContinuousFunds
  * RPC method.
+ * @name QueryContinuousFundsRequestAmino
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.QueryContinuousFundsRequest
  */
 export interface QueryContinuousFundsRequestAmino {}
 export interface QueryContinuousFundsRequestAminoMsg {
@@ -140,14 +194,22 @@ export interface QueryContinuousFundsRequestAminoMsg {
 /**
  * QueryContinuousFundRequest is the request type for the Query/ContinuousFunds
  * RPC method.
+ * @name QueryContinuousFundsRequestSDKType
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.QueryContinuousFundsRequest
  */
 export interface QueryContinuousFundsRequestSDKType {}
 /**
  * QueryUnclaimedBudgetResponse is the response type for the Query/ContinuousFunds
  * RPC method.
+ * @name QueryContinuousFundsResponse
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.QueryContinuousFundsResponse
  */
 export interface QueryContinuousFundsResponse {
-  /** ContinuousFunds defines all continuous funds in state. */
+  /**
+   * ContinuousFunds defines all continuous funds in state.
+   */
   continuousFunds: ContinuousFund[];
 }
 export interface QueryContinuousFundsResponseProtoMsg {
@@ -157,9 +219,14 @@ export interface QueryContinuousFundsResponseProtoMsg {
 /**
  * QueryUnclaimedBudgetResponse is the response type for the Query/ContinuousFunds
  * RPC method.
+ * @name QueryContinuousFundsResponseAmino
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.QueryContinuousFundsResponse
  */
 export interface QueryContinuousFundsResponseAmino {
-  /** ContinuousFunds defines all continuous funds in state. */
+  /**
+   * ContinuousFunds defines all continuous funds in state.
+   */
   continuous_funds?: ContinuousFundAmino[];
 }
 export interface QueryContinuousFundsResponseAminoMsg {
@@ -169,25 +236,48 @@ export interface QueryContinuousFundsResponseAminoMsg {
 /**
  * QueryUnclaimedBudgetResponse is the response type for the Query/ContinuousFunds
  * RPC method.
+ * @name QueryContinuousFundsResponseSDKType
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.QueryContinuousFundsResponse
  */
 export interface QueryContinuousFundsResponseSDKType {
   continuous_funds: ContinuousFundSDKType[];
 }
-/** QueryParamsRequest is the response type for the Query/Params RPC method. */
+/**
+ * QueryParamsRequest is the response type for the Query/Params RPC method.
+ * @name QueryParamsRequest
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.QueryParamsRequest
+ */
 export interface QueryParamsRequest {}
 export interface QueryParamsRequestProtoMsg {
   typeUrl: "/cosmos.protocolpool.v1.QueryParamsRequest";
   value: Uint8Array;
 }
-/** QueryParamsRequest is the response type for the Query/Params RPC method. */
+/**
+ * QueryParamsRequest is the response type for the Query/Params RPC method.
+ * @name QueryParamsRequestAmino
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.QueryParamsRequest
+ */
 export interface QueryParamsRequestAmino {}
 export interface QueryParamsRequestAminoMsg {
   type: "cosmos-sdk/QueryParamsRequest";
   value: QueryParamsRequestAmino;
 }
-/** QueryParamsRequest is the response type for the Query/Params RPC method. */
+/**
+ * QueryParamsRequest is the response type for the Query/Params RPC method.
+ * @name QueryParamsRequestSDKType
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.QueryParamsRequest
+ */
 export interface QueryParamsRequestSDKType {}
-/** QueryParamsResponse is the response type for the Query/Params RPC method. */
+/**
+ * QueryParamsResponse is the response type for the Query/Params RPC method.
+ * @name QueryParamsResponse
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.QueryParamsResponse
+ */
 export interface QueryParamsResponse {
   params: Params;
 }
@@ -195,7 +285,12 @@ export interface QueryParamsResponseProtoMsg {
   typeUrl: "/cosmos.protocolpool.v1.QueryParamsResponse";
   value: Uint8Array;
 }
-/** QueryParamsResponse is the response type for the Query/Params RPC method. */
+/**
+ * QueryParamsResponse is the response type for the Query/Params RPC method.
+ * @name QueryParamsResponseAmino
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.QueryParamsResponse
+ */
 export interface QueryParamsResponseAmino {
   params?: ParamsAmino;
 }
@@ -203,13 +298,25 @@ export interface QueryParamsResponseAminoMsg {
   type: "cosmos-sdk/QueryParamsResponse";
   value: QueryParamsResponseAmino;
 }
-/** QueryParamsResponse is the response type for the Query/Params RPC method. */
+/**
+ * QueryParamsResponse is the response type for the Query/Params RPC method.
+ * @name QueryParamsResponseSDKType
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.QueryParamsResponse
+ */
 export interface QueryParamsResponseSDKType {
   params: ParamsSDKType;
 }
 function createBaseQueryCommunityPoolRequest(): QueryCommunityPoolRequest {
   return {};
 }
+/**
+ * QueryCommunityPoolRequest is the request type for the Query/CommunityPool RPC
+ * method.
+ * @name QueryCommunityPoolRequest
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.QueryCommunityPoolRequest
+ */
 export const QueryCommunityPoolRequest = {
   typeUrl: "/cosmos.protocolpool.v1.QueryCommunityPoolRequest",
   aminoType: "cosmos-sdk/QueryCommunityPoolRequest",
@@ -271,15 +378,21 @@ export const QueryCommunityPoolRequest = {
       typeUrl: "/cosmos.protocolpool.v1.QueryCommunityPoolRequest",
       value: QueryCommunityPoolRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryCommunityPoolRequest.typeUrl, QueryCommunityPoolRequest);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryCommunityPoolRequest.aminoType, QueryCommunityPoolRequest.typeUrl);
 function createBaseQueryCommunityPoolResponse(): QueryCommunityPoolResponse {
   return {
     pool: []
   };
 }
+/**
+ * QueryCommunityPoolResponse is the response type for the Query/CommunityPool
+ * RPC method.
+ * @name QueryCommunityPoolResponse
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.QueryCommunityPoolResponse
+ */
 export const QueryCommunityPoolResponse = {
   typeUrl: "/cosmos.protocolpool.v1.QueryCommunityPoolResponse",
   aminoType: "cosmos-sdk/QueryCommunityPoolResponse",
@@ -354,15 +467,26 @@ export const QueryCommunityPoolResponse = {
       typeUrl: "/cosmos.protocolpool.v1.QueryCommunityPoolResponse",
       value: QueryCommunityPoolResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryCommunityPoolResponse.typeUrl)) {
+      return;
+    }
+    Coin.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryCommunityPoolResponse.typeUrl, QueryCommunityPoolResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryCommunityPoolResponse.aminoType, QueryCommunityPoolResponse.typeUrl);
 function createBaseQueryContinuousFundRequest(): QueryContinuousFundRequest {
   return {
     recipient: ""
   };
 }
+/**
+ * QueryContinuousFundRequest is the request type for the Query/ContinuousFund
+ * RPC method.
+ * @name QueryContinuousFundRequest
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.QueryContinuousFundRequest
+ */
 export const QueryContinuousFundRequest = {
   typeUrl: "/cosmos.protocolpool.v1.QueryContinuousFundRequest",
   aminoType: "cosmos-sdk/QueryContinuousFundRequest",
@@ -435,15 +559,21 @@ export const QueryContinuousFundRequest = {
       typeUrl: "/cosmos.protocolpool.v1.QueryContinuousFundRequest",
       value: QueryContinuousFundRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryContinuousFundRequest.typeUrl, QueryContinuousFundRequest);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryContinuousFundRequest.aminoType, QueryContinuousFundRequest.typeUrl);
 function createBaseQueryContinuousFundResponse(): QueryContinuousFundResponse {
   return {
     continuousFund: ContinuousFund.fromPartial({})
   };
 }
+/**
+ * QueryUnclaimedBudgetResponse is the response type for the Query/ContinuousFund
+ * RPC method.
+ * @name QueryContinuousFundResponse
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.QueryContinuousFundResponse
+ */
 export const QueryContinuousFundResponse = {
   typeUrl: "/cosmos.protocolpool.v1.QueryContinuousFundResponse",
   aminoType: "cosmos-sdk/QueryContinuousFundResponse",
@@ -516,13 +646,24 @@ export const QueryContinuousFundResponse = {
       typeUrl: "/cosmos.protocolpool.v1.QueryContinuousFundResponse",
       value: QueryContinuousFundResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryContinuousFundResponse.typeUrl)) {
+      return;
+    }
+    ContinuousFund.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryContinuousFundResponse.typeUrl, QueryContinuousFundResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryContinuousFundResponse.aminoType, QueryContinuousFundResponse.typeUrl);
 function createBaseQueryContinuousFundsRequest(): QueryContinuousFundsRequest {
   return {};
 }
+/**
+ * QueryContinuousFundRequest is the request type for the Query/ContinuousFunds
+ * RPC method.
+ * @name QueryContinuousFundsRequest
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.QueryContinuousFundsRequest
+ */
 export const QueryContinuousFundsRequest = {
   typeUrl: "/cosmos.protocolpool.v1.QueryContinuousFundsRequest",
   aminoType: "cosmos-sdk/QueryContinuousFundsRequest",
@@ -584,15 +725,21 @@ export const QueryContinuousFundsRequest = {
       typeUrl: "/cosmos.protocolpool.v1.QueryContinuousFundsRequest",
       value: QueryContinuousFundsRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryContinuousFundsRequest.typeUrl, QueryContinuousFundsRequest);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryContinuousFundsRequest.aminoType, QueryContinuousFundsRequest.typeUrl);
 function createBaseQueryContinuousFundsResponse(): QueryContinuousFundsResponse {
   return {
     continuousFunds: []
   };
 }
+/**
+ * QueryUnclaimedBudgetResponse is the response type for the Query/ContinuousFunds
+ * RPC method.
+ * @name QueryContinuousFundsResponse
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.QueryContinuousFundsResponse
+ */
 export const QueryContinuousFundsResponse = {
   typeUrl: "/cosmos.protocolpool.v1.QueryContinuousFundsResponse",
   aminoType: "cosmos-sdk/QueryContinuousFundsResponse",
@@ -667,13 +814,23 @@ export const QueryContinuousFundsResponse = {
       typeUrl: "/cosmos.protocolpool.v1.QueryContinuousFundsResponse",
       value: QueryContinuousFundsResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryContinuousFundsResponse.typeUrl)) {
+      return;
+    }
+    ContinuousFund.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryContinuousFundsResponse.typeUrl, QueryContinuousFundsResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryContinuousFundsResponse.aminoType, QueryContinuousFundsResponse.typeUrl);
 function createBaseQueryParamsRequest(): QueryParamsRequest {
   return {};
 }
+/**
+ * QueryParamsRequest is the response type for the Query/Params RPC method.
+ * @name QueryParamsRequest
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.QueryParamsRequest
+ */
 export const QueryParamsRequest = {
   typeUrl: "/cosmos.protocolpool.v1.QueryParamsRequest",
   aminoType: "cosmos-sdk/QueryParamsRequest",
@@ -735,15 +892,20 @@ export const QueryParamsRequest = {
       typeUrl: "/cosmos.protocolpool.v1.QueryParamsRequest",
       value: QueryParamsRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryParamsRequest.typeUrl, QueryParamsRequest);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryParamsRequest.aminoType, QueryParamsRequest.typeUrl);
 function createBaseQueryParamsResponse(): QueryParamsResponse {
   return {
     params: Params.fromPartial({})
   };
 }
+/**
+ * QueryParamsResponse is the response type for the Query/Params RPC method.
+ * @name QueryParamsResponse
+ * @package cosmos.protocolpool.v1
+ * @see proto type: cosmos.protocolpool.v1.QueryParamsResponse
+ */
 export const QueryParamsResponse = {
   typeUrl: "/cosmos.protocolpool.v1.QueryParamsResponse",
   aminoType: "cosmos-sdk/QueryParamsResponse",
@@ -816,7 +978,11 @@ export const QueryParamsResponse = {
       typeUrl: "/cosmos.protocolpool.v1.QueryParamsResponse",
       value: QueryParamsResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryParamsResponse.typeUrl)) {
+      return;
+    }
+    Params.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryParamsResponse.typeUrl, QueryParamsResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryParamsResponse.aminoType, QueryParamsResponse.typeUrl);

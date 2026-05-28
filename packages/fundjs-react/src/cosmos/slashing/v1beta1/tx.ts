@@ -2,7 +2,12 @@
 import { Params, ParamsAmino, ParamsSDKType } from "./slashing";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { GlobalDecoderRegistry } from "../../../registry";
-/** MsgUnjail defines the Msg/Unjail request type */
+/**
+ * MsgUnjail defines the Msg/Unjail request type
+ * @name MsgUnjail
+ * @package cosmos.slashing.v1beta1
+ * @see proto type: cosmos.slashing.v1beta1.MsgUnjail
+ */
 export interface MsgUnjail {
   validatorAddr: string;
 }
@@ -10,7 +15,12 @@ export interface MsgUnjailProtoMsg {
   typeUrl: "/cosmos.slashing.v1beta1.MsgUnjail";
   value: Uint8Array;
 }
-/** MsgUnjail defines the Msg/Unjail request type */
+/**
+ * MsgUnjail defines the Msg/Unjail request type
+ * @name MsgUnjailAmino
+ * @package cosmos.slashing.v1beta1
+ * @see proto type: cosmos.slashing.v1beta1.MsgUnjail
+ */
 export interface MsgUnjailAmino {
   validator_addr: string;
 }
@@ -18,31 +28,56 @@ export interface MsgUnjailAminoMsg {
   type: "cosmos-sdk/MsgUnjail";
   value: MsgUnjailAmino;
 }
-/** MsgUnjail defines the Msg/Unjail request type */
+/**
+ * MsgUnjail defines the Msg/Unjail request type
+ * @name MsgUnjailSDKType
+ * @package cosmos.slashing.v1beta1
+ * @see proto type: cosmos.slashing.v1beta1.MsgUnjail
+ */
 export interface MsgUnjailSDKType {
   validator_addr: string;
 }
-/** MsgUnjailResponse defines the Msg/Unjail response type */
+/**
+ * MsgUnjailResponse defines the Msg/Unjail response type
+ * @name MsgUnjailResponse
+ * @package cosmos.slashing.v1beta1
+ * @see proto type: cosmos.slashing.v1beta1.MsgUnjailResponse
+ */
 export interface MsgUnjailResponse {}
 export interface MsgUnjailResponseProtoMsg {
   typeUrl: "/cosmos.slashing.v1beta1.MsgUnjailResponse";
   value: Uint8Array;
 }
-/** MsgUnjailResponse defines the Msg/Unjail response type */
+/**
+ * MsgUnjailResponse defines the Msg/Unjail response type
+ * @name MsgUnjailResponseAmino
+ * @package cosmos.slashing.v1beta1
+ * @see proto type: cosmos.slashing.v1beta1.MsgUnjailResponse
+ */
 export interface MsgUnjailResponseAmino {}
 export interface MsgUnjailResponseAminoMsg {
   type: "cosmos-sdk/MsgUnjailResponse";
   value: MsgUnjailResponseAmino;
 }
-/** MsgUnjailResponse defines the Msg/Unjail response type */
+/**
+ * MsgUnjailResponse defines the Msg/Unjail response type
+ * @name MsgUnjailResponseSDKType
+ * @package cosmos.slashing.v1beta1
+ * @see proto type: cosmos.slashing.v1beta1.MsgUnjailResponse
+ */
 export interface MsgUnjailResponseSDKType {}
 /**
  * MsgUpdateParams is the Msg/UpdateParams request type.
  * 
  * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParams
+ * @package cosmos.slashing.v1beta1
+ * @see proto type: cosmos.slashing.v1beta1.MsgUpdateParams
  */
 export interface MsgUpdateParams {
-  /** authority is the address that controls the module (defaults to x/gov unless overwritten). */
+  /**
+   * authority is the address that controls the module (defaults to x/gov unless overwritten).
+   */
   authority: string;
   /**
    * params defines the x/slashing parameters to update.
@@ -59,9 +94,14 @@ export interface MsgUpdateParamsProtoMsg {
  * MsgUpdateParams is the Msg/UpdateParams request type.
  * 
  * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParamsAmino
+ * @package cosmos.slashing.v1beta1
+ * @see proto type: cosmos.slashing.v1beta1.MsgUpdateParams
  */
 export interface MsgUpdateParamsAmino {
-  /** authority is the address that controls the module (defaults to x/gov unless overwritten). */
+  /**
+   * authority is the address that controls the module (defaults to x/gov unless overwritten).
+   */
   authority?: string;
   /**
    * params defines the x/slashing parameters to update.
@@ -78,6 +118,9 @@ export interface MsgUpdateParamsAminoMsg {
  * MsgUpdateParams is the Msg/UpdateParams request type.
  * 
  * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParamsSDKType
+ * @package cosmos.slashing.v1beta1
+ * @see proto type: cosmos.slashing.v1beta1.MsgUpdateParams
  */
 export interface MsgUpdateParamsSDKType {
   authority: string;
@@ -88,6 +131,9 @@ export interface MsgUpdateParamsSDKType {
  * MsgUpdateParams message.
  * 
  * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParamsResponse
+ * @package cosmos.slashing.v1beta1
+ * @see proto type: cosmos.slashing.v1beta1.MsgUpdateParamsResponse
  */
 export interface MsgUpdateParamsResponse {}
 export interface MsgUpdateParamsResponseProtoMsg {
@@ -99,6 +145,9 @@ export interface MsgUpdateParamsResponseProtoMsg {
  * MsgUpdateParams message.
  * 
  * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParamsResponseAmino
+ * @package cosmos.slashing.v1beta1
+ * @see proto type: cosmos.slashing.v1beta1.MsgUpdateParamsResponse
  */
 export interface MsgUpdateParamsResponseAmino {}
 export interface MsgUpdateParamsResponseAminoMsg {
@@ -110,6 +159,9 @@ export interface MsgUpdateParamsResponseAminoMsg {
  * MsgUpdateParams message.
  * 
  * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParamsResponseSDKType
+ * @package cosmos.slashing.v1beta1
+ * @see proto type: cosmos.slashing.v1beta1.MsgUpdateParamsResponse
  */
 export interface MsgUpdateParamsResponseSDKType {}
 function createBaseMsgUnjail(): MsgUnjail {
@@ -117,6 +169,12 @@ function createBaseMsgUnjail(): MsgUnjail {
     validatorAddr: ""
   };
 }
+/**
+ * MsgUnjail defines the Msg/Unjail request type
+ * @name MsgUnjail
+ * @package cosmos.slashing.v1beta1
+ * @see proto type: cosmos.slashing.v1beta1.MsgUnjail
+ */
 export const MsgUnjail = {
   typeUrl: "/cosmos.slashing.v1beta1.MsgUnjail",
   aminoType: "cosmos-sdk/MsgUnjail",
@@ -189,13 +247,18 @@ export const MsgUnjail = {
       typeUrl: "/cosmos.slashing.v1beta1.MsgUnjail",
       value: MsgUnjail.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgUnjail.typeUrl, MsgUnjail);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgUnjail.aminoType, MsgUnjail.typeUrl);
 function createBaseMsgUnjailResponse(): MsgUnjailResponse {
   return {};
 }
+/**
+ * MsgUnjailResponse defines the Msg/Unjail response type
+ * @name MsgUnjailResponse
+ * @package cosmos.slashing.v1beta1
+ * @see proto type: cosmos.slashing.v1beta1.MsgUnjailResponse
+ */
 export const MsgUnjailResponse = {
   typeUrl: "/cosmos.slashing.v1beta1.MsgUnjailResponse",
   aminoType: "cosmos-sdk/MsgUnjailResponse",
@@ -257,16 +320,23 @@ export const MsgUnjailResponse = {
       typeUrl: "/cosmos.slashing.v1beta1.MsgUnjailResponse",
       value: MsgUnjailResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgUnjailResponse.typeUrl, MsgUnjailResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgUnjailResponse.aminoType, MsgUnjailResponse.typeUrl);
 function createBaseMsgUpdateParams(): MsgUpdateParams {
   return {
     authority: "",
     params: Params.fromPartial({})
   };
 }
+/**
+ * MsgUpdateParams is the Msg/UpdateParams request type.
+ * 
+ * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParams
+ * @package cosmos.slashing.v1beta1
+ * @see proto type: cosmos.slashing.v1beta1.MsgUpdateParams
+ */
 export const MsgUpdateParams = {
   typeUrl: "/cosmos.slashing.v1beta1.MsgUpdateParams",
   aminoType: "cosmos-sdk/x/slashing/MsgUpdateParams",
@@ -350,13 +420,26 @@ export const MsgUpdateParams = {
       typeUrl: "/cosmos.slashing.v1beta1.MsgUpdateParams",
       value: MsgUpdateParams.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgUpdateParams.typeUrl)) {
+      return;
+    }
+    Params.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgUpdateParams.typeUrl, MsgUpdateParams);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgUpdateParams.aminoType, MsgUpdateParams.typeUrl);
 function createBaseMsgUpdateParamsResponse(): MsgUpdateParamsResponse {
   return {};
 }
+/**
+ * MsgUpdateParamsResponse defines the response structure for executing a
+ * MsgUpdateParams message.
+ * 
+ * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParamsResponse
+ * @package cosmos.slashing.v1beta1
+ * @see proto type: cosmos.slashing.v1beta1.MsgUpdateParamsResponse
+ */
 export const MsgUpdateParamsResponse = {
   typeUrl: "/cosmos.slashing.v1beta1.MsgUpdateParamsResponse",
   aminoType: "cosmos-sdk/MsgUpdateParamsResponse",
@@ -418,7 +501,6 @@ export const MsgUpdateParamsResponse = {
       typeUrl: "/cosmos.slashing.v1beta1.MsgUpdateParamsResponse",
       value: MsgUpdateParamsResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgUpdateParamsResponse.typeUrl, MsgUpdateParamsResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgUpdateParamsResponse.aminoType, MsgUpdateParamsResponse.typeUrl);

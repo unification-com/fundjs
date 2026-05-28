@@ -2,25 +2,44 @@
 import { Height, HeightAmino, HeightSDKType } from "../../../core/client/v1/client";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
 import { GlobalDecoderRegistry } from "../../../../registry";
-/** ClientState defines the 09-localhost client state */
+/**
+ * ClientState defines the 09-localhost client state
+ * @name ClientState
+ * @package ibc.lightclients.localhost.v2
+ * @see proto type: ibc.lightclients.localhost.v2.ClientState
+ */
 export interface ClientState {
-  /** the latest block height */
+  /**
+   * the latest block height
+   */
   latestHeight: Height;
 }
 export interface ClientStateProtoMsg {
   typeUrl: "/ibc.lightclients.localhost.v2.ClientState";
   value: Uint8Array;
 }
-/** ClientState defines the 09-localhost client state */
+/**
+ * ClientState defines the 09-localhost client state
+ * @name ClientStateAmino
+ * @package ibc.lightclients.localhost.v2
+ * @see proto type: ibc.lightclients.localhost.v2.ClientState
+ */
 export interface ClientStateAmino {
-  /** the latest block height */
+  /**
+   * the latest block height
+   */
   latest_height?: HeightAmino;
 }
 export interface ClientStateAminoMsg {
   type: "cosmos-sdk/ClientState";
   value: ClientStateAmino;
 }
-/** ClientState defines the 09-localhost client state */
+/**
+ * ClientState defines the 09-localhost client state
+ * @name ClientStateSDKType
+ * @package ibc.lightclients.localhost.v2
+ * @see proto type: ibc.lightclients.localhost.v2.ClientState
+ */
 export interface ClientStateSDKType {
   latest_height: HeightSDKType;
 }
@@ -29,6 +48,12 @@ function createBaseClientState(): ClientState {
     latestHeight: Height.fromPartial({})
   };
 }
+/**
+ * ClientState defines the 09-localhost client state
+ * @name ClientState
+ * @package ibc.lightclients.localhost.v2
+ * @see proto type: ibc.lightclients.localhost.v2.ClientState
+ */
 export const ClientState = {
   typeUrl: "/ibc.lightclients.localhost.v2.ClientState",
   aminoType: "cosmos-sdk/ClientState",
@@ -101,7 +126,11 @@ export const ClientState = {
       typeUrl: "/ibc.lightclients.localhost.v2.ClientState",
       value: ClientState.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ClientState.typeUrl)) {
+      return;
+    }
+    Height.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(ClientState.typeUrl, ClientState);
-GlobalDecoderRegistry.registerAminoProtoMapping(ClientState.aminoType, ClientState.typeUrl);

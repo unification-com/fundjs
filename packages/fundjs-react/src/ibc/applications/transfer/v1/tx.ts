@@ -7,17 +7,30 @@ import { GlobalDecoderRegistry } from "../../../../registry";
  * MsgTransfer defines a msg to transfer fungible tokens (i.e Coins) between
  * ICS20 enabled chains. See ICS Spec here:
  * https://github.com/cosmos/ibc/tree/master/spec/app/ics-020-fungible-token-transfer#data-structures
+ * @name MsgTransfer
+ * @package ibc.applications.transfer.v1
+ * @see proto type: ibc.applications.transfer.v1.MsgTransfer
  */
 export interface MsgTransfer {
-  /** the port on which the packet will be sent */
+  /**
+   * the port on which the packet will be sent
+   */
   sourcePort: string;
-  /** the channel by which the packet will be sent */
+  /**
+   * the channel by which the packet will be sent
+   */
   sourceChannel: string;
-  /** the tokens to be transferred */
+  /**
+   * the tokens to be transferred
+   */
   token: Coin;
-  /** the sender address */
+  /**
+   * the sender address
+   */
   sender: string;
-  /** the recipient address on the destination chain */
+  /**
+   * the recipient address on the destination chain
+   */
   receiver: string;
   /**
    * Timeout height relative to the current block height.
@@ -29,7 +42,9 @@ export interface MsgTransfer {
    * The timeout is disabled when set to 0.
    */
   timeoutTimestamp: bigint;
-  /** optional memo */
+  /**
+   * optional memo
+   */
   memo: string;
 }
 export interface MsgTransferProtoMsg {
@@ -40,17 +55,30 @@ export interface MsgTransferProtoMsg {
  * MsgTransfer defines a msg to transfer fungible tokens (i.e Coins) between
  * ICS20 enabled chains. See ICS Spec here:
  * https://github.com/cosmos/ibc/tree/master/spec/app/ics-020-fungible-token-transfer#data-structures
+ * @name MsgTransferAmino
+ * @package ibc.applications.transfer.v1
+ * @see proto type: ibc.applications.transfer.v1.MsgTransfer
  */
 export interface MsgTransferAmino {
-  /** the port on which the packet will be sent */
+  /**
+   * the port on which the packet will be sent
+   */
   source_port?: string;
-  /** the channel by which the packet will be sent */
+  /**
+   * the channel by which the packet will be sent
+   */
   source_channel?: string;
-  /** the tokens to be transferred */
+  /**
+   * the tokens to be transferred
+   */
   token: CoinAmino;
-  /** the sender address */
+  /**
+   * the sender address
+   */
   sender?: string;
-  /** the recipient address on the destination chain */
+  /**
+   * the recipient address on the destination chain
+   */
   receiver?: string;
   /**
    * Timeout height relative to the current block height.
@@ -62,7 +90,9 @@ export interface MsgTransferAmino {
    * The timeout is disabled when set to 0.
    */
   timeout_timestamp?: string;
-  /** optional memo */
+  /**
+   * optional memo
+   */
   memo?: string;
 }
 export interface MsgTransferAminoMsg {
@@ -73,6 +103,9 @@ export interface MsgTransferAminoMsg {
  * MsgTransfer defines a msg to transfer fungible tokens (i.e Coins) between
  * ICS20 enabled chains. See ICS Spec here:
  * https://github.com/cosmos/ibc/tree/master/spec/app/ics-020-fungible-token-transfer#data-structures
+ * @name MsgTransferSDKType
+ * @package ibc.applications.transfer.v1
+ * @see proto type: ibc.applications.transfer.v1.MsgTransfer
  */
 export interface MsgTransferSDKType {
   source_port: string;
@@ -84,31 +117,57 @@ export interface MsgTransferSDKType {
   timeout_timestamp: bigint;
   memo: string;
 }
-/** MsgTransferResponse defines the Msg/Transfer response type. */
+/**
+ * MsgTransferResponse defines the Msg/Transfer response type.
+ * @name MsgTransferResponse
+ * @package ibc.applications.transfer.v1
+ * @see proto type: ibc.applications.transfer.v1.MsgTransferResponse
+ */
 export interface MsgTransferResponse {
-  /** sequence number of the transfer packet sent */
+  /**
+   * sequence number of the transfer packet sent
+   */
   sequence: bigint;
 }
 export interface MsgTransferResponseProtoMsg {
   typeUrl: "/ibc.applications.transfer.v1.MsgTransferResponse";
   value: Uint8Array;
 }
-/** MsgTransferResponse defines the Msg/Transfer response type. */
+/**
+ * MsgTransferResponse defines the Msg/Transfer response type.
+ * @name MsgTransferResponseAmino
+ * @package ibc.applications.transfer.v1
+ * @see proto type: ibc.applications.transfer.v1.MsgTransferResponse
+ */
 export interface MsgTransferResponseAmino {
-  /** sequence number of the transfer packet sent */
+  /**
+   * sequence number of the transfer packet sent
+   */
   sequence?: string;
 }
 export interface MsgTransferResponseAminoMsg {
   type: "cosmos-sdk/MsgTransferResponse";
   value: MsgTransferResponseAmino;
 }
-/** MsgTransferResponse defines the Msg/Transfer response type. */
+/**
+ * MsgTransferResponse defines the Msg/Transfer response type.
+ * @name MsgTransferResponseSDKType
+ * @package ibc.applications.transfer.v1
+ * @see proto type: ibc.applications.transfer.v1.MsgTransferResponse
+ */
 export interface MsgTransferResponseSDKType {
   sequence: bigint;
 }
-/** MsgUpdateParams is the Msg/UpdateParams request type. */
+/**
+ * MsgUpdateParams is the Msg/UpdateParams request type.
+ * @name MsgUpdateParams
+ * @package ibc.applications.transfer.v1
+ * @see proto type: ibc.applications.transfer.v1.MsgUpdateParams
+ */
 export interface MsgUpdateParams {
-  /** signer address */
+  /**
+   * signer address
+   */
   signer: string;
   /**
    * params defines the transfer parameters to update.
@@ -121,9 +180,16 @@ export interface MsgUpdateParamsProtoMsg {
   typeUrl: "/ibc.applications.transfer.v1.MsgUpdateParams";
   value: Uint8Array;
 }
-/** MsgUpdateParams is the Msg/UpdateParams request type. */
+/**
+ * MsgUpdateParams is the Msg/UpdateParams request type.
+ * @name MsgUpdateParamsAmino
+ * @package ibc.applications.transfer.v1
+ * @see proto type: ibc.applications.transfer.v1.MsgUpdateParams
+ */
 export interface MsgUpdateParamsAmino {
-  /** signer address */
+  /**
+   * signer address
+   */
   signer?: string;
   /**
    * params defines the transfer parameters to update.
@@ -136,7 +202,12 @@ export interface MsgUpdateParamsAminoMsg {
   type: "cosmos-sdk/MsgUpdateParams";
   value: MsgUpdateParamsAmino;
 }
-/** MsgUpdateParams is the Msg/UpdateParams request type. */
+/**
+ * MsgUpdateParams is the Msg/UpdateParams request type.
+ * @name MsgUpdateParamsSDKType
+ * @package ibc.applications.transfer.v1
+ * @see proto type: ibc.applications.transfer.v1.MsgUpdateParams
+ */
 export interface MsgUpdateParamsSDKType {
   signer: string;
   params: ParamsSDKType;
@@ -144,6 +215,9 @@ export interface MsgUpdateParamsSDKType {
 /**
  * MsgUpdateParamsResponse defines the response structure for executing a
  * MsgUpdateParams message.
+ * @name MsgUpdateParamsResponse
+ * @package ibc.applications.transfer.v1
+ * @see proto type: ibc.applications.transfer.v1.MsgUpdateParamsResponse
  */
 export interface MsgUpdateParamsResponse {}
 export interface MsgUpdateParamsResponseProtoMsg {
@@ -153,6 +227,9 @@ export interface MsgUpdateParamsResponseProtoMsg {
 /**
  * MsgUpdateParamsResponse defines the response structure for executing a
  * MsgUpdateParams message.
+ * @name MsgUpdateParamsResponseAmino
+ * @package ibc.applications.transfer.v1
+ * @see proto type: ibc.applications.transfer.v1.MsgUpdateParamsResponse
  */
 export interface MsgUpdateParamsResponseAmino {}
 export interface MsgUpdateParamsResponseAminoMsg {
@@ -162,6 +239,9 @@ export interface MsgUpdateParamsResponseAminoMsg {
 /**
  * MsgUpdateParamsResponse defines the response structure for executing a
  * MsgUpdateParams message.
+ * @name MsgUpdateParamsResponseSDKType
+ * @package ibc.applications.transfer.v1
+ * @see proto type: ibc.applications.transfer.v1.MsgUpdateParamsResponse
  */
 export interface MsgUpdateParamsResponseSDKType {}
 function createBaseMsgTransfer(): MsgTransfer {
@@ -176,6 +256,14 @@ function createBaseMsgTransfer(): MsgTransfer {
     memo: ""
   };
 }
+/**
+ * MsgTransfer defines a msg to transfer fungible tokens (i.e Coins) between
+ * ICS20 enabled chains. See ICS Spec here:
+ * https://github.com/cosmos/ibc/tree/master/spec/app/ics-020-fungible-token-transfer#data-structures
+ * @name MsgTransfer
+ * @package ibc.applications.transfer.v1
+ * @see proto type: ibc.applications.transfer.v1.MsgTransfer
+ */
 export const MsgTransfer = {
   typeUrl: "/ibc.applications.transfer.v1.MsgTransfer",
   aminoType: "cosmos-sdk/MsgTransfer",
@@ -325,15 +413,26 @@ export const MsgTransfer = {
       typeUrl: "/ibc.applications.transfer.v1.MsgTransfer",
       value: MsgTransfer.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgTransfer.typeUrl)) {
+      return;
+    }
+    Coin.registerTypeUrl();
+    Height.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgTransfer.typeUrl, MsgTransfer);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgTransfer.aminoType, MsgTransfer.typeUrl);
 function createBaseMsgTransferResponse(): MsgTransferResponse {
   return {
     sequence: BigInt(0)
   };
 }
+/**
+ * MsgTransferResponse defines the Msg/Transfer response type.
+ * @name MsgTransferResponse
+ * @package ibc.applications.transfer.v1
+ * @see proto type: ibc.applications.transfer.v1.MsgTransferResponse
+ */
 export const MsgTransferResponse = {
   typeUrl: "/ibc.applications.transfer.v1.MsgTransferResponse",
   aminoType: "cosmos-sdk/MsgTransferResponse",
@@ -406,16 +505,21 @@ export const MsgTransferResponse = {
       typeUrl: "/ibc.applications.transfer.v1.MsgTransferResponse",
       value: MsgTransferResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgTransferResponse.typeUrl, MsgTransferResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgTransferResponse.aminoType, MsgTransferResponse.typeUrl);
 function createBaseMsgUpdateParams(): MsgUpdateParams {
   return {
     signer: "",
     params: Params.fromPartial({})
   };
 }
+/**
+ * MsgUpdateParams is the Msg/UpdateParams request type.
+ * @name MsgUpdateParams
+ * @package ibc.applications.transfer.v1
+ * @see proto type: ibc.applications.transfer.v1.MsgUpdateParams
+ */
 export const MsgUpdateParams = {
   typeUrl: "/ibc.applications.transfer.v1.MsgUpdateParams",
   aminoType: "cosmos-sdk/MsgUpdateParams",
@@ -499,13 +603,24 @@ export const MsgUpdateParams = {
       typeUrl: "/ibc.applications.transfer.v1.MsgUpdateParams",
       value: MsgUpdateParams.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgUpdateParams.typeUrl)) {
+      return;
+    }
+    Params.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgUpdateParams.typeUrl, MsgUpdateParams);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgUpdateParams.aminoType, MsgUpdateParams.typeUrl);
 function createBaseMsgUpdateParamsResponse(): MsgUpdateParamsResponse {
   return {};
 }
+/**
+ * MsgUpdateParamsResponse defines the response structure for executing a
+ * MsgUpdateParams message.
+ * @name MsgUpdateParamsResponse
+ * @package ibc.applications.transfer.v1
+ * @see proto type: ibc.applications.transfer.v1.MsgUpdateParamsResponse
+ */
 export const MsgUpdateParamsResponse = {
   typeUrl: "/ibc.applications.transfer.v1.MsgUpdateParamsResponse",
   aminoType: "cosmos-sdk/MsgUpdateParamsResponse",
@@ -567,7 +682,6 @@ export const MsgUpdateParamsResponse = {
       typeUrl: "/ibc.applications.transfer.v1.MsgUpdateParamsResponse",
       value: MsgUpdateParamsResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgUpdateParamsResponse.typeUrl, MsgUpdateParamsResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgUpdateParamsResponse.aminoType, MsgUpdateParamsResponse.typeUrl);

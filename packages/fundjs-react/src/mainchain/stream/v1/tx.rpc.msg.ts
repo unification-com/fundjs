@@ -1,12 +1,15 @@
 //@ts-nocheck
-import { Rpc } from "../../../helpers";
+import { TxRpc } from "../../../types";
 import { BinaryReader } from "../../../binary";
 import { MsgCreateStream, MsgCreateStreamResponse, MsgClaimStream, MsgClaimStreamResponse, MsgTopUpDeposit, MsgTopUpDepositResponse, MsgUpdateFlowRate, MsgUpdateFlowRateResponse, MsgCancelStream, MsgCancelStreamResponse, MsgUpdateParams, MsgUpdateParamsResponse } from "./tx";
 /** Msg defines the Msg service. */
 export interface Msg {
   /** CreateStream defines a method to create a new stream */
   createStream(request: MsgCreateStream): Promise<MsgCreateStreamResponse>;
-  /** ClaimStream defines a method for a receiver to claim from a stream using the sender and receiver */
+  /**
+   * ClaimStream defines a method for a receiver to claim from a stream using
+   * the sender and receiver
+   */
   claimStream(request: MsgClaimStream): Promise<MsgClaimStreamResponse>;
   /** TopUpDeposit defines a method for senders to top up their streams */
   topUpDeposit(request: MsgTopUpDeposit): Promise<MsgTopUpDepositResponse>;
@@ -22,8 +25,8 @@ export interface Msg {
   updateParams(request: MsgUpdateParams): Promise<MsgUpdateParamsResponse>;
 }
 export class MsgClientImpl implements Msg {
-  private readonly rpc: Rpc;
-  constructor(rpc: Rpc) {
+  private readonly rpc: TxRpc;
+  constructor(rpc: TxRpc) {
     this.rpc = rpc;
     this.createStream = this.createStream.bind(this);
     this.claimStream = this.claimStream.bind(this);
@@ -63,3 +66,6 @@ export class MsgClientImpl implements Msg {
     return promise.then(data => MsgUpdateParamsResponse.decode(new BinaryReader(data)));
   }
 }
+export const createClientImpl = (rpc: TxRpc) => {
+  return new MsgClientImpl(rpc);
+};

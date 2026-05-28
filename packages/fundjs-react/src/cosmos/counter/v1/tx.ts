@@ -1,52 +1,93 @@
 //@ts-nocheck
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { GlobalDecoderRegistry } from "../../../registry";
-/** MsgIncreaseCounter defines a count Msg service counter. */
+/**
+ * MsgIncreaseCounter defines a count Msg service counter.
+ * @name MsgIncreaseCounter
+ * @package cosmos.counter.v1
+ * @see proto type: cosmos.counter.v1.MsgIncreaseCounter
+ */
 export interface MsgIncreaseCounter {
-  /** signer is the address that controls the module (defaults to x/gov unless overwritten). */
+  /**
+   * signer is the address that controls the module (defaults to x/gov unless overwritten).
+   */
   signer: string;
-  /** count is the number of times to increment the counter. */
+  /**
+   * count is the number of times to increment the counter.
+   */
   count: bigint;
 }
 export interface MsgIncreaseCounterProtoMsg {
   typeUrl: "/cosmos.counter.v1.MsgIncreaseCounter";
   value: Uint8Array;
 }
-/** MsgIncreaseCounter defines a count Msg service counter. */
+/**
+ * MsgIncreaseCounter defines a count Msg service counter.
+ * @name MsgIncreaseCounterAmino
+ * @package cosmos.counter.v1
+ * @see proto type: cosmos.counter.v1.MsgIncreaseCounter
+ */
 export interface MsgIncreaseCounterAmino {
-  /** signer is the address that controls the module (defaults to x/gov unless overwritten). */
+  /**
+   * signer is the address that controls the module (defaults to x/gov unless overwritten).
+   */
   signer?: string;
-  /** count is the number of times to increment the counter. */
+  /**
+   * count is the number of times to increment the counter.
+   */
   count?: string;
 }
 export interface MsgIncreaseCounterAminoMsg {
   type: "cosmos-sdk/increase_counter";
   value: MsgIncreaseCounterAmino;
 }
-/** MsgIncreaseCounter defines a count Msg service counter. */
+/**
+ * MsgIncreaseCounter defines a count Msg service counter.
+ * @name MsgIncreaseCounterSDKType
+ * @package cosmos.counter.v1
+ * @see proto type: cosmos.counter.v1.MsgIncreaseCounter
+ */
 export interface MsgIncreaseCounterSDKType {
   signer: string;
   count: bigint;
 }
-/** MsgIncreaseCountResponse is the Msg/Counter response type. */
+/**
+ * MsgIncreaseCountResponse is the Msg/Counter response type.
+ * @name MsgIncreaseCountResponse
+ * @package cosmos.counter.v1
+ * @see proto type: cosmos.counter.v1.MsgIncreaseCountResponse
+ */
 export interface MsgIncreaseCountResponse {
-  /** new_count is the number of times the counter was incremented. */
+  /**
+   * new_count is the number of times the counter was incremented.
+   */
   newCount: bigint;
 }
 export interface MsgIncreaseCountResponseProtoMsg {
   typeUrl: "/cosmos.counter.v1.MsgIncreaseCountResponse";
   value: Uint8Array;
 }
-/** MsgIncreaseCountResponse is the Msg/Counter response type. */
+/**
+ * MsgIncreaseCountResponse is the Msg/Counter response type.
+ * @name MsgIncreaseCountResponseAmino
+ * @package cosmos.counter.v1
+ * @see proto type: cosmos.counter.v1.MsgIncreaseCountResponse
+ */
 export interface MsgIncreaseCountResponseAmino {
-  /** new_count is the number of times the counter was incremented. */
+  /**
+   * new_count is the number of times the counter was incremented.
+   */
   new_count?: string;
 }
 export interface MsgIncreaseCountResponseAminoMsg {
   type: "cosmos-sdk/MsgIncreaseCountResponse";
   value: MsgIncreaseCountResponseAmino;
 }
-/** MsgIncreaseCountResponse is the Msg/Counter response type. */
+/**
+ * MsgIncreaseCountResponse is the Msg/Counter response type.
+ * @name MsgIncreaseCountResponseSDKType
+ * @package cosmos.counter.v1
+ * @see proto type: cosmos.counter.v1.MsgIncreaseCountResponse
+ */
 export interface MsgIncreaseCountResponseSDKType {
   new_count: bigint;
 }
@@ -56,6 +97,12 @@ function createBaseMsgIncreaseCounter(): MsgIncreaseCounter {
     count: BigInt(0)
   };
 }
+/**
+ * MsgIncreaseCounter defines a count Msg service counter.
+ * @name MsgIncreaseCounter
+ * @package cosmos.counter.v1
+ * @see proto type: cosmos.counter.v1.MsgIncreaseCounter
+ */
 export const MsgIncreaseCounter = {
   typeUrl: "/cosmos.counter.v1.MsgIncreaseCounter",
   aminoType: "cosmos-sdk/increase_counter",
@@ -139,15 +186,20 @@ export const MsgIncreaseCounter = {
       typeUrl: "/cosmos.counter.v1.MsgIncreaseCounter",
       value: MsgIncreaseCounter.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgIncreaseCounter.typeUrl, MsgIncreaseCounter);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgIncreaseCounter.aminoType, MsgIncreaseCounter.typeUrl);
 function createBaseMsgIncreaseCountResponse(): MsgIncreaseCountResponse {
   return {
     newCount: BigInt(0)
   };
 }
+/**
+ * MsgIncreaseCountResponse is the Msg/Counter response type.
+ * @name MsgIncreaseCountResponse
+ * @package cosmos.counter.v1
+ * @see proto type: cosmos.counter.v1.MsgIncreaseCountResponse
+ */
 export const MsgIncreaseCountResponse = {
   typeUrl: "/cosmos.counter.v1.MsgIncreaseCountResponse",
   aminoType: "cosmos-sdk/MsgIncreaseCountResponse",
@@ -220,7 +272,6 @@ export const MsgIncreaseCountResponse = {
       typeUrl: "/cosmos.counter.v1.MsgIncreaseCountResponse",
       value: MsgIncreaseCountResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgIncreaseCountResponse.typeUrl, MsgIncreaseCountResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgIncreaseCountResponse.aminoType, MsgIncreaseCountResponse.typeUrl);

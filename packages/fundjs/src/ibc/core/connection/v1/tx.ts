@@ -8,6 +8,9 @@ import { bytesFromBase64, base64FromBytes } from "../../../../helpers";
 /**
  * MsgConnectionOpenInit defines the msg sent by an account on Chain A to
  * initialize a connection with Chain B.
+ * @name MsgConnectionOpenInit
+ * @package ibc.core.connection.v1
+ * @see proto type: ibc.core.connection.v1.MsgConnectionOpenInit
  */
 export interface MsgConnectionOpenInit {
   clientId: string;
@@ -23,6 +26,9 @@ export interface MsgConnectionOpenInitProtoMsg {
 /**
  * MsgConnectionOpenInit defines the msg sent by an account on Chain A to
  * initialize a connection with Chain B.
+ * @name MsgConnectionOpenInitAmino
+ * @package ibc.core.connection.v1
+ * @see proto type: ibc.core.connection.v1.MsgConnectionOpenInit
  */
 export interface MsgConnectionOpenInitAmino {
   client_id?: string;
@@ -38,6 +44,9 @@ export interface MsgConnectionOpenInitAminoMsg {
 /**
  * MsgConnectionOpenInit defines the msg sent by an account on Chain A to
  * initialize a connection with Chain B.
+ * @name MsgConnectionOpenInitSDKType
+ * @package ibc.core.connection.v1
+ * @see proto type: ibc.core.connection.v1.MsgConnectionOpenInit
  */
 export interface MsgConnectionOpenInitSDKType {
   client_id: string;
@@ -49,6 +58,9 @@ export interface MsgConnectionOpenInitSDKType {
 /**
  * MsgConnectionOpenInitResponse defines the Msg/ConnectionOpenInit response
  * type.
+ * @name MsgConnectionOpenInitResponse
+ * @package ibc.core.connection.v1
+ * @see proto type: ibc.core.connection.v1.MsgConnectionOpenInitResponse
  */
 export interface MsgConnectionOpenInitResponse {}
 export interface MsgConnectionOpenInitResponseProtoMsg {
@@ -58,6 +70,9 @@ export interface MsgConnectionOpenInitResponseProtoMsg {
 /**
  * MsgConnectionOpenInitResponse defines the Msg/ConnectionOpenInit response
  * type.
+ * @name MsgConnectionOpenInitResponseAmino
+ * @package ibc.core.connection.v1
+ * @see proto type: ibc.core.connection.v1.MsgConnectionOpenInitResponse
  */
 export interface MsgConnectionOpenInitResponseAmino {}
 export interface MsgConnectionOpenInitResponseAminoMsg {
@@ -67,18 +82,28 @@ export interface MsgConnectionOpenInitResponseAminoMsg {
 /**
  * MsgConnectionOpenInitResponse defines the Msg/ConnectionOpenInit response
  * type.
+ * @name MsgConnectionOpenInitResponseSDKType
+ * @package ibc.core.connection.v1
+ * @see proto type: ibc.core.connection.v1.MsgConnectionOpenInitResponse
  */
 export interface MsgConnectionOpenInitResponseSDKType {}
 /**
  * MsgConnectionOpenTry defines a msg sent by a Relayer to try to open a
  * connection on Chain B.
+ * @name MsgConnectionOpenTry
+ * @package ibc.core.connection.v1
+ * @see proto type: ibc.core.connection.v1.MsgConnectionOpenTry
  */
 export interface MsgConnectionOpenTry {
   clientId: string;
-  /** Deprecated: this field is unused. Crossing hellos are no longer supported in core IBC. */
-  /** @deprecated */
+  /**
+   * Deprecated: this field is unused. Crossing hellos are no longer supported in core IBC.
+   * @deprecated
+   */
   previousConnectionId: string;
-  /** @deprecated */
+  /**
+   * @deprecated
+   */
   clientState?: Any;
   counterparty: Counterparty;
   delayPeriod: bigint;
@@ -89,17 +114,25 @@ export interface MsgConnectionOpenTry {
    * INIT`
    */
   proofInit: Uint8Array;
-  /** proof of client state included in message */
-  /** @deprecated */
+  /**
+   * proof of client state included in message
+   * @deprecated
+   */
   proofClient: Uint8Array;
-  /** proof of client consensus state */
-  /** @deprecated */
+  /**
+   * proof of client consensus state
+   * @deprecated
+   */
   proofConsensus: Uint8Array;
-  /** @deprecated */
+  /**
+   * @deprecated
+   */
   consensusHeight: Height;
   signer: string;
-  /** optional proof data for host state machines that are unable to introspect their own consensus state */
-  /** @deprecated */
+  /**
+   * optional proof data for host state machines that are unable to introspect their own consensus state
+   * @deprecated
+   */
   hostConsensusStateProof: Uint8Array;
 }
 export interface MsgConnectionOpenTryProtoMsg {
@@ -109,13 +142,20 @@ export interface MsgConnectionOpenTryProtoMsg {
 /**
  * MsgConnectionOpenTry defines a msg sent by a Relayer to try to open a
  * connection on Chain B.
+ * @name MsgConnectionOpenTryAmino
+ * @package ibc.core.connection.v1
+ * @see proto type: ibc.core.connection.v1.MsgConnectionOpenTry
  */
 export interface MsgConnectionOpenTryAmino {
   client_id?: string;
-  /** Deprecated: this field is unused. Crossing hellos are no longer supported in core IBC. */
-  /** @deprecated */
+  /**
+   * Deprecated: this field is unused. Crossing hellos are no longer supported in core IBC.
+   * @deprecated
+   */
   previous_connection_id?: string;
-  /** @deprecated */
+  /**
+   * @deprecated
+   */
   client_state?: AnyAmino;
   counterparty?: CounterpartyAmino;
   delay_period?: string;
@@ -126,17 +166,25 @@ export interface MsgConnectionOpenTryAmino {
    * INIT`
    */
   proof_init?: string;
-  /** proof of client state included in message */
-  /** @deprecated */
+  /**
+   * proof of client state included in message
+   * @deprecated
+   */
   proof_client?: string;
-  /** proof of client consensus state */
-  /** @deprecated */
+  /**
+   * proof of client consensus state
+   * @deprecated
+   */
   proof_consensus?: string;
-  /** @deprecated */
+  /**
+   * @deprecated
+   */
   consensus_height?: HeightAmino;
   signer?: string;
-  /** optional proof data for host state machines that are unable to introspect their own consensus state */
-  /** @deprecated */
+  /**
+   * optional proof data for host state machines that are unable to introspect their own consensus state
+   * @deprecated
+   */
   host_consensus_state_proof?: string;
 }
 export interface MsgConnectionOpenTryAminoMsg {
@@ -146,51 +194,86 @@ export interface MsgConnectionOpenTryAminoMsg {
 /**
  * MsgConnectionOpenTry defines a msg sent by a Relayer to try to open a
  * connection on Chain B.
+ * @name MsgConnectionOpenTrySDKType
+ * @package ibc.core.connection.v1
+ * @see proto type: ibc.core.connection.v1.MsgConnectionOpenTry
  */
 export interface MsgConnectionOpenTrySDKType {
   client_id: string;
-  /** @deprecated */
+  /**
+   * @deprecated
+   */
   previous_connection_id: string;
-  /** @deprecated */
+  /**
+   * @deprecated
+   */
   client_state?: AnySDKType;
   counterparty: CounterpartySDKType;
   delay_period: bigint;
   counterparty_versions: VersionSDKType[];
   proof_height: HeightSDKType;
   proof_init: Uint8Array;
-  /** @deprecated */
+  /**
+   * @deprecated
+   */
   proof_client: Uint8Array;
-  /** @deprecated */
+  /**
+   * @deprecated
+   */
   proof_consensus: Uint8Array;
-  /** @deprecated */
+  /**
+   * @deprecated
+   */
   consensus_height: HeightSDKType;
   signer: string;
-  /** @deprecated */
+  /**
+   * @deprecated
+   */
   host_consensus_state_proof: Uint8Array;
 }
-/** MsgConnectionOpenTryResponse defines the Msg/ConnectionOpenTry response type. */
+/**
+ * MsgConnectionOpenTryResponse defines the Msg/ConnectionOpenTry response type.
+ * @name MsgConnectionOpenTryResponse
+ * @package ibc.core.connection.v1
+ * @see proto type: ibc.core.connection.v1.MsgConnectionOpenTryResponse
+ */
 export interface MsgConnectionOpenTryResponse {}
 export interface MsgConnectionOpenTryResponseProtoMsg {
   typeUrl: "/ibc.core.connection.v1.MsgConnectionOpenTryResponse";
   value: Uint8Array;
 }
-/** MsgConnectionOpenTryResponse defines the Msg/ConnectionOpenTry response type. */
+/**
+ * MsgConnectionOpenTryResponse defines the Msg/ConnectionOpenTry response type.
+ * @name MsgConnectionOpenTryResponseAmino
+ * @package ibc.core.connection.v1
+ * @see proto type: ibc.core.connection.v1.MsgConnectionOpenTryResponse
+ */
 export interface MsgConnectionOpenTryResponseAmino {}
 export interface MsgConnectionOpenTryResponseAminoMsg {
   type: "cosmos-sdk/MsgConnectionOpenTryResponse";
   value: MsgConnectionOpenTryResponseAmino;
 }
-/** MsgConnectionOpenTryResponse defines the Msg/ConnectionOpenTry response type. */
+/**
+ * MsgConnectionOpenTryResponse defines the Msg/ConnectionOpenTry response type.
+ * @name MsgConnectionOpenTryResponseSDKType
+ * @package ibc.core.connection.v1
+ * @see proto type: ibc.core.connection.v1.MsgConnectionOpenTryResponse
+ */
 export interface MsgConnectionOpenTryResponseSDKType {}
 /**
  * MsgConnectionOpenAck defines a msg sent by a Relayer to Chain A to
  * acknowledge the change of connection state to TRYOPEN on Chain B.
+ * @name MsgConnectionOpenAck
+ * @package ibc.core.connection.v1
+ * @see proto type: ibc.core.connection.v1.MsgConnectionOpenAck
  */
 export interface MsgConnectionOpenAck {
   connectionId: string;
   counterpartyConnectionId: string;
   version?: Version;
-  /** @deprecated */
+  /**
+   * @deprecated
+   */
   clientState?: Any;
   proofHeight: Height;
   /**
@@ -198,17 +281,25 @@ export interface MsgConnectionOpenAck {
    * TRYOPEN`
    */
   proofTry: Uint8Array;
-  /** proof of client state included in message */
-  /** @deprecated */
+  /**
+   * proof of client state included in message
+   * @deprecated
+   */
   proofClient: Uint8Array;
-  /** proof of client consensus state */
-  /** @deprecated */
+  /**
+   * proof of client consensus state
+   * @deprecated
+   */
   proofConsensus: Uint8Array;
-  /** @deprecated */
+  /**
+   * @deprecated
+   */
   consensusHeight: Height;
   signer: string;
-  /** optional proof data for host state machines that are unable to introspect their own consensus state */
-  /** @deprecated */
+  /**
+   * optional proof data for host state machines that are unable to introspect their own consensus state
+   * @deprecated
+   */
   hostConsensusStateProof: Uint8Array;
 }
 export interface MsgConnectionOpenAckProtoMsg {
@@ -218,12 +309,17 @@ export interface MsgConnectionOpenAckProtoMsg {
 /**
  * MsgConnectionOpenAck defines a msg sent by a Relayer to Chain A to
  * acknowledge the change of connection state to TRYOPEN on Chain B.
+ * @name MsgConnectionOpenAckAmino
+ * @package ibc.core.connection.v1
+ * @see proto type: ibc.core.connection.v1.MsgConnectionOpenAck
  */
 export interface MsgConnectionOpenAckAmino {
   connection_id?: string;
   counterparty_connection_id?: string;
   version?: VersionAmino;
-  /** @deprecated */
+  /**
+   * @deprecated
+   */
   client_state?: AnyAmino;
   proof_height?: HeightAmino;
   /**
@@ -231,17 +327,25 @@ export interface MsgConnectionOpenAckAmino {
    * TRYOPEN`
    */
   proof_try?: string;
-  /** proof of client state included in message */
-  /** @deprecated */
+  /**
+   * proof of client state included in message
+   * @deprecated
+   */
   proof_client?: string;
-  /** proof of client consensus state */
-  /** @deprecated */
+  /**
+   * proof of client consensus state
+   * @deprecated
+   */
   proof_consensus?: string;
-  /** @deprecated */
+  /**
+   * @deprecated
+   */
   consensus_height?: HeightAmino;
   signer?: string;
-  /** optional proof data for host state machines that are unable to introspect their own consensus state */
-  /** @deprecated */
+  /**
+   * optional proof data for host state machines that are unable to introspect their own consensus state
+   * @deprecated
+   */
   host_consensus_state_proof?: string;
 }
 export interface MsgConnectionOpenAckAminoMsg {
@@ -251,46 +355,79 @@ export interface MsgConnectionOpenAckAminoMsg {
 /**
  * MsgConnectionOpenAck defines a msg sent by a Relayer to Chain A to
  * acknowledge the change of connection state to TRYOPEN on Chain B.
+ * @name MsgConnectionOpenAckSDKType
+ * @package ibc.core.connection.v1
+ * @see proto type: ibc.core.connection.v1.MsgConnectionOpenAck
  */
 export interface MsgConnectionOpenAckSDKType {
   connection_id: string;
   counterparty_connection_id: string;
   version?: VersionSDKType;
-  /** @deprecated */
+  /**
+   * @deprecated
+   */
   client_state?: AnySDKType;
   proof_height: HeightSDKType;
   proof_try: Uint8Array;
-  /** @deprecated */
+  /**
+   * @deprecated
+   */
   proof_client: Uint8Array;
-  /** @deprecated */
+  /**
+   * @deprecated
+   */
   proof_consensus: Uint8Array;
-  /** @deprecated */
+  /**
+   * @deprecated
+   */
   consensus_height: HeightSDKType;
   signer: string;
-  /** @deprecated */
+  /**
+   * @deprecated
+   */
   host_consensus_state_proof: Uint8Array;
 }
-/** MsgConnectionOpenAckResponse defines the Msg/ConnectionOpenAck response type. */
+/**
+ * MsgConnectionOpenAckResponse defines the Msg/ConnectionOpenAck response type.
+ * @name MsgConnectionOpenAckResponse
+ * @package ibc.core.connection.v1
+ * @see proto type: ibc.core.connection.v1.MsgConnectionOpenAckResponse
+ */
 export interface MsgConnectionOpenAckResponse {}
 export interface MsgConnectionOpenAckResponseProtoMsg {
   typeUrl: "/ibc.core.connection.v1.MsgConnectionOpenAckResponse";
   value: Uint8Array;
 }
-/** MsgConnectionOpenAckResponse defines the Msg/ConnectionOpenAck response type. */
+/**
+ * MsgConnectionOpenAckResponse defines the Msg/ConnectionOpenAck response type.
+ * @name MsgConnectionOpenAckResponseAmino
+ * @package ibc.core.connection.v1
+ * @see proto type: ibc.core.connection.v1.MsgConnectionOpenAckResponse
+ */
 export interface MsgConnectionOpenAckResponseAmino {}
 export interface MsgConnectionOpenAckResponseAminoMsg {
   type: "cosmos-sdk/MsgConnectionOpenAckResponse";
   value: MsgConnectionOpenAckResponseAmino;
 }
-/** MsgConnectionOpenAckResponse defines the Msg/ConnectionOpenAck response type. */
+/**
+ * MsgConnectionOpenAckResponse defines the Msg/ConnectionOpenAck response type.
+ * @name MsgConnectionOpenAckResponseSDKType
+ * @package ibc.core.connection.v1
+ * @see proto type: ibc.core.connection.v1.MsgConnectionOpenAckResponse
+ */
 export interface MsgConnectionOpenAckResponseSDKType {}
 /**
  * MsgConnectionOpenConfirm defines a msg sent by a Relayer to Chain B to
  * acknowledge the change of connection state to OPEN on Chain A.
+ * @name MsgConnectionOpenConfirm
+ * @package ibc.core.connection.v1
+ * @see proto type: ibc.core.connection.v1.MsgConnectionOpenConfirm
  */
 export interface MsgConnectionOpenConfirm {
   connectionId: string;
-  /** proof for the change of the connection state on Chain A: `INIT -> OPEN` */
+  /**
+   * proof for the change of the connection state on Chain A: `INIT -> OPEN`
+   */
   proofAck: Uint8Array;
   proofHeight: Height;
   signer: string;
@@ -302,10 +439,15 @@ export interface MsgConnectionOpenConfirmProtoMsg {
 /**
  * MsgConnectionOpenConfirm defines a msg sent by a Relayer to Chain B to
  * acknowledge the change of connection state to OPEN on Chain A.
+ * @name MsgConnectionOpenConfirmAmino
+ * @package ibc.core.connection.v1
+ * @see proto type: ibc.core.connection.v1.MsgConnectionOpenConfirm
  */
 export interface MsgConnectionOpenConfirmAmino {
   connection_id?: string;
-  /** proof for the change of the connection state on Chain A: `INIT -> OPEN` */
+  /**
+   * proof for the change of the connection state on Chain A: `INIT -> OPEN`
+   */
   proof_ack?: string;
   proof_height?: HeightAmino;
   signer?: string;
@@ -317,6 +459,9 @@ export interface MsgConnectionOpenConfirmAminoMsg {
 /**
  * MsgConnectionOpenConfirm defines a msg sent by a Relayer to Chain B to
  * acknowledge the change of connection state to OPEN on Chain A.
+ * @name MsgConnectionOpenConfirmSDKType
+ * @package ibc.core.connection.v1
+ * @see proto type: ibc.core.connection.v1.MsgConnectionOpenConfirm
  */
 export interface MsgConnectionOpenConfirmSDKType {
   connection_id: string;
@@ -327,6 +472,9 @@ export interface MsgConnectionOpenConfirmSDKType {
 /**
  * MsgConnectionOpenConfirmResponse defines the Msg/ConnectionOpenConfirm
  * response type.
+ * @name MsgConnectionOpenConfirmResponse
+ * @package ibc.core.connection.v1
+ * @see proto type: ibc.core.connection.v1.MsgConnectionOpenConfirmResponse
  */
 export interface MsgConnectionOpenConfirmResponse {}
 export interface MsgConnectionOpenConfirmResponseProtoMsg {
@@ -336,6 +484,9 @@ export interface MsgConnectionOpenConfirmResponseProtoMsg {
 /**
  * MsgConnectionOpenConfirmResponse defines the Msg/ConnectionOpenConfirm
  * response type.
+ * @name MsgConnectionOpenConfirmResponseAmino
+ * @package ibc.core.connection.v1
+ * @see proto type: ibc.core.connection.v1.MsgConnectionOpenConfirmResponse
  */
 export interface MsgConnectionOpenConfirmResponseAmino {}
 export interface MsgConnectionOpenConfirmResponseAminoMsg {
@@ -345,11 +496,21 @@ export interface MsgConnectionOpenConfirmResponseAminoMsg {
 /**
  * MsgConnectionOpenConfirmResponse defines the Msg/ConnectionOpenConfirm
  * response type.
+ * @name MsgConnectionOpenConfirmResponseSDKType
+ * @package ibc.core.connection.v1
+ * @see proto type: ibc.core.connection.v1.MsgConnectionOpenConfirmResponse
  */
 export interface MsgConnectionOpenConfirmResponseSDKType {}
-/** MsgUpdateParams defines the sdk.Msg type to update the connection parameters. */
+/**
+ * MsgUpdateParams defines the sdk.Msg type to update the connection parameters.
+ * @name MsgUpdateParams
+ * @package ibc.core.connection.v1
+ * @see proto type: ibc.core.connection.v1.MsgUpdateParams
+ */
 export interface MsgUpdateParams {
-  /** signer address */
+  /**
+   * signer address
+   */
   signer: string;
   /**
    * params defines the connection parameters to update.
@@ -362,9 +523,16 @@ export interface MsgUpdateParamsProtoMsg {
   typeUrl: "/ibc.core.connection.v1.MsgUpdateParams";
   value: Uint8Array;
 }
-/** MsgUpdateParams defines the sdk.Msg type to update the connection parameters. */
+/**
+ * MsgUpdateParams defines the sdk.Msg type to update the connection parameters.
+ * @name MsgUpdateParamsAmino
+ * @package ibc.core.connection.v1
+ * @see proto type: ibc.core.connection.v1.MsgUpdateParams
+ */
 export interface MsgUpdateParamsAmino {
-  /** signer address */
+  /**
+   * signer address
+   */
   signer?: string;
   /**
    * params defines the connection parameters to update.
@@ -377,24 +545,44 @@ export interface MsgUpdateParamsAminoMsg {
   type: "cosmos-sdk/MsgUpdateParams";
   value: MsgUpdateParamsAmino;
 }
-/** MsgUpdateParams defines the sdk.Msg type to update the connection parameters. */
+/**
+ * MsgUpdateParams defines the sdk.Msg type to update the connection parameters.
+ * @name MsgUpdateParamsSDKType
+ * @package ibc.core.connection.v1
+ * @see proto type: ibc.core.connection.v1.MsgUpdateParams
+ */
 export interface MsgUpdateParamsSDKType {
   signer: string;
   params: ParamsSDKType;
 }
-/** MsgUpdateParamsResponse defines the MsgUpdateParams response type. */
+/**
+ * MsgUpdateParamsResponse defines the MsgUpdateParams response type.
+ * @name MsgUpdateParamsResponse
+ * @package ibc.core.connection.v1
+ * @see proto type: ibc.core.connection.v1.MsgUpdateParamsResponse
+ */
 export interface MsgUpdateParamsResponse {}
 export interface MsgUpdateParamsResponseProtoMsg {
   typeUrl: "/ibc.core.connection.v1.MsgUpdateParamsResponse";
   value: Uint8Array;
 }
-/** MsgUpdateParamsResponse defines the MsgUpdateParams response type. */
+/**
+ * MsgUpdateParamsResponse defines the MsgUpdateParams response type.
+ * @name MsgUpdateParamsResponseAmino
+ * @package ibc.core.connection.v1
+ * @see proto type: ibc.core.connection.v1.MsgUpdateParamsResponse
+ */
 export interface MsgUpdateParamsResponseAmino {}
 export interface MsgUpdateParamsResponseAminoMsg {
   type: "cosmos-sdk/MsgUpdateParamsResponse";
   value: MsgUpdateParamsResponseAmino;
 }
-/** MsgUpdateParamsResponse defines the MsgUpdateParams response type. */
+/**
+ * MsgUpdateParamsResponse defines the MsgUpdateParams response type.
+ * @name MsgUpdateParamsResponseSDKType
+ * @package ibc.core.connection.v1
+ * @see proto type: ibc.core.connection.v1.MsgUpdateParamsResponse
+ */
 export interface MsgUpdateParamsResponseSDKType {}
 function createBaseMsgConnectionOpenInit(): MsgConnectionOpenInit {
   return {
@@ -405,6 +593,13 @@ function createBaseMsgConnectionOpenInit(): MsgConnectionOpenInit {
     signer: ""
   };
 }
+/**
+ * MsgConnectionOpenInit defines the msg sent by an account on Chain A to
+ * initialize a connection with Chain B.
+ * @name MsgConnectionOpenInit
+ * @package ibc.core.connection.v1
+ * @see proto type: ibc.core.connection.v1.MsgConnectionOpenInit
+ */
 export const MsgConnectionOpenInit = {
   typeUrl: "/ibc.core.connection.v1.MsgConnectionOpenInit",
   aminoType: "cosmos-sdk/MsgConnectionOpenInit",
@@ -521,13 +716,25 @@ export const MsgConnectionOpenInit = {
       typeUrl: "/ibc.core.connection.v1.MsgConnectionOpenInit",
       value: MsgConnectionOpenInit.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgConnectionOpenInit.typeUrl)) {
+      return;
+    }
+    Counterparty.registerTypeUrl();
+    Version.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgConnectionOpenInit.typeUrl, MsgConnectionOpenInit);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgConnectionOpenInit.aminoType, MsgConnectionOpenInit.typeUrl);
 function createBaseMsgConnectionOpenInitResponse(): MsgConnectionOpenInitResponse {
   return {};
 }
+/**
+ * MsgConnectionOpenInitResponse defines the Msg/ConnectionOpenInit response
+ * type.
+ * @name MsgConnectionOpenInitResponse
+ * @package ibc.core.connection.v1
+ * @see proto type: ibc.core.connection.v1.MsgConnectionOpenInitResponse
+ */
 export const MsgConnectionOpenInitResponse = {
   typeUrl: "/ibc.core.connection.v1.MsgConnectionOpenInitResponse",
   aminoType: "cosmos-sdk/MsgConnectionOpenInitResponse",
@@ -589,10 +796,9 @@ export const MsgConnectionOpenInitResponse = {
       typeUrl: "/ibc.core.connection.v1.MsgConnectionOpenInitResponse",
       value: MsgConnectionOpenInitResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgConnectionOpenInitResponse.typeUrl, MsgConnectionOpenInitResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgConnectionOpenInitResponse.aminoType, MsgConnectionOpenInitResponse.typeUrl);
 function createBaseMsgConnectionOpenTry(): MsgConnectionOpenTry {
   return {
     clientId: "",
@@ -610,6 +816,13 @@ function createBaseMsgConnectionOpenTry(): MsgConnectionOpenTry {
     hostConsensusStateProof: new Uint8Array()
   };
 }
+/**
+ * MsgConnectionOpenTry defines a msg sent by a Relayer to try to open a
+ * connection on Chain B.
+ * @name MsgConnectionOpenTry
+ * @package ibc.core.connection.v1
+ * @see proto type: ibc.core.connection.v1.MsgConnectionOpenTry
+ */
 export const MsgConnectionOpenTry = {
   typeUrl: "/ibc.core.connection.v1.MsgConnectionOpenTry",
   aminoType: "cosmos-sdk/MsgConnectionOpenTry",
@@ -816,13 +1029,25 @@ export const MsgConnectionOpenTry = {
       typeUrl: "/ibc.core.connection.v1.MsgConnectionOpenTry",
       value: MsgConnectionOpenTry.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgConnectionOpenTry.typeUrl)) {
+      return;
+    }
+    Counterparty.registerTypeUrl();
+    Version.registerTypeUrl();
+    Height.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgConnectionOpenTry.typeUrl, MsgConnectionOpenTry);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgConnectionOpenTry.aminoType, MsgConnectionOpenTry.typeUrl);
 function createBaseMsgConnectionOpenTryResponse(): MsgConnectionOpenTryResponse {
   return {};
 }
+/**
+ * MsgConnectionOpenTryResponse defines the Msg/ConnectionOpenTry response type.
+ * @name MsgConnectionOpenTryResponse
+ * @package ibc.core.connection.v1
+ * @see proto type: ibc.core.connection.v1.MsgConnectionOpenTryResponse
+ */
 export const MsgConnectionOpenTryResponse = {
   typeUrl: "/ibc.core.connection.v1.MsgConnectionOpenTryResponse",
   aminoType: "cosmos-sdk/MsgConnectionOpenTryResponse",
@@ -884,10 +1109,9 @@ export const MsgConnectionOpenTryResponse = {
       typeUrl: "/ibc.core.connection.v1.MsgConnectionOpenTryResponse",
       value: MsgConnectionOpenTryResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgConnectionOpenTryResponse.typeUrl, MsgConnectionOpenTryResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgConnectionOpenTryResponse.aminoType, MsgConnectionOpenTryResponse.typeUrl);
 function createBaseMsgConnectionOpenAck(): MsgConnectionOpenAck {
   return {
     connectionId: "",
@@ -903,6 +1127,13 @@ function createBaseMsgConnectionOpenAck(): MsgConnectionOpenAck {
     hostConsensusStateProof: new Uint8Array()
   };
 }
+/**
+ * MsgConnectionOpenAck defines a msg sent by a Relayer to Chain A to
+ * acknowledge the change of connection state to TRYOPEN on Chain B.
+ * @name MsgConnectionOpenAck
+ * @package ibc.core.connection.v1
+ * @see proto type: ibc.core.connection.v1.MsgConnectionOpenAck
+ */
 export const MsgConnectionOpenAck = {
   typeUrl: "/ibc.core.connection.v1.MsgConnectionOpenAck",
   aminoType: "cosmos-sdk/MsgConnectionOpenAck",
@@ -1085,13 +1316,23 @@ export const MsgConnectionOpenAck = {
       typeUrl: "/ibc.core.connection.v1.MsgConnectionOpenAck",
       value: MsgConnectionOpenAck.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgConnectionOpenAck.typeUrl)) {
+      return;
+    }
+    Height.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgConnectionOpenAck.typeUrl, MsgConnectionOpenAck);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgConnectionOpenAck.aminoType, MsgConnectionOpenAck.typeUrl);
 function createBaseMsgConnectionOpenAckResponse(): MsgConnectionOpenAckResponse {
   return {};
 }
+/**
+ * MsgConnectionOpenAckResponse defines the Msg/ConnectionOpenAck response type.
+ * @name MsgConnectionOpenAckResponse
+ * @package ibc.core.connection.v1
+ * @see proto type: ibc.core.connection.v1.MsgConnectionOpenAckResponse
+ */
 export const MsgConnectionOpenAckResponse = {
   typeUrl: "/ibc.core.connection.v1.MsgConnectionOpenAckResponse",
   aminoType: "cosmos-sdk/MsgConnectionOpenAckResponse",
@@ -1153,10 +1394,9 @@ export const MsgConnectionOpenAckResponse = {
       typeUrl: "/ibc.core.connection.v1.MsgConnectionOpenAckResponse",
       value: MsgConnectionOpenAckResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgConnectionOpenAckResponse.typeUrl, MsgConnectionOpenAckResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgConnectionOpenAckResponse.aminoType, MsgConnectionOpenAckResponse.typeUrl);
 function createBaseMsgConnectionOpenConfirm(): MsgConnectionOpenConfirm {
   return {
     connectionId: "",
@@ -1165,6 +1405,13 @@ function createBaseMsgConnectionOpenConfirm(): MsgConnectionOpenConfirm {
     signer: ""
   };
 }
+/**
+ * MsgConnectionOpenConfirm defines a msg sent by a Relayer to Chain B to
+ * acknowledge the change of connection state to OPEN on Chain A.
+ * @name MsgConnectionOpenConfirm
+ * @package ibc.core.connection.v1
+ * @see proto type: ibc.core.connection.v1.MsgConnectionOpenConfirm
+ */
 export const MsgConnectionOpenConfirm = {
   typeUrl: "/ibc.core.connection.v1.MsgConnectionOpenConfirm",
   aminoType: "cosmos-sdk/MsgConnectionOpenConfirm",
@@ -1270,13 +1517,24 @@ export const MsgConnectionOpenConfirm = {
       typeUrl: "/ibc.core.connection.v1.MsgConnectionOpenConfirm",
       value: MsgConnectionOpenConfirm.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgConnectionOpenConfirm.typeUrl)) {
+      return;
+    }
+    Height.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgConnectionOpenConfirm.typeUrl, MsgConnectionOpenConfirm);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgConnectionOpenConfirm.aminoType, MsgConnectionOpenConfirm.typeUrl);
 function createBaseMsgConnectionOpenConfirmResponse(): MsgConnectionOpenConfirmResponse {
   return {};
 }
+/**
+ * MsgConnectionOpenConfirmResponse defines the Msg/ConnectionOpenConfirm
+ * response type.
+ * @name MsgConnectionOpenConfirmResponse
+ * @package ibc.core.connection.v1
+ * @see proto type: ibc.core.connection.v1.MsgConnectionOpenConfirmResponse
+ */
 export const MsgConnectionOpenConfirmResponse = {
   typeUrl: "/ibc.core.connection.v1.MsgConnectionOpenConfirmResponse",
   aminoType: "cosmos-sdk/MsgConnectionOpenConfirmResponse",
@@ -1338,16 +1596,21 @@ export const MsgConnectionOpenConfirmResponse = {
       typeUrl: "/ibc.core.connection.v1.MsgConnectionOpenConfirmResponse",
       value: MsgConnectionOpenConfirmResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgConnectionOpenConfirmResponse.typeUrl, MsgConnectionOpenConfirmResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgConnectionOpenConfirmResponse.aminoType, MsgConnectionOpenConfirmResponse.typeUrl);
 function createBaseMsgUpdateParams(): MsgUpdateParams {
   return {
     signer: "",
     params: Params.fromPartial({})
   };
 }
+/**
+ * MsgUpdateParams defines the sdk.Msg type to update the connection parameters.
+ * @name MsgUpdateParams
+ * @package ibc.core.connection.v1
+ * @see proto type: ibc.core.connection.v1.MsgUpdateParams
+ */
 export const MsgUpdateParams = {
   typeUrl: "/ibc.core.connection.v1.MsgUpdateParams",
   aminoType: "cosmos-sdk/MsgUpdateParams",
@@ -1431,13 +1694,23 @@ export const MsgUpdateParams = {
       typeUrl: "/ibc.core.connection.v1.MsgUpdateParams",
       value: MsgUpdateParams.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgUpdateParams.typeUrl)) {
+      return;
+    }
+    Params.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgUpdateParams.typeUrl, MsgUpdateParams);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgUpdateParams.aminoType, MsgUpdateParams.typeUrl);
 function createBaseMsgUpdateParamsResponse(): MsgUpdateParamsResponse {
   return {};
 }
+/**
+ * MsgUpdateParamsResponse defines the MsgUpdateParams response type.
+ * @name MsgUpdateParamsResponse
+ * @package ibc.core.connection.v1
+ * @see proto type: ibc.core.connection.v1.MsgUpdateParamsResponse
+ */
 export const MsgUpdateParamsResponse = {
   typeUrl: "/ibc.core.connection.v1.MsgUpdateParamsResponse",
   aminoType: "cosmos-sdk/MsgUpdateParamsResponse",
@@ -1499,7 +1772,6 @@ export const MsgUpdateParamsResponse = {
       typeUrl: "/ibc.core.connection.v1.MsgUpdateParamsResponse",
       value: MsgUpdateParamsResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgUpdateParamsResponse.typeUrl, MsgUpdateParamsResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgUpdateParamsResponse.aminoType, MsgUpdateParamsResponse.typeUrl);

@@ -3,7 +3,12 @@ import { DenomTrace, DenomTraceAmino, DenomTraceSDKType, Params, ParamsAmino, Pa
 import { Coin, CoinAmino, CoinSDKType } from "../../../../cosmos/base/v1beta1/coin";
 import { BinaryReader, BinaryWriter } from "../../../../binary";
 import { GlobalDecoderRegistry } from "../../../../registry";
-/** GenesisState defines the ibc-transfer genesis state */
+/**
+ * GenesisState defines the ibc-transfer genesis state
+ * @name GenesisState
+ * @package ibc.applications.transfer.v1
+ * @see proto type: ibc.applications.transfer.v1.GenesisState
+ */
 export interface GenesisState {
   portId: string;
   denomTraces: DenomTrace[];
@@ -18,7 +23,12 @@ export interface GenesisStateProtoMsg {
   typeUrl: "/ibc.applications.transfer.v1.GenesisState";
   value: Uint8Array;
 }
-/** GenesisState defines the ibc-transfer genesis state */
+/**
+ * GenesisState defines the ibc-transfer genesis state
+ * @name GenesisStateAmino
+ * @package ibc.applications.transfer.v1
+ * @see proto type: ibc.applications.transfer.v1.GenesisState
+ */
 export interface GenesisStateAmino {
   port_id?: string;
   denom_traces?: DenomTraceAmino[];
@@ -33,7 +43,12 @@ export interface GenesisStateAminoMsg {
   type: "cosmos-sdk/GenesisState";
   value: GenesisStateAmino;
 }
-/** GenesisState defines the ibc-transfer genesis state */
+/**
+ * GenesisState defines the ibc-transfer genesis state
+ * @name GenesisStateSDKType
+ * @package ibc.applications.transfer.v1
+ * @see proto type: ibc.applications.transfer.v1.GenesisState
+ */
 export interface GenesisStateSDKType {
   port_id: string;
   denom_traces: DenomTraceSDKType[];
@@ -48,6 +63,12 @@ function createBaseGenesisState(): GenesisState {
     totalEscrowed: []
   };
 }
+/**
+ * GenesisState defines the ibc-transfer genesis state
+ * @name GenesisState
+ * @package ibc.applications.transfer.v1
+ * @see proto type: ibc.applications.transfer.v1.GenesisState
+ */
 export const GenesisState = {
   typeUrl: "/ibc.applications.transfer.v1.GenesisState",
   aminoType: "cosmos-sdk/GenesisState",
@@ -157,7 +178,13 @@ export const GenesisState = {
       typeUrl: "/ibc.applications.transfer.v1.GenesisState",
       value: GenesisState.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(GenesisState.typeUrl)) {
+      return;
+    }
+    DenomTrace.registerTypeUrl();
+    Params.registerTypeUrl();
+    Coin.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(GenesisState.typeUrl, GenesisState);
-GlobalDecoderRegistry.registerAminoProtoMapping(GenesisState.aminoType, GenesisState.typeUrl);

@@ -4,34 +4,62 @@ import { PurchaseOrderStatus, WhitelistAction, Params, ParamsAmino, ParamsSDKTyp
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { GlobalDecoderRegistry } from "../../../registry";
 import { isSet } from "../../../helpers";
-/** MsgUndPurchaseOrder represents a message to raise a new purchase order */
+/**
+ * MsgUndPurchaseOrder represents a message to raise a new purchase order
+ * @name MsgUndPurchaseOrder
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.MsgUndPurchaseOrder
+ */
 export interface MsgUndPurchaseOrder {
-  /** purchaser is the address of the account raising the purchase order */
+  /**
+   * purchaser is the address of the account raising the purchase order
+   */
   purchaser: string;
-  /** amount is the amount of eFUND in nund */
+  /**
+   * amount is the amount of eFUND in nund
+   */
   amount: Coin;
 }
 export interface MsgUndPurchaseOrderProtoMsg {
   typeUrl: "/mainchain.enterprise.v1.MsgUndPurchaseOrder";
   value: Uint8Array;
 }
-/** MsgUndPurchaseOrder represents a message to raise a new purchase order */
+/**
+ * MsgUndPurchaseOrder represents a message to raise a new purchase order
+ * @name MsgUndPurchaseOrderAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.MsgUndPurchaseOrder
+ */
 export interface MsgUndPurchaseOrderAmino {
-  /** purchaser is the address of the account raising the purchase order */
+  /**
+   * purchaser is the address of the account raising the purchase order
+   */
   purchaser?: string;
-  /** amount is the amount of eFUND in nund */
+  /**
+   * amount is the amount of eFUND in nund
+   */
   amount?: CoinAmino;
 }
 export interface MsgUndPurchaseOrderAminoMsg {
   type: "enterprise/MsgUndPurchaseOrder";
   value: MsgUndPurchaseOrderAmino;
 }
-/** MsgUndPurchaseOrder represents a message to raise a new purchase order */
+/**
+ * MsgUndPurchaseOrder represents a message to raise a new purchase order
+ * @name MsgUndPurchaseOrderSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.MsgUndPurchaseOrder
+ */
 export interface MsgUndPurchaseOrderSDKType {
   purchaser: string;
   amount: CoinSDKType;
 }
-/** MsgUndPurchaseOrderResponse defines the Msg/UndPurchaseOrder response type. */
+/**
+ * MsgUndPurchaseOrderResponse defines the Msg/UndPurchaseOrder response type.
+ * @name MsgUndPurchaseOrderResponse
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.MsgUndPurchaseOrderResponse
+ */
 export interface MsgUndPurchaseOrderResponse {
   purchaseOrderId: bigint;
 }
@@ -39,7 +67,12 @@ export interface MsgUndPurchaseOrderResponseProtoMsg {
   typeUrl: "/mainchain.enterprise.v1.MsgUndPurchaseOrderResponse";
   value: Uint8Array;
 }
-/** MsgUndPurchaseOrderResponse defines the Msg/UndPurchaseOrder response type. */
+/**
+ * MsgUndPurchaseOrderResponse defines the Msg/UndPurchaseOrder response type.
+ * @name MsgUndPurchaseOrderResponseAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.MsgUndPurchaseOrderResponse
+ */
 export interface MsgUndPurchaseOrderResponseAmino {
   purchase_order_id?: string;
 }
@@ -47,66 +80,131 @@ export interface MsgUndPurchaseOrderResponseAminoMsg {
   type: "/mainchain.enterprise.v1.MsgUndPurchaseOrderResponse";
   value: MsgUndPurchaseOrderResponseAmino;
 }
-/** MsgUndPurchaseOrderResponse defines the Msg/UndPurchaseOrder response type. */
+/**
+ * MsgUndPurchaseOrderResponse defines the Msg/UndPurchaseOrder response type.
+ * @name MsgUndPurchaseOrderResponseSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.MsgUndPurchaseOrderResponse
+ */
 export interface MsgUndPurchaseOrderResponseSDKType {
   purchase_order_id: bigint;
 }
-/** MsgProcessUndPurchaseOrder represents a message to processed a raised purchase order */
+/**
+ * MsgProcessUndPurchaseOrder represents a message to processed a raised
+ * purchase order
+ * @name MsgProcessUndPurchaseOrder
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.MsgProcessUndPurchaseOrder
+ */
 export interface MsgProcessUndPurchaseOrder {
-  /** purchase_order_id is the ID of the purchase order being raised */
+  /**
+   * purchase_order_id is the ID of the purchase order being raised
+   */
   purchaseOrderId: bigint;
-  /** decision is an enumerated PurchaseOrderStatus representing, for example accepted/rejected */
+  /**
+   * decision is an enumerated PurchaseOrderStatus representing, for example
+   * accepted/rejected
+   */
   decision: PurchaseOrderStatus;
-  /** signer is the address of the authorised decision maker */
+  /**
+   * signer is the address of the authorised decision maker
+   */
   signer: string;
 }
 export interface MsgProcessUndPurchaseOrderProtoMsg {
   typeUrl: "/mainchain.enterprise.v1.MsgProcessUndPurchaseOrder";
   value: Uint8Array;
 }
-/** MsgProcessUndPurchaseOrder represents a message to processed a raised purchase order */
+/**
+ * MsgProcessUndPurchaseOrder represents a message to processed a raised
+ * purchase order
+ * @name MsgProcessUndPurchaseOrderAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.MsgProcessUndPurchaseOrder
+ */
 export interface MsgProcessUndPurchaseOrderAmino {
-  /** purchase_order_id is the ID of the purchase order being raised */
+  /**
+   * purchase_order_id is the ID of the purchase order being raised
+   */
   purchase_order_id?: string;
-  /** decision is an enumerated PurchaseOrderStatus representing, for example accepted/rejected */
+  /**
+   * decision is an enumerated PurchaseOrderStatus representing, for example
+   * accepted/rejected
+   */
   decision?: PurchaseOrderStatus;
-  /** signer is the address of the authorised decision maker */
+  /**
+   * signer is the address of the authorised decision maker
+   */
   signer?: string;
 }
 export interface MsgProcessUndPurchaseOrderAminoMsg {
   type: "enterprise/MsgProcessUndPurchaseOrder";
   value: MsgProcessUndPurchaseOrderAmino;
 }
-/** MsgProcessUndPurchaseOrder represents a message to processed a raised purchase order */
+/**
+ * MsgProcessUndPurchaseOrder represents a message to processed a raised
+ * purchase order
+ * @name MsgProcessUndPurchaseOrderSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.MsgProcessUndPurchaseOrder
+ */
 export interface MsgProcessUndPurchaseOrderSDKType {
   purchase_order_id: bigint;
   decision: PurchaseOrderStatus;
   signer: string;
 }
-/** MsgProcessUndPurchaseOrderResponse defines the Msg/ProcessUndPurchaseOrder response type. */
+/**
+ * MsgProcessUndPurchaseOrderResponse defines the Msg/ProcessUndPurchaseOrder
+ * response type.
+ * @name MsgProcessUndPurchaseOrderResponse
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.MsgProcessUndPurchaseOrderResponse
+ */
 export interface MsgProcessUndPurchaseOrderResponse {}
 export interface MsgProcessUndPurchaseOrderResponseProtoMsg {
   typeUrl: "/mainchain.enterprise.v1.MsgProcessUndPurchaseOrderResponse";
   value: Uint8Array;
 }
-/** MsgProcessUndPurchaseOrderResponse defines the Msg/ProcessUndPurchaseOrder response type. */
+/**
+ * MsgProcessUndPurchaseOrderResponse defines the Msg/ProcessUndPurchaseOrder
+ * response type.
+ * @name MsgProcessUndPurchaseOrderResponseAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.MsgProcessUndPurchaseOrderResponse
+ */
 export interface MsgProcessUndPurchaseOrderResponseAmino {}
 export interface MsgProcessUndPurchaseOrderResponseAminoMsg {
   type: "/mainchain.enterprise.v1.MsgProcessUndPurchaseOrderResponse";
   value: MsgProcessUndPurchaseOrderResponseAmino;
 }
-/** MsgProcessUndPurchaseOrderResponse defines the Msg/ProcessUndPurchaseOrder response type. */
+/**
+ * MsgProcessUndPurchaseOrderResponse defines the Msg/ProcessUndPurchaseOrder
+ * response type.
+ * @name MsgProcessUndPurchaseOrderResponseSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.MsgProcessUndPurchaseOrderResponse
+ */
 export interface MsgProcessUndPurchaseOrderResponseSDKType {}
 /**
- * MsgWhitelistAddress represents a message to processed an address whitelist action.
- * only addresses whitelisted by an authorised decision maker can raise new purchase orders
+ * MsgWhitelistAddress represents a message to processed an address whitelist
+ * action. only addresses whitelisted by an authorised decision maker can raise
+ * new purchase orders
+ * @name MsgWhitelistAddress
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.MsgWhitelistAddress
  */
 export interface MsgWhitelistAddress {
-  /** address is the address for which the action is being executed */
+  /**
+   * address is the address for which the action is being executed
+   */
   address: string;
-  /** signer is the address of the authorised decision maker */
+  /**
+   * signer is the address of the authorised decision maker
+   */
   signer: string;
-  /** action is the action being executed, and is either add or remove. */
+  /**
+   * action is the action being executed, and is either add or remove.
+   */
   action: WhitelistAction;
 }
 export interface MsgWhitelistAddressProtoMsg {
@@ -114,15 +212,25 @@ export interface MsgWhitelistAddressProtoMsg {
   value: Uint8Array;
 }
 /**
- * MsgWhitelistAddress represents a message to processed an address whitelist action.
- * only addresses whitelisted by an authorised decision maker can raise new purchase orders
+ * MsgWhitelistAddress represents a message to processed an address whitelist
+ * action. only addresses whitelisted by an authorised decision maker can raise
+ * new purchase orders
+ * @name MsgWhitelistAddressAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.MsgWhitelistAddress
  */
 export interface MsgWhitelistAddressAmino {
-  /** address is the address for which the action is being executed */
+  /**
+   * address is the address for which the action is being executed
+   */
   address?: string;
-  /** signer is the address of the authorised decision maker */
+  /**
+   * signer is the address of the authorised decision maker
+   */
   signer?: string;
-  /** action is the action being executed, and is either add or remove. */
+  /**
+   * action is the action being executed, and is either add or remove.
+   */
   action?: WhitelistAction;
 }
 export interface MsgWhitelistAddressAminoMsg {
@@ -130,35 +238,60 @@ export interface MsgWhitelistAddressAminoMsg {
   value: MsgWhitelistAddressAmino;
 }
 /**
- * MsgWhitelistAddress represents a message to processed an address whitelist action.
- * only addresses whitelisted by an authorised decision maker can raise new purchase orders
+ * MsgWhitelistAddress represents a message to processed an address whitelist
+ * action. only addresses whitelisted by an authorised decision maker can raise
+ * new purchase orders
+ * @name MsgWhitelistAddressSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.MsgWhitelistAddress
  */
 export interface MsgWhitelistAddressSDKType {
   address: string;
   signer: string;
   action: WhitelistAction;
 }
-/** MsgWhitelistAddressResponse defines the Msg/WhitelistAddress response type. */
+/**
+ * MsgWhitelistAddressResponse defines the Msg/WhitelistAddress response type.
+ * @name MsgWhitelistAddressResponse
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.MsgWhitelistAddressResponse
+ */
 export interface MsgWhitelistAddressResponse {}
 export interface MsgWhitelistAddressResponseProtoMsg {
   typeUrl: "/mainchain.enterprise.v1.MsgWhitelistAddressResponse";
   value: Uint8Array;
 }
-/** MsgWhitelistAddressResponse defines the Msg/WhitelistAddress response type. */
+/**
+ * MsgWhitelistAddressResponse defines the Msg/WhitelistAddress response type.
+ * @name MsgWhitelistAddressResponseAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.MsgWhitelistAddressResponse
+ */
 export interface MsgWhitelistAddressResponseAmino {}
 export interface MsgWhitelistAddressResponseAminoMsg {
   type: "/mainchain.enterprise.v1.MsgWhitelistAddressResponse";
   value: MsgWhitelistAddressResponseAmino;
 }
-/** MsgWhitelistAddressResponse defines the Msg/WhitelistAddress response type. */
+/**
+ * MsgWhitelistAddressResponse defines the Msg/WhitelistAddress response type.
+ * @name MsgWhitelistAddressResponseSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.MsgWhitelistAddressResponse
+ */
 export interface MsgWhitelistAddressResponseSDKType {}
 /**
  * MsgUpdateParams is the Msg/UpdateParams request type.
  * 
  * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParams
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.MsgUpdateParams
  */
 export interface MsgUpdateParams {
-  /** authority is the address that controls the module (defaults to x/gov unless overwritten). */
+  /**
+   * authority is the address that controls the module (defaults to x/gov unless
+   * overwritten).
+   */
   authority: string;
   /**
    * params defines the x/staking parameters to update.
@@ -175,9 +308,15 @@ export interface MsgUpdateParamsProtoMsg {
  * MsgUpdateParams is the Msg/UpdateParams request type.
  * 
  * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParamsAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.MsgUpdateParams
  */
 export interface MsgUpdateParamsAmino {
-  /** authority is the address that controls the module (defaults to x/gov unless overwritten). */
+  /**
+   * authority is the address that controls the module (defaults to x/gov unless
+   * overwritten).
+   */
   authority?: string;
   /**
    * params defines the x/staking parameters to update.
@@ -194,6 +333,9 @@ export interface MsgUpdateParamsAminoMsg {
  * MsgUpdateParams is the Msg/UpdateParams request type.
  * 
  * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParamsSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.MsgUpdateParams
  */
 export interface MsgUpdateParamsSDKType {
   authority: string;
@@ -204,6 +346,9 @@ export interface MsgUpdateParamsSDKType {
  * MsgUpdateParams message.
  * 
  * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParamsResponse
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.MsgUpdateParamsResponse
  */
 export interface MsgUpdateParamsResponse {}
 export interface MsgUpdateParamsResponseProtoMsg {
@@ -215,6 +360,9 @@ export interface MsgUpdateParamsResponseProtoMsg {
  * MsgUpdateParams message.
  * 
  * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParamsResponseAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.MsgUpdateParamsResponse
  */
 export interface MsgUpdateParamsResponseAmino {}
 export interface MsgUpdateParamsResponseAminoMsg {
@@ -226,6 +374,9 @@ export interface MsgUpdateParamsResponseAminoMsg {
  * MsgUpdateParams message.
  * 
  * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParamsResponseSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.MsgUpdateParamsResponse
  */
 export interface MsgUpdateParamsResponseSDKType {}
 function createBaseMsgUndPurchaseOrder(): MsgUndPurchaseOrder {
@@ -234,6 +385,12 @@ function createBaseMsgUndPurchaseOrder(): MsgUndPurchaseOrder {
     amount: Coin.fromPartial({})
   };
 }
+/**
+ * MsgUndPurchaseOrder represents a message to raise a new purchase order
+ * @name MsgUndPurchaseOrder
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.MsgUndPurchaseOrder
+ */
 export const MsgUndPurchaseOrder = {
   typeUrl: "/mainchain.enterprise.v1.MsgUndPurchaseOrder",
   aminoType: "enterprise/MsgUndPurchaseOrder",
@@ -317,15 +474,25 @@ export const MsgUndPurchaseOrder = {
       typeUrl: "/mainchain.enterprise.v1.MsgUndPurchaseOrder",
       value: MsgUndPurchaseOrder.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgUndPurchaseOrder.typeUrl)) {
+      return;
+    }
+    Coin.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgUndPurchaseOrder.typeUrl, MsgUndPurchaseOrder);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgUndPurchaseOrder.aminoType, MsgUndPurchaseOrder.typeUrl);
 function createBaseMsgUndPurchaseOrderResponse(): MsgUndPurchaseOrderResponse {
   return {
     purchaseOrderId: BigInt(0)
   };
 }
+/**
+ * MsgUndPurchaseOrderResponse defines the Msg/UndPurchaseOrder response type.
+ * @name MsgUndPurchaseOrderResponse
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.MsgUndPurchaseOrderResponse
+ */
 export const MsgUndPurchaseOrderResponse = {
   typeUrl: "/mainchain.enterprise.v1.MsgUndPurchaseOrderResponse",
   is(o: any): o is MsgUndPurchaseOrderResponse {
@@ -391,9 +558,9 @@ export const MsgUndPurchaseOrderResponse = {
       typeUrl: "/mainchain.enterprise.v1.MsgUndPurchaseOrderResponse",
       value: MsgUndPurchaseOrderResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgUndPurchaseOrderResponse.typeUrl, MsgUndPurchaseOrderResponse);
 function createBaseMsgProcessUndPurchaseOrder(): MsgProcessUndPurchaseOrder {
   return {
     purchaseOrderId: BigInt(0),
@@ -401,6 +568,13 @@ function createBaseMsgProcessUndPurchaseOrder(): MsgProcessUndPurchaseOrder {
     signer: ""
   };
 }
+/**
+ * MsgProcessUndPurchaseOrder represents a message to processed a raised
+ * purchase order
+ * @name MsgProcessUndPurchaseOrder
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.MsgProcessUndPurchaseOrder
+ */
 export const MsgProcessUndPurchaseOrder = {
   typeUrl: "/mainchain.enterprise.v1.MsgProcessUndPurchaseOrder",
   aminoType: "enterprise/MsgProcessUndPurchaseOrder",
@@ -495,13 +669,19 @@ export const MsgProcessUndPurchaseOrder = {
       typeUrl: "/mainchain.enterprise.v1.MsgProcessUndPurchaseOrder",
       value: MsgProcessUndPurchaseOrder.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgProcessUndPurchaseOrder.typeUrl, MsgProcessUndPurchaseOrder);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgProcessUndPurchaseOrder.aminoType, MsgProcessUndPurchaseOrder.typeUrl);
 function createBaseMsgProcessUndPurchaseOrderResponse(): MsgProcessUndPurchaseOrderResponse {
   return {};
 }
+/**
+ * MsgProcessUndPurchaseOrderResponse defines the Msg/ProcessUndPurchaseOrder
+ * response type.
+ * @name MsgProcessUndPurchaseOrderResponse
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.MsgProcessUndPurchaseOrderResponse
+ */
 export const MsgProcessUndPurchaseOrderResponse = {
   typeUrl: "/mainchain.enterprise.v1.MsgProcessUndPurchaseOrderResponse",
   is(o: any): o is MsgProcessUndPurchaseOrderResponse {
@@ -556,9 +736,9 @@ export const MsgProcessUndPurchaseOrderResponse = {
       typeUrl: "/mainchain.enterprise.v1.MsgProcessUndPurchaseOrderResponse",
       value: MsgProcessUndPurchaseOrderResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgProcessUndPurchaseOrderResponse.typeUrl, MsgProcessUndPurchaseOrderResponse);
 function createBaseMsgWhitelistAddress(): MsgWhitelistAddress {
   return {
     address: "",
@@ -566,6 +746,14 @@ function createBaseMsgWhitelistAddress(): MsgWhitelistAddress {
     action: 0
   };
 }
+/**
+ * MsgWhitelistAddress represents a message to processed an address whitelist
+ * action. only addresses whitelisted by an authorised decision maker can raise
+ * new purchase orders
+ * @name MsgWhitelistAddress
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.MsgWhitelistAddress
+ */
 export const MsgWhitelistAddress = {
   typeUrl: "/mainchain.enterprise.v1.MsgWhitelistAddress",
   aminoType: "enterprise/MsgWhitelistAddress",
@@ -660,13 +848,18 @@ export const MsgWhitelistAddress = {
       typeUrl: "/mainchain.enterprise.v1.MsgWhitelistAddress",
       value: MsgWhitelistAddress.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgWhitelistAddress.typeUrl, MsgWhitelistAddress);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgWhitelistAddress.aminoType, MsgWhitelistAddress.typeUrl);
 function createBaseMsgWhitelistAddressResponse(): MsgWhitelistAddressResponse {
   return {};
 }
+/**
+ * MsgWhitelistAddressResponse defines the Msg/WhitelistAddress response type.
+ * @name MsgWhitelistAddressResponse
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.MsgWhitelistAddressResponse
+ */
 export const MsgWhitelistAddressResponse = {
   typeUrl: "/mainchain.enterprise.v1.MsgWhitelistAddressResponse",
   is(o: any): o is MsgWhitelistAddressResponse {
@@ -721,15 +914,23 @@ export const MsgWhitelistAddressResponse = {
       typeUrl: "/mainchain.enterprise.v1.MsgWhitelistAddressResponse",
       value: MsgWhitelistAddressResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgWhitelistAddressResponse.typeUrl, MsgWhitelistAddressResponse);
 function createBaseMsgUpdateParams(): MsgUpdateParams {
   return {
     authority: "",
     params: Params.fromPartial({})
   };
 }
+/**
+ * MsgUpdateParams is the Msg/UpdateParams request type.
+ * 
+ * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParams
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.MsgUpdateParams
+ */
 export const MsgUpdateParams = {
   typeUrl: "/mainchain.enterprise.v1.MsgUpdateParams",
   aminoType: "mainchain/x/enterprise/MsgUpdateParams",
@@ -813,13 +1014,26 @@ export const MsgUpdateParams = {
       typeUrl: "/mainchain.enterprise.v1.MsgUpdateParams",
       value: MsgUpdateParams.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgUpdateParams.typeUrl)) {
+      return;
+    }
+    Params.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgUpdateParams.typeUrl, MsgUpdateParams);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgUpdateParams.aminoType, MsgUpdateParams.typeUrl);
 function createBaseMsgUpdateParamsResponse(): MsgUpdateParamsResponse {
   return {};
 }
+/**
+ * MsgUpdateParamsResponse defines the response structure for executing a
+ * MsgUpdateParams message.
+ * 
+ * Since: cosmos-sdk 0.47
+ * @name MsgUpdateParamsResponse
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.MsgUpdateParamsResponse
+ */
 export const MsgUpdateParamsResponse = {
   typeUrl: "/mainchain.enterprise.v1.MsgUpdateParamsResponse",
   is(o: any): o is MsgUpdateParamsResponse {
@@ -874,6 +1088,6 @@ export const MsgUpdateParamsResponse = {
       typeUrl: "/mainchain.enterprise.v1.MsgUpdateParamsResponse",
       value: MsgUpdateParamsResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgUpdateParamsResponse.typeUrl, MsgUpdateParamsResponse);

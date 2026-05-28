@@ -7,9 +7,14 @@ import { GlobalDecoderRegistry } from "../../../registry";
 /**
  * EpochInfo is a struct that describes the data going into
  * a timer defined by the x/epochs module.
+ * @name EpochInfo
+ * @package cosmos.epochs.v1beta1
+ * @see proto type: cosmos.epochs.v1beta1.EpochInfo
  */
 export interface EpochInfo {
-  /** identifier is a unique reference to this particular timer. */
+  /**
+   * identifier is a unique reference to this particular timer.
+   */
   identifier: string;
   /**
    * start_time is the time at which the timer first ever ticks.
@@ -69,9 +74,14 @@ export interface EpochInfoProtoMsg {
 /**
  * EpochInfo is a struct that describes the data going into
  * a timer defined by the x/epochs module.
+ * @name EpochInfoAmino
+ * @package cosmos.epochs.v1beta1
+ * @see proto type: cosmos.epochs.v1beta1.EpochInfo
  */
 export interface EpochInfoAmino {
-  /** identifier is a unique reference to this particular timer. */
+  /**
+   * identifier is a unique reference to this particular timer.
+   */
   identifier?: string;
   /**
    * start_time is the time at which the timer first ever ticks.
@@ -131,6 +141,9 @@ export interface EpochInfoAminoMsg {
 /**
  * EpochInfo is a struct that describes the data going into
  * a timer defined by the x/epochs module.
+ * @name EpochInfoSDKType
+ * @package cosmos.epochs.v1beta1
+ * @see proto type: cosmos.epochs.v1beta1.EpochInfo
  */
 export interface EpochInfoSDKType {
   identifier: string;
@@ -141,7 +154,12 @@ export interface EpochInfoSDKType {
   epoch_counting_started: boolean;
   current_epoch_start_height: bigint;
 }
-/** GenesisState defines the epochs module's genesis state. */
+/**
+ * GenesisState defines the epochs module's genesis state.
+ * @name GenesisState
+ * @package cosmos.epochs.v1beta1
+ * @see proto type: cosmos.epochs.v1beta1.GenesisState
+ */
 export interface GenesisState {
   epochs: EpochInfo[];
 }
@@ -149,7 +167,12 @@ export interface GenesisStateProtoMsg {
   typeUrl: "/cosmos.epochs.v1beta1.GenesisState";
   value: Uint8Array;
 }
-/** GenesisState defines the epochs module's genesis state. */
+/**
+ * GenesisState defines the epochs module's genesis state.
+ * @name GenesisStateAmino
+ * @package cosmos.epochs.v1beta1
+ * @see proto type: cosmos.epochs.v1beta1.GenesisState
+ */
 export interface GenesisStateAmino {
   epochs?: EpochInfoAmino[];
 }
@@ -157,7 +180,12 @@ export interface GenesisStateAminoMsg {
   type: "cosmos-sdk/GenesisState";
   value: GenesisStateAmino;
 }
-/** GenesisState defines the epochs module's genesis state. */
+/**
+ * GenesisState defines the epochs module's genesis state.
+ * @name GenesisStateSDKType
+ * @package cosmos.epochs.v1beta1
+ * @see proto type: cosmos.epochs.v1beta1.GenesisState
+ */
 export interface GenesisStateSDKType {
   epochs: EpochInfoSDKType[];
 }
@@ -172,6 +200,13 @@ function createBaseEpochInfo(): EpochInfo {
     currentEpochStartHeight: BigInt(0)
   };
 }
+/**
+ * EpochInfo is a struct that describes the data going into
+ * a timer defined by the x/epochs module.
+ * @name EpochInfo
+ * @package cosmos.epochs.v1beta1
+ * @see proto type: cosmos.epochs.v1beta1.EpochInfo
+ */
 export const EpochInfo = {
   typeUrl: "/cosmos.epochs.v1beta1.EpochInfo",
   aminoType: "cosmos-sdk/EpochInfo",
@@ -310,15 +345,20 @@ export const EpochInfo = {
       typeUrl: "/cosmos.epochs.v1beta1.EpochInfo",
       value: EpochInfo.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(EpochInfo.typeUrl, EpochInfo);
-GlobalDecoderRegistry.registerAminoProtoMapping(EpochInfo.aminoType, EpochInfo.typeUrl);
 function createBaseGenesisState(): GenesisState {
   return {
     epochs: []
   };
 }
+/**
+ * GenesisState defines the epochs module's genesis state.
+ * @name GenesisState
+ * @package cosmos.epochs.v1beta1
+ * @see proto type: cosmos.epochs.v1beta1.GenesisState
+ */
 export const GenesisState = {
   typeUrl: "/cosmos.epochs.v1beta1.GenesisState",
   aminoType: "cosmos-sdk/GenesisState",
@@ -393,7 +433,11 @@ export const GenesisState = {
       typeUrl: "/cosmos.epochs.v1beta1.GenesisState",
       value: GenesisState.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(GenesisState.typeUrl)) {
+      return;
+    }
+    EpochInfo.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(GenesisState.typeUrl, GenesisState);
-GlobalDecoderRegistry.registerAminoProtoMapping(GenesisState.aminoType, GenesisState.typeUrl);

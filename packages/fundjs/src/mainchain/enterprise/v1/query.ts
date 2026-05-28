@@ -5,21 +5,41 @@ import { Coin, CoinAmino, CoinSDKType } from "../../../cosmos/base/v1beta1/coin"
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { GlobalDecoderRegistry } from "../../../registry";
 import { isSet } from "../../../helpers";
-/** QueryParamsRequest is the request type for the Query/Params RPC method */
+/**
+ * QueryParamsRequest is the request type for the Query/Params RPC method
+ * @name QueryParamsRequest
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryParamsRequest
+ */
 export interface QueryParamsRequest {}
 export interface QueryParamsRequestProtoMsg {
   typeUrl: "/mainchain.enterprise.v1.QueryParamsRequest";
   value: Uint8Array;
 }
-/** QueryParamsRequest is the request type for the Query/Params RPC method */
+/**
+ * QueryParamsRequest is the request type for the Query/Params RPC method
+ * @name QueryParamsRequestAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryParamsRequest
+ */
 export interface QueryParamsRequestAmino {}
 export interface QueryParamsRequestAminoMsg {
   type: "/mainchain.enterprise.v1.QueryParamsRequest";
   value: QueryParamsRequestAmino;
 }
-/** QueryParamsRequest is the request type for the Query/Params RPC method */
+/**
+ * QueryParamsRequest is the request type for the Query/Params RPC method
+ * @name QueryParamsRequestSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryParamsRequest
+ */
 export interface QueryParamsRequestSDKType {}
-/** QueryParamsResponse is the response type for the Query/Params RPC method */
+/**
+ * QueryParamsResponse is the response type for the Query/Params RPC method
+ * @name QueryParamsResponse
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryParamsResponse
+ */
 export interface QueryParamsResponse {
   params: Params;
 }
@@ -27,7 +47,12 @@ export interface QueryParamsResponseProtoMsg {
   typeUrl: "/mainchain.enterprise.v1.QueryParamsResponse";
   value: Uint8Array;
 }
-/** QueryParamsResponse is the response type for the Query/Params RPC method */
+/**
+ * QueryParamsResponse is the response type for the Query/Params RPC method
+ * @name QueryParamsResponseAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryParamsResponse
+ */
 export interface QueryParamsResponseAmino {
   params?: ParamsAmino;
 }
@@ -35,33 +60,66 @@ export interface QueryParamsResponseAminoMsg {
   type: "/mainchain.enterprise.v1.QueryParamsResponse";
   value: QueryParamsResponseAmino;
 }
-/** QueryParamsResponse is the response type for the Query/Params RPC method */
+/**
+ * QueryParamsResponse is the response type for the Query/Params RPC method
+ * @name QueryParamsResponseSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryParamsResponse
+ */
 export interface QueryParamsResponseSDKType {
   params: ParamsSDKType;
 }
-/** QueryEnterpriseUndPurchaseOrderRequest is the request type for the Query/EnterpriseUndPurchaseOrder RPC method. */
+/**
+ * QueryEnterpriseUndPurchaseOrderRequest is the request type for the
+ * Query/EnterpriseUndPurchaseOrder RPC method.
+ * @name QueryEnterpriseUndPurchaseOrderRequest
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrderRequest
+ */
 export interface QueryEnterpriseUndPurchaseOrderRequest {
-  /** purchase_order_id defines the PO to query for. */
+  /**
+   * purchase_order_id defines the PO to query for.
+   */
   purchaseOrderId: bigint;
 }
 export interface QueryEnterpriseUndPurchaseOrderRequestProtoMsg {
   typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrderRequest";
   value: Uint8Array;
 }
-/** QueryEnterpriseUndPurchaseOrderRequest is the request type for the Query/EnterpriseUndPurchaseOrder RPC method. */
+/**
+ * QueryEnterpriseUndPurchaseOrderRequest is the request type for the
+ * Query/EnterpriseUndPurchaseOrder RPC method.
+ * @name QueryEnterpriseUndPurchaseOrderRequestAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrderRequest
+ */
 export interface QueryEnterpriseUndPurchaseOrderRequestAmino {
-  /** purchase_order_id defines the PO to query for. */
+  /**
+   * purchase_order_id defines the PO to query for.
+   */
   purchase_order_id?: string;
 }
 export interface QueryEnterpriseUndPurchaseOrderRequestAminoMsg {
   type: "/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrderRequest";
   value: QueryEnterpriseUndPurchaseOrderRequestAmino;
 }
-/** QueryEnterpriseUndPurchaseOrderRequest is the request type for the Query/EnterpriseUndPurchaseOrder RPC method. */
+/**
+ * QueryEnterpriseUndPurchaseOrderRequest is the request type for the
+ * Query/EnterpriseUndPurchaseOrder RPC method.
+ * @name QueryEnterpriseUndPurchaseOrderRequestSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrderRequest
+ */
 export interface QueryEnterpriseUndPurchaseOrderRequestSDKType {
   purchase_order_id: bigint;
 }
-/** QueryEnterpriseUndPurchaseOrderResponse is the response type for the Query/EnterpriseUndPurchaseOrder RPC method. */
+/**
+ * QueryEnterpriseUndPurchaseOrderResponse is the response type for the
+ * Query/EnterpriseUndPurchaseOrder RPC method.
+ * @name QueryEnterpriseUndPurchaseOrderResponse
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrderResponse
+ */
 export interface QueryEnterpriseUndPurchaseOrderResponse {
   purchaseOrder: EnterpriseUndPurchaseOrder;
 }
@@ -69,7 +127,13 @@ export interface QueryEnterpriseUndPurchaseOrderResponseProtoMsg {
   typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrderResponse";
   value: Uint8Array;
 }
-/** QueryEnterpriseUndPurchaseOrderResponse is the response type for the Query/EnterpriseUndPurchaseOrder RPC method. */
+/**
+ * QueryEnterpriseUndPurchaseOrderResponse is the response type for the
+ * Query/EnterpriseUndPurchaseOrder RPC method.
+ * @name QueryEnterpriseUndPurchaseOrderResponseAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrderResponse
+ */
 export interface QueryEnterpriseUndPurchaseOrderResponseAmino {
   purchase_order?: EnterpriseUndPurchaseOrderAmino;
 }
@@ -77,13 +141,22 @@ export interface QueryEnterpriseUndPurchaseOrderResponseAminoMsg {
   type: "/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrderResponse";
   value: QueryEnterpriseUndPurchaseOrderResponseAmino;
 }
-/** QueryEnterpriseUndPurchaseOrderResponse is the response type for the Query/EnterpriseUndPurchaseOrder RPC method. */
+/**
+ * QueryEnterpriseUndPurchaseOrderResponse is the response type for the
+ * Query/EnterpriseUndPurchaseOrder RPC method.
+ * @name QueryEnterpriseUndPurchaseOrderResponseSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrderResponse
+ */
 export interface QueryEnterpriseUndPurchaseOrderResponseSDKType {
   purchase_order: EnterpriseUndPurchaseOrderSDKType;
 }
 /**
- * QueryEnterpriseUndPurchaseOrdersRequest is the request type for the Query/EnterpriseUndPurchaseOrders RPC
- * method
+ * QueryEnterpriseUndPurchaseOrdersRequest is the request type for the
+ * Query/EnterpriseUndPurchaseOrders RPC method
+ * @name QueryEnterpriseUndPurchaseOrdersRequest
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrdersRequest
  */
 export interface QueryEnterpriseUndPurchaseOrdersRequest {
   pagination?: PageRequest;
@@ -95,8 +168,11 @@ export interface QueryEnterpriseUndPurchaseOrdersRequestProtoMsg {
   value: Uint8Array;
 }
 /**
- * QueryEnterpriseUndPurchaseOrdersRequest is the request type for the Query/EnterpriseUndPurchaseOrders RPC
- * method
+ * QueryEnterpriseUndPurchaseOrdersRequest is the request type for the
+ * Query/EnterpriseUndPurchaseOrders RPC method
+ * @name QueryEnterpriseUndPurchaseOrdersRequestAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrdersRequest
  */
 export interface QueryEnterpriseUndPurchaseOrdersRequestAmino {
   pagination?: PageRequestAmino;
@@ -108,8 +184,11 @@ export interface QueryEnterpriseUndPurchaseOrdersRequestAminoMsg {
   value: QueryEnterpriseUndPurchaseOrdersRequestAmino;
 }
 /**
- * QueryEnterpriseUndPurchaseOrdersRequest is the request type for the Query/EnterpriseUndPurchaseOrders RPC
- * method
+ * QueryEnterpriseUndPurchaseOrdersRequest is the request type for the
+ * Query/EnterpriseUndPurchaseOrders RPC method
+ * @name QueryEnterpriseUndPurchaseOrdersRequestSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrdersRequest
  */
 export interface QueryEnterpriseUndPurchaseOrdersRequestSDKType {
   pagination?: PageRequestSDKType;
@@ -117,13 +196,20 @@ export interface QueryEnterpriseUndPurchaseOrdersRequestSDKType {
   status: PurchaseOrderStatus;
 }
 /**
- * QueryEnterpriseUndPurchaseOrdersResponse is the response type for the Query/EnterpriseUndPurchaseOrders RPC
- * method
+ * QueryEnterpriseUndPurchaseOrdersResponse is the response type for the
+ * Query/EnterpriseUndPurchaseOrders RPC method
+ * @name QueryEnterpriseUndPurchaseOrdersResponse
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrdersResponse
  */
 export interface QueryEnterpriseUndPurchaseOrdersResponse {
-  /** purchase_orders is the list of all purchase orders */
+  /**
+   * purchase_orders is the list of all purchase orders
+   */
   purchaseOrders: EnterpriseUndPurchaseOrder[];
-  /** pagination defines the pagination in the response. */
+  /**
+   * pagination defines the pagination in the response.
+   */
   pagination?: PageResponse;
 }
 export interface QueryEnterpriseUndPurchaseOrdersResponseProtoMsg {
@@ -131,13 +217,20 @@ export interface QueryEnterpriseUndPurchaseOrdersResponseProtoMsg {
   value: Uint8Array;
 }
 /**
- * QueryEnterpriseUndPurchaseOrdersResponse is the response type for the Query/EnterpriseUndPurchaseOrders RPC
- * method
+ * QueryEnterpriseUndPurchaseOrdersResponse is the response type for the
+ * Query/EnterpriseUndPurchaseOrders RPC method
+ * @name QueryEnterpriseUndPurchaseOrdersResponseAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrdersResponse
  */
 export interface QueryEnterpriseUndPurchaseOrdersResponseAmino {
-  /** purchase_orders is the list of all purchase orders */
+  /**
+   * purchase_orders is the list of all purchase orders
+   */
   purchase_orders?: EnterpriseUndPurchaseOrderAmino[];
-  /** pagination defines the pagination in the response. */
+  /**
+   * pagination defines the pagination in the response.
+   */
   pagination?: PageResponseAmino;
 }
 export interface QueryEnterpriseUndPurchaseOrdersResponseAminoMsg {
@@ -145,36 +238,67 @@ export interface QueryEnterpriseUndPurchaseOrdersResponseAminoMsg {
   value: QueryEnterpriseUndPurchaseOrdersResponseAmino;
 }
 /**
- * QueryEnterpriseUndPurchaseOrdersResponse is the response type for the Query/EnterpriseUndPurchaseOrders RPC
- * method
+ * QueryEnterpriseUndPurchaseOrdersResponse is the response type for the
+ * Query/EnterpriseUndPurchaseOrders RPC method
+ * @name QueryEnterpriseUndPurchaseOrdersResponseSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrdersResponse
  */
 export interface QueryEnterpriseUndPurchaseOrdersResponseSDKType {
   purchase_orders: EnterpriseUndPurchaseOrderSDKType[];
   pagination?: PageResponseSDKType;
 }
-/** QueryLockedUndByAddressRequest is the request type for the Query/LockedUndByAddress RPC method */
+/**
+ * QueryLockedUndByAddressRequest is the request type for the
+ * Query/LockedUndByAddress RPC method
+ * @name QueryLockedUndByAddressRequest
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryLockedUndByAddressRequest
+ */
 export interface QueryLockedUndByAddressRequest {
-  /** owner is the address to query */
+  /**
+   * owner is the address to query
+   */
   owner: string;
 }
 export interface QueryLockedUndByAddressRequestProtoMsg {
   typeUrl: "/mainchain.enterprise.v1.QueryLockedUndByAddressRequest";
   value: Uint8Array;
 }
-/** QueryLockedUndByAddressRequest is the request type for the Query/LockedUndByAddress RPC method */
+/**
+ * QueryLockedUndByAddressRequest is the request type for the
+ * Query/LockedUndByAddress RPC method
+ * @name QueryLockedUndByAddressRequestAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryLockedUndByAddressRequest
+ */
 export interface QueryLockedUndByAddressRequestAmino {
-  /** owner is the address to query */
+  /**
+   * owner is the address to query
+   */
   owner?: string;
 }
 export interface QueryLockedUndByAddressRequestAminoMsg {
   type: "/mainchain.enterprise.v1.QueryLockedUndByAddressRequest";
   value: QueryLockedUndByAddressRequestAmino;
 }
-/** QueryLockedUndByAddressRequest is the request type for the Query/LockedUndByAddress RPC method */
+/**
+ * QueryLockedUndByAddressRequest is the request type for the
+ * Query/LockedUndByAddress RPC method
+ * @name QueryLockedUndByAddressRequestSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryLockedUndByAddressRequest
+ */
 export interface QueryLockedUndByAddressRequestSDKType {
   owner: string;
 }
-/** QueryLockedUndByAddressResponse is the response type for the Query/LockedUndByAddress RPC method */
+/**
+ * QueryLockedUndByAddressResponse is the response type for the
+ * Query/LockedUndByAddress RPC method
+ * @name QueryLockedUndByAddressResponse
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryLockedUndByAddressResponse
+ */
 export interface QueryLockedUndByAddressResponse {
   amount: Coin;
 }
@@ -182,7 +306,13 @@ export interface QueryLockedUndByAddressResponseProtoMsg {
   typeUrl: "/mainchain.enterprise.v1.QueryLockedUndByAddressResponse";
   value: Uint8Array;
 }
-/** QueryLockedUndByAddressResponse is the response type for the Query/LockedUndByAddress RPC method */
+/**
+ * QueryLockedUndByAddressResponse is the response type for the
+ * Query/LockedUndByAddress RPC method
+ * @name QueryLockedUndByAddressResponseAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryLockedUndByAddressResponse
+ */
 export interface QueryLockedUndByAddressResponseAmino {
   amount?: CoinAmino;
 }
@@ -190,25 +320,55 @@ export interface QueryLockedUndByAddressResponseAminoMsg {
   type: "/mainchain.enterprise.v1.QueryLockedUndByAddressResponse";
   value: QueryLockedUndByAddressResponseAmino;
 }
-/** QueryLockedUndByAddressResponse is the response type for the Query/LockedUndByAddress RPC method */
+/**
+ * QueryLockedUndByAddressResponse is the response type for the
+ * Query/LockedUndByAddress RPC method
+ * @name QueryLockedUndByAddressResponseSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryLockedUndByAddressResponse
+ */
 export interface QueryLockedUndByAddressResponseSDKType {
   amount: CoinSDKType;
 }
-/** QueryTotalLockedRequest is the request type for the Query/TotalLocked RPC method */
+/**
+ * QueryTotalLockedRequest is the request type for the Query/TotalLocked RPC
+ * method
+ * @name QueryTotalLockedRequest
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryTotalLockedRequest
+ */
 export interface QueryTotalLockedRequest {}
 export interface QueryTotalLockedRequestProtoMsg {
   typeUrl: "/mainchain.enterprise.v1.QueryTotalLockedRequest";
   value: Uint8Array;
 }
-/** QueryTotalLockedRequest is the request type for the Query/TotalLocked RPC method */
+/**
+ * QueryTotalLockedRequest is the request type for the Query/TotalLocked RPC
+ * method
+ * @name QueryTotalLockedRequestAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryTotalLockedRequest
+ */
 export interface QueryTotalLockedRequestAmino {}
 export interface QueryTotalLockedRequestAminoMsg {
   type: "/mainchain.enterprise.v1.QueryTotalLockedRequest";
   value: QueryTotalLockedRequestAmino;
 }
-/** QueryTotalLockedRequest is the request type for the Query/TotalLocked RPC method */
+/**
+ * QueryTotalLockedRequest is the request type for the Query/TotalLocked RPC
+ * method
+ * @name QueryTotalLockedRequestSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryTotalLockedRequest
+ */
 export interface QueryTotalLockedRequestSDKType {}
-/** QueryTotalLockedResponse is the response type for the Query/TotalLocked RPC method */
+/**
+ * QueryTotalLockedResponse is the response type for the Query/TotalLocked RPC
+ * method
+ * @name QueryTotalLockedResponse
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryTotalLockedResponse
+ */
 export interface QueryTotalLockedResponse {
   amount: Coin;
 }
@@ -216,7 +376,13 @@ export interface QueryTotalLockedResponseProtoMsg {
   typeUrl: "/mainchain.enterprise.v1.QueryTotalLockedResponse";
   value: Uint8Array;
 }
-/** QueryTotalLockedResponse is the response type for the Query/TotalLocked RPC method */
+/**
+ * QueryTotalLockedResponse is the response type for the Query/TotalLocked RPC
+ * method
+ * @name QueryTotalLockedResponseAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryTotalLockedResponse
+ */
 export interface QueryTotalLockedResponseAmino {
   amount?: CoinAmino;
 }
@@ -224,25 +390,55 @@ export interface QueryTotalLockedResponseAminoMsg {
   type: "/mainchain.enterprise.v1.QueryTotalLockedResponse";
   value: QueryTotalLockedResponseAmino;
 }
-/** QueryTotalLockedResponse is the response type for the Query/TotalLocked RPC method */
+/**
+ * QueryTotalLockedResponse is the response type for the Query/TotalLocked RPC
+ * method
+ * @name QueryTotalLockedResponseSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryTotalLockedResponse
+ */
 export interface QueryTotalLockedResponseSDKType {
   amount: CoinSDKType;
 }
-/** QueryTotalUnlockedRequest is the request type for the Query/TotalUnlocked RPC method */
+/**
+ * QueryTotalUnlockedRequest is the request type for the Query/TotalUnlocked RPC
+ * method
+ * @name QueryTotalUnlockedRequest
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryTotalUnlockedRequest
+ */
 export interface QueryTotalUnlockedRequest {}
 export interface QueryTotalUnlockedRequestProtoMsg {
   typeUrl: "/mainchain.enterprise.v1.QueryTotalUnlockedRequest";
   value: Uint8Array;
 }
-/** QueryTotalUnlockedRequest is the request type for the Query/TotalUnlocked RPC method */
+/**
+ * QueryTotalUnlockedRequest is the request type for the Query/TotalUnlocked RPC
+ * method
+ * @name QueryTotalUnlockedRequestAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryTotalUnlockedRequest
+ */
 export interface QueryTotalUnlockedRequestAmino {}
 export interface QueryTotalUnlockedRequestAminoMsg {
   type: "/mainchain.enterprise.v1.QueryTotalUnlockedRequest";
   value: QueryTotalUnlockedRequestAmino;
 }
-/** QueryTotalUnlockedRequest is the request type for the Query/TotalUnlocked RPC method */
+/**
+ * QueryTotalUnlockedRequest is the request type for the Query/TotalUnlocked RPC
+ * method
+ * @name QueryTotalUnlockedRequestSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryTotalUnlockedRequest
+ */
 export interface QueryTotalUnlockedRequestSDKType {}
-/** QueryTotalUnlockedResponse is the response type for the Query/TotalUnlocked RPC method */
+/**
+ * QueryTotalUnlockedResponse is the response type for the Query/TotalUnlocked
+ * RPC method
+ * @name QueryTotalUnlockedResponse
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryTotalUnlockedResponse
+ */
 export interface QueryTotalUnlockedResponse {
   amount: Coin;
 }
@@ -250,7 +446,13 @@ export interface QueryTotalUnlockedResponseProtoMsg {
   typeUrl: "/mainchain.enterprise.v1.QueryTotalUnlockedResponse";
   value: Uint8Array;
 }
-/** QueryTotalUnlockedResponse is the response type for the Query/TotalUnlocked RPC method */
+/**
+ * QueryTotalUnlockedResponse is the response type for the Query/TotalUnlocked
+ * RPC method
+ * @name QueryTotalUnlockedResponseAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryTotalUnlockedResponse
+ */
 export interface QueryTotalUnlockedResponseAmino {
   amount?: CoinAmino;
 }
@@ -258,11 +460,23 @@ export interface QueryTotalUnlockedResponseAminoMsg {
   type: "/mainchain.enterprise.v1.QueryTotalUnlockedResponse";
   value: QueryTotalUnlockedResponseAmino;
 }
-/** QueryTotalUnlockedResponse is the response type for the Query/TotalUnlocked RPC method */
+/**
+ * QueryTotalUnlockedResponse is the response type for the Query/TotalUnlocked
+ * RPC method
+ * @name QueryTotalUnlockedResponseSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryTotalUnlockedResponse
+ */
 export interface QueryTotalUnlockedResponseSDKType {
   amount: CoinSDKType;
 }
-/** QueryTotalSupplyRequest is the request type for the Query/TotalSupply RPC method */
+/**
+ * QueryTotalSupplyRequest is the request type for the Query/TotalSupply RPC
+ * method
+ * @name QueryTotalSupplyRequest
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryTotalSupplyRequest
+ */
 export interface QueryTotalSupplyRequest {
   pagination?: PageRequest;
 }
@@ -270,7 +484,13 @@ export interface QueryTotalSupplyRequestProtoMsg {
   typeUrl: "/mainchain.enterprise.v1.QueryTotalSupplyRequest";
   value: Uint8Array;
 }
-/** QueryTotalSupplyRequest is the request type for the Query/TotalSupply RPC method */
+/**
+ * QueryTotalSupplyRequest is the request type for the Query/TotalSupply RPC
+ * method
+ * @name QueryTotalSupplyRequestAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryTotalSupplyRequest
+ */
 export interface QueryTotalSupplyRequestAmino {
   pagination?: PageRequestAmino;
 }
@@ -278,11 +498,23 @@ export interface QueryTotalSupplyRequestAminoMsg {
   type: "/mainchain.enterprise.v1.QueryTotalSupplyRequest";
   value: QueryTotalSupplyRequestAmino;
 }
-/** QueryTotalSupplyRequest is the request type for the Query/TotalSupply RPC method */
+/**
+ * QueryTotalSupplyRequest is the request type for the Query/TotalSupply RPC
+ * method
+ * @name QueryTotalSupplyRequestSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryTotalSupplyRequest
+ */
 export interface QueryTotalSupplyRequestSDKType {
   pagination?: PageRequestSDKType;
 }
-/** QueryTotalSupplyResponse is the response type for the Query/TotalSupply RPC method */
+/**
+ * QueryTotalSupplyResponse is the response type for the Query/TotalSupply RPC
+ * method
+ * @name QueryTotalSupplyResponse
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryTotalSupplyResponse
+ */
 export interface QueryTotalSupplyResponse {
   supply: Coin[];
   pagination?: PageResponse;
@@ -291,7 +523,13 @@ export interface QueryTotalSupplyResponseProtoMsg {
   typeUrl: "/mainchain.enterprise.v1.QueryTotalSupplyResponse";
   value: Uint8Array;
 }
-/** QueryTotalSupplyResponse is the response type for the Query/TotalSupply RPC method */
+/**
+ * QueryTotalSupplyResponse is the response type for the Query/TotalSupply RPC
+ * method
+ * @name QueryTotalSupplyResponseAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryTotalSupplyResponse
+ */
 export interface QueryTotalSupplyResponseAmino {
   supply?: CoinAmino[];
   pagination?: PageResponseAmino;
@@ -300,70 +538,135 @@ export interface QueryTotalSupplyResponseAminoMsg {
   type: "/mainchain.enterprise.v1.QueryTotalSupplyResponse";
   value: QueryTotalSupplyResponseAmino;
 }
-/** QueryTotalSupplyResponse is the response type for the Query/TotalSupply RPC method */
+/**
+ * QueryTotalSupplyResponse is the response type for the Query/TotalSupply RPC
+ * method
+ * @name QueryTotalSupplyResponseSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryTotalSupplyResponse
+ */
 export interface QueryTotalSupplyResponseSDKType {
   supply: CoinSDKType[];
   pagination?: PageResponseSDKType;
 }
-/** QuerySupplyOfRequest is the request type for the Query/SupplyOf RPC method. */
+/**
+ * QuerySupplyOfRequest is the request type for the Query/SupplyOf RPC method.
+ * @name QuerySupplyOfRequest
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QuerySupplyOfRequest
+ */
 export interface QuerySupplyOfRequest {
-  /** denom is the coin denom to query balances for. */
+  /**
+   * denom is the coin denom to query balances for.
+   */
   denom: string;
 }
 export interface QuerySupplyOfRequestProtoMsg {
   typeUrl: "/mainchain.enterprise.v1.QuerySupplyOfRequest";
   value: Uint8Array;
 }
-/** QuerySupplyOfRequest is the request type for the Query/SupplyOf RPC method. */
+/**
+ * QuerySupplyOfRequest is the request type for the Query/SupplyOf RPC method.
+ * @name QuerySupplyOfRequestAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QuerySupplyOfRequest
+ */
 export interface QuerySupplyOfRequestAmino {
-  /** denom is the coin denom to query balances for. */
+  /**
+   * denom is the coin denom to query balances for.
+   */
   denom?: string;
 }
 export interface QuerySupplyOfRequestAminoMsg {
   type: "/mainchain.enterprise.v1.QuerySupplyOfRequest";
   value: QuerySupplyOfRequestAmino;
 }
-/** QuerySupplyOfRequest is the request type for the Query/SupplyOf RPC method. */
+/**
+ * QuerySupplyOfRequest is the request type for the Query/SupplyOf RPC method.
+ * @name QuerySupplyOfRequestSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QuerySupplyOfRequest
+ */
 export interface QuerySupplyOfRequestSDKType {
   denom: string;
 }
-/** QuerySupplyOfResponse is the response type for the Query/SupplyOf RPC method. */
+/**
+ * QuerySupplyOfResponse is the response type for the Query/SupplyOf RPC method.
+ * @name QuerySupplyOfResponse
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QuerySupplyOfResponse
+ */
 export interface QuerySupplyOfResponse {
-  /** amount is the supply of the coin. */
+  /**
+   * amount is the supply of the coin.
+   */
   amount: Coin;
 }
 export interface QuerySupplyOfResponseProtoMsg {
   typeUrl: "/mainchain.enterprise.v1.QuerySupplyOfResponse";
   value: Uint8Array;
 }
-/** QuerySupplyOfResponse is the response type for the Query/SupplyOf RPC method. */
+/**
+ * QuerySupplyOfResponse is the response type for the Query/SupplyOf RPC method.
+ * @name QuerySupplyOfResponseAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QuerySupplyOfResponse
+ */
 export interface QuerySupplyOfResponseAmino {
-  /** amount is the supply of the coin. */
+  /**
+   * amount is the supply of the coin.
+   */
   amount?: CoinAmino;
 }
 export interface QuerySupplyOfResponseAminoMsg {
   type: "/mainchain.enterprise.v1.QuerySupplyOfResponse";
   value: QuerySupplyOfResponseAmino;
 }
-/** QuerySupplyOfResponse is the response type for the Query/SupplyOf RPC method. */
+/**
+ * QuerySupplyOfResponse is the response type for the Query/SupplyOf RPC method.
+ * @name QuerySupplyOfResponseSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QuerySupplyOfResponse
+ */
 export interface QuerySupplyOfResponseSDKType {
   amount: CoinSDKType;
 }
-/** QueryWhitelistRequest is the request type for the Query/Whitelist RPC method. */
+/**
+ * QueryWhitelistRequest is the request type for the Query/Whitelist RPC method.
+ * @name QueryWhitelistRequest
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryWhitelistRequest
+ */
 export interface QueryWhitelistRequest {}
 export interface QueryWhitelistRequestProtoMsg {
   typeUrl: "/mainchain.enterprise.v1.QueryWhitelistRequest";
   value: Uint8Array;
 }
-/** QueryWhitelistRequest is the request type for the Query/Whitelist RPC method. */
+/**
+ * QueryWhitelistRequest is the request type for the Query/Whitelist RPC method.
+ * @name QueryWhitelistRequestAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryWhitelistRequest
+ */
 export interface QueryWhitelistRequestAmino {}
 export interface QueryWhitelistRequestAminoMsg {
   type: "/mainchain.enterprise.v1.QueryWhitelistRequest";
   value: QueryWhitelistRequestAmino;
 }
-/** QueryWhitelistRequest is the request type for the Query/Whitelist RPC method. */
+/**
+ * QueryWhitelistRequest is the request type for the Query/Whitelist RPC method.
+ * @name QueryWhitelistRequestSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryWhitelistRequest
+ */
 export interface QueryWhitelistRequestSDKType {}
-/** QueryWhitelistResponse is the response type for the Query/Whitelist RPC method. */
+/**
+ * QueryWhitelistResponse is the response type for the Query/Whitelist RPC
+ * method.
+ * @name QueryWhitelistResponse
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryWhitelistResponse
+ */
 export interface QueryWhitelistResponse {
   addresses: string[];
 }
@@ -371,7 +674,13 @@ export interface QueryWhitelistResponseProtoMsg {
   typeUrl: "/mainchain.enterprise.v1.QueryWhitelistResponse";
   value: Uint8Array;
 }
-/** QueryWhitelistResponse is the response type for the Query/Whitelist RPC method. */
+/**
+ * QueryWhitelistResponse is the response type for the Query/Whitelist RPC
+ * method.
+ * @name QueryWhitelistResponseAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryWhitelistResponse
+ */
 export interface QueryWhitelistResponseAmino {
   addresses?: string[];
 }
@@ -379,33 +688,67 @@ export interface QueryWhitelistResponseAminoMsg {
   type: "/mainchain.enterprise.v1.QueryWhitelistResponse";
   value: QueryWhitelistResponseAmino;
 }
-/** QueryWhitelistResponse is the response type for the Query/Whitelist RPC method. */
+/**
+ * QueryWhitelistResponse is the response type for the Query/Whitelist RPC
+ * method.
+ * @name QueryWhitelistResponseSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryWhitelistResponse
+ */
 export interface QueryWhitelistResponseSDKType {
   addresses: string[];
 }
-/** QueryWhitelistedRequest is the request type for the Query/Whitelisted RPC method. */
+/**
+ * QueryWhitelistedRequest is the request type for the Query/Whitelisted RPC
+ * method.
+ * @name QueryWhitelistedRequest
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryWhitelistedRequest
+ */
 export interface QueryWhitelistedRequest {
-  /** address is the address to query */
+  /**
+   * address is the address to query
+   */
   address: string;
 }
 export interface QueryWhitelistedRequestProtoMsg {
   typeUrl: "/mainchain.enterprise.v1.QueryWhitelistedRequest";
   value: Uint8Array;
 }
-/** QueryWhitelistedRequest is the request type for the Query/Whitelisted RPC method. */
+/**
+ * QueryWhitelistedRequest is the request type for the Query/Whitelisted RPC
+ * method.
+ * @name QueryWhitelistedRequestAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryWhitelistedRequest
+ */
 export interface QueryWhitelistedRequestAmino {
-  /** address is the address to query */
+  /**
+   * address is the address to query
+   */
   address?: string;
 }
 export interface QueryWhitelistedRequestAminoMsg {
   type: "/mainchain.enterprise.v1.QueryWhitelistedRequest";
   value: QueryWhitelistedRequestAmino;
 }
-/** QueryWhitelistedRequest is the request type for the Query/Whitelisted RPC method. */
+/**
+ * QueryWhitelistedRequest is the request type for the Query/Whitelisted RPC
+ * method.
+ * @name QueryWhitelistedRequestSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryWhitelistedRequest
+ */
 export interface QueryWhitelistedRequestSDKType {
   address: string;
 }
-/** QueryWhitelistedResponse is the response type for the Query/Whitelisted RPC method. */
+/**
+ * QueryWhitelistedResponse is the response type for the Query/Whitelisted RPC
+ * method.
+ * @name QueryWhitelistedResponse
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryWhitelistedResponse
+ */
 export interface QueryWhitelistedResponse {
   address: string;
   whitelisted: boolean;
@@ -414,7 +757,13 @@ export interface QueryWhitelistedResponseProtoMsg {
   typeUrl: "/mainchain.enterprise.v1.QueryWhitelistedResponse";
   value: Uint8Array;
 }
-/** QueryWhitelistedResponse is the response type for the Query/Whitelisted RPC method. */
+/**
+ * QueryWhitelistedResponse is the response type for the Query/Whitelisted RPC
+ * method.
+ * @name QueryWhitelistedResponseAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryWhitelistedResponse
+ */
 export interface QueryWhitelistedResponseAmino {
   address?: string;
   whitelisted?: boolean;
@@ -423,34 +772,68 @@ export interface QueryWhitelistedResponseAminoMsg {
   type: "/mainchain.enterprise.v1.QueryWhitelistedResponse";
   value: QueryWhitelistedResponseAmino;
 }
-/** QueryWhitelistedResponse is the response type for the Query/Whitelisted RPC method. */
+/**
+ * QueryWhitelistedResponse is the response type for the Query/Whitelisted RPC
+ * method.
+ * @name QueryWhitelistedResponseSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryWhitelistedResponse
+ */
 export interface QueryWhitelistedResponseSDKType {
   address: string;
   whitelisted: boolean;
 }
-/** QueryEnterpriseAccountRequest is the request type for the Query/EnterpriseAccount RPC method. */
+/**
+ * QueryEnterpriseAccountRequest is the request type for the
+ * Query/EnterpriseAccount RPC method.
+ * @name QueryEnterpriseAccountRequest
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryEnterpriseAccountRequest
+ */
 export interface QueryEnterpriseAccountRequest {
-  /** address is the address to query */
+  /**
+   * address is the address to query
+   */
   address: string;
 }
 export interface QueryEnterpriseAccountRequestProtoMsg {
   typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseAccountRequest";
   value: Uint8Array;
 }
-/** QueryEnterpriseAccountRequest is the request type for the Query/EnterpriseAccount RPC method. */
+/**
+ * QueryEnterpriseAccountRequest is the request type for the
+ * Query/EnterpriseAccount RPC method.
+ * @name QueryEnterpriseAccountRequestAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryEnterpriseAccountRequest
+ */
 export interface QueryEnterpriseAccountRequestAmino {
-  /** address is the address to query */
+  /**
+   * address is the address to query
+   */
   address?: string;
 }
 export interface QueryEnterpriseAccountRequestAminoMsg {
   type: "/mainchain.enterprise.v1.QueryEnterpriseAccountRequest";
   value: QueryEnterpriseAccountRequestAmino;
 }
-/** QueryEnterpriseAccountRequest is the request type for the Query/EnterpriseAccount RPC method. */
+/**
+ * QueryEnterpriseAccountRequest is the request type for the
+ * Query/EnterpriseAccount RPC method.
+ * @name QueryEnterpriseAccountRequestSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryEnterpriseAccountRequest
+ */
 export interface QueryEnterpriseAccountRequestSDKType {
   address: string;
 }
-/** QueryEnterpriseAccountResponse is the response type for the Query/EnterpriseAccount RPC method. */
+/**
+ * QueryEnterpriseAccountResponse is the response type for the
+ * Query/EnterpriseAccount RPC method.
+ * @name QueryEnterpriseAccountResponse
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryEnterpriseAccountResponse
+ */
 export interface QueryEnterpriseAccountResponse {
   account: EnterpriseUserAccount;
 }
@@ -458,7 +841,13 @@ export interface QueryEnterpriseAccountResponseProtoMsg {
   typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseAccountResponse";
   value: Uint8Array;
 }
-/** QueryEnterpriseAccountResponse is the response type for the Query/EnterpriseAccount RPC method. */
+/**
+ * QueryEnterpriseAccountResponse is the response type for the
+ * Query/EnterpriseAccount RPC method.
+ * @name QueryEnterpriseAccountResponseAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryEnterpriseAccountResponse
+ */
 export interface QueryEnterpriseAccountResponseAmino {
   account?: EnterpriseUserAccountAmino;
 }
@@ -466,25 +855,55 @@ export interface QueryEnterpriseAccountResponseAminoMsg {
   type: "/mainchain.enterprise.v1.QueryEnterpriseAccountResponse";
   value: QueryEnterpriseAccountResponseAmino;
 }
-/** QueryEnterpriseAccountResponse is the response type for the Query/EnterpriseAccount RPC method. */
+/**
+ * QueryEnterpriseAccountResponse is the response type for the
+ * Query/EnterpriseAccount RPC method.
+ * @name QueryEnterpriseAccountResponseSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryEnterpriseAccountResponse
+ */
 export interface QueryEnterpriseAccountResponseSDKType {
   account: EnterpriseUserAccountSDKType;
 }
-/** QueryTotalSpentEFUNDRequest is the request type for the Query/TotalSpentEFUND RPC method. */
+/**
+ * QueryTotalSpentEFUNDRequest is the request type for the Query/TotalSpentEFUND
+ * RPC method.
+ * @name QueryTotalSpentEFUNDRequest
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryTotalSpentEFUNDRequest
+ */
 export interface QueryTotalSpentEFUNDRequest {}
 export interface QueryTotalSpentEFUNDRequestProtoMsg {
   typeUrl: "/mainchain.enterprise.v1.QueryTotalSpentEFUNDRequest";
   value: Uint8Array;
 }
-/** QueryTotalSpentEFUNDRequest is the request type for the Query/TotalSpentEFUND RPC method. */
+/**
+ * QueryTotalSpentEFUNDRequest is the request type for the Query/TotalSpentEFUND
+ * RPC method.
+ * @name QueryTotalSpentEFUNDRequestAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryTotalSpentEFUNDRequest
+ */
 export interface QueryTotalSpentEFUNDRequestAmino {}
 export interface QueryTotalSpentEFUNDRequestAminoMsg {
   type: "/mainchain.enterprise.v1.QueryTotalSpentEFUNDRequest";
   value: QueryTotalSpentEFUNDRequestAmino;
 }
-/** QueryTotalSpentEFUNDRequest is the request type for the Query/TotalSpentEFUND RPC method. */
+/**
+ * QueryTotalSpentEFUNDRequest is the request type for the Query/TotalSpentEFUND
+ * RPC method.
+ * @name QueryTotalSpentEFUNDRequestSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryTotalSpentEFUNDRequest
+ */
 export interface QueryTotalSpentEFUNDRequestSDKType {}
-/** QueryTotalSpentEFUNDResponse is the response type for the Query/TotalSpentEFUND RPC method. */
+/**
+ * QueryTotalSpentEFUNDResponse is the response type for the
+ * Query/TotalSpentEFUND RPC method.
+ * @name QueryTotalSpentEFUNDResponse
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryTotalSpentEFUNDResponse
+ */
 export interface QueryTotalSpentEFUNDResponse {
   amount: Coin;
 }
@@ -492,7 +911,13 @@ export interface QueryTotalSpentEFUNDResponseProtoMsg {
   typeUrl: "/mainchain.enterprise.v1.QueryTotalSpentEFUNDResponse";
   value: Uint8Array;
 }
-/** QueryTotalSpentEFUNDResponse is the response type for the Query/TotalSpentEFUND RPC method. */
+/**
+ * QueryTotalSpentEFUNDResponse is the response type for the
+ * Query/TotalSpentEFUND RPC method.
+ * @name QueryTotalSpentEFUNDResponseAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryTotalSpentEFUNDResponse
+ */
 export interface QueryTotalSpentEFUNDResponseAmino {
   amount?: CoinAmino;
 }
@@ -500,33 +925,67 @@ export interface QueryTotalSpentEFUNDResponseAminoMsg {
   type: "/mainchain.enterprise.v1.QueryTotalSpentEFUNDResponse";
   value: QueryTotalSpentEFUNDResponseAmino;
 }
-/** QueryTotalSpentEFUNDResponse is the response type for the Query/TotalSpentEFUND RPC method. */
+/**
+ * QueryTotalSpentEFUNDResponse is the response type for the
+ * Query/TotalSpentEFUND RPC method.
+ * @name QueryTotalSpentEFUNDResponseSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryTotalSpentEFUNDResponse
+ */
 export interface QueryTotalSpentEFUNDResponseSDKType {
   amount: CoinSDKType;
 }
-/** QuerySpentEFUNDByAddressRequest is the request type for the Query/SpentEFUNDByAddress RPC method. */
+/**
+ * QuerySpentEFUNDByAddressRequest is the request type for the
+ * Query/SpentEFUNDByAddress RPC method.
+ * @name QuerySpentEFUNDByAddressRequest
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QuerySpentEFUNDByAddressRequest
+ */
 export interface QuerySpentEFUNDByAddressRequest {
-  /** address is the address to query */
+  /**
+   * address is the address to query
+   */
   address: string;
 }
 export interface QuerySpentEFUNDByAddressRequestProtoMsg {
   typeUrl: "/mainchain.enterprise.v1.QuerySpentEFUNDByAddressRequest";
   value: Uint8Array;
 }
-/** QuerySpentEFUNDByAddressRequest is the request type for the Query/SpentEFUNDByAddress RPC method. */
+/**
+ * QuerySpentEFUNDByAddressRequest is the request type for the
+ * Query/SpentEFUNDByAddress RPC method.
+ * @name QuerySpentEFUNDByAddressRequestAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QuerySpentEFUNDByAddressRequest
+ */
 export interface QuerySpentEFUNDByAddressRequestAmino {
-  /** address is the address to query */
+  /**
+   * address is the address to query
+   */
   address?: string;
 }
 export interface QuerySpentEFUNDByAddressRequestAminoMsg {
   type: "/mainchain.enterprise.v1.QuerySpentEFUNDByAddressRequest";
   value: QuerySpentEFUNDByAddressRequestAmino;
 }
-/** QuerySpentEFUNDByAddressRequest is the request type for the Query/SpentEFUNDByAddress RPC method. */
+/**
+ * QuerySpentEFUNDByAddressRequest is the request type for the
+ * Query/SpentEFUNDByAddress RPC method.
+ * @name QuerySpentEFUNDByAddressRequestSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QuerySpentEFUNDByAddressRequest
+ */
 export interface QuerySpentEFUNDByAddressRequestSDKType {
   address: string;
 }
-/** QuerySpentEFUNDByAddressResponse is the response type for the Query/SpentEFUNDByAddress RPC method. */
+/**
+ * QuerySpentEFUNDByAddressResponse is the response type for the
+ * Query/SpentEFUNDByAddress RPC method.
+ * @name QuerySpentEFUNDByAddressResponse
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QuerySpentEFUNDByAddressResponse
+ */
 export interface QuerySpentEFUNDByAddressResponse {
   amount: Coin;
 }
@@ -534,7 +993,13 @@ export interface QuerySpentEFUNDByAddressResponseProtoMsg {
   typeUrl: "/mainchain.enterprise.v1.QuerySpentEFUNDByAddressResponse";
   value: Uint8Array;
 }
-/** QuerySpentEFUNDByAddressResponse is the response type for the Query/SpentEFUNDByAddress RPC method. */
+/**
+ * QuerySpentEFUNDByAddressResponse is the response type for the
+ * Query/SpentEFUNDByAddress RPC method.
+ * @name QuerySpentEFUNDByAddressResponseAmino
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QuerySpentEFUNDByAddressResponse
+ */
 export interface QuerySpentEFUNDByAddressResponseAmino {
   amount?: CoinAmino;
 }
@@ -542,13 +1007,25 @@ export interface QuerySpentEFUNDByAddressResponseAminoMsg {
   type: "/mainchain.enterprise.v1.QuerySpentEFUNDByAddressResponse";
   value: QuerySpentEFUNDByAddressResponseAmino;
 }
-/** QuerySpentEFUNDByAddressResponse is the response type for the Query/SpentEFUNDByAddress RPC method. */
+/**
+ * QuerySpentEFUNDByAddressResponse is the response type for the
+ * Query/SpentEFUNDByAddress RPC method.
+ * @name QuerySpentEFUNDByAddressResponseSDKType
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QuerySpentEFUNDByAddressResponse
+ */
 export interface QuerySpentEFUNDByAddressResponseSDKType {
   amount: CoinSDKType;
 }
 function createBaseQueryParamsRequest(): QueryParamsRequest {
   return {};
 }
+/**
+ * QueryParamsRequest is the request type for the Query/Params RPC method
+ * @name QueryParamsRequest
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryParamsRequest
+ */
 export const QueryParamsRequest = {
   typeUrl: "/mainchain.enterprise.v1.QueryParamsRequest",
   is(o: any): o is QueryParamsRequest {
@@ -603,14 +1080,20 @@ export const QueryParamsRequest = {
       typeUrl: "/mainchain.enterprise.v1.QueryParamsRequest",
       value: QueryParamsRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryParamsRequest.typeUrl, QueryParamsRequest);
 function createBaseQueryParamsResponse(): QueryParamsResponse {
   return {
     params: Params.fromPartial({})
   };
 }
+/**
+ * QueryParamsResponse is the response type for the Query/Params RPC method
+ * @name QueryParamsResponse
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryParamsResponse
+ */
 export const QueryParamsResponse = {
   typeUrl: "/mainchain.enterprise.v1.QueryParamsResponse",
   is(o: any): o is QueryParamsResponse {
@@ -676,14 +1159,26 @@ export const QueryParamsResponse = {
       typeUrl: "/mainchain.enterprise.v1.QueryParamsResponse",
       value: QueryParamsResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryParamsResponse.typeUrl)) {
+      return;
+    }
+    Params.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryParamsResponse.typeUrl, QueryParamsResponse);
 function createBaseQueryEnterpriseUndPurchaseOrderRequest(): QueryEnterpriseUndPurchaseOrderRequest {
   return {
     purchaseOrderId: BigInt(0)
   };
 }
+/**
+ * QueryEnterpriseUndPurchaseOrderRequest is the request type for the
+ * Query/EnterpriseUndPurchaseOrder RPC method.
+ * @name QueryEnterpriseUndPurchaseOrderRequest
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrderRequest
+ */
 export const QueryEnterpriseUndPurchaseOrderRequest = {
   typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrderRequest",
   is(o: any): o is QueryEnterpriseUndPurchaseOrderRequest {
@@ -749,14 +1244,21 @@ export const QueryEnterpriseUndPurchaseOrderRequest = {
       typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrderRequest",
       value: QueryEnterpriseUndPurchaseOrderRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryEnterpriseUndPurchaseOrderRequest.typeUrl, QueryEnterpriseUndPurchaseOrderRequest);
 function createBaseQueryEnterpriseUndPurchaseOrderResponse(): QueryEnterpriseUndPurchaseOrderResponse {
   return {
     purchaseOrder: EnterpriseUndPurchaseOrder.fromPartial({})
   };
 }
+/**
+ * QueryEnterpriseUndPurchaseOrderResponse is the response type for the
+ * Query/EnterpriseUndPurchaseOrder RPC method.
+ * @name QueryEnterpriseUndPurchaseOrderResponse
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrderResponse
+ */
 export const QueryEnterpriseUndPurchaseOrderResponse = {
   typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrderResponse",
   is(o: any): o is QueryEnterpriseUndPurchaseOrderResponse {
@@ -822,9 +1324,14 @@ export const QueryEnterpriseUndPurchaseOrderResponse = {
       typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrderResponse",
       value: QueryEnterpriseUndPurchaseOrderResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryEnterpriseUndPurchaseOrderResponse.typeUrl)) {
+      return;
+    }
+    EnterpriseUndPurchaseOrder.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryEnterpriseUndPurchaseOrderResponse.typeUrl, QueryEnterpriseUndPurchaseOrderResponse);
 function createBaseQueryEnterpriseUndPurchaseOrdersRequest(): QueryEnterpriseUndPurchaseOrdersRequest {
   return {
     pagination: undefined,
@@ -832,6 +1339,13 @@ function createBaseQueryEnterpriseUndPurchaseOrdersRequest(): QueryEnterpriseUnd
     status: 0
   };
 }
+/**
+ * QueryEnterpriseUndPurchaseOrdersRequest is the request type for the
+ * Query/EnterpriseUndPurchaseOrders RPC method
+ * @name QueryEnterpriseUndPurchaseOrdersRequest
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrdersRequest
+ */
 export const QueryEnterpriseUndPurchaseOrdersRequest = {
   typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrdersRequest",
   is(o: any): o is QueryEnterpriseUndPurchaseOrdersRequest {
@@ -919,15 +1433,27 @@ export const QueryEnterpriseUndPurchaseOrdersRequest = {
       typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrdersRequest",
       value: QueryEnterpriseUndPurchaseOrdersRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryEnterpriseUndPurchaseOrdersRequest.typeUrl)) {
+      return;
+    }
+    PageRequest.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryEnterpriseUndPurchaseOrdersRequest.typeUrl, QueryEnterpriseUndPurchaseOrdersRequest);
 function createBaseQueryEnterpriseUndPurchaseOrdersResponse(): QueryEnterpriseUndPurchaseOrdersResponse {
   return {
     purchaseOrders: [],
     pagination: undefined
   };
 }
+/**
+ * QueryEnterpriseUndPurchaseOrdersResponse is the response type for the
+ * Query/EnterpriseUndPurchaseOrders RPC method
+ * @name QueryEnterpriseUndPurchaseOrdersResponse
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrdersResponse
+ */
 export const QueryEnterpriseUndPurchaseOrdersResponse = {
   typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrdersResponse",
   is(o: any): o is QueryEnterpriseUndPurchaseOrdersResponse {
@@ -1006,14 +1532,27 @@ export const QueryEnterpriseUndPurchaseOrdersResponse = {
       typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseUndPurchaseOrdersResponse",
       value: QueryEnterpriseUndPurchaseOrdersResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryEnterpriseUndPurchaseOrdersResponse.typeUrl)) {
+      return;
+    }
+    EnterpriseUndPurchaseOrder.registerTypeUrl();
+    PageResponse.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryEnterpriseUndPurchaseOrdersResponse.typeUrl, QueryEnterpriseUndPurchaseOrdersResponse);
 function createBaseQueryLockedUndByAddressRequest(): QueryLockedUndByAddressRequest {
   return {
     owner: ""
   };
 }
+/**
+ * QueryLockedUndByAddressRequest is the request type for the
+ * Query/LockedUndByAddress RPC method
+ * @name QueryLockedUndByAddressRequest
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryLockedUndByAddressRequest
+ */
 export const QueryLockedUndByAddressRequest = {
   typeUrl: "/mainchain.enterprise.v1.QueryLockedUndByAddressRequest",
   is(o: any): o is QueryLockedUndByAddressRequest {
@@ -1079,14 +1618,21 @@ export const QueryLockedUndByAddressRequest = {
       typeUrl: "/mainchain.enterprise.v1.QueryLockedUndByAddressRequest",
       value: QueryLockedUndByAddressRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryLockedUndByAddressRequest.typeUrl, QueryLockedUndByAddressRequest);
 function createBaseQueryLockedUndByAddressResponse(): QueryLockedUndByAddressResponse {
   return {
     amount: Coin.fromPartial({})
   };
 }
+/**
+ * QueryLockedUndByAddressResponse is the response type for the
+ * Query/LockedUndByAddress RPC method
+ * @name QueryLockedUndByAddressResponse
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryLockedUndByAddressResponse
+ */
 export const QueryLockedUndByAddressResponse = {
   typeUrl: "/mainchain.enterprise.v1.QueryLockedUndByAddressResponse",
   is(o: any): o is QueryLockedUndByAddressResponse {
@@ -1152,12 +1698,24 @@ export const QueryLockedUndByAddressResponse = {
       typeUrl: "/mainchain.enterprise.v1.QueryLockedUndByAddressResponse",
       value: QueryLockedUndByAddressResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryLockedUndByAddressResponse.typeUrl)) {
+      return;
+    }
+    Coin.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryLockedUndByAddressResponse.typeUrl, QueryLockedUndByAddressResponse);
 function createBaseQueryTotalLockedRequest(): QueryTotalLockedRequest {
   return {};
 }
+/**
+ * QueryTotalLockedRequest is the request type for the Query/TotalLocked RPC
+ * method
+ * @name QueryTotalLockedRequest
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryTotalLockedRequest
+ */
 export const QueryTotalLockedRequest = {
   typeUrl: "/mainchain.enterprise.v1.QueryTotalLockedRequest",
   is(o: any): o is QueryTotalLockedRequest {
@@ -1212,14 +1770,21 @@ export const QueryTotalLockedRequest = {
       typeUrl: "/mainchain.enterprise.v1.QueryTotalLockedRequest",
       value: QueryTotalLockedRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryTotalLockedRequest.typeUrl, QueryTotalLockedRequest);
 function createBaseQueryTotalLockedResponse(): QueryTotalLockedResponse {
   return {
     amount: Coin.fromPartial({})
   };
 }
+/**
+ * QueryTotalLockedResponse is the response type for the Query/TotalLocked RPC
+ * method
+ * @name QueryTotalLockedResponse
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryTotalLockedResponse
+ */
 export const QueryTotalLockedResponse = {
   typeUrl: "/mainchain.enterprise.v1.QueryTotalLockedResponse",
   is(o: any): o is QueryTotalLockedResponse {
@@ -1285,12 +1850,24 @@ export const QueryTotalLockedResponse = {
       typeUrl: "/mainchain.enterprise.v1.QueryTotalLockedResponse",
       value: QueryTotalLockedResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryTotalLockedResponse.typeUrl)) {
+      return;
+    }
+    Coin.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryTotalLockedResponse.typeUrl, QueryTotalLockedResponse);
 function createBaseQueryTotalUnlockedRequest(): QueryTotalUnlockedRequest {
   return {};
 }
+/**
+ * QueryTotalUnlockedRequest is the request type for the Query/TotalUnlocked RPC
+ * method
+ * @name QueryTotalUnlockedRequest
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryTotalUnlockedRequest
+ */
 export const QueryTotalUnlockedRequest = {
   typeUrl: "/mainchain.enterprise.v1.QueryTotalUnlockedRequest",
   is(o: any): o is QueryTotalUnlockedRequest {
@@ -1345,14 +1922,21 @@ export const QueryTotalUnlockedRequest = {
       typeUrl: "/mainchain.enterprise.v1.QueryTotalUnlockedRequest",
       value: QueryTotalUnlockedRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryTotalUnlockedRequest.typeUrl, QueryTotalUnlockedRequest);
 function createBaseQueryTotalUnlockedResponse(): QueryTotalUnlockedResponse {
   return {
     amount: Coin.fromPartial({})
   };
 }
+/**
+ * QueryTotalUnlockedResponse is the response type for the Query/TotalUnlocked
+ * RPC method
+ * @name QueryTotalUnlockedResponse
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryTotalUnlockedResponse
+ */
 export const QueryTotalUnlockedResponse = {
   typeUrl: "/mainchain.enterprise.v1.QueryTotalUnlockedResponse",
   is(o: any): o is QueryTotalUnlockedResponse {
@@ -1418,14 +2002,26 @@ export const QueryTotalUnlockedResponse = {
       typeUrl: "/mainchain.enterprise.v1.QueryTotalUnlockedResponse",
       value: QueryTotalUnlockedResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryTotalUnlockedResponse.typeUrl)) {
+      return;
+    }
+    Coin.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryTotalUnlockedResponse.typeUrl, QueryTotalUnlockedResponse);
 function createBaseQueryTotalSupplyRequest(): QueryTotalSupplyRequest {
   return {
     pagination: undefined
   };
 }
+/**
+ * QueryTotalSupplyRequest is the request type for the Query/TotalSupply RPC
+ * method
+ * @name QueryTotalSupplyRequest
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryTotalSupplyRequest
+ */
 export const QueryTotalSupplyRequest = {
   typeUrl: "/mainchain.enterprise.v1.QueryTotalSupplyRequest",
   is(o: any): o is QueryTotalSupplyRequest {
@@ -1491,15 +2087,27 @@ export const QueryTotalSupplyRequest = {
       typeUrl: "/mainchain.enterprise.v1.QueryTotalSupplyRequest",
       value: QueryTotalSupplyRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryTotalSupplyRequest.typeUrl)) {
+      return;
+    }
+    PageRequest.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryTotalSupplyRequest.typeUrl, QueryTotalSupplyRequest);
 function createBaseQueryTotalSupplyResponse(): QueryTotalSupplyResponse {
   return {
     supply: [],
     pagination: undefined
   };
 }
+/**
+ * QueryTotalSupplyResponse is the response type for the Query/TotalSupply RPC
+ * method
+ * @name QueryTotalSupplyResponse
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryTotalSupplyResponse
+ */
 export const QueryTotalSupplyResponse = {
   typeUrl: "/mainchain.enterprise.v1.QueryTotalSupplyResponse",
   is(o: any): o is QueryTotalSupplyResponse {
@@ -1578,14 +2186,26 @@ export const QueryTotalSupplyResponse = {
       typeUrl: "/mainchain.enterprise.v1.QueryTotalSupplyResponse",
       value: QueryTotalSupplyResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryTotalSupplyResponse.typeUrl)) {
+      return;
+    }
+    Coin.registerTypeUrl();
+    PageResponse.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryTotalSupplyResponse.typeUrl, QueryTotalSupplyResponse);
 function createBaseQuerySupplyOfRequest(): QuerySupplyOfRequest {
   return {
     denom: ""
   };
 }
+/**
+ * QuerySupplyOfRequest is the request type for the Query/SupplyOf RPC method.
+ * @name QuerySupplyOfRequest
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QuerySupplyOfRequest
+ */
 export const QuerySupplyOfRequest = {
   typeUrl: "/mainchain.enterprise.v1.QuerySupplyOfRequest",
   is(o: any): o is QuerySupplyOfRequest {
@@ -1651,14 +2271,20 @@ export const QuerySupplyOfRequest = {
       typeUrl: "/mainchain.enterprise.v1.QuerySupplyOfRequest",
       value: QuerySupplyOfRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QuerySupplyOfRequest.typeUrl, QuerySupplyOfRequest);
 function createBaseQuerySupplyOfResponse(): QuerySupplyOfResponse {
   return {
     amount: Coin.fromPartial({})
   };
 }
+/**
+ * QuerySupplyOfResponse is the response type for the Query/SupplyOf RPC method.
+ * @name QuerySupplyOfResponse
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QuerySupplyOfResponse
+ */
 export const QuerySupplyOfResponse = {
   typeUrl: "/mainchain.enterprise.v1.QuerySupplyOfResponse",
   is(o: any): o is QuerySupplyOfResponse {
@@ -1724,12 +2350,23 @@ export const QuerySupplyOfResponse = {
       typeUrl: "/mainchain.enterprise.v1.QuerySupplyOfResponse",
       value: QuerySupplyOfResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QuerySupplyOfResponse.typeUrl)) {
+      return;
+    }
+    Coin.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QuerySupplyOfResponse.typeUrl, QuerySupplyOfResponse);
 function createBaseQueryWhitelistRequest(): QueryWhitelistRequest {
   return {};
 }
+/**
+ * QueryWhitelistRequest is the request type for the Query/Whitelist RPC method.
+ * @name QueryWhitelistRequest
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryWhitelistRequest
+ */
 export const QueryWhitelistRequest = {
   typeUrl: "/mainchain.enterprise.v1.QueryWhitelistRequest",
   is(o: any): o is QueryWhitelistRequest {
@@ -1784,14 +2421,21 @@ export const QueryWhitelistRequest = {
       typeUrl: "/mainchain.enterprise.v1.QueryWhitelistRequest",
       value: QueryWhitelistRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryWhitelistRequest.typeUrl, QueryWhitelistRequest);
 function createBaseQueryWhitelistResponse(): QueryWhitelistResponse {
   return {
     addresses: []
   };
 }
+/**
+ * QueryWhitelistResponse is the response type for the Query/Whitelist RPC
+ * method.
+ * @name QueryWhitelistResponse
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryWhitelistResponse
+ */
 export const QueryWhitelistResponse = {
   typeUrl: "/mainchain.enterprise.v1.QueryWhitelistResponse",
   is(o: any): o is QueryWhitelistResponse {
@@ -1859,14 +2503,21 @@ export const QueryWhitelistResponse = {
       typeUrl: "/mainchain.enterprise.v1.QueryWhitelistResponse",
       value: QueryWhitelistResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryWhitelistResponse.typeUrl, QueryWhitelistResponse);
 function createBaseQueryWhitelistedRequest(): QueryWhitelistedRequest {
   return {
     address: ""
   };
 }
+/**
+ * QueryWhitelistedRequest is the request type for the Query/Whitelisted RPC
+ * method.
+ * @name QueryWhitelistedRequest
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryWhitelistedRequest
+ */
 export const QueryWhitelistedRequest = {
   typeUrl: "/mainchain.enterprise.v1.QueryWhitelistedRequest",
   is(o: any): o is QueryWhitelistedRequest {
@@ -1932,15 +2583,22 @@ export const QueryWhitelistedRequest = {
       typeUrl: "/mainchain.enterprise.v1.QueryWhitelistedRequest",
       value: QueryWhitelistedRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryWhitelistedRequest.typeUrl, QueryWhitelistedRequest);
 function createBaseQueryWhitelistedResponse(): QueryWhitelistedResponse {
   return {
     address: "",
     whitelisted: false
   };
 }
+/**
+ * QueryWhitelistedResponse is the response type for the Query/Whitelisted RPC
+ * method.
+ * @name QueryWhitelistedResponse
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryWhitelistedResponse
+ */
 export const QueryWhitelistedResponse = {
   typeUrl: "/mainchain.enterprise.v1.QueryWhitelistedResponse",
   is(o: any): o is QueryWhitelistedResponse {
@@ -2017,14 +2675,21 @@ export const QueryWhitelistedResponse = {
       typeUrl: "/mainchain.enterprise.v1.QueryWhitelistedResponse",
       value: QueryWhitelistedResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryWhitelistedResponse.typeUrl, QueryWhitelistedResponse);
 function createBaseQueryEnterpriseAccountRequest(): QueryEnterpriseAccountRequest {
   return {
     address: ""
   };
 }
+/**
+ * QueryEnterpriseAccountRequest is the request type for the
+ * Query/EnterpriseAccount RPC method.
+ * @name QueryEnterpriseAccountRequest
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryEnterpriseAccountRequest
+ */
 export const QueryEnterpriseAccountRequest = {
   typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseAccountRequest",
   is(o: any): o is QueryEnterpriseAccountRequest {
@@ -2090,14 +2755,21 @@ export const QueryEnterpriseAccountRequest = {
       typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseAccountRequest",
       value: QueryEnterpriseAccountRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryEnterpriseAccountRequest.typeUrl, QueryEnterpriseAccountRequest);
 function createBaseQueryEnterpriseAccountResponse(): QueryEnterpriseAccountResponse {
   return {
     account: EnterpriseUserAccount.fromPartial({})
   };
 }
+/**
+ * QueryEnterpriseAccountResponse is the response type for the
+ * Query/EnterpriseAccount RPC method.
+ * @name QueryEnterpriseAccountResponse
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryEnterpriseAccountResponse
+ */
 export const QueryEnterpriseAccountResponse = {
   typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseAccountResponse",
   is(o: any): o is QueryEnterpriseAccountResponse {
@@ -2163,12 +2835,24 @@ export const QueryEnterpriseAccountResponse = {
       typeUrl: "/mainchain.enterprise.v1.QueryEnterpriseAccountResponse",
       value: QueryEnterpriseAccountResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryEnterpriseAccountResponse.typeUrl)) {
+      return;
+    }
+    EnterpriseUserAccount.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryEnterpriseAccountResponse.typeUrl, QueryEnterpriseAccountResponse);
 function createBaseQueryTotalSpentEFUNDRequest(): QueryTotalSpentEFUNDRequest {
   return {};
 }
+/**
+ * QueryTotalSpentEFUNDRequest is the request type for the Query/TotalSpentEFUND
+ * RPC method.
+ * @name QueryTotalSpentEFUNDRequest
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryTotalSpentEFUNDRequest
+ */
 export const QueryTotalSpentEFUNDRequest = {
   typeUrl: "/mainchain.enterprise.v1.QueryTotalSpentEFUNDRequest",
   is(o: any): o is QueryTotalSpentEFUNDRequest {
@@ -2223,14 +2907,21 @@ export const QueryTotalSpentEFUNDRequest = {
       typeUrl: "/mainchain.enterprise.v1.QueryTotalSpentEFUNDRequest",
       value: QueryTotalSpentEFUNDRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryTotalSpentEFUNDRequest.typeUrl, QueryTotalSpentEFUNDRequest);
 function createBaseQueryTotalSpentEFUNDResponse(): QueryTotalSpentEFUNDResponse {
   return {
     amount: Coin.fromPartial({})
   };
 }
+/**
+ * QueryTotalSpentEFUNDResponse is the response type for the
+ * Query/TotalSpentEFUND RPC method.
+ * @name QueryTotalSpentEFUNDResponse
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QueryTotalSpentEFUNDResponse
+ */
 export const QueryTotalSpentEFUNDResponse = {
   typeUrl: "/mainchain.enterprise.v1.QueryTotalSpentEFUNDResponse",
   is(o: any): o is QueryTotalSpentEFUNDResponse {
@@ -2296,14 +2987,26 @@ export const QueryTotalSpentEFUNDResponse = {
       typeUrl: "/mainchain.enterprise.v1.QueryTotalSpentEFUNDResponse",
       value: QueryTotalSpentEFUNDResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryTotalSpentEFUNDResponse.typeUrl)) {
+      return;
+    }
+    Coin.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryTotalSpentEFUNDResponse.typeUrl, QueryTotalSpentEFUNDResponse);
 function createBaseQuerySpentEFUNDByAddressRequest(): QuerySpentEFUNDByAddressRequest {
   return {
     address: ""
   };
 }
+/**
+ * QuerySpentEFUNDByAddressRequest is the request type for the
+ * Query/SpentEFUNDByAddress RPC method.
+ * @name QuerySpentEFUNDByAddressRequest
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QuerySpentEFUNDByAddressRequest
+ */
 export const QuerySpentEFUNDByAddressRequest = {
   typeUrl: "/mainchain.enterprise.v1.QuerySpentEFUNDByAddressRequest",
   is(o: any): o is QuerySpentEFUNDByAddressRequest {
@@ -2369,14 +3072,21 @@ export const QuerySpentEFUNDByAddressRequest = {
       typeUrl: "/mainchain.enterprise.v1.QuerySpentEFUNDByAddressRequest",
       value: QuerySpentEFUNDByAddressRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QuerySpentEFUNDByAddressRequest.typeUrl, QuerySpentEFUNDByAddressRequest);
 function createBaseQuerySpentEFUNDByAddressResponse(): QuerySpentEFUNDByAddressResponse {
   return {
     amount: Coin.fromPartial({})
   };
 }
+/**
+ * QuerySpentEFUNDByAddressResponse is the response type for the
+ * Query/SpentEFUNDByAddress RPC method.
+ * @name QuerySpentEFUNDByAddressResponse
+ * @package mainchain.enterprise.v1
+ * @see proto type: mainchain.enterprise.v1.QuerySpentEFUNDByAddressResponse
+ */
 export const QuerySpentEFUNDByAddressResponse = {
   typeUrl: "/mainchain.enterprise.v1.QuerySpentEFUNDByAddressResponse",
   is(o: any): o is QuerySpentEFUNDByAddressResponse {
@@ -2442,6 +3152,11 @@ export const QuerySpentEFUNDByAddressResponse = {
       typeUrl: "/mainchain.enterprise.v1.QuerySpentEFUNDByAddressResponse",
       value: QuerySpentEFUNDByAddressResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QuerySpentEFUNDByAddressResponse.typeUrl)) {
+      return;
+    }
+    Coin.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QuerySpentEFUNDByAddressResponse.typeUrl, QuerySpentEFUNDByAddressResponse);

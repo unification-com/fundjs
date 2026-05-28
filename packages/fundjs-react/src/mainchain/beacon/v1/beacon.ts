@@ -1,53 +1,105 @@
 //@ts-nocheck
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { GlobalDecoderRegistry } from "../../../registry";
-/** Beacon holds metadata about a registered beacon */
+/**
+ * Beacon holds metadata about a registered beacon
+ * @name Beacon
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.Beacon
+ */
 export interface Beacon {
-  /** beacon_id is the id of the beacon */
+  /**
+   * beacon_id is the id of the beacon
+   */
   beaconId: bigint;
-  /** moniker is the readable id of the beacon */
+  /**
+   * moniker is the readable id of the beacon
+   */
   moniker: string;
-  /** name is the human friendly name of the beacon */
+  /**
+   * name is the human friendly name of the beacon
+   */
   name: string;
-  /** last_timestamp_id is the current highest recorded timestamp id for the beacon */
+  /**
+   * last_timestamp_id is the current highest recorded timestamp id for the
+   * beacon
+   */
   lastTimestampId: bigint;
-  /** first_id_in_state is the lowest recorded timestamp id currently held in state for the beacon */
+  /**
+   * first_id_in_state is the lowest recorded timestamp id currently held in
+   * state for the beacon
+   */
   firstIdInState: bigint;
-  /** num_in_state is the current number of timestamps stored in state for the beacon */
+  /**
+   * num_in_state is the current number of timestamps stored in state for the
+   * beacon
+   */
   numInState: bigint;
-  /** reg_time is the unix epoch of the beacon's registration time */
+  /**
+   * reg_time is the unix epoch of the beacon's registration time
+   */
   regTime: bigint;
-  /** owner is the owner address of the beacon */
+  /**
+   * owner is the owner address of the beacon
+   */
   owner: string;
 }
 export interface BeaconProtoMsg {
   typeUrl: "/mainchain.beacon.v1.Beacon";
   value: Uint8Array;
 }
-/** Beacon holds metadata about a registered beacon */
+/**
+ * Beacon holds metadata about a registered beacon
+ * @name BeaconAmino
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.Beacon
+ */
 export interface BeaconAmino {
-  /** beacon_id is the id of the beacon */
+  /**
+   * beacon_id is the id of the beacon
+   */
   beacon_id?: string;
-  /** moniker is the readable id of the beacon */
+  /**
+   * moniker is the readable id of the beacon
+   */
   moniker?: string;
-  /** name is the human friendly name of the beacon */
+  /**
+   * name is the human friendly name of the beacon
+   */
   name?: string;
-  /** last_timestamp_id is the current highest recorded timestamp id for the beacon */
+  /**
+   * last_timestamp_id is the current highest recorded timestamp id for the
+   * beacon
+   */
   last_timestamp_id?: string;
-  /** first_id_in_state is the lowest recorded timestamp id currently held in state for the beacon */
+  /**
+   * first_id_in_state is the lowest recorded timestamp id currently held in
+   * state for the beacon
+   */
   first_id_in_state?: string;
-  /** num_in_state is the current number of timestamps stored in state for the beacon */
+  /**
+   * num_in_state is the current number of timestamps stored in state for the
+   * beacon
+   */
   num_in_state?: string;
-  /** reg_time is the unix epoch of the beacon's registration time */
+  /**
+   * reg_time is the unix epoch of the beacon's registration time
+   */
   reg_time?: string;
-  /** owner is the owner address of the beacon */
+  /**
+   * owner is the owner address of the beacon
+   */
   owner?: string;
 }
 export interface BeaconAminoMsg {
   type: "beacon/v1/Beacon";
   value: BeaconAmino;
 }
-/** Beacon holds metadata about a registered beacon */
+/**
+ * Beacon holds metadata about a registered beacon
+ * @name BeaconSDKType
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.Beacon
+ */
 export interface BeaconSDKType {
   beacon_id: bigint;
   moniker: string;
@@ -58,104 +110,204 @@ export interface BeaconSDKType {
   reg_time: bigint;
   owner: string;
 }
-/** BeaconStorageLimit holds tata about the beacon's current in-state storage limit */
+/**
+ * BeaconStorageLimit holds tata about the beacon's current in-state storage
+ * limit
+ * @name BeaconStorageLimit
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.BeaconStorageLimit
+ */
 export interface BeaconStorageLimit {
-  /** beacon_id is the id of the beacon */
+  /**
+   * beacon_id is the id of the beacon
+   */
   beaconId: bigint;
-  /** in_state_limit is the current maximum number of timestmamps that will be held in state for the beacon */
+  /**
+   * in_state_limit is the current maximum number of timestmamps that will be
+   * held in state for the beacon
+   */
   inStateLimit: bigint;
 }
 export interface BeaconStorageLimitProtoMsg {
   typeUrl: "/mainchain.beacon.v1.BeaconStorageLimit";
   value: Uint8Array;
 }
-/** BeaconStorageLimit holds tata about the beacon's current in-state storage limit */
+/**
+ * BeaconStorageLimit holds tata about the beacon's current in-state storage
+ * limit
+ * @name BeaconStorageLimitAmino
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.BeaconStorageLimit
+ */
 export interface BeaconStorageLimitAmino {
-  /** beacon_id is the id of the beacon */
+  /**
+   * beacon_id is the id of the beacon
+   */
   beacon_id?: string;
-  /** in_state_limit is the current maximum number of timestmamps that will be held in state for the beacon */
+  /**
+   * in_state_limit is the current maximum number of timestmamps that will be
+   * held in state for the beacon
+   */
   in_state_limit?: string;
 }
 export interface BeaconStorageLimitAminoMsg {
   type: "beacon/v1/BeaconStorageLimit";
   value: BeaconStorageLimitAmino;
 }
-/** BeaconStorageLimit holds tata about the beacon's current in-state storage limit */
+/**
+ * BeaconStorageLimit holds tata about the beacon's current in-state storage
+ * limit
+ * @name BeaconStorageLimitSDKType
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.BeaconStorageLimit
+ */
 export interface BeaconStorageLimitSDKType {
   beacon_id: bigint;
   in_state_limit: bigint;
 }
-/** BeaconTimestamp holds each hash submitted to a registered beacon */
+/**
+ * BeaconTimestamp holds each hash submitted to a registered beacon
+ * @name BeaconTimestamp
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.BeaconTimestamp
+ */
 export interface BeaconTimestamp {
-  /** timestamp_id is the id of the timestamp */
+  /**
+   * timestamp_id is the id of the timestamp
+   */
   timestampId: bigint;
-  /** submit_time is the unix epoch of the timestamp's record time */
+  /**
+   * submit_time is the unix epoch of the timestamp's record time
+   */
   submitTime: bigint;
-  /** hash is the actual data stored for the timestamp */
+  /**
+   * hash is the actual data stored for the timestamp
+   */
   hash: string;
 }
 export interface BeaconTimestampProtoMsg {
   typeUrl: "/mainchain.beacon.v1.BeaconTimestamp";
   value: Uint8Array;
 }
-/** BeaconTimestamp holds each hash submitted to a registered beacon */
+/**
+ * BeaconTimestamp holds each hash submitted to a registered beacon
+ * @name BeaconTimestampAmino
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.BeaconTimestamp
+ */
 export interface BeaconTimestampAmino {
-  /** timestamp_id is the id of the timestamp */
+  /**
+   * timestamp_id is the id of the timestamp
+   */
   timestamp_id?: string;
-  /** submit_time is the unix epoch of the timestamp's record time */
+  /**
+   * submit_time is the unix epoch of the timestamp's record time
+   */
   submit_time?: string;
-  /** hash is the actual data stored for the timestamp */
+  /**
+   * hash is the actual data stored for the timestamp
+   */
   hash?: string;
 }
 export interface BeaconTimestampAminoMsg {
   type: "beacon/v1/BeaconTimestamp";
   value: BeaconTimestampAmino;
 }
-/** BeaconTimestamp holds each hash submitted to a registered beacon */
+/**
+ * BeaconTimestamp holds each hash submitted to a registered beacon
+ * @name BeaconTimestampSDKType
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.BeaconTimestamp
+ */
 export interface BeaconTimestampSDKType {
   timestamp_id: bigint;
   submit_time: bigint;
   hash: string;
 }
-/** Params defines the parameters for the beacon module. */
+/**
+ * Params defines the parameters for the beacon module.
+ * @name Params
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.Params
+ */
 export interface Params {
-  /** fee_register is the cost to register a beacon */
+  /**
+   * fee_register is the cost to register a beacon
+   */
   feeRegister: bigint;
-  /** fee_record is the cost to record a single timestamp */
+  /**
+   * fee_record is the cost to record a single timestamp
+   */
   feeRecord: bigint;
-  /** fee_purchase_storage is the cost to purchase a single additional unit of in-state storage */
+  /**
+   * fee_purchase_storage is the cost to purchase a single additional unit of
+   * in-state storage
+   */
   feePurchaseStorage: bigint;
-  /** denom is the expected denomination to pay for fees, e.g. nund */
+  /**
+   * denom is the expected denomination to pay for fees, e.g. nund
+   */
   denom: string;
-  /** default_storage_limit is the default in-state storage limit for all new beacons */
+  /**
+   * default_storage_limit is the default in-state storage limit for all new
+   * beacons
+   */
   defaultStorageLimit: bigint;
-  /** max_storage_limit is the maximum in-state storage slots any one beacon can have */
+  /**
+   * max_storage_limit is the maximum in-state storage slots any one beacon can
+   * have
+   */
   maxStorageLimit: bigint;
 }
 export interface ParamsProtoMsg {
   typeUrl: "/mainchain.beacon.v1.Params";
   value: Uint8Array;
 }
-/** Params defines the parameters for the beacon module. */
+/**
+ * Params defines the parameters for the beacon module.
+ * @name ParamsAmino
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.Params
+ */
 export interface ParamsAmino {
-  /** fee_register is the cost to register a beacon */
+  /**
+   * fee_register is the cost to register a beacon
+   */
   fee_register?: string;
-  /** fee_record is the cost to record a single timestamp */
+  /**
+   * fee_record is the cost to record a single timestamp
+   */
   fee_record?: string;
-  /** fee_purchase_storage is the cost to purchase a single additional unit of in-state storage */
+  /**
+   * fee_purchase_storage is the cost to purchase a single additional unit of
+   * in-state storage
+   */
   fee_purchase_storage?: string;
-  /** denom is the expected denomination to pay for fees, e.g. nund */
+  /**
+   * denom is the expected denomination to pay for fees, e.g. nund
+   */
   denom?: string;
-  /** default_storage_limit is the default in-state storage limit for all new beacons */
+  /**
+   * default_storage_limit is the default in-state storage limit for all new
+   * beacons
+   */
   default_storage_limit?: string;
-  /** max_storage_limit is the maximum in-state storage slots any one beacon can have */
+  /**
+   * max_storage_limit is the maximum in-state storage slots any one beacon can
+   * have
+   */
   max_storage_limit?: string;
 }
 export interface ParamsAminoMsg {
   type: "beacon/v1/Params";
   value: ParamsAmino;
 }
-/** Params defines the parameters for the beacon module. */
+/**
+ * Params defines the parameters for the beacon module.
+ * @name ParamsSDKType
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.Params
+ */
 export interface ParamsSDKType {
   fee_register: bigint;
   fee_record: bigint;
@@ -176,6 +328,12 @@ function createBaseBeacon(): Beacon {
     owner: ""
   };
 }
+/**
+ * Beacon holds metadata about a registered beacon
+ * @name Beacon
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.Beacon
+ */
 export const Beacon = {
   typeUrl: "/mainchain.beacon.v1.Beacon",
   aminoType: "beacon/v1/Beacon",
@@ -325,16 +483,22 @@ export const Beacon = {
       typeUrl: "/mainchain.beacon.v1.Beacon",
       value: Beacon.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(Beacon.typeUrl, Beacon);
-GlobalDecoderRegistry.registerAminoProtoMapping(Beacon.aminoType, Beacon.typeUrl);
 function createBaseBeaconStorageLimit(): BeaconStorageLimit {
   return {
     beaconId: BigInt(0),
     inStateLimit: BigInt(0)
   };
 }
+/**
+ * BeaconStorageLimit holds tata about the beacon's current in-state storage
+ * limit
+ * @name BeaconStorageLimit
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.BeaconStorageLimit
+ */
 export const BeaconStorageLimit = {
   typeUrl: "/mainchain.beacon.v1.BeaconStorageLimit",
   aminoType: "beacon/v1/BeaconStorageLimit",
@@ -418,10 +582,9 @@ export const BeaconStorageLimit = {
       typeUrl: "/mainchain.beacon.v1.BeaconStorageLimit",
       value: BeaconStorageLimit.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(BeaconStorageLimit.typeUrl, BeaconStorageLimit);
-GlobalDecoderRegistry.registerAminoProtoMapping(BeaconStorageLimit.aminoType, BeaconStorageLimit.typeUrl);
 function createBaseBeaconTimestamp(): BeaconTimestamp {
   return {
     timestampId: BigInt(0),
@@ -429,6 +592,12 @@ function createBaseBeaconTimestamp(): BeaconTimestamp {
     hash: ""
   };
 }
+/**
+ * BeaconTimestamp holds each hash submitted to a registered beacon
+ * @name BeaconTimestamp
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.BeaconTimestamp
+ */
 export const BeaconTimestamp = {
   typeUrl: "/mainchain.beacon.v1.BeaconTimestamp",
   aminoType: "beacon/v1/BeaconTimestamp",
@@ -523,10 +692,9 @@ export const BeaconTimestamp = {
       typeUrl: "/mainchain.beacon.v1.BeaconTimestamp",
       value: BeaconTimestamp.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(BeaconTimestamp.typeUrl, BeaconTimestamp);
-GlobalDecoderRegistry.registerAminoProtoMapping(BeaconTimestamp.aminoType, BeaconTimestamp.typeUrl);
 function createBaseParams(): Params {
   return {
     feeRegister: BigInt(0),
@@ -537,6 +705,12 @@ function createBaseParams(): Params {
     maxStorageLimit: BigInt(0)
   };
 }
+/**
+ * Params defines the parameters for the beacon module.
+ * @name Params
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.Params
+ */
 export const Params = {
   typeUrl: "/mainchain.beacon.v1.Params",
   aminoType: "beacon/v1/Params",
@@ -664,7 +838,6 @@ export const Params = {
       typeUrl: "/mainchain.beacon.v1.Params",
       value: Params.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(Params.typeUrl, Params);
-GlobalDecoderRegistry.registerAminoProtoMapping(Params.aminoType, Params.typeUrl);

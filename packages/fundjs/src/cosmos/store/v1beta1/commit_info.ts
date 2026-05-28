@@ -6,6 +6,9 @@ import { GlobalDecoderRegistry } from "../../../registry";
 /**
  * CommitInfo defines commit information used by the multi-store when committing
  * a version/height.
+ * @name CommitInfo
+ * @package cosmos.store.v1beta1
+ * @see proto type: cosmos.store.v1beta1.CommitInfo
  */
 export interface CommitInfo {
   version: bigint;
@@ -19,6 +22,9 @@ export interface CommitInfoProtoMsg {
 /**
  * CommitInfo defines commit information used by the multi-store when committing
  * a version/height.
+ * @name CommitInfoAmino
+ * @package cosmos.store.v1beta1
+ * @see proto type: cosmos.store.v1beta1.CommitInfo
  */
 export interface CommitInfoAmino {
   version?: string;
@@ -32,6 +38,9 @@ export interface CommitInfoAminoMsg {
 /**
  * CommitInfo defines commit information used by the multi-store when committing
  * a version/height.
+ * @name CommitInfoSDKType
+ * @package cosmos.store.v1beta1
+ * @see proto type: cosmos.store.v1beta1.CommitInfo
  */
 export interface CommitInfoSDKType {
   version: bigint;
@@ -41,6 +50,9 @@ export interface CommitInfoSDKType {
 /**
  * StoreInfo defines store-specific commit information. It contains a reference
  * between a store name and the commit ID.
+ * @name StoreInfo
+ * @package cosmos.store.v1beta1
+ * @see proto type: cosmos.store.v1beta1.StoreInfo
  */
 export interface StoreInfo {
   name: string;
@@ -53,6 +65,9 @@ export interface StoreInfoProtoMsg {
 /**
  * StoreInfo defines store-specific commit information. It contains a reference
  * between a store name and the commit ID.
+ * @name StoreInfoAmino
+ * @package cosmos.store.v1beta1
+ * @see proto type: cosmos.store.v1beta1.StoreInfo
  */
 export interface StoreInfoAmino {
   name?: string;
@@ -65,6 +80,9 @@ export interface StoreInfoAminoMsg {
 /**
  * StoreInfo defines store-specific commit information. It contains a reference
  * between a store name and the commit ID.
+ * @name StoreInfoSDKType
+ * @package cosmos.store.v1beta1
+ * @see proto type: cosmos.store.v1beta1.StoreInfo
  */
 export interface StoreInfoSDKType {
   name: string;
@@ -73,6 +91,9 @@ export interface StoreInfoSDKType {
 /**
  * CommitID defines the commitment information when a specific store is
  * committed.
+ * @name CommitID
+ * @package cosmos.store.v1beta1
+ * @see proto type: cosmos.store.v1beta1.CommitID
  */
 export interface CommitID {
   version: bigint;
@@ -85,6 +106,9 @@ export interface CommitIDProtoMsg {
 /**
  * CommitID defines the commitment information when a specific store is
  * committed.
+ * @name CommitIDAmino
+ * @package cosmos.store.v1beta1
+ * @see proto type: cosmos.store.v1beta1.CommitID
  */
 export interface CommitIDAmino {
   version?: string;
@@ -97,6 +121,9 @@ export interface CommitIDAminoMsg {
 /**
  * CommitID defines the commitment information when a specific store is
  * committed.
+ * @name CommitIDSDKType
+ * @package cosmos.store.v1beta1
+ * @see proto type: cosmos.store.v1beta1.CommitID
  */
 export interface CommitIDSDKType {
   version: bigint;
@@ -109,6 +136,13 @@ function createBaseCommitInfo(): CommitInfo {
     timestamp: new Date()
   };
 }
+/**
+ * CommitInfo defines commit information used by the multi-store when committing
+ * a version/height.
+ * @name CommitInfo
+ * @package cosmos.store.v1beta1
+ * @see proto type: cosmos.store.v1beta1.CommitInfo
+ */
 export const CommitInfo = {
   typeUrl: "/cosmos.store.v1beta1.CommitInfo",
   aminoType: "cosmos-sdk/CommitInfo",
@@ -205,16 +239,27 @@ export const CommitInfo = {
       typeUrl: "/cosmos.store.v1beta1.CommitInfo",
       value: CommitInfo.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(CommitInfo.typeUrl)) {
+      return;
+    }
+    StoreInfo.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(CommitInfo.typeUrl, CommitInfo);
-GlobalDecoderRegistry.registerAminoProtoMapping(CommitInfo.aminoType, CommitInfo.typeUrl);
 function createBaseStoreInfo(): StoreInfo {
   return {
     name: "",
     commitId: CommitID.fromPartial({})
   };
 }
+/**
+ * StoreInfo defines store-specific commit information. It contains a reference
+ * between a store name and the commit ID.
+ * @name StoreInfo
+ * @package cosmos.store.v1beta1
+ * @see proto type: cosmos.store.v1beta1.StoreInfo
+ */
 export const StoreInfo = {
   typeUrl: "/cosmos.store.v1beta1.StoreInfo",
   aminoType: "cosmos-sdk/StoreInfo",
@@ -298,16 +343,27 @@ export const StoreInfo = {
       typeUrl: "/cosmos.store.v1beta1.StoreInfo",
       value: StoreInfo.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(StoreInfo.typeUrl)) {
+      return;
+    }
+    CommitID.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(StoreInfo.typeUrl, StoreInfo);
-GlobalDecoderRegistry.registerAminoProtoMapping(StoreInfo.aminoType, StoreInfo.typeUrl);
 function createBaseCommitID(): CommitID {
   return {
     version: BigInt(0),
     hash: new Uint8Array()
   };
 }
+/**
+ * CommitID defines the commitment information when a specific store is
+ * committed.
+ * @name CommitID
+ * @package cosmos.store.v1beta1
+ * @see proto type: cosmos.store.v1beta1.CommitID
+ */
 export const CommitID = {
   typeUrl: "/cosmos.store.v1beta1.CommitID",
   aminoType: "cosmos-sdk/CommitID",
@@ -391,7 +447,6 @@ export const CommitID = {
       typeUrl: "/cosmos.store.v1beta1.CommitID",
       value: CommitID.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(CommitID.typeUrl, CommitID);
-GlobalDecoderRegistry.registerAminoProtoMapping(CommitID.aminoType, CommitID.typeUrl);

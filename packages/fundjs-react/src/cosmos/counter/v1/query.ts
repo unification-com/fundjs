@@ -1,21 +1,40 @@
 //@ts-nocheck
 import { BinaryReader, BinaryWriter } from "../../../binary";
-import { GlobalDecoderRegistry } from "../../../registry";
-/** QueryGetCountRequest defines the request type for querying x/mock count. */
+/**
+ * QueryGetCountRequest defines the request type for querying x/mock count.
+ * @name QueryGetCountRequest
+ * @package cosmos.counter.v1
+ * @see proto type: cosmos.counter.v1.QueryGetCountRequest
+ */
 export interface QueryGetCountRequest {}
 export interface QueryGetCountRequestProtoMsg {
   typeUrl: "/cosmos.counter.v1.QueryGetCountRequest";
   value: Uint8Array;
 }
-/** QueryGetCountRequest defines the request type for querying x/mock count. */
+/**
+ * QueryGetCountRequest defines the request type for querying x/mock count.
+ * @name QueryGetCountRequestAmino
+ * @package cosmos.counter.v1
+ * @see proto type: cosmos.counter.v1.QueryGetCountRequest
+ */
 export interface QueryGetCountRequestAmino {}
 export interface QueryGetCountRequestAminoMsg {
   type: "cosmos-sdk/QueryGetCountRequest";
   value: QueryGetCountRequestAmino;
 }
-/** QueryGetCountRequest defines the request type for querying x/mock count. */
+/**
+ * QueryGetCountRequest defines the request type for querying x/mock count.
+ * @name QueryGetCountRequestSDKType
+ * @package cosmos.counter.v1
+ * @see proto type: cosmos.counter.v1.QueryGetCountRequest
+ */
 export interface QueryGetCountRequestSDKType {}
-/** QueryGetCountResponse defines the response type for querying x/mock count. */
+/**
+ * QueryGetCountResponse defines the response type for querying x/mock count.
+ * @name QueryGetCountResponse
+ * @package cosmos.counter.v1
+ * @see proto type: cosmos.counter.v1.QueryGetCountResponse
+ */
 export interface QueryGetCountResponse {
   totalCount: bigint;
 }
@@ -23,7 +42,12 @@ export interface QueryGetCountResponseProtoMsg {
   typeUrl: "/cosmos.counter.v1.QueryGetCountResponse";
   value: Uint8Array;
 }
-/** QueryGetCountResponse defines the response type for querying x/mock count. */
+/**
+ * QueryGetCountResponse defines the response type for querying x/mock count.
+ * @name QueryGetCountResponseAmino
+ * @package cosmos.counter.v1
+ * @see proto type: cosmos.counter.v1.QueryGetCountResponse
+ */
 export interface QueryGetCountResponseAmino {
   total_count?: string;
 }
@@ -31,13 +55,24 @@ export interface QueryGetCountResponseAminoMsg {
   type: "cosmos-sdk/QueryGetCountResponse";
   value: QueryGetCountResponseAmino;
 }
-/** QueryGetCountResponse defines the response type for querying x/mock count. */
+/**
+ * QueryGetCountResponse defines the response type for querying x/mock count.
+ * @name QueryGetCountResponseSDKType
+ * @package cosmos.counter.v1
+ * @see proto type: cosmos.counter.v1.QueryGetCountResponse
+ */
 export interface QueryGetCountResponseSDKType {
   total_count: bigint;
 }
 function createBaseQueryGetCountRequest(): QueryGetCountRequest {
   return {};
 }
+/**
+ * QueryGetCountRequest defines the request type for querying x/mock count.
+ * @name QueryGetCountRequest
+ * @package cosmos.counter.v1
+ * @see proto type: cosmos.counter.v1.QueryGetCountRequest
+ */
 export const QueryGetCountRequest = {
   typeUrl: "/cosmos.counter.v1.QueryGetCountRequest",
   aminoType: "cosmos-sdk/QueryGetCountRequest",
@@ -99,15 +134,20 @@ export const QueryGetCountRequest = {
       typeUrl: "/cosmos.counter.v1.QueryGetCountRequest",
       value: QueryGetCountRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryGetCountRequest.typeUrl, QueryGetCountRequest);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryGetCountRequest.aminoType, QueryGetCountRequest.typeUrl);
 function createBaseQueryGetCountResponse(): QueryGetCountResponse {
   return {
     totalCount: BigInt(0)
   };
 }
+/**
+ * QueryGetCountResponse defines the response type for querying x/mock count.
+ * @name QueryGetCountResponse
+ * @package cosmos.counter.v1
+ * @see proto type: cosmos.counter.v1.QueryGetCountResponse
+ */
 export const QueryGetCountResponse = {
   typeUrl: "/cosmos.counter.v1.QueryGetCountResponse",
   aminoType: "cosmos-sdk/QueryGetCountResponse",
@@ -180,7 +220,6 @@ export const QueryGetCountResponse = {
       typeUrl: "/cosmos.counter.v1.QueryGetCountResponse",
       value: QueryGetCountResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryGetCountResponse.typeUrl, QueryGetCountResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryGetCountResponse.aminoType, QueryGetCountResponse.typeUrl);

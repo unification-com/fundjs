@@ -5,7 +5,12 @@ import { Params, ParamsAmino, ParamsSDKType } from "./controller";
 import { isSet } from "../../../../../helpers";
 import { BinaryReader, BinaryWriter } from "../../../../../binary";
 import { GlobalDecoderRegistry } from "../../../../../registry";
-/** MsgRegisterInterchainAccount defines the payload for Msg/RegisterAccount */
+/**
+ * MsgRegisterInterchainAccount defines the payload for Msg/RegisterAccount
+ * @name MsgRegisterInterchainAccount
+ * @package ibc.applications.interchain_accounts.controller.v1
+ * @see proto type: ibc.applications.interchain_accounts.controller.v1.MsgRegisterInterchainAccount
+ */
 export interface MsgRegisterInterchainAccount {
   owner: string;
   connectionId: string;
@@ -16,7 +21,12 @@ export interface MsgRegisterInterchainAccountProtoMsg {
   typeUrl: "/ibc.applications.interchain_accounts.controller.v1.MsgRegisterInterchainAccount";
   value: Uint8Array;
 }
-/** MsgRegisterInterchainAccount defines the payload for Msg/RegisterAccount */
+/**
+ * MsgRegisterInterchainAccount defines the payload for Msg/RegisterAccount
+ * @name MsgRegisterInterchainAccountAmino
+ * @package ibc.applications.interchain_accounts.controller.v1
+ * @see proto type: ibc.applications.interchain_accounts.controller.v1.MsgRegisterInterchainAccount
+ */
 export interface MsgRegisterInterchainAccountAmino {
   owner?: string;
   connection_id?: string;
@@ -27,14 +37,24 @@ export interface MsgRegisterInterchainAccountAminoMsg {
   type: "cosmos-sdk/MsgRegisterInterchainAccount";
   value: MsgRegisterInterchainAccountAmino;
 }
-/** MsgRegisterInterchainAccount defines the payload for Msg/RegisterAccount */
+/**
+ * MsgRegisterInterchainAccount defines the payload for Msg/RegisterAccount
+ * @name MsgRegisterInterchainAccountSDKType
+ * @package ibc.applications.interchain_accounts.controller.v1
+ * @see proto type: ibc.applications.interchain_accounts.controller.v1.MsgRegisterInterchainAccount
+ */
 export interface MsgRegisterInterchainAccountSDKType {
   owner: string;
   connection_id: string;
   version: string;
   ordering: Order;
 }
-/** MsgRegisterInterchainAccountResponse defines the response for Msg/RegisterAccount */
+/**
+ * MsgRegisterInterchainAccountResponse defines the response for Msg/RegisterAccount
+ * @name MsgRegisterInterchainAccountResponse
+ * @package ibc.applications.interchain_accounts.controller.v1
+ * @see proto type: ibc.applications.interchain_accounts.controller.v1.MsgRegisterInterchainAccountResponse
+ */
 export interface MsgRegisterInterchainAccountResponse {
   channelId: string;
   portId: string;
@@ -43,7 +63,12 @@ export interface MsgRegisterInterchainAccountResponseProtoMsg {
   typeUrl: "/ibc.applications.interchain_accounts.controller.v1.MsgRegisterInterchainAccountResponse";
   value: Uint8Array;
 }
-/** MsgRegisterInterchainAccountResponse defines the response for Msg/RegisterAccount */
+/**
+ * MsgRegisterInterchainAccountResponse defines the response for Msg/RegisterAccount
+ * @name MsgRegisterInterchainAccountResponseAmino
+ * @package ibc.applications.interchain_accounts.controller.v1
+ * @see proto type: ibc.applications.interchain_accounts.controller.v1.MsgRegisterInterchainAccountResponse
+ */
 export interface MsgRegisterInterchainAccountResponseAmino {
   channel_id?: string;
   port_id?: string;
@@ -52,12 +77,22 @@ export interface MsgRegisterInterchainAccountResponseAminoMsg {
   type: "cosmos-sdk/MsgRegisterInterchainAccountResponse";
   value: MsgRegisterInterchainAccountResponseAmino;
 }
-/** MsgRegisterInterchainAccountResponse defines the response for Msg/RegisterAccount */
+/**
+ * MsgRegisterInterchainAccountResponse defines the response for Msg/RegisterAccount
+ * @name MsgRegisterInterchainAccountResponseSDKType
+ * @package ibc.applications.interchain_accounts.controller.v1
+ * @see proto type: ibc.applications.interchain_accounts.controller.v1.MsgRegisterInterchainAccountResponse
+ */
 export interface MsgRegisterInterchainAccountResponseSDKType {
   channel_id: string;
   port_id: string;
 }
-/** MsgSendTx defines the payload for Msg/SendTx */
+/**
+ * MsgSendTx defines the payload for Msg/SendTx
+ * @name MsgSendTx
+ * @package ibc.applications.interchain_accounts.controller.v1
+ * @see proto type: ibc.applications.interchain_accounts.controller.v1.MsgSendTx
+ */
 export interface MsgSendTx {
   owner: string;
   connectionId: string;
@@ -72,7 +107,12 @@ export interface MsgSendTxProtoMsg {
   typeUrl: "/ibc.applications.interchain_accounts.controller.v1.MsgSendTx";
   value: Uint8Array;
 }
-/** MsgSendTx defines the payload for Msg/SendTx */
+/**
+ * MsgSendTx defines the payload for Msg/SendTx
+ * @name MsgSendTxAmino
+ * @package ibc.applications.interchain_accounts.controller.v1
+ * @see proto type: ibc.applications.interchain_accounts.controller.v1.MsgSendTx
+ */
 export interface MsgSendTxAmino {
   owner?: string;
   connection_id?: string;
@@ -87,14 +127,24 @@ export interface MsgSendTxAminoMsg {
   type: "cosmos-sdk/MsgSendTx";
   value: MsgSendTxAmino;
 }
-/** MsgSendTx defines the payload for Msg/SendTx */
+/**
+ * MsgSendTx defines the payload for Msg/SendTx
+ * @name MsgSendTxSDKType
+ * @package ibc.applications.interchain_accounts.controller.v1
+ * @see proto type: ibc.applications.interchain_accounts.controller.v1.MsgSendTx
+ */
 export interface MsgSendTxSDKType {
   owner: string;
   connection_id: string;
   packet_data: InterchainAccountPacketDataSDKType;
   relative_timeout: bigint;
 }
-/** MsgSendTxResponse defines the response for MsgSendTx */
+/**
+ * MsgSendTxResponse defines the response for MsgSendTx
+ * @name MsgSendTxResponse
+ * @package ibc.applications.interchain_accounts.controller.v1
+ * @see proto type: ibc.applications.interchain_accounts.controller.v1.MsgSendTxResponse
+ */
 export interface MsgSendTxResponse {
   sequence: bigint;
 }
@@ -102,7 +152,12 @@ export interface MsgSendTxResponseProtoMsg {
   typeUrl: "/ibc.applications.interchain_accounts.controller.v1.MsgSendTxResponse";
   value: Uint8Array;
 }
-/** MsgSendTxResponse defines the response for MsgSendTx */
+/**
+ * MsgSendTxResponse defines the response for MsgSendTx
+ * @name MsgSendTxResponseAmino
+ * @package ibc.applications.interchain_accounts.controller.v1
+ * @see proto type: ibc.applications.interchain_accounts.controller.v1.MsgSendTxResponse
+ */
 export interface MsgSendTxResponseAmino {
   sequence?: string;
 }
@@ -110,13 +165,25 @@ export interface MsgSendTxResponseAminoMsg {
   type: "cosmos-sdk/MsgSendTxResponse";
   value: MsgSendTxResponseAmino;
 }
-/** MsgSendTxResponse defines the response for MsgSendTx */
+/**
+ * MsgSendTxResponse defines the response for MsgSendTx
+ * @name MsgSendTxResponseSDKType
+ * @package ibc.applications.interchain_accounts.controller.v1
+ * @see proto type: ibc.applications.interchain_accounts.controller.v1.MsgSendTxResponse
+ */
 export interface MsgSendTxResponseSDKType {
   sequence: bigint;
 }
-/** MsgUpdateParams defines the payload for Msg/UpdateParams */
+/**
+ * MsgUpdateParams defines the payload for Msg/UpdateParams
+ * @name MsgUpdateParams
+ * @package ibc.applications.interchain_accounts.controller.v1
+ * @see proto type: ibc.applications.interchain_accounts.controller.v1.MsgUpdateParams
+ */
 export interface MsgUpdateParams {
-  /** signer address */
+  /**
+   * signer address
+   */
   signer: string;
   /**
    * params defines the 27-interchain-accounts/controller parameters to update.
@@ -129,9 +196,16 @@ export interface MsgUpdateParamsProtoMsg {
   typeUrl: "/ibc.applications.interchain_accounts.controller.v1.MsgUpdateParams";
   value: Uint8Array;
 }
-/** MsgUpdateParams defines the payload for Msg/UpdateParams */
+/**
+ * MsgUpdateParams defines the payload for Msg/UpdateParams
+ * @name MsgUpdateParamsAmino
+ * @package ibc.applications.interchain_accounts.controller.v1
+ * @see proto type: ibc.applications.interchain_accounts.controller.v1.MsgUpdateParams
+ */
 export interface MsgUpdateParamsAmino {
-  /** signer address */
+  /**
+   * signer address
+   */
   signer?: string;
   /**
    * params defines the 27-interchain-accounts/controller parameters to update.
@@ -144,24 +218,44 @@ export interface MsgUpdateParamsAminoMsg {
   type: "cosmos-sdk/MsgUpdateParams";
   value: MsgUpdateParamsAmino;
 }
-/** MsgUpdateParams defines the payload for Msg/UpdateParams */
+/**
+ * MsgUpdateParams defines the payload for Msg/UpdateParams
+ * @name MsgUpdateParamsSDKType
+ * @package ibc.applications.interchain_accounts.controller.v1
+ * @see proto type: ibc.applications.interchain_accounts.controller.v1.MsgUpdateParams
+ */
 export interface MsgUpdateParamsSDKType {
   signer: string;
   params: ParamsSDKType;
 }
-/** MsgUpdateParamsResponse defines the response for Msg/UpdateParams */
+/**
+ * MsgUpdateParamsResponse defines the response for Msg/UpdateParams
+ * @name MsgUpdateParamsResponse
+ * @package ibc.applications.interchain_accounts.controller.v1
+ * @see proto type: ibc.applications.interchain_accounts.controller.v1.MsgUpdateParamsResponse
+ */
 export interface MsgUpdateParamsResponse {}
 export interface MsgUpdateParamsResponseProtoMsg {
   typeUrl: "/ibc.applications.interchain_accounts.controller.v1.MsgUpdateParamsResponse";
   value: Uint8Array;
 }
-/** MsgUpdateParamsResponse defines the response for Msg/UpdateParams */
+/**
+ * MsgUpdateParamsResponse defines the response for Msg/UpdateParams
+ * @name MsgUpdateParamsResponseAmino
+ * @package ibc.applications.interchain_accounts.controller.v1
+ * @see proto type: ibc.applications.interchain_accounts.controller.v1.MsgUpdateParamsResponse
+ */
 export interface MsgUpdateParamsResponseAmino {}
 export interface MsgUpdateParamsResponseAminoMsg {
   type: "cosmos-sdk/MsgUpdateParamsResponse";
   value: MsgUpdateParamsResponseAmino;
 }
-/** MsgUpdateParamsResponse defines the response for Msg/UpdateParams */
+/**
+ * MsgUpdateParamsResponse defines the response for Msg/UpdateParams
+ * @name MsgUpdateParamsResponseSDKType
+ * @package ibc.applications.interchain_accounts.controller.v1
+ * @see proto type: ibc.applications.interchain_accounts.controller.v1.MsgUpdateParamsResponse
+ */
 export interface MsgUpdateParamsResponseSDKType {}
 function createBaseMsgRegisterInterchainAccount(): MsgRegisterInterchainAccount {
   return {
@@ -171,6 +265,12 @@ function createBaseMsgRegisterInterchainAccount(): MsgRegisterInterchainAccount 
     ordering: 0
   };
 }
+/**
+ * MsgRegisterInterchainAccount defines the payload for Msg/RegisterAccount
+ * @name MsgRegisterInterchainAccount
+ * @package ibc.applications.interchain_accounts.controller.v1
+ * @see proto type: ibc.applications.interchain_accounts.controller.v1.MsgRegisterInterchainAccount
+ */
 export const MsgRegisterInterchainAccount = {
   typeUrl: "/ibc.applications.interchain_accounts.controller.v1.MsgRegisterInterchainAccount",
   aminoType: "cosmos-sdk/MsgRegisterInterchainAccount",
@@ -276,16 +376,21 @@ export const MsgRegisterInterchainAccount = {
       typeUrl: "/ibc.applications.interchain_accounts.controller.v1.MsgRegisterInterchainAccount",
       value: MsgRegisterInterchainAccount.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgRegisterInterchainAccount.typeUrl, MsgRegisterInterchainAccount);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgRegisterInterchainAccount.aminoType, MsgRegisterInterchainAccount.typeUrl);
 function createBaseMsgRegisterInterchainAccountResponse(): MsgRegisterInterchainAccountResponse {
   return {
     channelId: "",
     portId: ""
   };
 }
+/**
+ * MsgRegisterInterchainAccountResponse defines the response for Msg/RegisterAccount
+ * @name MsgRegisterInterchainAccountResponse
+ * @package ibc.applications.interchain_accounts.controller.v1
+ * @see proto type: ibc.applications.interchain_accounts.controller.v1.MsgRegisterInterchainAccountResponse
+ */
 export const MsgRegisterInterchainAccountResponse = {
   typeUrl: "/ibc.applications.interchain_accounts.controller.v1.MsgRegisterInterchainAccountResponse",
   aminoType: "cosmos-sdk/MsgRegisterInterchainAccountResponse",
@@ -369,10 +474,9 @@ export const MsgRegisterInterchainAccountResponse = {
       typeUrl: "/ibc.applications.interchain_accounts.controller.v1.MsgRegisterInterchainAccountResponse",
       value: MsgRegisterInterchainAccountResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgRegisterInterchainAccountResponse.typeUrl, MsgRegisterInterchainAccountResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgRegisterInterchainAccountResponse.aminoType, MsgRegisterInterchainAccountResponse.typeUrl);
 function createBaseMsgSendTx(): MsgSendTx {
   return {
     owner: "",
@@ -381,6 +485,12 @@ function createBaseMsgSendTx(): MsgSendTx {
     relativeTimeout: BigInt(0)
   };
 }
+/**
+ * MsgSendTx defines the payload for Msg/SendTx
+ * @name MsgSendTx
+ * @package ibc.applications.interchain_accounts.controller.v1
+ * @see proto type: ibc.applications.interchain_accounts.controller.v1.MsgSendTx
+ */
 export const MsgSendTx = {
   typeUrl: "/ibc.applications.interchain_accounts.controller.v1.MsgSendTx",
   aminoType: "cosmos-sdk/MsgSendTx",
@@ -486,15 +596,25 @@ export const MsgSendTx = {
       typeUrl: "/ibc.applications.interchain_accounts.controller.v1.MsgSendTx",
       value: MsgSendTx.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgSendTx.typeUrl)) {
+      return;
+    }
+    InterchainAccountPacketData.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgSendTx.typeUrl, MsgSendTx);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgSendTx.aminoType, MsgSendTx.typeUrl);
 function createBaseMsgSendTxResponse(): MsgSendTxResponse {
   return {
     sequence: BigInt(0)
   };
 }
+/**
+ * MsgSendTxResponse defines the response for MsgSendTx
+ * @name MsgSendTxResponse
+ * @package ibc.applications.interchain_accounts.controller.v1
+ * @see proto type: ibc.applications.interchain_accounts.controller.v1.MsgSendTxResponse
+ */
 export const MsgSendTxResponse = {
   typeUrl: "/ibc.applications.interchain_accounts.controller.v1.MsgSendTxResponse",
   aminoType: "cosmos-sdk/MsgSendTxResponse",
@@ -567,16 +687,21 @@ export const MsgSendTxResponse = {
       typeUrl: "/ibc.applications.interchain_accounts.controller.v1.MsgSendTxResponse",
       value: MsgSendTxResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgSendTxResponse.typeUrl, MsgSendTxResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgSendTxResponse.aminoType, MsgSendTxResponse.typeUrl);
 function createBaseMsgUpdateParams(): MsgUpdateParams {
   return {
     signer: "",
     params: Params.fromPartial({})
   };
 }
+/**
+ * MsgUpdateParams defines the payload for Msg/UpdateParams
+ * @name MsgUpdateParams
+ * @package ibc.applications.interchain_accounts.controller.v1
+ * @see proto type: ibc.applications.interchain_accounts.controller.v1.MsgUpdateParams
+ */
 export const MsgUpdateParams = {
   typeUrl: "/ibc.applications.interchain_accounts.controller.v1.MsgUpdateParams",
   aminoType: "cosmos-sdk/MsgUpdateParams",
@@ -660,13 +785,23 @@ export const MsgUpdateParams = {
       typeUrl: "/ibc.applications.interchain_accounts.controller.v1.MsgUpdateParams",
       value: MsgUpdateParams.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(MsgUpdateParams.typeUrl)) {
+      return;
+    }
+    Params.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(MsgUpdateParams.typeUrl, MsgUpdateParams);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgUpdateParams.aminoType, MsgUpdateParams.typeUrl);
 function createBaseMsgUpdateParamsResponse(): MsgUpdateParamsResponse {
   return {};
 }
+/**
+ * MsgUpdateParamsResponse defines the response for Msg/UpdateParams
+ * @name MsgUpdateParamsResponse
+ * @package ibc.applications.interchain_accounts.controller.v1
+ * @see proto type: ibc.applications.interchain_accounts.controller.v1.MsgUpdateParamsResponse
+ */
 export const MsgUpdateParamsResponse = {
   typeUrl: "/ibc.applications.interchain_accounts.controller.v1.MsgUpdateParamsResponse",
   aminoType: "cosmos-sdk/MsgUpdateParamsResponse",
@@ -728,7 +863,6 @@ export const MsgUpdateParamsResponse = {
       typeUrl: "/ibc.applications.interchain_accounts.controller.v1.MsgUpdateParamsResponse",
       value: MsgUpdateParamsResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(MsgUpdateParamsResponse.typeUrl, MsgUpdateParamsResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(MsgUpdateParamsResponse.aminoType, MsgUpdateParamsResponse.typeUrl);

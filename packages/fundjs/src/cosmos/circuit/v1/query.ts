@@ -3,7 +3,12 @@ import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageRe
 import { Permissions, PermissionsAmino, PermissionsSDKType, GenesisAccountPermissions, GenesisAccountPermissionsAmino, GenesisAccountPermissionsSDKType } from "./types";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { GlobalDecoderRegistry } from "../../../registry";
-/** QueryAccountRequest is the request type for the Query/Account RPC method. */
+/**
+ * QueryAccountRequest is the request type for the Query/Account RPC method.
+ * @name QueryAccountRequest
+ * @package cosmos.circuit.v1
+ * @see proto type: cosmos.circuit.v1.QueryAccountRequest
+ */
 export interface QueryAccountRequest {
   address: string;
 }
@@ -11,7 +16,12 @@ export interface QueryAccountRequestProtoMsg {
   typeUrl: "/cosmos.circuit.v1.QueryAccountRequest";
   value: Uint8Array;
 }
-/** QueryAccountRequest is the request type for the Query/Account RPC method. */
+/**
+ * QueryAccountRequest is the request type for the Query/Account RPC method.
+ * @name QueryAccountRequestAmino
+ * @package cosmos.circuit.v1
+ * @see proto type: cosmos.circuit.v1.QueryAccountRequest
+ */
 export interface QueryAccountRequestAmino {
   address?: string;
 }
@@ -19,11 +29,21 @@ export interface QueryAccountRequestAminoMsg {
   type: "cosmos-sdk/QueryAccountRequest";
   value: QueryAccountRequestAmino;
 }
-/** QueryAccountRequest is the request type for the Query/Account RPC method. */
+/**
+ * QueryAccountRequest is the request type for the Query/Account RPC method.
+ * @name QueryAccountRequestSDKType
+ * @package cosmos.circuit.v1
+ * @see proto type: cosmos.circuit.v1.QueryAccountRequest
+ */
 export interface QueryAccountRequestSDKType {
   address: string;
 }
-/** AccountResponse is the response type for the Query/Account RPC method. */
+/**
+ * AccountResponse is the response type for the Query/Account RPC method.
+ * @name AccountResponse
+ * @package cosmos.circuit.v1
+ * @see proto type: cosmos.circuit.v1.AccountResponse
+ */
 export interface AccountResponse {
   permission?: Permissions;
 }
@@ -31,7 +51,12 @@ export interface AccountResponseProtoMsg {
   typeUrl: "/cosmos.circuit.v1.AccountResponse";
   value: Uint8Array;
 }
-/** AccountResponse is the response type for the Query/Account RPC method. */
+/**
+ * AccountResponse is the response type for the Query/Account RPC method.
+ * @name AccountResponseAmino
+ * @package cosmos.circuit.v1
+ * @see proto type: cosmos.circuit.v1.AccountResponse
+ */
 export interface AccountResponseAmino {
   permission?: PermissionsAmino;
 }
@@ -39,72 +64,135 @@ export interface AccountResponseAminoMsg {
   type: "cosmos-sdk/AccountResponse";
   value: AccountResponseAmino;
 }
-/** AccountResponse is the response type for the Query/Account RPC method. */
+/**
+ * AccountResponse is the response type for the Query/Account RPC method.
+ * @name AccountResponseSDKType
+ * @package cosmos.circuit.v1
+ * @see proto type: cosmos.circuit.v1.AccountResponse
+ */
 export interface AccountResponseSDKType {
   permission?: PermissionsSDKType;
 }
-/** QueryAccountsRequest is the request type for the Query/Accounts RPC method. */
+/**
+ * QueryAccountsRequest is the request type for the Query/Accounts RPC method.
+ * @name QueryAccountsRequest
+ * @package cosmos.circuit.v1
+ * @see proto type: cosmos.circuit.v1.QueryAccountsRequest
+ */
 export interface QueryAccountsRequest {
-  /** pagination defines an optional pagination for the request. */
+  /**
+   * pagination defines an optional pagination for the request.
+   */
   pagination?: PageRequest;
 }
 export interface QueryAccountsRequestProtoMsg {
   typeUrl: "/cosmos.circuit.v1.QueryAccountsRequest";
   value: Uint8Array;
 }
-/** QueryAccountsRequest is the request type for the Query/Accounts RPC method. */
+/**
+ * QueryAccountsRequest is the request type for the Query/Accounts RPC method.
+ * @name QueryAccountsRequestAmino
+ * @package cosmos.circuit.v1
+ * @see proto type: cosmos.circuit.v1.QueryAccountsRequest
+ */
 export interface QueryAccountsRequestAmino {
-  /** pagination defines an optional pagination for the request. */
+  /**
+   * pagination defines an optional pagination for the request.
+   */
   pagination?: PageRequestAmino;
 }
 export interface QueryAccountsRequestAminoMsg {
   type: "cosmos-sdk/QueryAccountsRequest";
   value: QueryAccountsRequestAmino;
 }
-/** QueryAccountsRequest is the request type for the Query/Accounts RPC method. */
+/**
+ * QueryAccountsRequest is the request type for the Query/Accounts RPC method.
+ * @name QueryAccountsRequestSDKType
+ * @package cosmos.circuit.v1
+ * @see proto type: cosmos.circuit.v1.QueryAccountsRequest
+ */
 export interface QueryAccountsRequestSDKType {
   pagination?: PageRequestSDKType;
 }
-/** AccountsResponse is the response type for the Query/Accounts RPC method. */
+/**
+ * AccountsResponse is the response type for the Query/Accounts RPC method.
+ * @name AccountsResponse
+ * @package cosmos.circuit.v1
+ * @see proto type: cosmos.circuit.v1.AccountsResponse
+ */
 export interface AccountsResponse {
   accounts: GenesisAccountPermissions[];
-  /** pagination defines the pagination in the response. */
+  /**
+   * pagination defines the pagination in the response.
+   */
   pagination?: PageResponse;
 }
 export interface AccountsResponseProtoMsg {
   typeUrl: "/cosmos.circuit.v1.AccountsResponse";
   value: Uint8Array;
 }
-/** AccountsResponse is the response type for the Query/Accounts RPC method. */
+/**
+ * AccountsResponse is the response type for the Query/Accounts RPC method.
+ * @name AccountsResponseAmino
+ * @package cosmos.circuit.v1
+ * @see proto type: cosmos.circuit.v1.AccountsResponse
+ */
 export interface AccountsResponseAmino {
   accounts?: GenesisAccountPermissionsAmino[];
-  /** pagination defines the pagination in the response. */
+  /**
+   * pagination defines the pagination in the response.
+   */
   pagination?: PageResponseAmino;
 }
 export interface AccountsResponseAminoMsg {
   type: "cosmos-sdk/AccountsResponse";
   value: AccountsResponseAmino;
 }
-/** AccountsResponse is the response type for the Query/Accounts RPC method. */
+/**
+ * AccountsResponse is the response type for the Query/Accounts RPC method.
+ * @name AccountsResponseSDKType
+ * @package cosmos.circuit.v1
+ * @see proto type: cosmos.circuit.v1.AccountsResponse
+ */
 export interface AccountsResponseSDKType {
   accounts: GenesisAccountPermissionsSDKType[];
   pagination?: PageResponseSDKType;
 }
-/** QueryDisableListRequest is the request type for the Query/DisabledList RPC method. */
+/**
+ * QueryDisableListRequest is the request type for the Query/DisabledList RPC method.
+ * @name QueryDisabledListRequest
+ * @package cosmos.circuit.v1
+ * @see proto type: cosmos.circuit.v1.QueryDisabledListRequest
+ */
 export interface QueryDisabledListRequest {}
 export interface QueryDisabledListRequestProtoMsg {
   typeUrl: "/cosmos.circuit.v1.QueryDisabledListRequest";
   value: Uint8Array;
 }
-/** QueryDisableListRequest is the request type for the Query/DisabledList RPC method. */
+/**
+ * QueryDisableListRequest is the request type for the Query/DisabledList RPC method.
+ * @name QueryDisabledListRequestAmino
+ * @package cosmos.circuit.v1
+ * @see proto type: cosmos.circuit.v1.QueryDisabledListRequest
+ */
 export interface QueryDisabledListRequestAmino {}
 export interface QueryDisabledListRequestAminoMsg {
   type: "cosmos-sdk/QueryDisabledListRequest";
   value: QueryDisabledListRequestAmino;
 }
-/** QueryDisableListRequest is the request type for the Query/DisabledList RPC method. */
+/**
+ * QueryDisableListRequest is the request type for the Query/DisabledList RPC method.
+ * @name QueryDisabledListRequestSDKType
+ * @package cosmos.circuit.v1
+ * @see proto type: cosmos.circuit.v1.QueryDisabledListRequest
+ */
 export interface QueryDisabledListRequestSDKType {}
-/** DisabledListResponse is the response type for the Query/DisabledList RPC method. */
+/**
+ * DisabledListResponse is the response type for the Query/DisabledList RPC method.
+ * @name DisabledListResponse
+ * @package cosmos.circuit.v1
+ * @see proto type: cosmos.circuit.v1.DisabledListResponse
+ */
 export interface DisabledListResponse {
   disabledList: string[];
 }
@@ -112,7 +200,12 @@ export interface DisabledListResponseProtoMsg {
   typeUrl: "/cosmos.circuit.v1.DisabledListResponse";
   value: Uint8Array;
 }
-/** DisabledListResponse is the response type for the Query/DisabledList RPC method. */
+/**
+ * DisabledListResponse is the response type for the Query/DisabledList RPC method.
+ * @name DisabledListResponseAmino
+ * @package cosmos.circuit.v1
+ * @see proto type: cosmos.circuit.v1.DisabledListResponse
+ */
 export interface DisabledListResponseAmino {
   disabled_list?: string[];
 }
@@ -120,7 +213,12 @@ export interface DisabledListResponseAminoMsg {
   type: "cosmos-sdk/DisabledListResponse";
   value: DisabledListResponseAmino;
 }
-/** DisabledListResponse is the response type for the Query/DisabledList RPC method. */
+/**
+ * DisabledListResponse is the response type for the Query/DisabledList RPC method.
+ * @name DisabledListResponseSDKType
+ * @package cosmos.circuit.v1
+ * @see proto type: cosmos.circuit.v1.DisabledListResponse
+ */
 export interface DisabledListResponseSDKType {
   disabled_list: string[];
 }
@@ -129,6 +227,12 @@ function createBaseQueryAccountRequest(): QueryAccountRequest {
     address: ""
   };
 }
+/**
+ * QueryAccountRequest is the request type for the Query/Account RPC method.
+ * @name QueryAccountRequest
+ * @package cosmos.circuit.v1
+ * @see proto type: cosmos.circuit.v1.QueryAccountRequest
+ */
 export const QueryAccountRequest = {
   typeUrl: "/cosmos.circuit.v1.QueryAccountRequest",
   aminoType: "cosmos-sdk/QueryAccountRequest",
@@ -201,15 +305,20 @@ export const QueryAccountRequest = {
       typeUrl: "/cosmos.circuit.v1.QueryAccountRequest",
       value: QueryAccountRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryAccountRequest.typeUrl, QueryAccountRequest);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryAccountRequest.aminoType, QueryAccountRequest.typeUrl);
 function createBaseAccountResponse(): AccountResponse {
   return {
     permission: undefined
   };
 }
+/**
+ * AccountResponse is the response type for the Query/Account RPC method.
+ * @name AccountResponse
+ * @package cosmos.circuit.v1
+ * @see proto type: cosmos.circuit.v1.AccountResponse
+ */
 export const AccountResponse = {
   typeUrl: "/cosmos.circuit.v1.AccountResponse",
   aminoType: "cosmos-sdk/AccountResponse",
@@ -282,15 +391,25 @@ export const AccountResponse = {
       typeUrl: "/cosmos.circuit.v1.AccountResponse",
       value: AccountResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(AccountResponse.typeUrl)) {
+      return;
+    }
+    Permissions.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(AccountResponse.typeUrl, AccountResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(AccountResponse.aminoType, AccountResponse.typeUrl);
 function createBaseQueryAccountsRequest(): QueryAccountsRequest {
   return {
     pagination: undefined
   };
 }
+/**
+ * QueryAccountsRequest is the request type for the Query/Accounts RPC method.
+ * @name QueryAccountsRequest
+ * @package cosmos.circuit.v1
+ * @see proto type: cosmos.circuit.v1.QueryAccountsRequest
+ */
 export const QueryAccountsRequest = {
   typeUrl: "/cosmos.circuit.v1.QueryAccountsRequest",
   aminoType: "cosmos-sdk/QueryAccountsRequest",
@@ -363,16 +482,26 @@ export const QueryAccountsRequest = {
       typeUrl: "/cosmos.circuit.v1.QueryAccountsRequest",
       value: QueryAccountsRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryAccountsRequest.typeUrl)) {
+      return;
+    }
+    PageRequest.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryAccountsRequest.typeUrl, QueryAccountsRequest);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryAccountsRequest.aminoType, QueryAccountsRequest.typeUrl);
 function createBaseAccountsResponse(): AccountsResponse {
   return {
     accounts: [],
     pagination: undefined
   };
 }
+/**
+ * AccountsResponse is the response type for the Query/Accounts RPC method.
+ * @name AccountsResponse
+ * @package cosmos.circuit.v1
+ * @see proto type: cosmos.circuit.v1.AccountsResponse
+ */
 export const AccountsResponse = {
   typeUrl: "/cosmos.circuit.v1.AccountsResponse",
   aminoType: "cosmos-sdk/AccountsResponse",
@@ -458,13 +587,24 @@ export const AccountsResponse = {
       typeUrl: "/cosmos.circuit.v1.AccountsResponse",
       value: AccountsResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(AccountsResponse.typeUrl)) {
+      return;
+    }
+    GenesisAccountPermissions.registerTypeUrl();
+    PageResponse.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(AccountsResponse.typeUrl, AccountsResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(AccountsResponse.aminoType, AccountsResponse.typeUrl);
 function createBaseQueryDisabledListRequest(): QueryDisabledListRequest {
   return {};
 }
+/**
+ * QueryDisableListRequest is the request type for the Query/DisabledList RPC method.
+ * @name QueryDisabledListRequest
+ * @package cosmos.circuit.v1
+ * @see proto type: cosmos.circuit.v1.QueryDisabledListRequest
+ */
 export const QueryDisabledListRequest = {
   typeUrl: "/cosmos.circuit.v1.QueryDisabledListRequest",
   aminoType: "cosmos-sdk/QueryDisabledListRequest",
@@ -526,15 +666,20 @@ export const QueryDisabledListRequest = {
       typeUrl: "/cosmos.circuit.v1.QueryDisabledListRequest",
       value: QueryDisabledListRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryDisabledListRequest.typeUrl, QueryDisabledListRequest);
-GlobalDecoderRegistry.registerAminoProtoMapping(QueryDisabledListRequest.aminoType, QueryDisabledListRequest.typeUrl);
 function createBaseDisabledListResponse(): DisabledListResponse {
   return {
     disabledList: []
   };
 }
+/**
+ * DisabledListResponse is the response type for the Query/DisabledList RPC method.
+ * @name DisabledListResponse
+ * @package cosmos.circuit.v1
+ * @see proto type: cosmos.circuit.v1.DisabledListResponse
+ */
 export const DisabledListResponse = {
   typeUrl: "/cosmos.circuit.v1.DisabledListResponse",
   aminoType: "cosmos-sdk/DisabledListResponse",
@@ -609,7 +754,6 @@ export const DisabledListResponse = {
       typeUrl: "/cosmos.circuit.v1.DisabledListResponse",
       value: DisabledListResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(DisabledListResponse.typeUrl, DisabledListResponse);
-GlobalDecoderRegistry.registerAminoProtoMapping(DisabledListResponse.aminoType, DisabledListResponse.typeUrl);

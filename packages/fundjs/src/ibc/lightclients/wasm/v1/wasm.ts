@@ -3,7 +3,12 @@ import { Height, HeightAmino, HeightSDKType } from "../../../core/client/v1/clie
 import { BinaryReader, BinaryWriter } from "../../../../binary";
 import { GlobalDecoderRegistry } from "../../../../registry";
 import { bytesFromBase64, base64FromBytes } from "../../../../helpers";
-/** Wasm light client's Client state */
+/**
+ * Wasm light client's Client state
+ * @name ClientState
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.ClientState
+ */
 export interface ClientState {
   /**
    * bytes encoding the client state of the underlying light client
@@ -17,7 +22,12 @@ export interface ClientStateProtoMsg {
   typeUrl: "/ibc.lightclients.wasm.v1.ClientState";
   value: Uint8Array;
 }
-/** Wasm light client's Client state */
+/**
+ * Wasm light client's Client state
+ * @name ClientStateAmino
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.ClientState
+ */
 export interface ClientStateAmino {
   /**
    * bytes encoding the client state of the underlying light client
@@ -31,13 +41,23 @@ export interface ClientStateAminoMsg {
   type: "cosmos-sdk/ClientState";
   value: ClientStateAmino;
 }
-/** Wasm light client's Client state */
+/**
+ * Wasm light client's Client state
+ * @name ClientStateSDKType
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.ClientState
+ */
 export interface ClientStateSDKType {
   data: Uint8Array;
   checksum: Uint8Array;
   latest_height: HeightSDKType;
 }
-/** Wasm light client's ConsensusState */
+/**
+ * Wasm light client's ConsensusState
+ * @name ConsensusState
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.ConsensusState
+ */
 export interface ConsensusState {
   /**
    * bytes encoding the consensus state of the underlying light client
@@ -49,7 +69,12 @@ export interface ConsensusStateProtoMsg {
   typeUrl: "/ibc.lightclients.wasm.v1.ConsensusState";
   value: Uint8Array;
 }
-/** Wasm light client's ConsensusState */
+/**
+ * Wasm light client's ConsensusState
+ * @name ConsensusStateAmino
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.ConsensusState
+ */
 export interface ConsensusStateAmino {
   /**
    * bytes encoding the consensus state of the underlying light client
@@ -61,11 +86,21 @@ export interface ConsensusStateAminoMsg {
   type: "cosmos-sdk/ConsensusState";
   value: ConsensusStateAmino;
 }
-/** Wasm light client's ConsensusState */
+/**
+ * Wasm light client's ConsensusState
+ * @name ConsensusStateSDKType
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.ConsensusState
+ */
 export interface ConsensusStateSDKType {
   data: Uint8Array;
 }
-/** Wasm light client message (either header(s) or misbehaviour) */
+/**
+ * Wasm light client message (either header(s) or misbehaviour)
+ * @name ClientMessage
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.ClientMessage
+ */
 export interface ClientMessage {
   data: Uint8Array;
 }
@@ -73,7 +108,12 @@ export interface ClientMessageProtoMsg {
   typeUrl: "/ibc.lightclients.wasm.v1.ClientMessage";
   value: Uint8Array;
 }
-/** Wasm light client message (either header(s) or misbehaviour) */
+/**
+ * Wasm light client message (either header(s) or misbehaviour)
+ * @name ClientMessageAmino
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.ClientMessage
+ */
 export interface ClientMessageAmino {
   data?: string;
 }
@@ -81,7 +121,12 @@ export interface ClientMessageAminoMsg {
   type: "cosmos-sdk/ClientMessage";
   value: ClientMessageAmino;
 }
-/** Wasm light client message (either header(s) or misbehaviour) */
+/**
+ * Wasm light client message (either header(s) or misbehaviour)
+ * @name ClientMessageSDKType
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.ClientMessage
+ */
 export interface ClientMessageSDKType {
   data: Uint8Array;
 }
@@ -90,8 +135,11 @@ export interface ClientMessageSDKType {
  * 
  * Deprecated: This message is deprecated in favor of storing the checksums
  * using a Collections.KeySet.
+ * @name Checksums
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.Checksums
+ * @deprecated
  */
-/** @deprecated */
 export interface Checksums {
   checksums: Uint8Array[];
 }
@@ -104,8 +152,11 @@ export interface ChecksumsProtoMsg {
  * 
  * Deprecated: This message is deprecated in favor of storing the checksums
  * using a Collections.KeySet.
+ * @name ChecksumsAmino
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.Checksums
+ * @deprecated
  */
-/** @deprecated */
 export interface ChecksumsAmino {
   checksums?: string[];
 }
@@ -118,8 +169,11 @@ export interface ChecksumsAminoMsg {
  * 
  * Deprecated: This message is deprecated in favor of storing the checksums
  * using a Collections.KeySet.
+ * @name ChecksumsSDKType
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.Checksums
+ * @deprecated
  */
-/** @deprecated */
 export interface ChecksumsSDKType {
   checksums: Uint8Array[];
 }
@@ -130,6 +184,12 @@ function createBaseClientState(): ClientState {
     latestHeight: Height.fromPartial({})
   };
 }
+/**
+ * Wasm light client's Client state
+ * @name ClientState
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.ClientState
+ */
 export const ClientState = {
   typeUrl: "/ibc.lightclients.wasm.v1.ClientState",
   aminoType: "cosmos-sdk/ClientState",
@@ -224,15 +284,25 @@ export const ClientState = {
       typeUrl: "/ibc.lightclients.wasm.v1.ClientState",
       value: ClientState.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(ClientState.typeUrl)) {
+      return;
+    }
+    Height.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(ClientState.typeUrl, ClientState);
-GlobalDecoderRegistry.registerAminoProtoMapping(ClientState.aminoType, ClientState.typeUrl);
 function createBaseConsensusState(): ConsensusState {
   return {
     data: new Uint8Array()
   };
 }
+/**
+ * Wasm light client's ConsensusState
+ * @name ConsensusState
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.ConsensusState
+ */
 export const ConsensusState = {
   typeUrl: "/ibc.lightclients.wasm.v1.ConsensusState",
   aminoType: "cosmos-sdk/ConsensusState",
@@ -305,15 +375,20 @@ export const ConsensusState = {
       typeUrl: "/ibc.lightclients.wasm.v1.ConsensusState",
       value: ConsensusState.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(ConsensusState.typeUrl, ConsensusState);
-GlobalDecoderRegistry.registerAminoProtoMapping(ConsensusState.aminoType, ConsensusState.typeUrl);
 function createBaseClientMessage(): ClientMessage {
   return {
     data: new Uint8Array()
   };
 }
+/**
+ * Wasm light client message (either header(s) or misbehaviour)
+ * @name ClientMessage
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.ClientMessage
+ */
 export const ClientMessage = {
   typeUrl: "/ibc.lightclients.wasm.v1.ClientMessage",
   aminoType: "cosmos-sdk/ClientMessage",
@@ -386,15 +461,24 @@ export const ClientMessage = {
       typeUrl: "/ibc.lightclients.wasm.v1.ClientMessage",
       value: ClientMessage.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(ClientMessage.typeUrl, ClientMessage);
-GlobalDecoderRegistry.registerAminoProtoMapping(ClientMessage.aminoType, ClientMessage.typeUrl);
 function createBaseChecksums(): Checksums {
   return {
     checksums: []
   };
 }
+/**
+ * Checksums defines a list of all checksums that are stored
+ * 
+ * Deprecated: This message is deprecated in favor of storing the checksums
+ * using a Collections.KeySet.
+ * @name Checksums
+ * @package ibc.lightclients.wasm.v1
+ * @see proto type: ibc.lightclients.wasm.v1.Checksums
+ * @deprecated
+ */
 export const Checksums = {
   typeUrl: "/ibc.lightclients.wasm.v1.Checksums",
   aminoType: "cosmos-sdk/Checksums",
@@ -469,7 +553,6 @@ export const Checksums = {
       typeUrl: "/ibc.lightclients.wasm.v1.Checksums",
       value: Checksums.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(Checksums.typeUrl, Checksums);
-GlobalDecoderRegistry.registerAminoProtoMapping(Checksums.aminoType, Checksums.typeUrl);

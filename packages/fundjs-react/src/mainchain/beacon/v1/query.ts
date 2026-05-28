@@ -3,21 +3,41 @@ import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageRe
 import { Params, ParamsAmino, ParamsSDKType, Beacon, BeaconAmino, BeaconSDKType, BeaconTimestamp, BeaconTimestampAmino, BeaconTimestampSDKType } from "./beacon";
 import { BinaryReader, BinaryWriter } from "../../../binary";
 import { GlobalDecoderRegistry } from "../../../registry";
-/** QueryParamsRequest is the request type for the Query/Params RPC method */
+/**
+ * QueryParamsRequest is the request type for the Query/Params RPC method
+ * @name QueryParamsRequest
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryParamsRequest
+ */
 export interface QueryParamsRequest {}
 export interface QueryParamsRequestProtoMsg {
   typeUrl: "/mainchain.beacon.v1.QueryParamsRequest";
   value: Uint8Array;
 }
-/** QueryParamsRequest is the request type for the Query/Params RPC method */
+/**
+ * QueryParamsRequest is the request type for the Query/Params RPC method
+ * @name QueryParamsRequestAmino
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryParamsRequest
+ */
 export interface QueryParamsRequestAmino {}
 export interface QueryParamsRequestAminoMsg {
   type: "/mainchain.beacon.v1.QueryParamsRequest";
   value: QueryParamsRequestAmino;
 }
-/** QueryParamsRequest is the request type for the Query/Params RPC method */
+/**
+ * QueryParamsRequest is the request type for the Query/Params RPC method
+ * @name QueryParamsRequestSDKType
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryParamsRequest
+ */
 export interface QueryParamsRequestSDKType {}
-/** QueryParamsResponse is the response type for the Query/Params RPC method */
+/**
+ * QueryParamsResponse is the response type for the Query/Params RPC method
+ * @name QueryParamsResponse
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryParamsResponse
+ */
 export interface QueryParamsResponse {
   params: Params;
 }
@@ -25,7 +45,12 @@ export interface QueryParamsResponseProtoMsg {
   typeUrl: "/mainchain.beacon.v1.QueryParamsResponse";
   value: Uint8Array;
 }
-/** QueryParamsResponse is the response type for the Query/Params RPC method */
+/**
+ * QueryParamsResponse is the response type for the Query/Params RPC method
+ * @name QueryParamsResponseAmino
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryParamsResponse
+ */
 export interface QueryParamsResponseAmino {
   params?: ParamsAmino;
 }
@@ -33,33 +58,62 @@ export interface QueryParamsResponseAminoMsg {
   type: "/mainchain.beacon.v1.QueryParamsResponse";
   value: QueryParamsResponseAmino;
 }
-/** QueryParamsResponse is the response type for the Query/Params RPC method */
+/**
+ * QueryParamsResponse is the response type for the Query/Params RPC method
+ * @name QueryParamsResponseSDKType
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryParamsResponse
+ */
 export interface QueryParamsResponseSDKType {
   params: ParamsSDKType;
 }
-/** QueryBeaconRequest is the request type for the Query/Beacon RPC method */
+/**
+ * QueryBeaconRequest is the request type for the Query/Beacon RPC method
+ * @name QueryBeaconRequest
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryBeaconRequest
+ */
 export interface QueryBeaconRequest {
-  /** beacon_id is the id of the beacon to query for */
+  /**
+   * beacon_id is the id of the beacon to query for
+   */
   beaconId: bigint;
 }
 export interface QueryBeaconRequestProtoMsg {
   typeUrl: "/mainchain.beacon.v1.QueryBeaconRequest";
   value: Uint8Array;
 }
-/** QueryBeaconRequest is the request type for the Query/Beacon RPC method */
+/**
+ * QueryBeaconRequest is the request type for the Query/Beacon RPC method
+ * @name QueryBeaconRequestAmino
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryBeaconRequest
+ */
 export interface QueryBeaconRequestAmino {
-  /** beacon_id is the id of the beacon to query for */
+  /**
+   * beacon_id is the id of the beacon to query for
+   */
   beacon_id?: string;
 }
 export interface QueryBeaconRequestAminoMsg {
   type: "/mainchain.beacon.v1.QueryBeaconRequest";
   value: QueryBeaconRequestAmino;
 }
-/** QueryBeaconRequest is the request type for the Query/Beacon RPC method */
+/**
+ * QueryBeaconRequest is the request type for the Query/Beacon RPC method
+ * @name QueryBeaconRequestSDKType
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryBeaconRequest
+ */
 export interface QueryBeaconRequestSDKType {
   beacon_id: bigint;
 }
-/** QueryBeaconResponse is the response type for the Query/Beacon RPC method */
+/**
+ * QueryBeaconResponse is the response type for the Query/Beacon RPC method
+ * @name QueryBeaconResponse
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryBeaconResponse
+ */
 export interface QueryBeaconResponse {
   beacon?: Beacon;
 }
@@ -67,7 +121,12 @@ export interface QueryBeaconResponseProtoMsg {
   typeUrl: "/mainchain.beacon.v1.QueryBeaconResponse";
   value: Uint8Array;
 }
-/** QueryBeaconResponse is the response type for the Query/Beacon RPC method */
+/**
+ * QueryBeaconResponse is the response type for the Query/Beacon RPC method
+ * @name QueryBeaconResponseAmino
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryBeaconResponse
+ */
 export interface QueryBeaconResponseAmino {
   beacon?: BeaconAmino;
 }
@@ -75,38 +134,75 @@ export interface QueryBeaconResponseAminoMsg {
   type: "/mainchain.beacon.v1.QueryBeaconResponse";
   value: QueryBeaconResponseAmino;
 }
-/** QueryBeaconResponse is the response type for the Query/Beacon RPC method */
+/**
+ * QueryBeaconResponse is the response type for the Query/Beacon RPC method
+ * @name QueryBeaconResponseSDKType
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryBeaconResponse
+ */
 export interface QueryBeaconResponseSDKType {
   beacon?: BeaconSDKType;
 }
-/** QueryBeaconTimestampRequest is the request type for the Query/BeaconTimestamp RPC method */
+/**
+ * QueryBeaconTimestampRequest is the request type for the Query/BeaconTimestamp
+ * RPC method
+ * @name QueryBeaconTimestampRequest
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryBeaconTimestampRequest
+ */
 export interface QueryBeaconTimestampRequest {
-  /** beacon_id is the id of the beacon to query for */
+  /**
+   * beacon_id is the id of the beacon to query for
+   */
   beaconId: bigint;
-  /** timestamp_id is the id of the timestamp to query for */
+  /**
+   * timestamp_id is the id of the timestamp to query for
+   */
   timestampId: bigint;
 }
 export interface QueryBeaconTimestampRequestProtoMsg {
   typeUrl: "/mainchain.beacon.v1.QueryBeaconTimestampRequest";
   value: Uint8Array;
 }
-/** QueryBeaconTimestampRequest is the request type for the Query/BeaconTimestamp RPC method */
+/**
+ * QueryBeaconTimestampRequest is the request type for the Query/BeaconTimestamp
+ * RPC method
+ * @name QueryBeaconTimestampRequestAmino
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryBeaconTimestampRequest
+ */
 export interface QueryBeaconTimestampRequestAmino {
-  /** beacon_id is the id of the beacon to query for */
+  /**
+   * beacon_id is the id of the beacon to query for
+   */
   beacon_id?: string;
-  /** timestamp_id is the id of the timestamp to query for */
+  /**
+   * timestamp_id is the id of the timestamp to query for
+   */
   timestamp_id?: string;
 }
 export interface QueryBeaconTimestampRequestAminoMsg {
   type: "/mainchain.beacon.v1.QueryBeaconTimestampRequest";
   value: QueryBeaconTimestampRequestAmino;
 }
-/** QueryBeaconTimestampRequest is the request type for the Query/BeaconTimestamp RPC method */
+/**
+ * QueryBeaconTimestampRequest is the request type for the Query/BeaconTimestamp
+ * RPC method
+ * @name QueryBeaconTimestampRequestSDKType
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryBeaconTimestampRequest
+ */
 export interface QueryBeaconTimestampRequestSDKType {
   beacon_id: bigint;
   timestamp_id: bigint;
 }
-/** QueryBeaconTimestampResponse is the response type for the Query/BeaconTimestamp RPC method */
+/**
+ * QueryBeaconTimestampResponse is the response type for the
+ * Query/BeaconTimestamp RPC method
+ * @name QueryBeaconTimestampResponse
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryBeaconTimestampResponse
+ */
 export interface QueryBeaconTimestampResponse {
   timestamp?: BeaconTimestamp;
   beaconId: bigint;
@@ -116,7 +212,13 @@ export interface QueryBeaconTimestampResponseProtoMsg {
   typeUrl: "/mainchain.beacon.v1.QueryBeaconTimestampResponse";
   value: Uint8Array;
 }
-/** QueryBeaconTimestampResponse is the response type for the Query/BeaconTimestamp RPC method */
+/**
+ * QueryBeaconTimestampResponse is the response type for the
+ * Query/BeaconTimestamp RPC method
+ * @name QueryBeaconTimestampResponseAmino
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryBeaconTimestampResponse
+ */
 export interface QueryBeaconTimestampResponseAmino {
   timestamp?: BeaconTimestampAmino;
   beacon_id?: string;
@@ -126,126 +228,244 @@ export interface QueryBeaconTimestampResponseAminoMsg {
   type: "/mainchain.beacon.v1.QueryBeaconTimestampResponse";
   value: QueryBeaconTimestampResponseAmino;
 }
-/** QueryBeaconTimestampResponse is the response type for the Query/BeaconTimestamp RPC method */
+/**
+ * QueryBeaconTimestampResponse is the response type for the
+ * Query/BeaconTimestamp RPC method
+ * @name QueryBeaconTimestampResponseSDKType
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryBeaconTimestampResponse
+ */
 export interface QueryBeaconTimestampResponseSDKType {
   timestamp?: BeaconTimestampSDKType;
   beacon_id: bigint;
   owner: string;
 }
-/** QueryBeaconsFilteredRequest is the request type for the Query/BeaconsFiltered RPC method */
+/**
+ * QueryBeaconsFilteredRequest is the request type for the Query/BeaconsFiltered
+ * RPC method
+ * @name QueryBeaconsFilteredRequest
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryBeaconsFilteredRequest
+ */
 export interface QueryBeaconsFilteredRequest {
-  /** moniker is the moniker of the beacon to search for */
+  /**
+   * moniker is the moniker of the beacon to search for
+   */
   moniker: string;
-  /** owner is an address to search for */
+  /**
+   * owner is an address to search for
+   */
   owner: string;
-  /** pagination defines an optional pagination for the request. */
+  /**
+   * pagination defines an optional pagination for the request.
+   */
   pagination?: PageRequest;
 }
 export interface QueryBeaconsFilteredRequestProtoMsg {
   typeUrl: "/mainchain.beacon.v1.QueryBeaconsFilteredRequest";
   value: Uint8Array;
 }
-/** QueryBeaconsFilteredRequest is the request type for the Query/BeaconsFiltered RPC method */
+/**
+ * QueryBeaconsFilteredRequest is the request type for the Query/BeaconsFiltered
+ * RPC method
+ * @name QueryBeaconsFilteredRequestAmino
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryBeaconsFilteredRequest
+ */
 export interface QueryBeaconsFilteredRequestAmino {
-  /** moniker is the moniker of the beacon to search for */
+  /**
+   * moniker is the moniker of the beacon to search for
+   */
   moniker?: string;
-  /** owner is an address to search for */
+  /**
+   * owner is an address to search for
+   */
   owner?: string;
-  /** pagination defines an optional pagination for the request. */
+  /**
+   * pagination defines an optional pagination for the request.
+   */
   pagination?: PageRequestAmino;
 }
 export interface QueryBeaconsFilteredRequestAminoMsg {
   type: "/mainchain.beacon.v1.QueryBeaconsFilteredRequest";
   value: QueryBeaconsFilteredRequestAmino;
 }
-/** QueryBeaconsFilteredRequest is the request type for the Query/BeaconsFiltered RPC method */
+/**
+ * QueryBeaconsFilteredRequest is the request type for the Query/BeaconsFiltered
+ * RPC method
+ * @name QueryBeaconsFilteredRequestSDKType
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryBeaconsFilteredRequest
+ */
 export interface QueryBeaconsFilteredRequestSDKType {
   moniker: string;
   owner: string;
   pagination?: PageRequestSDKType;
 }
-/** QueryBeaconsFilteredResponse is the response type for the Query/BeaconsFiltered RPC method */
+/**
+ * QueryBeaconsFilteredResponse is the response type for the
+ * Query/BeaconsFiltered RPC method
+ * @name QueryBeaconsFilteredResponse
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryBeaconsFilteredResponse
+ */
 export interface QueryBeaconsFilteredResponse {
   beacons: Beacon[];
-  /** pagination defines the pagination in the response. */
+  /**
+   * pagination defines the pagination in the response.
+   */
   pagination?: PageResponse;
 }
 export interface QueryBeaconsFilteredResponseProtoMsg {
   typeUrl: "/mainchain.beacon.v1.QueryBeaconsFilteredResponse";
   value: Uint8Array;
 }
-/** QueryBeaconsFilteredResponse is the response type for the Query/BeaconsFiltered RPC method */
+/**
+ * QueryBeaconsFilteredResponse is the response type for the
+ * Query/BeaconsFiltered RPC method
+ * @name QueryBeaconsFilteredResponseAmino
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryBeaconsFilteredResponse
+ */
 export interface QueryBeaconsFilteredResponseAmino {
   beacons?: BeaconAmino[];
-  /** pagination defines the pagination in the response. */
+  /**
+   * pagination defines the pagination in the response.
+   */
   pagination?: PageResponseAmino;
 }
 export interface QueryBeaconsFilteredResponseAminoMsg {
   type: "/mainchain.beacon.v1.QueryBeaconsFilteredResponse";
   value: QueryBeaconsFilteredResponseAmino;
 }
-/** QueryBeaconsFilteredResponse is the response type for the Query/BeaconsFiltered RPC method */
+/**
+ * QueryBeaconsFilteredResponse is the response type for the
+ * Query/BeaconsFiltered RPC method
+ * @name QueryBeaconsFilteredResponseSDKType
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryBeaconsFilteredResponse
+ */
 export interface QueryBeaconsFilteredResponseSDKType {
   beacons: BeaconSDKType[];
   pagination?: PageResponseSDKType;
 }
-/** QueryBeaconStorageRequest is the request type for the Query/BeaconStorage RPC method */
+/**
+ * QueryBeaconStorageRequest is the request type for the Query/BeaconStorage RPC
+ * method
+ * @name QueryBeaconStorageRequest
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryBeaconStorageRequest
+ */
 export interface QueryBeaconStorageRequest {
-  /** beacon_id is the id of the beacon to query for */
+  /**
+   * beacon_id is the id of the beacon to query for
+   */
   beaconId: bigint;
 }
 export interface QueryBeaconStorageRequestProtoMsg {
   typeUrl: "/mainchain.beacon.v1.QueryBeaconStorageRequest";
   value: Uint8Array;
 }
-/** QueryBeaconStorageRequest is the request type for the Query/BeaconStorage RPC method */
+/**
+ * QueryBeaconStorageRequest is the request type for the Query/BeaconStorage RPC
+ * method
+ * @name QueryBeaconStorageRequestAmino
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryBeaconStorageRequest
+ */
 export interface QueryBeaconStorageRequestAmino {
-  /** beacon_id is the id of the beacon to query for */
+  /**
+   * beacon_id is the id of the beacon to query for
+   */
   beacon_id?: string;
 }
 export interface QueryBeaconStorageRequestAminoMsg {
   type: "/mainchain.beacon.v1.QueryBeaconStorageRequest";
   value: QueryBeaconStorageRequestAmino;
 }
-/** QueryBeaconStorageRequest is the request type for the Query/BeaconStorage RPC method */
+/**
+ * QueryBeaconStorageRequest is the request type for the Query/BeaconStorage RPC
+ * method
+ * @name QueryBeaconStorageRequestSDKType
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryBeaconStorageRequest
+ */
 export interface QueryBeaconStorageRequestSDKType {
   beacon_id: bigint;
 }
-/** QueryBeaconStorageResponse is the response type for the Query/BeaconStorage RPC method */
+/**
+ * QueryBeaconStorageResponse is the response type for the Query/BeaconStorage
+ * RPC method
+ * @name QueryBeaconStorageResponse
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryBeaconStorageResponse
+ */
 export interface QueryBeaconStorageResponse {
   beaconId: bigint;
   owner: string;
-  /** current_limit is the current in-state storage limit for this beacon */
+  /**
+   * current_limit is the current in-state storage limit for this beacon
+   */
   currentLimit: bigint;
-  /** current_used is the number of in-state slots currently used */
+  /**
+   * current_used is the number of in-state slots currently used
+   */
   currentUsed: bigint;
-  /** max is the maximum possible slots a beacon can have, as defined by the beacon module params */
+  /**
+   * max is the maximum possible slots a beacon can have, as defined by the
+   * beacon module params
+   */
   max: bigint;
-  /** max_purchasable is the maximum number a beacon can purchase without exceeding max */
+  /**
+   * max_purchasable is the maximum number a beacon can purchase without
+   * exceeding max
+   */
   maxPurchasable: bigint;
 }
 export interface QueryBeaconStorageResponseProtoMsg {
   typeUrl: "/mainchain.beacon.v1.QueryBeaconStorageResponse";
   value: Uint8Array;
 }
-/** QueryBeaconStorageResponse is the response type for the Query/BeaconStorage RPC method */
+/**
+ * QueryBeaconStorageResponse is the response type for the Query/BeaconStorage
+ * RPC method
+ * @name QueryBeaconStorageResponseAmino
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryBeaconStorageResponse
+ */
 export interface QueryBeaconStorageResponseAmino {
   beacon_id?: string;
   owner?: string;
-  /** current_limit is the current in-state storage limit for this beacon */
+  /**
+   * current_limit is the current in-state storage limit for this beacon
+   */
   current_limit?: string;
-  /** current_used is the number of in-state slots currently used */
+  /**
+   * current_used is the number of in-state slots currently used
+   */
   current_used?: string;
-  /** max is the maximum possible slots a beacon can have, as defined by the beacon module params */
+  /**
+   * max is the maximum possible slots a beacon can have, as defined by the
+   * beacon module params
+   */
   max?: string;
-  /** max_purchasable is the maximum number a beacon can purchase without exceeding max */
+  /**
+   * max_purchasable is the maximum number a beacon can purchase without
+   * exceeding max
+   */
   max_purchasable?: string;
 }
 export interface QueryBeaconStorageResponseAminoMsg {
   type: "/mainchain.beacon.v1.QueryBeaconStorageResponse";
   value: QueryBeaconStorageResponseAmino;
 }
-/** QueryBeaconStorageResponse is the response type for the Query/BeaconStorage RPC method */
+/**
+ * QueryBeaconStorageResponse is the response type for the Query/BeaconStorage
+ * RPC method
+ * @name QueryBeaconStorageResponseSDKType
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryBeaconStorageResponse
+ */
 export interface QueryBeaconStorageResponseSDKType {
   beacon_id: bigint;
   owner: string;
@@ -257,6 +477,12 @@ export interface QueryBeaconStorageResponseSDKType {
 function createBaseQueryParamsRequest(): QueryParamsRequest {
   return {};
 }
+/**
+ * QueryParamsRequest is the request type for the Query/Params RPC method
+ * @name QueryParamsRequest
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryParamsRequest
+ */
 export const QueryParamsRequest = {
   typeUrl: "/mainchain.beacon.v1.QueryParamsRequest",
   is(o: any): o is QueryParamsRequest {
@@ -311,14 +537,20 @@ export const QueryParamsRequest = {
       typeUrl: "/mainchain.beacon.v1.QueryParamsRequest",
       value: QueryParamsRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryParamsRequest.typeUrl, QueryParamsRequest);
 function createBaseQueryParamsResponse(): QueryParamsResponse {
   return {
     params: Params.fromPartial({})
   };
 }
+/**
+ * QueryParamsResponse is the response type for the Query/Params RPC method
+ * @name QueryParamsResponse
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryParamsResponse
+ */
 export const QueryParamsResponse = {
   typeUrl: "/mainchain.beacon.v1.QueryParamsResponse",
   is(o: any): o is QueryParamsResponse {
@@ -384,14 +616,25 @@ export const QueryParamsResponse = {
       typeUrl: "/mainchain.beacon.v1.QueryParamsResponse",
       value: QueryParamsResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryParamsResponse.typeUrl)) {
+      return;
+    }
+    Params.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryParamsResponse.typeUrl, QueryParamsResponse);
 function createBaseQueryBeaconRequest(): QueryBeaconRequest {
   return {
     beaconId: BigInt(0)
   };
 }
+/**
+ * QueryBeaconRequest is the request type for the Query/Beacon RPC method
+ * @name QueryBeaconRequest
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryBeaconRequest
+ */
 export const QueryBeaconRequest = {
   typeUrl: "/mainchain.beacon.v1.QueryBeaconRequest",
   is(o: any): o is QueryBeaconRequest {
@@ -457,14 +700,20 @@ export const QueryBeaconRequest = {
       typeUrl: "/mainchain.beacon.v1.QueryBeaconRequest",
       value: QueryBeaconRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryBeaconRequest.typeUrl, QueryBeaconRequest);
 function createBaseQueryBeaconResponse(): QueryBeaconResponse {
   return {
     beacon: undefined
   };
 }
+/**
+ * QueryBeaconResponse is the response type for the Query/Beacon RPC method
+ * @name QueryBeaconResponse
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryBeaconResponse
+ */
 export const QueryBeaconResponse = {
   typeUrl: "/mainchain.beacon.v1.QueryBeaconResponse",
   is(o: any): o is QueryBeaconResponse {
@@ -530,15 +779,27 @@ export const QueryBeaconResponse = {
       typeUrl: "/mainchain.beacon.v1.QueryBeaconResponse",
       value: QueryBeaconResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryBeaconResponse.typeUrl)) {
+      return;
+    }
+    Beacon.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryBeaconResponse.typeUrl, QueryBeaconResponse);
 function createBaseQueryBeaconTimestampRequest(): QueryBeaconTimestampRequest {
   return {
     beaconId: BigInt(0),
     timestampId: BigInt(0)
   };
 }
+/**
+ * QueryBeaconTimestampRequest is the request type for the Query/BeaconTimestamp
+ * RPC method
+ * @name QueryBeaconTimestampRequest
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryBeaconTimestampRequest
+ */
 export const QueryBeaconTimestampRequest = {
   typeUrl: "/mainchain.beacon.v1.QueryBeaconTimestampRequest",
   is(o: any): o is QueryBeaconTimestampRequest {
@@ -615,9 +876,9 @@ export const QueryBeaconTimestampRequest = {
       typeUrl: "/mainchain.beacon.v1.QueryBeaconTimestampRequest",
       value: QueryBeaconTimestampRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryBeaconTimestampRequest.typeUrl, QueryBeaconTimestampRequest);
 function createBaseQueryBeaconTimestampResponse(): QueryBeaconTimestampResponse {
   return {
     timestamp: undefined,
@@ -625,6 +886,13 @@ function createBaseQueryBeaconTimestampResponse(): QueryBeaconTimestampResponse 
     owner: ""
   };
 }
+/**
+ * QueryBeaconTimestampResponse is the response type for the
+ * Query/BeaconTimestamp RPC method
+ * @name QueryBeaconTimestampResponse
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryBeaconTimestampResponse
+ */
 export const QueryBeaconTimestampResponse = {
   typeUrl: "/mainchain.beacon.v1.QueryBeaconTimestampResponse",
   is(o: any): o is QueryBeaconTimestampResponse {
@@ -712,9 +980,14 @@ export const QueryBeaconTimestampResponse = {
       typeUrl: "/mainchain.beacon.v1.QueryBeaconTimestampResponse",
       value: QueryBeaconTimestampResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryBeaconTimestampResponse.typeUrl)) {
+      return;
+    }
+    BeaconTimestamp.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryBeaconTimestampResponse.typeUrl, QueryBeaconTimestampResponse);
 function createBaseQueryBeaconsFilteredRequest(): QueryBeaconsFilteredRequest {
   return {
     moniker: "",
@@ -722,6 +995,13 @@ function createBaseQueryBeaconsFilteredRequest(): QueryBeaconsFilteredRequest {
     pagination: undefined
   };
 }
+/**
+ * QueryBeaconsFilteredRequest is the request type for the Query/BeaconsFiltered
+ * RPC method
+ * @name QueryBeaconsFilteredRequest
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryBeaconsFilteredRequest
+ */
 export const QueryBeaconsFilteredRequest = {
   typeUrl: "/mainchain.beacon.v1.QueryBeaconsFilteredRequest",
   is(o: any): o is QueryBeaconsFilteredRequest {
@@ -809,15 +1089,27 @@ export const QueryBeaconsFilteredRequest = {
       typeUrl: "/mainchain.beacon.v1.QueryBeaconsFilteredRequest",
       value: QueryBeaconsFilteredRequest.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryBeaconsFilteredRequest.typeUrl)) {
+      return;
+    }
+    PageRequest.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryBeaconsFilteredRequest.typeUrl, QueryBeaconsFilteredRequest);
 function createBaseQueryBeaconsFilteredResponse(): QueryBeaconsFilteredResponse {
   return {
     beacons: [],
     pagination: undefined
   };
 }
+/**
+ * QueryBeaconsFilteredResponse is the response type for the
+ * Query/BeaconsFiltered RPC method
+ * @name QueryBeaconsFilteredResponse
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryBeaconsFilteredResponse
+ */
 export const QueryBeaconsFilteredResponse = {
   typeUrl: "/mainchain.beacon.v1.QueryBeaconsFilteredResponse",
   is(o: any): o is QueryBeaconsFilteredResponse {
@@ -896,14 +1188,27 @@ export const QueryBeaconsFilteredResponse = {
       typeUrl: "/mainchain.beacon.v1.QueryBeaconsFilteredResponse",
       value: QueryBeaconsFilteredResponse.encode(message).finish()
     };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryBeaconsFilteredResponse.typeUrl)) {
+      return;
+    }
+    Beacon.registerTypeUrl();
+    PageResponse.registerTypeUrl();
   }
 };
-GlobalDecoderRegistry.register(QueryBeaconsFilteredResponse.typeUrl, QueryBeaconsFilteredResponse);
 function createBaseQueryBeaconStorageRequest(): QueryBeaconStorageRequest {
   return {
     beaconId: BigInt(0)
   };
 }
+/**
+ * QueryBeaconStorageRequest is the request type for the Query/BeaconStorage RPC
+ * method
+ * @name QueryBeaconStorageRequest
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryBeaconStorageRequest
+ */
 export const QueryBeaconStorageRequest = {
   typeUrl: "/mainchain.beacon.v1.QueryBeaconStorageRequest",
   is(o: any): o is QueryBeaconStorageRequest {
@@ -969,9 +1274,9 @@ export const QueryBeaconStorageRequest = {
       typeUrl: "/mainchain.beacon.v1.QueryBeaconStorageRequest",
       value: QueryBeaconStorageRequest.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryBeaconStorageRequest.typeUrl, QueryBeaconStorageRequest);
 function createBaseQueryBeaconStorageResponse(): QueryBeaconStorageResponse {
   return {
     beaconId: BigInt(0),
@@ -982,6 +1287,13 @@ function createBaseQueryBeaconStorageResponse(): QueryBeaconStorageResponse {
     maxPurchasable: BigInt(0)
   };
 }
+/**
+ * QueryBeaconStorageResponse is the response type for the Query/BeaconStorage
+ * RPC method
+ * @name QueryBeaconStorageResponse
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryBeaconStorageResponse
+ */
 export const QueryBeaconStorageResponse = {
   typeUrl: "/mainchain.beacon.v1.QueryBeaconStorageResponse",
   is(o: any): o is QueryBeaconStorageResponse {
@@ -1102,6 +1414,6 @@ export const QueryBeaconStorageResponse = {
       typeUrl: "/mainchain.beacon.v1.QueryBeaconStorageResponse",
       value: QueryBeaconStorageResponse.encode(message).finish()
     };
-  }
+  },
+  registerTypeUrl() {}
 };
-GlobalDecoderRegistry.register(QueryBeaconStorageResponse.typeUrl, QueryBeaconStorageResponse);

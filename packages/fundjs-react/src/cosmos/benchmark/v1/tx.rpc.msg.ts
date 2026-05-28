@@ -1,5 +1,5 @@
 //@ts-nocheck
-import { Rpc } from "../../../helpers";
+import { TxRpc } from "../../../types";
 import { BinaryReader } from "../../../binary";
 import { MsgLoadTest, MsgLoadTestResponse } from "./tx";
 /** Msg defines the benchmark Msg service. */
@@ -8,8 +8,8 @@ export interface Msg {
   loadTest(request: MsgLoadTest): Promise<MsgLoadTestResponse>;
 }
 export class MsgClientImpl implements Msg {
-  private readonly rpc: Rpc;
-  constructor(rpc: Rpc) {
+  private readonly rpc: TxRpc;
+  constructor(rpc: TxRpc) {
     this.rpc = rpc;
     this.loadTest = this.loadTest.bind(this);
   }
@@ -19,3 +19,6 @@ export class MsgClientImpl implements Msg {
     return promise.then(data => MsgLoadTestResponse.decode(new BinaryReader(data)));
   }
 }
+export const createClientImpl = (rpc: TxRpc) => {
+  return new MsgClientImpl(rpc);
+};
