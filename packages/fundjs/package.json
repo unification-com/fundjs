@@ -1,6 +1,6 @@
 {
   "name": "@unification-com/fundjs",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "Paul Hodgson <codegnosis@users.noreply.github.com>",
   "description": "FUND JS",
   "main": "index.js",
@@ -42,13 +42,13 @@
     "@protobufs/tendermint": "^0.0.10"
   },
   "dependencies": {
+    "@chain-registry/v2": "^1.71.237",
+    "@chain-registry/v2-types": "^0.53.146",
     "@cosmjs/amino": "^0.38.0",
     "@cosmjs/crypto": "^0.38.0",
     "@cosmjs/proto-signing": "^0.38.0",
     "@cosmjs/stargate": "^0.38.0",
     "@cosmjs/tendermint-rpc": "^0.38.0",
-    "@chain-registry/v2": "^1.71.237",
-    "@chain-registry/v2-types": "^0.53.146",
     "@cosmology/lcd": "^0.13.4",
     "@interchainjs/cosmos": "^1.20.0",
     "@interchainjs/encoding": "^1.20.0",

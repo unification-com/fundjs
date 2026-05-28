@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/unification-com/fundjs/compare/@unification-com/fundjs@0.1.0...@unification-com/fundjs@0.2.0) (2026-05-28)
+
+**Note:** Version bump only for package @unification-com/fundjs
+
 # [0.1.0](https://github.com/unification-com/fundjs/compare/@unification-com/fundjs@0.0.9...@unification-com/fundjs@0.1.0) (2025-05-07)
 
 **Note:** Version bump only for package @unification-com/fundjs
