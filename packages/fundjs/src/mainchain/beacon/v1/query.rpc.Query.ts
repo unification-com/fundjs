@@ -2,7 +2,7 @@
 import { TxRpc } from "../../../types";
 import { BinaryReader } from "../../../binary";
 import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
-import { QueryParamsRequest, QueryParamsResponse, QueryBeaconRequest, QueryBeaconResponse, QueryBeaconTimestampRequest, QueryBeaconTimestampResponse, QueryBeaconsFilteredRequest, QueryBeaconsFilteredResponse, QueryBeaconStorageRequest, QueryBeaconStorageResponse } from "./query";
+import { QueryParamsRequest, QueryParamsResponse, QueryBeaconRequest, QueryBeaconResponse, QueryBeaconTimestampRequest, QueryBeaconTimestampResponse, QueryBeaconTimestampsByHashRequest, QueryBeaconTimestampsByHashResponse, QueryBeaconsFilteredRequest, QueryBeaconsFilteredResponse, QueryBeaconStorageRequest, QueryBeaconStorageResponse } from "./query";
 /** Query defines the gRPC querier service. */
 export interface Query {
   /** Params queries the parameters of x/beacon module. */
@@ -11,6 +11,11 @@ export interface Query {
   beacon(request: QueryBeaconRequest): Promise<QueryBeaconResponse>;
   /** BeaconTimestamp queries a timestamp of a beacon */
   beaconTimestamp(request: QueryBeaconTimestampRequest): Promise<QueryBeaconTimestampResponse>;
+  /**
+   * BeaconTimestampsByHash queries the timestamps of a beacon that recorded a
+   * given hash (one-to-many: the same hash can be recorded many times)
+   */
+  beaconTimestampsByHash(request: QueryBeaconTimestampsByHashRequest): Promise<QueryBeaconTimestampsByHashResponse>;
   /** BeaconsFiltered queries all beacon metadata for given search parameters */
   beaconsFiltered(request: QueryBeaconsFilteredRequest): Promise<QueryBeaconsFilteredResponse>;
   /** BeaconStorage queries beacon storage for for given beacon ID */
@@ -23,6 +28,7 @@ export class QueryClientImpl implements Query {
     this.params = this.params.bind(this);
     this.beacon = this.beacon.bind(this);
     this.beaconTimestamp = this.beaconTimestamp.bind(this);
+    this.beaconTimestampsByHash = this.beaconTimestampsByHash.bind(this);
     this.beaconsFiltered = this.beaconsFiltered.bind(this);
     this.beaconStorage = this.beaconStorage.bind(this);
   }
@@ -40,6 +46,11 @@ export class QueryClientImpl implements Query {
     const data = QueryBeaconTimestampRequest.encode(request).finish();
     const promise = this.rpc.request("mainchain.beacon.v1.Query", "BeaconTimestamp", data);
     return promise.then(data => QueryBeaconTimestampResponse.decode(new BinaryReader(data)));
+  }
+  beaconTimestampsByHash(request: QueryBeaconTimestampsByHashRequest): Promise<QueryBeaconTimestampsByHashResponse> {
+    const data = QueryBeaconTimestampsByHashRequest.encode(request).finish();
+    const promise = this.rpc.request("mainchain.beacon.v1.Query", "BeaconTimestampsByHash", data);
+    return promise.then(data => QueryBeaconTimestampsByHashResponse.decode(new BinaryReader(data)));
   }
   beaconsFiltered(request: QueryBeaconsFilteredRequest): Promise<QueryBeaconsFilteredResponse> {
     const data = QueryBeaconsFilteredRequest.encode(request).finish();
@@ -64,6 +75,9 @@ export const createRpcQueryExtension = (base: QueryClient) => {
     },
     beaconTimestamp(request: QueryBeaconTimestampRequest): Promise<QueryBeaconTimestampResponse> {
       return queryService.beaconTimestamp(request);
+    },
+    beaconTimestampsByHash(request: QueryBeaconTimestampsByHashRequest): Promise<QueryBeaconTimestampsByHashResponse> {
+      return queryService.beaconTimestampsByHash(request);
     },
     beaconsFiltered(request: QueryBeaconsFilteredRequest): Promise<QueryBeaconsFilteredResponse> {
       return queryService.beaconsFiltered(request);

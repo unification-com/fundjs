@@ -643,7 +643,7 @@ export interface MsgUpdateParamsAmino {
   params: ParamsAmino;
 }
 export interface MsgUpdateParamsAminoMsg {
-  type: "mainchain/x/stream/MsgUpdateParams";
+  type: "stream/MsgUpdateParams";
   value: MsgUpdateParamsAmino;
 }
 /**
@@ -1792,7 +1792,7 @@ function createBaseMsgUpdateParams(): MsgUpdateParams {
  */
 export const MsgUpdateParams = {
   typeUrl: "/mainchain.stream.v1.MsgUpdateParams",
-  aminoType: "mainchain/x/stream/MsgUpdateParams",
+  aminoType: "stream/MsgUpdateParams",
   is(o: any): o is MsgUpdateParams {
     return o && (o.$typeUrl === MsgUpdateParams.typeUrl || typeof o.authority === "string" && Params.is(o.params));
   },
@@ -1858,7 +1858,7 @@ export const MsgUpdateParams = {
   },
   toAminoMsg(message: MsgUpdateParams): MsgUpdateParamsAminoMsg {
     return {
-      type: "mainchain/x/stream/MsgUpdateParams",
+      type: "stream/MsgUpdateParams",
       value: MsgUpdateParams.toAmino(message)
     };
   },

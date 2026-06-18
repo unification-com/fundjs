@@ -27,7 +27,7 @@ export const AminoConverter = {
     fromAmino: MsgCancelStream.fromAmino
   },
   "/mainchain.stream.v1.MsgUpdateParams": {
-    aminoType: "mainchain/x/stream/MsgUpdateParams",
+    aminoType: "stream/MsgUpdateParams",
     toAmino: MsgUpdateParams.toAmino,
     fromAmino: MsgUpdateParams.fromAmino
   }

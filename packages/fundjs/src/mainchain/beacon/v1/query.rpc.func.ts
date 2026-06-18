@@ -1,6 +1,6 @@
 //@ts-nocheck
 import { buildQuery } from "../../../helper-func-types";
-import { QueryParamsRequest, QueryParamsResponse, QueryBeaconRequest, QueryBeaconResponse, QueryBeaconTimestampRequest, QueryBeaconTimestampResponse, QueryBeaconsFilteredRequest, QueryBeaconsFilteredResponse, QueryBeaconStorageRequest, QueryBeaconStorageResponse } from "./query";
+import { QueryParamsRequest, QueryParamsResponse, QueryBeaconRequest, QueryBeaconResponse, QueryBeaconTimestampRequest, QueryBeaconTimestampResponse, QueryBeaconTimestampsByHashRequest, QueryBeaconTimestampsByHashResponse, QueryBeaconsFilteredRequest, QueryBeaconsFilteredResponse, QueryBeaconStorageRequest, QueryBeaconStorageResponse } from "./query";
 /**
  * Params queries the parameters of x/beacon module.
  * @name getParams
@@ -39,6 +39,20 @@ export const getBeaconTimestamp = buildQuery<QueryBeaconTimestampRequest, QueryB
   service: "mainchain.beacon.v1.Query",
   method: "BeaconTimestamp",
   deps: [QueryBeaconTimestampRequest, QueryBeaconTimestampResponse]
+});
+/**
+ * BeaconTimestampsByHash queries the timestamps of a beacon that recorded a
+ * given hash (one-to-many: the same hash can be recorded many times)
+ * @name getBeaconTimestampsByHash
+ * @package mainchain.beacon.v1
+ * @see proto service: mainchain.beacon.v1.BeaconTimestampsByHash
+ */
+export const getBeaconTimestampsByHash = buildQuery<QueryBeaconTimestampsByHashRequest, QueryBeaconTimestampsByHashResponse>({
+  encode: QueryBeaconTimestampsByHashRequest.encode,
+  decode: QueryBeaconTimestampsByHashResponse.decode,
+  service: "mainchain.beacon.v1.Query",
+  method: "BeaconTimestampsByHash",
+  deps: [QueryBeaconTimestampsByHashRequest, QueryBeaconTimestampsByHashResponse]
 });
 /**
  * BeaconsFiltered queries all beacon metadata for given search parameters
