@@ -17,7 +17,7 @@ export const AminoConverter = {
     fromAmino: MsgPurchaseBeaconStateStorage.fromAmino
   },
   "/mainchain.beacon.v1.MsgUpdateParams": {
-    aminoType: "mainchain/x/beacon/MsgUpdateParams",
+    aminoType: "beacon/MsgUpdateParams",
     toAmino: MsgUpdateParams.toAmino,
     fromAmino: MsgUpdateParams.fromAmino
   }

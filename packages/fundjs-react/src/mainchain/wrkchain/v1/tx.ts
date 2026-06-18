@@ -453,7 +453,7 @@ export interface MsgUpdateParamsAmino {
   params: ParamsAmino;
 }
 export interface MsgUpdateParamsAminoMsg {
-  type: "mainchain/x/wrkchain/MsgUpdateParams";
+  type: "wrkchain/MsgUpdateParams";
   value: MsgUpdateParamsAmino;
 }
 /**
@@ -1213,7 +1213,7 @@ function createBaseMsgUpdateParams(): MsgUpdateParams {
  */
 export const MsgUpdateParams = {
   typeUrl: "/mainchain.wrkchain.v1.MsgUpdateParams",
-  aminoType: "mainchain/x/wrkchain/MsgUpdateParams",
+  aminoType: "wrkchain/MsgUpdateParams",
   is(o: any): o is MsgUpdateParams {
     return o && (o.$typeUrl === MsgUpdateParams.typeUrl || typeof o.authority === "string" && Params.is(o.params));
   },
@@ -1279,7 +1279,7 @@ export const MsgUpdateParams = {
   },
   toAminoMsg(message: MsgUpdateParams): MsgUpdateParamsAminoMsg {
     return {
-      type: "mainchain/x/wrkchain/MsgUpdateParams",
+      type: "wrkchain/MsgUpdateParams",
       value: MsgUpdateParams.toAmino(message)
     };
   },
