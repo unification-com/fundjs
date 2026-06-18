@@ -184,6 +184,12 @@ export interface BeaconTimestamp {
    * hash is the actual data stored for the timestamp
    */
   hash: string;
+  /**
+   * metadata is an optional, bounded descriptor stored alongside the hash, so
+   * the timestamp stream is self-describing without fetching the hash preimage
+   * (e.g. "type=leaf;tree=pairs;root=<root16>"). Empty for older timestamps.
+   */
+  metadata: string;
 }
 export interface BeaconTimestampProtoMsg {
   typeUrl: "/mainchain.beacon.v1.BeaconTimestamp";
@@ -208,6 +214,12 @@ export interface BeaconTimestampAmino {
    * hash is the actual data stored for the timestamp
    */
   hash?: string;
+  /**
+   * metadata is an optional, bounded descriptor stored alongside the hash, so
+   * the timestamp stream is self-describing without fetching the hash preimage
+   * (e.g. "type=leaf;tree=pairs;root=<root16>"). Empty for older timestamps.
+   */
+  metadata?: string;
 }
 export interface BeaconTimestampAminoMsg {
   type: "beacon/v1/BeaconTimestamp";
@@ -223,6 +235,7 @@ export interface BeaconTimestampSDKType {
   timestamp_id: bigint;
   submit_time: bigint;
   hash: string;
+  metadata: string;
 }
 /**
  * Params defines the parameters for the beacon module.
@@ -589,7 +602,8 @@ function createBaseBeaconTimestamp(): BeaconTimestamp {
   return {
     timestampId: BigInt(0),
     submitTime: BigInt(0),
-    hash: ""
+    hash: "",
+    metadata: ""
   };
 }
 /**
@@ -602,13 +616,13 @@ export const BeaconTimestamp = {
   typeUrl: "/mainchain.beacon.v1.BeaconTimestamp",
   aminoType: "beacon/v1/BeaconTimestamp",
   is(o: any): o is BeaconTimestamp {
-    return o && (o.$typeUrl === BeaconTimestamp.typeUrl || typeof o.timestampId === "bigint" && typeof o.submitTime === "bigint" && typeof o.hash === "string");
+    return o && (o.$typeUrl === BeaconTimestamp.typeUrl || typeof o.timestampId === "bigint" && typeof o.submitTime === "bigint" && typeof o.hash === "string" && typeof o.metadata === "string");
   },
   isSDK(o: any): o is BeaconTimestampSDKType {
-    return o && (o.$typeUrl === BeaconTimestamp.typeUrl || typeof o.timestamp_id === "bigint" && typeof o.submit_time === "bigint" && typeof o.hash === "string");
+    return o && (o.$typeUrl === BeaconTimestamp.typeUrl || typeof o.timestamp_id === "bigint" && typeof o.submit_time === "bigint" && typeof o.hash === "string" && typeof o.metadata === "string");
   },
   isAmino(o: any): o is BeaconTimestampAmino {
-    return o && (o.$typeUrl === BeaconTimestamp.typeUrl || typeof o.timestamp_id === "bigint" && typeof o.submit_time === "bigint" && typeof o.hash === "string");
+    return o && (o.$typeUrl === BeaconTimestamp.typeUrl || typeof o.timestamp_id === "bigint" && typeof o.submit_time === "bigint" && typeof o.hash === "string" && typeof o.metadata === "string");
   },
   encode(message: BeaconTimestamp, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.timestampId !== BigInt(0)) {
@@ -619,6 +633,9 @@ export const BeaconTimestamp = {
     }
     if (message.hash !== "") {
       writer.uint32(26).string(message.hash);
+    }
+    if (message.metadata !== "") {
+      writer.uint32(34).string(message.metadata);
     }
     return writer;
   },
@@ -638,6 +655,9 @@ export const BeaconTimestamp = {
         case 3:
           message.hash = reader.string();
           break;
+        case 4:
+          message.metadata = reader.string();
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -650,6 +670,7 @@ export const BeaconTimestamp = {
     message.timestampId = object.timestampId !== undefined && object.timestampId !== null ? BigInt(object.timestampId.toString()) : BigInt(0);
     message.submitTime = object.submitTime !== undefined && object.submitTime !== null ? BigInt(object.submitTime.toString()) : BigInt(0);
     message.hash = object.hash ?? "";
+    message.metadata = object.metadata ?? "";
     return message;
   },
   fromAmino(object: BeaconTimestampAmino): BeaconTimestamp {
@@ -663,6 +684,9 @@ export const BeaconTimestamp = {
     if (object.hash !== undefined && object.hash !== null) {
       message.hash = object.hash;
     }
+    if (object.metadata !== undefined && object.metadata !== null) {
+      message.metadata = object.metadata;
+    }
     return message;
   },
   toAmino(message: BeaconTimestamp): BeaconTimestampAmino {
@@ -670,6 +694,7 @@ export const BeaconTimestamp = {
     obj.timestamp_id = message.timestampId !== BigInt(0) ? message.timestampId?.toString() : undefined;
     obj.submit_time = message.submitTime !== BigInt(0) ? message.submitTime?.toString() : undefined;
     obj.hash = message.hash === "" ? undefined : message.hash;
+    obj.metadata = message.metadata === "" ? undefined : message.metadata;
     return obj;
   },
   fromAminoMsg(object: BeaconTimestampAminoMsg): BeaconTimestamp {

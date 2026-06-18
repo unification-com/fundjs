@@ -241,6 +241,118 @@ export interface QueryBeaconTimestampResponseSDKType {
   owner: string;
 }
 /**
+ * QueryBeaconTimestampsByHashRequest is the request type for the
+ * Query/BeaconTimestampsByHash RPC method
+ * @name QueryBeaconTimestampsByHashRequest
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryBeaconTimestampsByHashRequest
+ */
+export interface QueryBeaconTimestampsByHashRequest {
+  /**
+   * beacon_id is the id of the beacon to query for
+   */
+  beaconId: bigint;
+  /**
+   * hash is the recorded hash to look up
+   */
+  hash: string;
+  /**
+   * pagination defines an optional pagination for the request.
+   */
+  pagination?: PageRequest;
+}
+export interface QueryBeaconTimestampsByHashRequestProtoMsg {
+  typeUrl: "/mainchain.beacon.v1.QueryBeaconTimestampsByHashRequest";
+  value: Uint8Array;
+}
+/**
+ * QueryBeaconTimestampsByHashRequest is the request type for the
+ * Query/BeaconTimestampsByHash RPC method
+ * @name QueryBeaconTimestampsByHashRequestAmino
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryBeaconTimestampsByHashRequest
+ */
+export interface QueryBeaconTimestampsByHashRequestAmino {
+  /**
+   * beacon_id is the id of the beacon to query for
+   */
+  beacon_id?: string;
+  /**
+   * hash is the recorded hash to look up
+   */
+  hash?: string;
+  /**
+   * pagination defines an optional pagination for the request.
+   */
+  pagination?: PageRequestAmino;
+}
+export interface QueryBeaconTimestampsByHashRequestAminoMsg {
+  type: "/mainchain.beacon.v1.QueryBeaconTimestampsByHashRequest";
+  value: QueryBeaconTimestampsByHashRequestAmino;
+}
+/**
+ * QueryBeaconTimestampsByHashRequest is the request type for the
+ * Query/BeaconTimestampsByHash RPC method
+ * @name QueryBeaconTimestampsByHashRequestSDKType
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryBeaconTimestampsByHashRequest
+ */
+export interface QueryBeaconTimestampsByHashRequestSDKType {
+  beacon_id: bigint;
+  hash: string;
+  pagination?: PageRequestSDKType;
+}
+/**
+ * QueryBeaconTimestampsByHashResponse is the response type for the
+ * Query/BeaconTimestampsByHash RPC method
+ * @name QueryBeaconTimestampsByHashResponse
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryBeaconTimestampsByHashResponse
+ */
+export interface QueryBeaconTimestampsByHashResponse {
+  beaconId: bigint;
+  timestamps: BeaconTimestamp[];
+  /**
+   * pagination defines the pagination in the response.
+   */
+  pagination?: PageResponse;
+}
+export interface QueryBeaconTimestampsByHashResponseProtoMsg {
+  typeUrl: "/mainchain.beacon.v1.QueryBeaconTimestampsByHashResponse";
+  value: Uint8Array;
+}
+/**
+ * QueryBeaconTimestampsByHashResponse is the response type for the
+ * Query/BeaconTimestampsByHash RPC method
+ * @name QueryBeaconTimestampsByHashResponseAmino
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryBeaconTimestampsByHashResponse
+ */
+export interface QueryBeaconTimestampsByHashResponseAmino {
+  beacon_id?: string;
+  timestamps?: BeaconTimestampAmino[];
+  /**
+   * pagination defines the pagination in the response.
+   */
+  pagination?: PageResponseAmino;
+}
+export interface QueryBeaconTimestampsByHashResponseAminoMsg {
+  type: "/mainchain.beacon.v1.QueryBeaconTimestampsByHashResponse";
+  value: QueryBeaconTimestampsByHashResponseAmino;
+}
+/**
+ * QueryBeaconTimestampsByHashResponse is the response type for the
+ * Query/BeaconTimestampsByHash RPC method
+ * @name QueryBeaconTimestampsByHashResponseSDKType
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryBeaconTimestampsByHashResponse
+ */
+export interface QueryBeaconTimestampsByHashResponseSDKType {
+  beacon_id: bigint;
+  timestamps: BeaconTimestampSDKType[];
+  pagination?: PageResponseSDKType;
+}
+/**
  * QueryBeaconsFilteredRequest is the request type for the Query/BeaconsFiltered
  * RPC method
  * @name QueryBeaconsFilteredRequest
@@ -986,6 +1098,227 @@ export const QueryBeaconTimestampResponse = {
       return;
     }
     BeaconTimestamp.registerTypeUrl();
+  }
+};
+function createBaseQueryBeaconTimestampsByHashRequest(): QueryBeaconTimestampsByHashRequest {
+  return {
+    beaconId: BigInt(0),
+    hash: "",
+    pagination: undefined
+  };
+}
+/**
+ * QueryBeaconTimestampsByHashRequest is the request type for the
+ * Query/BeaconTimestampsByHash RPC method
+ * @name QueryBeaconTimestampsByHashRequest
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryBeaconTimestampsByHashRequest
+ */
+export const QueryBeaconTimestampsByHashRequest = {
+  typeUrl: "/mainchain.beacon.v1.QueryBeaconTimestampsByHashRequest",
+  is(o: any): o is QueryBeaconTimestampsByHashRequest {
+    return o && (o.$typeUrl === QueryBeaconTimestampsByHashRequest.typeUrl || typeof o.beaconId === "bigint" && typeof o.hash === "string");
+  },
+  isSDK(o: any): o is QueryBeaconTimestampsByHashRequestSDKType {
+    return o && (o.$typeUrl === QueryBeaconTimestampsByHashRequest.typeUrl || typeof o.beacon_id === "bigint" && typeof o.hash === "string");
+  },
+  isAmino(o: any): o is QueryBeaconTimestampsByHashRequestAmino {
+    return o && (o.$typeUrl === QueryBeaconTimestampsByHashRequest.typeUrl || typeof o.beacon_id === "bigint" && typeof o.hash === "string");
+  },
+  encode(message: QueryBeaconTimestampsByHashRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+    if (message.beaconId !== BigInt(0)) {
+      writer.uint32(8).uint64(message.beaconId);
+    }
+    if (message.hash !== "") {
+      writer.uint32(18).string(message.hash);
+    }
+    if (message.pagination !== undefined) {
+      PageRequest.encode(message.pagination, writer.uint32(26).fork()).ldelim();
+    }
+    return writer;
+  },
+  decode(input: BinaryReader | Uint8Array, length?: number): QueryBeaconTimestampsByHashRequest {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryBeaconTimestampsByHashRequest();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.beaconId = reader.uint64();
+          break;
+        case 2:
+          message.hash = reader.string();
+          break;
+        case 3:
+          message.pagination = PageRequest.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+  fromPartial(object: Partial<QueryBeaconTimestampsByHashRequest>): QueryBeaconTimestampsByHashRequest {
+    const message = createBaseQueryBeaconTimestampsByHashRequest();
+    message.beaconId = object.beaconId !== undefined && object.beaconId !== null ? BigInt(object.beaconId.toString()) : BigInt(0);
+    message.hash = object.hash ?? "";
+    message.pagination = object.pagination !== undefined && object.pagination !== null ? PageRequest.fromPartial(object.pagination) : undefined;
+    return message;
+  },
+  fromAmino(object: QueryBeaconTimestampsByHashRequestAmino): QueryBeaconTimestampsByHashRequest {
+    const message = createBaseQueryBeaconTimestampsByHashRequest();
+    if (object.beacon_id !== undefined && object.beacon_id !== null) {
+      message.beaconId = BigInt(object.beacon_id);
+    }
+    if (object.hash !== undefined && object.hash !== null) {
+      message.hash = object.hash;
+    }
+    if (object.pagination !== undefined && object.pagination !== null) {
+      message.pagination = PageRequest.fromAmino(object.pagination);
+    }
+    return message;
+  },
+  toAmino(message: QueryBeaconTimestampsByHashRequest): QueryBeaconTimestampsByHashRequestAmino {
+    const obj: any = {};
+    obj.beacon_id = message.beaconId !== BigInt(0) ? message.beaconId?.toString() : undefined;
+    obj.hash = message.hash === "" ? undefined : message.hash;
+    obj.pagination = message.pagination ? PageRequest.toAmino(message.pagination) : undefined;
+    return obj;
+  },
+  fromAminoMsg(object: QueryBeaconTimestampsByHashRequestAminoMsg): QueryBeaconTimestampsByHashRequest {
+    return QueryBeaconTimestampsByHashRequest.fromAmino(object.value);
+  },
+  fromProtoMsg(message: QueryBeaconTimestampsByHashRequestProtoMsg): QueryBeaconTimestampsByHashRequest {
+    return QueryBeaconTimestampsByHashRequest.decode(message.value);
+  },
+  toProto(message: QueryBeaconTimestampsByHashRequest): Uint8Array {
+    return QueryBeaconTimestampsByHashRequest.encode(message).finish();
+  },
+  toProtoMsg(message: QueryBeaconTimestampsByHashRequest): QueryBeaconTimestampsByHashRequestProtoMsg {
+    return {
+      typeUrl: "/mainchain.beacon.v1.QueryBeaconTimestampsByHashRequest",
+      value: QueryBeaconTimestampsByHashRequest.encode(message).finish()
+    };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryBeaconTimestampsByHashRequest.typeUrl)) {
+      return;
+    }
+    PageRequest.registerTypeUrl();
+  }
+};
+function createBaseQueryBeaconTimestampsByHashResponse(): QueryBeaconTimestampsByHashResponse {
+  return {
+    beaconId: BigInt(0),
+    timestamps: [],
+    pagination: undefined
+  };
+}
+/**
+ * QueryBeaconTimestampsByHashResponse is the response type for the
+ * Query/BeaconTimestampsByHash RPC method
+ * @name QueryBeaconTimestampsByHashResponse
+ * @package mainchain.beacon.v1
+ * @see proto type: mainchain.beacon.v1.QueryBeaconTimestampsByHashResponse
+ */
+export const QueryBeaconTimestampsByHashResponse = {
+  typeUrl: "/mainchain.beacon.v1.QueryBeaconTimestampsByHashResponse",
+  is(o: any): o is QueryBeaconTimestampsByHashResponse {
+    return o && (o.$typeUrl === QueryBeaconTimestampsByHashResponse.typeUrl || typeof o.beaconId === "bigint" && Array.isArray(o.timestamps) && (!o.timestamps.length || BeaconTimestamp.is(o.timestamps[0])));
+  },
+  isSDK(o: any): o is QueryBeaconTimestampsByHashResponseSDKType {
+    return o && (o.$typeUrl === QueryBeaconTimestampsByHashResponse.typeUrl || typeof o.beacon_id === "bigint" && Array.isArray(o.timestamps) && (!o.timestamps.length || BeaconTimestamp.isSDK(o.timestamps[0])));
+  },
+  isAmino(o: any): o is QueryBeaconTimestampsByHashResponseAmino {
+    return o && (o.$typeUrl === QueryBeaconTimestampsByHashResponse.typeUrl || typeof o.beacon_id === "bigint" && Array.isArray(o.timestamps) && (!o.timestamps.length || BeaconTimestamp.isAmino(o.timestamps[0])));
+  },
+  encode(message: QueryBeaconTimestampsByHashResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+    if (message.beaconId !== BigInt(0)) {
+      writer.uint32(8).uint64(message.beaconId);
+    }
+    for (const v of message.timestamps) {
+      BeaconTimestamp.encode(v!, writer.uint32(18).fork()).ldelim();
+    }
+    if (message.pagination !== undefined) {
+      PageResponse.encode(message.pagination, writer.uint32(26).fork()).ldelim();
+    }
+    return writer;
+  },
+  decode(input: BinaryReader | Uint8Array, length?: number): QueryBeaconTimestampsByHashResponse {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryBeaconTimestampsByHashResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.beaconId = reader.uint64();
+          break;
+        case 2:
+          message.timestamps.push(BeaconTimestamp.decode(reader, reader.uint32()));
+          break;
+        case 3:
+          message.pagination = PageResponse.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+  fromPartial(object: Partial<QueryBeaconTimestampsByHashResponse>): QueryBeaconTimestampsByHashResponse {
+    const message = createBaseQueryBeaconTimestampsByHashResponse();
+    message.beaconId = object.beaconId !== undefined && object.beaconId !== null ? BigInt(object.beaconId.toString()) : BigInt(0);
+    message.timestamps = object.timestamps?.map(e => BeaconTimestamp.fromPartial(e)) || [];
+    message.pagination = object.pagination !== undefined && object.pagination !== null ? PageResponse.fromPartial(object.pagination) : undefined;
+    return message;
+  },
+  fromAmino(object: QueryBeaconTimestampsByHashResponseAmino): QueryBeaconTimestampsByHashResponse {
+    const message = createBaseQueryBeaconTimestampsByHashResponse();
+    if (object.beacon_id !== undefined && object.beacon_id !== null) {
+      message.beaconId = BigInt(object.beacon_id);
+    }
+    message.timestamps = object.timestamps?.map(e => BeaconTimestamp.fromAmino(e)) || [];
+    if (object.pagination !== undefined && object.pagination !== null) {
+      message.pagination = PageResponse.fromAmino(object.pagination);
+    }
+    return message;
+  },
+  toAmino(message: QueryBeaconTimestampsByHashResponse): QueryBeaconTimestampsByHashResponseAmino {
+    const obj: any = {};
+    obj.beacon_id = message.beaconId !== BigInt(0) ? message.beaconId?.toString() : undefined;
+    if (message.timestamps) {
+      obj.timestamps = message.timestamps.map(e => e ? BeaconTimestamp.toAmino(e) : undefined);
+    } else {
+      obj.timestamps = message.timestamps;
+    }
+    obj.pagination = message.pagination ? PageResponse.toAmino(message.pagination) : undefined;
+    return obj;
+  },
+  fromAminoMsg(object: QueryBeaconTimestampsByHashResponseAminoMsg): QueryBeaconTimestampsByHashResponse {
+    return QueryBeaconTimestampsByHashResponse.fromAmino(object.value);
+  },
+  fromProtoMsg(message: QueryBeaconTimestampsByHashResponseProtoMsg): QueryBeaconTimestampsByHashResponse {
+    return QueryBeaconTimestampsByHashResponse.decode(message.value);
+  },
+  toProto(message: QueryBeaconTimestampsByHashResponse): Uint8Array {
+    return QueryBeaconTimestampsByHashResponse.encode(message).finish();
+  },
+  toProtoMsg(message: QueryBeaconTimestampsByHashResponse): QueryBeaconTimestampsByHashResponseProtoMsg {
+    return {
+      typeUrl: "/mainchain.beacon.v1.QueryBeaconTimestampsByHashResponse",
+      value: QueryBeaconTimestampsByHashResponse.encode(message).finish()
+    };
+  },
+  registerTypeUrl() {
+    if (!GlobalDecoderRegistry.registerExistingTypeUrl(QueryBeaconTimestampsByHashResponse.typeUrl)) {
+      return;
+    }
+    BeaconTimestamp.registerTypeUrl();
+    PageResponse.registerTypeUrl();
   }
 };
 function createBaseQueryBeaconsFilteredRequest(): QueryBeaconsFilteredRequest {

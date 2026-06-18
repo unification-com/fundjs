@@ -17,7 +17,7 @@ export const AminoConverter = {
     fromAmino: MsgWhitelistAddress.fromAmino
   },
   "/mainchain.enterprise.v1.MsgUpdateParams": {
-    aminoType: "mainchain/x/enterprise/MsgUpdateParams",
+    aminoType: "enterprise/MsgUpdateParams",
     toAmino: MsgUpdateParams.toAmino,
     fromAmino: MsgUpdateParams.fromAmino
   }

@@ -17,7 +17,7 @@ export const AminoConverter = {
     fromAmino: MsgPurchaseWrkChainStateStorage.fromAmino
   },
   "/mainchain.wrkchain.v1.MsgUpdateParams": {
-    aminoType: "mainchain/x/wrkchain/MsgUpdateParams",
+    aminoType: "wrkchain/MsgUpdateParams",
     toAmino: MsgUpdateParams.toAmino,
     fromAmino: MsgUpdateParams.fromAmino
   }

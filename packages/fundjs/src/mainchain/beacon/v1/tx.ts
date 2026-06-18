@@ -126,6 +126,11 @@ export interface MsgRecordBeaconTimestamp {
    * owner is the address of the owner of the beacon
    */
   owner: string;
+  /**
+   * metadata is an optional, bounded descriptor stored alongside the hash (see
+   * BeaconTimestamp.metadata). Capped at MaxMetadataLength bytes in ValidateBasic.
+   */
+  metadata: string;
 }
 export interface MsgRecordBeaconTimestampProtoMsg {
   typeUrl: "/mainchain.beacon.v1.MsgRecordBeaconTimestamp";
@@ -155,6 +160,11 @@ export interface MsgRecordBeaconTimestampAmino {
    * owner is the address of the owner of the beacon
    */
   owner?: string;
+  /**
+   * metadata is an optional, bounded descriptor stored alongside the hash (see
+   * BeaconTimestamp.metadata). Capped at MaxMetadataLength bytes in ValidateBasic.
+   */
+  metadata?: string;
 }
 export interface MsgRecordBeaconTimestampAminoMsg {
   type: "beacon/MsgRecordBeaconTimestamp";
@@ -172,6 +182,7 @@ export interface MsgRecordBeaconTimestampSDKType {
   hash: string;
   submit_time: bigint;
   owner: string;
+  metadata: string;
 }
 /**
  * MsgRecordBeaconTimestampResponse defines the Msg/RecordBeacon response type.
@@ -394,7 +405,7 @@ export interface MsgUpdateParamsAmino {
   params: ParamsAmino;
 }
 export interface MsgUpdateParamsAminoMsg {
-  type: "mainchain/x/beacon/MsgUpdateParams";
+  type: "beacon/MsgUpdateParams";
   value: MsgUpdateParamsAmino;
 }
 /**
@@ -641,7 +652,8 @@ function createBaseMsgRecordBeaconTimestamp(): MsgRecordBeaconTimestamp {
     beaconId: BigInt(0),
     hash: "",
     submitTime: BigInt(0),
-    owner: ""
+    owner: "",
+    metadata: ""
   };
 }
 /**
@@ -655,13 +667,13 @@ export const MsgRecordBeaconTimestamp = {
   typeUrl: "/mainchain.beacon.v1.MsgRecordBeaconTimestamp",
   aminoType: "beacon/MsgRecordBeaconTimestamp",
   is(o: any): o is MsgRecordBeaconTimestamp {
-    return o && (o.$typeUrl === MsgRecordBeaconTimestamp.typeUrl || typeof o.beaconId === "bigint" && typeof o.hash === "string" && typeof o.submitTime === "bigint" && typeof o.owner === "string");
+    return o && (o.$typeUrl === MsgRecordBeaconTimestamp.typeUrl || typeof o.beaconId === "bigint" && typeof o.hash === "string" && typeof o.submitTime === "bigint" && typeof o.owner === "string" && typeof o.metadata === "string");
   },
   isSDK(o: any): o is MsgRecordBeaconTimestampSDKType {
-    return o && (o.$typeUrl === MsgRecordBeaconTimestamp.typeUrl || typeof o.beacon_id === "bigint" && typeof o.hash === "string" && typeof o.submit_time === "bigint" && typeof o.owner === "string");
+    return o && (o.$typeUrl === MsgRecordBeaconTimestamp.typeUrl || typeof o.beacon_id === "bigint" && typeof o.hash === "string" && typeof o.submit_time === "bigint" && typeof o.owner === "string" && typeof o.metadata === "string");
   },
   isAmino(o: any): o is MsgRecordBeaconTimestampAmino {
-    return o && (o.$typeUrl === MsgRecordBeaconTimestamp.typeUrl || typeof o.beacon_id === "bigint" && typeof o.hash === "string" && typeof o.submit_time === "bigint" && typeof o.owner === "string");
+    return o && (o.$typeUrl === MsgRecordBeaconTimestamp.typeUrl || typeof o.beacon_id === "bigint" && typeof o.hash === "string" && typeof o.submit_time === "bigint" && typeof o.owner === "string" && typeof o.metadata === "string");
   },
   encode(message: MsgRecordBeaconTimestamp, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.beaconId !== BigInt(0)) {
@@ -675,6 +687,9 @@ export const MsgRecordBeaconTimestamp = {
     }
     if (message.owner !== "") {
       writer.uint32(34).string(message.owner);
+    }
+    if (message.metadata !== "") {
+      writer.uint32(42).string(message.metadata);
     }
     return writer;
   },
@@ -697,6 +712,9 @@ export const MsgRecordBeaconTimestamp = {
         case 4:
           message.owner = reader.string();
           break;
+        case 5:
+          message.metadata = reader.string();
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -710,6 +728,7 @@ export const MsgRecordBeaconTimestamp = {
     message.hash = object.hash ?? "";
     message.submitTime = object.submitTime !== undefined && object.submitTime !== null ? BigInt(object.submitTime.toString()) : BigInt(0);
     message.owner = object.owner ?? "";
+    message.metadata = object.metadata ?? "";
     return message;
   },
   fromAmino(object: MsgRecordBeaconTimestampAmino): MsgRecordBeaconTimestamp {
@@ -726,6 +745,9 @@ export const MsgRecordBeaconTimestamp = {
     if (object.owner !== undefined && object.owner !== null) {
       message.owner = object.owner;
     }
+    if (object.metadata !== undefined && object.metadata !== null) {
+      message.metadata = object.metadata;
+    }
     return message;
   },
   toAmino(message: MsgRecordBeaconTimestamp): MsgRecordBeaconTimestampAmino {
@@ -734,6 +756,7 @@ export const MsgRecordBeaconTimestamp = {
     obj.hash = message.hash === "" ? undefined : message.hash;
     obj.submit_time = message.submitTime !== BigInt(0) ? message.submitTime?.toString() : undefined;
     obj.owner = message.owner === "" ? undefined : message.owner;
+    obj.metadata = message.metadata === "" ? undefined : message.metadata;
     return obj;
   },
   fromAminoMsg(object: MsgRecordBeaconTimestampAminoMsg): MsgRecordBeaconTimestamp {
@@ -1081,7 +1104,7 @@ function createBaseMsgUpdateParams(): MsgUpdateParams {
  */
 export const MsgUpdateParams = {
   typeUrl: "/mainchain.beacon.v1.MsgUpdateParams",
-  aminoType: "mainchain/x/beacon/MsgUpdateParams",
+  aminoType: "beacon/MsgUpdateParams",
   is(o: any): o is MsgUpdateParams {
     return o && (o.$typeUrl === MsgUpdateParams.typeUrl || typeof o.authority === "string" && Params.is(o.params));
   },
@@ -1147,7 +1170,7 @@ export const MsgUpdateParams = {
   },
   toAminoMsg(message: MsgUpdateParams): MsgUpdateParamsAminoMsg {
     return {
-      type: "mainchain/x/beacon/MsgUpdateParams",
+      type: "beacon/MsgUpdateParams",
       value: MsgUpdateParams.toAmino(message)
     };
   },

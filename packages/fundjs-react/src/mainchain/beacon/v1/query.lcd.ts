@@ -1,7 +1,7 @@
 //@ts-nocheck
 import { setPaginationParams } from "../../../helpers";
 import { LCDClient } from "@cosmology/lcd";
-import { QueryParamsRequest, QueryParamsResponseSDKType, QueryBeaconRequest, QueryBeaconResponseSDKType, QueryBeaconTimestampRequest, QueryBeaconTimestampResponseSDKType, QueryBeaconsFilteredRequest, QueryBeaconsFilteredResponseSDKType, QueryBeaconStorageRequest, QueryBeaconStorageResponseSDKType } from "./query";
+import { QueryParamsRequest, QueryParamsResponseSDKType, QueryBeaconRequest, QueryBeaconResponseSDKType, QueryBeaconTimestampRequest, QueryBeaconTimestampResponseSDKType, QueryBeaconTimestampsByHashRequest, QueryBeaconTimestampsByHashResponseSDKType, QueryBeaconsFilteredRequest, QueryBeaconsFilteredResponseSDKType, QueryBeaconStorageRequest, QueryBeaconStorageResponseSDKType } from "./query";
 export class LCDQueryClient {
   req: LCDClient;
   constructor({
@@ -13,6 +13,7 @@ export class LCDQueryClient {
     this.params = this.params.bind(this);
     this.beacon = this.beacon.bind(this);
     this.beaconTimestamp = this.beaconTimestamp.bind(this);
+    this.beaconTimestampsByHash = this.beaconTimestampsByHash.bind(this);
     this.beaconsFiltered = this.beaconsFiltered.bind(this);
     this.beaconStorage = this.beaconStorage.bind(this);
   }
@@ -30,6 +31,18 @@ export class LCDQueryClient {
   async beaconTimestamp(params: QueryBeaconTimestampRequest): Promise<QueryBeaconTimestampResponseSDKType> {
     const endpoint = `mainchain/beacon/v1/beacon/${params.beaconId}/timestamp/${params.timestampId}`;
     return await this.req.get<QueryBeaconTimestampResponseSDKType>(endpoint);
+  }
+  /* BeaconTimestampsByHash queries the timestamps of a beacon that recorded a
+   given hash (one-to-many: the same hash can be recorded many times) */
+  async beaconTimestampsByHash(params: QueryBeaconTimestampsByHashRequest): Promise<QueryBeaconTimestampsByHashResponseSDKType> {
+    const options: any = {
+      params: {}
+    };
+    if (typeof params?.pagination !== "undefined") {
+      setPaginationParams(options, params.pagination);
+    }
+    const endpoint = `mainchain/beacon/v1/beacon/${params.beaconId}/timestamps/hash/${params.hash}`;
+    return await this.req.get<QueryBeaconTimestampsByHashResponseSDKType>(endpoint, options);
   }
   /* BeaconsFiltered queries all beacon metadata for given search parameters */
   async beaconsFiltered(params: QueryBeaconsFilteredRequest): Promise<QueryBeaconsFilteredResponseSDKType> {
